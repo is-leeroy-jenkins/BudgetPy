@@ -6915,7 +6915,7 @@ class ColumnSchema( ):
     '''
     Constructor: ColumnSchema( column, table_name, pvdr = Provider.SQLite )
 
-    Purpose:  Provides data on the columns used in the application'''
+    Purpose:  Provides data on the coolumn_names used in the application'''
     __source = None
     __provider = None
     __columnschemaid = None

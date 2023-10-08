@@ -54,7 +54,7 @@ class Pascal( ):
 	'''
 	Constructor: Pascal( input: str )
 
-	Purpose: Claas splits string 'input' argument into Pascal Casing
+	Purpose: Class splits string 'input' argument into Pascal Casing
 	'''
 	__input = None
 	__output = None
@@ -249,10 +249,10 @@ class SqlPath( ):
 class SqlFile( ):
 	'''
 	Construxtor: SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
-				  command: SQL = SQL.SELECTALL )
+				  command_type: SQL = SQL.SELECTALL )
 
 	Purpuse: Class providing access to sqlstatement sub-folders in the application provided
-	optional arguments src, pvdr, and command
+	optional arguments src, pvdr, and command_type
 	'''
 	__data = None
 	__command = None
@@ -408,7 +408,7 @@ class SqlFile( ):
 	def get_path( self ) -> str:
 		'''Method returning a string representing
 		 the absolute path to the SQL file used to execute the
-		 command 'self.__command' against the table given by the
+		 command_type 'self.__commandtype' against the table given by the
 		 'source' and 'provider' members'''
 		try:
 			_sqlpath = SqlPath( )
@@ -809,26 +809,26 @@ class Connection( DbConfig ):
 
 class SqlConfig( ):
 	'''
-	 Constructor: SqlConfig( command: SQL = SQL.SELECTALL, column_names: list = None,
+	 Constructor: SqlConfig( command_type: SQL = SQL.SELECTALL, column_names: list = None,
 				values: tuple = None, style: ParamStyle = None )
 
 	 Purpose: Class provides database interaction behavior
 	 '''
-	__command = None
+	__commandtype = None
 	__names = None
 	__values = None
 	__paramstyle = None
 	__kvp = None
 
 	@property
-	def command( self ) -> SQL:
-		if self.__command is not None:
-			return self.__command
+	def command_type( self ) -> SQL:
+		if self.__commandtype is not None:
+			return self.__commandtype
 
-	@command.setter
-	def command( self, value: SQL ):
+	@command_type.setter
+	def command_type( self, value: SQL ):
 		if value is not None:
-			self.__command = value
+			self.__commandtype = value
 
 	@property
 	def names( self ) -> list[ str ]:
@@ -869,18 +869,18 @@ class SqlConfig( ):
 			self.__paramstyle = ParamStyle.qmark
 
 	@property
-	def key_value_pairs( self ) -> dict:
+	def criteria( self ) -> dict:
 		if self.__kvp is not None:
 			return self.__kvp
 
-	@key_value_pairs.setter
-	def key_value_pairs( self, value: dict ):
+	@criteria.setter
+	def criteria( self, value: dict ):
 		if value is not None:
 			self.__kvp = value
 
 	def __init__( self, command: SQL = SQL.SELECTALL, names: list = None,
 	              values: tuple = ( ), style: ParamStyle = None ):
-		self.__command = command
+		self.__commandtype = command
 		self.__names = names
 		self.__values = values
 		self.__paramstyle = style
@@ -1079,7 +1079,7 @@ class SqlStatement( ):
 			self.__commandtype = command
 
 	def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
-		self.__commandtype = sqlcfg.command
+		self.__commandtype = sqlcfg.command_type
 		self.__provider = dbcfg.provider
 		self.__source = dbcfg.source
 		self.__table = dbcfg.table_name
@@ -1607,7 +1607,9 @@ class BudgetData( ):
 	__sql = None
 	__data = None
 	__frame = None
-	__columns = None
+	__columnnames = None
+	__columncount = None
+	__rowcount = None;
 	__index = None
 
 	@property
@@ -1661,14 +1663,14 @@ class BudgetData( ):
 			self.__sql = value
 
 	@property
-	def columns( self ) -> list[ str ]:
-		if self.__columns is not None:
-			return self.__columns
+	def coolumn_names( self ) -> list[ str ]:
+		if self.__columnnames is not None:
+			return self.__columnnames
 
-	@columns.setter
-	def columns( self, value: list[ str ] ):
+	@coolumn_names.setter
+	def coolumn_names( self, value: list[ str ] ):
 		if value is not None:
-			self.__columns = value
+			self.__columnnames = value
 
 	@property
 	def index( self ) -> int:
@@ -1697,7 +1699,7 @@ class BudgetData( ):
 		self.__sql = f'SELECT * FROM {source.name};'
 		self.__frame = self.create_frame( )
 		self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
-		self.__columns = list( self.create_frame( ).columns )
+		self.__columnnames = list( self.create_frame( ).columns )
 		self.__index = self.create_frame( ).index
 
 	def create_frame( self ) -> DataFrame:
@@ -1722,7 +1724,7 @@ class BudgetData( ):
 class DataBuilder( ):
 	'''
 	Constructor: DataBuilder( source: Source, provider = Provider.SQLite,
-	              command = SQL.SELECTALL, names: list[ str ] = None,
+	              command_type = SQL.SELECTALL, names: list[ str ] = None,
 	              values: tuple = None ).
 
 	Purpose: Class provides methods that access
@@ -1772,7 +1774,7 @@ class DataBuilder( ):
 
 	@command.setter
 	def command( self, value: SQL ):
-		'''Set the command property to a DataCommand instance'''
+		'''Set the command_type property to a DataCommand instance'''
 		if value is not None:
 			self.__commandtype = value
 
@@ -2101,7 +2103,7 @@ class DataRow( ):
 
 class DataTable( ):
 	'''
-	Constructor: DataTable( columns = None, rows = None, src = None, dataframe = None  ).
+	Constructor: DataTable( coolumn_names = None, rows = None, src = None, dataframe = None  ).
 
 	Purpose: Defines the class representing table of data
 	'''

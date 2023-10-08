@@ -1,2100 +1,2757 @@
-BEGIN TRANSACTION;
-CREATE TABLE IF NOT EXISTS "Allocations" 
-(
-	"AllocationsId" INTEGER NOT NULL UNIQUE,
-	"StatusOfFundsId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY('AllocationsId' AUTOINCREMENT)
+CREATE TABLE dbo.AccountingEvents
+(
+	AccountingEventsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name nvarchar(80) NULL DEFAULT ('NS'),
+    CONSTRAINT AccountingEventsPrimaryKeyPrimaryKey PRIMARY KEY
+    (
+        AccountingEvents ASC
+    )
+) ;
+
+CREATE TABLE dbo.Accounts
+(
+	AccountsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencyActivity NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT AccountsPrimaryKey PRIMARY KEY 
+    (
+        AccountsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ActivityCodes
+(
+	ActivityId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NOT NULL,
+	Name NVARCHAR(50) NULL DEFAULT ('NS'),
+	Description NVARCHAR(50) NULL DEFAULT ('NS'),
+    CONSTRAINT ActivityCodesPrimaryKey PRIMARY KEY 
+    (
+        ActivityId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Actuals
+(
+	ActualsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationName NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAppropriationName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioActivityName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Balance FLOAT NULL DEFAULT (0.0),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL ('NS'),
+    CONSTRAINT ActualsPrimaryKey PRIMARY KEY 
+    (
+        ActualsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.AdministrativeRequests
+(
+	AdministrativeRequestsId INT NOT NULL UNIQUE,
+	RequestId FLOAT NULL DEFAULT (0.0),
+	Analyst NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalRequestDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	Duration FLOAT NULL DEFAULT (0.0),
+	BudgetFormulationSystem NVARCHAR(80) NULL DEFAULT ('NS'),
+	Comments NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	RequestDocument NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	RequestType NVARCHAR(80) NULL DEFAULT ('NS'),
+	TypeCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Decision NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT AdministrativeRequestsPrimaryKey PRIMARY KEY 
+    (
+        AdministrativeRequestsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.AggregateOutlays
+(
+	MonthlyAggregatesId INT NOT NULL UNIQUE,
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	MainAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	October FLOAT NULL DEFAULT (0.0),
+	November FLOAT NULL DEFAULT (0.0),
+	December FLOAT NULL DEFAULT (0.0),
+	January FLOAT NULL DEFAULT (0.0),
+	Feburary FLOAT NULL DEFAULT (0.0),
+	March FLOAT NULL DEFAULT (0.0),
+	April FLOAT NULL DEFAULT (0.0),
+	May FLOAT NULL DEFAULT (0.0),
+	June FLOAT NULL DEFAULT (0.0),
+	July FLOAT NULL DEFAULT (0.0),
+	August FLOAT NULL DEFAULT (0.0),
+	September FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT AggregateOutlaysPrimaryKey PRIMARY KEY 
+    (
+        MonthlyAggregatesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Allocations
+(
+	AllocationsId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NOT NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT AllocationsPrimaryKey PRIMARY KEY 
+    (
+        AllocationsId ASC
+    )
+);
+
+CREATE TABLE dbo.AllowanceHolders
+(
+	AllowanceHoldersId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT AllowanceHoldersPrimaryKey PRIMARY KEY 
+	(
+		AllowanceHoldersId ASC
+	)
+);
+
+CREATE TABLE dbo.AmericanRescuePlanCarryoverEstimates
+(
+	AmericanRescuePlanCarryoverEstimatesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT AmericanRescuePlanCarryoverEstimatesPrimaryKey PRIMARY KEY 
+	(
+		AmericanRescuePlanCarryoverEstimatesId ASC
+	)
+) ;
+
+CREATE TABLE dbo.AnnualCarryoverEstimates
+(
+	AnnualCarryoverEstimatesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT AnnualCarryoverEstimatesPrimaryKey PRIMARY KEY 
+	(
+		AnnualCarryoverEstimatesId ASC
+	)
+);
+
+CREATE TABLE dbo.AnnualReimbursableEstimates
+(
+	AnnualReimbursableEstimatesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT AnnualReimbursableEstimatesPrimaryKey PRIMARY KEY 
+	(
+		AnnualReimbursableEstimatesId ASC
+	)
+);
+
+CREATE TABLE dbo.ApplicationTables
+(
+	ApplicationTablesId INT NOT NULL UNIQUE,
+	TableName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Model NVARCHAR(80) NULL DEFAULT ('NS'),
+	Title NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT ApplicationTablesPrimaryKey PRIMARY KEY 
+	(
+		ApplicationTablesId ASC
+	) 
+);
+
+CREATE TABLE dbo.ApportionmentData
+(
+	ApportionmentDataId INT NOT NULL UNIQUE,
+	FiscalYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AvailabilityType NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApprovalDate DATETIME NULL,
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT ApportionmentDataPrimaryKey PRIMARY KEY 
+	(
+		ApportionmentDataId ASC
+	)
+);
+
+CREATE TABLE dbo.AppropriationAvailableBalances
+(
+	AppropriationAvailableBalancesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalAmount FLOAT NULL DEFAULT (0.0),
+	Authority FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT AppropriationAvailableBalancesPrimaryKey PRIMARY KEY 
+	(
+		AppropriationAvailableBalancesId ASC
+	)
+);
+
+CREATE TABLE dbo.AppropriationDocuments
+(
+	AppropriationDocumentsId INT NOT NULL UNIQUE,
+	FiscalYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationFund NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentDate DATETIME NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetingControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	PostingControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	PreCommitmentControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	CommitmentControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObligationControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccrualControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	ExpenditureControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	ExpenseControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReimbursementControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReimbursableAgreementControls NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	Reimbursements FLOAT NULL DEFAULT (0.0),
+	Recoveries FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT AppropriationDocumentsPrimaryKey PRIMARY KEY 
+	(
+		AppropriationDocumentsId ASC
+	)
+);
+
+CREATE TABLE dbo.AppropriationLevelAuthority
+(
+	AppropriationLevelAuthority INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	Reimbursements FLOAT NULL DEFAULT (0.0),
+	Recoveries FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT AppropriationLevelAuthorityPrimaryKey PRIMARY KEY 
+	(
+		AppropriationLevelAuthority ASC
+	) 
+) ;
+
+CREATE TABLE dbo.Appropriations
+(
+	AppropriationsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT AppropriationsPrimaryKey PRIMARY KEY 
+	(
+		AppropriationsId ASC
+	)
+) ;
+
+CREATE TABLE dbo.BudgetAuthorityAndOutlays
+(
+	BudgetAuthorityAndOutlaysId INT NOT NULL UNIQUE,
+	ReportYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	Category NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountType NVARCHAR(80) NULL DEFAULT ('NS'),
+	AuthorityType NVARCHAR(80) NULL DEFAULT ('NS'),
+	PriorYear FLOAT NULL DEFAULT (0.0),
+	CurrentYear FLOAT NULL DEFAULT (0.0),
+	BudgetYear FLOAT NULL DEFAULT (0.0),
+	OutYear1 FLOAT NULL DEFAULT (0.0),
+	OutYear2 FLOAT NULL DEFAULT (0.0),
+	OutYear3 FLOAT NULL DEFAULT (0.0),
+	OutYear4 FLOAT NULL DEFAULT (0.0),
+	OutYear5 FLOAT NULL DEFAULT (0.0),
+	OutYear6 FLOAT NULL DEFAULT (0.0),
+	OutYear7 FLOAT NULL DEFAULT (0.0),
+	OutYear8 FLOAT NULL DEFAULT (0.0),
+	OutYear9 FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT BudgetAuthorityAndOutlaysPrimaryKey PRIMARY KEY 
+	(
+		BudgetAuthorityAndOutlaysId ASC
+	)
+);
+
+CREATE TABLE dbo.BudgetContacts
+(
+	BudgetContactsId INT NOT NULL UNIQUE,
+	FirstName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LastName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Section NVARCHAR(80) NULL DEFAULT ('NS'),
+	JobTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	Street NVARCHAR(80) NULL DEFAULT ('NS'),
+	City NVARCHAR(80) NULL DEFAULT ('NS'),
+	State NVARCHAR(80) NULL DEFAULT ('NS'),
+	ZipCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Account NVARCHAR(80) NULL DEFAULT ('NS'),
+	EmailAddress NVARCHAR(80) NULL DEFAULT ('NS'),
+	EmailType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DisplayName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OfficeLocation NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT BudgetContactsPrimaryKey PRIMARY KEY 
+	(
+		BudgetContactsId ASC
+	)
+);
+
+CREATE TABLE dbo.BudgetControls
+(
+	BudgetControlsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetedTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	PostedTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedReimbursementsTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	SpendingAdjustmentTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedRecoveriesTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActualRecoveriesTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	StatusReserveTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProfitLossTransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedReimbursementsSpendingOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedReimursementsBudgetingOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	TrackAgreementLowerLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetEstimatedLowerLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedRecoveriesSpendingOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	EstimatedRecoveriesBudgetingOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	RecoveryNextLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	RecoveryBudgetMismatch NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProfitLossSpendingOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProfitLossBudgetOption NVARCHAR(80) NULL DEFAULT ('NS'),
+	RecoveriesCarryInLowerLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	RecoveriesCarryInLowerLevelControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	RecoveriesCarryInAmountControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetedControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	PostedControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	PreCommitmentSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	CommitmentSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObligationSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccrualSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	ExpenditureSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	ExpenseSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReimbursableSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReimbursableAgreementSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	FteBudgetingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	FteSpendingControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	TransactionTypeControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	AuthorityDistributionControl NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT BudgetControlsPrimaryKey PRIMARY KEY 
+	(
+		BudgetControlsId ASC
+	)
+);
+
+CREATE TABLE dbo.BudgetDocuments
+(
+	BudgetDocumentsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentDate DATETIME NULL,
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	Recoveries FLOAT NULL DEFAULT (0.0),
+	Reimbursements FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT BudgetDocumentsPrimaryKey PRIMARY KEY 
+	(
+		BudgetDocumentsId ASC
+	)
+);
+
+CREATE TABLE dbo.BudgetObjectClasses
+(
+	BudgetObjectClassesId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT BudgetObjectClassesPrimaryKey PRIMARY KEY 
+	(
+		BudgetObjectClassesId ASC
+	)
+);
+
+CREATE TABLE dbo.CapitalPlanningInvestmentCodes
+(
+	CapitalPlanningInvestmentCodesId INT NOT NULL UNIQUE,
+	Type NVARCHAR(80) NULL DEFAULT ('NS'),
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT CapitalPlanningInvestmentCodesPrimaryKey PRIMARY KEY 
+	(
+		CapitalPlanningInvestmentCodesId ASC
+	)
+) ;
+
+CREATE TABLE dbo.CarryoverApportionments
+(
+	CarryoverApportionmentsId INT NOT NULL UNIQUE,
+	BudgetAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Group NVARCHAR(80) NULL DEFAULT ('NS'),
+	Description NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AuthorityType NVARCHAR(80) NULL DEFAULT ('NS'),
+	Request FLOAT NULL DEFAULT (0.0),
+	Balance FLOAT NULL DEFAULT (0.0),
+	Deobligations FLOAT NULL DEFAULT (0.0),
+	Amount FLOAT NULL DEFAULT (0.0),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineSplit NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT CarryoverApportionmentsPrimaryKey PRIMARY KEY 
+	(
+		CarryoverApportionmentsId ASC
+	) 
+);
+
+CREATE TABLE dbo.CarryoverRequests
+(
+	CarryoverRequestsId INT NOT NULL UNIQUE,
+	Analyst NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalRequestDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	BudgetFormulationSystem NVARCHAR(80) NULL DEFAULT ('NS'),
+	Comments NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	RequestDocument NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	Duration FLOAT NULL DEFAULT (0.0),
+	CONSTRAINT CarryoverRequestsPrimaryKey PRIMARY KEY 
+	(
+		CarryoverRequestsId ASC
+	)
+);
+
+CREATE TABLE dbo.Changes
+(
+	ChangesId INT NOT NULL UNIQUE,
+	TableName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FieldName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Action NVARCHAR(80) NULL DEFAULT ('NS'),
+	OldValue NVARCHAR(80) NULL DEFAULT ('NS'),
+	NewValue NVARCHAR(80) NULL DEFAULT ('NS'),
+	TimeStamp DATETIME NULL,
+	Message NVARCHAR(80) NULL DEFAULT ('NS'),
+	CONSTRAINT ChangesPrimaryKey PRIMARY KEY 
+	(
+		ChangesId ASC
+	)
+) ;
+
+CREATE TABLE dbo.ColumnSchema
+(
+	ColumnSchemaId INT NOT NULL UNIQUE,
+	DataType NVARCHAR(80) NULL DEFAULT ('NS'),
+	ColumnName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TableName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ColumnCaption NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ColumnSchemaPrimaryKey PRIMARY KEY 
+    (
+        ColumnSchemaId ASC
+    )
+) 
+
+CREATE TABLE dbo.CompassErrors
+(
+	CompassErrorsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Message NVARCHAR(80) NULL DEFAULT ('NS'),
+	Severity NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT CompassErrorsPrimaryKey PRIMARY KEY 
+    (
+        CompassErrorsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.CompassLevels
+(
+	CompassLevelsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Authority FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	Recoveries FLOAT NULL DEFAULT (0.0),
+	Reimbursements FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT CompassLevelsPrimaryKey PRIMARY KEY 
+    (
+        CompassLevelsId ASC
+    )
+)
+
+CREATE TABLE dbo.CongressionalControls
+(
+	CongressionalControlsId INT NOT NULL UNIQUE,
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReprogrammingRestriction NVARCHAR(80) NULL DEFAULT ('NS'),
+	IncreaseRestriction NVARCHAR(80) NULL DEFAULT ('NS'),
+	DecreaseRestriction NVARCHAR(80) NULL DEFAULT ('NS'),
+	MemoRequirement NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT CongressionalControlsPrimaryKey PRIMARY KEY 
+    (
+        CongressionalControlsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.CongressionalProjects
+(
+	CongressionalEarmarksId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Project NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT CongressionalProjectsPrimaryKey PRIMARY KEY 
+    (
+        CongressionalEarmarksId ASC
+    )
+);
+
+CREATE TABLE dbo.CostAreas
+(
+	CostAreasId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT CostAreasPrimaryKey PRIMARY KEY 
+    (
+        CostAreasId ASC
+    )
+);
+
+CREATE TABLE dbo.DataRuleDescriptions
+(
+	DataRuleDescriptionsId INT NOT NULL UNIQUE,
+	Schedule NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	RuleNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	RuleDescription NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	ScheduleOrder NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT DataRuleDescriptionsPrimaryKey PRIMARY KEY 
+    (
+        DataRuleDescriptionsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Defactos
+(
+	DefactosId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT DefactosPrimaryKey PRIMARY KEY 
+    (
+        DefactosId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Deobligations
+(
+	DeobligationsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate DATETIME NULL,
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT DeobligationsPrimaryKey PRIMARY KEY 
+    (
+        DeobligationsId ASC
+    )
+);
+
+CREATE TABLE dbo.DocumentControlNumbers
+(
+	DocumentControlNumbersId INT NOT NULL UNIQUE,
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentPrefix NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT DocumentControlNumbersPrimaryKey PRIMARY KEY 
+    (
+        DocumentControlNumbersId ASC
+    )
+);
+
+CREATE TABLE dbo.Documents
+(
+	DocumentsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Category NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	System NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT DocumentsPrimaryKey PRIMARY KEY 
+    (
+        DocumentsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.EarmarkCodes
+(
+	EarmarkCodesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT EarmarkCodesPrimaryKey PRIMARY KEY 
+    (
+        EarmarkCodesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Earmarks
+(
+	EarmarksId INT NOT NULL UNIQUE,
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Description NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	ProjectOfficerLastName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectOfficerFirstName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectOfficerPhoneNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectOfficerMailCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	CommitmentDate DATETIME NULL,
+	ObligationDate DATETIME NULL,
+	ProjectStatus NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectOfficerComments NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT EarmarksPrimaryKey PRIMARY KEY 
+    (
+        EarmarksId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Expenditures
+(
+	ExpendituresId INT NOT NULL UNIQUE,
+	ObligationsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	Age FLOAT NULL DEFAULT (0.0),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+    CONSTRAINT ExpendituresPrimaryKey PRIMARY KEY 
+    (
+        ExpendituresId ASC
+    )
+) ;
+
+CREATE TABLE dbo.FederalHolidays
+(
+	FederalHolidaysId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	ColumbusDay DATETIME NULL,
+	VeteransDay DATETIME NULL,
+	ThanksgivingDay DATETIME NULL,
+	ChristmasDay DATETIME NULL,
+	NewYearsDay DATETIME NULL,
+	MartinLutherKingDay DATETIME NULL,
+	WashingtonsDay DATETIME NULL,
+	MemorialDay DATETIME NULL,
+	JuneteenthDay DATETIME NULL,
+	IndependenceDay DATETIME NULL,
+	LaborDay DATETIME NULL,
+    CONSTRAINT FederalHolidaysPrimaryKey PRIMARY KEY 
+    (
+        FederalHolidaysId ASC
+    )
+) ;
+
+CREATE TABLE dbo.FinanceObjectClasses
+(
+	FinanceObjectClassesId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FinanceObjectClassesPrimaryKey PRIMARY KEY 
+    (
+        FinanceObjectClassesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.FiscalYears
+(
+	FiscalYearsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NOT NULL,
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	StartDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	ColumbusDay DATETIME NULL,
+	VeteransDay DATETIME NULL,
+	ThanksgivingDay DATETIME NULL,
+	ChristmasDay DATETIME NULL,
+	NewYearsDay DATETIME NULL,
+	MartinLutherKingDay DATETIME NULL,
+	WashingtonsDay DATETIME NULL,
+	MemorialDay DATETIME NULL,
+	JuneteenthDay DATETIME NULL,
+	IndependenceDay DATETIME NULL,
+	LaborDay DATETIME NULL,
+	ExpiringYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	ExpirationDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	WorkDays FLOAT NULL DEFAULT (0.0),
+	WeekDays FLOAT NULL DEFAULT (0.0),
+	WeekEnds FLOAT NULL DEFAULT (0.0),
+	EndDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	Availability NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FiscalYearsPrimaryKey PRIMARY KEY 
+    (
+        FiscalYearsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.FullTimeEquivalents
+(
+	FullTimeEquivialentsId INT NOT NULL UNIQUE,
+	OperatingPlansId int NULL,
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	ITProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectTypeName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProjectTypeCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LocalCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	LocalCodeName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CostAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	CostAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FullTimeEquivalentsPrimaryKey PRIMARY KEY 
+    (
+        FullTimeEquivialentsId ASC
+    )
+);
+
+CREATE TABLE dbo.FundCategories
+(
+	FundCategoriesId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	ShortName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FundCategoriesPrimaryKey PRIMARY KEY 
+    (
+        FundCategoriesId ASC
+    )
+);
+
+CREATE TABLE dbo.Funds
+(
+	FundsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	ShortName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+	StartDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	EndDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubLevelPrefix NVARCHAR(80) NULL DEFAULT ('NS'),
+	AllocationTransferAgency NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencyIdentifier NVARCHAR(80) NULL DEFAULT ('NS'),
+	BeginningPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	EndingPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	MultiyearIndicator NVARCHAR(80) NULL DEFAULT ('NS'),
+	MainAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCategory NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundGroup NVARCHAR(80) NULL DEFAULT ('NS'),
+	NoYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	Carryover NVARCHAR(80) NULL DEFAULT ('NS'),
+	CanceledYearSpendingAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApplyAtAllLevels NVARCHAR(80) NULL DEFAULT ('NS'),
+	BatsFund NVARCHAR(80) NULL DEFAULT ('NS'),
+	BatsEndDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	BatsOptionId NVARCHAR(80) NULL DEFAULT ('NS'),
+	SecurityOrg NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FundsPrimaryKey PRIMARY KEY 
+    (
+        FundsId ASC
+    )
+);
+
+CREATE TABLE dbo.FundSymbols
+(
+	FundSymbolsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT FundSymbolsPrimaryKey PRIMARY KEY 
+    (
+        FundSymbolsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.GeneralLedgerAccounts
+(
+	GeneralLedgerAccountsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Number NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	ShortName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountClassification NVARCHAR(80) NULL DEFAULT ('NS'),
+	NormalBalance NVARCHAR(80) NULL DEFAULT ('NS'),
+	RealOrClosingAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	CashAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	SummaryAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReportableAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	CostAllocationIndicator NVARCHAR(80) NULL DEFAULT ('NS'),
+	FederalNonFederal NVARCHAR(80) NULL DEFAULT ('NS'),
+	AttributeValue NVARCHAR(80) NULL DEFAULT ('NS'),
+	Usage NVARCHAR(80) NULL DEFAULT ('NS'),
+	Deposit NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT GeneralLedgerAccountsPrimaryKey PRIMARY KEY 
+    (
+        GeneralLedgerAccountsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Goals
+(
+	GoalsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    Title NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT GoalsPrimaryKey PRIMARY KEY 
+    (
+        GoalsId ASC
+    )
+);
+
+CREATE TABLE dbo.GsPayScales
+(
+	GsPayScalesId INT NOT NULL UNIQUE,
+	LOCNAME NVARCHAR(80) NULL DEFAULT ('NS'),
+	GRADE FLOAT NULL DEFAULT (0.0),
+	ANNUAL1 FLOAT NULL DEFAULT (0.0),
+	HOURLY1 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME1 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL2 FLOAT NULL DEFAULT (0.0),
+	HOURLY2 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME2 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL3 FLOAT NULL DEFAULT (0.0),
+	HOURLY3 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME3 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL4 FLOAT NULL DEFAULT (0.0),
+	HOURLY4 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME4 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL5 FLOAT NULL DEFAULT (0.0),
+	HOURLY5 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME5 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL6 FLOAT NULL DEFAULT (0.0),
+	HOURLY6 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME6 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL7 FLOAT NULL DEFAULT (0.0),
+	HOURLY7 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME7 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL8 FLOAT NULL DEFAULT (0.0),
+	HOURLY8 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME8 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL9 FLOAT NULL DEFAULT (0.0),
+	HOURLY9 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME9 NVARCHAR(80) NULL DEFAULT ('NS'),
+	ANNUAL10 FLOAT NULL DEFAULT (0.0),
+	HOURLY10 NVARCHAR(80) NULL DEFAULT ('NS'),
+	OVERTIME10 NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT GsPayScalesPrimaryKey PRIMARY KEY 
+    (
+        GsPayScalesId ASC
+    )
+);
+
+CREATE TABLE dbo.HeadquartersAuthority
+(
+	HeadquartersAuthorityId INT NOT NULL UNIQUE,
+	AllocationsId int NULL,
+	StatusOfFundsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT HeadquartersAuthorityPrimaryKey PRIMARY KEY 
+    (
+        HeadquartersAuthorityId ASC
+    )
+) ;
+
+CREATE TABLE dbo.HeadquartersOffices
+(
+	HeadquartersOfficesId INT NOT NULL UNIQUE,
+	ResourcePlanningOfficesId int NULL,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT HeadquartersOfficesPrimaryKey PRIMARY KEY 
+    (
+        HeadquartersOfficesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Images
+(
+	ImagesId INT NOT NULL UNIQUE,
+	FileName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FilePath NVARCHAR(80) NULL DEFAULT ('NS'),
+	FileExtension NVARCHAR(80) NULL DEFAULT ('NS'),
+	ImageFile image NULL,
+	Attachments NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+    CONSTRAINT ImagesPrimaryKey PRIMARY KEY 
+    (
+        ImagesId ASC
+    )
+);
+
+CREATE TABLE dbo.InflationReductionActCarryoverEstimates
+(
+	InflationReductionActCarryoverEstimatesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT InflationReductionActCarryoverEstimatesPrimaryKey PRIMARY KEY 
+    (
+        InflationReductionActCarryoverEstimatesId ASC
+    ) 
+) ;
+
+CREATE TABLE dbo.JobsActCarryoverEstimates
+(
+	JobsActCarryoverEstimatesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT JobsActCarryoverEstimatesPrimaryKey PRIMARY KEY 
+    (
+        JobsActCarryoverEstimatesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.MarginalOutlays
+(
+	MonthlyMarginalsId INT NOT NULL UNIQUE,
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	MainAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	October FLOAT NULL DEFAULT (0.0),
+	November FLOAT NULL DEFAULT (0.0),
+	December FLOAT NULL DEFAULT (0.0),
+	January FLOAT NULL DEFAULT (0.0),
+	Feburary FLOAT NULL DEFAULT (0.0),
+	March FLOAT NULL DEFAULT (0.0),
+	April FLOAT NULL DEFAULT (0.0),
+	May FLOAT NULL DEFAULT (0.0),
+	June FLOAT NULL DEFAULT (0.0),
+	July FLOAT NULL DEFAULT (0.0),
+	August FLOAT NULL DEFAULT (0.0),
+	September FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT MarginalOutlaysPrimaryKey PRIMARY KEY 
+    (
+        MonthlyMarginalsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Messages
+(
+	MessageId INT NOT NULL UNIQUE,
+	Message NVARCHAR(80) NULL DEFAULT ('NS'),
+	Type NVARCHAR(80) NULL DEFAULT ('NS'),
+	Form NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT MessagesPrimaryKey PRIMARY KEY 
+    (
+        MessageId ASC
+    )
+);
+
+CREATE TABLE dbo.MonthlyActuals
+(
+	MonthlyActualsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationName NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAppropriationName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NetOutlays FLOAT NULL DEFAULT (0.0),
+	GrossOutlays FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+    CONSTRAINT MonthlyActualsPrimaryKey PRIMARY KEY 
+    (
+        MonthlyActualsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.MonthlyLedgerAccountBalances
+(
+	MonthlyLedgerAccountBalancesId INT NOT NULL UNIQUE,
+	FiscalYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LedgerAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	LedgerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbolName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FiscalMonth NVARCHAR(80) NULL DEFAULT ('NS'),
+	CreditBalance FLOAT NULL DEFAULT (0.0),
+	DebitBalance FLOAT NULL DEFAULT (0.0),
+	YearToDateAmount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT MonthlyLedgerAccountBalancesPrimaryKey PRIMARY KEY 
+    (
+        MonthlyLedgerAccountBalancesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.MonthlyOutlays
+(
+	MonthlyOutlaysId INT NOT NULL UNIQUE,
+	FiscalYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	TaxationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAgencyCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAgencyCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetBureauCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencySequence NVARCHAR(80) NULL DEFAULT ('NS'),
+	BureauSequence NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountSequence NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencyTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	BureauTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	October FLOAT NULL DEFAULT (0.0),
+	November FLOAT NULL DEFAULT (0.0),
+	December FLOAT NULL DEFAULT (0.0),
+	January FLOAT NULL DEFAULT (0.0),
+	Feburary FLOAT NULL DEFAULT (0.0),
+	March FLOAT NULL DEFAULT (0.0),
+	April FLOAT NULL DEFAULT (0.0),
+	May FLOAT NULL DEFAULT (0.0),
+	June FLOAT NULL DEFAULT (0.0),
+	July FLOAT NULL DEFAULT (0.0),
+	August FLOAT NULL DEFAULT (0.0),
+	September FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT MonthlyOutlaysPrimaryKey PRIMARY KEY 
+    (
+        MonthlyOutlaysId ASC
+    )
+) ;
+
+CREATE TABLE dbo.NationalPrograms
+(
+	NationalProgramsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NOT NULL,
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Title NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT NationalProgramsPrimaryKey PRIMARY KEY 
+    (
+        NationalProgramsId ASC
+    )
+);
+
+CREATE TABLE dbo.Objectives
+(
+	ObjectivesId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Title NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ObjectivesPrimaryKey PRIMARY KEY 
+    (
+        ObjectivesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Obligations
+(
+	ObligationsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ApportionmentAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	Age FLOAT NULL DEFAULT (0.0),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT ObligationsPrimaryKey PRIMARY KEY 
+    (
+        ObligationsId ASC
+    )
+);
+
+CREATE TABLE dbo.OpenCommitments
+(
+	OpenCommitmentsId INT NOT NULL UNIQUE,
+	ObligationsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	ProcessedDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	Age FLOAT NULL DEFAULT (0.0),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT OpenCommitmentsPrimaryKey PRIMARY KEY 
+    (
+        OpenCommitmentsId ASC
+    )
+);
+
+CREATE TABLE dbo.OperatingPlans
+(
+	OperatingPlansId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ActivityName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	GoalName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ObjectiveName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	Version NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT OperatingPlansPrimaryKey PRIMARY KEY 
+    (
+        OperatingPlansId ASC
+    )
+);
+
+CREATE TABLE dbo.Organizations
+(
+	OrganizationsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	PreventNewUse NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+	SecurityOrg NVARCHAR(80) NULL DEFAULT ('NS'),
+	Usage NVARCHAR(80) NULL DEFAULT ('NS'),
+	UseAsCostOrg NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubCodeRequired NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubRcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Description NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT OrganizationsPrimaryKey PRIMARY KEY 
+    (
+        OrganizationsId ASC
+    )
+);
+
+CREATE TABLE dbo.Outlays
+(
+	CompassOutlaysId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	LastActivityDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	TotalObligations FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	ObligationsPaid FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT CompassOutlaysPrimaryKey PRIMARY KEY 
+    (
+        CompassOutlaysId ASC
+    )
+);
+
+CREATE TABLE dbo.PayPeriods
+(
+	PayPeriodsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	Number NVARCHAR(80) NULL DEFAULT ('NS'),
+	Period NVARCHAR(80) NULL DEFAULT ('NS'),
+	Type NVARCHAR(80) NULL DEFAULT ('NS'),
+	SecurityOrg NVARCHAR(80) NULL DEFAULT ('NS'),
+	StartDate DATETIME NULL,
+	EndDate DATETIME NULL,
+	SplitPayPeriod NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT PayPeriodsPrimaryKey PRIMARY KEY 
+    (
+        PayPeriodsId ASC
+    )
+); 
+
+CREATE TABLE dbo.PayrollAuthority
+(
+	PayrollAuthorityId INT NOT NULL UNIQUE,
+	AllocationsId int NULL,
+	StatusOfFundsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT PayrollAuthorityPrimaryKey PRIMARY KEY 
+    (
+        PayrollAuthorityId ASC
+    )
+);
+
+CREATE TABLE dbo.PayrollRequests
+(
+	PayrollRequestsId INT NOT NULL UNIQUE,
+	ControlTeamAnalyst NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalRequestDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	BFS NVARCHAR(80) NULL DEFAULT ('NS'),
+	Comments NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	RequestDocument NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	Duration FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT PayrollRequestsPrimaryKey PRIMARY KEY 
+    (
+        PayrollRequestsId ASC
+    )
+);  
+
+CREATE TABLE dbo.PRC
+(
+	PrcId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT PRCPrimaryKey PRIMARY KEY 
+    (
+        PrcId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ProgramAreas
+(
+	ProgramAreasId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ProgramAreasPrimaryKey PRIMARY KEY 
+    (
+        ProgramAreasId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ProgramProjects
+(
+	ProgramProjectsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ProgramProjectsPrimaryKey PRIMARY KEY 
+    (
+        ProgramProjectsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Projects
+(
+	ProjectsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ProjectsPrimaryKey PRIMARY KEY 
+    (
+        ProjectsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Providers
+(
+	ProvidersId INT NOT NULL UNIQUE,
+	ProviderName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FileExtension NVARCHAR(80) NULL DEFAULT ('NS'),
+	Connection NVARCHAR(80) NULL DEFAULT ('NS'),
+	Properties NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ProvidersPrimaryKey PRIMARY KEY 
+    (
+        ProvidersId ASC
+    )
+);
+
+CREATE TABLE dbo.PublicLaws
+(
+	PublicLawsId INT NOT NULL UNIQUE,
+	LawNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	BillTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	EnactedDate DATETIME NULL,
+	Congress NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT PublicLawsPrimaryKey PRIMARY KEY 
+    (
+        PublicLawsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.QueryDefinitions
+(
+	QueryDefinitionsId INT NOT NULL UNIQUE,
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Type NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT QueryDefinitionsPrimaryKey PRIMARY KEY 
+    (
+        QueryDefinitionsId ASC
+    )
+);
+
+CREATE TABLE dbo.RecoveryAct
+(
+	RecoveryActId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT RecoveryActPrimaryKey PRIMARY KEY 
+    (
+        RecoveryActId ASC
+    )
+) ;
+
+CREATE TABLE dbo.RegionalAuthority
+(
+	RegionalAuthorityId INT NOT NULL UNIQUE,
+	AllocationsId int NULL,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL
+) ;
+
+CREATE TABLE dbo.RegionalOffices
+(
+	RegionalOfficesId INT NOT NULL UNIQUE,
+	ResourcePlanningOfficesId int NULL,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT RegionalOfficesPrimaryKey PRIMARY KEY 
+    (
+        RegionalOfficesId ASC
+    )
+);
+
+CREATE TABLE dbo.ReimbursableAgreements
+(
+	ReimbursableAgreementsId INT NOT NULL UNIQUE,
+	RPIO NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgreementNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	StartDate DATETIME NULL,
+	EndDate DATETIME NULL,
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT ReimbursableAgreementsPrimaryKey PRIMARY KEY 
+    (
+        ReimbursableAgreementsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ReimbursableFunds
+(
+	ReimbursableFundsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgreeementNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount money NULL,
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT ReimbursableFundsPrimaryKey PRIMARY KEY 
+    (
+        ReimbursableFundsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ReportingLines
+(
+	ReportingLinesId int NOT NULL UNIQUE,
+	Number NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Caption NVARCHAR(80) NULL DEFAULT ('NS'),
+	Category NVARCHAR(80) NULL DEFAULT ('NS'),
+	Range NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ReportingLinesPrimaryKeyPrimaryKey PRIMARY KEY 
+    (
+        ReportingLinesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.Reports
+(
+	ReportsId INT NOT NULL UNIQUE,
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Title NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ReportsPrimaryKey PRIMARY KEY 
+    (
+        ReportsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.ResourcePlanningOffices
+(
+	ResourcePlanningOfficesId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ResourcePlanningOfficesPrimaryKey PRIMARY KEY 
+    (
+        ResourcePlanningOfficesId ASC
+    )
+);
+
+CREATE TABLE dbo.Resources
+(
+	ResourcesId INT NOT NULL UNIQUE,
+	Identifier NVARCHAR(80) NULL DEFAULT ('NS'),
+	Type NVARCHAR(80) NULL DEFAULT ('NS'),
+	Location NVARCHAR(80) NULL DEFAULT ('NS'),
+	FileExtension NVARCHAR(80) NULL DEFAULT ('NS'),
+	Caption NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ResourcesPrimaryKey PRIMARY KEY 
+    (
+        ResourcesId ASC
+    ) 
+) ;
+
+CREATE TABLE dbo.ResponsibilityCenters
+(
+	ResponsibilityCentersId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Title NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT ResponsibilityCentersPrimaryKey PRIMARY KEY 
+    (
+        ResponsibilityCentersId ASC
+    )
+) ;
+
+CREATE TABLE dbo.SchemaTypes
+(
+	SchemaTypesId INT NOT NULL UNIQUE,
+	TypeName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Database NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT SchemaTypesPrimaryKey PRIMARY KEY 
+    (
+        SchemaTypesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.SpendingDocuments
+(
+	SpendingDocumentsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioActivityCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	PurchaseRequestNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalActionDate DATETIME NULL,
+	LastActionDate DATETIME NULL,
+	Commitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Deobligations FLOAT NULL DEFAULT (0.0),
+	UnliqudatedObligations FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT SpendingDocumentsPrimaryKey PRIMARY KEY 
+    (
+        SpendingDocumentsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.SpendingRates
+(
+	SpendingRatesId INT NOT NULL UNIQUE,
+	OmbAgencyCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OmbAgencyName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OmbBureauCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OmbBureauName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreausuryAgencyCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreausuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreausuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountTitle NVARCHAR(80) NULL DEFAULT ('NS'),
+	Subfunction NVARCHAR(80) NULL DEFAULT ('NS'),
+	Line NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	Category NVARCHAR(80) NULL DEFAULT ('NS'),
+	Subcategory NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubcategoryName NVARCHAR(80) NULL DEFAULT ('NS'),
+	MainAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	Jurisdiction NVARCHAR(80) NULL DEFAULT ('NS'),
+	YearOfAuthority NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAuthority FLOAT NULL DEFAULT (0.0),
+	OutYear1 FLOAT NULL DEFAULT (0.0),
+	OutYear2 FLOAT NULL DEFAULT (0.0),
+	OutYear3 FLOAT NULL DEFAULT (0.0),
+	OutYear4 FLOAT NULL DEFAULT (0.0),
+	OutYear5 FLOAT NULL DEFAULT (0.0),
+	OutYear6 FLOAT NULL DEFAULT (0.0),
+	OutYear7 FLOAT NULL DEFAULT (0.0),
+	OutYear8 FLOAT NULL DEFAULT (0.0),
+	OutYear9 FLOAT NULL DEFAULT (0.0),
+	OutYear10 FLOAT NULL DEFAULT (0.0),
+	OutYear11 FLOAT NULL DEFAULT (0.0),
+	TotalSpendout FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT SpendingRatesPrimaryKey PRIMARY KEY 
+    (
+        SpendingRatesId ASC
+    )
+);
+
+CREATE TABLE dbo.StateGrantObligations
+(
+	StateGrantObligationsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Approp Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Approp Code Short TItle NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	WholeDollars FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT StateGrantObligationsPrimaryKey PRIMARY KEY 
+    (
+        StateGrantObligationsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.StateOrganizations
+(
+	StateOrganizationsId INT NOT NULL UNIQUE,
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StateOrganizationsPrimaryKey PRIMARY KEY 
+    (
+        StateOrganizationsId ASC
+    )
+); 
+
+CREATE TABLE dbo.StatusOfAmericanRescuePlanFunds
+(
+	StatusOfAmericanRescuePlanFundsId INT NOT NULL UNIQUE,
+	StatusOfFundsId INT NOT NULL UNIQUE,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName nvarchar(max) NULL
+);
+
+CREATE TABLE dbo.StatusOfAppropriations
+(
+	StatusOfAppropriationsId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Availability NVARCHAR(80) NULL DEFAULT ('NS'),
+	TransType NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	OriginalAmount FLOAT NULL DEFAULT (0.0),
+	Authority FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	CarryoverOut FLOAT NULL DEFAULT (0.0),
+	CarryoverIn FLOAT NULL DEFAULT (0.0),
+	TransferIn FLOAT NULL DEFAULT (0.0),
+	TransferOut FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StatusOfAppropriationsPrimaryKey PRIMARY KEY 
+    (
+        StatusOfAppropriationsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.StatusOfBudgetaryResources
+(
+	StatusOfBudgetaryResourcesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BeginningPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	EndingPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	SectionNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	SectionName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	LineName NVARCHAR(80) NULL DEFAULT ('NS'),
+	November FLOAT NULL DEFAULT (0.0),
+	December FLOAT NULL DEFAULT (0.0),
+	January FLOAT NULL DEFAULT (0.0),
+	Feburary FLOAT NULL DEFAULT (0.0),
+	March FLOAT NULL DEFAULT (0.0),
+	April FLOAT NULL DEFAULT (0.0),
+	May FLOAT NULL DEFAULT (0.0),
+	June FLOAT NULL DEFAULT (0.0),
+	July FLOAT NULL DEFAULT (0.0),
+	August FLOAT NULL DEFAULT (0.0),
+	September FLOAT NULL DEFAULT (0.0),
+	October FLOAT NULL DEFAULT (0.0),
+	LastUpdate DATETIME NULL,
+    CONSTRAINT StatusOfBudgetaryResourcesPrimaryKey PRIMARY KEY 
+    (
+        StatusOfBudgetaryResourcesId ASC
+    )
+);
+
+CREATE TABLE dbo.StatusOfEarmarks
+(
+	StatusOfEarmarksId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StatusOfEarmarksPrimaryKey PRIMARY KEY 
+    (
+        StatusOfEarmarksId ASC
+    )
+) ;
+
+CREATE TABLE dbo.StatusOfFunds
+(
+	StatusOfFundsId INT NOT NULL UNIQUE,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+    CONSTRAINT StatusOfFundsPrimaryKey PRIMARY KEY 
+    (
+        StatusOfFundsId ASC
+    )
+) ;
+
+CREATE TABLE dbo.StatusOfInflationReductionActFunds
+(
+	StatusOfSupplementalFundingId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Balance FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StatusOfInflationReductionActFundsPrimaryKey PRIMARY KEY 
+    (
+        StatusOfSupplementalFundingId ASC
+    )
+) ;
+
+CREATE TABLE dbo.StatusOfJobsActFunds
+(
+	StatusOfJobsActFundingId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Balance FLOAT NULL DEFAULT (0.0),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StatusOfJobsActFundingPrimaryKey PRIMARY KEY 
+    (
+        StatusOfJobsActFundingId ASC
+    )
+); 
+
+CREATE TABLE dbo.StatusOfSpecialAccountFunds
+(
+	StatusOfSpecialAccountFundsId INT NOT NULL UNIQUE,
+	Fiscal Year NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SpecialAccountNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	SpecialAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	SpecialAccountStatus NVARCHAR(80) NULL DEFAULT ('NS'),
+	NplStatusCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	StatusDescription NVARCHAR(80) NULL DEFAULT ('NS'),
+	EpaSiteId NVARCHAR(80) NULL DEFAULT ('NS'),
+	CerclisSiteId NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OperableUnit NVARCHAR(80) NULL DEFAULT ('NS'),
+	PipelineCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	PipelineDescription NVARCHAR(80) NULL DEFAULT ('NS'),
+	TransactionDescription NVARCHAR(80) NULL DEFAULT ('NS'),
+	InterestDate NVARCHAR(80) NULL DEFAULT ('NS'),
+	TrustfundTransfers int NULL,
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	UnliquidatedObligations FLOAT NULL DEFAULT (0.0),
+	Disbursements FLOAT NULL DEFAULT (0.0),
+	UnpaidBalance int NULL,
+	CumulativeReceipts FLOAT NULL DEFAULT (0.0),
+	NetReceipts int NULL,
+	Interest int NULL,
+	CollectionsAndInterest FLOAT NULL DEFAULT (0.0),
+	AvailableBalance float NULL,
+    CONSTRAINT StatusOfJobsActFundingPrimaryKey PRIMARY KEY 
+    (
+        StatusOfJobsActFundingId ASC
+    )
+);
+
+CREATE TABLE dbo.StatusOfSuperfundSites
+(
+	StatusOfSuperfundSitesId INT NOT NULL UNIQUE,
+	FiscalYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	StateName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CountyName NVARCHAR(80) NULL DEFAULT ('NS'),
+	CityName NVARCHAR(80) NULL DEFAULT ('NS'),
+	StreetAddress NVARCHAR(80) NULL DEFAULT ('NS'),
+	ZipCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteId NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Deobligations FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT StatusOfSuperfundSitesPrimaryKey PRIMARY KEY 
+    (
+        StatusOfSuperfundSitesId ASC
+    )
+);
+
+CREATE TABLE dbo.StatusOfSupplementalFunds
+(
+	StatusOfSupplementalFundingId INT NOT NULL UNIQUE,
+	StatusOfFundsId int NULL,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	LowerName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Budgeted FLOAT NULL DEFAULT (0.0),
+	Posted FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	ULO FLOAT NULL DEFAULT (0.0),
+	Expenditures FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Used FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Balance FLOAT NULL DEFAULT (0.0),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT StatusOfSupplementalFundsPrimaryKey PRIMARY KEY 
+    (
+        StatusOfSupplementalFundingId ASC
+    )
+);
+
+CREATE TABLE dbo.SubAppropriations
+(
+	SubAppropriationsId INT NOT NULL UNIQUE,
+	Code NVARCHAR(80) NULL DEFAULT ('NS'),
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT SubAppropriationsPrimaryKey PRIMARY KEY 
+    (
+        SubAppropriationsId ASC
+    )
+); 
+
+CREATE TABLE dbo.SuperfundSites
+(
+	SuperfundSitesId INT NOT NULL UNIQUE,
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	City NVARCHAR(80) NULL DEFAULT ('NS'),
+	State NVARCHAR(80) NULL DEFAULT ('NS'),
+	SSID NVARCHAR(80) NULL DEFAULT ('NS'),
+	SiteProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	EpaSiteId NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT SuperfundSitesPrimaryKey PRIMARY KEY 
+    (
+        SuperfundSitesId ASC
+    )
+);
+
+CREATE TABLE dbo.SupplementalCarryoverEstimates
+(
+	SupplementalCarryoverEstimatesID INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	OpenCommitments FLOAT NULL DEFAULT (0.0),
+	Obligations FLOAT NULL DEFAULT (0.0),
+	Available FLOAT NULL DEFAULT (0.0),
+	Estimate FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT SupplementalCarryoverEstimatesPrimaryKey PRIMARY KEY 
+    (
+        SupplementalCarryoverEstimatesID ASC
+    )
+);
+
+CREATE TABLE dbo.TransferActivity
+(
+	TransferActivityId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FromTo NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate DATETIME NULL,
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	Net NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT TransferActivityPrimaryKey PRIMARY KEY 
+    (
+        TransferActivityId ASC
+    )
+);
+
+CREATE TABLE dbo.Transfers
+(
+	TransfersId INT NOT NULL UNIQUE,
+	BudgetLevel NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocPrefix NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocType NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ReprogrammingNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	ControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProcessedDate DATETIME NULL,
+	Quarter NVARCHAR(80) NULL DEFAULT ('NS'),
+	Line NVARCHAR(80) NULL DEFAULT ('NS'),
+	Subline NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramAreaName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FromTo NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+	Purpose NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	ResourceType NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT TransfersPrimaryKey PRIMARY KEY 
+    (
+        TransfersId ASC
+    )
+);
+
+CREATE TABLE dbo.TransTypes
+(
+	TransTypesId INT NOT NULL UNIQUE,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocType NVARCHAR(80) NULL DEFAULT ('NS'),
+	AppropriationBill NVARCHAR(80) NULL DEFAULT ('NS'),
+	ContinuingResolution NVARCHAR(80) NULL DEFAULT ('NS'),
+	RescissionCurrentYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	RescissionPriorYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	SequesterReduction NVARCHAR(80) NULL DEFAULT ('NS'),
+	SequesterReturn NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT TransTypesPrimaryKey PRIMARY KEY 
+    (
+        TransTypesId ASC
+    )
+) ;
+
+CREATE TABLE dbo.TreasurySymbols
+(
+	TreasurySymbolsId INT NOT NULL UNIQUE,
+	ShortKey NVARCHAR(80) NULL DEFAULT ('NS'),
+	AllocationTransferAgency NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencyIdentifier NVARCHAR(80) NULL DEFAULT ('NS'),
+	BeginningPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	EndingPeriodOfAvailability NVARCHAR(80) NULL DEFAULT ('NS'),
+	AvailabilityType NVARCHAR(80) NULL DEFAULT ('NS'),
+	MainAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	SubAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	Lapsed NVARCHAR(80) NULL DEFAULT ('NS'),
+	UseCancelledYearSpendingAccounts NVARCHAR(80) NULL DEFAULT ('NS'),
+	AgencyTreasurySymbol NVARCHAR(80) NULL DEFAULT ('NS'),
+	InUse NVARCHAR(80) NULL DEFAULT ('NS'),
+	PreventNewUse NVARCHAR(80) NULL DEFAULT ('NS'),
+	Status NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT TreasurySymbolsPrimaryKey PRIMARY KEY 
+    (
+        TreasurySymbolsId ASC
+    )
+);
+
+CREATE TABLE dbo.UnliquidatedObligations
+(
+	UnliquidatedObligationsId INT NOT NULL UNIQUE,
+	ObligationsId int NULL,
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RpioName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	AhName NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	OrgName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	ProgramProjectName NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	RcName NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentType NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	DocumentControlNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(MAX) NULL DEFAULT ('NS'),,
+	ProcessedDate DATETIME NULL,
+	LastActivityDate DATETIME NULL,
+	Age FLOAT NULL DEFAULT (0.0),
+	BocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FocName NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	NpmName NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	VendorName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT UnliquidatedObligationsPrimaryKey PRIMARY KEY 
+    (
+        UnliquidatedObligationsId ASC
+    )
+);
+
+CREATE TABLE dbo.UnobligatedBalances
+(
+	UnobligatedBalancesId INT NOT NULL UNIQUE,
+	BudgetYear NVARCHAR(80) NULL DEFAULT ('NS'),
+	BFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	EFY NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccount NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	TreasuryAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	BudgetAccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundCode NVARCHAR(80) NULL DEFAULT ('NS'),
+	FundName NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountNumber NVARCHAR(80) NULL DEFAULT ('NS'),
+	AccountName NVARCHAR(80) NULL DEFAULT ('NS'),
+	Amount FLOAT NULL DEFAULT (0.0),
+    CONSTRAINT UnobligatedBalancesPrimaryKey PRIMARY KEY 
+    (
+        UnobligatedBalancesId ASC
+    )
+);
+
+CREATE TABLE dbo.URL
+(
+	SourceId INT NOT NULL UNIQUE,
+	Name NVARCHAR(80) NULL DEFAULT ('NS'),
+	Location NVARCHAR(80) NULL DEFAULT ('NS'),
+	Address NVARCHAR(80) NULL DEFAULT ('NS'),
+    CONSTRAINT URLPrimaryKey PRIMARY KEY 
+    (
+        SourceId ASC
+    )
 );
-
-CREATE TABLE IF NOT EXISTS "ApplicationTables" 
-(
-	"ApplicationTableId" INTEGER NOT NULL UNIQUE,
-	"TableName" TEXT(255) NOT NULL DEFAULT 'NS',
-	"Model" TEXT(255) NOT NULL DEFAULT 'NS',
-	CONSTRAINT "PrimaryKeyApplicationTables" PRIMARY KEY("ApplicationTableId")
-);
-
-CREATE TABLE IF NOT EXISTS "AppropriationDocuments" 
-(
-	"AppropriationDocumentsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"Fund" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastDocumentDate" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetingControls" TEXT(80) NULL DEFAULT 'NS',
-	"PostingControls" TEXT(80) NULL DEFAULT 'NS',
-	"PreCommitmentControls" TEXT(80) NULL DEFAULT 'NS',
-	"CommitmentControls" TEXT(80) NULL DEFAULT 'NS',
-	"ObligationControls" TEXT(80) NULL DEFAULT 'NS',
-	"AccrualControls" TEXT(80) NULL DEFAULT 'NS',
-	"ExpenditureControls" TEXT(80) NULL DEFAULT 'NS',
-	"ExpenseControls" TEXT(80) NULL DEFAULT 'NS',
-	"ReimbursementControls" TEXT(80) NULL DEFAULT 'NS',
-	"ReimbursableAgreementControls" TEXT(80) NULL DEFAULT 'NS',
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"CarryOut" REAL NULL DEFAULT 0.0,
-	"CarryIn" REAL NULL DEFAULT 0.0,
-	"EstimatedReimbursements" REAL NULL DEFAULT 0.0,
-	"EstimatedRecoveries" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("AppropriationDocumentsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "BackUpAllocations" 
-(
-	"BackupAllocationsId" INTEGER NOT NULL UNIQUE,
-	"AllocationsId" INTEGER NOT NULL UNIQUE,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"RPIO" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" DOUBLE,
-	"AllocationRatio" INTEGER,
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Division" TEXT(80) NULL DEFAULT 'NS',
-	"DivisionName" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"GoalCode" TEXT(80) NULL DEFAULT 'NS',
-	"GoalName" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveCode" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveName" TEXT(80) NULL DEFAULT 'NS',
-	"ChangeDate" DATETIME,
-	CONSTRAINT "ForeignKeyBackUpAllocations" FOREIGN KEY("AllocationsId") REFERENCES "Allocations",
-	CONSTRAINT "PrimaryKeyBackUpAllocations" PRIMARY KEY("BackupAllocationsId")
-);
-
-CREATE TABLE IF NOT EXISTS "BudgetDocuments" 
-(
-	"BudgetDocumentsId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetLevel" INTEGER,
-	"DocumentDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastDocumentDate" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ReimbursableAgreementControls" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetingControls" TEXT(80) NULL DEFAULT 'NS',
-	"PostingControls" TEXT(80) NULL DEFAULT 'NS',
-	"PreCommitmentControls" TEXT(80) NULL DEFAULT 'NS',
-	"CommitmentControls" TEXT(80) NULL DEFAULT 'NS',
-	"ObligationControls" TEXT(80) NULL DEFAULT 'NS',
-	"ExpenditureControls" TEXT(80) NULL DEFAULT 'NS',
-	"ExpenseControls" TEXT(80) NULL DEFAULT 'NS',
-	"AccrualControls" TEXT(80) NULL DEFAULT 'NS',
-	"ReimbursementControls" TEXT(80) NULL DEFAULT 'NS',
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"CarryOut" REAL NULL DEFAULT 0.0,
-	"CarryIn" REAL NULL DEFAULT 0.0,
-	"EstimatedRecoveries" REAL NULL DEFAULT 0.0,
-	"EstimatedReimbursements" REAL NULL DEFAULT 0.0
-);
-
-CREATE TABLE IF NOT EXISTS "CarryoverOutlays" 
-(
-	"CarryoverOutlaysId" INTEGER NOT NULL UNIQUE,
-	"ReportYear" TEXT(80) NULL DEFAULT 'NS',
-	"AgencyName" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"LINE" TEXT(80) NULL DEFAULT 'NS',
-	"Carryover" REAL NULL DEFAULT 0.0,
-	"CarryoverOutlays" REAL NULL DEFAULT 0.0,
-	"Delta" REAL NULL DEFAULT 0.0,
-	"AvailableBalance" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"CurrentYearAdjustment" REAL NULL DEFAULT 0.0,
-	"BudgetYearAdjustment" REAL NULL DEFAULT 0.0,
-	"CurrentYear" REAL NULL DEFAULT 0.0,
-	"BudgetYear" REAL NULL DEFAULT 0.0,
-	"OutYear1" REAL NULL DEFAULT 0.0,
-	"OutYear2" REAL NULL DEFAULT 0.0,
-	"OutYear3" REAL NULL DEFAULT 0.0,
-	"OutYear4" REAL NULL DEFAULT 0.0,
-	"OutYear5" REAL NULL DEFAULT 0.0,
-	"OutYear6" REAL NULL DEFAULT 0.0,
-	"OutYear7" REAL NULL DEFAULT 0.0,
-	"OutYear8" REAL NULL DEFAULT 0.0,
-	"OutYear9" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("CarryoverOutlaysId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Changes" 
-(
-	"ChangesId" INTEGER NOT NULL UNIQUE,
-	"TableName" TEXT(80) NULL DEFAULT 'NS',
-	"FieldName" TEXT(80) NULL DEFAULT 'NS',
-	"ActionType" TEXT(80) NULL DEFAULT 'NS',
-	"OldValue" TEXT(80) NULL DEFAULT 'NS',
-	"NewValue" TEXT(80) NULL DEFAULT 'NS',
-	"ChangeDate" TEXT(80) NULL DEFAULT 'NS',
-	"Message" TEXT(80) NULL DEFAULT 'NS',
-	CONSTRAINT "PrimaryKeyChanges" PRIMARY KEY("ChangesId")
-);
-
-CREATE TABLE IF NOT EXISTS "DataRuleDescriptions" 
-(
-	"DataRuleDescriptionsId" INTEGER NOT NULL UNIQUE,
-	"Schedule" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"RuleNumber" TEXT(80) NULL DEFAULT 'NS',
-	"RuleDescription" TEXT(80) NULL DEFAULT 'NS',
-	"ScheduleOrder" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("DataRuleDescriptionsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "DocumentControlNumbers" 
-(
-	"DocumentControlNumbersId" INTEGER NOT NULL,
-	"RpioCode" TEXT NOT NULL DEFAULT 'NS',
-	"RpioName" TEXT NOT NULL DEFAULT 'NS',
-	"DocumentType" TEXT NOT NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT NOT NULL DEFAULT 'NS',
-	"DocumentPrefix" TEXT NOT NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT NOT NULL DEFAULT 'NS',
-	PRIMARY KEY("DocumentControlNumbersId")
-);
-
-CREATE TABLE IF NOT EXISTS "ExecutionTables" 
-(
-	"ExecutionTablesId" INTEGER NOT NULL UNIQUE,
-	"TableName" TEXT(80) NULL DEFAULT 'NS',
-	"TableType" TEXT(50),
-	CONSTRAINT "PrimaryKeyExecutionTables" PRIMARY KEY("ExecutionTablesId")
-);
-
-CREATE TABLE IF NOT EXISTS "GrowthRates" 
-(
-	"GrowthRatesId" INTEGER NOT NULL UNIQUE,
-	"RateId" TEXT(80) NULL DEFAULT 'NS',
-	"DESCRIPTION" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetYearRate" REAL NULL DEFAULT 0.0,
-	"OutYear1" REAL NULL DEFAULT 0.0,
-	"OutYear2" REAL NULL DEFAULT 0.0,
-	"OutYear3" REAL NULL DEFAULT 0.0,
-	"OutYear4" REAL NULL DEFAULT 0.0,
-	"OutYear5" REAL NULL DEFAULT 0.0,
-	"OutYear6" REAL NULL DEFAULT 0.0,
-	"OutYear7" REAL NULL DEFAULT 0.0,
-	"OutYear8" REAL NULL DEFAULT 0.0,
-	"OutYear9" REAL NULL DEFAULT 0.0,
-	"Sort" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("GrowthRatesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "MonthlyOutlays" 
-(
-	"MonthlyOutlaysId" INTEGER NOT NULL UNIQUE,
-	"FiscalYear" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineTitle" TEXT(80) NULL DEFAULT 'NS',
-	"TaxationCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAgency" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccount" TEXT(80) NULL DEFAULT 'NS',
-	"SubAccount" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAgency" TEXT(80) NULL DEFAULT 'NS',
-	"OmbBureau" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccount" TEXT(80) NULL DEFAULT 'NS',
-	"AgencySequence" TEXT(80) NULL DEFAULT 'NS',
-	"BureauSequence" TEXT(80) NULL DEFAULT 'NS',
-	"AccountSequence" TEXT(80) NULL DEFAULT 'NS',
-	"AgencyTitle" TEXT(80) NULL DEFAULT 'NS',
-	"BureauTitle" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountTitle" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountTitle" TEXT(80) NULL DEFAULT 'NS',
-	"October" REAL NULL DEFAULT 0.0,
-	"November" REAL NULL DEFAULT 0.0,
-	"December" REAL NULL DEFAULT 0.0,
-	"January" REAL NULL DEFAULT 0.0,
-	"Feburary" REAL NULL DEFAULT 0.0,
-	"March" REAL NULL DEFAULT 0.0,
-	"April" REAL NULL DEFAULT 0.0,
-	"May" REAL NULL DEFAULT 0.0,
-	"June" REAL NULL DEFAULT 0.0,
-	"July" REAL NULL DEFAULT 0.0,
-	"August" REAL NULL DEFAULT 0.0,
-	"September" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("MonthlyOutlaysId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ReferenceTables" 
-(
-	"ReferenceTablesId" INTEGER NOT NULL UNIQUE,
-	"TableName" TEXT(80) NULL DEFAULT 'NS',
-	"Type" TEXT(80) NULL DEFAULT 'NS',
-	CONSTRAINT "PrimaryKeyReferenceTables" PRIMARY KEY("ReferenceTablesId")
-);
-
-CREATE TABLE IF NOT EXISTS "QueryDefinitions" 
-(
-	"QueryDefinitionsId" INTEGER NOT NULL UNIQUE,
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"Type" TEXT(80) NULL DEFAULT 'NS',
-	CONSTRAINT "PrimaryKeyQueryDefinitions" PRIMARY KEY("QueryDefinitionsId")
-);
-
-CREATE TABLE IF NOT EXISTS "ReimbursableAgreements" 
-(
-	"ReimbursableAgreementsId" INTEGER NOT NULL UNIQUE,
-	"RPIO" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"AgreementNumber" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" INTEGER,
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"DivisionName" TEXT(80) NULL DEFAULT 'NS',
-	"SiteProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("ReimbursableAgreementsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ReimbursableSurvey" 
-(
-	"ReimbursableSurveyId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("ReimbursableSurveyId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Actuals" 
-(
-	"ActualsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationName" TEXT(80) NULL DEFAULT 'NS',
-	"SubAppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubAppropriationName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioActivityName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Balance" REAL NULL DEFAULT 0.0,
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"GoalCode" TEXT(80) NULL DEFAULT 'NS',
-	"GoalName" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveCode" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ActualsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "StatusOfFunds" 
-(
-	"StatusOfFundsId" INTEGER NOT NULL UNIQUE,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Expenditures" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Used" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("StatusOfFundsId")
-);
-
-CREATE TABLE IF NOT EXISTS "PayrollActivity" 
-(
-	"PayrollActivityId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"SubRcCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubRcName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"HrOrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"HrOrgName" TEXT(80) NULL DEFAULT 'NS',
-	"WorkCode" TEXT(80) NULL DEFAULT 'NS',
-	"WorkCodeName" TEXT(80) NULL DEFAULT 'NS',
-	"PayPeriod" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" TEXT(80) NULL DEFAULT 'NS',
-	"CheckDate" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"Hours" REAL NULL DEFAULT 0.0,
-	"BasePaid" REAL NULL DEFAULT 0.0,
-	"BaseHours" REAL NULL DEFAULT 0.0,
-	"Benefits" REAL NULL DEFAULT 0.0,
-	"OvertimePaid" REAL NULL DEFAULT 0.0,
-	"OvertimeHours" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("PayrollActivityId")
-);
-
-CREATE TABLE IF NOT EXISTS "SiteActivity" 
-(
-	"SiteActivityId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"EpaSiteId" TEXT(80) NULL DEFAULT 'NS',
-	"SiteProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"SSID" TEXT(80) NULL DEFAULT 'NS',
-	"ActionCode" TEXT(80) NULL DEFAULT 'NS',
-	"OperableUnit" TEXT(80) NULL DEFAULT 'NS',
-	"SiteProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"State" TEXT(80) NULL DEFAULT 'NS',
-	"City" TEXT(80) NULL DEFAULT 'NS',
-	"CongressionalDistrict" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectType" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivity" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" TEXT(80) NULL DEFAULT 'NS',
-	"Requested" REAL NULL DEFAULT 0.0,
-	"Accepted" REAL NULL DEFAULT 0.0,
-	"Closed" REAL NULL DEFAULT 0.0,
-	"Outstanding" REAL NULL DEFAULT 0.0,
-	"Refunded" REAL NULL DEFAULT 0.0,
-	"Reversal" REAL
-);
-
-CREATE TABLE IF NOT EXISTS "CongressionalReprogrammings" 
-(
-	"CongressionalTransferId" INTEGER,
-	"ReprogrammingNumber" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"Description" TEXT(80) NULL DEFAULT 'NS',
-	"ExtendedDescription" TEXT(80) NULL DEFAULT 'NS',
-	"FromTo" TEXT(80) NULL DEFAULT 'NS',
-	"Cycle" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "StatusOfAppropriations" 
-(
-	"StatusOfAppropriationsId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationFundCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationFundName" TEXT(80) NULL DEFAULT 'NS',
-	"Availability" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCreationDate" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubAppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationDescription" TEXT(80) NULL DEFAULT 'NS',
-	"FundGroup" TEXT(80) NULL DEFAULT 'NS',
-	"FundGroupName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"TransType" TEXT(80) NULL DEFAULT 'NS',
-	"ActualRecoveryTransType" TEXT(80) NULL DEFAULT 'NS',
-	"CommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"AgreementLimit" TEXT(80) NULL DEFAULT 'NS',
-	"EstimatedRecoveriesTransType" TEXT(80) NULL DEFAULT 'NS',
-	"EstimatedReimbursmentsTransType" TEXT(80) NULL DEFAULT 'NS',
-	"ExpenseSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"ObligationSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"PreCommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"PostedControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"PostedFlag" TEXT(80) NULL DEFAULT 'NS',
-	"RecordCarryoverAtLowerLevel" TEXT(80) NULL DEFAULT 'NS',
-	"ReimbursableSpendingOption" TEXT(80) NULL DEFAULT 'NS',
-	"RecoveriesOption" TEXT(80) NULL DEFAULT 'NS',
-	"RecoveriesSpendingOption" TEXT(80) NULL DEFAULT 'NS',
-	"OriginalBudgetedAmount" REAL NULL DEFAULT 0.0,
-	"ApportionmentsPosted" REAL NULL DEFAULT 0.0,
-	"TotalAuthority" REAL NULL DEFAULT 0.0,
-	"TotalBudgeted" REAL NULL DEFAULT 0.0,
-	"TotalPostedAmount" REAL NULL DEFAULT 0.0,
-	"FundsWithdrawnPriorYearsAmount" REAL NULL DEFAULT 0.0,
-	"FundingInAmount" REAL NULL DEFAULT 0.0,
-	"FundingOutAmount" REAL NULL DEFAULT 0.0,
-	"TotalAccrualRecoveries" REAL NULL DEFAULT 0.0,
-	"TotalActualReimbursements" REAL NULL DEFAULT 0.0,
-	"TotalAgreementReimbursables" REAL NULL DEFAULT 0.0,
-	"TotalCarriedForwardIn" REAL NULL DEFAULT 0.0,
-	"TotalCarriedForwardOut" REAL NULL DEFAULT 0.0,
-	"TotalCommitted" REAL NULL DEFAULT 0.0,
-	"TotalEstimatedRecoveries" REAL NULL DEFAULT 0.0,
-	"TotalEstimatedReimbursements" REAL NULL DEFAULT 0.0,
-	"TotalExpenses" REAL NULL DEFAULT 0.0,
-	"TotalExpenditureExpenses" REAL NULL DEFAULT 0.0,
-	"TotalExpenseAccruals" REAL NULL DEFAULT 0.0,
-	"TotalPreCommitments" REAL NULL DEFAULT 0.0,
-	"UnliquidatedPreCommitments" REAL NULL DEFAULT 0.0,
-	"TotalObligations" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"VoidedAmount" REAL NULL DEFAULT 0.0,
-	"TotalUsedAmount" REAL NULL DEFAULT 0.0,
-	"AvailableAmount" REAL
-);
-
-CREATE TABLE IF NOT EXISTS "GrossBudgetAuthorityOutlays" 
-(
-	"GrossBudgetAuthorityOutlaysId" INTEGER NOT NULL UNIQUE,
-	"ReportYear" TEXT DEFAULT 'NS',
-	"AgencyName" TEXT DEFAULT 'NS',
-	"OmbAccount" TEXT DEFAULT 'NS',
-	"Line" TEXT DEFAULT 'NS',
-	"LineNumber" TEXT DEFAULT 'NS',
-	"LineSection" TEXT DEFAULT 'NS',
-	"LineName" TEXT DEFAULT 'NS',
-	"BeaCategory" TEXT DEFAULT 'NS',
-	"BeaCategoryName" TEXT DEFAULT 'NS',
-	"LineCategory" TEXT DEFAULT 'NS',
-	"PriorYear" NUMERIC DEFAULT 0,
-	"CurrentYear" NUMERIC DEFAULT 0,
-	"BudgetYear" NUMERIC DEFAULT 0,
-	"OutYear1" NUMERIC DEFAULT 0,
-	"OutYear2" NUMERIC DEFAULT 0,
-	"OutYear3" NUMERIC DEFAULT 0,
-	"OutYear4" NUMERIC DEFAULT 0,
-	"OutYear5" NUMERIC DEFAULT 0,
-	"OutYear6" NUMERIC DEFAULT 0,
-	"OutYear7" NUMERIC DEFAULT 0,
-	"OutYear8" NUMERIC DEFAULT 0,
-	"OutYear9" NUMERIC DEFAULT 0,
-	PRIMARY KEY("GrossBudgetAuthorityOutlaysId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "UnobligatedAuthority" 
-(
-	"UnobligatedAuthorityId" INTEGER NOT NULL UNIQUE,
-	"ReportYear" TEXT(80) NULL DEFAULT 'NS',
-	"AgencyCode" TEXT(80) NULL DEFAULT 'NS',
-	"AgencyName" TEXT(80) NULL DEFAULT 'NS',
-	"BureauCode" TEXT(80) NULL DEFAULT 'NS',
-	"BureauName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccount" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"LineName" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetYear" REAL NULL DEFAULT 0.0,
-	"PriorYear" REAL NULL DEFAULT 0.0,
-	"CurrentYear" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("UnobligatedAuthorityId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "UnliquidatedObligations" 
-(
-	"UnliquidatedObligationsId" INTEGER NOT NULL UNIQUE,
-	"ObligationsId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ReferenceDocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivityDate" TEXT(80) NULL DEFAULT 'NS',
-	"Age" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"VendorCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("UnliquidatedObligationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "BudgetaryResourceExecution" 
-(
-	"BudgetaryResourceExecutionId" INTEGER NOT NULL UNIQUE,
-	"FiscalYear" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"LastUpdate" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccount" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAgencyCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"STAT" TEXT(80) NULL DEFAULT 'NS',
-	"CreditIndicator" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineDescription" TEXT(80) NULL DEFAULT 'NS',
-	"SectionName" TEXT(80) NULL DEFAULT 'NS',
-	"SectionNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineType" TEXT(80) NULL DEFAULT 'NS',
-	"FinancingAccounts" TEXT(80) NULL DEFAULT 'NS',
-	"November" REAL NULL DEFAULT 0.0,
-	"January" REAL NULL DEFAULT 0.0,
-	"Feburary" REAL NULL DEFAULT 0.0,
-	"April" REAL NULL DEFAULT 0.0,
-	"May" REAL NULL DEFAULT 0.0,
-	"June" REAL NULL DEFAULT 0.0,
-	"August" REAL NULL DEFAULT 0.0,
-	"October" REAL NULL DEFAULT 0.0,
-	"Amount1" REAL NULL DEFAULT 0.0,
-	"Amount2" REAL NULL DEFAULT 0.0,
-	"Amount3" REAL NULL DEFAULT 0.0,
-	"Amount4" REAL NULL DEFAULT 0.0,
-	"Agency" TEXT(80) NULL DEFAULT 'NS',
-	"Bureau" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("BudgetaryResourceExecutionId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ProgramFinancingSchedule" 
-(
-	"ProgramFinancingScheduleId" INTEGER NOT NULL UNIQUE,
-	"ReportYear" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAgencyCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"LedgerAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"SectionNumber" TEXT(80) NULL DEFAULT 'NS',
-	"SectionName" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineDescription" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAgencyCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbFundCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountTitle" TEXT(80) NULL DEFAULT 'NS',
-	"AgencySequence" TEXT(80) NULL DEFAULT 'NS',
-	"AccountSequence" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OriginalAmount" REAL NULL DEFAULT 0.0,
-	"BudgetAmount" REAL NULL DEFAULT 0.0,
-	"AgencyAmount" REAL NULL DEFAULT 0.0,
-	"Amount" REAL NULL DEFAULT 0.0,
-	"AgencyName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ProgramFinancingScheduleId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Transfers" 
-(
-	"TransfersId" INTEGER NOT NULL UNIQUE,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"DocPrefix" TEXT(80) NULL DEFAULT 'NS',
-	"DocType" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"ReprogrammingNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Quarter" TEXT(80) NULL DEFAULT 'NS',
-	"Line" TEXT(80) NULL DEFAULT 'NS',
-	"Subline" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"FromTo" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC DEFAULT 0,
-	"ResourceType" TEXT(80) NULL DEFAULT 'NS',
-	"Purpose" TEXT(80) DEFAULT 'NOT SPECIFIED',
-	"ExtendedPurpose" TEXT(80) DEFAULT 'NOT SPECIFIED',
-	PRIMARY KEY("TransfersId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Deobligations" 
-(
-	"DeobligationsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC DEFAULT 0,
-	PRIMARY KEY("DeobligationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Obligations" 
-(
-	"ObligationsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ReferenceDocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivityDate" TEXT(80) NULL DEFAULT 'NS',
-	"Age" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"VendorCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorName" TEXT(80) NULL DEFAULT 'NS',
-	"OpenCommitments" NUMERIC DEFAULT 0,
-	"Obligations" NUMERIC DEFAULT 0,
-	"ULO" NUMERIC DEFAULT 0,
-	"Expenditures" NUMERIC DEFAULT 0,
-	PRIMARY KEY("ObligationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Expenditures" 
-(
-	"ExpendituresId" INTEGER NOT NULL UNIQUE,
-	"ObligationsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ReferenceDocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivityDate" TEXT(80) NULL DEFAULT 'NS',
-	"Age" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"VendorCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC DEFAULT 0,
-	PRIMARY KEY("ExpendituresId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "OpenCommitments" 
-(
-	"OpenCommitmentsId" INTEGER NOT NULL UNIQUE,
-	"ObligationsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ReferenceDocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivityDate" TEXT(80) NULL DEFAULT 'NS',
-	"Age" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"VendorCode" TEXT(80) NULL DEFAULT 'NS',
-	"VendorName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC DEFAULT 0,
-	PRIMARY KEY('OpenCommitmentsId' AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "SubAppropriations" 
-(
-	"SubAppropriationsId" INTEGER NOT NULL UNIQUE,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("SubAppropriationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ApportionmentData" 
-(
-	"ApportionmentDataId" INTEGER NOT NULL UNIQUE,
-	"FiscalYear" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAppropriationFundSymbol" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAppropriationFundSymbolName" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"AvailabilityType" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"ApprovalDate" TEXT(80) NULL DEFAULT 'NS',
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("ApportionmentDataId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "AppropriationAvailableBalances" 
-(
-	"AppropriationAvailableBalancesId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationFundCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationFundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"Availability" TEXT(80) NULL DEFAULT 'NS',
-	"TotalAuthority" REAL NULL DEFAULT 0.0,
-	"TotalUsed" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("AppropriationAvailableBalancesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Appropriations" 
-(
-	"AppropriationsId" INTEGER NOT NULL UNIQUE,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("AppropriationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "UnobligatedBalances" 
-(
-	"UnobligatedBalancesId" INTEGER,
-	"BudgetYear" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccount" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountNumber" TEXT(80) NULL DEFAULT 'NS',
-	"AccountName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC NULL DEFAULT 0.0
-);
-
-CREATE TABLE IF NOT EXISTS "Funds" 
-(
-	"FundsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"ShortName" TEXT(80) NULL DEFAULT 'NS',
-	"Status" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" TEXT(80) NULL DEFAULT 'NS',
-	"SubLevelPrefix" TEXT(80) NULL DEFAULT 'NS',
-	"ATA" TEXT(80) NULL DEFAULT 'NS',
-	"AID" TEXT(80) NULL DEFAULT 'NS',
-	"BeginningPeriodOfAvailability" TEXT(80) NULL DEFAULT 'NS',
-	"EndingPeriodOfAvailability" TEXT(80) NULL DEFAULT 'NS',
-	"A" TEXT(80) NULL DEFAULT 'NS',
-	"MAIN" TEXT(80) NULL DEFAULT 'NS',
-	"SUB" TEXT(80) NULL DEFAULT 'NS',
-	"FundCategory" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubAppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundGroup" TEXT(80) NULL DEFAULT 'NS',
-	"NoYear" TEXT(80) NULL DEFAULT 'NS',
-	"Carryover" TEXT(80) NULL DEFAULT 'NS',
-	"CanceledYearSpendingAccount" TEXT(80) NULL DEFAULT 'NS',
-	"ApplyAtAllLevels" TEXT(80) NULL DEFAULT 'NS',
-	"BatsFund" TEXT(80) NULL DEFAULT 'NS',
-	"BatsEndDate" TEXT(80) NULL DEFAULT 'NS',
-	"BatsOptionId" TEXT(80) NULL DEFAULT 'NS',
-	"SecurityOrg" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FundsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "FundSymbols" 
-(
-	"FundSymbolsId" INTEGER NOT NULL UNIQUE,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FundSymbolsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "StateOrganizations" 
-(
-	"StateOrganizationsId" INTEGER NOT NULL UNIQUE,
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("StateOrganizationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "StateGrantObligations"
-(
-	"StateGrantObligationsId" INTEGER NOT NULL,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"StateCode" TEXT(80) NULL DEFAULT 'NS',
-	"StateName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC
-);
-
-CREATE TABLE IF NOT EXISTS "StatusOfEarmarks" 
-(
-	"StatusOfEarmarksId" INTEGER NOT NULL UNIQUE,
-	"StatusOfFundsId" INTEGER,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" TEXT(80) NULL DEFAULT 'NS',
-	"Budgeted" TEXT(80) NULL DEFAULT 'NS',
-	"Posted" TEXT(80) NULL DEFAULT 'NS',
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Expenditures" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Used" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("StatusOfEarmarksId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "NetTransfers" 
-(
-	"PrcId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Net" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC
-);
-
-CREATE TABLE IF NOT EXISTS "NetObligations" 
-(
-	"NetObligationsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("NetObligationsId")
-);
-
-CREATE TABLE IF NOT EXISTS "NetDeobligations" 
-(
-	"NetDeobligationsId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ProcessedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("NetDeobligationsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "NetAuthority" 
-(
-	"PrcId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Authority" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"Committed" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Obligated" REAL NULL DEFAULT 0.0,
-	"UnliquidatedObligations" REAL NULL DEFAULT 0.0,
-	"Unliquidated" REAL NULL DEFAULT 0.0,
-	"Used" REAL NULL DEFAULT 0.0,
-	"Utilization" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	"Availability" REAL NULL DEFAULT 0.0,
-	"Outlays" REAL NULL DEFAULT 0.0,
-	"Outlaid" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("PrcId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "MonthlyLedgerAccountBalances"
- (
-	"MonthlyLedgerAccountBalancesId" INTEGER NOT NULL,
-	"FiscalYear" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"LedgerAccount" TEXT(80) NULL DEFAULT 'NS',
-	"LedgerName" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbolName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"FiscalMonth" TEXT(80) NULL DEFAULT 'NS',
-	"CreditBalance" REAL NULL DEFAULT 0.0,
-	"DebitBalance" REAL NULL DEFAULT 0.0,
-	"YearToDateAmount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("MonthlyLedgerAccountBalancesId")
-);
-
-CREATE TABLE IF NOT EXISTS "CompassOutlays" 
-(
-	"CompassOutlaysId" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"MonthProcessed" TEXT(80) NULL DEFAULT 'NS',
-	"TotalObligations" REAL NULL DEFAULT 0.0,
-	"UnliquidatedObligations" REAL NULL DEFAULT 0.0,
-	"ObligationsPaid" NUMERIC
-);
-
-CREATE TABLE IF NOT EXISTS "AppropriationLevelAuthority" 
-(
-	"AppropriationBalancesId" INTEGER NOT NULL,
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"FiscalYear" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"CarryOut" REAL NULL DEFAULT 0.0,
-	"CarryIn" REAL NULL DEFAULT 0.0,
-	"EstimatedReimbursements" REAL NULL DEFAULT 0.0,
-	"EstimatedRecoveries" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("AppropriationBalancesId")
-);
-
-CREATE TABLE IF NOT EXISTS "FundCategories" 
-(
-	"FundCategoriesId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"ShortName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FundCategoriesId")
-);
-
-CREATE TABLE IF NOT EXISTS "CarryoverApportionments" 
-(
-	"CarryoverApportionmentsId" INTEGER NOT NULL,
-	"BudgetAccount" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccount" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"Group" TEXT(80) NULL DEFAULT 'NS',
-	"Description" TEXT(80) NULL DEFAULT 'NS',
-	"LineName" TEXT(80) NULL DEFAULT 'NS',
-	"AuthorityType" TEXT(80) NULL DEFAULT 'NS',
-	"Request" REAL NULL DEFAULT 0.0,
-	"Balance" REAL NULL DEFAULT 0.0,
-	"Deobligations" REAL NULL DEFAULT 0.0,
-	"Amount" REAL NULL DEFAULT 0.0,
-	"LineNumber" TEXT(80) NULL DEFAULT 'NS',
-	"LineSplit" TEXT(80) NULL DEFAULT 'NS',
-	"ApportionmentAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("CarryoverApportionmentsId")
-);
-
-CREATE TABLE IF NOT EXISTS "CompassLevels" 
-(
-	"CompassLevelsId" INTEGER NOT NULL,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubAppropriationCode" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentType" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Description" TEXT(80) NULL DEFAULT 'NS',
-	"PostedControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"ActualRecoveryTransType" TEXT(80) NULL DEFAULT 'NS',
-	"CommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetDefault" TEXT(80) NULL DEFAULT 'NS',
-	"LowerChildExpenditureSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerChildExpenseSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"FteControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"AccrualSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"ObligationSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"PreCommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerCommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerObligationSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerExpenditureSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerExpenseSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerPostedControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerPostedTransType" TEXT(80) NULL DEFAULT 'NS',
-	"LowerTransType" TEXT(80) NULL DEFAULT 'NS',
-	"LowerPostedFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerPreCommitmentSpendingControlFlag" TEXT(80) NULL DEFAULT 'NS',
-	"LowerRecoveriesSpendingOption" TEXT(80) NULL DEFAULT 'NS',
-	"LowerRecoveriesOption" TEXT(80) NULL DEFAULT 'NS',
-	"LowerReimbursableSpendingOption" TEXT(80) NULL DEFAULT 'NS',
-	"Date" TEXT(80) NULL DEFAULT 'NS',
-	"TotalAuthority" REAL NULL DEFAULT 0.0,
-	"OriginalAmount" REAL NULL DEFAULT 0.0,
-	"CarryoverAvailabilityPercentage" REAL NULL DEFAULT 0.0,
-	"CarryIn" REAL NULL DEFAULT 0.0,
-	"CarryOut" REAL NULL DEFAULT 0.0,
-	"FundsIn" REAL NULL DEFAULT 0.0,
-	"FundOut" REAL NULL DEFAULT 0.0,
-	"RecoveriesWithdrawn" REAL NULL DEFAULT 0.0,
-	"ActualRecoveries" REAL NULL DEFAULT 0.0,
-	"ActualReimbursements" REAL NULL DEFAULT 0.0,
-	"AgreementReimbursables" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("CompassLevelsId")
-);
-
-CREATE TABLE IF NOT EXISTS "AmericanRescuePlan" 
-(
-	"AmericanRescuePlanId" INTEGER,
-	"StatusOfFundsId" INTEGER,
-	"BudgetLevel" INTEGER,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" INTEGER,
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Expenditures" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Used" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS'
-);
-
-CREATE TABLE IF NOT EXISTS "AllowanceHolders" 
-(
-	"AllowanceHoldersId" INTEGER,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS'
-);
-
-CREATE TABLE IF NOT EXISTS "AnnualCarryoverEstimates" 
-(
-	"AnnualCarryoverEstimatesId" INTEGER,
-	"BFY" INTEGER,
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" INTEGER,
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" TEXT(80) NULL DEFAULT 'NS',
-	"OpenCommitments" TEXT(80) NULL DEFAULT 'NS',
-	"Obligations" TEXT(80) NULL DEFAULT 'NS',
-	"Available" TEXT(80) NULL DEFAULT 'NS',
-	"Estimate" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "AnnualReimbursableEstimates" 
-(
-	"ReimbursableEstimatesId" INTEGER,
-	"BFY" INTEGER,
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" INTEGER,
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" TEXT(80) NULL DEFAULT 'NS',
-	"OpenCommitments" TEXT(80) NULL DEFAULT 'NS',
-	"Obligations" TEXT(80) NULL DEFAULT 'NS',
-	"Available" TEXT(80) NULL DEFAULT 'NS',
-	"Estimate" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "BudgetObjectClasses" 
-(
-	"BudgetObjectClassesId" INTEGER,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "Accounts" 
-(
-	"AccountsId" INTEGER,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"GoalCode" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityName" TEXT(80) NULL DEFAULT 'NS',
-	"AgencyActivity" TEXT(80) NULL DEFAULT 'NS'
-);
-
-CREATE TABLE IF NOT EXISTS "ActivityCodes" 
-(
-	"ActivityId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"Description" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ActivityId")
-);
-
-CREATE TABLE IF NOT EXISTS "CapitalPlanningInvestmentCodes" 
-(
-	"CapitalPlanningInvestmentCodesId" INTEGER NOT NULL,
-	"Type" TEXT(80) NULL DEFAULT 'NS',
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("CapitalPlanningInvestmentCodesId")
-);
-
-CREATE TABLE IF NOT EXISTS "CongressionalControls" 
-(
-	"CongressionalControlsId" INTEGER NOT NULL,
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"SubProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ReprogrammingRestriction" TEXT(80) NULL DEFAULT 'NS',
-	"IncreaseRestriction" TEXT(80) NULL DEFAULT 'NS',
-	"DecreaseRestriction" TEXT(80) NULL DEFAULT 'NS',
-	"MemoRequirement" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("CongressionalControlsId")
-);
-
-CREATE TABLE IF NOT EXISTS "CostAreas" 
-(
-	"CostAreasId" INTEGER,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "Defactos" 
-(
-	"DefactosId" INTEGER NOT NULL,
-	"StatusOfFundsId" INTEGER,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"Budgeted" REAL NULL DEFAULT 0.0,
-	"Posted" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Expenditures" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"Used" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("DefactosId")
-);
-
-CREATE TABLE IF NOT EXISTS "Documents" 
-(
-	"DocumentsId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Category" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"System" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("DocumentsId")
-);
-
-CREATE TABLE IF NOT EXISTS "FederalHolidays" 
-(
-	"FederalHolidaysId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"Columbus" TEXT(80) NULL DEFAULT 'NS',
-	"Veterans" TEXT(80) NULL DEFAULT 'NS',
-	"Thanksgiving" TEXT(80) NULL DEFAULT 'NS',
-	"Christmas" TEXT(80) NULL DEFAULT 'NS',
-	"NewYears" TEXT(80) NULL DEFAULT 'NS',
-	"MartinLutherKing" TEXT(80) NULL DEFAULT 'NS',
-	"Washingtons" TEXT(80) NULL DEFAULT 'NS',
-	"Memorial" TEXT(80) NULL DEFAULT 'NS',
-	"Juneteenth" TEXT(80) NULL DEFAULT 'NS',
-	"Independence" TEXT(80) NULL DEFAULT 'NS',
-	"Labor" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FederalHolidaysId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "FiscalYears" 
-(
-	"BudgetFiscalYearsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" TEXT(80) NULL DEFAULT 'NS',
-	"Columbus" TEXT(80) NULL DEFAULT 'NS',
-	"Christmas" TEXT(80) NULL DEFAULT 'NS',
-	"Thanksgiving" TEXT(80) NULL DEFAULT 'NS',
-	"Veterans" TEXT(80) NULL DEFAULT 'NS',
-	"Labor" TEXT(80) NULL DEFAULT 'NS',
-	"Independence" TEXT(80) NULL DEFAULT 'NS',
-	"Juneteenth" TEXT(80) NULL DEFAULT 'NS',
-	"Memorial" TEXT(80) NULL DEFAULT 'NS',
-	"Washingtons" TEXT(80) NULL DEFAULT 'NS',
-	"MartinLutherKing" TEXT(80) NULL DEFAULT 'NS',
-	"NewYears" TEXT(80) NULL DEFAULT 'NS',
-	"ExpiringYear" TEXT(80) NULL DEFAULT 'NS',
-	"ExpirationDate" TEXT(80) NULL DEFAULT 'NS',
-	"CancellationDate" TEXT(80) NULL DEFAULT 'NS',
-	"WorkDays" INTEGER,
-	"WeekDays" INTEGER,
-	"WeekEnds" INTEGER,
-	"Availability" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("BudgetFiscalYearsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "FinanceObjectClasses" 
-(
-	"FinanceObjectClassesId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FinanceObjectClassesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "FullTimeEquivalents" 
-(
-	"FullTimeEquivialentsId" INTEGER NOT NULL,
-	"OperatingPlansId" INTEGER,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"ITProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectTypeName" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectTypeCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityName" TEXT(80) NULL DEFAULT 'NS',
-	"LocalCode" TEXT(80) NULL DEFAULT 'NS',
-	"LocalCodeName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"CostAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"CostAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"GoalCode" TEXT(80) NULL DEFAULT 'NS',
-	"GoalName" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveCode" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("FullTimeEquivialentsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "HeadquartersOffices" 
-(
-	"HeadquartersOfficesId" INTEGER NOT NULL,
-	"ResourcePlanningOfficesId" TEXT(80) NULL DEFAULT 'NS',
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("HeadquartersOfficesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "LedgerAccounts" 
-(
-	"LedgerAccountsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasurySymbol" TEXT(80) NULL DEFAULT 'NS',
-	"AccountNumber" TEXT(80) NULL DEFAULT 'NS',
-	"AccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BeginningBalance" REAL NULL DEFAULT 0.0,
-	"CreditBalance" REAL NULL DEFAULT 0.0,
-	"DebitBalance" REAL NULL DEFAULT 0.0,
-	"ClosingAmount" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("LedgerAccountsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "NationalPrograms" 
-(
-	"NationalProgramsId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"Title" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("NationalProgramsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "OperatingPlans" 
-(
-	"OperatingPlansId" INTEGER NOT NULL,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"ITProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectTypeName" TEXT(80) NULL DEFAULT 'NS',
-	"ProjectTypeCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityCode" TEXT(80) NULL DEFAULT 'NS',
-	"ActivityName" TEXT(80) NULL DEFAULT 'NS',
-	"LocalCode" TEXT(80) NULL DEFAULT 'NS',
-	"LocalCodeName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"CostAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"CostAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"GoalCode" TEXT(80) NULL DEFAULT 'NS',
-	"GoalName" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveCode" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectiveName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("OperatingPlansId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ProgramAreas" 
-(
-	"ProgramAreasId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ProgramAreasId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ProgramProjects" 
-(
-	"ProgramProjectsId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ProgramProjectsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "Projects" 
-(
-	"ProjectsId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ProjectsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "PublicLaws" 
-(
-	"PublicLawsId" INTEGER NOT NULL,
-	"LawNumber" TEXT(80) NULL DEFAULT 'NS',
-	"BillTitle" TEXT(80) NULL DEFAULT 'NS',
-	"EnactedDate" TEXT(80) NULL DEFAULT 'NS',
-	"Congress" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("PublicLawsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ResourcePlanningOffices" 
-(
-	"ResourcePlanningOfficesId" INTEGER NOT NULL,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("ResourcePlanningOfficesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "RegionalOffices" 
-(
-	"RegionalOfficesId" INTEGER NOT NULL,
-	"ResourcePlanningOfficesId" INTEGER,
-	"Code" TEXT(80) NULL DEFAULT 'NS',
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("RegionalOfficesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ReimbursableFunds" 
-(
-	"ReimbursableFundsId" INTEGER NOT NULL,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentControlNumber" TEXT(80) NULL DEFAULT 'NS',
-	"AgreeementNumber" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Available" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("ReimbursableFundsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "SpecialAccounts" 
-(
-	"SpecialAccountsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"SpecialAccountFund" TEXT(80) NULL DEFAULT 'NS',
-	"SpecialAccountNumber" TEXT(80) NULL DEFAULT 'NS',
-	"SpecialAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountStatus" TEXT(80) NULL DEFAULT 'NS',
-	"NplStatusCode" TEXT(80) NULL DEFAULT 'NS',
-	"NplStatusName" TEXT(80) NULL DEFAULT 'NS',
-	"SiteId" TEXT(80) NULL DEFAULT 'NS',
-	"CerclisId" TEXT(80) NULL DEFAULT 'NS',
-	"SiteCode" TEXT(80) NULL DEFAULT 'NS',
-	"SiteName" TEXT(80) NULL DEFAULT 'NS',
-	"OperableUnit" TEXT(80) NULL DEFAULT 'NS',
-	"PipelineCode" TEXT(80) NULL DEFAULT 'NS',
-	"PipelineDescription" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"TransactionType" TEXT(80) NULL DEFAULT 'NS',
-	"TransactionTypeName" TEXT(80) NULL DEFAULT 'NS',
-	"FocCode" TEXT(80) NULL DEFAULT 'NS',
-	"FocName" TEXT(80) NULL DEFAULT 'NS',
-	"TransactionDate" TEXT(80) NULL DEFAULT 'NS',
-	"AvailableBalance" REAL NULL DEFAULT 0.0,
-	"OpenCommitments" REAL NULL DEFAULT 0.0,
-	"Obligations" REAL NULL DEFAULT 0.0,
-	"ULO" REAL NULL DEFAULT 0.0,
-	"Disbursements" REAL NULL DEFAULT 0.0,
-	"UnpaidBalances" REAL NULL DEFAULT 0.0,
-	"Collections" REAL NULL DEFAULT 0.0,
-	"CumulativeReceipts" REAL NULL DEFAULT 0.0,
-	PRIMARY KEY("SpecialAccountsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "SiteProjectCodes" 
-(
-	"SiteProjectCodesId" INTEGER,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"State" TEXT(80) NULL DEFAULT 'NS',
-	"CongressionalDistrict" TEXT(80) NULL DEFAULT 'NS',
-	"EpaSiteId" TEXT(80) NULL DEFAULT 'NS',
-	"SiteProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"SiteProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"SSID" TEXT(80) NULL DEFAULT 'NS',
-	"ActionCode" TEXT(80) NULL DEFAULT 'NS',
-	"OperableUnit" TEXT
-);
-
-CREATE TABLE IF NOT EXISTS "TransTypes" 
-(
-	"TransTypesId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"DocType" TEXT(80) NULL DEFAULT 'NS',
-	"AppropriationBill" TEXT(80) NULL DEFAULT 'NS',
-	"ContinuingResolution" TEXT(80) NULL DEFAULT 'NS',
-	"RescissionCurrentYear" TEXT(80) NULL DEFAULT 'NS',
-	"RescissionPriorYear" TEXT(80) NULL DEFAULT 'NS',
-	"SequesterReduction" TEXT(80) NULL DEFAULT 'NS',
-	"SequesterReturn" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("TransTypesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "BudgetControls" 
-(
-	"BudgetControlsId" INTEGER NOT NULL UNIQUE,
-	"Code" TEXT DEFAULT 'NS',
-	"Name" TEXT DEFAULT 'NS',
-	"BudgetedTransType" TEXT DEFAULT 'NS',
-	"PostedTransType" TEXT DEFAULT 'NS',
-	"EstimatedReimbursementsTransType" TEXT DEFAULT 'NS',
-	"SpendingAdjustmentTransType" TEXT DEFAULT 'NS',
-	"EstimatedRecoveriesTransType" TEXT DEFAULT 'NS',
-	"ActualRecoveriesTransType" TEXT DEFAULT 'NS',
-	"StatusReserveTransType" TEXT DEFAULT 'NS',
-	"ProfitLossTransType" TEXT DEFAULT 'NS',
-	"EstimatedReimbursementsSpendingOption" TEXT DEFAULT 'NS',
-	"EstimatedReimursementsBudgetingOption" TEXT DEFAULT 'NS',
-	"TrackAgreementLowerLevel" TEXT DEFAULT 'NS',
-	"BudgetEstimatedLowerLevel" TEXT DEFAULT 'NS',
-	"EstimatedRecoveriesSpendingOption" TEXT DEFAULT 'NS',
-	"EstimatedRecoveriesBudgetingOption" TEXT DEFAULT 'NS',
-	"RecoveryNextLevel" TEXT DEFAULT 'NS',
-	"RecoveryBudgetMismatch" TEXT DEFAULT 'NS',
-	"ProfitLossSpendingOption" TEXT DEFAULT 'NS',
-	"ProfitLossBudgetOption" TEXT DEFAULT 'NS',
-	"RecoveriesCarryInLowerLevel" TEXT DEFAULT 'NS',
-	"RecoveriesCarryInLowerLevelControl" TEXT DEFAULT 'NS',
-	"RecoveriesCarryInAmountControl" TEXT DEFAULT 'NS',
-	"BudgetedControl" TEXT DEFAULT 'NS',
-	"PostedControl" TEXT DEFAULT 'NS',
-	"PreCommitmentSpendingControl" TEXT DEFAULT 'NS',
-	"CommitmentSpendingControl" TEXT DEFAULT 'NS',
-	"ObligationSpendingControl" TEXT DEFAULT 'NS',
-	"AccrualSpendingControl" TEXT DEFAULT 'NS',
-	"ExpenditureSpendingControl" TEXT DEFAULT 'NS',
-	"ExpenseSpendingControl" TEXT DEFAULT 'NS',
-	"ReimbursableSpendingControl" TEXT DEFAULT 'NS',
-	"ReimbursableAgreementSpendingControl" TEXT DEFAULT 'NS',
-	"FteBudgetingControl" TEXT DEFAULT 'NS',
-	"FteSpendingControl" TEXT DEFAULT 'NS',
-	"TransactionTypeControl" TEXT DEFAULT 'NS',
-	"AuthorityDistributionControl" TEXT DEFAULT 'NS',
-	PRIMARY KEY("BudgetControlsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "ObjectClassOutlays" 
-(
-	"ObjectClassOutlaysId" INTEGER,
-	"ReportYear" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAgencyCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAgencyName" TEXT(80) NULL DEFAULT 'NS',
-	"OmbBureauCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbBureauName" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"OmbAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"ObligationType" TEXT(80) NULL DEFAULT 'NS',
-	"DirectReimbursableTitle" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectClassGroupNumber" TEXT(80) NULL DEFAULT 'NS',
-	"ObjectClassGroupName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"FinanceObjectClass" TEXT(80) NULL DEFAULT 'NS',
-	"PriorYear" NUMERIC NULL DEFAULT 0.0,
-	"CurrentYear" NUMERIC NULL DEFAULT 0.0,
-	"BudgetYear" INTEGER DEFAULT 0.0
-);
-
-CREATE TABLE IF NOT EXISTS "PayPeriods" 
-(
-	"PayPeriodsId" INTEGER NOT NULL UNIQUE,
-	"Period" TEXT(80) NULL DEFAULT 'NS',
-	"PayPeriod" TEXT(80) NULL DEFAULT 'NS',
-	"StartDate" TEXT(80) NULL DEFAULT 'NS',
-	"EndDate" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("PayPeriodsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "PayrollAuthority" 
-(
-	"PayrollAuthorityId" INTEGER NOT NULL UNIQUE,
-	"AllocationsId" INTEGER NOT NULL,
-	"StatusOfFundsId" INTEGER NOT NULL,
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC NULL DEFAULT 0.0,
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("PayrollAuthorityId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "PayrollCostCodes" 
-(
-	"PayrollCostCodesId" INTEGER NOT NULL UNIQUE,
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"SubRcCode" TEXT(80) NULL DEFAULT 'NS',
-	"SubRcName" TEXT(80) NULL DEFAULT 'NS',
-	"HrOrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"HrOrgName" TEXT(80) NULL DEFAULT 'NS',
-	"WorkCode" TEXT(80) NULL DEFAULT 'NS',
-	"WorkCodeName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("PayrollCostCodesId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "PayrollRequests" 
-(
-	"PayrollRequestsId" INTEGER NOT NULL UNIQUE,
-	"ControlTeamAnalyst" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"DocumentTitle" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC NULL DEFAULT 0.0,
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"Status" TEXT(80) NULL DEFAULT 'NS',
-	"OriginalRequestDate" TEXT(80) NULL DEFAULT 'NS',
-	"LastActivityDate" TEXT(80) NULL DEFAULT 'NS',
-	"BFS" TEXT(80) NULL DEFAULT 'NS',
-	"Comments" TEXT(80) NULL DEFAULT 'NS',
-	"RequestDocument" TEXT(80) NULL DEFAULT 'NS',
-	"Duration" INTEGER DEFAULT 0,
-	PRIMARY KEY("PayrollRequestsId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "StatusOfJobsActFunding" 
-(
-	"StatusOfJobsActFundingId" INTEGER UNIQUE,
-	"StatusOfFundsId" INTEGER,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC NULL DEFAULT 0.0,
-	"Budgeted" NUMERIC NULL DEFAULT 0.0,
-	"Posted" NUMERIC NULL DEFAULT 0.0,
-	"OpenCommitments" NUMERIC NULL DEFAULT 0.0,
-	"ULO" NUMERIC NULL DEFAULT 0.0,
-	"Expenditures" NUMERIC NULL DEFAULT 0.0,
-	"Obligations" NUMERIC NULL DEFAULT 0.0,
-	"Used" NUMERIC NULL DEFAULT 0.0,
-	"Available" NUMERIC NULL DEFAULT 0.0,
-	"Balance" NUMERIC NULL DEFAULT 0.0,
-	"TreasuryAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"TreasuryAccountName" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BudgetAccountName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("StatusOfJobsActFundingId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "StatusOfSupplementalFunding" 
-(
-	"SupplementalAuthorityId" INTEGER NOT NULL UNIQUE,
-	"StatusOfFundsId" INTEGER NOT NULL,
-	"BudgetLevel" TEXT(80) NULL DEFAULT 'NS',
-	"BFY" TEXT(80) NULL DEFAULT 'NS',
-	"EFY" TEXT(80) NULL DEFAULT 'NS',
-	"RpioCode" TEXT(80) NULL DEFAULT 'NS',
-	"RpioName" TEXT(80) NULL DEFAULT 'NS',
-	"AhCode" TEXT(80) NULL DEFAULT 'NS',
-	"AhName" TEXT(80) NULL DEFAULT 'NS',
-	"FundCode" TEXT(80) NULL DEFAULT 'NS',
-	"FundName" TEXT(80) NULL DEFAULT 'NS',
-	"OrgCode" TEXT(80) NULL DEFAULT 'NS',
-	"OrgName" TEXT(80) NULL DEFAULT 'NS',
-	"AccountCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocCode" TEXT(80) NULL DEFAULT 'NS',
-	"BocName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramProjectName" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaCode" TEXT(80) NULL DEFAULT 'NS',
-	"ProgramAreaName" TEXT(80) NULL DEFAULT 'NS',
-	"RcCode" TEXT(80) NULL DEFAULT 'NS',
-	"RcName" TEXT(80) NULL DEFAULT 'NS',
-	"LowerName" TEXT(80) NULL DEFAULT 'NS',
-	"Amount" NUMERIC NULL DEFAULT 0.0,
-	"Budgeted" NUMERIC NULL DEFAULT 0.0,
-	"Posted" NUMERIC NULL DEFAULT 0.0,
-	"OpenCommitments" NUMERIC NULL DEFAULT 0.0,
-	"ULO" NUMERIC NULL DEFAULT 0.0,
-	"Expenditures" NUMERIC NULL DEFAULT 0.0,
-	"Obligations" NUMERIC NULL DEFAULT 0.0,
-	"Used" NUMERIC NULL DEFAULT 0.0,
-	"Available" NUMERIC NULL DEFAULT 0.0,
-	"Balance" NUMERIC NULL DEFAULT 0.0,
-	"NpmCode" TEXT(80) NULL DEFAULT 'NS',
-	"NpmName" TEXT(80) NULL DEFAULT 'NS',
-	PRIMARY KEY("SupplementalAuthorityId" AUTOINCREMENT)
-);
-
-CREATE TABLE IF NOT EXISTS "URL" 
-(
-	"SourceId" INTEGER,
-	"Name" TEXT(80) NULL DEFAULT 'NS',
-	"Location" TEXT(80) NULL DEFAULT 'NS',
-	"Address" TEXT
-);
-COMMIT;
