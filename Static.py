@@ -100,6 +100,7 @@ class Source( Enum ):
     AdministrativeRequests = auto( )
     Allocations = auto( )
     AmericanRescuePlan = auto( )
+    AmericanRescuePlanCarryoverEstimates = auto( )
     AnnualCarryoverEstimates = auto( )
     AnnualReimbursableEstimates = auto( )
     AppropriationAvailableBalances = auto( )

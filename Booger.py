@@ -1322,7 +1322,7 @@ class ErrorDialog( Sith ):
 		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
 			            font = _font ) ],
 		            [ sg.Text( size = (150, 1) ) ],
-		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz ) ],
+		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz )],
 		            [ sg.Text( ) ],
 		            [ sg.Text( size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
 		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]

@@ -62,6 +62,7 @@ class Unit( ):
     representing fundemental unit of data
     in the Budget Execution application'''
     __index = None
+    __code = None
 
     @property
     def id( self ) -> int:
@@ -166,7 +167,7 @@ class BudgetUnit( DataUnit ):
         if value is not None:
             self.__budgetaccountname = value
 
-    def __init__( self, id: int, code: str, nam: str, treas: str, omb: str ):
+    def __init__( self, id: int, code: str, name: str, treas: str, omb: str ):
         super( ).__init__( id, code, name )
         self.__treasuryaccountcode = treas
         self.__budgetaccountcode = omb
@@ -606,7 +607,7 @@ class AllowanceHolder( ):
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
-            _sql = SqlStatement( dconfig, sconfig )
+            _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.get_query( )
@@ -1024,7 +1025,7 @@ class AnnualCarryoverEstimate( ):
 
     @property
     def available( self ) -> float:
-        if self.__available is not None:
+        if self.__availablebalance is not None:
             return self.__availablebalance
 
     @available.setter
@@ -1460,7 +1461,7 @@ class Appropriation( ):
             return self.__data
 
     @data.setter
-    def data( self, valu: list[ Row ] ):
+    def data( self, value: list[ Row ] ):
         if isinstance( value, list ):
             self.__data = value
 
@@ -1981,15 +1982,15 @@ class AppropriationLevelAuthority( ):
                            'Name' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__code, str ) and self.__code != '':
-            return self.__code
+        if isinstance( self.__fundcode, str ) and self.__fundcode != '':
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code' ]
-            _values = ( self.__code )
+            _values = ( self.__fundcode )
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -3653,13 +3654,13 @@ class BudgetDocument( ):
 
     @property
     def id( self ) -> int:
-        if isinstance( self.__statusoffundsid, int ):
-            return self.__statusoffundsid
+        if isinstance( self.__budgetdocumentsid, int ):
+            return self.__budgetdocumentsid
 
     @id.setter
     def id( self, value: int ):
-        if self.__statusoffundsid is not None:
-            self.__statusoffundsid = value
+        if self.__budgetdocumentsid is not None:
+            self.__budgetdocumentsid = value
 
     @property
     def bfy( self ) -> str:
@@ -3733,7 +3734,7 @@ class BudgetDocument( ):
 
     @property
     def fund_code( self ) -> str:
-        if self.__fund_code is not None:
+        if self.__fundcode is not None:
             return self.__fundcode
 
     @fund_code.setter
@@ -3783,7 +3784,7 @@ class BudgetDocument( ):
 
     @property
     def last_document_date( self ) -> str:
-        if self.__lastdocumnetdate is not None:
+        if self.__lastdocumentdate is not None:
             return self.__lastdocumentdate
 
     @last_document_date.setter
@@ -3933,7 +3934,7 @@ class BudgetDocument( ):
 
     @property
     def accrual_controls( self ) -> str:
-        if self.__accrual_controls is not None:
+        if self.__accrualcontrols is not None:
             return self.__accrualcontrols
 
     @accrual_controls.setter
@@ -3953,7 +3954,7 @@ class BudgetDocument( ):
 
     @property
     def expense_controls( self ) -> str:
-        if self.__expense_controls is not None:
+        if self.__expensecontrols is not None:
             return self.__expensecontrols
 
     @expense_controls.setter
@@ -3973,7 +3974,7 @@ class BudgetDocument( ):
 
     @property
     def reimbursable_agreement_controls( self ) -> str:
-        if self.__reimbursableagreementcontrols is not NOne:
+        if self.__reimbursableagreementcontrols is not None:
             return self.__reimbursableagreementcontrols
 
     @reimbursable_agreement_controls.setter
@@ -4491,8 +4492,8 @@ class BudgetControl( ):
 
     @property
     def budget_estimated_lowerlevels( self ) -> str:
-        if self.__budgetedestimatedlowerlevels is not None:
-            return self.__budgetedestimatedlowerlevels
+        if self.__budgetestimatedlowerlevels is not None:
+            return self.__budgetestimatedlowerlevels
 
     @budget_estimated_lowerlevels.setter
     def budget_estimated_lowerlevels( self, value: str ):
@@ -6459,7 +6460,7 @@ class Commitment( ):
 
     @property
     def reference_document_number( self ) -> str:
-        if self.__referencedocumentnumbe is not None:
+        if self.__referencedocumentnumber is not None:
             return self.__referencedocumentnumber
 
     @reference_document_number.setter
@@ -8247,7 +8248,7 @@ class DocumentControlNumber( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'DocumentControlNumber', ]
-            _values = (self.__dcn,)
+            _values = (self.__documentcontrolnumber,)
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -8477,26 +8478,6 @@ class Expenditure( ):
     def boc_name( self, value: str ):
         if value is not None:
             self.__bocname = value
-
-    @property
-    def org_code( self ) -> str:
-        if self.__orgcode is not None:
-            return self.__orgcode
-
-    @org_code.setter
-    def org_code( self, value: str ):
-        if value is not None:
-            self.__orgcode = value
-
-    @property
-    def org_name( self  ):
-        if self.__orgname is not None:
-            return self.__orgname
-
-    @org_name.setter
-    def org_name( self, value  ):
-        if value is not None:
-            self.__orgname = value
 
     @property
     def rc_code( self ) -> str:
@@ -11206,8 +11187,8 @@ class HeadquartersOffice( ):
 
 
     def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
+        if self.__rpiocode is not None:
+            return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -11464,7 +11445,7 @@ class InflationReductionActCarryoverEstimate( ):
     def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AnnualCarryoverEstimates
-        self.__bfy = bfyn
+        self.__bfy = bfy
         self.__fields = [ 'CarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
@@ -18232,16 +18213,6 @@ class StatusOfSpecialAccountFunds( ):
             self.__programcode = value
 
     @property
-    def transaction_description( self ):
-	    if self.__transactiondescription is not None:
-		    return self.__transactiondescription
-
-	@transaction_description.setter
-    def transaction_description( self, value: str ):
-        if value is not None:
-            self.__transactiondescription = value
-
-    @property
     def interest_date( self ) -> datetime:
         if self.__interestdate is not None:
             return self.__interestdate
@@ -19902,7 +19873,7 @@ class SpendingRate( ):
                           'OutYear11',
                           'TotalSpendout' ]
 
-    def get_data( self  ) -> list[ tuple ]:
+    def get_data( self  ) -> list[ Row ]:
         try:
             _source = self.__source
             _provider = self.__provider
@@ -19911,7 +19882,7 @@ class SpendingRate( ):
             _values = (self.__budgetaccountcode,)
             _db = DataBuilder( source, provider, _command, _names, _values )
             self.__data = [ i for i in _db.create_table( ) ]
-            return [ tuple( i )  for i in self.__data ]
+            return [ i  for i in self.__data ]
 
         except Exception as e:
             _exc = Error( e )
