@@ -11446,7 +11446,7 @@ class InflationReductionActCarryoverEstimate( ):
         self.__provider = provider
         self.__source = Source.AnnualCarryoverEstimates
         self.__bfy = bfy
-        self.__fields = [ 'CarryoverEstimatesId',
+        self.__fields = [ 'AnnualCarryoverEstimatesId',
                            'BudgetLevel',
                            'BFY',
                            'EFY',
@@ -11469,8 +11469,8 @@ class InflationReductionActCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__unobligatedauthority, float ):
-            return str( self.__unobligatedauthority )
+        if self.__fundcode is not None:
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -11747,8 +11747,8 @@ class JobsActCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__unobligatedauthority, float ):
-            return str( self.__unobligatedauthority )
+        if self.__fundcode is not None:
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -11831,8 +11831,8 @@ class MonthlyActual( ):
 
     @property
     def id( self ) -> int:
-        if self.__actualsid is not None:
-            return self.__actualsid
+        if self.__monthlyactualsid is not None:
+            return self.__monthlyactualsid
 
     @id.setter
     def id( self, value: int ):
@@ -12634,8 +12634,8 @@ class Objective( ):
 
     def get_data( self  ) -> list[ Row ]:
         try:
-            source = Source.Objectives
-            provider = Provider.SQLite
+            _source = Source.Objectives
+            _provider = Provider.SQLite
             _names = [ 'Code', ]
             _values = (self.__code,)
             _dbconfig = DbConfig( _source, _provider )
@@ -12950,7 +12950,7 @@ class OperatingPlan( ):
 
     @property
     def boc_code( self ) -> str:
-        if self.__boccod is not None:
+        if self.__boccode is not None:
             return self.__boccode
 
     @boc_code.setter
@@ -13242,6 +13242,7 @@ class OpenCommitment( ):
     __foccode = None
     __focname = None
     __amount = None
+    _posted = None
     __goalcode = None
     __goalname = None
     __objectivecode = None
@@ -14263,7 +14264,7 @@ class Obligation( ):
 
     @property
     def document_type( self ) -> str:
-        if self.__documenttyp is not None:
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
@@ -15469,8 +15470,8 @@ class ProgramResultsCode( ):
                            'NpmName' ]
 
     def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
+        if self.__fundcode is not None:
+            return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -15481,7 +15482,7 @@ class ProgramResultsCode( ):
                       'AccountCode', 'BocCode', 'Amount' ]
             _values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                        self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
-            _db = DataBuilder( source, provider, _command, _names, _values )
+            _db = DataBuilder( _source, _provider, _command, _names, _values )
             self.__data = _db.create_table( )
             return [ ( i ) for i in self.__data ]
         except Exception as e:
@@ -15850,8 +15851,8 @@ class RegionalOffice( ):
                           'RpioName' ]
 
     def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
+        if self.__rpiocode is not None:
+            return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -15974,7 +15975,7 @@ class ReimbursableAgreement( ):
 
     @property
     def account_code( self ) -> str:
-        if self.__accountname is not None:
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -17176,7 +17177,7 @@ class StatusOfFunds( ):
             _source = self.__source
             _provider = self.__provider
             _dbconfig = DbConfig( _source, _provider )
-            sconfig = SqlConfig( )
+            _sqlconfig = SqlConfig( )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
@@ -17892,7 +17893,7 @@ class StateGrantObligation( ):
 
     @property
     def account_code( self ) -> str:
-        if self.__accountname is not None:
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
@@ -19880,7 +19881,7 @@ class SpendingRate( ):
             _command = SQL.SELECTALL
             _names = [ 'OmbAccountCode', ]
             _values = (self.__budgetaccountcode,)
-            _db = DataBuilder( source, provider, _command, _names, _values )
+            _db = DataBuilder( _source, _provider, _command, _names, _values )
             self.__data = [ i for i in _db.create_table( ) ]
             return [ i  for i in self.__data ]
 
@@ -21665,7 +21666,7 @@ class StatusOfSuperfundSites( ):
 
     def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.SiteActivity
+        self.__source = Source.StatusOfSuperfundSites
         self.__bfy = bfy
         self.__efy = efy
         self.__rpiocode = rpio
@@ -22141,7 +22142,7 @@ class SpendingDocument( ):
 
     @property
     def document_type( self ) -> str:
-        if self.__documenttyp is not None:
+        if self.__documenttype is not None:
             return self.__documenttype
 
     @document_type.setter
@@ -22623,8 +22624,8 @@ class SupplementalCarryoverEstimate( ):
                            'UnobligatedAuthority' ]
 
     def __str__( self ) -> str:
-        if  self.__accountcode is not None:
-            return self.__accountcode
+        if  self.__rpiocode is not None:
+            return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -22796,10 +22797,10 @@ class TreasurySymbol( ):
             command = SQL.SELECTALL
             _names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
             _values = (self.__bfy, self.__efy, self.__treasuryaccountcode)
-            dbcfg = DbConfig( source, provider )
-            sqlcfg = SqlConfig( names = n, values = v )
+            dbcfg = DbConfig( _source, _provider )
+            sqlcfg = SqlConfig( names = _names, _values = v )
             _connection = Connection( self.__source )
-            sql = SqlStatement( dbcfg, sqlcfg )
+            _sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
             _query = _sql.create_sqltext( )
@@ -23226,7 +23227,7 @@ class Transfer( ):
             command = SQL.SELECTALL
             _names = [ 'DocumentNumber', ]
             _values = (self.__documentnumber,)
-            _sqlconfig = SqlConfig( names = _names, values = _values )
+            _sqlconfig = SqlConfig( names = _names, _values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
@@ -23538,7 +23539,7 @@ class UnliquidatedObligation( ):
 
     @property
     def account_code( self ) -> str:
-        if self.__accountname is not None:
+        if self.__accountcode is not None:
             return self.__accountcode
 
     @account_code.setter
