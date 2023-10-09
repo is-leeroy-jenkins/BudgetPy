@@ -55,7 +55,7 @@ from Data import ( DbConfig, SqlConfig, Connection,
 class Unit( ):
     '''
     Constructor: Unit( id: int )
-     
+
     Purpose: Base class defines an object
     representing fundemental unit of data
     in the Budget Execution application'''
@@ -72,7 +72,7 @@ class Unit( ):
             self.__index = id
 
     def __init__( self, id: int ):
-        self.__index = id 
+        self.__index = id
 
     def __str__( self ) -> str:
         if self.__code is not None:
@@ -81,7 +81,7 @@ class Unit( ):
 class DataUnit( Unit ):
     '''
     Constructor: DataUnit( id: int, code: str, name: str )
-    
+
     Purpose: Base class providing a code and name
     '''
     __index = None
@@ -106,8 +106,8 @@ class DataUnit( Unit ):
     def __init__( self, id: int, code: str, name: str ):
         super( ).__init__( id )
         self.__id = super( ).id
-        self.__code = code 
-        self.__name = name 
+        self.__code = code
+        self.__name = name
 
     def __str__( self ) -> str:
         if self.__code is not None:
@@ -116,7 +116,7 @@ class DataUnit( Unit ):
 class BudgetUnit( DataUnit ):
     '''
     Constructor: BudgetUnit( id: int, code: str, nam: str, treas: str, main: str )
-    
+
     Purpose: Base class for OMB reporting classes
     '''
     __treasuryaccountcode = None
@@ -166,8 +166,8 @@ class BudgetUnit( DataUnit ):
 
     def __init__( self, id: int, code: str, nam: str, treas: str, omb: str ):
         super( ).__init__( id, code, name )
-        self.__treasuryaccountcode = treas 
-        self.__budgetaccountcode = omb 
+        self.__treasuryaccountcode = treas
+        self.__budgetaccountcode = omb
 
 class Account( ):
     '''
@@ -383,7 +383,7 @@ class Account( ):
 class ActivityCode( ):
     '''
     Constructor: ActivityCode( treas: str, pvdr: Provider = Provider.SQLite )
-    
+
     Purpose: Data class representing Activity Codes
     '''
     __source = None
@@ -512,7 +512,7 @@ class ActivityCode( ):
 class AllowanceHolder( ):
     '''
     Constructor: AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
-    
+
     Purpose: Data class representing Allowance Holders'''
     __source = None
     __provider = None
@@ -639,7 +639,7 @@ class AllowanceHolder( ):
 class AmericanRescuePlanCarryoverEstimate( ):
     '''
     Constructor: CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
-    
+
     Purpose: Class representing estimates for ARP carryover
     '''
     __source = None
@@ -917,7 +917,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 class AnnualCarryoverEstimate( ):
     '''
     Constructor: AnnualCarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
-    
+
     Purpose: Class providing Carryover Estimate data for'''
     __source = None
     __provider = None
@@ -1196,7 +1196,7 @@ class AnnualCarryoverEstimate( ):
 class AnnualReimbursableEstimate( ):
     '''
     Constructor: AnnualReimbursableEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
-    
+
     Purpose:  Class defining object representing reimbursable estimates'''
     __source = None
     __provider = None
@@ -1475,7 +1475,7 @@ class Appropriation( ):
     def __init__( self, code: str ):
         self.__source = Source.Appropriations
         self.__provider = Provider.SQLite
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'AppropriationsId',
                            'Code',
                            'Name' ]
@@ -1489,7 +1489,7 @@ class Appropriation( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code' ]
-            _values = ( self.__code )
+            _values = ( self.__code, )
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -1755,7 +1755,7 @@ class AppropriationAvailableBalance( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code' ]
-            _values = (self.__fundcode)
+            _values = ( self.__fundcode, )
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -5166,7 +5166,7 @@ class BudgetObjectClass( ):
     def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.BudgetObjectClasses
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'BudgetObjectClassesId',
                           'Code',
                           'Name' ]
@@ -5665,7 +5665,7 @@ class Outlay( ):
     def __init__( self, account: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Outlays
-        self.__budgetaccountcode = account 
+        self.__budgetaccountcode = account
         self.__fields = [ 'BudgetOutlaysId',
                           'ReportYear',
                           'Category',
@@ -6777,7 +6777,7 @@ class CostArea( ):
             self.__fields = value
 
     def __init__( self, code: str, provider: Provider = Provider.SQLite ):
-        self.__code = code 
+        self.__code = code
         self.__provider = provider
         self.__fields = [ 'CostAreasId',
                           'Code',
@@ -9391,9 +9391,9 @@ class Fund( ):
                   code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Funds
-        self.__bfy = bfy 
-        self.__efy = efy 
-        self.__code = code 
+        self.__bfy = bfy
+        self.__efy = efy
+        self.__code = code
         self.__fields = [ 'FundsId',
                           'BFY',
                           'EFY',
@@ -14817,7 +14817,7 @@ class ProgramArea( ):
     def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ProgramAreas
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'ProgramAreasId',
                           'Code',
                           'Name' ]
@@ -14967,7 +14967,7 @@ class ProgramProject( ):
     def __init__( self, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ProgramProjects
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'ProgramProjectsId',
                           'Code',
                           'Name',
@@ -18105,9 +18105,9 @@ class StateGrantObligation( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SpecialAccount( ):
+class StatusOfSpecialAccountFunds( ):
     '''
-     Constructor:  SpecialAccount( bfy = None, fund = None,
+     Constructor:  StatusOfSpecialAccountFunds( bfy = None, fund = None,
                   account = None, boc = None, pvdr = Provider.SQLite )
 
      Purpose: Class defines object providing SF Special Account data
@@ -18121,34 +18121,32 @@ class SpecialAccount( ):
     __fundname = None
     __rpiocode = None
     __rpioname = None
-    __specialaccountfundcode = None
-    __specialaccountfundname = None
     __specialaccountnumber = None
     __specialaccountname = None
-    __accountstatus = None
-    __nplstatus = None
+    __specialaccountstatus = None
     __nplstatusname = None
     __nplstatuscode = None
-    __siteid = None
+    __epasiteid = None
     __cerclisid = None
     __sitecode = None
     __sitename = None
     __operableunit = None
     __pipelinecode = None
     __pipelinedescription = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
+    __programcode = None
+    __interestdate = None
+    __trustfundtransfer = None
     __transactiontype = None
-    __transactiontypename = None
+    __transactiondescription = None
     __availablebalance = None
     __opencommitments = None
     __obligations = None
     __unliquidatedobligations = None
     __disbursements = None
     __unpaidbalances = None
-    __collections = None
+    __collectionsandinterest = None
     __cumulativereciepts = None
+    __netreceipts = None
     __fields = None
     __data = None
     __frame = None
@@ -18204,74 +18202,71 @@ class SpecialAccount( ):
             self.__rpioname = value
 
     @property
-    def foc_code( self ) -> str:
-        if self.__foccode is not None:
-            return self.__foccode
+    def site_code( self ) -> str:
+        if self.__sitecode is not None:
+            return self.__sitecode
 
-    @foc_code.setter
-    def foc_code( self, value: str ):
+    @site_code.setter
+    def site_code( self, value: str ):
         if value is not None:
-            self.__rccode = value
+            self.__sitecode = value
 
     @property
-    def foc_name( self ) -> str:
-        if self.__focname is not None:
-            return self.__focname
+    def site_name( self ) -> str:
+        if self.__sitename is not None:
+            return self.__sitename
 
-    @foc_name.setter
-    def foc_name( self, value: str ):
+    @site_name.setter
+    def site_name( self, value: str ):
         if value is not None:
-            self.__focname = value
+            self.__sitename = value
 
     @property
-    def account_code( self ) -> str:
-        if self.__accountname is not None:
-            return self.__accountcode
+    def program_code( self ) -> str:
+        if self.__programcode is not None:
+            return self.__programcode
 
-    @account_code.setter
-    def account_code( self, value: str ):
+    @program_code.setter
+    def program_code( self, value: str ):
         if value is not None:
-            self.__accountcode = value
+            self.__programcode = value
+
+	@property
+	def transaction_description( self ):
+		if self.__transactiondescription is not None:
+			return self.__transactiondescription
+
+	@transaction_description.setter
 
     @property
-    def boc_code( self ) -> str:
-        if self.__boccode is not None:
-            return self.__boccode
+    def transaction_description( self ):
+	    if self.__transactiondescription is not None:
+		    return self.__transactiondescription
 
-    @boc_code.setter
-    def boc_code( self, value: str ):
+	@transaction_description.setter
+    def transaction_description( self, value: str ):
         if value is not None:
-            self.__boccode = value
+            self.__transactiondescription = value
 
     @property
-    def boc_name( self ) -> str:
-        if self.__bocname is not None:
-            return self.__bocname
+    def interest_date( self ) -> datetime:
+        if self.__interestdate is not None:
+            return self.__interestdate
 
-    @boc_name.setter
-    def boc_name( self, value: str ):
+    @interest_date.setter
+    def interest_date( self, value: datetime ):
         if value is not None:
-            self.__bocname = value
+            self.__interestdate = value
 
     @property
-    def special_account_fund_code( self ) -> str:
-        if self.__specialaccountfundcode is not None:
-            return self.__specialaccountfundcode
+    def trustfund_transfer( self ) -> float:
+        if self.__trustfundtransfer is not None:
+            return self.__trustfundtransfer
 
-    @special_account_fund_code.setter
-    def special_account_fund_code( self, value: str ):
+    @trustfund_transfer.setter
+    def trustfund_transfer( self, value: float ):
         if value is not None:
-            self.__specialaccountfundcode = value
-
-    @property
-    def special_account_fund_name( self ) -> str:
-        if self.__specialaccountfundname is not None:
-            return self.__specialaccountfundname
-
-    @special_account_fund_name.setter
-    def special_account_fund_name( self, value: str ):
-        if value is not None:
-            self.__specialaccountfundname = value
+            self.__trustfundtransfer = value
 
     @property
     def special_account_number( self ) -> str:
@@ -18294,24 +18289,14 @@ class SpecialAccount( ):
             self.__specialaccountnumber = value
 
     @property
-    def account_status( self ) -> str:
-        if self.__accountstatus is not None:
-            return self.__accountstatus
+    def special_account_status( self ) -> str:
+        if self.__specialaccountstatus is not None:
+            return self.__specialaccountstatus
 
-    @account_status.setter
-    def account_status( self, value: str ):
+    @special_account_status.setter
+    def special_account_status( self, value: str ):
         if value is not None:
-            self.__accountstatus = value
-
-    @property
-    def npl_status( self ) -> str:
-        if self.__nplstatus is not None:
-            return self.__nplstatus
-
-    @npl_status.setter
-    def npl_status( self, value: str ):
-        if value is not None:
-            self.__nplstatus = value
+            self.__specialaccountstatus = value
 
     @property
     def npl_status_code( self ) -> str:
@@ -18334,12 +18319,12 @@ class SpecialAccount( ):
             self.__nplstatusname = value
 
     @property
-    def site_id( self ) -> str:
-        if self.__siteid is not None:
-            return self.__siteid
+    def epa_site_id( self ) -> str:
+        if self.__epasiteid is not None:
+            return self.__epasiteid
 
-    @site_id.setter
-    def site_id( self, value: str ):
+    @epa_site_id.setter
+    def epa_site_id( self, value: str ):
         if value is not None:
             self.__value = value
 
@@ -18354,6 +18339,96 @@ class SpecialAccount( ):
             self.__cerclisid = value
 
     @property
+    def trustfund_transfer( self ) -> float:
+        if self.__trustfundtransfer is not None:
+            return self.__trustfundtransfer
+
+    @trustfund_transfer.setter
+    def trustfund_transfer( self, value: float ):
+        if value is not None:
+            self.__trustfundtransfer = value
+
+    @property
+    def open_commitments( self ) -> float:
+        if self.__opencommitments is not None:
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value: float ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ) -> float:
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value: float ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def unliquidated_obligations( self ) -> float:
+        if self.__unliquidatedobligations is not None:
+            return self.__unliquidatedobligations
+
+    @unliquidated_obligations.setter
+    def unliquidated_obligations( self, value: float ):
+        if value is not None:
+            self.__unliquidatedobligations = value
+
+    @property
+    def disbursements( self ) -> float:
+	    if self.__disbursements is not None:
+		    return self.__disbursements
+
+    @disbursements.setter
+    def disbursements( self, value: float ):
+        if value is not None:
+            self.__disbursements = value
+
+    @property
+    def unpaid_balances( self ) -> float:
+        if self.__unpaidbalances is not None:
+            return self.__unpaidbalances
+
+    @unpaid_balances.setter
+    def unpaid_balances( self, value: float ):
+        if value is not None:
+            self.__unpaidbalances = value
+
+    @property
+    def cumulative_receipts( self ) -> float:
+        if self.__cumulativereceipts is not None:
+            return self.__cumulativereceipts
+
+    @cumulative_receipts.setter
+    def cumulative_receipts( self, value: float ):
+        if value is not None:
+            self.__cumulativereceipts = value
+
+    @property
+    def net_receipts( self ) -> float:
+        if self.__netreceipts is not None:
+            return self.__netreceipts
+
+    @net_receipts.setter
+    def net_receipts( self, value: float ):
+        if value is not None:
+            self.__netreceipts = value
+
+    @property
+    def collections_and_interest( self ) -> float:
+        if self.__collectionsandinterest is not None:
+            return self.__collectionsandinterest
+
+    @collections_and_interest.setter
+    def collections_and_interest( self, value: float ):
+        if value is not None:
+            self.__collectionsandinterest = value
+
+    @property
     def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
@@ -18364,13 +18439,12 @@ class SpecialAccount( ):
             self.__fields = value
 
     def __init__( self, bfy = None, fund = None,
-                  account = None, boc = None, provider = Provider.SQLite ):
+                  account = None, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SpecialAccounts
         self.__bfy = bfy
         self.__fundcode = fund
-        self.__accountcode = account
-        self.__boccode = boc
+        self.__programcode = account
         self.__fields = [ 'SpecialAccountsId',
                            'BFY',
                            'RpioCode',
@@ -18414,7 +18488,7 @@ class SpecialAccount( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-            _values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+            _values = (self.__bfy, self.__fundcode, self.__programcode, self.__interestdate)
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -18430,7 +18504,7 @@ class SpecialAccount( ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
-            _exc.cause = 'SpecialAccount'
+            _exc.cause = 'StatusOfSpecialAccountFunds'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
@@ -18445,198 +18519,7 @@ class SpecialAccount( ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
-            _exc.cause = 'SpecialAccount'
-            _exc.method = 'create_frame( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
-class SuperfundSite( ):
-    '''
-    Constructor:  SuperfundSite( bfy: str = None, rpio: str = None,
-                  pvdr: Provider = Provider.SQLite )
-
-    Purpose:  Class defines object providing SF Site data
-    '''
-    __source = None
-    __provider = None
-    __superfundsitesid = None
-    __bfy = None
-    __efy = None
-    __rpiocode = None
-    __rpioname = None
-    __siteprojectname = None
-    __city = None
-    __state = None
-    __ssid = None
-    __epasiteid = None
-    __fields = None
-    __data = None
-    __frame = None
-
-    @property
-    def id( self ) -> int:
-        if self.__specialaccountsid is not None:
-            return self.__specialaccountsid
-
-    @id.setter
-    def id( self, value: int ):
-        if value is not None:
-            self.__specialaccountsid = value
-
-    @property
-    def bfy( self ) -> str:
-        if self.__bfy is not None:
-            return self.__bfy
-
-    @bfy.setter
-    def bfy( self, value: str ):
-        if value is not None:
-            self.__bfy = value
-
-    @property
-    def efy( self ) -> str:
-        if self.__efy is not None:
-            return self.__efy
-
-    @efy.setter
-    def efy( self, value: str ):
-        if value is not None:
-            self.__efy = value
-
-    @property
-    def rpio_code( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
-    @rpio_code.setter
-    def rpio_code( self, value: str ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def rpio_name( self ) -> str:
-        if self.__rpioname is not None:
-            return self.__rpioname
-
-    @rpio_name.setter
-    def rpio_name( self, value: str ):
-        if value is not None:
-            self.__rpioname = value
-
-    @property
-    def city( self ) -> str:
-        if self.__nplstatus is not None:
-            return self.__nplstatus
-
-    @city.setter
-    def city( self, value: str ):
-        if value is not None:
-            self.__nplstatus = value
-
-    @property
-    def state( self ) -> str:
-        if self.__nplstatuscode is not None:
-            return self.__nplstatuscode
-
-    @state.setter
-    def state( self, value: str ):
-        if value is not None:
-            self.__nplstatuscode = value
-
-    @property
-    def site_project_name( self ) -> str:
-        if self.__nplstatusname is not None:
-            return self.__nplstatusname
-
-    @site_project_name.setter
-    def site_project_name( self, value: str ):
-        if value is not None:
-            self.__nplstatusname = value
-
-    @property
-    def ssid( self ) -> str:
-        if self.__ssid is not None:
-            return self.__ssid
-
-    @ssid.setter
-    def ssid( self, value: str ):
-        if value is not None:
-            self.__ssid = value
-
-    @property
-    def epa_site_id( self ) -> str:
-        if self.__cerclisid is not None:
-            return self.__cerclisid
-
-    @epa_site_id.setter
-    def epa_site_id( self, value: str ):
-        if value is not None:
-            self.__cerclisid = value
-
-    @property
-    def fields( self ) -> list[ str ]:
-        if self.__fields is not None:
-            return self.__fields
-
-    @fields.setter
-    def fields( self, value: list[ str ] ):
-        if value is not None:
-            self.__fields = value
-
-
-    def __init__( self, bfy: str = None, rpio: str = None,
-                  provider: Provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = Source.SuperfundSites
-        self.__bfy = bfy
-        self.__rpiocode = rpio
-        self.__fields = [ 'SuperfundSitesId',
-                           'RpioCode',
-                           'RpioName',
-                           'City',
-                           'State',
-                           'SSID',
-                           'SiteProjectName',
-                           'EpaSiteId' ]
-
-
-    def get_data( self  ) -> list[ Row ]:
-        try:
-            _source = self.__source
-            _provider = self.__provider
-            _names = [ 'BFY', 'RpioCode' ]
-            _values = (self.__bfy, self.__rpiocode)
-            _dbconfig = DbConfig( _source, _provider )
-            _sqlconfig = SqlConfig( names = _names, values = _values )
-            _connection = Connection( self.__source )
-            _sql = SqlStatement( _dbconfig, _sqlconfig )
-            _sqlite = _connection.connect( )
-            _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
-            _db = _cursor.execute( _query )
-            self.__data =  [ i for i in _db.fetchall( ) ]
-            _cursor.close( )
-            _sqlite.close( )
-            return self.__data
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'FileSys'
-            _exc.cause = 'SuperfundSite'
-            _exc.method = 'get_data( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
-    def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
-        try:
-            _source = self.__source
-            _data = BudgetData( _source )
-            return _data.create_frame( )
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Ninja'
-            _exc.cause = 'SuperfundSite'
+            _exc.cause = 'StatusOfSpecialAccountFunds'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
@@ -18733,7 +18616,7 @@ class SubAppropriation( ):
         self.__source = Source.Appropriations
         self.__bfy = bfy
         self.__efy = efy
-        self.__code = code 
+        self.__code = code
         self.__fields = [ 'SubAppropriationsId',
                            'Code',
                            'Name' ]
@@ -20512,8 +20395,8 @@ class StatusOfSupplementalFunds( ):
     def __init__( self, bfy: str, efy: str, fund: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StatusOfSupplementalFunding
-        self.__bfy = bfy 
-        self.__efy = efy 
+        self.__bfy = bfy
+        self.__efy = efy
         self.__fundcode = fund
         self.__fields =[ 'StatusOfSupplementalFundsId',
                            'StatusOfFundsId',
@@ -21574,62 +21457,46 @@ class StatusOfEarmarks( ):
 class StatusOfSuperfundSites( ):
     '''
     Constructor:  StatusOfSuperfundSites(  bfy: str, efy: str,
-            rpio: str, pvdr: Provider = Provider.SQLite )
+     'fundcode: str, pvdr = Provider.SQLite )
 
-    Purpose:  Class provides data on superfund site spending'''
+     Purpose: Class defines object for reporting on Earmarks
+    '''
     __source = None
     __provider = None
-    __siteactivityid = None
+    __statusofsuperfundsitesid = None
     __bfy = None
     __efy = None
     __rpiocode = None
     __rpioname = None
-    __city = None
-    __siteprojectcode = None
-    __stieprojectname = None
-    __ssid = None
-    __actioncode = None
-    __operableunit = None
-    __congress = None
-    __startdate = None
-    __enddate = None
-    __lastactivitydate = None
     __fundcode = None
     __fundname = None
-    __ahcode = None
-    __ahname = None
-    __orgcode = None
-    __orgname = None
-    __accountcode = None
-    __boccode = None
-    __bocname = None
-    __rccode = None
-    __rcname = None
     __programprojectcode = None
     __programprojectname = None
-    __programareacode = None
-    __programareaname = None
-    __foccode = None
-    __focname = None
-    __requested = None
-    __accepted = None
-    __closed = None
-    __outstanding = None
-    __refunded = None
-    __reversal = None
+    __cityname = None
+    __siteid = None
+    __sitename = None
+    __statecode = None
+    __statename = None
+    __countyname = None
+    __zipcode = None
+    __streetaddress = None
+    __zipcode = None
+    __obligations = None
+    __deobligations = None
+    __expenditures = None
     __fields = None
     __data = None
     __frame = None
 
     @property
     def id( self ) -> int:
-        if self.__siteactivityid is not None:
-            return self.__siteactivityid
+        if self.__statusofsuperfundsitesid is not None:
+            return self.__statusofsuperfundsitesid
 
     @id.setter
     def id( self, value: int ):
         if value is not None:
-            self.__siteactivityid = value
+            self.__statusofsuperfundsitesid = value
 
     @property
     def bfy( self ) -> str:
@@ -21672,24 +21539,24 @@ class StatusOfSuperfundSites( ):
             self.__rpioname = value
 
     @property
-    def ah_code( self ) -> str:
-        if self.__ahcode is not None:
-            return self.__ahcode
+    def state_code( self ) -> str:
+        if self.__statecode is not None:
+            return self.__statecode
 
-    @ah_code.setter
-    def ah_code( self, value: str ):
+    @state_code.setter
+    def state_code( self, value: str ):
         if value is not None:
-            self.__ahcode = value
+            self.__statecode = value
 
     @property
-    def ah_name( self ) -> str:
-        if self.__ahname is not None:
-            return self.__ahname
+    def state_name( self ) -> str:
+        if self.__statename is not None:
+            return self.__statename
 
-    @ah_name.setter
-    def ah_name( self, value: str ):
+    @state_name.setter
+    def state_name( self, value: str ):
         if value is not None:
-            self.__ahname = value
+            self.__statename = value
 
     @property
     def fund_code( self ) -> str:
@@ -21712,74 +21579,34 @@ class StatusOfSuperfundSites( ):
             self.__fundname = value
 
     @property
-    def org_code( self ) -> str:
-        if self.__orgcode is not None:
-            return self.__orgcode
+    def county_name( self ) -> str:
+        if self.__countyname is not None:
+            return self.__countyname
 
-    @org_code.setter
-    def org_code( self, value: str ):
+    @county_name.setter
+    def county_name( self, value: str ):
         if value is not None:
-            self.__orgcode = value
+            self.__countyname = value
 
     @property
-    def org_name( self  ):
-        if self.__orgname is not None:
-            return self.__orgname
+    def zip_code( self ):
+        if self.__zipcode is not None:
+            return self.__zipcode
 
-    @org_name.setter
-    def org_name( self, value  ):
+    @zip_code.setter
+    def zip_code( self, value ):
         if value is not None:
-            self.__orgname = value
+            self.__zipcode = value
 
     @property
-    def account_code( self ) -> str:
-        if self.__accountcode is not None:
-            return self.__accountcode
+    def street_address( self ) -> str:
+        if self.__streetaddress is not None:
+            return self.__streetaddress
 
-    @account_code.setter
-    def account_code( self, value: str ):
+    @street_address.setter
+    def street_address( self, value: str ):
         if value is not None:
-            self.__accountcode = value
-
-    @property
-    def boc_code( self ) -> str:
-        if self.__boccode is not None:
-            return self.__boccode
-
-    @boc_code.setter
-    def boc_code( self, value: str ):
-        if value is not None:
-            self.__boccode = value
-
-    @property
-    def boc_name( self ) -> str:
-        if self.__bocname is not None:
-            return self.__bocname
-
-    @boc_name.setter
-    def boc_name( self, value: str ):
-        if value is not None:
-            self.__bocname = value
-
-    @property
-    def rc_code( self ) -> str:
-        if self.__rccode is not None:
-            return self.__rccode
-
-    @rc_code.setter
-    def rc_code( self, value: str ):
-        if value is not None:
-            self.__rccode = value
-
-    @property
-    def rc_name( self ) -> str:
-        if self.__rcname is not None:
-            return self.__rcname
-
-    @rc_name.setter
-    def rc_name( self, value: str ):
-        if value is not None:
-            self.__rcname = value
+            self.__streetaddress = value
 
     @property
     def program_project_code( self ) -> str:
@@ -21802,204 +21629,64 @@ class StatusOfSuperfundSites( ):
             self.__programprojectname = value
 
     @property
-    def program_area_code( self ) -> str:
-        if self.__programareacode is not None:
-            return self.__programareacode
+    def site_id( self ) -> str:
+        if self.__siteid is not None:
+            return self.__siteid
 
-    @program_area_code.setter
-    def program_area_code( self, value: str ):
+    @site_id.setter
+    def site_id( self, value: str ):
         if value is not None:
-            self.__programareacode = value
+            self.__siteid = value
 
     @property
-    def program_area_name( self ) -> str:
-        if self.__programareaname is not None:
-            return self.__programareaname
+    def site_name( self ) -> str:
+        if self.__sitename is not None:
+            return self.__sitename
 
-    @program_area_name.setter
-    def program_area_name( self, value: str ):
+    @site_name.setter
+    def site_name( self, value: str ):
         if value is not None:
-            self.__programareaname = value
+            self.__sitename = value
 
     @property
-    def epa_site_id( self ) -> str:
-        if self.__epasiteid is not None:
-            return self.__epasiteid
+    def city_name( self ) -> str:
+        if self.__cityname is not None:
+            return self.__cityname
 
-    @epa_site_id.setter
-    def epa_site_id( self, value: str ):
+    @city_name.setter
+    def city_name( self, value: str ):
         if value is not None:
-            self.__epasiteid = value
+            self.__cityname = value
 
     @property
-    def project_type( self ) -> str:
-        if self.__projecttype is not None:
-            return self.__projecttype
+    def obligations( self ) -> float:
+        if self.__obligations is not None:
+            return self.__obligations
 
-    @project_type.setter
-    def project_type( self, value: str ):
+    @obligations.setter
+    def obligations( self, value: float ):
         if value is not None:
-            self.__projecttype = value
+            self.__obligations = value
 
     @property
-    def site_project_code( self ) -> str:
-        if self.__siteprojectcode is not None:
-            return self.__siteprojectcode
+    def deobligations( self ) -> float:
+        if self.__deobligations is not None:
+            return self.__deobligations
 
-    @site_project_code.setter
-    def site_project_code( self, value: str ):
+    @deobligations.setter
+    def deobligations( self, value: float ):
         if value is not None:
-            self.__siteprojectcode = value
+            self.__deobligations = value
 
     @property
-    def site_project_name( self ) -> str:
-        if self.__siteprojectname is not None:
-            return self.__siteprojectname
+    def expenditures( self ) -> float:
+        if self.__expenditures is not None:
+            return self.__expenditures
 
-    @site_project_name.setter
-    def site_project_name( self, value: str ):
+    @expenditures.setter
+    def expenditures( self, value: float ):
         if value is not None:
-            self.__siteprojectname = value
-
-    @property
-    def ssid( self ) -> str:
-        if self.__ssid is not None:
-            return self.__ssid
-
-    @ssid.setter
-    def ssid( self, value: str ):
-        if value is not None:
-            self.__ssid = value
-
-    @property
-    def action_code( self ) -> str:
-        if self.__actioncode is not None:
-            return self.__actioncode
-
-    @action_code.setter
-    def action_code( self, code ):
-        if code is not None:
-            self.__actioncode = code
-
-    @property
-    def operable_unit( self ) -> str:
-        if self.__operableunit is not None:
-            return self.__operableunit
-
-    @operable_unit.setter
-    def operable_unit( self, value: str ):
-        if value is not None:
-            self.__operableunit = value
-
-    @property
-    def state( self ) -> str:
-        if self.__state is not None:
-            return self.__state
-
-    @state.setter
-    def state( self, value: str ):
-        if value is not None:
-            self.__state = value
-
-    @property
-    def city( self ) -> str:
-        if self.__city is not None:
-            return self.__city
-
-    @city.setter
-    def city( self, value: str ):
-        if value is not None:
-            self.__city = value
-
-    @property
-    def congress( self ) -> str:
-        if self.__congress is not None:
-            return self.__congress
-
-    @congress.setter
-    def congress( self, value: str ):
-        if value is not None:
-            self.__congress = value
-
-    @property
-    def start_date( self ) -> str:
-        if self.__startdate is not None:
-            return self.__startdate
-
-    @start_date.setter
-    def start_date( self, value: str ):
-        if value is not None:
-            self.__startdate = value
-
-    @property
-    def end_date( self ) -> str:
-        if self.__enddate is not None:
-            return self.__enddate
-
-    @end_date.setter
-    def end_date( self, value: str ):
-        if value is not None:
-            self.__enddate = value
-
-    @property
-    def last_activity_date( self ) -> str:
-        if self.__lastactivitydate is not None:
-            return self.__lastactivitydate
-
-    @last_activity_date.setter
-    def last_activity_date( self, value: str ):
-        if value is not None:
-            self.__lastactivitydate = value
-
-    @property
-    def requested( self ) -> float:
-        if self.__requested is not None:
-            return self.__requested
-
-    @requested.setter
-    def requested( self, value: float ):
-        if value is not None:
-            self.__requested = value
-
-    @property
-    def accepted( self ) -> float:
-        if self.__accepted is not None:
-            return self.__accepted
-
-    @accepted.setter
-    def accepted( self, value: float ):
-        if value is not None:
-            self.__accepted = value
-
-    @property
-    def closed( self ) -> float:
-        if self.__closed is not None:
-            return self.__closed
-
-    @closed.setter
-    def closed( self, value: float ):
-        if value is not None:
-            self.__closed = value
-
-    @property
-    def refunded( self ) -> float:
-        if self.__refunded is not None:
-            return self.__refunded
-
-    @refunded.setter
-    def refunded( self, value: float ):
-        if value is not None:
-            self.__refunded = value
-
-    @property
-    def reversal( self ) -> float:
-        if self.__reversal is not None:
-            return self.__reversal
-
-    @reversal.setter
-    def reversal( self, value: float ):
-        if value is not None:
-            self.__reversal = value
+            self.__expenditures = value
 
     @property
     def fields( self ) -> list[ str ]:
@@ -22018,41 +21705,25 @@ class StatusOfSuperfundSites( ):
         self.__efy = efy
         self.__rpiocode = rpio
         self.__fields = [ 'SiteActivityId',
+                           'FiscalYear',
                            'BFY',
                            'EFY',
                            'RpioCode',
                            'RpioName',
-                           'AhCode',
                            'FundCode',
                            'FundName',
-                           'AccountCode',
                            'ProgramProjectCode',
                            'ProgramProjectName',
-                           'BocCode',
-                           'BocName',
-                           'OrgCode',
-                           'OrgName',
-                           'FocCode',
-                           'FocName',
-                           'EpaSiteId',
-                           'SiteProjectCode',
-                           'SSID',
-                           'ActionCode',
-                           'OperableUnit',
-                           'SiteProjectName',
-                           'State',
-                           'City',
-                           'CongressionalDistrict',
-                           'ProjectType',
-                           'StartDate',
-                           'LastActivity',
-                           'EndDate',
-                           'Requested',
-                           'Accepted',
-                           'Closed',
-                           'Outstanding',
-                           'Refunded',
-                           'Reversal' ]
+                           'SiteId',
+                           'SiteName',
+                           'CityName',
+                           'StreetAddres',
+                           'ZipCode',
+                           'CountyName',
+                           'StateName',
+                           'Obligations',
+                           'Deobligations',
+                           'Expenditures' ]
 
     def get_data( self  ) -> list[ Row ]:
         try:
@@ -22080,7 +21751,7 @@ class StatusOfSuperfundSites( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def get_frame( self ) -> DataFrame:
+    def create_frame( self ) -> DataFrame:
         '''Method returning pandas dataframe
         comprised of datatable data'''
         try:
