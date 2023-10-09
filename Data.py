@@ -341,6 +341,7 @@ class SqlFile( ):
 		                'Images',
 		                'InflationReductionActCarryoverEstimates',
 		                'JobsActCarryoverEstimates',
+		                'MainAccounts',
 		                'Messages',
 		                'MonthlyActuals',
 		                'MonthlyLedgerAccountBalances',
@@ -365,6 +366,7 @@ class SqlFile( ):
 		                'Providers',
 		                'PublicLaws',
 		                'QueryDefinitions',
+		                'ReconcilliationLines',
 		                'RecoveryAct',
 		                'ReferenceTables',
 		                'RegionalAuthority',
@@ -372,12 +374,11 @@ class SqlFile( ):
 		                'ReimbursableAgreements',
 		                'ReimbursableFunds',
 		                'Reports',
+		                'ReportingLines',
 		                'ResourcePlanningOffices',
 		                'Resources',
 		                'ResponsibilityCenters',
 		                'SchemaTypes',
-		                'SiteActivity',
-		                'SpecialAccounts',
 		                'SpendingDocuments',
 		                'SpendingRates',
 		                'StateGrantObligations',
@@ -391,8 +392,10 @@ class SqlFile( ):
 		                'StatusOfJobsActFunds',
 		                'StatusOfSupplementalFunds',
 		                'SubAppropriations',
-		                'SuperfundSites',
+		                'StatusOfSuperfundSites',
+		                'StatusOfSpecialAccountFunds',
 		                'SupplementalCarryoverEstimates',
+		                'SupplementalOutlayEstimates',
 		                'TransferActivity',
 		                'Transfers',
 		                'TransTypes',
@@ -557,8 +560,7 @@ class DbConfig( ):
 		self.__table = src.name
 		self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
 		self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-		self.__accesspath = os.getcwd( ) + \
-		                    r'\db\access\datamodels\Data.accdb'
+		self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
 		self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
 		self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
 		self.__data = [ 'Actuals',
@@ -607,7 +609,7 @@ class DbConfig( ):
 		                'ReimbursableFunds',
 		                'Reports',
 		                'Reprogrammings',
-		                'SiteActivity',
+		                'StatusOfSuperfundSites',
 		                'SpecialAccounts',
 		                'SpendingDocuments',
 		                'SpendingRates',
@@ -620,7 +622,8 @@ class DbConfig( ):
 		                'StatusOfInflationReductionActFunds',
 		                'StatusOfJobsActFunds',
 		                'StatusOfSupplementalFunds',
-		                'SuperfundSites',
+		                'StatusOfSuperfundSites',
+		                'StatusOfSpecialAccountFunds',
 		                'SupplementalCarryoverEstimates',
 		                'TransferActivity',
 		                'Transfers',
@@ -653,6 +656,7 @@ class DbConfig( ):
 		                'HeadquartersOffices',
 		                'Images',
 		                'Messages',
+		                'MainAccounts',
 		                'NationalPrograms',
 		                'Objectives',
 		                'Organizations',
@@ -666,6 +670,7 @@ class DbConfig( ):
 		                'ReconciliationLines',
 		                'ReferenceTables',
 		                'RegionalOffices',
+		                'ReportingLines',
 		                'ResourcePlanningOffices',
 		                'Resources',
 		                'ResponsibilityCenters',
@@ -1111,7 +1116,8 @@ class SqlStatement( ):
 						              + f' {self.__sqlconfig.dump_where( )}'
 						return self.__text
 				elif self.__commandtype == SQL.INSERT:
-					self.__text = f'INSERT INTO {self.__table} ' + f'{self.__names} ' + f'{self.__values}'
+					self.__text = f'INSERT INTO {self.__table} ' + f'{self.__names} ' \
+					              + f'{self.__values}'
 					return self.__text
 				elif self.__commandtype == SQL.UPDATE:
 					self.__text = f'UPDATE {self.__table} ' + f'{self.__sqlconfig.dump_set( )} ' \

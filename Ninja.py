@@ -12178,13 +12178,8 @@ class MonthlyOutlay( ):
     __linenumber = None
     __linename = None
     __taxationcode = None
-    __treasuryagency = None
-    __treasuryaccount = None
-    __treasuryaccountname = None
-    __subaccount = None
-    __ombagency = None
-    __ombbureau = None
-    __ombaccount = None
+    __treasuryagencycode = None
+    __subaccountcode = None
     __january = None
     __february = None
     __march = None
@@ -12266,34 +12261,54 @@ class MonthlyOutlay( ):
             self.__taxationcode = value
 
     @property
-    def treasury_agency( self ) -> str:
-        if self.__treasuryagency is not None:
-            return self.__treasuryagency
+    def treasury_agency_code( self ) -> str:
+        if self.__treasuryagencycode is not None:
+            return self.__treasuryagencycode
 
-    @treasury_agency.setter
-    def treasury_agency( self, value: str ):
+    @treasury_agency_code.setter
+    def treasury_agency_code( self, value: str ):
         if value is not None:
-            self.__treasuryagency = value
+            self.__treasuryagencycode = value
 
     @property
-    def treasury_account( self ) -> str:
-        if self.__treasuryaccount is not None:
-            return self.__treasuryaccount
+    def subaccount_code( self ) -> str:
+        if self.__subaccountcode is not None:
+            return self.__subaccountcode
 
-    @treasury_account.setter
-    def treasury_account( self, value: str ):
+    @subaccount_code.setter
+    def subaccount_code( self, value: str ):
         if value is not None:
-            self.__treasuryaccount = value
+            self.__subaccountcode = value
 
     @property
-    def budget_account( self ) -> str:
-        if self.__ombaccount is not None:
-            return self.__ombaccount
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
 
-    @budget_account.setter
-    def budget_account( self, value: str ):
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
         if value is not None:
-            self.__ombaccount = value
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
 
     @property
     def budget_account_name( self ) -> str:
@@ -13109,6 +13124,46 @@ class OperatingPlan( ):
     def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
         self.__source = Source.OperatingPlans
@@ -21037,7 +21092,6 @@ class StatusOfEarmarks( ):
     __statecode = None
     __statename = None
     __zipcode = None
-    __congressionaldistrict = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -21205,6 +21259,36 @@ class StatusOfEarmarks( ):
     def rc_name( self, value: str ):
         if value is not None:
             self.__rcname = value
+
+    @property
+    def zip_code( self ) -> str:
+        if self.__zipcode is not None:
+            return self.__zipcode
+
+    @zip_code.setter
+    def zip_code( self, value: str ):
+        if value is not None:
+            self.__zipcode = value
+
+    @property
+    def state_code( self ) -> str:
+        if self.__statecode is not None:
+            return self.__statecode
+
+    @state_code.setter
+    def state_code( self, value: str ):
+        if value is not None:
+            self.__statecode = value
+
+    @property
+    def state_name( self ) -> str:
+        if self.__statename is not None:
+            return self.__statename
+
+    @state_name.setter
+    def state_name( self, value: str ):
+        if value is not None:
+            self.__statename = value
 
     @property
     def amount( self ) -> float:
@@ -21487,9 +21571,9 @@ class StatusOfEarmarks( ):
                            'Used',
                            'Available' ]
 
-class SiteActivity( ):
+class StatusOfSuperfundSites( ):
     '''
-    Constructor:  SiteActivity(  bfy: str, efy: str,
+    Constructor:  StatusOfSuperfundSites(  bfy: str, efy: str,
             rpio: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:  Class provides data on superfund site spending'''
@@ -21991,7 +22075,7 @@ class SiteActivity( ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
-            _exc.cause = 'SiteActivity'
+            _exc.cause = 'StatusOfSuperfundSites'
             _exc.method = 'get_data( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
@@ -22006,7 +22090,7 @@ class SiteActivity( ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
-            _exc.cause = 'SiteActivity'
+            _exc.cause = 'StatusOfSuperfundSites'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
@@ -23503,11 +23587,9 @@ class Transfer( ):
     def get_data( self  ) -> list[ Row ]:
         try:
             _source = self.__source
-            pdr = self.__provider
             command = SQL.SELECTALL
             _names = [ 'DocumentNumber', ]
             _values = (self.__documentnumber,)
-            dconfig = DbConfig( src = src, pvdr = pdr )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
