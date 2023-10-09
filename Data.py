@@ -496,7 +496,7 @@ class SqlFile( ):
 
 class DbConfig( ):
 	'''
-	Constructor: DbConfig( src: Source, pvdr: Provider = Provider.SQLite )
+	Constructor: DbConfig( source: Source, pvdr: Provider = Provider.SQLite )
 
 	Purpose: Class provides list of Budget Execution
 	tables across two databases
@@ -552,12 +552,12 @@ class DbConfig( ):
 		if value is not None:
 			self.__table = value
 
-	def __init__( self, src: Source, provider = Provider.SQLite ):
+	def __init__( self, source: Source, provider = Provider.SQLite ):
 		'''Constructor for the DbConfig class providing
 		value details'''
 		self.__provider = provider
-		self.__source = src
-		self.__table = src.name
+		self.__source = source
+		self.__table = source.name
 		self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
 		self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
 		self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'

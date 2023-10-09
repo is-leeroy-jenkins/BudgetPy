@@ -171,4 +171,3 @@ class App( ):
             _exc.method = 'run_args( self, args )'
             _err = ErrorDialog( _exc )
             _err.show( )
-

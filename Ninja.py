@@ -44,6 +44,8 @@
   '''
 import datetime as dt
 from datetime import datetime
+from typing import List, Any
+
 from pandas import DataFrame
 from pyodbc import Row
 from Booger import Error, ErrorDialog
@@ -4271,7 +4273,7 @@ class BudgetContact( ):
         if self.__displayname is not None:
             return self.__displayname
 
-    @first_name.setter
+    @display_name.setter
     def display_name( self, value: str ):
         if value is not None:
             self.__displayname = value
@@ -13181,11 +13183,9 @@ class OperatingPlan( ):
 
     def get_data( self  ) -> list[ Row ]:
         try:
-            _source = self.__source
-            _provider = self.__provider
             _names = [ 'BFY', 'FundCode' ]
-            _values = (self.__bfy, self.__fundcode)
-            _dbconfig = DbConfig( src = src, pvdr = _provider )
+            _values = ( self.__bfy, self.__fundcode )
+            _dbconfig = DbConfig( self.__source, self.__provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
@@ -13831,7 +13831,7 @@ class OpenCommitment( ):
                            'ULO',
                            'Expenditure' ]
 
-    def __str__( self ) -> float:
+    def __str__( self ) -> str:
         if self.__accountcode is not None:
             return self.__accountcode
 
@@ -14156,17 +14156,17 @@ class Obligation( ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ) -> str:
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value: str ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
@@ -14326,7 +14326,7 @@ class Obligation( ):
             return self.__processeddate
 
     @processed_date.setter
-    def processed_date( self, value: str ):
+    def processed_date( self, value: datetime ):
         if value is not None:
             self.__processeddate = value
 
@@ -15491,7 +15491,7 @@ class ProgramResultsCode( ):
         if self.__code is not None:
             return self.__code
 
-    def get_data( self  ) -> list[ tuple ]:
+    def get_data( self  ) -> list[ Row ]:
         try:
             _source = self.__source
             _provider = self.__provider
@@ -15502,7 +15502,7 @@ class ProgramResultsCode( ):
                        self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
             _db = DataBuilder( source, provider, _command, _names, _values )
             self.__data = _db.create_table( )
-            return [ tuple( i ) for i in self.__data ]
+            return [ ( i ) for i in self.__data ]
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -18231,13 +18231,6 @@ class StatusOfSpecialAccountFunds( ):
         if value is not None:
             self.__programcode = value
 
-	@property
-	def transaction_description( self ):
-		if self.__transactiondescription is not None:
-			return self.__transactiondescription
-
-	@transaction_description.setter
-
     @property
     def transaction_description( self ):
 	    if self.__transactiondescription is not None:
@@ -18630,7 +18623,7 @@ class SubAppropriation( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code' ]
-            _values = ( self.__code )
+            _values = ( self.__code, )
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -19918,7 +19911,8 @@ class SpendingRate( ):
             _values = (self.__budgetaccountcode,)
             _db = DataBuilder( source, provider, _command, _names, _values )
             self.__data = [ i for i in _db.create_table( ) ]
-            return self.__data
+            return [ tuple( i )  for i in self.__data ]
+
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -22050,7 +22044,7 @@ class SpendingDocument( ):
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
