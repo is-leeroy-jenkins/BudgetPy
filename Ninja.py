@@ -23227,6 +23227,7 @@ class Transfer( ):
             command = SQL.SELECTALL
             _names = [ 'DocumentNumber', ]
             _values = (self.__documentnumber,)
+            _dbconfig = DbConfig( _source  )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
