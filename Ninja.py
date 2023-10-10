@@ -47,7 +47,7 @@ from datetime import datetime
 from typing import List, Any
 
 from pandas import DataFrame
-from pyodbc import Row
+from sqlite3 import Row
 from Booger import Error, ErrorDialog
 from Static import SQL
 from Static import Source, Provider
@@ -15859,7 +15859,7 @@ class RegionalOffice( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code', ]
-            _values = (self.__code,)
+            _values = (self.__rpiocode,)
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -18406,7 +18406,7 @@ class StatusOfSpecialAccountFunds( ):
     def __init__( self, bfy = None, fund = None,
                   account = None, provider = Provider.SQLite ):
         self.__provider = provider
-        self.__source = Source.SpecialAccounts
+        self.__source = Source.StatusOfSpecialAccountFunds
         self.__bfy = bfy
         self.__fundcode = fund
         self.__programcode = account
@@ -22798,12 +22798,12 @@ class TreasurySymbol( ):
             _names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
             _values = (self.__bfy, self.__efy, self.__treasuryaccountcode)
             dbcfg = DbConfig( _source, _provider )
-            sqlcfg = SqlConfig( names = _names, _values = v )
+            sqlcfg = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.create_sqltext( )
+            _query = _sql.get_query( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -23227,7 +23227,7 @@ class Transfer( ):
             command = SQL.SELECTALL
             _names = [ 'DocumentNumber', ]
             _values = (self.__documentnumber,)
-            _sqlconfig = SqlConfig( names = _names, _values = _values )
+            _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
@@ -23946,4 +23946,3 @@ class UnliquidatedObligation( ):
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
-
