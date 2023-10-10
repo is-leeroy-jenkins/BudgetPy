@@ -115,6 +115,16 @@ class Path( ):
 			self.__pathseparator = value
 
 	@property
+	def drive( self ):
+		if self.__drive is not None:
+			return self.__drive
+
+	@drive.setter
+	def drive( self, value: str  ):
+		if value is not None:
+			self.__drive = value
+
+	@property
 	def drive_separator( self ) -> str:
 		if self.__driveseparator is not None:
 			return self.__driveseparator

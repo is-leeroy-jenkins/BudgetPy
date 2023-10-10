@@ -41,6 +41,11 @@
   </summary>
   ******************************************************************************************
   '''
+import base64
+import webbrowser
+from typing import Type
+
+import fitz
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from enum import Enum
@@ -121,12 +126,12 @@ class Error( Exception ):
 			self.__module = value
 
 	@property
-	def type( self ) -> str:
+	def type( self ) -> Type[ BaseException ]:
 		if self.__type is not None:
 			return self.__type
 
 	@type.setter
-	def type( self, value: str ):
+	def type( self, value: Type[ BaseException ] ):
 		if value is not None:
 			self.__type = value
 
@@ -262,154 +267,6 @@ class TitleIcon( ):
 	def __str__( self ) -> str:
 		if self.__filepath is not None:
 			return self.__filepath
-
-class ColorFormat( ):
-	'''
-	Construcotr:  ColorFormat(  )
-
-	Purpose:  Class providing color conversion methods
-    given a color in hex format'''
-	__rgb = None
-	__hex = None
-	__hsl = None
-	__red = None
-	__green = None
-	__blue = None
-	__input = None
-	__output = None
-
-	@property
-	def red( self ) -> ( int, int, int ):
-		'''Property returning color tuple ( r, g, b ) '''
-		if self.__red is not None:
-			return self.__red
-
-	@red.setter
-	def red( self, value: ( int, int, int ) ):
-		if value is not None:
-			self.__red = value
-
-	@property
-	def green( self ) -> ( int, int, int ):
-		'''Property returning color tuple ( r, g, b ) '''
-		if self.__green is not None:
-			return self.__green
-
-	@green.setter
-	def green( self, value: ( int, int, int ) ):
-		if value is not None:
-			self.__green = value
-
-	@property
-	def blue( self ) -> ( int, int, int ):
-		'''Property returning color tuple ( r, g, b ) '''
-		if self.__blue is not None:
-			return self.__blue
-
-	@blue.setter
-	def blue( self, value: ( int, int, int ) ):
-		if value is not None:
-			self.__blue = value
-
-	@property
-	def rgb( self ) -> ( int, int, int ):
-		'''Property returning color tuple ( r, g, b ) '''
-		if self.__rgb is not None:
-			return self.__rgb
-
-	@rgb.setter
-	def rgb( self, value: ( int, int, int ) ):
-		if value is not None:
-			self.__rgb = value
-
-	@property
-	def hex( self ) -> str:
-		'''Property returning color string '#rrggbb '''
-		if self.__hex is not None:
-			return self.__hex
-
-	@hex.setter
-	def hex( self, value: str ):
-		'''Property sets hex value of a color to a string '#rrggbb' '''
-		if value is not None:
-			self.__hex = value
-
-	def __init__( self ):
-		self.__rgb = None
-		self.__hex = None
-		self.__hsl = None
-
-	def hex_to_hsl( self, hex: str ) -> str:
-		'''Converts the string input argument 'hex' representing a
-         hexidecimal color returing its equivalent 'hsl' value as a tuple'''
-		self.__hex = hex
-		r, g, b = hex_to_rgb( hex )
-		self.__red = r
-		self.__green = g
-		self.__blue = b
-		hsl = rgb_to_hsl( r, g, b )
-		return hsl
-
-	def hex_to_rgb( self, hex: str ) -> ( int, int, int ):
-		'''Converts the string input argument 'hex' representing a
-         hexidecimal color into its equivalent 'rgb' value'''
-		hex = hex.lstrip( '#' )
-		hlen = len( hex )
-		return tuple( int( hex[ i:i + hlen // 3 ], 16 ) for i in range( 0, hlen, hlen // 3 ) )
-
-	def rgb_to_hsl( self, r: float, g: float, b: float ) -> ( float, float, float ):
-		'''Converts integer input arguments 'r, g, and b' representing
-         an rgb color into its equivalent hsl color '''
-		high = max( r, g, b )
-		low = min( r, g, b )
-		h, s, _values = ( ( high + low ) / 2, ) * 3
-		if high == low:
-			h = s = 0.0
-		else:
-			d = high - low
-			l = ( high + low ) / 2
-			s = d / ( 2 - high - low ) if l > 0.5 else d / ( high + low )
-			h = {
-					r: ( g - b ) / d + ( 6 if g < b else 0 ),
-					g: ( b - r ) / d + 2,
-					b: ( r - g ) / d + 4,
-			}[ high ]
-			h /= 6
-		return h, s, v
-
-	def hsl_to_rgb( self, h: int, s: int, l: int ) -> ( int, int, int ):
-		# noinspection PyShadowingNames
-		def hue_to_rgb( p, q, t ):
-			t += 1 if t < 0 else 0
-			t -= 1 if t > 1 else 0
-			if t < 1 / 6:
-				return p + ( q - p ) * 6 * t
-			if t < 1 / 2:
-				return q
-			if t < 2 / 3:
-				p + ( q - p ) * ( 2 / 3 - t ) * 6
-			return p
-
-		if s == 0:
-			r, g, b = l, l, l
-		else:
-			q = l * ( 1 + s ) if l < 0.5 else l + s - l * s
-			p = 2 * l - q
-			r = hue_to_rgb( p, q, h + 1 / 3 )
-			g = hue_to_rgb( p, q, h )
-			b = hue_to_rgb( p, q, h - 1 / 3 )
-
-		return r, g, b
-
-	def hsv_to_hsl( self, h: int, s: int, v: int ) -> ( float, float, float ):
-		l = 0.5 * v * ( 2 - s )
-		_s = v * s / ( 1 - fabs( 2 * l - 1 ) )
-		return h, _s, l
-
-	def hsl_to_hsv( self, h: int, s: int, l: int ) -> ( int, int, int ):
-		_values = ( 2 * l + s * ( 1 - fabs( 2 * l - 1  ) ) ) / 2
-		_s = 2 * ( v - l ) / v
-		return h, _s, v
 
 class Sith( ):
 	'''
@@ -1120,13 +977,6 @@ class EmailDialog( Sith ):
 				if _event == 'Send':
 					sg.popup_quick_message( 'Sending your heading... this will take a moment...',
 						background_color = 'red' )
-					send_an_email( from_address = _values[ '-EMAIL FROM-' ],
-						to_address = _values[ '-EMAIL TO-' ],
-						subject = _values[ '-EMAIL SUBJECT-' ],
-						message_text = _values[ '-EMAIL TEXT-' ],
-						user = _values[ '-USER-' ],
-						password = _values[ '-PASSWORD-' ] )
-
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1317,7 +1167,7 @@ class ErrorDialog( Sith ):
 		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
 		_red = '#F70202'
 		_font = ('Roboto', 10)
-		_padsz = (3, 3, 3, 3)
+		_padsz = (3, 3)
 		_layout = [ [ sg.Text( ) ],
 		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
 			            font = _font ) ],
@@ -1507,7 +1357,7 @@ class ScrollingDialog( Sith ):
 			_exc.cause = 'ScrollingDialog'
 			_exc.method = 'show( self )'
 			_err = ErrorDialog( _exc )
-			_err.show( ), l
+			_err.show( )
 
 class ContactForm( Sith ):
 	'''
@@ -1741,7 +1591,6 @@ class LoadingPanel( Sith ):
 					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1813,7 +1662,6 @@ class WaitingPanel( Sith ):
 					if _event == sg.WIN_CLOSED:
 						exit( 0 )
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1888,7 +1736,6 @@ class ProcessingPanel( Sith ):
 						exit( 0 )
 
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-
 			_window.close( )
 
 		except Exception as e:
@@ -2521,206 +2368,6 @@ class CalendarDialog( Sith ):
 			_exc = Error( e )
 			_exc.module = 'Booger'
 			_exc.cause = 'CalendarDialog'
-			_exc.method = 'show( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-class DatePanel( Sith ):
-	'''
-	Constructor: DatePanel( )
-
-	Purpose: Desktop widget displaying today time text
-	'''
-	__selecteditem = None
-
-	def __init__( self ):
-		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 500, 250 )
-
-	def show( self ):
-		try:
-			ALPHA = 0.9  # Initial alpha until user changes
-			THEME = 'Dark green 3'  # Initial _theme until user changes
-			_refreshfont = title_font = 'Roboto 8'
-			_mainfont = 'Roboto 20'
-			_mainsize = ( 10, 1 )
-			UPDATE_FREQUENCY_MILLISECONDS = 1000 * 60 * 60
-
-			def choose_theme( location, size ):
-				"""
-                A _window to allow new themes to be tried out.
-                Changes the _theme to the newly chosen one and returns _theme's name
-                Automaticallyi switches to new _theme and saves the setting in user settings file
-
-                :param location: (x,y) location of the Widget's _window
-                :type location:  Tuple[int, int]
-                :param size: Size in pixels of the Widget's _window
-                :type size: Tuple[int, int]
-                :return: The name of the newly selected _theme
-                :rtype: None | str
-                """
-				_layout = [ [ sg.Text( 'Try a _theme' ) ],
-				            [ sg.Listbox( values = sg.theme_list( ), size = (20, 20),
-					           key = '-ITEM-',
-					           enable_events = True ) ],
-				            [ sg.OK( ), sg.Cancel( ) ] ]
-
-				_window = sg.Window( 'Look and Feel Browser', _layout, location = location,
-					keep_on_top = True )
-				_oldtheme = sg.theme( )
-				while True:  # Event Loop
-					_event, values = _window.read( )
-					if _event in (sg.WIN_CLOSED, 'Exit', 'OK', 'Cancel'):
-						break
-					sg.theme( values[ '-ITEM-' ][ 0 ] )
-					_window.hide( )
-					# make at test _window to the left of the current one
-					_testwindow = make_window(
-						location = ((location[ 0 ] - size[ 0 ] * 1.2, location[ 1 ])),
-						test_window = True )
-					_testwindow.read( close = True )
-					_window.un_hide( )
-				_window.close( )
-
-				# after choice made, save _theme or restore the old one
-				if _event == 'OK' and values[ '-ITEM-' ]:
-					sg.theme( values[ '-ITEM-' ][ 0 ] )
-					sg.user_settings_set_entry( '-_theme-', values[ '-ITEM-' ][ 0 ] )
-					return values[ '-ITEM-' ][ 0 ]
-				else:
-					sg.theme( _oldtheme )
-				return None
-
-			def make_window( location, test_window = False ):
-				"""
-                Defines the _layout and creates the _window for the main _window
-                If the parm _testwindow is True, then a simplified, and EASY to close version is
-                shown
-
-                :param location: (x,y) location to create_table the _window
-                :type location: Tuple[int, int]
-                :param test_window: If True, then this is a test _window & will close by clicking
-                on it
-                :type test_window: bool
-                :return: newly created _window
-                :rtype: sg.Window
-                """
-				_title = sg.user_settings_get_entry( '-second_items-', '' )
-				if not test_window:
-					_theme = sg.user_settings_get_entry( '-_theme-', THEME )
-					sg.theme( _theme )
-
-				# ------------------- Window Layout -------------------
-				# If this is a test _window (for choosing _theme), then uses some extra Text Elements
-				# to display _theme text
-				# and also enables events for the elements to make the _window easy to close
-				if test_window:
-					_topelements = [ [ sg.Text( _title, size = (20, 1), font = title_font,
-						justification = 'c', k = '-TITLE-', enable_events = True ) ],
-					                 [ sg.Text( 'Click to close', font = title_font,
-						                 enable_events = True ) ],
-					                 [ sg.Text( 'This is _theme', font = title_font,
-						                 enable_events = True ) ],
-					                 [ sg.Text( sg.theme( ), font = title_font,
-						                 enable_events = True ) ] ]
-					_contextmenu = [ [ '' ], [ 'Exit', ] ]
-				else:
-					_topelements = [ [ sg.Text( _title, size = (20, 1), font = title_font,
-						justification = 'c', k = '-TITLE-' ) ] ]
-					_contextmenu = [ [ '' ],
-					                 [ 'Choose Title', 'Edit Me', 'New Theme', 'Save Location',
-					                       'Refresh', 'Set Refresh Rate', 'Show Refresh Info',
-					                       'Hide Refresh Info', 'Alpha',
-					                       [ str( x ) for x in range( 1, 11 ) ], 'Exit', ] ]
-
-				_layout = _topelements + \
-				          [ [ sg.Text( '0', size = _mainsize, font = _mainfont,
-					         k = '-MAIN INFO-', justification = 'c',
-					         enable_events = test_window ) ],
-				           [ sg.pin(
-					           sg.Text( size = (15, 2), font = _refreshfont, k = '-REFRESHED-',
-						           justification = 'c',
-						           visible = sg.user_settings_get_entry( '-show refresh-',
-							           True ) ) ) ] ]
-
-				# ------------------- Window Creation -------------------
-				return sg.Window( 'Desktop Widget Template', _layout, location = location,
-					no_titlebar = True, grab_anywhere = True, margins = ( 0, 0 ),
-					element_justification = 'c',
-					element_padding = ( 0, 0 ),
-					alpha_channel = sg.user_settings_get_entry( '-alpha-', ALPHA ), finalize =
-					True,
-					right_click_menu = _contextmenu, keep_on_top = True )
-
-			_window = make_window( sg.user_settings_get_entry( '-location-', location ) )
-
-			_refrequency = sg.user_settings_get_entry( '-fresh frequency-',
-				UPDATE_FREQUENCY_MILLISECONDS )
-
-			while True:
-				_window[ '-MAIN INFO-' ].update( 'Your Info' )
-				_window[ '-REFRESHED-' ].update(
-					dt.datetime.now( ).strftime( "%m/%d/%Y\n%I:%M:%S %p" ) )
-				_event, _values = _window.read( timeout = _refrequency )
-				print( _event, _values )
-				if _event in (sg.WIN_CLOSED, 'Exit'):
-					break
-				if _event == 'Edit Me':
-					sg.execute_editor( __file__ )
-				elif _event == 'Choose Title':
-					new_title = sg.popup_get_text( 'Choose a second_items for your Widget',
-						location = _window.current_location( ), keep_on_top = True )
-					if new_title is not None:
-						_window[ '-TITLE-' ].update( new_title )
-						sg.user_settings_set_entry( '-second_items-', new_title )
-				elif _event == 'Show Refresh Info':
-					_window[ '-REFRESHED-' ].update( visible = True )
-					sg.user_settings_set_entry( '-show refresh-', True )
-				elif _event == 'Save Location':
-					sg.user_settings_set_entry( '-location-', _window.current_location( ) )
-				elif _event == 'Hide Refresh Info':
-					_window[ '-REFRESHED-' ].update( visible = False )
-					sg.user_settings_set_entry( '-show refresh-', False )
-				elif _event in [ str( x ) for x in range( 1, 11 ) ]:
-					_window.set_alpha( int( _event ) / 10 )
-					sg.user_settings_set_entry( '-alpha-', int( _event ) / 10 )
-				elif _event == 'Set Refresh Rate':
-					choice = sg.popup_get_text(
-						'How frequently to update _window in seconds? (can be a float)',
-						default_text = sg.user_settings_get_entry( '-fresh frequency-',
-							UPDATE_FREQUENCY_MILLISECONDS ) / 1000,
-						location = _window.current_location( ), keep_on_top = True )
-					if choice is not None:
-						try:
-							_refrequency = float( choice ) * 1000
-							sg.user_settings_set_entry( '-fresh frequency-',
-								float( _refrequency ) )
-						except Exception as e:
-							sg.popup_error( f'You entered an incorrect number of seconds: '
-							                f'{choice}',
-								f'Error: {e}', location = _window.current_location( ),
-								keep_on_top = True )
-				elif _event == 'New Theme':
-					loc = _window.current_location( )
-					if choose_theme( _window.current_location( ), _window.formsize ) is not None:
-						_window.close( )
-						_window = make_window( loc )
-
-			_window.close( )
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Booger'
-			_exc.cause = 'DatePael'
 			_exc.method = 'show( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -4042,7 +3689,7 @@ class BudgetForm( Sith ):
 					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = _mblk,
 						expand_x = True,
 						border_width = 0, grab = True ) ],
-					[ sg.Frame( '', self.__headerlayout, size = hdrsz, pad = BPAD_TOP,
+					[ sg.Frame( '', self.__headerlayout, size = _hdrsz, pad = BPAD_TOP,
 						expand_x = True,
 						relief = sg.RELIEF_FLAT, border_width = 0 ) ],
 					[ sg.Frame( '',

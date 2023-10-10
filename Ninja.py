@@ -44,7 +44,6 @@
   '''
 import datetime as dt
 from datetime import datetime
-from typing import List, Any
 
 from pandas import DataFrame
 from sqlite3 import Row
@@ -1990,7 +1989,7 @@ class AppropriationLevelAuthority( ):
             _source = self.__source
             _provider = self.__provider
             _names = [ 'Code' ]
-            _values = ( self.__fundcode )
+            _values = tuple( self.__fundcode, )
             _dbconfig = DbConfig( _source, _provider )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( self.__source )
@@ -18345,8 +18344,8 @@ class StatusOfSpecialAccountFunds( ):
 
     @property
     def disbursements( self ) -> float:
-	    if self.__disbursements is not None:
-		    return self.__disbursements
+        if self.__disbursements is not None:
+            return self.__disbursements
 
     @disbursements.setter
     def disbursements( self, value: float ):
