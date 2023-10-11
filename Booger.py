@@ -51,7 +51,6 @@ import PySimpleGUI as sg
 from enum import Enum
 import os
 from sys import exit, exc_info
-import datetime as dt
 import random
 import io
 from googlesearch import search
@@ -1591,7 +1590,7 @@ class LoadingPanel( Sith ):
 					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-			_window.close( )
+					_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1662,7 +1661,7 @@ class WaitingPanel( Sith ):
 					if _event == sg.WIN_CLOSED:
 						exit( 0 )
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-			_window.close( )
+					_window.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1736,7 +1735,7 @@ class ProcessingPanel( Sith ):
 						exit( 0 )
 
 					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
-			_window.close( )
+					_window.close( )
 
 		except Exception as e:
 			_exc = Error( e )
@@ -2160,7 +2159,7 @@ class PdfForm( Sith ):
 			_filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
 				icon = self.__icon,
 				font = self.__themefont,
-				file_types = ( ( 'PDF Files', '*._pdf' ), ) )
+				file_types = ( ( 'PDF Files', '*.pdf' ), ) )
 
 			if _filename is None:
 				sg.popup_cancel( 'Cancelling' )
@@ -2176,27 +2175,26 @@ class PdfForm( Sith ):
 				if not _display:
 					_displaylist[ pno ] = _pdf[ pno ].get_displaylist( )
 					_display = _displaylist[ pno ]
-
-				_r = _display.rect
-				_mp = _r.tl + (_r.br - _r.tl) * 0.5  # rect middle point
-				_mt = _r.tl + (_r.tr - _r.tl) * 0.5  # middle of top edge
-				_ml = _r.tl + (_r.bl - _r.tl) * 0.5  # middle of left edge
-				_mr = _r.tr + (_r.br - _r.tr) * 0.5  # middle of right egde
-				_mb = _r.bl + (_r.br - _r.bl) * 0.5  # middle of bottom edge
-				_mat = fitz.Matrix( 2, 2 )
-				if zoom == 1:
-					_clip = fitz.Rect( _r.tl, _mp )
-				elif zoom == 4:
-					_clip = fitz.Rect( _mp, _r.br )
-				elif zoom == 2:
-					_clip = fitz.Rect( _mt, _mr )
-				elif zoom == 3:
-					_clip = fitz.Rect( _ml, _mb )
-				if zoom == 0:
-					_pix = _display.get_pixmap( alpha = False )
-				else:
-					_pix = _display.get_pixmap( alpha = False, matrix = _mat, clip = _clip )
-				return _pix.tobytes( )
+					_r = _display.rect
+					_mp = _r.tl + (_r.br - _r.tl) * 0.5  # rect middle point
+					_mt = _r.tl + (_r.tr - _r.tl) * 0.5  # middle of top edge
+					_ml = _r.tl + (_r.bl - _r.tl) * 0.5  # middle of left edge
+					_mr = _r.tr + (_r.br - _r.tr) * 0.5  # middle of right egde
+					_mb = _r.bl + (_r.br - _r.bl) * 0.5  # middle of bottom edge
+					_mat = fitz.Matrix( 2, 2 )
+					if zoom == 1:
+						_clip = fitz.Rect( _r.tl, _mp )
+					elif zoom == 4:
+						_clip = fitz.Rect( _mp, _r.br )
+					elif zoom == 2:
+						_clip = fitz.Rect( _mt, _mr )
+					elif zoom == 3:
+						_clip = fitz.Rect( _ml, _mb )
+					if zoom == 0:
+						_pix = _display.get_pixmap( alpha = False )
+					else:
+						_pix = _display.get_pixmap( alpha = False, matrix = _mat )
+					return _pix.tobytes( )
 
 			_current = 0
 			_data = getpage( _current )
@@ -4194,7 +4192,7 @@ class GraphForm( Sith ):
 			_x, _y = np.meshgrid( _x, _y )
 			_r = np.sqrt( _x ** 2 + _y ** 2 )
 			_z = np.sin( _r )
-			surf = _axis.plot_surface( _x, _y, _z, rstride = 1, cstride = 1, cmap = cm.jet,
+			surf = _axis.plot_surface( _x, _y, _z, rstride = 1, cstride = 1, cmap = cm,
 				linewidth = 0, antialiased = False )
 
 			_axis.set_zlim3d( -1.01, 1.01 )
