@@ -111,6 +111,7 @@ class Source( Enum ):
     CarryoverRequests = auto( )
     Changes = auto( )
     CompassLevels = auto( )
+    CongressionalProjects = auto( )
     CongressionalReprogrammings = auto( )
     Defactos = auto( )
     Deobligations = auto( )

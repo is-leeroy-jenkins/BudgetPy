@@ -5971,6 +5971,26 @@ class CongressionalControl( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
+class CongressionalProjects( ):
+	'''
+	Constructor:  CongressionalProjects( bfy: str, fund: str, rpio: str, ahcode: str )
+
+	Purpose:  Class used to allocated Earmarks
+	'''
+	__congressionalprojectsid = None
+	__bfy = None
+	__efy = None
+	__fundcode = None
+	__rpiocode = None
+	__ahcode = None
+	__amount = None
+
+	def __init__( self, bfy: str, fund: str, rpio: str, ahcode: str ):
+		self.__bfy = bfy
+		self.__fundcode = fund
+		self.__rpiocode = rpio
+		self.__ahcode = ahcode
+
 class CompassLevel( ):
     '''
     Constructor: CompassLevel( bfy: str, efy: str,
