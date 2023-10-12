@@ -2172,7 +2172,7 @@ class PdfForm( Sith ):
 
 			def getpage( pno, zoom = 0 ):
 				_display = _displaylist[ pno ]
-				if not _display:
+				if _display:
 					_displaylist[ pno ] = _pdf[ pno ].get_displaylist( )
 					_display = _displaylist[ pno ]
 					_r = _display.rect
@@ -2207,10 +2207,8 @@ class PdfForm( Sith ):
 			              sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
 			            [ _image ], ]
 
-			_keys = (
-					'Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up',
-					'-IN-',
-					'-OUT-')
+			_keys = ('Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up',
+					'-IN-', '-OUT-')
 
 			_window = sg.Window( _title, _layout,
 				size = self.__formsize,
@@ -3967,7 +3965,7 @@ class CsvForm( Sith ):
 						_data = _frame[ 1: ].values.tolist( )
 					elif _button == 'No':
 						_header = [ 'Column' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
-				except:
+				except Exception:
 					sg.popup_error( 'Error reading file' )
 					return
 

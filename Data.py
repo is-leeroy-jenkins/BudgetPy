@@ -1615,7 +1615,7 @@ class BudgetData( ):
 	__frame = None
 	__columnnames = None
 	__columncount = None
-	__rowcount = None;
+	__rowcount = None
 	__index = None
 
 	@property

@@ -9247,7 +9247,7 @@ class Fund( ):
     @apply_all_levels.setter
     def apply_all_levels( self, value: str ):
         if value is not None:
-           self.__applyatalllevels = value
+            self.__applyatalllevels = value
 
     @property
     def bats_fund( self ) -> str:
@@ -22695,13 +22695,13 @@ class SupplementalOutlayEstimate( ):
 
     @property
     def id( self ) -> int:
-        if self.__annualcarryoverestimatesid is not None:
-            return self.__annualcarryoverestimatesid
+        if self.__supplementaloutlayestimatesid is not None:
+            return self.__supplementaloutlayestimatesid
 
     @id.setter
     def id( self, value: int ):
         if value is not None:
-            self.__annualcarryoverestimatesid = value
+            self.__supplementaloutlayestimatesid = value
 
     @property
     def bfy( self ) -> str:
@@ -22802,6 +22802,16 @@ class SupplementalOutlayEstimate( ):
     def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
+
+    @property
+    def estimate( self ) -> float:
+        if self.__estimate is not None:
+            return self.__estimate
+
+    @estimate.setter
+    def estimate( self, value: float ):
+        if value is not None:
+            self.__estimate = value
 
     @property
     def treasury_account_code( self ) -> str:
