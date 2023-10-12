@@ -13,7 +13,6 @@
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Static.py" beforeDir="false" afterPath="$PROJECT_DIR$/Static.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +293,7 @@
       <workItem from="1697105647626" duration="76000" />
       <workItem from="1697105783356" duration="202000" />
       <workItem from="1697106033365" duration="2968000" />
-      <workItem from="1697109097091" duration="7566000" />
+      <workItem from="1697109097091" duration="13523000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -639,7 +638,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="599" />
+    <option name="localTasksCounter" value="600" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
