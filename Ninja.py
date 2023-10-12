@@ -11790,6 +11790,19 @@ class JobsActCarryoverEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
+class MainAccount( ):
+	'''
+	Constructor:  MainAccount( bfy: str, code: str )
+
+	Purpose: class models the OMB Budget Account
+	'''
+	__mainaccountsid = None
+	__bfy = None
+	__code = None
+	def __init__( self, bfy: str, code: str ):
+		self.__bfy = bfy
+		self.__code = code
+
 class MonthlyActual( ):
     '''
     Constructor:   Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
@@ -15506,6 +15519,20 @@ class ProgramResultsCode( ):
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
+
+class ReportingLines( ):
+	'''
+	Constructor:  ReportingLines( bfy: str, code: str )
+
+	Purpose: class models the lines on the SF-133 and SF-132
+	'''
+	__reportinglinesid = None
+	__bfy = None
+	__code = None
+
+	def __init__( self, bfy: str, code: str ):
+		self.__bfy = bfy
+		self.__code = code
 
 class ResponsibilityCenter( ):
     '''
