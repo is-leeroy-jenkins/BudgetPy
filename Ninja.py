@@ -22667,6 +22667,284 @@ class SupplementalCarryoverEstimate( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
+class SupplementalOutlayEstimate( ):
+    '''
+    Constructor:  CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
+
+    Purpose:  Class defines object providing Supplemental Carryover Estimate data for'''
+    __source = None
+    __provider = None
+    __supplementaloutlayestimatesid = None
+    __bfy = None
+    __efy = None
+    __rpiocode = None
+    __rpioname = None
+    __fundcode = None
+    __fundname = None
+    __amount = None
+    __opencommitments = None
+    __obligations = None
+    __estimate = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fields = None
+    __data = None
+    __frame = None
+
+    @property
+    def id( self ) -> int:
+        if self.__annualcarryoverestimatesid is not None:
+            return self.__annualcarryoverestimatesid
+
+    @id.setter
+    def id( self, value: int ):
+        if value is not None:
+            self.__annualcarryoverestimatesid = value
+
+    @property
+    def bfy( self ) -> str:
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value: str ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ) -> str:
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value: str ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def rpio_code( self ) -> str:
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value: str ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ) -> str:
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_code.setter
+    def rpio_code( self, value: str ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def fund_code( self ) -> str:
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value: str ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ) -> str:
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value: str ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def amount( self ) -> float:
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value: float ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def available( self ) -> float:
+        if self.__availablebalance is not None:
+            return self.__availablebalance
+
+    @available.setter
+    def available( self, value: float ):
+        if value is not None:
+            self.__availablebalance = value
+
+    @property
+    def open_commitments( self ) -> float:
+        if self.__opencommitments is not None:
+            return self.__opencommitments
+
+    @open_commitments.setter
+    def open_commitments( self, value: float ):
+        if value is not None:
+            self.__opencommitments = value
+
+    @property
+    def obligations( self ) -> float:
+        if self.__obligations is not None:
+            return self.__obligations
+
+    @obligations.setter
+    def obligations( self, value: float ):
+        if value is not None:
+            self.__obligations = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
+    def data( self ) -> list[ Row ]:
+        if self.__data is not None:
+            return self.__data
+
+    @data.setter
+    def data( self, value: list[ Row ] ):
+        if isinstance( value, list ):
+            self.__data = value
+
+    @property
+    def table( self ) -> DataFrame:
+        if self.__frame is not None:
+            return self.__frame
+
+    @table.setter
+    def table( self, value: DataFrame ):
+        if value is not None:
+            self.__frame = value
+
+    @property
+    def fields( self ) -> list[ str ]:
+        if self.__fields is not None:
+            return self.__fields
+
+    @fields.setter
+    def fields( self, value: list[ str ] ):
+        if value is not None:
+            self.__fields = value
+
+
+    def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+        self.__provider = provider
+        self.__source = Source.SupplementalCarryoverEstimates
+        self.__bfy = bfy
+        self.__fields = [ 'CarryoverEstimatesId',
+                           'BudgetLevel',
+                           'BFY',
+                           'EFY',
+                           'RpioCode',
+                           'RpioName',
+                           'AhCode',
+                           'AhName',
+                           'FundCode',
+                           'FundName',
+                           'OrgCode',
+                           'AccountCode',
+                           'ProgramProjectCode',
+                           'ProgramProjectName',
+                           'ProgramAreaCode',
+                           'ProgramAreaName',
+                           'BocCode',
+                           'BocName',
+                           'AvailableBalance',
+                           'OpenCommitment',
+                           'UnobligatedAuthority' ]
+
+    def __str__( self ) -> str:
+        if  self.__rpiocode is not None:
+            return self.__rpiocode
+
+    def get_data( self  ) -> list[ Row ]:
+        try:
+            _source = self.__source
+            _provider = self.__provider
+            _names = [ 'BFY', 'EFY' ]
+            _values = (self.__bfy, self.__efy)
+            _dbconfig = DbConfig( _source, _provider )
+            _sqlconfig = SqlConfig( names = _names, values = _values )
+            _connection = Connection( self.__source )
+            _sql = SqlStatement( _dbconfig, _sqlconfig )
+            _sqlite = _connection.connect( )
+            _cursor = _sqlite.cursor( )
+            _query = _sql.get_query( )
+            _db = _cursor.execute( _query )
+            self.__data =  [ i for i in _db.fetchall( ) ]
+            _cursor.close( )
+            _sqlite.close( )
+            return self.__data
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Reporting'
+            _exc.cause = 'CarryoverEstimate'
+            _exc.method = 'get_data( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
+    def get_frame( self ) -> DataFrame:
+        '''Method returning pandas dataframe
+        comprised of datatable data'''
+        try:
+            _source = self.__source
+            _data = BudgetData( _source )
+            return _data.create_frame( )
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Reporting'
+            _exc.cause = 'CarryoverEstimate'
+            _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
 class TreasurySymbol( ):
     '''
     Constructor:  TreasurySymbol( bfy: str, efy: str,
