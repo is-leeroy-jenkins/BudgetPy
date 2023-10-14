@@ -149,7 +149,7 @@
     "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
     "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "PyConsoleConfigurable.Python Console",
     "settings.editor.splitter.proportion": "0.24475019",
     "vue.rearranger.settings.migration": "true"
   },
@@ -293,7 +293,8 @@
       <workItem from="1697105647626" duration="76000" />
       <workItem from="1697105783356" duration="202000" />
       <workItem from="1697106033365" duration="2968000" />
-      <workItem from="1697109097091" duration="13523000" />
+      <workItem from="1697109097091" duration="14207000" />
+      <workItem from="1697201642841" duration="6112000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -638,7 +639,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="600" />
+    <option name="localTasksCounter" value="601" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

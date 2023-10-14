@@ -15539,6 +15539,20 @@ class ProgramResultsCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
+class ReconcilliationLines( ):
+	'''
+	Constructor:  ReconcilliationLines( num: str )
+
+	Purpose:  Class of SF-133 lines used to reconcile budgetar
+	resource on the SF-132
+	'''
+	__reconcilliationlinesid = None
+	__number = None
+	__name = None
+
+	def __init__( self, number: str ):
+		self.__number = number
+
 class ReportingLines( ):
 	'''
 	Constructor:  ReportingLines( bfy: str, code: str )
