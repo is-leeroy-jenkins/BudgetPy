@@ -389,7 +389,7 @@ class Accounts( ):
 
 class ActivityCodes( ):
     '''
-    Constructor: ActivityCode( treas: str, pvdr: Provider = Provider.SQLite )
+    Constructor: ActivityCode( code: str, provider: Provider = Provider.SQLite )
 
     Purpose: Data class representing Activity Codes
     '''
@@ -515,6 +515,21 @@ class ActivityCodes( ):
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
+
+class AdjustedTrialBalances( ):
+	'''
+	Constructor:  AdjustedTrialBalances( bfy: str, number: str )
+
+	Purpose: Data class representing a record in the ATB
+	'''
+	__adjustedtrialbalancesid = None
+	__number = None
+	__bfy = None
+	__name = None
+
+	def __init__( self, bfy: str, number: str ):
+		self.__bfy = bfy
+		self.__number = number
 
 class AllowanceHolders( ):
     '''
@@ -11819,6 +11834,7 @@ class MainAccounts( ):
 	__mainaccountsid = None
 	__bfy = None
 	__code = None
+
 	def __init__( self, bfy: str, code: str ):
 		self.__bfy = bfy
 		self.__code = code
@@ -18568,12 +18584,12 @@ class SubAppropriations( ):
     @property
     def id( self ) -> int:
         if self.__subappropriationsid is not None:
-            return self.__appropriationsid
+            return self.__subappropriationsid
 
     @id.setter
     def id( self, value: int ):
         if value is not None:
-            self.__appropriationsid  = value
+            self.__subappropriationsid  = value
 
     @property
     def code( self ) -> str:
