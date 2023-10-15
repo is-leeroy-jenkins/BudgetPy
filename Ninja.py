@@ -11826,18 +11826,44 @@ class JobsActCarryoverEstimates( ):
             _err.show( )
 
 class MainAccounts( ):
-	'''
+    '''
 	Constructor:  MainAccount( bfy: str, code: str )
 
 	Purpose: class models the OMB Budget Account
 	'''
-	__mainaccountsid = None
-	__bfy = None
-	__code = None
+    __mainaccountsid = None
+    __bfy = None
+    __code = None
+    __subfunctioncode = None
+    __subfunctionname = None
+    __type = None
+    __budgetenforcementactcategory = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
 
-	def __init__( self, bfy: str, code: str ):
-		self.__bfy = bfy
-		self.__code = code
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    def __init__( self, bfy: str, code: str ):
+        self.__bfy = bfy
+        self.__code = code
 
 class MonthlyActuals( ):
     '''
