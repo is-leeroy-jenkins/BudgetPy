@@ -22769,14 +22769,14 @@ class SupplementalCarryoverEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SupplementalOutlayEstimates( ):
+class SupplementalObligationEstimates( ):
     '''
     Constructor:  CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:  Class defines object providing Supplemental Carryover Estimate data for'''
     __source = None
     __provider = None
-    __supplementaloutlayestimatesid = None
+    __supplementalobligationestimatesid = None
     __bfy = None
     __efy = None
     __rpiocode = None
@@ -22784,9 +22784,6 @@ class SupplementalOutlayEstimates( ):
     __fundcode = None
     __fundname = None
     __amount = None
-    __opencommitments = None
-    __obligations = None
-    __estimate = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -22874,46 +22871,6 @@ class SupplementalOutlayEstimates( ):
     def amount( self, value: float ):
         if value is not None:
             self.__amount = value
-
-    @property
-    def available( self ) -> float:
-        if self.__availablebalance is not None:
-            return self.__availablebalance
-
-    @available.setter
-    def available( self, value: float ):
-        if value is not None:
-            self.__availablebalance = value
-
-    @property
-    def open_commitments( self ) -> float:
-        if self.__opencommitments is not None:
-            return self.__opencommitments
-
-    @open_commitments.setter
-    def open_commitments( self, value: float ):
-        if value is not None:
-            self.__opencommitments = value
-
-    @property
-    def obligations( self ) -> float:
-        if self.__obligations is not None:
-            return self.__obligations
-
-    @obligations.setter
-    def obligations( self, value: float ):
-        if value is not None:
-            self.__obligations = value
-
-    @property
-    def estimate( self ) -> float:
-        if self.__estimate is not None:
-            return self.__estimate
-
-    @estimate.setter
-    def estimate( self, value: float ):
-        if value is not None:
-            self.__estimate = value
 
     @property
     def treasury_account_code( self ) -> str:
