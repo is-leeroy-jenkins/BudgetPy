@@ -148,6 +148,7 @@ class Source( Enum ):
     StateGrantObligations = auto( )
     StatusOfAppropriations = auto( )
     StatusOfBudgetaryResources = auto( )
+    StatusOfBudgetExecution = auto( )
     StatusOfEarmarks = auto( )
     StatusOfFunds = auto( )
     StatusOfJobsActFunding = auto( )

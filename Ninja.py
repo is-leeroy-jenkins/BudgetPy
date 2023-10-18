@@ -12338,6 +12338,126 @@ class MonthlyOutlays( ):
             self.__subaccountcode = value
 
     @property
+    def january( self ) -> float:
+        if self.__january is not None:
+            return self.__january
+
+    @january.setter
+    def january( self, value: float ):
+        if value is not None:
+            self.__january = value
+
+    @property
+    def feburary( self ) -> float:
+        if self.__feburary is not None:
+            return self.__feburary
+
+    @feburary.setter
+    def feburary( self, value: float ):
+        if value is not None:
+            self.__feburary = value
+
+    @property
+    def march( self ) -> float:
+        if self.__march is not None:
+            return self.__march
+
+    @march.setter
+    def march( self, value: float ):
+        if value is not None:
+            self.__march = value
+
+    @property
+    def april( self ) -> float:
+        if self.__april is not None:
+            return self.__april
+
+    @april.setter
+    def april( self, value: float ):
+        if value is not None:
+            self.__april = value
+
+    @property
+    def may( self ) -> float:
+        if self.__may is not None:
+            return self.__may
+
+    @may.setter
+    def may( self, value: float ):
+        if value is not None:
+            self.__may = value
+
+    @property
+    def june( self ) -> float:
+        if self.__june is not None:
+            return self.__june
+
+    @june.setter
+    def june( self, value: float ):
+        if value is not None:
+            self.__june = value
+
+    @property
+    def july( self ) -> float:
+        if self.__july is not None:
+            return self.__july
+
+    @july.setter
+    def july( self, value: float ):
+        if value is not None:
+            self.__july = value
+
+    @property
+    def august( self ) -> float:
+        if self.__august is not None:
+            return self.__august
+
+    @august.setter
+    def august( self, value: float ):
+        if value is not None:
+            self.__august = value
+
+    @property
+    def september( self ) -> float:
+        if self.__september is not None:
+            return self.__september
+
+    @september.setter
+    def september( self, value: float ):
+        if value is not None:
+            self.__september = value
+
+    @property
+    def october( self ) -> float:
+        if self.__october is not None:
+            return self.__october
+
+    @october.setter
+    def october( self, value: float ):
+        if value is not None:
+            self.__october = value
+
+    @property
+    def november( self ) -> float:
+        if self.__november is not None:
+            return self.__november
+
+    @november.setter
+    def november( self, value: float ):
+        if value is not None:
+            self.__november = value
+
+    @property
+    def december( self ) -> float:
+        if self.__december is not None:
+            return self.__december
+
+    @december.setter
+    def december( self, value: float ):
+        if value is not None:
+            self.__december = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -16291,6 +16411,13 @@ class RegionalAuthority( ):
     __rccode = None
     __rcname = None
     __amount = None
+    __budgeted = None
+    __posted = None
+    __opencommitments = None
+    __obligations = None
+    __unliquidatedobligations = None
+    __used = None
+    __available = None
     __programprojectcode = None
     __programprojectname = None
     __programareacode = None
@@ -16480,12 +16607,12 @@ class RegionalAuthority( ):
             self.__amount = value
 
     @property
-    def budgeted( self ) -> str:
+    def budgeted( self ) -> float:
         if self.__budgeted is not None:
             return self.__budgeted
 
     @budgeted.setter
-    def budgeted( self, value: str ):
+    def budgeted( self, value: float ):
         if value is not None:
             self.__budgeted = value
 
@@ -16520,32 +16647,32 @@ class RegionalAuthority( ):
             self.__obligations = value
 
     @property
-    def unliquidated_obligations( self ) -> str:
+    def unliquidated_obligations( self ) -> float:
         if self.__unliquidatedobligations is not None:
             return self.__unliquidatedobligations
 
     @unliquidated_obligations.setter
-    def unliquidated_obligations( self, value: str ):
+    def unliquidated_obligations( self, value: float ):
         if value is not None:
             self.__unliquidatedobligations = value
 
     @property
-    def expenditures( self ) -> str:
+    def expenditures( self ) -> float:
         if self.__expenditures is not None:
             return self.__expenditures
 
     @expenditures.setter
-    def expenditures( self, value: str ):
+    def expenditures( self, value: float ):
         if value is not None:
             self.__expenditures = value
 
     @property
-    def used( self ) -> str:
+    def used( self ) -> float:
         if self.__used is not None:
             return self.__used
 
     @used.setter
-    def used( self, value: str ):
+    def used( self, value: float ):
         if value is not None:
             self.__used = value
 
@@ -17311,6 +17438,407 @@ class StatusOfFunds( ):
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
+
+class StatusOfBudgetaryResources( ):
+    '''
+    Constructor:  StatusOfBudgetaryResources( tsym: str )
+
+    Purpose:  Class representing the Monthly SF-133
+    '''
+    __source = None
+    __provider = None
+    __statusofbudgetaryresourcesid = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fiscalyear = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __beginningperiodofavailability = None
+    __endingperiodofavailability = None
+    __sectionnumber = None
+    __sectionname = None
+    __linenumber = None
+    __linename = None
+    __january = None
+    __feburary = None
+    __march = None
+    __april = None
+    __may = None
+    __june = None
+    __july = None
+    __august = None
+    __september = None
+    __october = None
+    __november = None
+    __december = None
+
+    @property
+    def id( self ) -> int:
+        if self.__statusofbudgetaryresourcesid is not None:
+            return self.__statusofbudgetaryresourcesid
+
+    @id.setter
+    def id( self, value: int ):
+        if value is not None:
+            self.__statusofbudgetaryresourcesid = value
+
+    @property
+    def bfy( self ) -> str:
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value: str ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ) -> str:
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value: str ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def fund_code( self ) -> str:
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value: str ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ) -> str:
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value: str ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
+    def january( self ) -> float:
+        if self.__january is not None:
+            return self.__january
+
+    @january.setter
+    def january( self, value: float ):
+        if value is not None:
+            self.__january = value
+
+    @property
+    def feburary( self ) -> float:
+        if self.__feburary is not None:
+            return self.__feburary
+
+    @feburary.setter
+    def feburary( self, value: float ):
+        if value is not None:
+            self.__feburary = value
+
+    @property
+    def march( self ) -> float:
+        if self.__march is not None:
+            return self.__march
+
+    @march.setter
+    def march( self, value: float ):
+        if value is not None:
+            self.__march = value
+
+    @property
+    def april( self ) -> float:
+        if self.__april is not None:
+            return self.__april
+
+    @april.setter
+    def april( self, value: float ):
+        if value is not None:
+            self.__april = value
+
+    @property
+    def may( self ) -> float:
+        if self.__may is not None:
+            return self.__may
+
+    @may.setter
+    def may( self, value: float ):
+        if value is not None:
+            self.__may = value
+
+    @property
+    def june( self ) -> float:
+        if self.__june is not None:
+            return self.__june
+
+    @june.setter
+    def june( self, value: float ):
+        if value is not None:
+            self.__june = value
+
+    @property
+    def july( self ) -> float:
+        if self.__july is not None:
+            return self.__july
+
+    @july.setter
+    def july( self, value: float ):
+        if value is not None:
+            self.__july = value
+
+    @property
+    def august( self ) -> float:
+        if self.__august is not None:
+            return self.__august
+
+    @august.setter
+    def august( self, value: float ):
+        if value is not None:
+            self.__august = value
+
+    @property
+    def september( self ) -> float:
+        if self.__september is not None:
+            return self.__september
+
+    @september.setter
+    def september( self, value: float ):
+        if value is not None:
+            self.__september = value
+
+    @property
+    def october( self ) -> float:
+        if self.__october is not None:
+            return self.__october
+
+    @october.setter
+    def october( self, value: float ):
+        if value is not None:
+            self.__october = value
+
+    @property
+    def november( self ) -> float:
+        if self.__november is not None:
+            return self.__november
+
+    @november.setter
+    def november( self, value: float ):
+        if value is not None:
+            self.__november = value
+
+    @property
+    def december( self ) -> float:
+        if self.__december is not None:
+            return self.__december
+
+    @december.setter
+    def december( self, value: float ):
+        if value is not None:
+            self.__december = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    def __init__( self, tsym: str  ):
+        self.__source = Source.StatusOfBudgetaryResources
+        self.__treasuryaccountcode = tsym
+
+class StatusOfBudgetExecution( ):
+    '''
+    Constructor:  StatusOfBudgetaryResources( tsym: str )
+
+    Purpose:  Class representing the Monthly SF-133
+    '''
+    __source = None
+    __provider = None
+    __statusofbudgetexecutionid = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
+    __fiscalyear = None
+    __bfy = None
+    __efy = None
+    __fundcode = None
+    __fundname = None
+    __beginningperiodofavailability = None
+    __endingperiodofavailability = None
+    __sectionnumber = None
+    __sectionname = None
+    __linenumber = None
+    __linename = None
+    __amount = None
+
+    @property
+    def id( self ) -> int:
+        if self.__statusofbudgetexecutionid is not None:
+            return self.__statusofbudgetexecutionid
+
+    @id.setter
+    def id( self, value: int ):
+        if value is not None:
+            self.__statusofbudgetexecutionid = value
+
+    @property
+    def bfy( self ) -> str:
+        if self.__bfy is not None:
+            return self.__bfy
+
+    @bfy.setter
+    def bfy( self, value: str ):
+        if value is not None:
+            self.__bfy = value
+
+    @property
+    def efy( self ) -> str:
+        if self.__efy is not None:
+            return self.__efy
+
+    @efy.setter
+    def efy( self, value: str ):
+        if value is not None:
+            self.__efy = value
+
+    @property
+    def fiscal_year( self ) -> str:
+        if self.__fiscalyear is not None:
+            return self.__fiscalyear
+
+    @fiscal_year.setter
+    def fiscal_year( self, value: str ):
+        if value is not None:
+            self.__fiscalyear = value
+
+    @property
+    def section_name( self ) -> str:
+        if self.__sectionname is not None:
+            return self.__sectionname
+
+    @section_name.setter
+    def section_name( self, value: str ):
+        if value is not None:
+            self.__sectionname = value
+
+    @property
+    def section_number( self ) -> str:
+        if self.__sectionnumber is not None:
+            return self.__sectionnumber
+
+    @section_number.setter
+    def section_number( self, value: str ):
+        if value is not None:
+            self.__sectionnumber = value
+
+    @property
+    def line_number( self ) -> str:
+        if self.__linenumber is not None:
+            return self.__linenumber
+
+    @line_number.setter
+    def line_number( self, value: str ):
+        if value is not None:
+            self.__linenumber = value
+
+    @property
+    def amount( self ) -> float:
+        if self.__amount is not None:
+            return self.__amount
+
+    @amount.setter
+    def amount( self, value: float ):
+        if value is not None:
+            self.__amount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    def __init__( self, tsym: str  ):
+        self.__source = Source.StatusOfBudgetExecution
+        self.__treasuryaccountcode = tsym
 
 class StatusOfSupplementalFunding( ):
     '''

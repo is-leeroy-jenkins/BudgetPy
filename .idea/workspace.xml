@@ -111,7 +111,7 @@
       <option value="200" />
     </hideBySeverity>
     <option name="proportion" value="0.6094118" />
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectColorInfo">{
@@ -150,7 +150,7 @@
     "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
     "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Python",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
     "settings.editor.splitter.proportion": "0.24475019",
     "vue.rearranger.settings.migration": "true"
   },
@@ -297,7 +297,9 @@
       <workItem from="1697109097091" duration="14207000" />
       <workItem from="1697201642841" duration="6213000" />
       <workItem from="1697270589096" duration="2532000" />
-      <workItem from="1697362026402" duration="4705000" />
+      <workItem from="1697362026402" duration="29389000" />
+      <workItem from="1697604355674" duration="3833000" />
+      <workItem from="1697613763071" duration="2492000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -642,7 +644,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="605" />
+    <option name="localTasksCounter" value="606" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
