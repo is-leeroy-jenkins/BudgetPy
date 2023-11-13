@@ -333,7 +333,7 @@ class Accounts( ):
 
     def copy( self ):
         try:
-            _clone = Account( code = self.__code )
+            _clone = Accounts( code = self.__code )
             _clone.goal_code = self.__goalcode
             _clone.objective_code = self.__objectivecode
             _clone.npm_code = self.__npmcode
