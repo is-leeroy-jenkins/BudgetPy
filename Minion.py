@@ -47,10 +47,11 @@ from Static import Client
 
 class App( ):
     '''
-    Constructor:  App( client: enum )
+    Constructor:
+    App( client: enum )
 
-    Purpose:  Class defines object providing
-    factory methods run( ) and run( args ) that run
+    Purpose:
+    Class defines object providing factory methods run( ) and run( args ) that run
     processes based on 'Client' enumeration input args
     '''
     __app = None
@@ -123,7 +124,13 @@ class App( ):
         self.__calculator = r'C:\Windows\System32\calc.exe'
 
     def run( self ):
-        '''Method that starts process running the member client program'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
                 sp.Popen( self.__sqliteclient )
@@ -148,8 +155,13 @@ class App( ):
             _err.show( )
 
     def run_args( self, args ):
-        '''Method starts a process running the member
-         client program with the provided string 'args' '''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             if isinstance( args, str ) and self.__app == Client.SQLite:
                 if os.path.isfile( args ):

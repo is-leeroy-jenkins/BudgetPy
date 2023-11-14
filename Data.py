@@ -52,9 +52,11 @@ from Booger import Error, ErrorDialog
 
 class Pascal( ):
 	'''
-	Constructor: Pascal( input: str )
+	Constructor:
+	Pascal( input: str )
 
-	Purpose: Class splits string 'input' argument into Pascal Casing
+	Purpose:
+	Class splits string 'input' argument into Pascal Casing
 	'''
 	__input = None
 	__output = None
@@ -87,9 +89,14 @@ class Pascal( ):
 			return self.__output
 
 	def split( self ) -> str:
-		'''Method that formats the input string
-		 into pascal casing.
-		 '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__input is not None and self.__input.count( ' ' ) == 0:
 				_buffer = [ c for c in self.__input ]
@@ -131,8 +138,14 @@ class Pascal( ):
 			_err.show( )
 
 	def join( self ) -> str:
-		'''Method removes ' ' from strings previously
-		formatted into pascal casing with split( self ) '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__input is not None and self.__input.count( ' ' ) > 0:
 				_buffer = [ c for c in self.__input ]
@@ -166,9 +179,11 @@ class Pascal( ):
 
 class SqlPath( ):
 	'''
-	Constructor: SqlPath( )
+	Constructor:
+	SqlPath( )
 
-	Purpose: Class providing relative_path paths to the
+	Purpose:
+	Class providing relative_path paths to the
 	folders containing sqlstatement files and driver paths used in the application
 	'''
 	__accessdriver = None
@@ -248,10 +263,12 @@ class SqlPath( ):
 
 class SqlFile( ):
 	'''
-	Construxtor: SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
-				  command_type: SQL = SQL.SELECTALL )
+	Construxtor:
+	SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
+			command_type: SQL = SQL.SELECTALL )
 
-	Purpuse: Class providing access to sqlstatement sub-folders in the application provided
+	Purpuse:
+	Class providing access to sqlstatement sub-folders in the application provided
 	optional arguments src, pvdr, and command_type
 	'''
 	__data = None
@@ -320,6 +337,7 @@ class SqlFile( ):
 		                'CongressionalControls',
 		                'Contacts',
 		                'CostAreas',
+		                'CongressionalProjects',
 		                'DataRuleDescriptions',
 		                'Defactos',
 		                'Deobligations',
@@ -354,6 +372,7 @@ class SqlFile( ):
 		                'OperatingPlans',
 		                'Organizations',
 		                'Outlays',
+		                'Partitions'
 		                'PayPeriods',
 		                'PayrollAuthority',
 		                'PayrollCostCodes',
@@ -409,10 +428,14 @@ class SqlFile( ):
 		self.__provider = provider
 
 	def get_path( self ) -> str:
-		'''Method returning a string representing
-		 the absolute path to the SQL file used to execute the
-		 command_type 'self.__commandtype' against the table given by the
-		 'source' and 'provider' members'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_sqlpath = SqlPath( )
 			_data = self.__data
@@ -442,8 +465,14 @@ class SqlFile( ):
 			_err.show( )
 
 	def get_directory( self ) -> str:
-		'''Method creates and returns a string representing
-		the parent directory where the SQL file resides'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_sqlpath = SqlPath( )
 			_data = self.__data
@@ -473,8 +502,14 @@ class SqlFile( ):
 			_err.show( )
 
 	def get_query( self ) -> str:
-		'''Method reads the given '._sql' file and returns
-		a string representing the text used the _sql _query'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_source = self.__source.name
 			_paths = self.get_path( )
@@ -496,10 +531,11 @@ class SqlFile( ):
 
 class DbConfig( ):
 	'''
-	Constructor: DbConfig( source: Source, pvdr: Provider = Provider.SQLite )
+	Constructor:
+	DbConfig( source: Source, pvdr: Provider = Provider.SQLite )
 
-	Purpose: Class provides list of Budget Execution
-	tables across two databases
+	Purpose:
+	Class provides list of Budget Execution tables across two databases
 	'''
 	__source = None
 	__provider = None
@@ -515,13 +551,6 @@ class DbConfig( ):
 
 	@property
 	def source( self ) -> Source:
-		'''
-		Purpose:  Gets the Source property
-
-		Parameters: None
-
-		Returns: Source
-		'''
 		if self.__source is not None:
 			return self.__source
 
@@ -532,7 +561,6 @@ class DbConfig( ):
 
 	@property
 	def provider( self ) -> Provider:
-		'''Get the Provider property'''
 		if self.__provider is not None:
 			return self.__provider
 
@@ -553,8 +581,6 @@ class DbConfig( ):
 			self.__table = value
 
 	def __init__( self, source: Source, provider = Provider.SQLite ):
-		'''Constructor for the DbConfig class providing
-		value details'''
 		self.__provider = provider
 		self.__source = source
 		self.__table = source.name
@@ -591,6 +617,7 @@ class DbConfig( ):
 		                'InflationReductionActCarryoverEstimates',
 		                'JobsActCarryoverEstimates',
 		                'LedgerAccounts',
+		                'MainAccounts',
 		                'MonthlyActuals',
 		                'MonthlyLedgerAccountBalances',
 		                'MonthlyOutlays',
@@ -599,6 +626,7 @@ class DbConfig( ):
 		                'OpenCommitments',
 		                'OperatingPlans',
 		                'Outlays',
+		                'Partitions'
 		                'PayrollAuthority',
 		                'PayrollRequests',
 		                'PRC',
@@ -710,7 +738,14 @@ class DbConfig( ):
 			_error.show( )
 
 	def get_path( self ) -> str:
-		'''Returns the path to the DB in use'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__provider.name == 'SQLite':
 				return self.__sqlitepath
@@ -728,7 +763,14 @@ class DbConfig( ):
 			_error.show( )
 
 	def get_connectionstring( self ) -> str:
-		'''Returns a connection string for the DB in use'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_path = self.get_path( )
 			if self.__provider.name == Provider.Access.name:
@@ -748,9 +790,11 @@ class DbConfig( ):
 
 class Connection( DbConfig ):
 	'''
-	Constructor: Connection( src, pvdr = Provider.SQLite )
+	Constructor:
+	Connection( src, pvdr = Provider.SQLite )
 
-	Purpose: Class providing object used to connect to the databases
+	Purpose:
+	Class providing object used to connect to the databases
 	'''
 	__driver = None
 	__path = None
@@ -797,6 +841,14 @@ class Connection( DbConfig ):
 		self.__connectionstring = super( ).get_connectionstring( )
 
 	def connect( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__provider.name == Provider.Access.name:
 				return db.connect( self.__connectionstring )
@@ -814,10 +866,12 @@ class Connection( DbConfig ):
 
 class SqlConfig( ):
 	'''
-	 Constructor: SqlConfig( command_type: SQL = SQL.SELECTALL, column_names: list = None,
+	 Constructor:
+	 SqlConfig( command: SQL = SQL.SELECTALL, names: list = None,
 				values: tuple = None, style: ParamStyle = None )
 
-	 Purpose: Class provides database interaction behavior
+	 Purpose:
+	 Class provides database interaction behavior
 	 '''
 	__commandtype = None
 	__names = None
@@ -837,37 +891,31 @@ class SqlConfig( ):
 
 	@property
 	def names( self ) -> list[ str ]:
-		''' builds crit from _provider index namevaluepairs'''
 		if self.__names is not None:
 			return self.__names
 
 	@names.setter
 	def names( self, value: list[ str ] ):
-		''' builds crit from _provider index namevaluepairs'''
 		if value is not None:
 			self.__names = value
 
 	@property
 	def values( self ) -> tuple:
-		''' builds crit from pvdr index namevaluepairs'''
 		if self.__values is not None:
 			return self.__values
 
 	@values.setter
 	def values( self, value: tuple ):
-		''' builds crit from pvdr index namevaluepairs'''
 		if value is not None:
 			self.__values = value
 
 	@property
 	def param_style( self ) -> ParamStyle:
-		''' Property representing the DBI param_style'''
 		if self.__paramstyle is not None:
 			return self.__paramstyle
 
 	@param_style.setter
 	def param_style( self, value: ParamStyle ):
-		''' Property representing the DBI param_style attribute'''
 		if value is not None:
 			self.__paramstyle = value
 		else:
@@ -893,9 +941,14 @@ class SqlConfig( ):
 			if isinstance( names, list ) and isinstance( values, tuple ) else None
 
 	def dump_pairs( self ) -> str:
-		'''dump( ) returns string of 'values = index AND' _pairs
-		@return:
 		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
 				_pairs = ''
@@ -913,9 +966,14 @@ class SqlConfig( ):
 			_err.show( )
 
 	def dump_where( self ) -> str:
-		'''dump_where( ) returns a string
-		using list arguments column_names and values
-		@return: '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
 				pairs = ''
@@ -933,9 +991,14 @@ class SqlConfig( ):
 			_err.show( )
 
 	def dump_set( self ) -> str:
-		'''dump_set( ) returns a string
-		using list arguments column_names and values
-		@return: '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__names is not None and self.__values is not None:
 				_pairs = ''
@@ -953,9 +1016,14 @@ class SqlConfig( ):
 			_err.show( )
 
 	def dump_columns( self ) -> str:
-		'''dump_columns( ) returns a string of _columns
-		used in select and insert statements from list self.__colnames
-		 '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__names is not None:
 				_colnames = ''
@@ -972,9 +1040,14 @@ class SqlConfig( ):
 			_err.show( )
 
 	def dump_values( self ) -> str:
-		'''dump_values( ) returns a string of _values
-		used in select statements from list self.__colnames
-		@return: '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__values is not None:
 				_vals = ''
@@ -992,9 +1065,11 @@ class SqlConfig( ):
 
 class SqlStatement( ):
 	'''
-	Constructor: SqlStatement( dbcfg: DbConfig, sqlcfg: SqlConfig )
+	Constructor:
+	SqlStatement( dbcfg: DbConfig, sqlcfg: SqlConfig )
 
-	Purpose: Class represents the values models used in the SQLite database
+	Purpose:
+	Class represents the values models used in the SQLite database
 	'''
 	__commandtype = None
 	__sqlconfig = None
@@ -1008,10 +1083,6 @@ class SqlStatement( ):
 
 	@property
 	def source( self ) -> Source:
-		"""
-
-		@return: =Source
-		"""
 		if isinstance( self.__source, Source ):
 			return self.__source
 
@@ -1097,6 +1168,14 @@ class SqlStatement( ):
 			return self.__text
 
 	def get_query( self ) -> str:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__names is not None and isinstance( self.__values, tuple ):
 				if self.__commandtype == SQL.SELECTALL:
@@ -1153,9 +1232,11 @@ class SqlStatement( ):
 
 class Query( ):
 	'''
-	Constructor:  Query( connection: Connection, sqlstatement: SqlStatement ).
+	Constructor:
+	Query( connection: Connection, sqlstatement: SqlStatement ).
 
-	Purpose: Base class for database interaction
+	Purpose:
+	Base class for database interaction
 	'''
 	__connection = None
 	__sqlstatement = None
@@ -1304,6 +1385,14 @@ class Query( ):
 
 	@property
 	def create_sqltext( self ) -> str:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_table = self.__tablename
 			_crit = self.__sqlconfig.dump_where( )
@@ -1358,9 +1447,11 @@ class Query( ):
 
 class SQLiteData( Query ):
 	'''
-	Constructor: SQLiteData( connection: Connection, sqlstatement: SqlStatement )
+	Constructor:
+	SQLiteData( connection: Connection, sqlstatement: SqlStatement )
 
-	Purpose: Class represents the SQLite data factory
+	Purpose:
+	Class represents the SQLite data factory
 	'''
 	__driver = None
 	__dsn = None
@@ -1393,6 +1484,14 @@ class SQLiteData( Query ):
 			return self.__query
 
 	def create_table( self ) -> list[ pyodbc.Row ]:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = self.__query
 			_conn = self.__connection.connect( )
@@ -1412,6 +1511,14 @@ class SQLiteData( Query ):
 			_err.show( )
 
 	def create_frame( self ) -> DataFrame:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = f'SELECT * FROM {self.__source.name}'
 			_connection = self.__connection.connect( )
@@ -1428,9 +1535,11 @@ class SQLiteData( Query ):
 
 class AccessData( Query ):
 	'''
-	Constructor:  AccessData( connection: Connection, sqlstatement: SqlStatement )
+	Constructor:
+	AccessData( connection: Connection, sqlstatement: SqlStatement )
 
-	Purpose: Class represents the main execution
+	Purpose:
+	Class represents the main execution
 	values model classes in the MS ACCDB database
 	'''
 	__query = None
@@ -1464,6 +1573,14 @@ class AccessData( Query ):
 			return self.__query
 
 	def create_table( self ) -> list[ pyodbc.Row ]:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = self.__query
 			_access = self.__connection.connect( )
@@ -1483,6 +1600,14 @@ class AccessData( Query ):
 			_err.show( )
 
 	def create_frame( self ) -> DataFrame:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = self.__query
 			_conn = self.__connection.connect( )
@@ -1499,9 +1624,11 @@ class AccessData( Query ):
 
 class SqlData( Query ):
 	'''
-	 Constructor: SqlData( connection: Connection, sqlstatement: SqlStatement )
+	 Constructor:
+	 SqlData( connection: Connection, sqlstatement: SqlStatement )
 
-	 Purpose:  Class providing object represents the
+	 Purpose:
+	 Class providing object represents the
 	 value models in the MS SQL Server database
 	 '''
 	__query = None
@@ -1566,6 +1693,14 @@ class SqlData( Query ):
 			return self.__source.name
 
 	def create_table( self ) -> list[ pyodbc.Row ]:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = self.__query
 			_connection = self.__connection.connect( )
@@ -1585,6 +1720,14 @@ class SqlData( Query ):
 			_err.show( )
 
 	def create_frame( self ) -> DataFrame:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_query = f'SELECT * FROM {self.__table}'
 			_connection = self.__connection.connect( )
@@ -1601,9 +1744,11 @@ class SqlData( Query ):
 
 class BudgetData( ):
 	'''
-	Constructor: BudgetData( source: Source ).
+	Constructor:
+	BudgetData( source: Source ).
 
-	Purpose:  Class containing factory method for providing
+	Purpose:
+	Class containing factory method for providing
 	pandas dataframes
 	'''
 	__source = None
@@ -1709,8 +1854,14 @@ class BudgetData( ):
 		self.__index = self.create_frame( ).index
 
 	def create_frame( self ) -> DataFrame:
-		'''Method that returns a pandas DataFrame object
-		based on the Source input arguement 'src' given to the constructor'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_path = self.__path
 			_source = self.__source
@@ -1729,12 +1880,13 @@ class BudgetData( ):
 
 class DataBuilder( ):
 	'''
-	Constructor: DataBuilder( source: Source, provider = Provider.SQLite,
+	Constructor:
+	DataBuilder( source: Source, provider = Provider.SQLite,
 	              command_type = SQL.SELECTALL, names: list[ str ] = None,
 	              values: tuple = None ).
 
-	Purpose: Class provides methods that access
-	application data.
+	Purpose:
+	Class provides functionality to access application data.
 	'''
 	__names = None
 	__values = None

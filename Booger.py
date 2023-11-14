@@ -70,11 +70,12 @@ from Static import EXT, Client
 
 class Error( Exception ):
 	'''
-    Constructor: Error( exception: Exception, heading: str = '', cause: str = '',
+    Constructor:
+    Error( exception: Exception, heading: str = '', cause: str = '',
                   method: str = '', module: str = '' )
 
-    Purpose: Class wrapping exception used as
-    the input argument for ErrorDialog class
+    Purpose:
+    Class wrapping exception used as the input argument for ErrorDialog class
     '''
 	__class = None
 	__module = None
@@ -171,9 +172,11 @@ class Error( Exception ):
 
 class ButtonIcon( ):
 	'''
-    Constructor: ButtonIcon( png: Enum )
+    Constructor:
+    ButtonIcon( png: Enum )
 
-    Pupose: Class representing form images
+    Pupose:
+    Class representing form images
     '''
 	__button = None
 	__name = None
@@ -220,9 +223,11 @@ class ButtonIcon( ):
 
 class TitleIcon( ):
 	'''
-	Construcotr: TitleIcon( ico )
+	Construcotr:
+	TitleIcon( ico )
 
-	Purpose: Class used to define the TitleIcon used on the GUI
+	Purpose:
+	Class used to define the TitleIcon used on the GUI
 	'''
 	__folder = None
 	__name = None
@@ -269,9 +274,12 @@ class TitleIcon( ):
 
 class Sith( ):
 	'''
-	Construcotr: Sith( )
+	Construcotr:
+	Sith( )
 
-	Purpose:  Base class for the dark-mode controls'''
+	Purpose:
+	Base class for the dark-mode controls
+	'''
 	__themebackground = None
 	__elementbackcolor = None
 	__elementforecolor = None
@@ -488,9 +496,11 @@ class Sith( ):
 
 class FileDialog( Sith ):
 	'''
-	Construcotr:  FileDialog( )
+	Construcotr:
+	FileDialog( )
 
-	Purpose:  class that handles filenames a file
+	Purpose:
+	Class that handles filenames a file
 	'''
 	__selecteditem = None
 	__extension = None
@@ -554,6 +564,13 @@ class FileDialog( Sith ):
 			return self.__selecteditem
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_layout = [ [ sg.Text( ) ],
 			            [ sg.Text( self.__message, font = ( 'Roboto', 11 ) ) ],
@@ -586,9 +603,11 @@ class FileDialog( Sith ):
 
 class FolderDialog( Sith ):
 	'''
-	Construcotr: FolderDialog( )
+	Construcotr:
+	FolderDialog( )
 
-	Purpose:  Class defining dialog used to select a directory path
+	Purpose:
+	Class defining dialog used to select a directory path
 	'''
 	__selecteditem = None
 
@@ -622,6 +641,13 @@ class FolderDialog( Sith ):
 			return self.__selecteditem
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_layout = [ [ sg.Text( ) ],
 			            [ sg.Text( 'Search for Directory' ) ],
@@ -656,9 +682,11 @@ class FolderDialog( Sith ):
 
 class SaveFileDialog( Sith ):
 	'''
-	Constructor:  SaveFileDialog( path = '' ):
+	Constructor:
+	SaveFileDialog( path = '' ):
 
-    Purpose:  Class define object that provides a dialog to locate file destinations
+    Purpose:
+    Class define object that provides a dialog to locate file destinations
     '''
 	__original = None
 	__filename = None
@@ -703,6 +731,13 @@ class SaveFileDialog( Sith ):
 			return self.__filename
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_username = os.environ.get( 'USERNAME' )
 			_filename = sg.popup_get_file( 'Select Location / Enter File Name',
@@ -726,9 +761,11 @@ class SaveFileDialog( Sith ):
 
 class GoogleDialog( Sith ):
 	'''
-	Construcotr: GoogleDialog(  )
+	Construcotr:
+	GoogleDialog(  )
 
-	Purpose:   class that renames a folder
+	Purpose:
+	class that renames a folder
 	'''
 	__image = None
 	__querytext = None
@@ -784,6 +821,13 @@ class GoogleDialog( Sith ):
 			return self.__results[ 0 ]
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			self.__results = [ ]
 			_layout = [ [ sg.Text( ) ],
@@ -1957,6 +2001,13 @@ class ImageSizeEncoder( Sith ):
 		self.__buttoncolor = super( ).button_color
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		version = '1.3.1'
 		__version__ = version.split( )[ 0 ]
 
@@ -2131,11 +2182,12 @@ class ImageSizeEncoder( Sith ):
 
 class PdfForm( Sith ):
 	'''
-	Construcotr:  PdfForm( )
+	Construcotr:
+	PdfForm( )
 
-	Purpose:  Creates form to view a PDF
+	Purpose:
+	Creates form to view a PDF
 	'''
-
 	def __init__( self ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
@@ -2151,6 +2203,13 @@ class PdfForm( Sith ):
 		self.__formsize = ( 600, 800 )
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_oldpage = 0
 			_zoom = 0
@@ -2255,7 +2314,6 @@ class PdfForm( Sith ):
 
 				if _event in _keys or not _values[ 0 ]:
 					_goto.update( f'{str( _current + 1 )} of {str( _pages )}' )
-
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -2266,9 +2324,11 @@ class PdfForm( Sith ):
 
 class CalendarDialog( Sith ):
 	'''
-	Construcotr:  CalendarDialog( )
+	Construcotr:
+	CalendarDialog( )
 
-	Purpose:  class creates form providing today selection behavior
+	Purpose:
+	class creates form providing today selection behavior
 	'''
 	__selecteditem = None
 	__day = None
@@ -2342,6 +2402,13 @@ class CalendarDialog( Sith ):
 			return _date
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_btnsize = ( 20, 1 )
 			_calendar = ( 250, 250 )
@@ -2359,7 +2426,6 @@ class CalendarDialog( Sith ):
 				close_when_chosen = True )
 
 			self.__selecteditem = _cal
-
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -2370,9 +2436,11 @@ class CalendarDialog( Sith ):
 
 class ComboBoxDialog( Sith ):
 	'''
-	Construcotr: ComboBoxDialog( data: list = None )
+	Construcotr:
+	ComboBoxDialog( data: list = None )
 
-	Purpose:  Logger object provides form for log printing
+	Purpose:
+	Logger object provides form for log printing
 	'''
 	__items = None
 	__selecteditem = None
@@ -2417,6 +2485,13 @@ class ComboBoxDialog( Sith ):
 			return self.__selecteditem
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_btnsz = (10, 1)
 			_spc = (5, 1)
@@ -2459,9 +2534,11 @@ class ComboBoxDialog( Sith ):
 
 class ListBoxDialog( Sith ):
 	'''
-	Construcotr:  ListBox( data: list = None )
+	Construcotr:
+	ListBox( data: list = None )
 
-	Purpose:   List search and selection
+	Purpose:
+	List search and selection
     '''
 	__selecteditem = None
 	__items = None
@@ -2508,6 +2585,13 @@ class ListBoxDialog( Sith ):
 			return self.__selecteditem
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_btnsize = ( 10, 1 )
 			_space = ( 10, 1 )
@@ -2560,7 +2644,6 @@ class ListBoxDialog( Sith ):
 					_window[ '-ITEM-' ].update( _names )
 
 			_window.close( )
-
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -2571,9 +2654,11 @@ class ListBoxDialog( Sith ):
 
 class ColorDialog( Sith ):
 	'''
-	Construcotr:  ColorDialog( )
+	Construcotr:
+	ColorDialog( )
 
-	Purpose:  class provides a form to select colors returning string values
+	Purpose:
+	class provides a form to select colors returning string values
 	'''
 	__rgb = None
 	__hex = None
@@ -2635,6 +2720,13 @@ class ColorDialog( Sith ):
 		self.__formsize = ( 450, 450 )
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_colormap = {
 					'alice blue': '#F0F8FF',
@@ -3380,9 +3472,11 @@ class ColorDialog( Sith ):
 
 class BudgetForm( Sith ):
 	'''
-    Constructor: BudgetForm( )
+    Constructor:
+    BudgetForm( )
 
-    Purpose: class defining basic dashboard for the application
+    Purpose:
+    Class defining basic dashboard for the application
     '''
 	__titleitems = None
 	__titlelayout = None
@@ -3494,6 +3588,13 @@ class BudgetForm( Sith ):
 		self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
 	def create_title( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3523,6 +3624,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def create_header( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3549,6 +3657,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def create_first( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3579,6 +3694,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def create_second( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3609,6 +3731,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def create_third( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3639,6 +3768,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def create_fourth( self, items: list ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		if items is not None:
 			try:
 				_blu = '#051F3D'
@@ -3669,6 +3805,13 @@ class BudgetForm( Sith ):
 				_err.show( )
 
 	def set_layout( self ) -> list:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_blu = '#051F3D'
 			_blk = '#101010'
@@ -3718,6 +3861,13 @@ class BudgetForm( Sith ):
 			_err.show( )
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_blu = '#051F3D'
 			_blk = '#101010'
@@ -3829,11 +3979,12 @@ class BudgetForm( Sith ):
 
 class ChartPanel( Sith ):
 	'''
-    Constructor: ChartPanel( )
+    Constructor:
+    ChartPanel( )
 
-    Purpose: Provides form with a bar chart
+    Purpose:
+    Provides form with a bar chart
     '''
-
 	@property
 	def header( self ) -> str:
 		if self.__header is not None:
@@ -3851,6 +4002,13 @@ class ChartPanel( Sith ):
 		self.__formsize = ( 750, 650 )
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_sm = ( 10, 1 )
 			_md = ( 15, 1 )
@@ -3906,9 +4064,11 @@ class ChartPanel( Sith ):
 
 class CsvForm( Sith ):
 	'''
-	Construcotr:  CsvForm( )
+	Construcotr:
+	CsvForm( )
 
-	Purpose:  Provides form that reads CSV file with pandas
+	Purpose:
+	Provides form that reads CSV file with pandas
 	'''
 
 	@property
@@ -3936,6 +4096,13 @@ class CsvForm( Sith ):
 		self.__formsize = (800, 600)
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_sm = (3, 1)
 			_med = (15, 1)
@@ -3980,14 +4147,10 @@ class CsvForm( Sith ):
 				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
 				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
 				num_rows = min( 26, len( _data ) ) ), ], ]
-
 			_window = sg.Window( '  Budget Execution', _datagrid, icon = self.__icon,
 				font = self.__themefont, resizable = True )
-
 			_event, _values = _window.read( )
-
 			_window.close( )
-
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -3998,9 +4161,11 @@ class CsvForm( Sith ):
 
 class ExcelForm( Sith ):
 	'''
-	Construcotr:  ExcelForm( )
+	Construcotr:
+	ExcelForm( )
 
-	Purpose:  Provides form that reads CSV file with pandas
+	Purpose:
+	Provides form that reads CSV file with pandas
 	'''
 
 	@property
@@ -4028,6 +4193,13 @@ class ExcelForm( Sith ):
 		self.__formsize = (1350, 700)
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			_small = (3, 1)
 			_med = (15, 1)
@@ -4048,7 +4220,6 @@ class ExcelForm( Sith ):
 				title = 'Headers?',
 				icon = self.__icon,
 				font = ('Roboto', 9) )
-
 			if _filename is not None:
 				try:
 					_dataframe = ExcelReader( _filename, index_col = 0 )
@@ -4057,11 +4228,9 @@ class ExcelForm( Sith ):
 						_header = [ f'{i} ' for i in _dataframe.columns ]
 					elif _button == 'No':
 						_header = [ 'Column - ' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
-
 				except:
 					sg.popup_error( 'Error reading file' )
 					return
-
 			_left = [ [ sg.Text( size = _small ), ] ]
 			_right = [ [ sg.Text( size = _small ), ] ]
 			_datagrid = [ [ sg.Table( values = _data, headings = _header, justification = 'center',
@@ -4073,7 +4242,6 @@ class ExcelForm( Sith ):
 				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
 				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
 				num_rows = min( 26, len( _data ) ) ), ], ]
-
 			_layout = [ [ sg.Text( size = (3, 3) ) ],
 			            [ sg.Column( _left, expand_x = True ),
 			              sg.Column( _datagrid, expand_x = True, expand_y = True ),
@@ -4087,7 +4255,6 @@ class ExcelForm( Sith ):
 			              sg.Text( size = _spc ), sg.Button( 'Close', size = _med, key = '-CLOSE-'
 			            ) ],
 			            [ sg.Sizegrip( ) ], ]
-
 			_window = sg.Window( ' Budget Execution', _layout,
 				size = self.__formsize,
 				grab_anywhere = True,
@@ -4095,7 +4262,6 @@ class ExcelForm( Sith ):
 				font = self.__themefont,
 				resizable = True,
 				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
-
 			_event, _values = _window.read( )
 			if _event in (sg.WIN_X_EVENT, '-CLOSE-'):
 				_window.close( )
@@ -4104,8 +4270,6 @@ class ExcelForm( Sith ):
 				_msg = MessageDialog( _info )
 				_msg.show( )
 				_window.close( )
-
-
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -4116,9 +4280,11 @@ class ExcelForm( Sith ):
 
 class GraphForm( Sith ):
 	'''
-	Construcotr:  raphForm( )
+	Construcotr:
+	GraphForm( )
 
-	Purpose:  Provides form that reads CSV file with pandas
+	Purpose:
+	Provides form that reads CSV file with pandas
 	'''
 
 	def __init__( self ):
@@ -4136,6 +4302,13 @@ class GraphForm( Sith ):
 		self.__formsize = (800, 600)
 
 	def show( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		def create_axis_grid( ):
 			plt.close( 'all' )
 
@@ -4153,26 +4326,20 @@ class GraphForm( Sith ):
 
 			def get_rgb( ):
 				_Z, _extent = get_demo_image( )
-
 				_Z[ _Z < 0 ] = 0.
 				_Z = _Z / _Z.max( )
-
 				_red = _Z[ :13, :13 ]
 				_green = _Z[ 2:, 2: ]
 				_blue = _Z[ :13, 2: ]
-
 				return _red, _green, _blue
 
 			_figure = plt.figure( 1 )
 			_axis = RGBAxes( _figure, [ 0.1, 0.1, 0.8, 0.8 ] )
-
 			_r, _g, _b = get_rgb( )
 			_kwargs = dict( origin = "lower", interpolation = "nearest" )
 			_axis.imshow_rgb( _r, _g, _b, **_kwargs )
-
 			_axis.RGB.set_xlim( 0., 9.5 )
 			_axis.RGB.set_ylim( 0.9, 10.6 )
-
 			plt.draw( )
 			return plt.gcf( )
 

@@ -45,7 +45,6 @@ import os
 import zipfile as zp
 from openpyxl import Workbook
 from Booger import Error, ErrorDialog
-from Static import EXT
 
 class Path( ):
 	'''
@@ -161,8 +160,14 @@ class Path( ):
 			return str( self.__input )
 
 	def exists( self ) -> bool:
-		'''Method returning a boolean value indicating whether the
-		internal 'self.__input' exists'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.exists( self.__input ):
 				return True
@@ -177,7 +182,14 @@ class Path( ):
 			_err.show( )
 
 	def is_folder( self ) -> bool:
-		'''Method returning boolean value indicating if is a folder'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.isdir( self.__input ):
 				return True
@@ -192,7 +204,14 @@ class Path( ):
 			_err.show( )
 
 	def is_file( self ) -> bool:
-		'''Method returning boolean value indicating if is a file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.isfile( self.__input ):
 				return True
@@ -207,8 +226,14 @@ class Path( ):
 			_err.show( )
 
 	def is_absolute( self ) -> bool:
-		'''Method to determine if the input path is an
-		absolute path file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( self.__input, str ) and self.__input != '':
 				if os.path.isabs( self.__input ):
@@ -224,8 +249,14 @@ class Path( ):
 			_err.show( )
 
 	def is_relative( self ) -> bool:
-		'''Method to determine if the input path is a
-		relative_path file path'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( self.__input, str ) and self.__input != '':
 				if os.path.isabs( self.__input ):
@@ -241,8 +272,14 @@ class Path( ):
 			_err.show( )
 
 	def verify( self, other: str ) -> bool:
-		'''Method returns a boolean value indicating if
-		the external path 'other' exists'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.exists( other ):
 				return True
@@ -256,10 +293,15 @@ class Path( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def get_templatepath( self, ext: EXT = EXT.XLSX ) -> str:
-		'''Method returns string representing the relative path
-		to the excel report template
+	def get_templatepath( self ) -> str:
 		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( self.__template, str ):
 				return self.__template
@@ -272,8 +314,14 @@ class Path( ):
 			_err.show( )
 
 	def join( self, first: str, second: str ) -> str:
-		''' Method concatenates the path provided by the argument 'first'
-		to the path provided by argument 'second' '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.exists( first ) and os.path.exists( second ):
 				return os.path.join( first, second )
@@ -377,7 +425,14 @@ class File( Path ):
 			return self.__path
 
 	def rename( self, other: str ) -> str:
-		'''Renames the current_directory file to 'other' '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( other, str ) and not other == '':
 				_src = os.path.abspath( self.__path )
@@ -393,7 +448,14 @@ class File( Path ):
 			_err.show( )
 
 	def move( self, destination: str ) -> str:
-		'''renames current_directory file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.isdir( destination ):
 				return os.path.join( self.__name, destination )
@@ -424,7 +486,14 @@ class File( Path ):
 			_err.show( )
 
 	def delete( self, other: str ):
-		''' deletes file at 'self.__selecteditem'   '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.isfile( other ):
 				os.remove( other )
@@ -437,8 +506,14 @@ class File( Path ):
 			_err.show( )
 
 	def readlines( self, other: str ):
-		'''reads all lines in 'other' into a list
-			then returns the list '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.isfile( other ):
 				_file = open( other )
@@ -454,8 +529,14 @@ class File( Path ):
 			_err.show( )
 
 	def readall( self, other: str ):
-		'''reads a single line from the _file into a string
-			then returns the string'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_contents = ''
 			if os.path.isfile( other ):
@@ -472,7 +553,14 @@ class File( Path ):
 			_err.show( )
 
 	def writelines( self, lines: list[ str ] = None ):
-		''' writes the _contents of 'lines' to self.__contents '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if isinstance( lines, list ):
 				_path = os.path.relpath( self.__path )
@@ -490,7 +578,14 @@ class File( Path ):
 			_err.show( )
 
 	def writeall( self, other: str ):
-		''' writes the contents of '_lines' to self.__contents '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_contents = [ ]
 			_lines = [ ]
@@ -632,8 +727,14 @@ class Folder( Path ):
 			return self.__path
 
 	def get_files( self ) -> list:
-		'''Iterates subfolders in the base directory
-		and returns a list of subfile paths'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_names = [ ]
 			for i in os.listdir( self.__absolutepath ):
@@ -650,7 +751,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def get_subfiles( self ) -> list:
-		'''Iterates get_subfolders in the base directory'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_current = self.__current
 			_abspath = self.__absolutepath
@@ -671,7 +779,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def get_subfolders( self ) -> list:
-		'''Iterates get_subfolders in the base directory'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			_names = [ ]
 			for i in os.walk( self.__absolutepath ):
@@ -690,7 +805,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def rename( self, name: str ):
-		'''renames current_directory file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if self.__name is not None:
 				return os.rename( self.__name, name )
@@ -703,7 +825,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def move( self, destination: str ):
-		'''renames current_directory file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if destination is not None and os.path.exists( destination ):
 				return os.path.join( self.__name, destination )
@@ -716,6 +845,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def create( self, other: str ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if other is not None:
 				os.mkdir( other )
@@ -728,7 +865,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def delete( self, other: str ):
-		''' deletes 'selected_path' directory '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if other is not None and os.path.isdir( other ):
 				os.rmdir( other )
@@ -741,7 +885,14 @@ class Folder( Path ):
 			_err.show( )
 
 	def iterate( self ) -> iter:
-		'''iterates subfolders in the base directory'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			for i in os.walk( self.__path ):
 				yield i
@@ -923,8 +1074,7 @@ class Document( File ):
 	'''
 	Constructor:  Document( path: str )
 
-	Purpose:  Class provides
-	the spreadsheet for Budget Py reports
+	Purpose:  Class provides the spreadsheet for Budget Py reports
 	'''
 	__title = None
 
@@ -1003,6 +1153,13 @@ class Excel( ):
 			return self.__path
 
 	def save( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
 		try:
 			self.__workbook.save( self.__path )
 		except Exception as e:
@@ -1048,7 +1205,7 @@ class ExcelReport( Excel ):
 			return self.__dimensions
 
 	@dimensions.setter
-	def dimensions( self, value: (int, int) ):
+	def dimensions( self, value: ( int, int ) ):
 		if value is not None:
 			self.__dimensions = value
 
@@ -1058,7 +1215,7 @@ class ExcelReport( Excel ):
 		self.__name = name
 		self.__rows = rows
 		self.__columns = cols
-		self.__dimensions = (self.__rows, self.__columns)
+		self.__dimensions = ( self.__rows, self.__columns )
 
 class ZipFile( ):
 	'''
@@ -1102,7 +1259,14 @@ class ZipFile( ):
 		self.__name = os.path.basename( path )
 
 	def create( self ):
-		''' Creates zip file'''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if not self.__filepath == '':
 				zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
@@ -1115,7 +1279,14 @@ class ZipFile( ):
 			_err.show( )
 
 	def unzip( self ):
-		''' Extracts zip _file contents '''
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
 		try:
 			if os.path.exists( self.__zippath ):
 				_file = zp.ZipFile( self.__zippath )

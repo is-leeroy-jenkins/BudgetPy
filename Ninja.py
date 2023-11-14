@@ -55,11 +55,13 @@ from Data import ( DbConfig, SqlConfig, Connection,
 
 class Unit( ):
     '''
-    Constructor: Unit( id: int )
+    Constructor:
+    Unit( id: int )
 
-    Purpose: Base class defines an object
-    representing fundemental unit of data
-    in the Budget Execution application'''
+    Purpose:
+    Base class defines an object representing fundemental unit of data
+    in the Budget Execution application
+    '''
     __index = None
     __code = None
 
@@ -82,9 +84,11 @@ class Unit( ):
 
 class DataUnit( Unit ):
     '''
-    Constructor: DataUnit( id: int, code: str, name: str )
+    Constructor:
+    DataUnit( id: int, code: str, name: str )
 
-    Purpose: Base class providing a code and name
+    Purpose:
+    Base class providing a code and name
     '''
     __index = None
     __code = None
@@ -122,9 +126,11 @@ class DataUnit( Unit ):
 
 class BudgetUnit( DataUnit ):
     '''
-    Constructor: BudgetUnit( id: int, code: str, nam: str, treas: str, main: str )
+    Constructor:
+    BudgetUnit( id: int, code: str, nam: str, treas: str, main: str )
 
-    Purpose: Base class for OMB reporting classes
+    Purpose:
+    Base class for OMB reporting classes
     '''
     __treasuryaccountcode = None
     __treasuryaccountname = None
@@ -178,9 +184,12 @@ class BudgetUnit( DataUnit ):
 
 class Accounts( ):
     '''
-    Constructor:  Account( treas: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Account( treas: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing Account Codes'''
+    Purpose:
+    Class defines object representing Account Codes
+    '''
     __source = None
     __provider = None
     __accountsid = None
@@ -352,7 +361,7 @@ class Accounts( ):
             _source = Source.Accounts
             _provider = Provider.SQLite
             _names = [ 'Code', ]
-            _values = (self.__code,)
+            _values = ( self.__code, )
             _sqlconfig = SqlConfig( names = _names, values = _values )
             _connection = Connection( _source, _provider )
             _sql = SqlStatement( _connection, _sqlconfig )
@@ -373,8 +382,14 @@ class Accounts( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning a pandas dataframe
-        comprised of datatable _data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _src = self.__source
             _data = BudgetData( _src )
@@ -389,9 +404,11 @@ class Accounts( ):
 
 class ActivityCodes( ):
     '''
-    Constructor: ActivityCode( code: str, provider: Provider = Provider.SQLite )
+    Constructor:
+    ActivityCode( code: str, provider: Provider = Provider.SQLite )
 
-    Purpose: Data class representing Activity Codes
+    Purpose:
+    Data class representing Activity Codes
     '''
     __source = None
     __provider = None
@@ -476,6 +493,14 @@ class ActivityCodes( ):
             return self.__code
 
     def get_data( self ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -502,8 +527,14 @@ class ActivityCodes( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -518,9 +549,11 @@ class ActivityCodes( ):
 
 class AdjustedTrialBalances( ):
 	'''
-	Constructor:  AdjustedTrialBalances( bfy: str, number: str )
+	Constructor:
+	AdjustedTrialBalances( bfy: str, number: str )
 
-	Purpose: Data class representing a record in the ATB
+	Purpose:
+	Data class representing a record in the ATB
 	'''
 	__adjustedtrialbalancesid = None
 	__number = None
@@ -533,9 +566,12 @@ class AdjustedTrialBalances( ):
 
 class AllowanceHolders( ):
     '''
-    Constructor: AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Data class representing Allowance Holders'''
+    Purpose:
+    Data class representing Allowance Holders
+    '''
     __source = None
     __provider = None
     __allowancholdersid = None
@@ -618,6 +654,14 @@ class AllowanceHolders( ):
             return self.__code
 
     def get_data( self ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -644,8 +688,14 @@ class AllowanceHolders( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -660,9 +710,11 @@ class AllowanceHolders( ):
 
 class AmericanRescuePlanCarryoverEstimates( ):
     '''
-    Constructor: CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
+    Constructor:
+    CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
 
-    Purpose: Class representing estimates for ARP carryover
+    Purpose:
+    Class representing estimates for ARP carryover
     '''
     __source = None
     __provider = None
@@ -897,6 +949,14 @@ class AmericanRescuePlanCarryoverEstimates( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -923,8 +983,14 @@ class AmericanRescuePlanCarryoverEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _data = BudgetData( self.__source )
             return _data.create_frame( )
@@ -938,9 +1004,12 @@ class AmericanRescuePlanCarryoverEstimates( ):
 
 class AnnualCarryoverEstimates( ):
     '''
-    Constructor: AnnualCarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    AnnualCarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class providing Carryover Estimate data for'''
+    Purpose:
+    Class providing Carryover Estimate data for
+    '''
     __source = None
     __provider = None
     __annualcarryoverestimatesid = None
@@ -1175,6 +1244,14 @@ class AnnualCarryoverEstimates( ):
             return str( self.__fundcode )
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -1201,8 +1278,14 @@ class AnnualCarryoverEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -1217,9 +1300,11 @@ class AnnualCarryoverEstimates( ):
 
 class AnnualReimbursableEstimates( ):
     '''
-    Constructor: AnnualReimbursableEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    AnnualReimbursableEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defining object representing reimbursable estimates'''
+    Purpose:
+    Class defining object representing reimbursable estimates'''
     __source = None
     __provider = None
     __annualreimbursableestimatesid = None
@@ -1390,6 +1475,14 @@ class AnnualReimbursableEstimates( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -1416,8 +1509,14 @@ class AnnualReimbursableEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -1432,9 +1531,12 @@ class AnnualReimbursableEstimates( ):
 
 class Appropriations( ):
     '''
-    Constructor: Appropriation( fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Appropriation( fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Data class representing Appropriations'''
+    Purpose:
+    Data class representing Appropriations
+    '''
     __source = None
     __provider = None
     __appropriationsid = None
@@ -1507,6 +1609,14 @@ class Appropriations( ):
             return self.__code
 
     def get_data( self ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -1533,8 +1643,14 @@ class Appropriations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -1549,9 +1665,12 @@ class Appropriations( ):
 
 class AppropriationAvailableBalances( ):
     '''
-    Constructor: AppropriationAvailableBalance( bfy: str, efy: str, fund: str )
+    Constructor:
+    AppropriationAvailableBalance( bfy: str, efy: str, fund: str )
 
-    Purpose: Data class representing Appropriation-level balances'''
+    Purpose:
+    Data class representing Appropriation-level balances
+    '''
     __source = None
     __provider = None
     __appropriationavailablebalancesid = None
@@ -1773,6 +1892,14 @@ class AppropriationAvailableBalances( ):
             return self.__fundcode
 
     def get_data( self ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -1799,8 +1926,14 @@ class AppropriationAvailableBalances( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -1815,9 +1948,12 @@ class AppropriationAvailableBalances( ):
 
 class AppropriationLevelAuthority( ):
     '''
-    Constructor: AppropriationLevelAuthority( bfy: str, efy: str, fund: str )
+    Constructor:
+    AppropriationLevelAuthority( bfy: str, efy: str, fund: str )
 
-    Purpose: Data class representing Appropriation-level authority'''
+    Purpose:
+    Data class representing Appropriation-level authority
+    '''
     __source = None
     __provider = None
     __appropriationlevelauthorityid = None
@@ -2005,6 +2141,14 @@ class AppropriationLevelAuthority( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -2031,8 +2175,14 @@ class AppropriationLevelAuthority( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -2047,9 +2197,12 @@ class AppropriationLevelAuthority( ):
 
 class Allocations( ):
     '''
-    Constructor: Allocation( bfy = None, fund = None, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Allocation( bfy = None, fund = None, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defining object representing Allocations'''
+    Purpose:
+    Class defining object representing Allocations
+    '''
     __source = None
     __provider = None
     __allocationsid = None
@@ -2397,6 +2550,14 @@ class Allocations( ):
                            'NpmName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -2439,10 +2600,13 @@ class Allocations( ):
 
 class ApportionmentData( ):
     '''
-    Constructor:  ApportionmentData( bfy: str, efy: str, main: str,
-                                pvdr: Provider = Provider.SQLite )
+    Constructor:
+    ApportionmentData( bfy: str, efy: str, main: str,
+                       pvdr: Provider = Provider.SQLite )
 
-    Purpose: Data class representing Letters Of Apportionment'''
+    Purpose:
+    Data class representing Letters Of Apportionment
+    '''
     __source = None
     __provider = None
     __apportionmentdataid = None
@@ -2632,6 +2796,14 @@ class ApportionmentData( ):
                           'Narrative' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -2658,8 +2830,14 @@ class ApportionmentData( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -2674,9 +2852,12 @@ class ApportionmentData( ):
 
 class Actuals( ):
     '''
-    Constructor: Actual( bfy, fund, pvdr = Provider.SQLite  )
+    Constructor:
+    Actual( bfy, fund, pvdr = Provider.SQLite  )
 
-    Purpose:  Object representing expenditure data'''
+    Purpose:
+    Object representing expenditure data
+    '''
     __source = None
     __provider = None
     __actualsid = None
@@ -3096,6 +3277,14 @@ class Actuals( ):
                            'ObjectiveName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -3138,9 +3327,11 @@ class Actuals( ):
 
 class ApplicationTables( ):
     '''
-    Constructor: ApplicationTable( name, pvdr = Provider.SQLite )
+    Constructor:
+    ApplicationTable( name, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object that represents all the tables
+    Purpose:
+    Class defines object that represents all the tables
     '''
     __source = None
     __provider = None
@@ -3199,9 +3390,12 @@ class ApplicationTables( ):
 
 class AppropriationDocuments( ):
     '''
-    Constructor:  AppropriationDocument( bfy, fund, pvdr = Provider.SQLite )
+    Constructor:
+    AppropriationDocument( bfy, fund, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object representing Level 1 documents'''
+    Purpose:
+    Class defines object representing Level 1 documents
+    '''
     __source = None
     __provider = None
     __appropriationdocumentsid = None
@@ -3581,6 +3775,14 @@ class AppropriationDocuments( ):
                            'EstimatedRecoveries' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -3607,8 +3809,14 @@ class AppropriationDocuments( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -3623,9 +3831,12 @@ class AppropriationDocuments( ):
 
 class BudgetDocuments( ):
     '''
-    Constructor:  BudgetDocument( bfy, fund, pvdr = Provider.SQLite )
+    Constructor:
+    BudgetDocument( bfy, fund, pvdr = Provider.SQLite )
 
-    Purpose: Class defines object representing Level 2-3 documents'''
+    Purpose:
+    Class defines object representing Level 2-3 documents
+    '''
     __source = None
     __provider = None
     __budgetdocumentsid = None
@@ -4071,8 +4282,7 @@ class BudgetDocuments( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, efy = None,
-                  fundcode = None, provider = Provider.SQLite ):
+    def __init__( self, bfy = None, efy = None, fundcode = None, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.BudgetDocuments
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4118,6 +4328,14 @@ class BudgetDocuments( ):
                            'EstimatedReimbursements' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -4144,8 +4362,13 @@ class BudgetDocuments( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -4160,9 +4383,11 @@ class BudgetDocuments( ):
 
 class BudgetContacts( ):
     '''
-    Constructor: BudgetContact( last: str, first: str )
+    Constructor:
+    BudgetContact( last: str, first: str )
 
-    Purpose: Class defines object represent budget contact info
+    Purpose:
+    Class defines object represent budget contact info
     '''
     __firstname = None
     __lastname = None
@@ -4786,6 +5011,14 @@ class BudgetControls( ):
                            'AuthorityDistributionControl' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -4828,10 +5061,13 @@ class BudgetControls( ):
 
 class BudgetFiscalYears( ):
     '''
-    Constructor: BudgetFiscalYear( bfy, efy, date = None, pvdr = Provider.SQLite ).
+    Constructor:
+    BudgetFiscalYear( bfy, efy, date = None, pvdr = Provider.SQLite ).
 
 
-    Purpose:  Class to describe the federal fiscal year'''
+    Purpose:
+    Class to describe the federal fiscal year
+    '''
     __source = None
     __provider = None
     __budgetfiscalyearsid = None
@@ -5058,6 +5294,13 @@ class BudgetFiscalYears( ):
             return self.__bfy
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -5084,8 +5327,13 @@ class BudgetFiscalYears( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -5100,9 +5348,11 @@ class BudgetFiscalYears( ):
 
 class BudgetObjectClasses( ):
     '''
-    Constructor:  BudgetObjectClass( code, pvdr = Provider.SQLite  ).
+    Constructor:
+    BudgetObjectClass( code, pvdr = Provider.SQLite  ).
 
-    Purpose:  Defines the BudgetObjectClass Class
+    Purpose:
+    Defines the BudgetObjectClass Class
     '''
     __source = None
     __provider = None
@@ -5198,6 +5448,13 @@ class BudgetObjectClasses( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -5224,8 +5481,13 @@ class BudgetObjectClasses( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -5240,10 +5502,12 @@ class BudgetObjectClasses( ):
 
 class BudgetaryResourceExecution( ):
     '''
-    Constructor: BudgetaryResourceExecution( bfy: str, efy: str,
-                  main: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    BudgetaryResourceExecution( bfy: str, efy: str,
+                                main: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing the MAX A-11 DE/SF-133
+    Purpose:
+    Class defines object representing the MAX A-11 DE/SF-133
     Status Of Budgetary Resources Execution Report
     '''
     __source = None
@@ -5380,6 +5644,13 @@ class BudgetaryResourceExecution( ):
                           'Bureau' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -5406,8 +5677,13 @@ class BudgetaryResourceExecution( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -5422,9 +5698,11 @@ class BudgetaryResourceExecution( ):
 
 class Outlays( ):
     '''
-    Constructor: Outlay( account: str, pvdr: Provider = Provider.SQLite  )
+    Constructor:
+    Outlay( account: str, pvdr: Provider = Provider.SQLite  )
 
-    Purpose: Class defines object that provides OMB data
+    Purpose:
+    Class defines object that provides OMB data
     '''
     __source = None
     __provider = None
@@ -5714,6 +5992,13 @@ class Outlays( ):
                           'BudgetYear9' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -5740,8 +6025,13 @@ class Outlays( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -5756,9 +6046,12 @@ class Outlays( ):
 
 class CongressionalControls( ):
     '''
-    Constructor: CongressionalControl( bfy, fund, pvdr = Provider.SQLite )
+    Constructor:
+    CongressionalControl( bfy, fund, pvdr = Provider.SQLite )
 
-    Purpose:  Class defining object representing congressional control data'''
+    Purpose:
+    Class defining object representing congressional control data
+    '''
     __source = None
     __provider = None
     __congressionalcontrolsid = None
@@ -5961,6 +6254,13 @@ class CongressionalControls( ):
                            'MemoRequirement' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -5988,9 +6288,11 @@ class CongressionalControls( ):
 
 class CongressionalProjects( ):
 	'''
-	Constructor:  CongressionalProjects( bfy: str, fund: str, rpio: str, ahcode: str )
+	Constructor:
+	CongressionalProjects( bfy: str, fund: str, rpio: str, ahcode: str )
 
-	Purpose:  Class used to allocated Earmarks
+	Purpose:
+	Class used to allocated Earmarks
 	'''
 	__congressionalprojectsid = None
 	__bfy = None
@@ -6008,10 +6310,12 @@ class CongressionalProjects( ):
 
 class CompassLevels( ):
     '''
-    Constructor: CompassLevel( bfy: str, efy: str,
+    Constructor:
+    CompassLevel( bfy: str, efy: str,
                   fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defines object representing Compass data levels 1-7
+    Purpose:
+    Class defines object representing Compass data levels 1-7
     '''
     __source = None
     __provider = None
@@ -6210,6 +6514,13 @@ class CompassLevels( ):
                            'AgreementReimbursables' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -6236,8 +6547,13 @@ class CompassLevels( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -6252,10 +6568,12 @@ class CompassLevels( ):
 
 class Commitments( ):
     '''
-    Constructor: Commitment( bfy: str = None, fund: str = None,
-                  account: str = None, boc: str = None, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Commitment( bfy: str = None, fund: str = None,
+                account: str = None, boc: str = None, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Defines the CommitmentS class.
+    Purpose:
+    Defines the CommitmentS class.
     '''
     __source = None
     __provider = None
@@ -6692,8 +7010,8 @@ class Commitments( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy: str = None, fund: str = None,
-                  account: str = None, boc: str = None, provider: Provider = Provider.SQLite ):
+    def __init__( self, bfy: str = None, fund: str = None, account: str = None,
+                  boc: str = None, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.OpenCommitments
         self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -6742,6 +7060,13 @@ class Commitments( ):
             return str( self.__amount )
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -6768,8 +7093,13 @@ class Commitments( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -6784,9 +7114,11 @@ class Commitments( ):
 
 class CostAreas( ):
     '''
-    Constructor: CostArea( fund, pvdr = Provider.SQLite )
+    Constructor:
+    CostArea( fund, pvdr = Provider.SQLite )
 
-    Purpose: Data class object for cost areas
+    Purpose:
+    Data class object for cost areas
     '''
     __source = None
     __provider = None
@@ -6822,9 +7154,11 @@ class CostAreas( ):
 
 class CapitalPlanningInvestmentCodes( ):
     '''
-    Constructor:  CapitalPlanningInvestmentCodes( treas, pvdr = Provider.SQLite  )
+    Constructor:
+    CapitalPlanningInvestmentCodes( treas, pvdr = Provider.SQLite  )
 
-    Purpose:  Class eefines the CPIC Codes'''
+    Purpose:
+    Class eefines the CPIC Codes'''
     __source = None
     __provider = None
     __capitalplanninginvestmentcodesid = None
@@ -6908,6 +7242,13 @@ class CapitalPlanningInvestmentCodes( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -6934,8 +7275,13 @@ class CapitalPlanningInvestmentCodes( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -6950,9 +7296,12 @@ class CapitalPlanningInvestmentCodes( ):
 
 class ColumnSchema( ):
     '''
-    Constructor: ColumnSchema( column, table_name, pvdr = Provider.SQLite )
+    Constructor:
+    ColumnSchema( column, table_name, pvdr = Provider.SQLite )
 
-    Purpose:  Provides data on the coolumn_names used in the application'''
+    Purpose:
+    Provides data on the coolumn_names used in the application
+    '''
     __source = None
     __provider = None
     __columnschemaid = None
@@ -6963,7 +7312,6 @@ class ColumnSchema( ):
     __fields = None
     __data = None
     __frame = None
-
 
     @property
     def id( self ) -> int:
@@ -7023,9 +7371,11 @@ class ColumnSchema( ):
 
 class DataRuleDescriptions( ):
     '''
-    Constructor:DataRuleDescription( schedule, line, rule, pvdr = Provider.SQLite )
+    Constructor:
+    DataRuleDescription( schedule, line, rule, pvdr = Provider.SQLite )
 
-    Purpose: Class defines object providing OMB MAX A11 rule data '''
+    Purpose:
+    Class defines object providing OMB MAX A11 rule data '''
     __source = None
     __provider = None
     __dataruledescriptionsid = None
@@ -7122,6 +7472,13 @@ class DataRuleDescriptions( ):
                           'ScheduleOrder' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -7148,8 +7505,13 @@ class DataRuleDescriptions( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -7164,9 +7526,11 @@ class DataRuleDescriptions( ):
 
 class Defactos( ):
     '''
-    Constructor:  Defacto(  bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Defacto(  bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing defacto obligations
+    Purpose:
+    Class defines object representing defacto obligations
     '''
     __source = None
     __provider = None
@@ -7611,6 +7975,13 @@ class Defactos( ):
                            'NpmName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -7637,8 +8008,13 @@ class Defactos( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -7653,9 +8029,12 @@ class Defactos( ):
 
 class Deobligations( ):
     '''
-    Constructor: Deobligation( bfy, fund, account, boc, pvdr = Provider.SQLite )
+    Constructor:
+    Deobligation( bfy, fund, account, boc, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object providing Deobligation data '''
+    Purpose:
+    Class defines object providing Deobligation data
+    '''
     __source = None
     __provider = None
     __deobligationsid = None
@@ -8127,6 +8506,13 @@ class Deobligations( ):
             return str( self.__amount )
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -8153,8 +8539,13 @@ class Deobligations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -8169,9 +8560,12 @@ class Deobligations( ):
 
 class DocumentControlNumbers( ):
     '''
-    Constructor: DocumentControlNumber( dcn, pvdr = Provider.SQLite )
+    Constructor:
+    DocumentControlNumber( dcn, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object provides DCN data'''
+    Purpose:
+    Class defines object provides DCN data
+    '''
     __source = None
     __provider = None
     __documentcontrolnumbersid = None
@@ -8278,6 +8672,13 @@ class DocumentControlNumbers( ):
                            'DocumentControlNumbe' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -8304,8 +8705,13 @@ class DocumentControlNumbers( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -8320,10 +8726,13 @@ class DocumentControlNumbers( ):
 
 class Expenditures( ):
     '''
-    Constructor:  Expenditure( bfy: str, fund: str, account: str,
-                        boc: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Expenditure( bfy: str, fund: str, account: str,
+                 boc: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object providing Expenditure data'''
+    Purpose:
+    Class defines object providing Expenditure data
+    '''
     __source = None
     __provider = None
     __expendituresid = None
@@ -8850,6 +9259,14 @@ class Expenditures( ):
             return str( self.__amount )
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _provider = self.__provider
@@ -8876,8 +9293,14 @@ class Expenditures( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -8892,9 +9315,11 @@ class Expenditures( ):
 
 class FinanceObjectClasses( ):
     '''
-    Constructor:  FinanceObjectClass( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    FinanceObjectClass( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defines object representing the Finance Object Class'''
+    Purpose:
+    Class defines object representing the Finance Object Class'''
     __source = None
     __provider = None
     __financeobjectclassesid = None
@@ -9001,6 +9426,13 @@ class FinanceObjectClasses( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -9027,8 +9459,13 @@ class FinanceObjectClasses( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable _data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _src = self.__source
             _data = BudgetData( _src )
@@ -9043,10 +9480,13 @@ class FinanceObjectClasses( ):
 
 class Funds( ):
     '''
-    Constructor:  Fund( bfy: str, efy: str,
-                  code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Fund( bfy: str, efy: str,
+          code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object represening Funds'''
+    Purpose:
+    Class defines object represening Funds
+    '''
     __source = None
     __provider = None
     __fundsid = None
@@ -9404,8 +9844,7 @@ class Funds( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy: str, efy: str,
-                  code: str, provider: Provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, code: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.Funds
         self.__bfy = bfy
@@ -9444,6 +9883,13 @@ class Funds( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -9470,8 +9916,13 @@ class Funds( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -9486,10 +9937,12 @@ class Funds( ):
 
 class FederalHolidays( ):
     '''
-    Constructor: FederalHoliday( bfy: str, efy: str,
-            name: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    FederalHoliday( bfy: str, efy: str,
+                    name: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Defines the FederalHoliday class
+    Purpose:
+    Defines the FederalHoliday class
     '''
     __source = None
     __provider = None
@@ -9619,8 +10072,8 @@ class FederalHolidays( ):
         self.__provider = provider
         self.__source = Source.FederalHolidays
         self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
-                        'NewYearsDay', 'MartinLutherKing', 'Washingtons',
-                        'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
+                            'NewYearsDay', 'MartinLutherKing', 'Washingtons',
+                            'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
         self.__observance = { 'Columbus': 'The second Monday in October',
                               'Veterans': 'Veterans Day, November 11',
                               'Thanksgiving': 'The fourth Thursday in November',
@@ -9662,6 +10115,13 @@ class FederalHolidays( ):
             return self.__name
 
     def get_data( self  ) -> list:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -9688,8 +10148,13 @@ class FederalHolidays( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -9703,7 +10168,13 @@ class FederalHolidays( ):
             _err.show( )
 
     def get_columbus_day( self ) -> datetime:
-        '''The second Monday in October'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             if self.__year is not None:
                 __start = datetime( self.__year, 10, 1 )
@@ -9711,7 +10182,8 @@ class FederalHolidays( ):
                 __delta = ( __start - __end ).days
                 for i in range( 1, 31 ):
                     d = datetime( self.__year, 10, __start.day + i )
-                    if ( 15 < d.day < 28 ) and datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
+                    if ( 15 < d.day < 28 ) and \
+                            datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
                         self.__columbus = datetime( self.__year, 10, d.day )
                         return self.__columbus
         except Exception as e:
@@ -10419,6 +10891,13 @@ class FullTimeEquivalents( ):
                           'ObjectiveName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -10445,7 +10924,13 @@ class FullTimeEquivalents( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -10460,10 +10945,12 @@ class FullTimeEquivalents( ):
 
 class GeneralLedgerAccounts( ):
     '''
-    Constructor:  GeneralLedgerAccount( bfy: str, number: str,
+    Constructor:
+    GeneralLedgerAccount( bfy: str, number: str,
         pvdr: Provider = Provider.SQLite  )
 
-    Purpose: Class defines object representing General Ledger Accounts
+    Purpose:
+    Class defines object representing General Ledger Accounts
     '''
     __source = None
     __provider = None
@@ -10587,9 +11074,11 @@ class GeneralLedgerAccounts( ):
 
 class Goals( ):
     '''
-    Constructor: Goal( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Goal( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose;  Class defines object representing EPA  Goals
+    Purpose:
+    Class defines object representing EPA  Goals
     '''
     __source = None
     __provider = None
@@ -10674,6 +11163,13 @@ class Goals( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -10701,9 +11197,12 @@ class Goals( ):
 
 class HeadquartersAuthoritys( ):
     '''
-    Constructor: HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )
+    Constructor:
+    HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object representing HQ Allocation'''
+    Purpose:
+    Class defines object representing HQ Allocation
+    '''
     __source = None
     __provider = None
     __headquartersauthorityid = None
@@ -11096,6 +11595,13 @@ class HeadquartersAuthoritys( ):
                            'NpmName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -11122,8 +11628,13 @@ class HeadquartersAuthoritys( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -11138,9 +11649,11 @@ class HeadquartersAuthoritys( ):
 
 class HeadquartersOffices( ):
     '''
-    Constructor: HeadquartersOffice( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    HeadquartersOffice( code: str, pvdr: Provider = Provider.SQLite )
 
-    Prupose:  Class defines object representing RPIO'''
+    Prupose:
+    Class defines object representing RPIO'''
     __source = None
     __provider = None
     __resourceplanningofficesid = None
@@ -11225,6 +11738,13 @@ class HeadquartersOffices( ):
             return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -11267,10 +11787,12 @@ class HeadquartersOffices( ):
 
 class InflationReductionActCarryoverEstimates( ):
     '''
-    Constructor: InflationReductionActCarryoverEstimate( bfy: str,
+    Constructor:
+    InflationReductionActCarryoverEstimate( bfy: str,
         pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object providing IRA Carryover Estimates
+    Purpose:
+    Class defines object providing IRA Carryover Estimates
     '''
     __source = None
     __provider = None
@@ -11507,6 +12029,13 @@ class InflationReductionActCarryoverEstimates( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -11533,8 +12062,13 @@ class InflationReductionActCarryoverEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -11549,9 +12083,11 @@ class InflationReductionActCarryoverEstimates( ):
 
 class JobsActCarryoverEstimates( ):
     '''
-    Constructor:  JobsActCarryoverEstimate( bfy )
+    Constructor:
+    JobsActCarryoverEstimate( bfy )
 
-    Purpose:  Class defines object providing IIJA Carryover Estimate data for'''
+    Purpose:
+    Class defines object providing IIJA Carryover Estimate data for'''
     __source = None
     __provider = None
     __jobsactcarryoverestimatesid = None
@@ -11785,6 +12321,13 @@ class JobsActCarryoverEstimates( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -11811,8 +12354,13 @@ class JobsActCarryoverEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -11827,9 +12375,11 @@ class JobsActCarryoverEstimates( ):
 
 class MainAccounts( ):
     '''
-	Constructor:  MainAccount( bfy: str, code: str )
+	Constructor:
+	MainAccounts( bfy: str, code: str )
 
-	Purpose: class models the OMB Budget Account
+	Purpose:
+	class models the OMB Budget Account
 	'''
     __mainaccountsid = None
     __bfy = None
@@ -11867,9 +12417,12 @@ class MainAccounts( ):
 
 class MonthlyActuals( ):
     '''
-    Constructor:   Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
+    Constructor:
+    Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object representing expenditure data'''
+    Purpose:
+    Class defines object representing expenditure data
+    '''
     __source = None
     __provider = None
     __monthlyactualsid = None
@@ -12181,6 +12734,13 @@ class MonthlyActuals( ):
                            'ObjectiveName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -12207,8 +12767,13 @@ class MonthlyActuals( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -12223,9 +12788,12 @@ class MonthlyActuals( ):
 
 class MonthlyOutlays( ):
     '''
-    Constructor:  MonthlyOutlay( bfy, efy, main )
+    Constructor:
+    MonthlyOutlay( bfy, efy, main )
 
-    Purpose;  Class defines object providing OMB outlay data'''
+    Purpose:
+    Class defines object providing OMB outlay data
+    '''
     __source = None
     __provider = None
     __monthlyoutlaysid = None
@@ -12547,6 +13115,13 @@ class MonthlyOutlays( ):
                           'September' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -12573,8 +13148,13 @@ class MonthlyOutlays( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -12589,9 +13169,11 @@ class MonthlyOutlays( ):
 
 class NationalPrograms( ):
     '''
-    Constructor:  NationalProgram( code: str, pvdr = Provider.SQLite )
+    Constructor:
+    NationalProgram( code: str, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object representing the NationalProgram Class'''
+    Purpose:
+    Class defines object representing the NationalProgram Class'''
     __source = None
     __provider = None
     __nationalprogramsid = None
@@ -12698,6 +13280,13 @@ class NationalPrograms( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -12724,8 +13313,13 @@ class NationalPrograms( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -12740,10 +13334,13 @@ class NationalPrograms( ):
 
 class Objectives( ):
     '''
-    Constructor:  Objective( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    Objective( code: str, pvdr: Provider = Provider.SQLite )
 
 
-    Purpose: Class defines object representing the Objective Class'''
+    Purpose:
+    Class defines object representing the Objective Class
+    '''
     __source = None
     __provider = None
     __objectivesid = None
@@ -12827,6 +13424,13 @@ class Objectives( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = Source.Objectives
             _provider = Provider.SQLite
@@ -12853,8 +13457,13 @@ class Objectives( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -12869,9 +13478,11 @@ class Objectives( ):
 
 class Organizations( ):
     '''
-    Constructor:  Organization( code: str, pvdr: Provider = Provider.SQLite  )
+    Constructor:
+    Organization( code: str, pvdr: Provider = Provider.SQLite  )
 
-    Purpose: Class defines object representing the Organization Codes'''
+    Purpose:
+    Class defines object representing the Organization Codes'''
     __source = None
     __provider = None
     __organizationsid = None
@@ -12954,6 +13565,13 @@ class Organizations( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -12981,9 +13599,12 @@ class Organizations( ):
 
 class OperatingPlans( ):
     '''
-    Constructor:  OperatingPlan( bfy, efy, treas, pvdr = Provider.SQLite )
+    Constructor:
+    OperatingPlan( bfy, efy, treas, pvdr = Provider.SQLite )
 
-    Purpose: Class defining object representing Operating plan allocations'''
+    Purpose:
+    Class defining object representing Operating plan allocations
+    '''
     __operatingplansid = None
     __source = None
     __provider = None
@@ -13356,6 +13977,13 @@ class OperatingPlans( ):
                            'ObjectiveCode', 'ObjectiveName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _names = [ 'BFY', 'FundCode' ]
             _values = ( self.__bfy, self.__fundcode )
@@ -13380,8 +14008,13 @@ class OperatingPlans( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -13396,10 +14029,13 @@ class OperatingPlans( ):
 
 class OpenCommitments( ):
     '''
-    Constructor:  OpenCommitment( bfy: str, efy: str, fund: str,
+    Constructor:
+    OpenCommitment( bfy: str, efy: str, fund: str,
                   account: str, boc: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defines object providing OpenCommitment data.'''
+    Purpose:
+    Class defines object providing OpenCommitment data.
+    '''
     __source = None
     __provider = None
     __opencommitmentsid = None
@@ -15667,6 +16303,13 @@ class ProgramResultsCodes( ):
             return self.__fundcode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -15687,8 +16330,13 @@ class ProgramResultsCodes( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -15701,25 +16349,13 @@ class ProgramResultsCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ReconcilliationLines( ):
-	'''
-	Constructor:  ReconcilliationLines( num: str )
-
-	Purpose:  Class of SF-133 lines used to reconcile budgetar
-	resource on the SF-132
-	'''
-	__reconcilliationlinesid = None
-	__number = None
-	__name = None
-
-	def __init__( self, number: str ):
-		self.__number = number
-
 class ReportingLines( ):
 	'''
-	Constructor:  ReportingLines( bfy: str, code: str )
+	Constructor:
+	ReportingLines( bfy: str, code: str )
 
-	Purpose: class models the lines on the SF-133 and SF-132
+	Purpose:
+	class models the lines on the SF-133 and SF-132
 	'''
 	__reportinglinesid = None
 	__bfy = None
@@ -15731,10 +16367,11 @@ class ReportingLines( ):
 
 class ResponsibilityCenters( ):
     '''
-    Constructor:  ResponsibilityCenter( code: str,
-            pvdr: Provider = Provider.SQLite  )
+    Constructor:
+    ResponsibilityCenter( code: str, pvdr: Provider = Provider.SQLite  )
 
-    Purpose:  Class defines the ResponsibilityCenter Class
+    Purpose:
+    Class defines the ResponsibilityCenter Class
     '''
     __source = None
     __provider = None
@@ -15819,6 +16456,13 @@ class ResponsibilityCenters( ):
             return self.__code
 
     def get_data( self  ) -> list[ tuple ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -15845,8 +16489,13 @@ class ResponsibilityCenters( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -15861,10 +16510,12 @@ class ResponsibilityCenters( ):
 
 class ResourcePlanningOffices( ):
     '''
-    Constuctor:  ResourcePlanningOffice( code: str,
-            pvdr: Provider = Provider.SQLite )
+    Constuctor:
+    ResourcePlanningOffice( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  defines the ResponsiblePlanningOffice class'''
+    Purpose:
+    Defines the ResponsiblePlanningOffice class
+    '''
     __source = None
     __provider = None
     __resourceplanningofficesid = None
@@ -15947,6 +16598,13 @@ class ResourcePlanningOffices( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -15973,8 +16631,13 @@ class ResourcePlanningOffices( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -15989,9 +16652,11 @@ class ResourcePlanningOffices( ):
 
 class RegionalOffices( ):
     '''
-    Constructor:  RegionalOffice( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    RegionalOffice( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Defines a regional RPIO
+    Purpose:
+    Defines a regional RPIO
     '''
     __source = None
     __provider = None
@@ -16103,10 +16768,11 @@ class RegionalOffices( ):
 
 class ReimbursableAgreements( ):
     '''
-    Constructor:  ReimbursableAgreement( number: str,
-            pvdr: Provider = Provider.SQLite  )
+    Constructor:
+    ReimbursableAgreement( number: str, pvdr: Provider = Provider.SQLite  )
 
-    Purpose:  Class defines object representing Reimbursable Agreements
+    Purpose:
+    Class defines object representing Reimbursable Agreements
     '''
     __source = None
     __provider = None
@@ -16344,6 +17010,13 @@ class ReimbursableAgreements( ):
             return self.__agreementnumber
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -16370,8 +17043,13 @@ class ReimbursableAgreements( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -16386,10 +17064,11 @@ class ReimbursableAgreements( ):
 
 class RegionalAuthority( ):
     '''
-    Constructor:  RegionalAuthority( bfy: str, efy: str,
-     fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    RegionalAuthority( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing Regional Allocation
+    Purpose:
+    Class defines object representing Regional Allocation
     '''
     __source = None
     __provider = None
@@ -16870,6 +17549,13 @@ class RegionalAuthority( ):
                            'NpmName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -16896,8 +17582,13 @@ class RegionalAuthority( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -16912,9 +17603,11 @@ class RegionalAuthority( ):
 
 class StatusOfFunds( ):
     '''
-    Constructor:  StatusOfFunds( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    StatusOfFunds( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing execution data
+    Purpose:
+    Class defines object representing execution data
     '''
     __source = None
     __provider = None
@@ -17401,6 +18094,13 @@ class StatusOfFunds( ):
                            'NpmName' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -17441,9 +18141,11 @@ class StatusOfFunds( ):
 
 class StatusOfBudgetaryResources( ):
     '''
-    Constructor:  StatusOfBudgetaryResources( tsym: str )
+    Constructor:
+    StatusOfBudgetaryResources( tsym: str )
 
-    Purpose:  Class representing the Monthly SF-133
+    Purpose:
+    Class representing the Monthly SF-133
     '''
     __source = None
     __provider = None
@@ -17692,9 +18394,11 @@ class StatusOfBudgetaryResources( ):
 
 class StatusOfBudgetExecution( ):
     '''
-    Constructor:  StatusOfBudgetaryResources( tsym: str )
+    Constructor:
+    StatusOfBudgetaryResources( tsym: str )
 
-    Purpose:  Class representing the Monthly SF-133
+    Purpose:
+    Class representing the Monthly SF-133
     '''
     __source = None
     __provider = None
@@ -17842,10 +18546,11 @@ class StatusOfBudgetExecution( ):
 
 class StatusOfSupplementalFunding( ):
     '''
-    Constructor:  StatusOfFunds( bfy: str, efy: str,
-    fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    StatusOfFunds( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class representing Supplemental Funding execution data
+    Purpose:
+    Class representing Supplemental Funding execution data
     '''
     __source = None
     __provider = None
@@ -18335,6 +19040,13 @@ class StatusOfSupplementalFunding( ):
 
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -18377,9 +19089,11 @@ class StatusOfSupplementalFunding( ):
 
 class StateGrantObligations( ):
     '''
-    Constructor:  StateGrantObligation( bfy: str, rpio: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    StateGrantObligation( bfy: str, rpio: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing the BIS
+    Purpose:
+    Class defines object representing the BIS
     '''
     __source = None
     __provider = None
@@ -18676,6 +19390,13 @@ class StateGrantObligations( ):
                            'Amount' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -18718,10 +19439,12 @@ class StateGrantObligations( ):
 
 class StatusOfSpecialAccountFunds( ):
     '''
-     Constructor:  StatusOfSpecialAccountFunds( bfy = None, fund = None,
-                  account = None, boc = None, pvdr = Provider.SQLite )
+     Constructor:
+     StatusOfSpecialAccountFunds( bfy = None, fund = None,
+                                 account = None, boc = None, pvdr = Provider.SQLite )
 
-     Purpose: Class defines object providing SF Special Account data
+     Purpose:
+     Class defines object providing SF Special Account data
      '''
     __source = None
     __provider = None
@@ -19032,8 +19755,7 @@ class StatusOfSpecialAccountFunds( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy = None, fund = None,
-                  account = None, provider = Provider.SQLite ):
+    def __init__( self, bfy = None, fund = None, account = None, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StatusOfSpecialAccountFunds
         self.__bfy = bfy
@@ -19078,6 +19800,13 @@ class StatusOfSpecialAccountFunds( ):
             return self.__sitecode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -19104,8 +19833,13 @@ class StatusOfSpecialAccountFunds( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -19120,10 +19854,12 @@ class StatusOfSpecialAccountFunds( ):
 
 class SubAppropriations( ):
     '''
-    Constructor:  SubAppropriation( bfy: str, efy: str,
-    code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    SubAppropriation( bfy: str, efy: str, code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defines object representing the Sub-Appropriations'''
+    Purpose:
+    Class defines object representing the Sub-Appropriations
+    '''
     __source = None
     __provider = None
     __subappropriationsid = None
@@ -19220,6 +19956,13 @@ class SubAppropriations( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -19246,8 +19989,13 @@ class SubAppropriations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -19262,9 +20010,12 @@ class SubAppropriations( ):
 
 class StateOrganizations( ):
     '''
-    Constructor:  StateOrganization( code: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    StateOrganization( code: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object representing state organization codes'''
+    Purpose:
+    Class defines object representing state organization codes
+    '''
     __source = None
     __provider = None
     __stateorganizationsid = None
@@ -19341,6 +20092,13 @@ class StateOrganizations( ):
             return self.__code
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -19367,8 +20125,13 @@ class StateOrganizations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -19383,10 +20146,12 @@ class StateOrganizations( ):
 
 class StatusOfAppropriations( ):
     '''
-    Constructor:  StatusOfAppropriations( bfy: str, efy: str,
-                  fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    StatusOfAppropriations( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: Class defines object representing Appropriation-level execution data'''
+    Purpose:
+    Class defines object representing Appropriation-level execution data
+    '''
     __source = None
     __provider = None
     __statusofappropriationsid = None
@@ -20031,8 +20796,7 @@ class StatusOfAppropriations( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy: str, efy: str,
-                  fund: str, provider: Provider = Provider.SQLite ):
+    def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.StatusOfAppropriations
         self.__bfy = bfy
@@ -20096,6 +20860,13 @@ class StatusOfAppropriations( ):
                            'AvailableAmount' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -20122,8 +20893,13 @@ class StatusOfAppropriations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -20138,9 +20914,12 @@ class StatusOfAppropriations( ):
 
 class SpendingRates( ):
     '''
-    Constructor:  SpendingRate( accountcode: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    SpendingRate( accountcode: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose: class object providing OMB spending rate data'''
+    Purpose:
+    Class object providing OMB spending rate data
+    '''
     __source = None
     __provider = None
     __spendingratesid = None
@@ -20504,6 +21283,13 @@ class SpendingRates( ):
                           'TotalSpendout' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -20513,7 +21299,6 @@ class SpendingRates( ):
             _db = DataBuilder( _source, _provider, _command, _names, _values )
             self.__data = [ i for i in _db.create_table( ) ]
             return [ i  for i in self.__data ]
-
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -20523,8 +21308,13 @@ class SpendingRates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -20539,9 +21329,11 @@ class SpendingRates( ):
 
 class StatusOfSupplementalFunds( ):
     '''
-    Constructor:  StatusOfSupplementalFunds( bfy, efy, fund, pvdr = Provider.SQLite )
+    Constructor:
+    StatusOfSupplementalFunds( bfy, efy, fund, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object used for reporting on Supplemental funding
+    Purpose:
+    Class defines object used for reporting on Supplemental funding
     '''
     __statusofsupplementalfundsid = None
     __statusoffundsid = None
@@ -21030,10 +21822,12 @@ class StatusOfSupplementalFunds( ):
 
 class StatusOfJobsActFunding( ):
     '''
-    Constructor:  StatusOfJobsActFunding(  bfy: str, efy: str,
+    Constructor:
+    StatusOfJobsActFunding(  bfy: str, efy: str,
         fundcode: str, pvdr = Provider.SQLite )
 
-    Purpose: Class defines object for reporting on IIJA funds
+    Purpose:
+    Class defines object for reporting on IIJA funds
     '''
     __source = None
     __provider = None
@@ -21524,10 +22318,11 @@ class StatusOfJobsActFunding( ):
 
 class StatusOfEarmarks( ):
     '''
-    Constructor:  StatusOfEarmarks(  bfy: str, efy: str,
-     'fundcode: str, pvdr = Provider.SQLite )
+    Constructor:
+    StatusOfEarmarks(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
 
-     Purpose: Class defines object for reporting on Earmarks
+     Purpose:
+     Class defines object for reporting on Earmarks
     '''
     __source = None
     __provider = None
@@ -22051,10 +22846,11 @@ class StatusOfEarmarks( ):
 
 class StatusOfSuperfundSites( ):
     '''
-    Constructor:  StatusOfSuperfundSites(  bfy: str, efy: str,
-     'fundcode: str, pvdr = Provider.SQLite )
+    Constructor:
+    StatusOfSuperfundSites(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
 
-     Purpose: Class defines object for reporting on Earmarks
+     Purpose:
+     Class defines object for reporting on Earmarks
     '''
     __source = None
     __provider = None
@@ -22321,6 +23117,13 @@ class StatusOfSuperfundSites( ):
                            'Expenditures' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -22347,8 +23150,13 @@ class StatusOfSuperfundSites( ):
             _err.show( )
 
     def create_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -22363,10 +23171,12 @@ class StatusOfSuperfundSites( ):
 
 class SpendingDocuments( ):
     '''
-    Constructor;   SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
+    Constructor:
+    SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
                   boc: str, pvdr = Provider.SQLite )
 
-    Purpose:  Class defines object representing Spending documnets
+    Purpose:
+    Class defines object representing Spending documnets
     '''
     __source = None
     __provider = None
@@ -22979,6 +23789,13 @@ class SpendingDocuments( ):
             return self.__amount
 
     def get_data( self ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -23005,8 +23822,13 @@ class SpendingDocuments( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -23021,9 +23843,12 @@ class SpendingDocuments( ):
 
 class SupplementalCarryoverEstimates( ):
     '''
-    Constructor:  CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object providing Supplemental Carryover Estimate data for'''
+    Purpose:
+    Class defines object providing Supplemental Carryover Estimate data for
+    '''
     __source = None
     __provider = None
     __supplementalcarryoverestimatesid = None
@@ -23225,7 +24050,6 @@ class SupplementalCarryoverEstimates( ):
         if value is not None:
             self.__fields = value
 
-
     def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.SupplementalCarryoverEstimates
@@ -23257,6 +24081,13 @@ class SupplementalCarryoverEstimates( ):
             return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -23283,8 +24114,13 @@ class SupplementalCarryoverEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -23299,9 +24135,12 @@ class SupplementalCarryoverEstimates( ):
 
 class SupplementalObligationEstimates( ):
     '''
-    Constructor:  CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
+    Constructor:
+    CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
-    Purpose:  Class defines object providing Supplemental Carryover Estimate data for'''
+    Purpose:
+    Class defines object providing Supplemental Carryover Estimate data for
+    '''
     __source = None
     __provider = None
     __supplementalobligationestimatesid = None
@@ -23502,6 +24341,13 @@ class SupplementalObligationEstimates( ):
             return self.__rpiocode
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -23528,8 +24374,13 @@ class SupplementalObligationEstimates( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -23544,10 +24395,12 @@ class SupplementalObligationEstimates( ):
 
 class TreasurySymbols( ):
     '''
-    Constructor:  TreasurySymbol( bfy: str, efy: str,
-                treas: str, pvdr: Provider = Provider.SQLite)
+    Constructor:
+    TreasurySymbol( bfy: str, efy: str, treas: str, pvdr: Provider = Provider.SQLite)
 
-    Purpose:  Class defines object that represents a TAFS'''
+    Purpose:
+    Class defines object that represents a TAFS
+    '''
     __source = None
     __provider = None
     __treasurysymbolsid = None
@@ -23665,6 +24518,13 @@ class TreasurySymbols( ):
             return self.__treasuryaccountname
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -23692,8 +24552,13 @@ class TreasurySymbols( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -23708,9 +24573,12 @@ class TreasurySymbols( ):
 
 class Transfers( ):
     '''
-     Constructor:  Transfer( documentnumber: str, pvdr = Provider.SQLite )
+     Constructor:
+     Transfer( documentnumber: str, pvdr = Provider.SQLite )
 
-     Purpose:  Class defines object representing EPA reprogrammings'''
+     Purpose:
+     Class defines object representing EPA reprogrammings
+     '''
     __source = None
     __provider = None
     __transfersid = None
@@ -24096,6 +24964,13 @@ class Transfers( ):
                            'ExtendedPurpose' ]
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             command = SQL.SELECTALL
@@ -24122,7 +24997,13 @@ class Transfers( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )
@@ -24137,9 +25018,11 @@ class Transfers( ):
 
 class TransTypes( ):
     '''
-    Constructor:  TransType( bfy: str, fundcode: str, pvdr = Provider.SQLite )
+    Constructor:
+    TransType( bfy: str, fundcode: str, pvdr = Provider.SQLite )
 
-    Purpose: Class defines object representing trans types
+    Purpose:
+    Class defines object representing trans types
     '''
     __source = None
     __provider = None
@@ -24249,10 +25132,12 @@ class TransTypes( ):
 
 class UnliquidatedObligations( ):
     '''
-    Constructor:  UnliquidatedObligation( bfy: str, fund: str, account: str,
-                  boc: str, pvdr = Provider.SQLite )
+    Constructor:
+    UnliquidatedObligation( bfy: str, fund: str, account: str, boc: str, pvdr = Provider.SQLite )
 
-    Purpose: Class defines object providing ULO data'''
+    Purpose:
+    Class defines object providing ULO data
+    '''
     __source = None
     __provider = None
     __unliquidatedobligationsid = None
@@ -24782,6 +25667,13 @@ class UnliquidatedObligations( ):
             return str( self.__amount )
 
     def get_data( self  ) -> list[ Row ]:
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _provider = self.__provider
@@ -24808,8 +25700,13 @@ class UnliquidatedObligations( ):
             _err.show( )
 
     def get_frame( self ) -> DataFrame:
-        '''Method returning pandas dataframe
-        comprised of datatable data'''
+        '''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
         try:
             _source = self.__source
             _data = BudgetData( _source )

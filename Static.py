@@ -121,6 +121,7 @@ class Source( Enum ):
     Earmarks = auto( )
     Expenditures = auto( )
     FullTimeEquivalents = auto( )
+    Partitions = auto( )
     PayPeriods = auto( )
     PayrollAuthority = auto( )
     PayrollRequests = auto( )
