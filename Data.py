@@ -978,7 +978,6 @@ class SqlConfig( ):
 		try:
 			if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
 				pairs = ''
-				criteria = ''
 				for k, v in zip( self.__names, self.__values ):
 					pairs += f'{k} = \'{v}\' AND '
 				criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
