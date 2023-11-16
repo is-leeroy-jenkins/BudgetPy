@@ -263,7 +263,7 @@ class SqlPath( ):
 
 class SqlFile( ):
 	'''
-	Construxtor:
+	Constructor:
 	SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
 			command_type: SQL = SQL.SELECTALL )
 
@@ -688,6 +688,7 @@ class DbConfig( ):
 		                'NationalPrograms',
 		                'Objectives',
 		                'Organizations',
+		                'Partitions',
 		                'PayPeriods',
 		                'ProgramAreas',
 		                'ProgramProjectDescriptions',
