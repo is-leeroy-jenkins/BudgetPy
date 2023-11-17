@@ -45,7 +45,7 @@ import base64
 import webbrowser
 from typing import Type
 
-import fitz
+#import fitz
 from PIL import Image, ImageTk, ImageSequence
 import PySimpleGUI as sg
 from enum import Enum
