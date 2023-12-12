@@ -131,7 +131,7 @@ class Pascal( ):
 				return self.__output
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'Pascal'
 			_exc.method = 'split( self )'
 			_err = ErrorDialog( _exc )
@@ -171,7 +171,7 @@ class Pascal( ):
 				return self.__output
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'Pascal'
 			_exc.method = 'join( self )'
 			_err = ErrorDialog( _exc )
@@ -458,7 +458,7 @@ class SqlFile( ):
 				return os.path.join( _current, _path )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlFile'
 			_exc.method = '_path( self )'
 			_err = ErrorDialog( _exc )
@@ -495,7 +495,7 @@ class SqlFile( ):
 				return os.path.join( _current, _folder )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlFile'
 			_exc.method = 'directory( self )'
 			_err = ErrorDialog( _exc )
@@ -523,7 +523,7 @@ class SqlFile( ):
 					return _sql
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlFile'
 			_exc.method = '_query( self, other )'
 			_err = ErrorDialog( _exc )
@@ -720,7 +720,7 @@ class DbConfig( ):
 
 		Parameters:  None
 
-		Retval:  str
+		Returns:  str
 		'''
 		try:
 			if self.__provider.name == 'SQLite':
@@ -859,7 +859,7 @@ class Connection( DbConfig ):
 				return sqlite.connect( self.__connectionstring )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'Connection'
 			_exc.method = 'connect( self )'
 			_err = ErrorDialog( _exc )
@@ -960,7 +960,7 @@ class SqlConfig( ):
 				return _criteria
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlConfig'
 			_exc.method = 'dump_pairs( self )'
 			_err = ErrorDialog( _exc )
@@ -984,7 +984,7 @@ class SqlConfig( ):
 				return criteria
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlConfig'
 			_exc.method = 'dump_where( self )'
 			_err = ErrorDialog( _exc )
@@ -1009,7 +1009,7 @@ class SqlConfig( ):
 				return _criteria
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlConfig'
 			_exc.method = 'dump_set( self )'
 			_err = ErrorDialog( _exc )
@@ -1033,7 +1033,7 @@ class SqlConfig( ):
 				return _columns
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlConfig'
 			_exc.method = 'dump_columns( self )'
 			_err = ErrorDialog( _exc )
@@ -1057,7 +1057,7 @@ class SqlConfig( ):
 				return _values
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlConfig'
 			_exc.method = 'dump_values( self )'
 			_err = ErrorDialog( _exc )
@@ -1224,7 +1224,7 @@ class SqlStatement( ):
 					return self.__text
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlStatement'
 			_exc.method = 'getcommandtext( self )'
 			_err = ErrorDialog( _exc )
@@ -1439,7 +1439,7 @@ class Query( ):
 					return self.__querytext
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlStatement'
 			_exc.method = 'query_text( self )'
 			_err = ErrorDialog( _exc )
@@ -1504,7 +1504,7 @@ class SQLiteData( Query ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SQLiteData'
 			_exc.method = 'create_table( self )'
 			_err = ErrorDialog( _exc )
@@ -1527,7 +1527,7 @@ class SQLiteData( Query ):
 			return self.__frame
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SQLiteData'
 			_exc.method = 'create_frame( self )'
 			_err = ErrorDialog( _exc )
@@ -1593,7 +1593,7 @@ class AccessData( Query ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'AccessData'
 			_exc.method = 'create_table( self )'
 			_err = ErrorDialog( _exc )
@@ -1616,7 +1616,7 @@ class AccessData( Query ):
 			return self.__frame
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'AccessData'
 			_exc.method = 'create_frame( self )'
 			_err = ErrorDialog( _exc )
@@ -1713,7 +1713,7 @@ class SqlData( Query ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlData'
 			_exc.method = 'create_table( self )'
 			_err = ErrorDialog( _exc )
@@ -1736,7 +1736,7 @@ class SqlData( Query ):
 			return self.__frame
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'SqlData'
 			_exc.method = 'create_frame( self )'
 			_err = ErrorDialog( _exc )
@@ -1814,12 +1814,12 @@ class BudgetData( ):
 			self.__sql = value
 
 	@property
-	def coolumn_names( self ) -> list[ str ]:
+	def column_names( self ) -> list[ str ]:
 		if self.__columnnames is not None:
 			return self.__columnnames
 
-	@coolumn_names.setter
-	def coolumn_names( self, value: list[ str ] ):
+	@column_names.setter
+	def column_names( self, value: list[ str ] ):
 		if value is not None:
 			self.__columnnames = value
 
@@ -1912,13 +1912,11 @@ class DataBuilder( ):
 
 	@property
 	def provider( self ) -> Provider:
-		'''Gets the _provider'''
 		if self.__provider is not None:
 			return self.__provider
 
 	@provider.setter
 	def provider( self, value: Provider ):
-		'''Sets the _provider'''
 		if value is not None:
 			self.__provider = value
 		else:
@@ -1926,37 +1924,31 @@ class DataBuilder( ):
 
 	@property
 	def command( self ) -> SQL:
-		'''Gets an instance of the DataCommand object'''
 		if self.__commandtype is not None:
 			return self.__commandtype
 
 	@command.setter
 	def command( self, value: SQL ):
-		'''Set the command_type property to a DataCommand instance'''
 		if value is not None:
 			self.__commandtype = value
 
 	@property
 	def names( self ) -> list[ str ]:
-		'''Provides list of value column_names'''
 		if self.__names is not None:
 			return self.__names
 
 	@names.setter
 	def names( self, value: list[ str ] ):
-		'''Sets the list of value column_names'''
 		if value is not None:
 			self.__names = value
 
 	@property
 	def values( self ) -> tuple:
-		'''Provides tuple of value values'''
 		if self.__values is not None:
 			return self.__values
 
 	@values.setter
 	def values( self, value: tuple ):
-		'''Sets tuple of value values'''
 		if value is not None:
 			self.__values = value
 
@@ -1972,13 +1964,11 @@ class DataBuilder( ):
 
 	@property
 	def sqlconfig( self ) -> SqlConfig:
-		'''Gets instance of the SqlConfig class'''
 		if self.__sqlcfg is not None:
 			return self.__sqlcfg
 
 	@sqlconfig.setter
 	def sqlconfig( self, value: SqlConfig ):
-		'''Sets property to an instance of the SqlConfig class'''
 		if value is not None:
 			self.__sqlcfg = value
 
@@ -2015,7 +2005,7 @@ class DataBuilder( ):
 				return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'DataBuilder'
 			_exc.method = 'create_table( self )'
 			_error = ErrorDialog( _exc )
@@ -2131,8 +2121,6 @@ class DataColumn( ):
 			return self.__name
 
 	def is_numeric( self ) -> bool:
-		'''Method used to return a boolean value indicating whether
-		the data column contains numeric data'''
 		try:
 			if self.__value is not None:
 				return True
@@ -2140,15 +2128,13 @@ class DataColumn( ):
 				return False
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'DataColumn'
 			_exc.method = 'is_numeric( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
 	def is_text( self ) -> bool:
-		'''Method used to return a boolean value indicating
-		whether the data column contains text data'''
 		try:
 			if self.__value is not None:
 				return True
@@ -2156,7 +2142,7 @@ class DataColumn( ):
 				return False
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Ninja'
+			_exc.module = 'Data'
 			_exc.cause = 'DataColumn'
 			_exc.method = 'is_text( self )'
 			_err = ErrorDialog( _exc )
@@ -2334,12 +2320,12 @@ class DataTable( ):
 			self.__columns = value
 
 	@property
-	def _source( self ) -> Source:
+	def source( self ) -> Source:
 		if self.__source is not None:
 			return self.__source
 
-	@_source.setter
-	def _source( self, value: Source ):
+	@source.setter
+	def source( self, value: Source ):
 		if value is not None:
 			self.__source = value
 

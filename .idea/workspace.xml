@@ -3,15 +3,19 @@
   <component name="AnalysisUIOptions">
     <option name="SPLITTER_PROPORTION" value="0.57125306" />
     <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="Module 'BudgetPy'" />
     <option name="SHOW_STRUCTURE" value="true" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +28,8 @@
     </disable_hints>
   </component>
   <component name="FileColors">
-    <fileColor scope="Project Files" color="Blue" />
+    <fileColor scope="Project Files" color="Amber" />
+    <fileColor scope="All Changed Files" color="Forest" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,25 +40,18 @@
     </option>
     <option name="SCHEME" value="Project" />
   </component>
-  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" module-name="BudgetPy" is-module-sdk="true">
     <envs>
       <env key="FLASK_APP" value="app" />
     </envs>
-    <option name="sdk">
-      <Sdk />
-    </option>
     <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
-    <option name="mySdkHome" value="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" />
-    <option name="mySdk">
-      <Sdk />
-    </option>
+    <option name="myUseModuleSdk" value="true" />
     <option name="myModuleName" value="BudgetPy" />
     <option name="myEnvs">
       <map>
         <entry key="FLASK_APP" value="app" />
       </map>
     </option>
-    <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
   </component>
   <component name="FoldableProjectSettings">
     <option name="HIDE_IGNORED_FILES" value="false" />
@@ -85,9 +83,6 @@
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="78145f30-18cb-443d-a346-237522922b0e" />
-  </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -97,10 +92,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Booger.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="notebook://C:/Users/teppler/source/repos/BudgetPy/BudgetPy.ipynb" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Booger.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Data.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Static.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -115,9 +109,9 @@
       <option value="16" />
       <option value="100" />
       <option value="200" />
+      <option value="300" />
     </hideBySeverity>
-    <option name="proportion" value="0.5651322" />
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -137,39 +131,39 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
-    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
-    "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
-    "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Notebooks",
-    "settings.editor.splitter.proportion": "0.24475019",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24475019&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ],
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -186,6 +180,9 @@
         <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
       </console-settings>
     </option>
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySaveCallSignatures" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -218,59 +215,22 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Execution" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BudgetPy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Execution.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Execution" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BudgetPy" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Execution.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.Execution" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-67fca87a943a-c986f194a52a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.11799.259" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\teppler\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\terry\AppData\Roaming\Subversion</configuration>
     <option name="runUnderTerminal" value="true" />
   </component>
   <component name="TaskManager">
@@ -296,98 +256,39 @@
       <workItem from="1695140336553" duration="598000" />
       <workItem from="1695141013847" duration="5345000" />
       <workItem from="1695214907053" duration="3371000" />
-      <workItem from="1695251236605" duration="3529000" />
-      <workItem from="1695371914328" duration="1831000" />
-      <workItem from="1695645711494" duration="394000" />
-      <workItem from="1695735160448" duration="724000" />
-      <workItem from="1695741267093" duration="1956000" />
-      <workItem from="1695820013689" duration="685000" />
-      <workItem from="1695821030821" duration="2654000" />
-      <workItem from="1695917013312" duration="2219000" />
-      <workItem from="1695974251332" duration="1498000" />
-      <workItem from="1696424074264" duration="3523000" />
-      <workItem from="1696605607445" duration="1669000" />
-      <workItem from="1696609126374" duration="3004000" />
-      <workItem from="1696959031435" duration="75000" />
-      <workItem from="1696959131074" duration="1160000" />
-      <workItem from="1696960319739" duration="2074000" />
-      <workItem from="1696972854375" duration="1051000" />
-      <workItem from="1696981107448" duration="406000" />
-      <workItem from="1696990927404" duration="1288000" />
-      <workItem from="1697029417944" duration="8155000" />
-      <workItem from="1697071602740" duration="173000" />
-      <workItem from="1697071811922" duration="341000" />
-      <workItem from="1697072271144" duration="1830000" />
-      <workItem from="1697105647626" duration="76000" />
-      <workItem from="1697105783356" duration="202000" />
-      <workItem from="1697106033365" duration="2968000" />
-      <workItem from="1697109097091" duration="14207000" />
-      <workItem from="1697201642841" duration="6213000" />
-      <workItem from="1697270589096" duration="2532000" />
-      <workItem from="1697362026402" duration="29389000" />
-      <workItem from="1697604355674" duration="3833000" />
-      <workItem from="1697613763071" duration="6988000" />
-      <workItem from="1698577490672" duration="1798000" />
-      <workItem from="1698579365173" duration="2131000" />
-      <workItem from="1698739108943" duration="2620000" />
-      <workItem from="1698843754010" duration="5029000" />
-      <workItem from="1699881560524" duration="1349000" />
-      <workItem from="1699883028291" duration="648000" />
-      <workItem from="1699884783467" duration="353000" />
-      <workItem from="1699885305884" duration="1000" />
-      <workItem from="1699893684479" duration="247000" />
-      <workItem from="1699972912485" duration="1803000" />
-      <workItem from="1699976575235" duration="8744000" />
-      <workItem from="1700153625550" duration="5726000" />
-    </task>
-    <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693818551988</created>
-      <option name="number" value="00533" />
-      <option name="presentableId" value="LOCAL-00533" />
-      <option name="project" value="LOCAL" />
-      <updated>1693818551988</updated>
-    </task>
-    <task id="LOCAL-00534" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693828996275</created>
-      <option name="number" value="00534" />
-      <option name="presentableId" value="LOCAL-00534" />
-      <option name="project" value="LOCAL" />
-      <updated>1693828996275</updated>
-    </task>
-    <task id="LOCAL-00535" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693830309635</created>
-      <option name="number" value="00535" />
-      <option name="presentableId" value="LOCAL-00535" />
-      <option name="project" value="LOCAL" />
-      <updated>1693830309635</updated>
-    </task>
-    <task id="LOCAL-00536" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693830815551</created>
-      <option name="number" value="00536" />
-      <option name="presentableId" value="LOCAL-00536" />
-      <option name="project" value="LOCAL" />
-      <updated>1693830815551</updated>
-    </task>
-    <task id="LOCAL-00537" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693831088795</created>
-      <option name="number" value="00537" />
-      <option name="presentableId" value="LOCAL-00537" />
-      <option name="project" value="LOCAL" />
-      <updated>1693831088795</updated>
-    </task>
-    <task id="LOCAL-00538" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693832437731</created>
-      <option name="number" value="00538" />
-      <option name="presentableId" value="LOCAL-00538" />
-      <option name="project" value="LOCAL" />
-      <updated>1693832437731</updated>
-    </task>
-    <task id="LOCAL-00539" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693832843649</created>
-      <option name="number" value="00539" />
-      <option name="presentableId" value="LOCAL-00539" />
-      <option name="project" value="LOCAL" />
-      <updated>1693832843649</updated>
+      <workItem from="1695251236605" duration="3405000" />
+      <workItem from="1696937221738" duration="345000" />
+      <workItem from="1696937641010" duration="43000" />
+      <workItem from="1696937730948" duration="3480000" />
+      <workItem from="1699864682611" duration="302000" />
+      <workItem from="1699865034083" duration="2752000" />
+      <workItem from="1699869321797" duration="1257000" />
+      <workItem from="1700245560722" duration="3045000" />
+      <workItem from="1700411289855" duration="1303000" />
+      <workItem from="1700412884213" duration="138000" />
+      <workItem from="1700413074379" duration="2402000" />
+      <workItem from="1700471977918" duration="5279000" />
+      <workItem from="1700556161858" duration="211000" />
+      <workItem from="1700556548976" duration="1263000" />
+      <workItem from="1700576010749" duration="2655000" />
+      <workItem from="1700755741252" duration="602000" />
+      <workItem from="1700924933053" duration="461000" />
+      <workItem from="1702313849967" duration="226000" />
+      <workItem from="1702314125323" duration="1596000" />
+      <workItem from="1702315741673" duration="195000" />
+      <workItem from="1702315970316" duration="712000" />
+      <workItem from="1702316716697" duration="745000" />
+      <workItem from="1702317476977" duration="83000" />
+      <workItem from="1702317583027" duration="861000" />
+      <workItem from="1702318454349" duration="422000" />
+      <workItem from="1702318881403" duration="191000" />
+      <workItem from="1702319099690" duration="170000" />
+      <workItem from="1702319346917" duration="127000" />
+      <workItem from="1702319500513" duration="1197000" />
+      <workItem from="1702320744770" duration="1322000" />
+      <workItem from="1702325435918" duration="1833000" />
+      <workItem from="1702328634828" duration="312000" />
+      <workItem from="1702329967237" duration="4428000" />
     </task>
     <task id="LOCAL-00540" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693832878412</created>
@@ -683,7 +584,56 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="611" />
+    <task id="LOCAL-00588" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696772585479</created>
+      <option name="number" value="00588" />
+      <option name="presentableId" value="LOCAL-00588" />
+      <option name="project" value="LOCAL" />
+      <updated>1696772585479</updated>
+    </task>
+    <task id="LOCAL-00589" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696845728397</created>
+      <option name="number" value="00589" />
+      <option name="presentableId" value="LOCAL-00589" />
+      <option name="project" value="LOCAL" />
+      <updated>1696845728397</updated>
+    </task>
+    <task id="LOCAL-00590" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696863239599</created>
+      <option name="number" value="00590" />
+      <option name="presentableId" value="LOCAL-00590" />
+      <option name="project" value="LOCAL" />
+      <updated>1696863239599</updated>
+    </task>
+    <task id="LOCAL-00591" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696865877526</created>
+      <option name="number" value="00591" />
+      <option name="presentableId" value="LOCAL-00591" />
+      <option name="project" value="LOCAL" />
+      <updated>1696865877526</updated>
+    </task>
+    <task id="LOCAL-00592" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696885201933</created>
+      <option name="number" value="00592" />
+      <option name="presentableId" value="LOCAL-00592" />
+      <option name="project" value="LOCAL" />
+      <updated>1696885201933</updated>
+    </task>
+    <task id="LOCAL-00593" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696885878661</created>
+      <option name="number" value="00593" />
+      <option name="presentableId" value="LOCAL-00593" />
+      <option name="project" value="LOCAL" />
+      <updated>1696885878661</updated>
+    </task>
+    <task id="LOCAL-00594" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <created>1696936914828</created>
+      <option name="number" value="00594" />
+      <option name="presentableId" value="LOCAL-00594" />
+      <option name="project" value="LOCAL" />
+      <updated>1696936914828</updated>
+    </task>
+    <option name="localTasksCounter" value="598" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -716,7 +666,6 @@
     <MESSAGE value="from other rig;" />
     <MESSAGE value="updates from main rig;" />
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <MESSAGE value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
 </project>

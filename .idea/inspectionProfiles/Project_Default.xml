@@ -83,6 +83,7 @@
     <inspection_tool class="CssReplaceWithShorthandUnsafely" enabled="false" level="INFORMATION" enabled_by_default="false" />
     <inspection_tool class="CssUnknownProperty" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="CssUnknownTarget" enabled="false" level="ERROR" enabled_by_default="false" />
+    <inspection_tool class="CssUnknownUnit" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="CssUnresolvedClassInComposesRule" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="CssUnresolvedCustomProperty" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="CssUnusedSymbol" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -478,7 +479,9 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="0" />
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="fitz" />
+          </list>
         </value>
       </option>
     </inspection_tool>
