@@ -48,9 +48,12 @@ from Booger import Error, ErrorDialog
 
 class Path( ):
 	'''
-	Constructor: Path( filename: str )
 
-	Purpose:  Class representing a path'''
+	Constructor: Path( filepath: str )
+
+	Purpose:  Class representing a path
+
+	'''
 	__name = None
 	__input = None
 	__extension = None
@@ -80,7 +83,7 @@ class Path( ):
 	@extension.setter
 	def extension( self, value: str ):
 		if value is not None:
-			self.__extension = str( value )
+			self.__extension = value
 
 	@property
 	def current_directory( self ) -> str:
@@ -142,6 +145,16 @@ class Path( ):
 	def extension_separator( self, value: str ):
 		if value is not None:
 			self.__extensionseparator = value
+
+	@property
+	def template_path( self ):
+		if self.__template is not None:
+			return self.__template
+
+	@template_path.setter
+	def template_path( self, value: str ):
+		if value is not None:
+			self.__template = value
 
 	def __init__( self, filepath: str ):
 		self.__input = filepath
@@ -293,26 +306,6 @@ class Path( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def get_templatepath( self ) -> str:
-		'''
-		Purpose:
-
-		Parameters:
-
-		Returns:
-		'''
-
-		try:
-			if isinstance( self.__template, str ):
-				return self.__template
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'FileSys'
-			_exc.cause = 'Path'
-			_exc.method = 'get_report_path( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
 	def join( self, first: str, second: str ) -> str:
 		'''
 		Purpose:
@@ -426,15 +419,17 @@ class File( Path ):
 
 	def rename( self, other: str ) -> str:
 		'''
+
 		Purpose:
 
 		Parameters:
 
 		Returns:
+
 		'''
 
 		try:
-			if isinstance( other, str ) and not other == '':
+			if other is not None:
 				_src = os.path.abspath( self.__path )
 				_dest = os.path.join( self.directory, other )
 				os.rename( _src, _dest )
@@ -579,11 +574,13 @@ class File( Path ):
 
 	def writeall( self, other: str ):
 		'''
+
 		Purpose:
 
 		Parameters:
 
 		Returns:
+
 		'''
 
 		try:
@@ -1092,14 +1089,28 @@ class Document( File ):
 
 class Excel( ):
 	'''
+
 	Constructor: Excel( path: str )
 
-	Purpose: Class provides the spreadsheet for reports '''
+	Purpose: Class provides the spreadsheet for reports
+
+	'''
+	__internal = None
 	__path = None
 	__workbook = None
 	__worksheet = None
 	__name = None
 	__title = None
+
+	@property
+	def internal( self ) -> str:
+		if self.__internal is not None:
+			return self.__internal
+
+	@internal.setter
+	def internal( self, value: str ):
+		if value is not None:
+			self.__internal = value
 
 	@property
 	def path( self ) -> str:
@@ -1142,6 +1153,7 @@ class Excel( ):
 			self.__name = value.active
 
 	def __init__( self, path: str ):
+		self.__internal = r'etc/templates/report/Excel.xlsx'
 		self.__path = path
 		self.__name = os.path.split( path )[ 1 ]
 		self.__title = os.path.split( path )[ 1 ]
@@ -1172,9 +1184,12 @@ class Excel( ):
 
 class ExcelReport( Excel ):
 	'''
+
 	Constructor:  ExcelReport( name: str, rows: int = 46, cols: int = 12 ).
 
-	Purpose:  Class providing spreadsheet for reports '''
+	Purpose:  Class providing spreadsheet for reports
+
+	'''
 	__rows = None
 	__columns = None
 	__dimensions = None
@@ -1209,19 +1224,22 @@ class ExcelReport( Excel ):
 		if value is not None:
 			self.__dimensions = value
 
-	def __init__( self, name: str, rows: int = 46, cols: int = 12 ):
-		super( ).__init__( name )
-		self.__path = r'etc/templates/report/Excel.xlsx'
-		self.__name = name
+	def __init__( self, path: str, rows: int = 46, cols: int = 12 ):
+		super( ).__init__( path )
+		self.__internal = super( ).internal
+		self.__path = super( ).path
+		self.__name = super( ).name
 		self.__rows = rows
 		self.__columns = cols
 		self.__dimensions = ( self.__rows, self.__columns )
 
 class ZipFile( ):
 	'''
+
 	Constructor:  ZipFile( path: str )
 
 	Purpose:  Class defines object providing zip file functionality
+
 	'''
 	__infile = None
 	__name = None
