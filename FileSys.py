@@ -1133,6 +1133,16 @@ class Excel( ):
 			self.__name = value
 
 	@property
+	def title( self ) -> str:
+		if self.__title is not None:
+			return self.__title
+
+	@title.setter
+	def title( self, value: str ):
+		if value is not None:
+			self.__title = value
+
+	@property
 	def workbook( self ) -> Workbook:
 		if self.__workbook is not None:
 			return self.__workbook
@@ -1152,9 +1162,9 @@ class Excel( ):
 		if value is not None:
 			self.__name = value.active
 
-	def __init__( self, path: str ):
+	def __init__( self, path: str = None ):
 		self.__internal = r'etc/templates/report/Excel.xlsx'
-		self.__path = path
+		self.__path = path if path is not None else self.__internal
 		self.__name = os.path.split( path )[ 1 ]
 		self.__title = os.path.split( path )[ 1 ]
 		self.__workbook = Workbook( )
@@ -1185,7 +1195,7 @@ class Excel( ):
 class ExcelReport( Excel ):
 	'''
 
-	Constructor:  ExcelReport( name: str, rows: int = 46, cols: int = 12 ).
+	Constructor:  ExcelReport( path: str, rows: int = 46, cols: int = 12 ).
 
 	Purpose:  Class providing spreadsheet for reports
 
@@ -1224,7 +1234,7 @@ class ExcelReport( Excel ):
 		if value is not None:
 			self.__dimensions = value
 
-	def __init__( self, path: str, rows: int = 46, cols: int = 12 ):
+	def __init__( self, path: str = None, rows: int = 46, cols: int = 12 ):
 		super( ).__init__( path )
 		self.__internal = super( ).internal
 		self.__path = super( ).path
@@ -1232,6 +1242,9 @@ class ExcelReport( Excel ):
 		self.__rows = rows
 		self.__columns = cols
 		self.__dimensions = ( self.__rows, self.__columns )
+		self.__title = super( ).title
+		self.__workbook = super( ).workbook
+		self.__worksheet = super( ).worksheet
 
 class ZipFile( ):
 	'''
