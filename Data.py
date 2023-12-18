@@ -1540,7 +1540,7 @@ class AccessData( Query ):
 
 	Purpose:
 	Class represents the main execution
-	values model classes in the MS ACCDB database
+	values   model classes in the MS ACCDB database
 	'''
 	__query = None
 	__driver = None
