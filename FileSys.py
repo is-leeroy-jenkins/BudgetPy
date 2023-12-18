@@ -44,6 +44,7 @@
 import os
 import zipfile as zp
 from openpyxl import Workbook
+import shutil as sh
 from Booger import Error, ErrorDialog
 
 class Path( ):
@@ -325,6 +326,25 @@ class Path( ):
 			_exc.method = 'join( self, first, second )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
+
+	def copy_tree( self, destination: str ):
+		'''
+
+		Purpose:
+
+		Copies directory tree to 'destination'
+
+		Parameters:
+
+		destination: str
+
+		Returns:
+
+		Void
+
+		'''
+		if destination is not None:
+			sh.copytree( self.__input, destination )
 
 class File( Path ):
 	'''
