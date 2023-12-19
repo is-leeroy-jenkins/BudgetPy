@@ -203,12 +203,12 @@ class SqlPath( ):
             self.__sqlitedriver = value
 
     @property
-    def sqlite_path( self ) -> str:
+    def sqlite_database( self ) -> str:
         if self.__sqlitedatabase is not None:
             return self.__sqlitedatabase
 
-    @sqlite_path.setter
-    def sqlite_path( self, value: str ):
+    @sqlite_database.setter
+    def sqlite_database( self, value: str ):
         if value is not None:
             self.__sqlitedatabase = value
 
@@ -223,12 +223,12 @@ class SqlPath( ):
             self.__accessdriver = value
 
     @property
-    def access_path( self ) -> str:
+    def access_database( self ) -> str:
         if self.__accessdatabase is not None:
             return self.__accessdatabase
 
-    @access_path.setter
-    def access_path( self, value: str ):
+    @access_database.setter
+    def access_database( self, value: str ):
         if value is not None:
             self.__accessdatabase = value
 
@@ -243,12 +243,12 @@ class SqlPath( ):
             self.__sqldriver = value
 
     @property
-    def sql_path( self ) -> str:
+    def sql_database( self ) -> str:
         if self.__sqldatabase is not None:
             return self.__sqldatabase
 
-    @sql_path.setter
-    def sql_path( self, value: str ):
+    @sql_database.setter
+    def sql_database( self, value: str ):
         if value is not None:
             self.__sqldatabase = value
 
@@ -371,7 +371,7 @@ class SqlFile( ):
                         'OperatingPlans',
                         'Organizations',
                         'Outlays',
-                        'Partitions'
+                        'Partitions',
                         'PayPeriods',
                         'PayrollAuthority',
                         'PayrollCostCodes',
@@ -444,16 +444,16 @@ class SqlFile( ):
             _current = os.getcwd( )
             _path = ''
             if _provider == 'SQLite' and _tablename in _data:
-                _path = f'{_sqlpath.sqlite_path}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sqlstatement'
                 return os.path.join( _current, _path )
             elif _provider == 'ACCDB' and _tablename in _data:
-                _path = f'{_sqlpath.access_path}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.access_database}\\{_command}\\{_tablename}.sqlstatement'
                 return os.path.join( _current, _path )
             elif _provider == 'SqlServer' and _tablename in _data:
-                _path = f'{_sqlpath.sql_path}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sql_database}\\{_command}\\{_tablename}.sqlstatement'
                 return os.path.join( _current, _path )
             else:
-                _path = f'{_sqlpath.sqlite_path}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sqlstatement'
                 return os.path.join( _current, _path )
         except Exception as e:
             _exc = Error( e )
@@ -481,16 +481,16 @@ class SqlFile( ):
             _current = os.getcwd( )
             _folder = ''
             if _provider == 'SQLite' and _source in _data:
-                _folder = f'{_sqlpath.sqlite_path}\\{_command}'
+                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'ACCDB' and _source in _data:
-                _folder = f'{_sqlpath.access_path}\\{_command}'
+                _folder = f'{_sqlpath.access_database}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'SqlServer' and _source in _data:
-                _folder = f'{_sqlpath.sql_path}\\{_command}'
+                _folder = f'{_sqlpath.sql_database}\\{_command}'
                 return os.path.join( _current, _folder )
             else:
-                _folder = f'{_sqlpath.sqlite_path}\\{_command}'
+                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
                 return os.path.join( _current, _folder )
         except Exception as e:
             _exc = Error( e )
