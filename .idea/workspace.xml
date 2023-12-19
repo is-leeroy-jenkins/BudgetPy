@@ -12,7 +12,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSys.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileSys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyodbc.pyi" beforeDir="false" afterPath="$PROJECT_DIR$/pyodbc.pyi" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +101,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Booger.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="notebook://C:/Users/teppler/source/repos/BudgetPy/BudgetPy.ipynb" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Data.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Static.py" root0="SKIP_INSPECTION" />
   </component>
@@ -156,7 +158,7 @@
     "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
     "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Python",
     "settings.editor.splitter.proportion": "0.24475019",
     "vue.rearranger.settings.migration": "true"
   },
@@ -347,7 +349,9 @@
       <workItem from="1702827392744" duration="832000" />
       <workItem from="1702907844756" duration="1976000" />
       <workItem from="1702921892422" duration="2706000" />
-      <workItem from="1702932150702" duration="721000" />
+      <workItem from="1702932150702" duration="6937000" />
+      <workItem from="1702994109361" duration="2151000" />
+      <workItem from="1703000710044" duration="7228000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -692,7 +696,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="614" />
+    <option name="localTasksCounter" value="615" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -727,5 +731,16 @@
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <option name="LAST_COMMIT_MESSAGE" value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>mock:///a.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
