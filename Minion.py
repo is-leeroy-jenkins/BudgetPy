@@ -50,6 +50,7 @@ class App( ):
     Constructor:
     App( client: enum )
 
+
     Purpose:
     Class defines object providing factory methods run( ) and run( args ) that run
     processes based on 'Client' enumeration input args

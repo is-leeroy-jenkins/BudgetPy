@@ -426,7 +426,7 @@ class SqlFile( ):
         self.__source = source
         self.__provider = provider
 
-    def get_path( self ) -> str:
+    def create_path( self ) -> str:
         '''
         Purpose:
 
@@ -444,22 +444,22 @@ class SqlFile( ):
             _current = os.getcwd( )
             _path = ''
             if _provider == 'SQLite' and _tablename in _data:
-                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             elif _provider == 'ACCDB' and _tablename in _data:
-                _path = f'{_sqlpath.access_database}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.access_database}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             elif _provider == 'SqlServer' and _tablename in _data:
-                _path = f'{_sqlpath.sql_database}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sql_database}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             else:
-                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sqlstatement'
+                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SqlFile'
-            _exc.method = '_path( self )'
+            _exc.method = 'create_path( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1779,7 +1779,7 @@ class BudgetData( ):
 
     '''
     __source = None
-    __name = None
+    __tablename = None
     __path = None
     __connection = None
     __sql = None
@@ -1792,71 +1792,85 @@ class BudgetData( ):
 
     @property
     def source( self ) -> Source:
+        ''' Gets a member of the Source enumeration'''
         if self.__source is not None:
             return self.__source
 
     @source.setter
     def source( self, value: Source ):
+        '''Sets a member of the Source enumeration'''
         if value is not None:
             self.__source = value
 
     @property
     def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
+        '''Get the name of the data source'''
+        if self.__tablename is not None:
+            return self.__tablename
 
     @name.setter
     def name( self, value: str ):
+        '''Sets the name of the data source'''
         if value is not None:
-            self.__name = value
+            self.__tablename = value
 
     @property
     def path( self ) -> str:
+        '''Gets a string  to the data source'''
         if self.__path is not None:
             return self.__path
 
     @path.setter
     def path( self, value: str ):
+        '''Sets a string to the data source'''
         if value is not None:
             self.__path = value
 
     @property
     def data( self ) -> list[ tuple ]:
+        '''Gets a list[ tupel ] representing rows in a dataframe'''
         if self.__data is not None:
             return self.__data
 
     @data.setter
     def data( self, value: list[ tuple ] ):
+        '''Sets a list[ tuple ] representing rows in a dataframe'''
         if value is not None:
             self.__data = value
 
     @property
     def query( self ) -> str:
+        '''Gets a string representing the SQL command text'''
         if self.__sql is not None:
             return self.__sql
 
     @query.setter
     def query( self, value: str ):
+        '''Sets a string representing the SQL command text'''
         if value is not None:
             self.__sql = value
 
     @property
     def column_names( self ) -> list[ str ]:
+        '''Gets a list[ str ] representing column names'''
         if self.__columnnames is not None:
             return self.__columnnames
 
     @column_names.setter
     def column_names( self, value: list[ str ] ):
+        '''Sets a list[ str ] representing column names'''
         if value is not None:
             self.__columnnames = value
 
     @property
     def index( self ) -> int:
+        '''Gets the index of the data frame'''
         if self.__index is not None:
             return self.__index
 
     @index.setter
     def index( self, value: int ):
+        '''Sets the index of the data frame'''
         if value is not None:
             self.__index = value
 
@@ -1872,14 +1886,17 @@ class BudgetData( ):
 
     def __init__( self, source: Source ):
         self.__source = source
-        self.__name = source.name
+        self.__tablename = source.name
         self.__path = DbConfig( source ).get_path( )
         self.__sql = f'SELECT * FROM {source.name};'
         self.__frame = self.create_frame( )
-        self.__data = [ tuple( i ) for i in self.create_frame( ).iterrows( ) ]
-        self.__columnnames = list( self.create_frame( ).columns )
+        self.__data = [ tuple( i ) for i in self.__frame.iterrows( ) ]
+        self.__columnnames = list( self.__frame.columns.names )
         self.__index = self.create_frame( ).index
 
+    def __dir__( self ) -> list[ str ]:
+        return [ 'source', 'path', 'name', 'query',
+                 'data', 'column_names', 'create_frame' ]
     def create_frame( self ) -> DataFrame:
         '''
         Purpose:
@@ -1892,11 +1909,11 @@ class BudgetData( ):
         try:
             _path = self.__path
             _source = self.__source
-            _table = _source.name
+            _table = self.__source.name
             _connection = sqlite.connect( _path )
             _sql = f'SELECT * FROM {_table};'
-            _frame = sqlreader( _sql, _connection )
-            return _frame
+            self.__frame = sqlreader( _sql, _connection )
+            return self.__frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1924,8 +1941,8 @@ class DataBuilder( ):
     __source = None
     __provider = None
     __dbconfig = None
-    __sqlcfg = None
-    __cnx = None
+    __sqlconfig = None
+    __connection = None
     __sql = None
     __query = None
     __data = None
@@ -1983,24 +2000,24 @@ class DataBuilder( ):
             self.__values = value
 
     @property
-    def dataconfig( self ) -> DbConfig:
+    def dbconfig( self ) -> DbConfig:
         if self.__dbconfig is not None:
             return self.__dbconfig
 
-    @dataconfig.setter
-    def dataconfig( self, value: DbConfig ):
+    @dbconfig.setter
+    def dbconfig( self, value: DbConfig ):
         if value is not None:
             self.__dbconfig = value
 
     @property
     def sqlconfig( self ) -> SqlConfig:
-        if self.__sqlcfg is not None:
-            return self.__sqlcfg
+        if self.__sqlconfig is not None:
+            return self.__sqlconfig
 
     @sqlconfig.setter
     def sqlconfig( self, value: SqlConfig ):
         if value is not None:
-            self.__sqlcfg = value
+            self.__sqlconfig = value
 
     def __init__( self, source: Source, provider = Provider.SQLite,
                   command = SQL.SELECTALL, names: list[ str ] = None,
@@ -2011,26 +2028,26 @@ class DataBuilder( ):
         self.__name = names
         self.__values = values
         self.__dbconfig = DbConfig( self.__source, self.__provider )
-        self.__cnx = Connection( source )
-        self.__sqlcfg = SqlConfig( self.__commandtype, self.__names, self.__values )
-        self.__sql = SqlStatement( self.__dbconfig, self.__sqlcfg )
+        self.__connection = Connection( source )
+        self.__sqlconfig = SqlConfig( self.__commandtype, self.__names, self.__values )
+        self.__sql = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
     def create_table( self ) -> list[ db.Row ]:
         try:
             if self.__provider == Provider.SQLite:
-                _sqlite = SQLiteData( self.__cnx, self.__sql )
+                _sqlite = SQLiteData( self.__connection, self.__sql )
                 self.__data = [ i for i in _sqlite.create_table( ) ]
                 return self.__data
             elif self.__provider == Provider.Access:
-                _access = AccessData( self.__cnx, self.__sql )
+                _access = AccessData( self.__connection, self.__sql )
                 self.__data = [ i for i in _access.create_table( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                _sql = SqlData( self.__cnx, self.__sql )
+                _sql = SqlData( self.__connection, self.__sql )
                 self.__data = [ i for i in _sql.create_table( ) ]
                 return self.__data
             else:
-                _sqlite = SQLiteData( self.__cnx, self.__sql )
+                _sqlite = SQLiteData( self.__connection, self.__sql )
                 self.__data = [ i for i in _sqlite.create_table( ) ]
                 return self.__data
         except Exception as e:

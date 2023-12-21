@@ -50,8 +50,7 @@ from sqlite3 import Row
 from Booger import Error, ErrorDialog
 from Static import SQL
 from Static import Source, Provider
-from Data import ( DbConfig, SqlConfig, Connection,
-                  SqlStatement, BudgetData, DataBuilder )
+from Data import ( DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder )
 
 class Unit( ):
     '''
