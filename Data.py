@@ -985,8 +985,9 @@ class SqlConfig( ):
         Returns a list[ str ] of member names.
 
         '''
-        return [ 'command_type', 'names',
-                 'values', 'param_style' ]
+        return [ 'command_type', 'names', 'values',
+                 'param_style', 'dump_pairs', 'dump_where',
+                 'dump_set', 'dump_columns', 'dump_values' ]
 
     def dump_pairs( self ) -> str:
         '''
@@ -1220,6 +1221,16 @@ class SqlStatement( ):
         if self.__text is not None:
             return self.__text
 
+    def __dir__(self) -> list[ str ]:
+        '''
+
+        Returns a list[ str ] of member names.
+
+        '''
+        return [ 'source', 'provider', 'table_name',
+                'command_type', 'names', 'values',
+                'command_text', 'get_query' ]
+
     def get_query( self ) -> str:
         '''
         Purpose:
@@ -1301,7 +1312,7 @@ class Query( ):
     __source = None
     __tablename = None
     __provider = None
-    __colnames = None
+    __columnnames = None
     __values = None
     __path = None
     __connectionstring = None
@@ -1385,13 +1396,13 @@ class Query( ):
 
     @property
     def column_names( self ) -> list[ str ]:
-        if self.__colnames is not None:
-            return self.__colnames
+        if self.__columnnames is not None:
+            return self.__columnnames
 
     @column_names.setter
     def column_names( self, value: list[ str ] ):
         if value is not None:
-            self.__colnames = value
+            self.__columnnames = value
 
     @property
     def values( self ) -> tuple:
@@ -1432,7 +1443,7 @@ class Query( ):
         self.__commandtype = sql.command_type
         self.__path = conn.path
         self.__connectionstring = conn.connection_string
-        self.__colnames = self.__sqlconfig.names
+        self.__columnnames = self.__sqlconfig.names
         self.__values = self.__sqlconfig.values
 
     def __str__( self ) -> str:
@@ -1459,19 +1470,19 @@ class Query( ):
             _crit = self.__sqlconfig.dump_where( )
             _cols = self.__sqlconfig.dump_columns( )
             _vals = self.__sqlconfig.dump_values( )
-            if isinstance( self.__colnames, list ) and isinstance( _vals, tuple ):
+            if isinstance( self.__columnnames, list ) and isinstance( _vals, tuple ):
                 if self.__commandtype == SQL.SELECTALL:
-                    if len( self.__colnames ) == 0:
+                    if len( self.__columnnames ) == 0:
                         self.__querytext = f'SELECT * FROM {_table}'
                         return self.__querytext
-                    if len( self.__colnames ) > 0:
+                    if len( self.__columnnames ) > 0:
                         self.__querytext = f'SELECT ' + _cols + f'FROM {_table}' + f' {_crit}'
                         return self.__querytext
                 elif self.__commandtype == SQL.SELECT:
-                    if len( self.__colnames ) == 0:
+                    if len( self.__columnnames ) == 0:
                         self.__querytext = f'SELECT * FROM {_table}'
                         return self.__querytext
-                    if len( self.__colnames ) > 0:
+                    if len( self.__columnnames ) > 0:
                         self.__querytext = f'SELECT ' + _cols + f' FROM {_table}' + f' {_crit}'
                         return self.__querytext
                 elif self.__commandtype == SQL.INSERT:
@@ -1485,12 +1496,12 @@ class Query( ):
                     self.__querytext = f'DELETE FROM {_table} ' + f'{_crit}'
                     return self.__querytext
             else:
-                if isinstance( self.__colnames, list ) and not isinstance( _vals, tuple ):
+                if isinstance( self.__columnnames, list ) and not isinstance( _vals, tuple ):
                     if self.__commandtype == SQL.SELECT:
                         cols = _cols.lstrip( '(' ).rstrip( ')' )
                         self.__querytext = f'SELECT {cols} FROM {_table}'
                         return self.__querytext
-                elif not isinstance( self.__colnames, list ) \
+                elif not isinstance( self.__columnnames, list ) \
                         and not isinstance( _vals, tuple ):
                     if self.__commandtype == SQL.SELECTALL:
                         self.__querytext = f'SELECT * FROM {_table}'
@@ -1556,7 +1567,8 @@ class SQLiteData( Query ):
         '''
         return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
                  'command_type', 'table_name', 'column_names', 'values',
-                 'command_text', 'connection_string' ]
+                 'command_text', 'connection_string',
+                 'frame', 'create_table', 'create_frame' ]
 
     def create_table( self ) -> list[ db.Row ]:
         '''
@@ -1587,11 +1599,13 @@ class SQLiteData( Query ):
 
     def create_frame( self ) -> DataFrame:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
@@ -1659,7 +1673,8 @@ class AccessData( Query ):
         '''
         return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
                  'command_type', 'table_name', 'column_names', 'values',
-                 'command_text', 'connection_string' ]
+                 'command_text', 'connection_string',
+                 'frame', 'create_table', 'create_frame' ]
 
     def create_table( self ) -> list[ db.Row ]:
         '''
@@ -1787,11 +1802,14 @@ class SqlData( Query ):
 
     def __dir__( self ) -> list[ str ]:
         '''
+
         Returns a list[ str ] of member names
+
         '''
         return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
                  'command_type', 'table_name', 'column_names', 'values',
-                 'command_text', 'connection_string' ]
+                 'command_text', 'connection_string',
+                 'frame', 'create_table', 'create_frame' ]
 
     def create_table( self ) -> list[ db.Row ]:
         '''

@@ -77,6 +77,15 @@ class Path( ):
 			self.__input = value
 
 	@property
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
+	@name.setter
+	def name( self, value: str ):
+		if value is not None:
+			self.__name = value
+
+	@property
 	def extension( self ) -> str:
 		if self.__extension is not None:
 			return self.__extension
@@ -172,6 +181,18 @@ class Path( ):
 	def __str__( self ) -> str:
 		if self.__input is not None:
 			return str( self.__input )
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'input', 'name', 'current_directory', 'extension',
+		         'parent_directory', 'path_separator', 'drive',
+		         'drive_separator', 'extension_separator', 'template_path',
+		         'exists', 'is_folder', 'is_file', 'is_absolute',
+		         'is_relative', 'verify', 'join', 'copy_tree' ]
 
 	def exists( self ) -> bool:
 		'''
@@ -352,14 +373,45 @@ class File( Path ):
 
 	Purpose: Class providing file information
 	 '''
-	__absolute = None
+	__absolutepath = None
+	__relativepath = None
 	__path = None
 	__size = None
-	__directory = None
 	__created = None
 	__modified = None
 	__accessed = None
 	__contents = [ ]
+
+	@property
+	def absolute_path( self ) -> str:
+		'''
+		Gets the absolute path
+		'''
+		if self.__absolutepath is not None:
+			return self.__absolutepath
+	@absolute_path.setter
+	def absolute_path( self, value: str ):
+		'''
+		Sets the absolute path
+		'''
+		if value is not None:
+			self.__absolutepath = value
+
+	@property
+	def relative_path( self ) -> str:
+		'''
+		Gets the relative path
+		'''
+		if self.__relativepath is not None:
+			return self.__relativepath
+
+	@relative_path.setter
+	def relative_path( self, value: str ):
+		'''
+		Sets the relative path
+		'''
+		if value is not None:
+			self.__relativepath = value
 
 	@property
 	def path( self ) -> str:
@@ -380,16 +432,6 @@ class File( Path ):
 	def size( self, value: int ):
 		if value is not None:
 			self.__size = value
-
-	@property
-	def directory( self ) -> str:
-		if self.__directory is not None:
-			return self.__directory
-
-	@directory.setter
-	def directory( self, value: str ):
-		if os.path.isdir( value ):
-			self.__directory = os.path.dirname( value )
 
 	@property
 	def modified( self ) -> float:
@@ -424,18 +466,30 @@ class File( Path ):
 	def __init__( self, path: str = None ):
 		super( ).__init__( path )
 		self.__path = super( ).input
+		self.__absolutepath = os.path.abspath( path )
+		self.__relativepath = os.path.relpath( path )
 		self.__name = os.path.basename( path )
 		self.__size = os.path.getsize( path )
-		self.__directory = os.path.dirname( path )
-		self.__extension = list( os.path.splitext( path ) )[ 1 ]
+		self.__extension = super( ).extension
 		self.__created = os.path.getctime( path )
 		self.__accessed = os.path.getatime( path )
 		self.__modified = os.path.getmtime( path )
-		self.__drive = super( ).drive
 
 	def __str__( self ) -> str:
 		if self.__path is not None:
 			return self.__path
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'absolute_path', 'relative_path', 'path',
+		         'name', 'size', 'extension', 'created',
+		         'accessed', 'modified', 'rename', 'move',
+		         'create', 'delete', 'readlines', 'readall',
+		         'writelines', 'writeall' ]
 
 	def rename( self, other: str ) -> str:
 		'''
@@ -688,26 +742,6 @@ class Folder( Path ):
 			self.__relativepath = value
 
 	@property
-	def parent( self ) -> str:
-		if self.__parent is not None:
-			return self.__parent
-
-	@parent.setter
-	def parent( self, value: str ):
-		if value is not None:
-			self.__parent = value
-
-	@property
-	def drive( self ) -> str:
-		if self.__drive is not None:
-			return self.__drive
-
-	@drive.setter
-	def drive( self, value: str ):
-		if value is not None:
-			self.__drive = value
-
-	@property
 	def size( self ) -> int:
 		if self.__size is not None:
 			return self.__size
@@ -732,7 +766,7 @@ class Folder( Path ):
 		super( ).__init__( filepath )
 		self.__size = os.path.getsize( filepath )
 		self.__drive = super( ).drive
-		self.__current = os.getcwd( )
+		self.__current = super( ).current_directory
 		self.__path = super( ).input
 		self.__name = os.path.basename( filepath )
 		self.__parent = os.path.dirname( filepath )
@@ -742,6 +776,18 @@ class Folder( Path ):
 	def __str__( self ) -> str:
 		if self.__path is not None:
 			return self.__path
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'input', 'name', 'current_directory', 'extension',
+		         'parent_directory', 'path_separator', 'drive',
+		         'drive_separator', 'extension_separator', 'template_path',
+		         'exists', 'is_folder', 'is_file', 'is_absolute',
+		         'is_relative', 'verify', 'join', 'copy_tree' ]
 
 	def get_files( self ) -> list:
 		'''
