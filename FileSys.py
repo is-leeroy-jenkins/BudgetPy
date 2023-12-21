@@ -686,9 +686,7 @@ class Folder( Path ):
 	__absolutepath = None
 	__relativepath = None
 	__path = None
-	__parent = None
 	__dir = None
-	__current = None
 	__size = None
 
 	@property
@@ -700,16 +698,6 @@ class Folder( Path ):
 	def name( self, value: str ):
 		if value is not None:
 			self.__path = value
-
-	@property
-	def directory( self ) -> str:
-		if self.__path is not None:
-			return self.__path
-
-	@directory.setter
-	def directory( self, value: str ):
-		if value is not None:
-			self.__name = value
 
 	@property
 	def path( self ) -> str:
@@ -751,27 +739,17 @@ class Folder( Path ):
 		if value is not None:
 			self.__size = value
 
-	@property
-	def current( self ) -> str:
-		if self.__current is not None:
-			return self.__current
-
-	@current.setter
-	def current( self, value: str ):
-		if value is not None:
-			os.chdir( value )
-			self.__current = os.getcwd( )
-
 	def __init__( self, filepath: str ):
 		super( ).__init__( filepath )
-		self.__size = os.path.getsize( filepath )
-		self.__drive = super( ).drive
-		self.__current = super( ).current_directory
 		self.__path = super( ).input
 		self.__name = os.path.basename( filepath )
-		self.__parent = os.path.dirname( filepath )
+		self.__size = os.path.getsize( filepath )
 		self.__absolutepath = os.path.abspath( filepath )
 		self.__relativepath = f'{os.getcwd( )}\\{os.path.basename( filepath )}'
+
+	def __str__( self ) -> str:
+		if self.__path is not None:
+			return self.__path
 
 	def __str__( self ) -> str:
 		if self.__path is not None:
@@ -783,11 +761,10 @@ class Folder( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'input', 'name', 'current_directory', 'extension',
-		         'parent_directory', 'path_separator', 'drive',
-		         'drive_separator', 'extension_separator', 'template_path',
-		         'exists', 'is_folder', 'is_file', 'is_absolute',
-		         'is_relative', 'verify', 'join', 'copy_tree' ]
+		return [ 'absolute_path', 'relative_path', 'path',
+		         'name', 'size', 'get_files', 'get_subfiles',
+		         'get_subfolders', 'rename', 'move', 'create',
+		         'delete', 'iterate' ]
 
 	def get_files( self ) -> list:
 		'''
@@ -1011,27 +988,27 @@ class Message( ):
 			self.__receiver = value
 
 	@property
-	def body( self ) -> str:
+	def body( self ) -> list[ str ]:
 		if self.__body is not None:
 			return self.__body
 
 	@body.setter
-	def body( self, value: str ):
+	def body( self, value: list[ str ] ):
 		if value is not None:
 			self.__receiver = value
 
 	@property
-	def copy( self ) -> str:
+	def copy( self ) -> list[ str ]:
 		if self.__others is not None:
 			return self.__others
 
 	@copy.setter
-	def copy( self, value: list ):
+	def copy( self, value: list[ str ] ):
 		if value is not None:
 			self.__others = value
 
 	def __init__( self, sender: str, receiver: str,
-	              body: str, subject: str, copy: str = '' ):
+	              body: list[ str ], subject: str, copy: list[ str ] = None ):
 		self.__sender = sender
 		self.__receiver = receiver
 		self.__body = body
@@ -1049,8 +1026,8 @@ class Email( Message ):
 
 	Purpose: Class providing email behavior '''
 
-	def __init__( self, sender: str, receiver: str, body: str,
-	              subject: str, copy: str = '' ):
+	def __init__( self, sender: str, receiver: str, body: list[ str ],
+	              subject: str, copy: list[ str ] = None ):
 		super( ).__init__( sender, receiver, body, subject, copy )
 		self.__sender = super( ).sender
 		self.__receiver = super( ).receiver
@@ -1058,100 +1035,14 @@ class Email( Message ):
 		self.__others = super( ).copy
 		self.__subject = super( ).subject
 
-class MessageBuilder( ):
-	'''
-	Constructor: MessageBuilder( sender: str = '', receiver: str = '',
-	              body: str = '', copy: str = '', subject: str = '' )
+	def __dir__( self ) -> list[ str ]:
+		'''
 
-	Purpose:  Helper class for generating email messages
-	'''
-	__sender = None
-	__receiver = None
-	__subject = None
-	__body = None
-	__others = None
+		Returns a list[ str ] of member names.
 
-	@property
-	def sender( self ) -> str:
-		if self.__sender is not None:
-			return self.__sender
-
-	@sender.setter
-	def sender( self, value: str ):
-		if value is not None:
-			self.__sender = value
-
-	@property
-	def receiver( self ) -> str:
-		if self.__receiver is not None:
-			return self.__receiver
-
-	@receiver.setter
-	def receiver( self, value: str ):
-		if value is not None:
-			self.__receiver = value
-
-	@property
-	def subject( self ) -> str:
-		if self.__subject is not None:
-			return self.__subject
-
-	@subject.setter
-	def subject( self, value: str ):
-		if value is not None:
-			self.__subject = value
-
-	@property
-	def body( self ) -> str:
-		if self.__body is not None:
-			return self.__body
-
-	@body.setter
-	def body( self, value: str ):
-		if value is not None:
-			self.__body = value
-
-	@property
-	def copy( self ) -> str:
-		if self.__others is not None:
-			return self.__others
-
-	@copy.setter
-	def copy( self, value: str ):
-		if value is not None:
-			self.__others = value
-
-	def __init__( self, sender: str = '', receiver: str = '',
-	              body: str = '', copy: str = '', subject: str = '' ):
-		self.__sender = sender
-		self.__receiver = receiver
-		self.__body = body
-		self.__others = copy
-		self.__subject = subject
-
-	def __str__( self ) -> str:
-		if self.__body is not None:
-			return self.__body
-
-class Document( File ):
-	'''
-	Constructor:  Document( path: str )
-
-	Purpose:  Class provides the spreadsheet for Budget Py reports
-	'''
-	__title = None
-
-	def __init__( self, path: str ):
-		super( ).__init__( path )
-		self.__path = path
-		self.__name = os.path.split( path )[ 1 ]
-		self.__title = os.path.split( path )[ 1 ]
-		self.__workbook = Workbook( )
-		self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
-
-	def __str__( self ) -> str:
-		if self.__path is not None:
-			return self.__path
+		'''
+		return [ 'sender', 'receiver', 'subject',
+		         'body', 'copy' ]
 
 class Excel( ):
 	'''
@@ -1161,32 +1052,32 @@ class Excel( ):
 	Purpose: Class provides the spreadsheet for reports
 
 	'''
-	__internal = None
-	__path = None
+	__internalpath = None
+	__externalpath = None
 	__workbook = None
 	__worksheet = None
 	__name = None
 	__title = None
 
 	@property
-	def internal( self ) -> str:
-		if self.__internal is not None:
-			return self.__internal
+	def internal_path( self ) -> str:
+		if self.__internalpath is not None:
+			return self.__internalpath
 
-	@internal.setter
-	def internal( self, value: str ):
+	@internal_path.setter
+	def internal_path( self, value: str ):
 		if value is not None:
-			self.__internal = value
+			self.__internalpath = value
 
 	@property
-	def path( self ) -> str:
-		if self.__path is not None and self.__path != '':
-			return self.__path
+	def external_path( self ) -> str:
+		if self.__externalpath is not None:
+			return self.__externalpath
 
-	@path.setter
-	def path( self, value: str ):
+	@external_path.setter
+	def external_path( self, value: str ):
 		if value is not None:
-			self.__path = value
+			self.__externalpath = value
 
 	@property
 	def name( self ) -> str:
@@ -1229,16 +1120,25 @@ class Excel( ):
 			self.__name = value.active
 
 	def __init__( self, path: str = None ):
-		self.__internal = r'etc/templates/report/Excel.xlsx'
-		self.__path = path if path is not None else self.__internal
+		self.__internalpath = r'etc/templates/report/Excel.xlsx'
+		self.__externalpath = path if path is not None else self.__internalpath
 		self.__name = os.path.split( path )[ 1 ]
 		self.__title = os.path.split( path )[ 1 ]
 		self.__workbook = Workbook( )
 		self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
 	def __str__( self ) -> str:
-		if self.__path is not None:
-			return self.__path
+		if self.__externalpath is not None:
+			return self.__externalpath
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'internal_path', 'external_path', 'name',
+		         'title', 'workbook', 'worksheet', 'save' ]
 
 	def save( self ):
 		'''
@@ -1249,7 +1149,7 @@ class Excel( ):
 		Returns:
 		'''
 		try:
-			self.__workbook.save( self.__path )
+			self.__workbook.save( self.__externalpath )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -1311,6 +1211,14 @@ class ExcelReport( Excel ):
 		self.__title = super( ).title
 		self.__workbook = super( ).workbook
 		self.__worksheet = super( ).worksheet
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'rows', 'columns', 'dimensions' ]
 
 class ZipFile( ):
 	'''
