@@ -87,6 +87,12 @@ class Pascal( ):
         if self.__output is not None:
             return self.__output
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+        Retunes a list[ str ] of member names.
+        '''
+        return [ 'input', 'split', 'join' ]
+
     def split( self ) -> str:
         '''
         Purpose:
@@ -260,6 +266,13 @@ class SqlPath( ):
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldatabase = r'db\mssql\datamodels\sql'
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+        Retunes a list[ str ] of member names.
+        '''
+        return [ 'sqlite_driver', 'sqlite_database',
+                 'access_driver', 'access_database' ]
+
 class SqlFile( ):
     '''
     Constructor:
@@ -426,13 +439,22 @@ class SqlFile( ):
         self.__source = source
         self.__provider = provider
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+        Retunes a list[ str ] of member names.
+        '''
+        return [ 'source', 'provider', 'command', 'create_path',
+                 'get_directory', 'get_query' ]
+
     def create_path( self ) -> str:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
@@ -515,7 +537,7 @@ class SqlFile( ):
             _folder = self.get_directory( )
             _sql = ''
             for name in os.listdir( _folder ):
-                if name.endswith( '._sql' ) and os.path.splitext( name )[ 0 ] == _source:
+                if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == _source:
                     _path = os.path.join( _folder, name )
                     _query = open( _path )
                     _sql = _query.read( )
@@ -713,6 +735,13 @@ class DbConfig( ):
         if isinstance( self.__table, str ):
             return self.__table
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+        Retunes a list[ str ] of member names.
+        '''
+        return [ 'source', 'provider', 'table_name',
+                 'get_driver', 'get_path', 'get_connectionstring' ]
+
     def get_driver( self ) -> str:
         '''
         Purpose: Returns a string defining the driver being used
@@ -840,6 +869,12 @@ class Connection( DbConfig ):
         self.__dsn = super( ).table_name + ';'
         self.__connectionstring = super( ).get_connectionstring( )
 
+    def __dir__(self) -> list[ str ]:
+        '''
+        Retunes a list[ str ] of member names.
+        '''
+        return [ 'driver', 'path', 'connection_string', 'connect' ]
+
     def connect( self ):
         '''
         Purpose:
@@ -944,6 +979,15 @@ class SqlConfig( ):
         self.__kvp = dict( zip( names, list( values ) ) ) \
             if isinstance( names, list ) and isinstance( values, tuple ) else None
 
+    def __dir__(self) -> list[ str ]:
+        '''
+
+        Returns a list[ str ] of member names.
+
+        '''
+        return [ 'command_type', 'names',
+                 'values', 'param_style' ]
+
     def dump_pairs( self ) -> str:
         '''
         Purpose:
@@ -995,11 +1039,13 @@ class SqlConfig( ):
 
     def dump_set( self ) -> str:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
@@ -1393,6 +1439,11 @@ class Query( ):
         if self.__querytext is not None:
             return self.__querytext
 
+    def __dir__( self ) -> list[ str ]:
+        return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
+                 'command_type', 'table_name', 'column_names', 'values',
+                 'command_text', 'connection_string' ]
+
     @property
     def create_command( self ) -> str:
         '''
@@ -1497,6 +1548,16 @@ class SQLiteData( Query ):
         if self.__query is not None:
             return self.__query
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+
+        Returns a list[ str ] of member names
+
+        '''
+        return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
+                 'command_type', 'table_name', 'column_names', 'values',
+                 'command_text', 'connection_string' ]
+
     def create_table( self ) -> list[ db.Row ]:
         '''
         Purpose:
@@ -1589,6 +1650,16 @@ class AccessData( Query ):
     def __str__( self ) -> str:
         if self.__query is not None:
             return self.__query
+
+    def __dir__( self ) -> list[ str ]:
+        '''
+
+        Returns a list[ str ] of member names
+
+        '''
+        return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
+                 'command_type', 'table_name', 'column_names', 'values',
+                 'command_text', 'connection_string' ]
 
     def create_table( self ) -> list[ db.Row ]:
         '''
@@ -1714,6 +1785,14 @@ class SqlData( Query ):
         if self.__source is not None:
             return self.__source.name
 
+    def __dir__( self ) -> list[ str ]:
+        '''
+        Returns a list[ str ] of member names
+        '''
+        return [ 'source', 'provider', 'path', 'connection', 'sql_statement',
+                 'command_type', 'table_name', 'column_names', 'values',
+                 'command_text', 'connection_string' ]
+
     def create_table( self ) -> list[ db.Row ]:
         '''
 
@@ -1816,49 +1895,65 @@ class BudgetData( ):
 
     @property
     def path( self ) -> str:
-        '''Gets a string  to the data source'''
+        '''
+        Gets a string  to the data source
+        '''
         if self.__path is not None:
             return self.__path
 
     @path.setter
     def path( self, value: str ):
-        '''Sets a string to the data source'''
+        '''
+        Sets a string to the data source
+        '''
         if value is not None:
             self.__path = value
 
     @property
     def data( self ) -> list[ tuple ]:
-        '''Gets a list[ tupel ] representing rows in a dataframe'''
+        '''
+        Gets a list[ tupel ] representing rows in a dataframe
+        '''
         if self.__data is not None:
             return self.__data
 
     @data.setter
     def data( self, value: list[ tuple ] ):
-        '''Sets a list[ tuple ] representing rows in a dataframe'''
+        '''
+        Sets a list[ tuple ] representing rows in a dataframe
+        '''
         if value is not None:
             self.__data = value
 
     @property
     def query( self ) -> str:
-        '''Gets a string representing the SQL command text'''
+        '''
+        Gets a string representing the SQL command text
+        '''
         if self.__sql is not None:
             return self.__sql
 
     @query.setter
     def query( self, value: str ):
-        '''Sets a string representing the SQL command text'''
+        '''
+        Sets a string representing the SQL command text
+        '''
         if value is not None:
             self.__sql = value
 
     @property
     def column_names( self ) -> list[ str ]:
-        '''Gets a list[ str ] representing column names'''
+        '''
+        Gets a list[ str ] representing column names
+        '''
         if self.__columnnames is not None:
             return self.__columnnames
 
     @column_names.setter
     def column_names( self, value: list[ str ] ):
-        '''Sets a list[ str ] representing column names'''
+        '''
+        Sets a list[ str ] representing column names
+        '''
         if value is not None:
             self.__columnnames = value
 
@@ -1895,8 +1990,12 @@ class BudgetData( ):
         self.__index = self.create_frame( ).index
 
     def __dir__( self ) -> list[ str ]:
+        '''
+        Returns a list[ str ] of member names
+        '''
         return [ 'source', 'path', 'name', 'query',
                  'data', 'column_names', 'create_frame' ]
+
     def create_frame( self ) -> DataFrame:
         '''
         Purpose:
