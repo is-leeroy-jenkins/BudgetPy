@@ -192,9 +192,9 @@ class SqlPath( ):
     folders containing sqlstatement files and driver paths used in the application
     '''
     __accessdriver = None
-    __accessdatabase = None
+    __accesspath = None
     __sqlitedriver = None
-    __sqlitedatabase = None
+    __sqlitepath = None
     __sqldriver = None
     __sqldatabase = None
 
@@ -210,13 +210,13 @@ class SqlPath( ):
 
     @property
     def sqlite_database( self ) -> str:
-        if self.__sqlitedatabase is not None:
-            return self.__sqlitedatabase
+        if self.__sqlitepath is not None:
+            return self.__sqlitepath
 
     @sqlite_database.setter
     def sqlite_database( self, value: str ):
         if value is not None:
-            self.__sqlitedatabase = value
+            self.__sqlitepath = value
 
     @property
     def access_driver( self ) -> str:
@@ -230,13 +230,13 @@ class SqlPath( ):
 
     @property
     def access_database( self ) -> str:
-        if self.__accessdatabase is not None:
-            return self.__accessdatabase
+        if self.__accesspath is not None:
+            return self.__accesspath
 
     @access_database.setter
     def access_database( self, value: str ):
         if value is not None:
-            self.__accessdatabase = value
+            self.__accesspath = value
 
     @property
     def sql_driver( self ) -> str:
@@ -260,9 +260,9 @@ class SqlPath( ):
 
     def __init__( self ):
         self.__sqlitedriver = 'sqlite3'
-        self.__sqlitedatabase = r'db\sqlite\datamodels\sql'
+        self.__sqlitepath = r'db\sqlite\datamodels\sql'
         self.__accessdriver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
-        self.__accessdatabase = r'db\access\datamodels\sql'
+        self.__accesspath = r'db\access\datamodels\sql'
         self.__sqldriver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
         self.__sqldatabase = r'db\mssql\datamodels\sql'
 
@@ -740,7 +740,7 @@ class DbConfig( ):
         Retunes a list[ str ] of member names.
         '''
         return [ 'source', 'provider', 'table_name',
-                 'get_driver', 'get_datapath', 'get_connectionstring' ]
+                 'get_driver', 'get_dbpath', 'get_connectionstring' ]
 
     def get_driver( self ) -> str:
         '''
@@ -766,7 +766,7 @@ class DbConfig( ):
             _error = ErrorDialog( _exc )
             _error.show( )
 
-    def get_datapath( self ) -> str:
+    def get_dbpath( self ) -> str:
         '''
         Purpose:
 
@@ -787,7 +787,7 @@ class DbConfig( ):
         except Exception as e:
             _exc = Error( e )
             _exc.cause = 'DbConfig Class'
-            _exc.method = 'get_datapath( self )'
+            _exc.method = 'get_dbpath( self )'
             _error = ErrorDialog( _exc )
             _error.show( )
 
@@ -801,7 +801,7 @@ class DbConfig( ):
         '''
 
         try:
-            _path = self.get_datapath( )
+            _path = self.get_dbpath( )
             if self.__provider.name == Provider.Access.name:
                 return self.get_driver( ) + _path
             elif self.__provider.name == Provider.SqlServer.name:
@@ -864,7 +864,7 @@ class Connection( DbConfig ):
         super( ).__init__( src, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
-        self.__path = super( ).get_datapath( )
+        self.__path = super( ).get_dbpath( )
         self.__driver = super( ).get_driver( )
         self.__dsn = super( ).table_name + ';'
         self.__connectionstring = super( ).get_connectionstring( )
