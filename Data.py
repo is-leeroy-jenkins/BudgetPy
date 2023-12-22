@@ -533,7 +533,7 @@ class SqlFile( ):
 
         try:
             _source = self.__source.name
-            _paths = self.get_path( )
+            _paths = self.get_datapath( )
             _folder = self.get_directory( )
             _sql = ''
             for name in os.listdir( _folder ):
@@ -606,8 +606,8 @@ class DbConfig( ):
         self.__source = source
         self.__table = source.name
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
-        self.__accessdriver = r'DRIVER={ Microsoft ACCDB Driver (*.mdb, *.accdb) };DBQ='
-        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\Data.accdb'
+        self.__accessdriver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
+        self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\sql\Data.accdb'
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__data = [ 'Actuals',
@@ -740,7 +740,7 @@ class DbConfig( ):
         Retunes a list[ str ] of member names.
         '''
         return [ 'source', 'provider', 'table_name',
-                 'get_driver', 'get_path', 'get_connectionstring' ]
+                 'get_driver', 'get_datapath', 'get_connectionstring' ]
 
     def get_driver( self ) -> str:
         '''
@@ -752,7 +752,7 @@ class DbConfig( ):
         '''
         try:
             if self.__provider.name == 'SQLite':
-                return self.get_path( )
+                return self.__sqlitepath
             elif self.__provider.name == 'Access':
                 return self.__accessdriver
             elif self.__provider.name == 'SqlServer':
@@ -766,7 +766,7 @@ class DbConfig( ):
             _error = ErrorDialog( _exc )
             _error.show( )
 
-    def get_path( self ) -> str:
+    def get_datapath( self ) -> str:
         '''
         Purpose:
 
@@ -787,7 +787,7 @@ class DbConfig( ):
         except Exception as e:
             _exc = Error( e )
             _exc.cause = 'DbConfig Class'
-            _exc.method = 'path( self )'
+            _exc.method = 'get_datapath( self )'
             _error = ErrorDialog( _exc )
             _error.show( )
 
@@ -801,15 +801,15 @@ class DbConfig( ):
         '''
 
         try:
-            _path = self.get_path( )
+            _path = self.get_datapath( )
             if self.__provider.name == Provider.Access.name:
                 return self.get_driver( ) + _path
             elif self.__provider.name == Provider.SqlServer.name:
                 return r'DRIVER={ ODBC Driver 17 for SQL Server };Server=.\SQLExpress;' \
-                    + f'AttachDBFileName={_path}' \
-                    + f'DATABASE={_path}Trusted_Connection=yes;'
+                    + f'AttachDBFileName={ _path }' \
+                    + f'DATABASE={ _path }Trusted_Connection=yes;'
             else:
-                return f'{_path} '
+                return f'{ _path } '
         except Exception as e:
             _exc = Error( e )
             _exc.cause = 'DbConfig Class'
@@ -864,12 +864,12 @@ class Connection( DbConfig ):
         super( ).__init__( src, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
-        self.__path = super( ).get_path( )
+        self.__path = super( ).get_datapath( )
         self.__driver = super( ).get_driver( )
         self.__dsn = super( ).table_name + ';'
         self.__connectionstring = super( ).get_connectionstring( )
 
-    def __dir__(self) -> list[ str ]:
+    def __dir__( self ) -> list[ str ]:
         '''
         Retunes a list[ str ] of member names.
         '''
