@@ -366,7 +366,7 @@ class Accounts( ):
             _sql = SqlStatement( _connection, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -392,7 +392,7 @@ class Accounts( ):
         try:
             _src = self.__source
             _data = BudgetData( _src )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -511,7 +511,7 @@ class ActivityCodes( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -537,7 +537,7 @@ class ActivityCodes( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -672,7 +672,7 @@ class AllowanceHolders( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -698,7 +698,7 @@ class AllowanceHolders( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -967,7 +967,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -992,7 +992,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 
         try:
             _data = BudgetData( self.__source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -1262,7 +1262,7 @@ class AnnualCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1288,7 +1288,7 @@ class AnnualCarryoverEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -1493,7 +1493,7 @@ class AnnualReimbursableEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1519,7 +1519,7 @@ class AnnualReimbursableEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -1627,7 +1627,7 @@ class Appropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1653,7 +1653,7 @@ class Appropriations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -1910,7 +1910,7 @@ class AppropriationAvailableBalances( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1936,7 +1936,7 @@ class AppropriationAvailableBalances( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -2159,7 +2159,7 @@ class AppropriationLevelAuthority( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2185,7 +2185,7 @@ class AppropriationLevelAuthority( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -2568,7 +2568,7 @@ class Allocations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2588,7 +2588,7 @@ class Allocations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -2814,7 +2814,7 @@ class ApportionmentData( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2840,7 +2840,7 @@ class ApportionmentData( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -3295,7 +3295,7 @@ class Actuals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -3315,7 +3315,7 @@ class Actuals( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -3793,7 +3793,7 @@ class AppropriationDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -3819,7 +3819,7 @@ class AppropriationDocuments( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -4346,7 +4346,7 @@ class BudgetDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -4371,7 +4371,7 @@ class BudgetDocuments( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -5029,7 +5029,7 @@ class BudgetControls( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5049,7 +5049,7 @@ class BudgetControls( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -5311,7 +5311,7 @@ class BudgetFiscalYears( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5336,7 +5336,7 @@ class BudgetFiscalYears( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -5465,7 +5465,7 @@ class BudgetObjectClasses( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5490,7 +5490,7 @@ class BudgetObjectClasses( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -5661,7 +5661,7 @@ class BudgetaryResourceExecution( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5686,7 +5686,7 @@ class BudgetaryResourceExecution( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -6009,7 +6009,7 @@ class Outlays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6034,7 +6034,7 @@ class Outlays( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -6271,7 +6271,7 @@ class CongressionalControls( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6531,7 +6531,7 @@ class CompassLevels( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6556,7 +6556,7 @@ class CompassLevels( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -7077,7 +7077,7 @@ class Commitments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7102,7 +7102,7 @@ class Commitments( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -7259,7 +7259,7 @@ class CapitalPlanningInvestmentCodes( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7284,7 +7284,7 @@ class CapitalPlanningInvestmentCodes( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -7489,7 +7489,7 @@ class DataRuleDescriptions( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7514,7 +7514,7 @@ class DataRuleDescriptions( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -7992,7 +7992,7 @@ class Defactos( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -8017,7 +8017,7 @@ class Defactos( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -8523,7 +8523,7 @@ class Deobligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -8548,7 +8548,7 @@ class Deobligations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -8689,7 +8689,7 @@ class DocumentControlNumbers( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -8714,7 +8714,7 @@ class DocumentControlNumbers( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -9277,7 +9277,7 @@ class Expenditures( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9303,7 +9303,7 @@ class Expenditures( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -9443,7 +9443,7 @@ class FinanceObjectClasses( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9468,7 +9468,7 @@ class FinanceObjectClasses( ):
         try:
             _src = self.__source
             _data = BudgetData( _src )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -9900,7 +9900,7 @@ class Funds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9925,7 +9925,7 @@ class Funds( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -10132,7 +10132,7 @@ class FederalHolidays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -10157,7 +10157,7 @@ class FederalHolidays( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -10908,7 +10908,7 @@ class FullTimeEquivalents( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -10933,7 +10933,7 @@ class FullTimeEquivalents( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -11180,7 +11180,7 @@ class Goals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11612,7 +11612,7 @@ class HeadquartersAuthoritys( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11637,7 +11637,7 @@ class HeadquartersAuthoritys( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -11755,7 +11755,7 @@ class HeadquartersOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11775,7 +11775,7 @@ class HeadquartersOffices( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -12046,7 +12046,7 @@ class InflationReductionActCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12071,7 +12071,7 @@ class InflationReductionActCarryoverEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -12338,7 +12338,7 @@ class JobsActCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12363,7 +12363,7 @@ class JobsActCarryoverEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -12751,7 +12751,7 @@ class MonthlyActuals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12776,7 +12776,7 @@ class MonthlyActuals( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -13132,7 +13132,7 @@ class MonthlyOutlays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13157,7 +13157,7 @@ class MonthlyOutlays( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -13297,7 +13297,7 @@ class NationalPrograms( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13322,7 +13322,7 @@ class NationalPrograms( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -13441,7 +13441,7 @@ class Objectives( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13466,7 +13466,7 @@ class Objectives( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -13582,7 +13582,7 @@ class Organizations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13992,7 +13992,7 @@ class OperatingPlans( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -14017,7 +14017,7 @@ class OperatingPlans( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -14657,7 +14657,7 @@ class OpenCommitments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -14677,7 +14677,7 @@ class OpenCommitments( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -15311,7 +15311,7 @@ class Obligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15331,7 +15331,7 @@ class Obligations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -15520,7 +15520,7 @@ class Projects( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15540,7 +15540,7 @@ class Projects( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -15648,7 +15648,7 @@ class ProgramAreas( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15668,7 +15668,7 @@ class ProgramAreas( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -15800,7 +15800,7 @@ class ProgramProjects( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16318,7 +16318,7 @@ class ProgramResultsCodes( ):
             _values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
                        self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
             _db = DataBuilder( _source, _provider, _command, _names, _values )
-            self.__data = _db.create_table( )
+            self.__data = _db.createtable( )
             return [ ( i ) for i in self.__data ]
         except Exception as e:
             _exc = Error( e )
@@ -16339,7 +16339,7 @@ class ProgramResultsCodes( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -16473,7 +16473,7 @@ class ResponsibilityCenters( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16498,7 +16498,7 @@ class ResponsibilityCenters( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -16615,7 +16615,7 @@ class ResourcePlanningOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16640,7 +16640,7 @@ class ResourcePlanningOffices( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -16751,7 +16751,7 @@ class RegionalOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -17027,7 +17027,7 @@ class ReimbursableAgreements( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -17052,7 +17052,7 @@ class ReimbursableAgreements( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -17566,7 +17566,7 @@ class RegionalAuthority( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -17591,7 +17591,7 @@ class RegionalAuthority( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -18109,7 +18109,7 @@ class StatusOfFunds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -18129,7 +18129,7 @@ class StatusOfFunds( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -19057,7 +19057,7 @@ class StatusOfSupplementalFunding( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19077,7 +19077,7 @@ class StatusOfSupplementalFunding( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -19407,7 +19407,7 @@ class StateGrantObligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19427,7 +19427,7 @@ class StateGrantObligations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -19817,7 +19817,7 @@ class StatusOfSpecialAccountFunds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19842,7 +19842,7 @@ class StatusOfSpecialAccountFunds( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -19973,7 +19973,7 @@ class SubAppropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19998,7 +19998,7 @@ class SubAppropriations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -20109,7 +20109,7 @@ class StateOrganizations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -20134,7 +20134,7 @@ class StateOrganizations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -20877,7 +20877,7 @@ class StatusOfAppropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -20902,7 +20902,7 @@ class StatusOfAppropriations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -21296,7 +21296,7 @@ class SpendingRates( ):
             _names = [ 'OmbAccountCode', ]
             _values = (self.__budgetaccountcode,)
             _db = DataBuilder( _source, _provider, _command, _names, _values )
-            self.__data = [ i for i in _db.create_table( ) ]
+            self.__data = [ i for i in _db.createtable( ) ]
             return [ i  for i in self.__data ]
         except Exception as e:
             _exc = Error( e )
@@ -21317,7 +21317,7 @@ class SpendingRates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -23134,7 +23134,7 @@ class StatusOfSuperfundSites( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -23159,7 +23159,7 @@ class StatusOfSuperfundSites( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -23806,7 +23806,7 @@ class SpendingDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -23831,7 +23831,7 @@ class SpendingDocuments( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
@@ -24098,7 +24098,7 @@ class SupplementalCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24123,7 +24123,7 @@ class SupplementalCarryoverEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -24358,7 +24358,7 @@ class SupplementalObligationEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24383,7 +24383,7 @@ class SupplementalObligationEstimates( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Reporting'
@@ -24536,7 +24536,7 @@ class TreasurySymbols( ):
             _sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24561,7 +24561,7 @@ class TreasurySymbols( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -24981,7 +24981,7 @@ class Transfers( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -25006,7 +25006,7 @@ class Transfers( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Execution'
@@ -25684,7 +25684,7 @@ class UnliquidatedObligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.get_query( )
+            _query = _sql.getquery( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -25709,7 +25709,7 @@ class UnliquidatedObligations( ):
         try:
             _source = self.__source
             _data = BudgetData( _source )
-            return _data.create_frame( )
+            return _data.createframe( )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Ninja'
