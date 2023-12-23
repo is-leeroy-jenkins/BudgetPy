@@ -199,62 +199,62 @@ class SqlPath( ):
     __sqldatabase = None
 
     @property
-    def sqlite_driver( self ) -> str:
+    def sqlitedriver( self ) -> str:
         if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
-    @sqlite_driver.setter
-    def sqlite_driver( self, value: str ):
+    @sqlitedriver.setter
+    def sqlitedriver( self, value: str ):
         if value is not None:
             self.__sqlitedriver = value
 
     @property
-    def sqlite_database( self ) -> str:
+    def sqlitedatabase( self ) -> str:
         if self.__sqlitepath is not None:
             return self.__sqlitepath
 
-    @sqlite_database.setter
-    def sqlite_database( self, value: str ):
+    @sqlitedatabase.setter
+    def sqlitedatabase( self, value: str ):
         if value is not None:
             self.__sqlitepath = value
 
     @property
-    def access_driver( self ) -> str:
+    def accessdriver( self ) -> str:
         if self.__accessdriver is not None:
             return self.__accessdriver
 
-    @access_driver.setter
-    def access_driver( self, value: str ):
+    @accessdriver.setter
+    def accessdriver( self, value: str ):
         if value is not None:
             self.__accessdriver = value
 
     @property
-    def access_database( self ) -> str:
+    def accessdatabase( self ) -> str:
         if self.__accesspath is not None:
             return self.__accesspath
 
-    @access_database.setter
-    def access_database( self, value: str ):
+    @accessdatabase.setter
+    def accessdatabase( self, value: str ):
         if value is not None:
             self.__accesspath = value
 
     @property
-    def sql_driver( self ) -> str:
+    def sqldriver( self ) -> str:
         if self.__sqldriver is not None:
             return self.__sqldriver
 
-    @sql_driver.setter
-    def sql_driver( self, value: str ):
+    @sqldriver.setter
+    def sqldriver( self, value: str ):
         if value is not None:
             self.__sqldriver = value
 
     @property
-    def sql_database( self ) -> str:
+    def sqldatabase( self ) -> str:
         if self.__sqldatabase is not None:
             return self.__sqldatabase
 
-    @sql_database.setter
-    def sql_database( self, value: str ):
+    @sqldatabase.setter
+    def sqldatabase( self, value: str ):
         if value is not None:
             self.__sqldatabase = value
 
@@ -270,8 +270,8 @@ class SqlPath( ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'sqlite_driver', 'sqlite_database',
-                 'access_driver', 'access_database' ]
+        return [ 'sqlitedriver', 'sqlitedatabase',
+                 'accessdriver', 'accessdatabase' ]
 
 class SqlFile( ):
     '''
@@ -465,16 +465,16 @@ class SqlFile( ):
             _current = os.getcwd( )
             _path = ''
             if _provider == 'SQLite' and _tablename in _data:
-                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
+                _path = f'{_sqlpath.sqlitedatabase}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             elif _provider == 'ACCDB' and _tablename in _data:
-                _path = f'{_sqlpath.access_database}\\{_command}\\{_tablename}.sql'
+                _path = f'{_sqlpath.accessdatabase}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             elif _provider == 'SqlServer' and _tablename in _data:
-                _path = f'{_sqlpath.sql_database}\\{_command}\\{_tablename}.sql'
+                _path = f'{_sqlpath.sqldatabase}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
             else:
-                _path = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
+                _path = f'{_sqlpath.sqlitedatabase}\\{_command}\\{_tablename}.sql'
                 return os.path.join( _current, _path )
         except Exception as e:
             _exc = Error( e )
@@ -502,16 +502,16 @@ class SqlFile( ):
             _current = os.getcwd( )
             _folder = ''
             if _provider == 'SQLite' and _source in _data:
-                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
+                _folder = f'{_sqlpath.sqlitedatabase}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'ACCDB' and _source in _data:
-                _folder = f'{_sqlpath.access_database}\\{_command}'
+                _folder = f'{_sqlpath.accessdatabase}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'SqlServer' and _source in _data:
-                _folder = f'{_sqlpath.sql_database}\\{_command}'
+                _folder = f'{_sqlpath.sqldatabase}\\{_command}'
                 return os.path.join( _current, _folder )
             else:
-                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
+                _folder = f'{_sqlpath.sqlitedatabase}\\{_command}'
                 return os.path.join( _current, _folder )
         except Exception as e:
             _exc = Error( e )
