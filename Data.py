@@ -1840,13 +1840,7 @@ class BudgetData( ):
     __tablename = None
     __path = None
     __connection = None
-    __sqlcommand = None
-    __data = None
-    __frame = None
-    __columnnames = None
-    __columncount = None
-    __rowcount = None
-    __index = None
+    __commandtext = None
 
     @property
     def source( self ) -> Source:
@@ -1861,27 +1855,27 @@ class BudgetData( ):
             self.__source = value
 
     @property
-    def name( self ) -> str:
+    def tablename( self ) -> str:
         '''Get the name of the data source'''
         if self.__tablename is not None:
             return self.__tablename
 
-    @name.setter
-    def name( self, value: str ):
+    @tablename.setter
+    def tablename( self, value: str ):
         '''Sets the name of the data source'''
         if value is not None:
             self.__tablename = value
 
     @property
-    def path( self ) -> str:
+    def datapath( self ) -> str:
         '''
         Gets a string  to the data source
         '''
         if self.__path is not None:
             return self.__path
 
-    @path.setter
-    def path( self, value: str ):
+    @datapath.setter
+    def datapath( self, value: str ):
         '''
         Sets a string to the data source
         '''
@@ -1889,99 +1883,43 @@ class BudgetData( ):
             self.__path = value
 
     @property
-    def data( self ) -> list[ tuple ]:
-        '''
-        Gets a list[ tupel ] representing rows in a dataframe
-        '''
-        if self.__data is not None:
-            return self.__data
-
-    @data.setter
-    def data( self, value: list[ tuple ] ):
-        '''
-        Sets a list[ tuple ] representing rows in a dataframe
-        '''
-        if value is not None:
-            self.__data = value
-
-    @property
-    def sqlcommand( self ) -> str:
+    def commandtext( self ) -> str:
         '''
         Gets a string representing the SQL command text
         '''
-        if self.__sqlcommand is not None:
-            return self.__sqlcommand
+        if self.__commandtext is not None:
+            return self.__commandtext
 
-    @sqlcommand.setter
-    def sqlcommand( self, value: str ):
+    @commandtext.setter
+    def commandtext( self, value: str ):
         '''
         Sets a string representing the SQL command text
         '''
         if value is not None:
-            self.__sqlcommand = value
-
-    @property
-    def columnnames( self ) -> list[ str ]:
-        '''
-        Gets a list[ str ] representing column names
-        '''
-        if self.__columnnames is not None:
-            return self.__columnnames
-
-    @columnnames.setter
-    def columnnames( self, value: list[ str ] ):
-        '''
-        Sets a list[ str ] representing column names
-        '''
-        if value is not None:
-            self.__columnnames = value
-
-    @property
-    def index( self ) -> int:
-        '''Gets the index of the data frame'''
-        if self.__index is not None:
-            return self.__index
-
-    @index.setter
-    def index( self, value: int ):
-        '''Sets the index of the data frame'''
-        if value is not None:
-            self.__index = value
-
-    @property
-    def frame( self ) -> DataFrame:
-        if self.__frame is not None:
-            return self.__frame
-
-    @frame.setter
-    def frame( self, value: DataFrame ):
-        if value is not None:
-            self.__frame = value
+            self.__commandtext = value
 
     def __init__( self, source: Source ):
         self.__source = source
         self.__tablename = source.name
         self.__path = DbConfig( source ).getdatapath( )
-        self.__sqlcommand = f'SELECT * FROM {source.name};'
-        self.__frame = self.createframe( )
-        self.__data = [ tuple( i ) for i in self.__frame.iterrows( ) ]
-        self.__columnnames = list( self.__frame.columns.names )
-        self.__index = self.createframe( ).index
+        self.__commandtext = f'SELECT * FROM {source.name};'
 
     def __dir__( self ) -> list[ str ]:
         '''
         Returns a list[ str ] of member names
         '''
-        return [ 'source', 'path', 'name', 'query',
-                 'data', 'columnnames', 'createframe' ]
+        return [ 'source', 'datapath', 'tablename',
+                 'commandtext', 'createframe', 'createtupels']
 
     def createframe( self ) -> DataFrame:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
@@ -1990,13 +1928,41 @@ class BudgetData( ):
             _table = self.__source.name
             _connection = sqlite.connect( _path )
             _sql = f'SELECT * FROM {_table};'
-            self.__frame = sqlreader( _sql, _connection )
-            return self.__frame
+            _frame = sqlreader( _sql, _connection )
+            return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'BudgetData'
             _exc.method = 'createframe( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
+    def createtuples( self ) -> list[ tuple ]:
+        '''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+        try:
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            _data = [ tuple( i ) for i in _frame.iterrows( ) ]
+            return _data
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Data'
+            _exc.cause = 'BudgetData'
+            _exc.method = 'createtuples( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
