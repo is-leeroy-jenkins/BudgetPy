@@ -1558,8 +1558,7 @@ class SQLiteData( Query ):
         '''
         return [ 'source', 'provider', 'path', 'connection', 'sqlstatement',
                  'commandtype', 'tablename', 'columnnames', 'values',
-                 'commandtext', 'connectionstring',
-                 'frame', 'createtable', 'createframe' ]
+                 'commandtext', 'connectionstring', 'createtable', 'createframe' ]
 
     def createtable( self ) -> list[ db.Row ]:
         '''
@@ -1584,7 +1583,7 @@ class SQLiteData( Query ):
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SQLiteData'
-            _exc.method = 'create_table( self )'
+            _exc.method = 'createtable( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
