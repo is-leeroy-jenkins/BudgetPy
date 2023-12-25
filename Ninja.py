@@ -366,7 +366,7 @@ class Accounts( ):
             _sql = SqlStatement( _connection, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -511,7 +511,7 @@ class ActivityCodes( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -672,7 +672,7 @@ class AllowanceHolders( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -967,7 +967,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1262,7 +1262,7 @@ class AnnualCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1493,7 +1493,7 @@ class AnnualReimbursableEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1627,7 +1627,7 @@ class Appropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -1910,7 +1910,7 @@ class AppropriationAvailableBalances( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2159,7 +2159,7 @@ class AppropriationLevelAuthority( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2568,7 +2568,7 @@ class Allocations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -2814,7 +2814,7 @@ class ApportionmentData( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -3295,7 +3295,7 @@ class Actuals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -3793,7 +3793,7 @@ class AppropriationDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -4346,7 +4346,7 @@ class BudgetDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5029,7 +5029,7 @@ class BudgetControls( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5311,7 +5311,7 @@ class BudgetFiscalYears( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5465,7 +5465,7 @@ class BudgetObjectClasses( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -5661,7 +5661,7 @@ class BudgetaryResourceExecution( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6009,7 +6009,7 @@ class Outlays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6271,7 +6271,7 @@ class CongressionalControls( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -6531,7 +6531,7 @@ class CompassLevels( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7077,7 +7077,7 @@ class Commitments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7259,7 +7259,7 @@ class CapitalPlanningInvestmentCodes( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7489,7 +7489,7 @@ class DataRuleDescriptions( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -7992,7 +7992,7 @@ class Defactos( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -8523,7 +8523,7 @@ class Deobligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -8689,7 +8689,7 @@ class DocumentControlNumbers( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9277,7 +9277,7 @@ class Expenditures( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9443,7 +9443,7 @@ class FinanceObjectClasses( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -9900,7 +9900,7 @@ class Funds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -10132,7 +10132,7 @@ class FederalHolidays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -10908,7 +10908,7 @@ class FullTimeEquivalents( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11180,7 +11180,7 @@ class Goals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11612,7 +11612,7 @@ class HeadquartersAuthoritys( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -11755,7 +11755,7 @@ class HeadquartersOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12046,7 +12046,7 @@ class InflationReductionActCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12338,7 +12338,7 @@ class JobsActCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -12751,7 +12751,7 @@ class MonthlyActuals( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13132,7 +13132,7 @@ class MonthlyOutlays( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13297,7 +13297,7 @@ class NationalPrograms( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13441,7 +13441,7 @@ class Objectives( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13582,7 +13582,7 @@ class Organizations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -13992,7 +13992,7 @@ class OperatingPlans( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -14657,7 +14657,7 @@ class OpenCommitments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15311,7 +15311,7 @@ class Obligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15520,7 +15520,7 @@ class Projects( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15648,7 +15648,7 @@ class ProgramAreas( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -15800,7 +15800,7 @@ class ProgramProjects( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16473,7 +16473,7 @@ class ResponsibilityCenters( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16615,7 +16615,7 @@ class ResourcePlanningOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -16751,7 +16751,7 @@ class RegionalOffices( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -17027,7 +17027,7 @@ class ReimbursableAgreements( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -17566,7 +17566,7 @@ class RegionalAuthority( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -18109,7 +18109,7 @@ class StatusOfFunds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19057,7 +19057,7 @@ class StatusOfSupplementalFunding( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19407,7 +19407,7 @@ class StateGrantObligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19817,7 +19817,7 @@ class StatusOfSpecialAccountFunds( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -19973,7 +19973,7 @@ class SubAppropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -20109,7 +20109,7 @@ class StateOrganizations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -20877,7 +20877,7 @@ class StatusOfAppropriations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -23134,7 +23134,7 @@ class StatusOfSuperfundSites( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -23806,7 +23806,7 @@ class SpendingDocuments( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24098,7 +24098,7 @@ class SupplementalCarryoverEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24358,7 +24358,7 @@ class SupplementalObligationEstimates( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24536,7 +24536,7 @@ class TreasurySymbols( ):
             _sql = SqlStatement( dbcfg, sqlcfg )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -24981,7 +24981,7 @@ class Transfers( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
@@ -25684,7 +25684,7 @@ class UnliquidatedObligations( ):
             _sql = SqlStatement( _dbconfig, _sqlconfig )
             _sqlite = _connection.connect( )
             _cursor = _sqlite.cursor( )
-            _query = _sql.getquery( )
+            _query = _sql.__getquerytext( )
             _db = _cursor.execute( _query )
             self.__data =  [ i for i in _db.fetchall( ) ]
             _cursor.close( )
