@@ -1227,7 +1227,8 @@ class SqlStatement( ):
         self.__columns = sqlcfg.columndump( )
         self.__values = sqlcfg.valuedump( )
         self.__updates = sqlcfg.setdump( ) if sqlcfg.commandtype == SQL.UPDATE else None
-        self.__criteria = dict( zip( sqlcfg.names, list( sqlcfg.values ) ) )
+        self.__criteria = dict( zip( sqlcfg.names, list( sqlcfg.values ) ) ) \
+            if sqlcfg.names is not None else None
         self.__commandtext = self.__getquerytext( )
 
     def __str__( self ) -> str:
@@ -1242,7 +1243,7 @@ class SqlStatement( ):
         '''
         return [ 'source', 'provider', 'tablename',
                 'commandtype', 'columns', 'values',
-                'updates', 'criteria', 'commandtext'  ]
+                'updates', 'commandtext'  ]
 
     def __getquerytext( self ) -> str:
         '''
