@@ -905,8 +905,8 @@ class SqlConfig( ):
 
      Constructor:
 
-     SqlConfig( command: SQL = SQL.SELECTALL, names: list = None,
-                values: tuple = None, style: ParamStyle = None )
+     SqlConfig( commandtype: SQL = SQL.SELECTALL, columnnames: list = None,
+                columnvalues: tuple = None, paramstyle: ParamStyle = None )
 
      Purpose:
 
@@ -914,8 +914,8 @@ class SqlConfig( ):
 
      '''
     __commandtype = None
-    __names = None
-    __values = None
+    __columnnames = None
+    __columnvalues = None
     __paramstyle = None
     __criteria = None
 
@@ -930,24 +930,24 @@ class SqlConfig( ):
             self.__commandtype = value
 
     @property
-    def names( self ) -> list[ str ]:
-        if self.__names is not None:
-            return self.__names
+    def columnnames( self ) -> list[ str ]:
+        if self.__columnnames is not None:
+            return self.__columnnames
 
-    @names.setter
-    def names( self, value: list[ str ] ):
+    @columnnames.setter
+    def columnnames( self, value: list[ str ] ):
         if value is not None:
-            self.__names = value
+            self.__columnnames = value
 
     @property
-    def values( self ) -> tuple:
-        if self.__values is not None:
-            return self.__values
+    def columnvalues( self ) -> tuple:
+        if self.__columnvalues is not None:
+            return self.__columnvalues
 
-    @values.setter
-    def values( self, value: tuple ):
+    @columnvalues.setter
+    def columnvalues( self, value: tuple ):
         if value is not None:
-            self.__values = value
+            self.__columnvalues = value
 
     @property
     def paramstyle( self ) -> ParamStyle:
@@ -971,14 +971,14 @@ class SqlConfig( ):
         if value is not None:
             self.__criteria = value
 
-    def __init__( self, command: SQL = SQL.SELECTALL, names: list = None,
-                  values: tuple = ( ), style: ParamStyle = None ):
-        self.__commandtype = command
-        self.__names = names
-        self.__values = values
-        self.__paramstyle = style
-        self.__criteria = dict( zip( names, list( values ) ) ) \
-            if isinstance( names, list ) and isinstance( values, tuple ) else None
+    def __init__( self, commandtype: SQL = SQL.SELECTALL, columnnames: list = None,
+                  columnvalues: tuple = ( ), paramstyle: ParamStyle = None ):
+        self.__commandtype = commandtype
+        self.__columnnames = columnnames
+        self.__columnvalues = columnvalues
+        self.__paramstyle = paramstyle
+        self.__criteria = dict( zip( columnnames, list( columnvalues ) ) ) \
+            if columnnames is not None and columnvalues is not None else None
 
     def __dir__(self) -> list[ str ]:
         '''
@@ -986,7 +986,7 @@ class SqlConfig( ):
         Returns a list[ str ] of member names.
 
         '''
-        return [ 'commandtype', 'names', 'values',
+        return [ 'commandtype', 'columnnames', 'columnvalues',
                  'paramstyle', 'pairdump', 'wheredump',
                  'setdump', 'columndump', 'valuedump' ]
 
@@ -1000,9 +1000,9 @@ class SqlConfig( ):
         '''
 
         try:
-            if self.__names is not None and self.__values is not None:
+            if self.__columnnames is not None and self.__columnvalues is not None:
                 _pairs = ''
-                _kvp = zip( self.__names, self.__values )
+                _kvp = zip( self.__columnnames, self.__columnvalues )
                 for k, v in _kvp:
                     _pairs += f'{k} = \'{v}\' AND '
                 _criteria = _pairs.rstrip( ' AND ' )
@@ -1025,9 +1025,9 @@ class SqlConfig( ):
         '''
 
         try:
-            if isinstance( self.__names, list ) and isinstance( self.__values, tuple ):
+            if isinstance( self.__columnnames, list ) and isinstance( self.__columnvalues, tuple ):
                 pairs = ''
-                for k, v in zip( self.__names, self.__values ):
+                for k, v in zip( self.__columnnames, self.__columnvalues ):
                     pairs += f'{k} = \'{v}\' AND '
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 return criteria
@@ -1051,10 +1051,10 @@ class SqlConfig( ):
         '''
 
         try:
-            if self.__names is not None and self.__values is not None:
+            if self.__columnnames is not None and self.__columnvalues is not None:
                 _pairs = ''
                 _criteria = ''
-                for k, v in zip( self.__names, self.__values ):
+                for k, v in zip( self.__columnnames, self.__columnvalues ):
                     _pairs += f'{k} = \'{v}\', '
                 _criteria = 'SET ' + _pairs.rstrip( ', ' )
                 return _criteria
@@ -1076,9 +1076,9 @@ class SqlConfig( ):
         '''
 
         try:
-            if self.__names is not None:
+            if self.__columnnames is not None:
                 _colnames = ''
-                for n in self.__names:
+                for n in self.__columnnames:
                     _colnames += f'{n}, '
                 _columns = '(' + _colnames.rstrip( ', ' ) + ')'
                 return _columns
@@ -1100,9 +1100,9 @@ class SqlConfig( ):
         '''
 
         try:
-            if self.__values is not None:
+            if self.__columnvalues is not None:
                 _vals = ''
-                for v in self.__values:
+                for v in self.__columnvalues:
                     _vals += f'{v}, '
                 _values = 'VALUES (' + _vals.rstrip( ', ' ) + ')'
                 return _values
