@@ -1224,11 +1224,11 @@ class SqlStatement( ):
         self.__provider = dbcfg.provider
         self.__source = dbcfg.source
         self.__tablename = dbcfg.tablename
-        self.__columns = sqlcfg.columndump( )
-        self.__values = sqlcfg.valuedump( )
+        self.__columns = sqlcfg.columndump( ) if sqlcfg.columnnames is not None else None
+        self.__values = sqlcfg.valuedump( )if sqlcfg.columnvalues is not None else None
         self.__updates = sqlcfg.setdump( ) if sqlcfg.commandtype == SQL.UPDATE else None
-        self.__criteria = dict( zip( sqlcfg.names, list( sqlcfg.values ) ) ) \
-            if sqlcfg.names is not None else None
+        self.__criteria = dict( zip( sqlcfg.columnnames, list( sqlcfg.columnvalues ) ) ) \
+            if sqlcfg.columnnames is not None else None
         self.__commandtext = self.__getquerytext( )
 
     def __str__( self ) -> str:
@@ -1439,16 +1439,16 @@ class Query( ):
     def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
         self.__connection = connection
         self.__sqlstatement = sqlstatement
-        self.__sqlconfig = SqlConfig( )
+        self.__sqlconfig = SqlConfig( connection.source, connection.provider )
         self.__source = connection.source
         self.__tablename = self.__source.name
         self.__provider = connection.provider
         self.__commandtype = sqlstatement.commandtype
         self.__datapath = connection.path
         self.__connectionstring = connection.connectionstring
-        self.__columnnames = sqlstatement.names
-        self.__values = sqlstatement.values
-        self.__commandtext = self.__getquerytext( )
+        self.__columnnames = list( self.__sqlconfig.criteria.keys( ) )
+        self.__values = tuple( self.__sqlconfig.criteria.values( ) )
+        self.__commandtext = sqlstatement.commandtext
 
     def __str__( self ) -> str:
         if self.__commandtext is not None:
@@ -1458,57 +1458,6 @@ class Query( ):
         return [ 'source', 'provider', 'datapath', 'connection', 'sqlstatement',
                  'commandtype', 'tablename', 'columnnames', 'values',
                  'commandtext', 'connectionstring' ]
-
-    @property
-    def __getquerytext( self ) -> str:
-        '''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
-
-        try:
-            _table = self.__tablename
-            _crit = self.__sqlconfig.wheredump( )
-            _cols = self.__sqlconfig.columndump( )
-            _vals = self.__sqlconfig.valuedump( )
-            if isinstance( self.__columnnames, list ) and isinstance( _vals, tuple ):
-                if self.__commandtype == SQL.SELECTALL:
-                    if len( self.__columnnames ) == 0:
-                        return  f'SELECT * FROM {_table}'
-                    if len( self.__columnnames ) > 0:
-                        return  f'SELECT ' + _cols + f'FROM {_table}' + f' {_crit}'
-                elif self.__commandtype == SQL.SELECT:
-                    if len( self.__columnnames ) == 0:
-                        return  f'SELECT * FROM {_table}'
-                    if len( self.__columnnames ) > 0:
-                        return  f'SELECT ' + _cols + f' FROM {_table}' + f' {_crit}'
-                elif self.__commandtype == SQL.INSERT:
-                    return  f'INSERT INTO {_table} ' + f'{_cols} ' + f'{_vals}'
-                elif self.__commandtype == SQL.UPDATE:
-                    return f'UPDATE {_table} ' + f'{self.__sqlconfig.setdump( )} ' + f'{_vals}'
-                elif self.__commandtype == SQL.DELETE:
-                    return f'DELETE FROM {_table} ' + f'{_crit}'
-            else:
-                if isinstance( self.__columnnames, list ) and not isinstance( _vals, tuple ):
-                    if self.__commandtype == SQL.SELECT:
-                        cols = _cols.lstrip( '(' ).rstrip( ')' )
-                        return f'SELECT {cols} FROM {_table}'
-                elif not isinstance( self.__columnnames, list ) \
-                        and not isinstance( _vals, tuple ):
-                    if self.__commandtype == SQL.SELECTALL:
-                        return f'SELECT * FROM {_table}'
-                elif self.__commandtype == 'DELETE':
-                    return f'DELETE FROM {_table}'
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'SqlStatement'
-            _exc.method = '__getquerytext( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
 
 class SQLiteData( Query ):
     '''
@@ -1632,7 +1581,7 @@ class AccessData( Query ):
     __driverinfo = None
     __dsn = None
     __data = None
-    __columns = None
+    __columnnames = None
     __commandtext = None
 
     @property
@@ -1737,7 +1686,7 @@ class SqlData( Query ):
     __serverpath = None
     __driverinfo = None
     __dsn = None
-    __columns = None
+    __columnnames = None
     __data = None
 
     @property
