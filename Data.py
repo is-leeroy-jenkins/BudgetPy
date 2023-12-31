@@ -275,13 +275,15 @@ class SqlPath( ):
 
 class SqlFile( ):
     '''
+
     Constructor:
-    SqlFile( src: Source = None, pvdr: Provider  = Provider.SQLite,
-            command_type: SQL = SQL.SELECTALL )
+    SqlFile( source: Source = None, provider: Provider  = Provider.SQLite,
+            command: SQL = SQL.SELECTALL )
 
     Purpuse:
     Class providing access to sqlstatement sub-folders in the application provided
-    optional arguments src, pvdr, and command_type
+    optional arguments source, provider, and command.
+
     '''
     __data = None
     __command = None
@@ -320,100 +322,60 @@ class SqlFile( ):
 
     def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
                   command: SQL = SQL.SELECTALL ):
-        self.__data = [ 'AccountingEvents',
-                        'Accounts',
-                        'ActivityCodes',
-                        'Actuals',
+        self.__data = [ 'Actuals',
+                        'AdjustedTrialBalances'
                         'AdministrativeRequests',
                         'Allocations',
-                        'AllowanceHolders',
                         'AmericanRescuePlanCarryoverEstimates',
                         'AnnualCarryoverEstimates',
                         'AnnualReimbursableEstimates',
-                        'ApplicationTables',
                         'ApportionmentData',
                         'AppropriationAvailableBalances',
                         'AppropriationDocuments',
                         'AppropriationLevelAuthority',
-                        'Appropriations',
                         'BudgetaryResourceExecution',
-                        'BudgetControls',
+                        'BudgetAuthorityAndOutlays',
                         'BudgetDocuments',
-                        'BudgetObjectClasses',
-                        'CapitalPlanningInvestmentCodes',
                         'CarryoverApportionments',
                         'CarryoverRequests',
                         'Changes',
-                        'ColumnSchema',
                         'CompassLevels',
-                        'CongressionalControls',
-                        'Contacts',
-                        'CostAreas',
                         'CongressionalProjects',
-                        'DataRuleDescriptions',
+                        'Contacts',
                         'Defactos',
                         'Deobligations',
                         'DocumentControlNumbers',
-                        'Documents',
                         'Earmarks',
                         'Expenditures',
-                        'FederalHolidays',
-                        'FinanceObjectClasses',
-                        'FiscalYears',
-                        'FundCategories',
-                        'Funds',
-                        'FundSymbols',
-                        'GeneralLedgerAccounts',
-                        'Goals',
-                        'GsPayScales',
                         'HeadquartersAuthority',
-                        'HeadquartersOffices',
-                        'Images',
                         'InflationReductionActCarryoverEstimates',
                         'JobsActCarryoverEstimates',
+                        'LedgerAccounts',
                         'MainAccounts',
-                        'Messages',
                         'MonthlyActuals',
                         'MonthlyLedgerAccountBalances',
                         'MonthlyOutlays',
-                        'NationalPrograms',
-                        'Objectives',
                         'ObligationActivity',
                         'Obligations',
                         'OpenCommitments',
                         'OperatingPlans',
-                        'Organizations',
                         'Outlays',
-                        'Partitions',
-                        'PayPeriods',
+                        'Partitions'
                         'PayrollAuthority',
-                        'PayrollCostCodes',
                         'PayrollRequests',
                         'PRC',
-                        'ProgramAreas',
-                        'ProgramProjectDescriptions',
-                        'ProgramProjects',
-                        'Projects',
-                        'Providers',
-                        'PublicLaws',
                         'QueryDefinitions',
-                        'ReconcilliationLines',
                         'RecoveryAct',
-                        'ReferenceTables',
                         'RegionalAuthority',
-                        'RegionalOffices',
                         'ReimbursableAgreements',
                         'ReimbursableFunds',
                         'Reports',
-                        'ReportingLines',
-                        'ResourcePlanningOffices',
-                        'Resources',
-                        'ResponsibilityCenters',
-                        'SchemaTypes',
+                        'Reprogrammings',
+                        'StatusOfSuperfundSites',
+                        'SpecialAccounts',
                         'SpendingDocuments',
                         'SpendingRates',
                         'StateGrantObligations',
-                        'StateOrganizations',
                         'StatusOfAmericanRescuePlanFunds',
                         'StatusOfAppropriations',
                         'StatusOfBudgetaryResources',
@@ -422,17 +384,64 @@ class SqlFile( ):
                         'StatusOfInflationReductionActFunds',
                         'StatusOfJobsActFunds',
                         'StatusOfSupplementalFunds',
-                        'SubAppropriations',
                         'StatusOfSuperfundSites',
                         'StatusOfSpecialAccountFunds',
                         'SupplementalCarryoverEstimates',
-                        'SupplementalOutlayEstimates',
                         'TransferActivity',
                         'Transfers',
-                        'TransTypes',
-                        'TreasurySymbols',
                         'UnliquidatedObligations',
                         'UnobligatedBalances',
+                        'AccountingEvents',
+                        'Accounts',
+                        'ActivityCodes',
+                        'AllowanceHolders',
+                        'ApplicationTables',
+                        'Appropriations',
+                        'BudgetControls',
+                        'BudgetObjectClasses',
+                        'CapitalPlanningInvestmentCodes',
+                        'ColumnSchema',
+                        'CompassErrors',
+                        'CongressionalControls',
+                        'CostAreas',
+                        'DataRuleDescriptions',
+                        'Documents',
+                        'EarmarkCodes',
+                        'FederalHolidays',
+                        'FinanceObjectClasses',
+                        'FiscalYears',
+                        'FundCategories',
+                        'Funds',
+                        'FundSymbols',
+                        'Goals',
+                        'GsPayScales',
+                        'HeadquartersOffices',
+                        'Images',
+                        'Messages',
+                        'MainAccounts',
+                        'NationalPrograms',
+                        'Objectives',
+                        'Organizations',
+                        'Partitions',
+                        'PayPeriods',
+                        'ProgramAreas',
+                        'ProgramProjectDescriptions',
+                        'ProgramProjects',
+                        'Projects',
+                        'Providers',
+                        'PublicLaws',
+                        'ReconciliationLines',
+                        'ReferenceTables',
+                        'RegionalOffices',
+                        'ReportingLines',
+                        'ResourcePlanningOffices',
+                        'Resources',
+                        'ResponsibilityCenters',
+                        'SchemaTypes',
+                        'StateOrganizations',
+                        'SubAppropriations',
+                        'TransTypes',
+                        'TreasurySybmols',
                         'URL' ]
         self.__command = command
         self.__source = source
@@ -552,7 +561,7 @@ class SqlFile( ):
 class DbConfig( ):
     '''
     Constructor:
-    DbConfig( source: Source, pvdr: Provider = Provider.SQLite )
+    DbConfig( source: Source, provider: Provider = Provider.SQLite )
 
     Purpose:
     Class provides list of Budget Execution tables across two databases
@@ -610,6 +619,7 @@ class DbConfig( ):
         self.__sqldriver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
         self.__sqlpath = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
         self.__data = [ 'Actuals',
+                        'AdjustedTrialBalances'
                         'AdministrativeRequests',
                         'Allocations',
                         'AmericanRescuePlanCarryoverEstimates',
@@ -739,15 +749,17 @@ class DbConfig( ):
         Retunes a list[ str ] of member names.
         '''
         return [ 'source', 'provider', 'tablename',
-                 'getdriverinfo', 'getdatapath', 'getconnectionstring' ]
+                 'getdriverinfo', 'getdbpath', 'getconnectionstring' ]
 
     def getdriverinfo( self ) -> str:
         '''
+
         Purpose: Returns a string defining the driverinfo being used
 
         Parameters:  None
 
         Returns:  str
+
         '''
         try:
             if self.__provider.name == 'SQLite':
@@ -765,13 +777,15 @@ class DbConfig( ):
             _error = ErrorDialog( _exc )
             _error.show( )
 
-    def getdatapath( self ) -> str:
+    def getdbpath( self ) -> str:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
@@ -786,7 +800,7 @@ class DbConfig( ):
         except Exception as e:
             _exc = Error( e )
             _exc.cause = 'DbConfig Class'
-            _exc.method = 'getdatapath( self )'
+            _exc.method = 'getdbpath( self )'
             _error = ErrorDialog( _exc )
             _error.show( )
 
@@ -800,7 +814,7 @@ class DbConfig( ):
         '''
 
         try:
-            _path = self.getdatapath( )
+            _path = self.getdbpath( )
             if self.__provider.name == Provider.Access.name:
                 return self.getdriverinfo( ) + _path
             elif self.__provider.name == Provider.SqlServer.name:
@@ -865,7 +879,7 @@ class Connection( DbConfig ):
         super( ).__init__( src, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
-        self.__datapath = super( ).getdatapath( )
+        self.__datapath = super( ).getdbpath( )
         self.__driver = super( ).getdriverinfo( )
         self.__dsn = super( ).tablename + ';'
         self.__connectionstring = super( ).getconnectionstring( )
@@ -1167,6 +1181,7 @@ class SqlStatement( ):
             self.__tablename = value
 
     @property
+
     def columns( self ) -> str:
         if self.__columns is not None:
             return self.__columns
@@ -1854,7 +1869,7 @@ class BudgetData( ):
     def __init__( self, source: Source ):
         self.__source = source
         self.__tablename = source.name
-        self.__path = DbConfig( source ).getdatapath( )
+        self.__path = DbConfig( source ).getdbpath( )
         self.__commandtext = f'SELECT * FROM {source.name};'
 
     def __dir__( self ) -> list[ str ]:
