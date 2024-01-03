@@ -1,0 +1,9 @@
+import numpy as np
+import pandas as pd
+
+a1 = np.array( [ 1, 2, 3, 4, 5 ] )
+a2 = np.array( range( 10 ) )
+a3 = np.linspace( 0, 10, 11 )
+m = np.arange( 0, 20 ).reshape( 5, 4 )
+r = m < 3
+a4 = m[ r ]
