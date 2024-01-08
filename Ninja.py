@@ -2696,12 +2696,12 @@ class ApportionmentData( ):
             self.__budgetaccountname = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
@@ -2848,7 +2848,6 @@ class ApportionmentData( ):
             _exc.method = 'createframe( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
-
 class Actuals( ):
     '''
     Constructor:
@@ -3323,7 +3322,6 @@ class Actuals( ):
             _exc.method = 'createframe( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
-
 class ApplicationTables( ):
     '''
     Constructor:
@@ -3386,7 +3384,6 @@ class ApplicationTables( ):
         self.__source = Source.ApplicationTables
         self.__provider = provider
         self.__tablename = name
-
 class AppropriationDocuments( ):
     '''
     Constructor:
@@ -3512,122 +3509,122 @@ class AppropriationDocuments( ):
             self.__documentdate = value
 
     @property
-    def last_documentdate( self ) -> str:
+    def lastactivitydate( self ) -> str:
         if self.__lastdocumentdate is not None:
             return self.__lastdocumentdate
 
-    @last_documentdate.setter
-    def last_documentdate( self, value: str ):
+    @lastactivitydate.setter
+    def lastactivitydate( self, value: str ):
         if value is not None:
             self.__lastdocumentdate = value
 
     @property
-    def budget_level( self ) -> str:
+    def budgetlevel( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
-    @budget_level.setter
-    def budget_level( self, value: str ):
+    @budgetlevel.setter
+    def budgetlevel( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
     @property
-    def budgeting_controls( self ) -> str:
+    def budgetingcontrols( self ) -> str:
         if self.__budgetingcontrols is not None:
             return self.__budgetingcontrols
 
-    @budgeting_controls.setter
-    def budgeting_controls( self, value: str ):
+    @budgetingcontrols.setter
+    def budgetingcontrols( self, value: str ):
         if value is not None:
             self.__budgetingcontrols = value
 
     @property
-    def posting_controls( self ) -> str:
+    def postingcontrols( self ) -> str:
         if self.__postingcontrols is not None:
             return self.__postingcontrols
 
-    @posting_controls.setter
-    def posting_controls( self, value: str ):
+    @postingcontrols.setter
+    def postingcontrols( self, value: str ):
         if value is not None:
             self.__postingcontrols = value
 
     @property
-    def precommitment_controls( self ) -> str:
+    def precommitmentcontrols( self ) -> str:
         if self.__precommitmentcontrols is not None:
             return self.__precommitmentcontrols
 
-    @precommitment_controls.setter
-    def precommitment_controls( self, value: str ):
+    @precommitmentcontrols.setter
+    def precommitmentcontrols( self, value: str ):
         if value is not None:
             self.__precommitmentcontrols = value
 
     @property
-    def commitment_controls( self ) -> str:
+    def commitmentcontrols( self ) -> str:
         if self.__commitmentcontrols is not None:
             return self.__commitmentcontrols
 
-    @commitment_controls.setter
-    def commitment_controls( self, value: str ):
+    @commitmentcontrols.setter
+    def commitmentcontrols( self, value: str ):
         if value is not None:
             self.__commitmentcontrols = value
 
     @property
-    def obligation_controls( self ) -> str:
+    def obligationcontrols( self ) -> str:
         if self.__obligationcontrols is not None:
             return self.__obligationcontrols
 
-    @obligation_controls.setter
-    def obligation_controls( self, value: str ):
+    @obligationcontrols.setter
+    def obligationcontrols( self, value: str ):
         if value is not None:
             self.__obligationcontrols = value
 
     @property
-    def accrual_controls( self ) -> str:
+    def accrualcontrols( self ) -> str:
         if self.__accrualcontrols is not None:
             return self.__accrualcontrols
 
-    @accrual_controls.setter
-    def accrual_controls( self, value: str ):
+    @accrualcontrols.setter
+    def accrualcontrols( self, value: str ):
         if value is not None:
             self.__accrualcontrols = value
 
     @property
-    def expenditure_controls( self ) -> str:
+    def expenditurecontrols( self ) -> str:
         if self.__expenditurecontrols is not None:
             return self.__expenditurecontrols
 
-    @expenditure_controls.setter
-    def expenditure_controls( self, value: str ):
+    @expenditurecontrols.setter
+    def expenditurecontrols( self, value: str ):
         if value is not None:
             self.__expenditurecontrols = value
 
     @property
-    def expense_controls( self ) -> str:
+    def expensecontrols( self ) -> str:
         if self.__expensecontrols is not None:
             return self.__expensecontrols
 
-    @expense_controls.setter
-    def expense_controls( self, value: str ):
+    @expensecontrols.setter
+    def expensecontrols( self, value: str ):
         if value is not None:
             self.__expensecontrols = value
 
     @property
-    def reimbursement_controls( self ) -> str:
+    def reimbursementcontrols( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
-    @reimbursement_controls.setter
-    def reimbursement_controls( self, value: str ):
+    @reimbursementcontrols.setter
+    def reimbursementcontrols( self, value: str ):
         if value is not None:
             self.__reimbursementcontrols = value
 
     @property
-    def reimbursable_agreement_controls( self ) -> str:
+    def reimbursableagreementcontrols( self ) -> str:
         if self.__reimbursableagreementcontrols is not None:
             return self.__reimbursableagreementcontrols
 
-    @reimbursable_agreement_controls.setter
-    def reimbursable_agreement_controls( self, value: str ):
+    @reimbursableagreementcontrols.setter
+    def reimbursableagreementcontrols( self, value: str ):
         if value is not None:
             self.__reimbursableagreementcontrols = value
 
@@ -3652,42 +3649,42 @@ class AppropriationDocuments( ):
             self.__posted = value
 
     @property
-    def carryover_in( self ) -> str:
+    def carryoverin( self ) -> str:
         if self.__carryoverin is not None:
             return self.__carryoverin
 
-    @carryover_in.setter
-    def carryover_in( self, value: str ):
+    @carryoverin.setter
+    def carryoverin( self, value: str ):
         if value is not None:
             self.__carryoverin = value
 
     @property
-    def carryover_out( self ) -> str:
+    def carryoverout( self ) -> str:
         if self.__carryoverout is not None:
             return self.__carryoverout
 
-    @carryover_out.setter
-    def carryover_out( self, value: str ):
+    @carryoverout.setter
+    def carryoverout( self, value: str ):
         if value is not None:
             self.__carryoverout = value
 
     @property
-    def estimated_reimbursements( self ) -> str:
+    def estimatedreimbursements( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
-    @estimated_reimbursements.setter
-    def estimated_reimbursements( self, value: str ):
+    @estimatedreimbursements.setter
+    def estimatedreimbursements( self, value: str ):
         if value is not None:
             self.__estimatedreimbursements = value
 
     @property
-    def estimated_recoveries( self ) -> str:
+    def estimatedrecoveries( self ) -> str:
         if self.__estimatedrecoveries is not None:
             return self.__estimatedrecoveries
 
-    @estimated_recoveries.setter
-    def estimated_recoveries( self, value: str ):
+    @estimatedrecoveries.setter
+    def estimatedrecoveries( self, value: str ):
         if value is not None:
             self.__estimatedrecoveries = value
 
@@ -3912,12 +3909,12 @@ class BudgetDocuments( ):
             self.__efy = value
 
     @property
-    def budget_level( self ) -> str:
+    def budgetlevel( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
-    @budget_level.setter
-    def budget_level( self, value: str ):
+    @budgetlevel.setter
+    def budgetlevel( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -4012,12 +4009,12 @@ class BudgetDocuments( ):
             self.__documentdate = value
 
     @property
-    def last_documentdate( self ) -> str:
+    def lastactivitydate( self ) -> str:
         if self.__lastdocumentdate is not None:
             return self.__lastdocumentdate
 
-    @last_documentdate.setter
-    def last_documentdate( self, value: str ):
+    @lastactivitydate.setter
+    def lastactivitydate( self, value: str ):
         if value is not None:
             self.__lastdocumentdate = value
 
@@ -4112,102 +4109,102 @@ class BudgetDocuments( ):
             self.__bocname = value
 
     @property
-    def budgeting_controls( self ) -> str:
+    def budgetingcontrols( self ) -> str:
         if self.__budgetingcontrols is not None:
             return self.__budgetingcontrols
 
-    @budgeting_controls.setter
-    def budgeting_controls( self, value: str ):
+    @budgetingcontrols.setter
+    def budgetingcontrols( self, value: str ):
         if value is not None:
             self.__budgetingcontrols = value
 
     @property
-    def posting_controls( self ) -> str:
+    def postingcontrols( self ) -> str:
         if  self.__postingcontrols is not None:
             return self.__postingcontrols
 
-    @posting_controls.setter
-    def posting_controls( self, value: str ):
+    @postingcontrols.setter
+    def postingcontrols( self, value: str ):
         if value is not None:
             self.__postingcontrols = value
 
     @property
-    def precommitment_controls( self ) -> str:
+    def precommitmentcontrols( self ) -> str:
         if  self.__precommitmentcontrols is not None:
             return self.__precommitmentcontrols
 
-    @precommitment_controls.setter
-    def precommitment_controls( self, value: str ):
+    @precommitmentcontrols.setter
+    def precommitmentcontrols( self, value: str ):
         if value is not None:
             self.__precommitmentcontrols = value
 
     @property
-    def commitment_controls( self ) -> str:
+    def commitmentcontrols( self ) -> str:
         if self.__commitmentcontrols is not None:
             return self.__commitmentcontrols
 
-    @commitment_controls.setter
-    def commitment_controls( self, value: str ):
+    @commitmentcontrols.setter
+    def commitmentcontrols( self, value: str ):
         if value is not None:
             self.__commitmentcontrols = value
 
     @property
-    def obligation_controls( self ) -> str:
+    def obligationcontrols( self ) -> str:
         if self.__obligationcontrols is not None:
             return self.__obligationcontrols
 
-    @obligation_controls.setter
-    def obligation_controls( self, value: str ):
+    @obligationcontrols.setter
+    def obligationcontrols( self, value: str ):
         if value is not None:
             self.__obligationcontrols = value
 
     @property
-    def accrual_controls( self ) -> str:
+    def accrualcontrols( self ) -> str:
         if self.__accrualcontrols is not None:
             return self.__accrualcontrols
 
-    @accrual_controls.setter
-    def accrual_controls( self, value: str ):
+    @accrualcontrols.setter
+    def accrualcontrols( self, value: str ):
         if value is not None:
             self.__accrualcontrols = value
 
     @property
-    def expenditure_controls( self ) -> str:
+    def expenditurecontrols( self ) -> str:
         if self.__expenditurecontrols is not None:
             return self.__expenditurecontrols
 
-    @expenditure_controls.setter
-    def expenditure_controls( self, value: str ):
+    @expenditurecontrols.setter
+    def expenditurecontrols( self, value: str ):
         if value is not None:
             self.__expenditurecontrols = value
 
     @property
-    def expense_controls( self ) -> str:
+    def expensecontrols( self ) -> str:
         if self.__expensecontrols is not None:
             return self.__expensecontrols
 
-    @expense_controls.setter
-    def expense_controls( self, value: str ):
+    @expensecontrols.setter
+    def expensecontrols( self, value: str ):
         if value is not None:
             self.__expensecontrols = value
 
     @property
-    def reimbursement_controls( self ) -> str:
+    def reimbursementcontrols( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
-    @reimbursement_controls.setter
-    def reimbursement_controls( self, value: str ):
+    @reimbursementcontrols.setter
+    def reimbursementcontrols( self, value: str ):
         if value is not None:
             self.__reimbursementcontrols = value
 
     @property
-    def reimbursable_agreement_controls( self ) -> str:
+    def reimbursableagreementcontrols( self ) -> str:
         if self.__reimbursableagreementcontrols is not None:
             return self.__reimbursableagreementcontrols
 
-    @reimbursable_agreement_controls.setter
-    def reimbursable_agreement_controls( self, value: str ):
+    @reimbursableagreementcontrols.setter
+    def reimbursableagreementcontrols( self, value: str ):
         if value is not None:
             self.__reimbursableagreementcontrols = value
 
@@ -4232,42 +4229,42 @@ class BudgetDocuments( ):
             self.__posted = value
 
     @property
-    def carryover_in( self ) -> float:
+    def carryoverin( self ) -> float:
         if self.__carryoverin is not None:
             return self.__carryoverin
 
-    @carryover_in.setter
-    def carryover_in( self, value: float ):
+    @carryoverin.setter
+    def carryoverin( self, value: float ):
         if value is not None:
             self.__carryoverin = value
 
     @property
-    def carryover_out( self ) -> str:
+    def carryoverout( self ) -> str:
         if self.__carryoverout is not None:
             return self.__carryoverout
 
-    @carryover_out.setter
-    def carryover_out( self, value: str ):
+    @carryoverout.setter
+    def carryoverout( self, value: str ):
         if value is not None:
             self.__carryoverout = value
 
     @property
-    def estimated_reimbursements( self ) -> str:
+    def estimatedreimbursements( self ) -> str:
         if self.__reimbursementcontrols is not None:
             return self.__reimbursementcontrols
 
-    @estimated_reimbursements.setter
-    def estimated_reimbursements( self, value: str ):
+    @estimatedreimbursements.setter
+    def estimatedreimbursements( self, value: str ):
         if value is not None:
             self.__estimatedreimbursements = value
 
     @property
-    def estimated_recoveries( self ) -> str:
+    def estimatedrecoveries( self ) -> str:
         if self.__estimatedrecoveries is not None:
             return self.__estimatedrecoveries
 
-    @estimated_recoveries.setter
-    def estimated_recoveries( self, value: str ):
+    @estimatedrecoveries.setter
+    def estimatedrecoveries( self, value: str ):
         if value is not None:
             self.__estimatedrecoveries = value
 
@@ -4654,22 +4651,22 @@ class BudgetControls( ):
             self.__spendingadjustmenttranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ) -> str:
+    def estimatedreimbursements_transtype( self ) -> str:
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimated_reimbursements_transtype.setter
-    def estimated_reimbursements_transtype( self, value: str ):
+    @estimatedreimbursements_transtype.setter
+    def estimatedreimbursements_transtype( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
     @property
-    def estimated_recoveries_transtype( self ) -> str:
+    def estimatedrecoveries_transtype( self ) -> str:
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimated_recoveries_transtype.setter
-    def estimated_recoveries_transtype( self, value: str ):
+    @estimatedrecoveries_transtype.setter
+    def estimatedrecoveries_transtype( self, value: str ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
@@ -4704,22 +4701,22 @@ class BudgetControls( ):
             self.__profitlosstranstype = value
 
     @property
-    def estimated_reimbursements_spending_options( self ) -> str:
+    def estimatedreimbursements_spending_options( self ) -> str:
         if self.__estimatedreimbursementsspendingoptions is not None:
             return self.__estimatedreimbursementsspendingoptions
 
-    @estimated_reimbursements_spending_options.setter
-    def estimated_reimbursements_spending_options( self, value: str ):
+    @estimatedreimbursements_spending_options.setter
+    def estimatedreimbursements_spending_options( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementsspendingoptions = value
 
     @property
-    def estimated_reimbursements_budgeting_options( self ) -> str:
+    def estimatedreimbursements_budgeting_options( self ) -> str:
         if self.__estimatedreimbursementsbudgetingoptions is not None:
             return self.__estimatedreimbursementsbudgetingoptions
 
-    @estimated_reimbursements_budgeting_options.setter
-    def estimated_reimbursements_budgeting_options( self, value: str ):
+    @estimatedreimbursements_budgeting_options.setter
+    def estimatedreimbursements_budgeting_options( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementsbudgetingoptions = value
 
@@ -5742,22 +5739,22 @@ class Outlays( ):
             self.__budgetoutlaysid = value
 
     @property
-    def report_year( self ) -> str:
+    def reportyear( self ) -> str:
         if self.__reportyear is not None:
             return self.__reportyear
 
-    @report_year.setter
-    def report_year( self, value: str ):
+    @reportyear.setter
+    def reportyear( self, value: str ):
         if value is not None:
             self.__reportyear = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
@@ -5772,12 +5769,12 @@ class Outlays( ):
             self.__linesection = value
 
     @property
-    def line_name( self ) -> str:
+    def linename( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
-    @line_name.setter
-    def line_name( self, value: str ):
+    @linename.setter
+    def linename( self, value: str ):
         if value is not None:
             self.__linename = value
 
@@ -5862,92 +5859,92 @@ class Outlays( ):
             self.__budgetyear = value
 
     @property
-    def out_year_1( self ) -> float:
+    def outyear1( self ) -> float:
         if self.__outyear1 is not None:
             return self.__outyear1
 
-    @out_year_1.setter
-    def out_year_1( self, value: float):
+    @outyear1.setter
+    def outyear1( self, value: float):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ) -> float:
+    def outyear2( self ) -> float:
         if self.__outyear2 is not None:
             return self.__outyear2
 
-    @out_year_2.setter
-    def out_year_2( self, value: float ):
+    @outyear2.setter
+    def outyear2( self, value: float ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ) -> float:
+    def outyear3( self ) -> float:
         if self.__outyear3 is not None:
             return self.__outyear3
 
-    @out_year_3.setter
-    def out_year_3( self, value: float ):
+    @outyear3.setter
+    def outyear3( self, value: float ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ) -> float:
+    def outyear4( self ) -> float:
         if self.__outyear4 is not None:
             return self.__outyear4
 
-    @out_year_4.setter
-    def out_year_4( self, value: float ):
+    @outyear4.setter
+    def outyear4( self, value: float ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ) -> float:
+    def outyear5( self ) -> float:
         if self.__outyear5 is not None:
             return self.__outyear5
 
-    @out_year_5.setter
-    def out_year_5( self, value: float ):
+    @outyear5.setter
+    def outyear5( self, value: float ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ) -> float:
+    def outyear6( self ) -> float:
         if self.__outyear6 is not None:
             return self.__outyear6
 
-    @out_year_6.setter
-    def out_year_6( self, value: float ):
+    @outyear6.setter
+    def outyear6( self, value: float ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ) -> float:
+    def outyear7( self ) -> float:
         if self.__outyear7 is not None:
             return self.__outyear7
 
-    @out_year_7.setter
-    def out_year_7( self, value: float ):
+    @outyear7.setter
+    def outyear7( self, value: float ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ) -> float:
+    def outyear8( self ) -> float:
         if self.__outyear8 is not None:
             return self.__outyear8
 
-    @out_year_8.setter
-    def out_year_8( self, value: float ):
+    @outyear8.setter
+    def outyear8( self, value: float ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ) -> float:
+    def outyear9( self ) -> float:
         if self.__outyear9 is not None:
             return self.__outyear9
 
-    @out_year_9.setter
-    def out_year_9( self, value: float ):
+    @outyear9.setter
+    def outyear9( self, value: float ):
         if value is not None:
             self.__outyear9 = value
 
@@ -7408,12 +7405,12 @@ class DataRuleDescriptions( ):
             self.__schedule = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if isinstance( self.__linenumber, str ) and self.__linenumber != '':
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
@@ -12836,22 +12833,22 @@ class MonthlyOutlays( ):
             self.__monthlyoutlaysid = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_name( self ) -> str:
+    def linename( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
-    @line_name.setter
-    def line_name( self, value: str ):
+    @linename.setter
+    def linename( self, value: str ):
         if value is not None:
             self.__linename = value
 
@@ -16210,22 +16207,22 @@ class ProgramResultsCodes( ):
             self.__npmname = value
 
     @property
-    def activity_code( self ) -> str:
+    def activitycode( self ) -> str:
         if self.__activitycode is not None:
             return self.__activitycode
 
-    @activity_code.setter
-    def activity_code( self, value: str ):
+    @activitycode.setter
+    def activitycode( self, value: str ):
         if value is not None:
             self.__activitycode = value
 
     @property
-    def activity_name( self ) -> str:
+    def activityname( self ) -> str:
         if self.__activityname is not None:
             return self.__activityname
 
-    @activity_name.setter
-    def activity_name( self, value: str ):
+    @activityname.setter
+    def activityname( self, value: str ):
         if value is not None:
             self.__activityname = value
 
@@ -18481,12 +18478,12 @@ class StatusOfBudgetExecution( ):
             self.__sectionnumber = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
@@ -20247,12 +20244,12 @@ class StatusOfAppropriations( ):
             self.__efy = value
 
     @property
-    def budget_level( self ) -> str:
+    def budgetlevel( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
-    @budget_level.setter
-    def budget_level( self, value: str ):
+    @budgetlevel.setter
+    def budgetlevel( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -20387,22 +20384,22 @@ class StatusOfAppropriations( ):
             self.__agreementlimit = value
 
     @property
-    def estimated_recoveries_transtype( self ) -> str:
+    def estimatedrecoveries_transtype( self ) -> str:
         if self.__estimatedrecoveriestranstype is not None:
             return self.__estimatedrecoveriestranstype
 
-    @estimated_recoveries_transtype.setter
-    def estimated_recoveries_transtype( self, value: str ):
+    @estimatedrecoveries_transtype.setter
+    def estimatedrecoveries_transtype( self, value: str ):
         if value is not None:
             self.__estimatedrecoveriestranstype = value
 
     @property
-    def estimated_reimbursements_transtype( self ) -> str:
+    def estimatedreimbursements_transtype( self ) -> str:
         if self.__estimatedreimbursementstranstype is not None:
             return self.__estimatedreimbursementstranstype
 
-    @estimated_reimbursements_transtype.setter
-    def estimated_reimbursements_transtype( self, value: str ):
+    @estimatedreimbursements_transtype.setter
+    def estimatedreimbursements_transtype( self, value: str ):
         if value is not None:
             self.__estimatedreimbursementstranstype = value
 
@@ -20627,22 +20624,22 @@ class StatusOfAppropriations( ):
             self.__totalcarriedforwardout = value
 
     @property
-    def total_estimated_recoveries( self ) -> float:
+    def total_estimatedrecoveries( self ) -> float:
         if self.__totalestimatedrecoveries is not None:
             return self.__totalestimatedrecoveries
 
-    @total_estimated_recoveries.setter
-    def total_estimated_recoveries( self, value: float ):
+    @total_estimatedrecoveries.setter
+    def total_estimatedrecoveries( self, value: float ):
         if value is not None:
             self.__totalestimatedrecoveries = value
 
     @property
-    def total_estimated_reimbursements( self ) -> float:
+    def total_estimatedreimbursements( self ) -> float:
         if self.__totalestimatedreimbursements is not None:
             return self.__totalestimatedreimbursements
 
-    @total_estimated_reimbursements.setter
-    def total_estimated_reimbursements( self, value: float ):
+    @total_estimatedreimbursements.setter
+    def total_estimatedreimbursements( self, value: float ):
         if value is not None:
             self.__totalestimatedreimbursements = value
 
@@ -21077,162 +21074,162 @@ class SpendingRates( ):
             self.__subcategory = value
 
     @property
-    def line_number( self ) -> str:
+    def linenumber( self ) -> str:
         if self.__linenumber is not None:
             return self.__linenumber
 
-    @line_number.setter
-    def line_number( self, value: str ):
+    @linenumber.setter
+    def linenumber( self, value: str ):
         if value is not None:
             self.__linenumber = value
 
     @property
-    def line_name( self ) -> str:
+    def linename( self ) -> str:
         if self.__linename is not None:
             return self.__linename
 
-    @line_name.setter
-    def line_name( self, value: str ):
+    @linename.setter
+    def linename( self, value: str ):
         if value is not None:
             self.__linename = value
 
     @property
-    def year_of_authority( self ) -> str:
+    def yearofauthority( self ) -> str:
         if self.__yearofauthority is not None:
             return self.__yearofauthority
 
-    @year_of_authority.setter
-    def year_of_authority( self, value: str ):
+    @yearofauthority.setter
+    def yearofauthority( self, value: str ):
         if value is not None:
             self.__yearofauthority = value
 
     @property
-    def budget_authority( self ) -> str:
+    def budgetauthority( self ) -> str:
         if self.__budgetauthority is not None:
             return self.__budgetauthority
 
-    @budget_authority.setter
-    def budget_authority( self, value: str ):
+    @budgetauthority.setter
+    def budgetauthority( self, value: str ):
         if value is not None:
             self.__budgetauthority = value
 
     @property
-    def out_year_1( self ) -> str:
+    def outyear1( self ) -> str:
         if self.__outyear1 is not None:
             return self.__outyear1
 
-    @out_year_1.setter
-    def out_year_1( self, value: str ):
+    @outyear1.setter
+    def outyear1( self, value: str ):
         if value is not None:
             self.__outyear1 = value
 
     @property
-    def out_year_2( self ) -> str:
+    def outyear2( self ) -> str:
         if self.__outyear2 is not None:
             return self.__outyear2
 
-    @out_year_2.setter
-    def out_year_2( self, value: str ):
+    @outyear2.setter
+    def outyear2( self, value: str ):
         if value is not None:
             self.__outyear2 = value
 
     @property
-    def out_year_3( self ) -> str:
+    def outyear3( self ) -> str:
         if self.__outyear3 is not None:
             return self.__outyear3
 
-    @out_year_3.setter
-    def out_year_3( self, value: str ):
+    @outyear3.setter
+    def outyear3( self, value: str ):
         if value is not None:
             self.__outyear3 = value
 
     @property
-    def out_year_4( self ) -> str:
+    def outyear4( self ) -> str:
         if self.__outyear4 is not None:
             return self.__outyear4
 
-    @out_year_4.setter
-    def out_year_4( self, value: str ):
+    @outyear4.setter
+    def outyear4( self, value: str ):
         if value is not None:
             self.__outyear4 = value
 
     @property
-    def out_year_5( self ) -> str:
+    def outyear5( self ) -> str:
         if self.__outyear5 is not None:
             return self.__outyear5
 
-    @out_year_5.setter
-    def out_year_5( self, value: str ):
+    @outyear5.setter
+    def outyear5( self, value: str ):
         if value is not None:
             self.__outyear5 = value
 
     @property
-    def out_year_6( self ) -> str:
+    def outyear6( self ) -> str:
         if self.__outyear6 is not None:
             return self.__outyear6
 
-    @out_year_6.setter
-    def out_year_6( self, value: str ):
+    @outyear6.setter
+    def outyear6( self, value: str ):
         if value is not None:
             self.__outyear6 = value
 
     @property
-    def out_year_7( self ) -> str:
+    def outyear7( self ) -> str:
         if self.__outyear7 is not None:
             return self.__outyear7
 
-    @out_year_7.setter
-    def out_year_7( self, value: str ):
+    @outyear7.setter
+    def outyear7( self, value: str ):
         if value is not None:
             self.__outyear7 = value
 
     @property
-    def out_year_8( self ) -> str:
+    def outyear8( self ) -> str:
         if self.__outyear8 is not None:
             return self.__outyear8
 
-    @out_year_8.setter
-    def out_year_8( self, value: str ):
+    @outyear8.setter
+    def outyear8( self, value: str ):
         if value is not None:
             self.__outyear8 = value
 
     @property
-    def out_year_9( self ) -> str:
+    def outyear9( self ) -> str:
         if self.__outyear9 is not None:
             return self.__outyear9
 
-    @out_year_9.setter
-    def out_year_9( self, value: str ):
+    @outyear9.setter
+    def outyear9( self, value: str ):
         if value is not None:
             self.__outyear9 = value
 
     @property
-    def out_year_10( self ) -> str:
+    def outyear10( self ) -> str:
         if self.__outyear10 is not None:
             return self.__outyear10
 
-    @out_year_10.setter
-    def out_year_10( self, value: str ):
+    @outyear10.setter
+    def outyear10( self, value: str ):
         if value is not None:
             self.__outyear10 = value
 
     @property
-    def out_year_11( self ) -> str:
+    def outyear11( self ) -> str:
         if self.__outyear11 is not None:
             return self.__outyear11
 
-    @out_year_11.setter
-    def out_year_11( self, value: str ):
+    @outyear11.setter
+    def outyear11( self, value: str ):
         if value is not None:
             self.__outyear11 = value
 
     @property
-    def total_spendout( self ) -> str:
+    def totalspendout( self ) -> str:
         if self.__totalspendout is not None:
             return self.__totalspendout
 
-    @total_spendout.setter
-    def total_spendout( self, value: str ):
+    @totalspendout.setter
+    def totalspendout( self, value: str ):
         if value is not None:
             self.__totalspendout = value
 
@@ -24645,12 +24642,12 @@ class Transfers( ):
             self.__efy = value
 
     @property
-    def budget_level( self ) -> str:
+    def budgetlevel( self ) -> str:
         if self.__budgetlevel is not None:
             return self.__budgetlevel
 
-    @budget_level.setter
-    def budget_level( self, value: str ):
+    @budgetlevel.setter
+    def budgetlevel( self, value: str ):
         if value is not None:
             self.__budgetlevel = value
 
@@ -24775,22 +24772,22 @@ class Transfers( ):
             self.__programprojectname = value
 
     @property
-    def activity_code( self ) -> str:
+    def activitycode( self ) -> str:
         if self.__activitycode is not None:
             return self.__activitycode
 
-    @activity_code.setter
-    def activity_code( self, value: str ):
+    @activitycode.setter
+    def activitycode( self, value: str ):
         if value is not None:
             self.__activitycode = value
 
     @property
-    def activity_name( self ) -> str:
+    def activityname( self ) -> str:
         if self.__activityname is not None:
             return self.__activityname
 
-    @activity_name.setter
-    def activity_name( self, value: str ):
+    @activityname.setter
+    def activityname( self, value: str ):
         if value is not None:
             self.__activityname = value
 
