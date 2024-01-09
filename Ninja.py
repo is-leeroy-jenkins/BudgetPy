@@ -6821,9 +6821,9 @@ class Commitments( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: datetime ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__processeddate = value
 
     @property
@@ -6833,7 +6833,7 @@ class Commitments( ):
 
     @lastactivitydate.setter
     def lastactivitydate( self, value: datetime ):
-        if isinstance( value, datetime ):
+        if value is not None:
             self.__lastactivitydate = value
 
     @property
@@ -8281,7 +8281,7 @@ class Deobligations( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: str ):
         if value is not None:
             self.__processeddate = value
@@ -8983,7 +8983,7 @@ class Expenditures( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: str ):
         if value is not None:
             self.__processeddate = value
@@ -14478,7 +14478,7 @@ class OpenCommitments( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: str ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -15133,7 +15133,7 @@ class Obligations( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: datetime ):
         if value is not None:
             self.__processeddate = value
@@ -23621,7 +23621,7 @@ class SpendingDocuments( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__processeddate = value
@@ -24676,7 +24676,7 @@ class Transfers( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: str ):
         if value is not None:
             self.__processeddate = value
@@ -25389,7 +25389,7 @@ class UnliquidatedObligations( ):
         if self.__processeddate is not None:
             return self.__processeddate
 
-    @processed_date.setter
+    @processeddate.setter
     def processeddate( self, value: datetime ):
         if isinstance( value, datetime ):
             self.__processeddate = value
