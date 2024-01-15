@@ -286,7 +286,7 @@ class SqlFile( ):
 
     '''
     __data = None
-    __command = None
+    __commandtype = None
     __source = None
     __provider = None
 
@@ -312,16 +312,16 @@ class SqlFile( ):
 
     @property
     def command( self ) -> SQL:
-        if self.__command is not None:
-            return self.__command
+        if self.__commandtype is not None:
+            return self.__commandtype
 
     @command.setter
     def command( self, value: SQL ):
         if value is not None:
-            self.__command = value
+            self.__commandtype = value
 
     def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
-                  command: SQL = SQL.SELECTALL ):
+                  commandype: SQL = SQL.SELECTALL ):
         self.__data = [ 'Actuals',
                         'AdjustedTrialBalances'
                         'AdministrativeRequests',
@@ -443,7 +443,7 @@ class SqlFile( ):
                         'TransTypes',
                         'TreasurySybmols',
                         'URL' ]
-        self.__command = command
+        self.__commandtype = commandtype
         self.__source = source
         self.__provider = provider
 
@@ -470,7 +470,7 @@ class SqlFile( ):
             _data = self.__data
             _provider = self.__provider.name
             _tablename = self.__source.name
-            _command = self.__command.name
+            _command = self.__commandtype.name
             _current = os.getcwd( )
             _path = ''
             if _provider == 'SQLite' and _tablename in _data:
@@ -507,7 +507,7 @@ class SqlFile( ):
             _data = self.__data
             _source = self.__source.name
             _provider = self.__provider.name
-            _command = self.__command.name
+            _command = self.__commandtype.name
             _current = os.getcwd( )
             _folder = ''
             if _provider == 'SQLite' and _source in _data:
@@ -575,8 +575,7 @@ class DbConfig( ):
     __sqlpath = None
     __sqlitepath = None
     __sqlitedriver = None
-    __table = None
-    __name = None
+    __tablename = None
 
     @property
     def source( self ) -> Source:
@@ -601,18 +600,18 @@ class DbConfig( ):
     @property
     def tablename( self ) -> str:
         '''Gets the'''
-        if self.__table is not None:
-            return self.__table
+        if self.__tablename is not None:
+            return self.__tablename
 
     @tablename.setter
     def tablename( self, value: str ):
         if value is not None:
-            self.__table = value
+            self.__tablename = value
 
     def __init__( self, source: Source, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = source
-        self.__table = source.name
+        self.__tablename = source.name
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\sql\Data.accdb'
@@ -741,8 +740,8 @@ class DbConfig( ):
                         'URL' ]
 
     def __str__( self ) -> str:
-        if isinstance( self.__table, str ):
-            return self.__table
+        if self.__tablename is not None:
+            return self.__tablename
 
     def __dir__( self ) -> list[ str ]:
         '''
@@ -777,7 +776,7 @@ class DbConfig( ):
             _error = ErrorDialog( _exc )
             _error.show( )
 
-    def getdbpath( self ) -> str:
+    def getdatapath( self ) -> str:
         '''
 
         Purpose:
@@ -806,15 +805,17 @@ class DbConfig( ):
 
     def getconnectionstring( self ) -> str:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
-            _path = self.getdbpath( )
+            _path = self.getdatapath( )
             if self.__provider.name == Provider.Access.name:
                 return self.getdriverinfo( ) + _path
             elif self.__provider.name == Provider.SqlServer.name:
@@ -875,11 +876,11 @@ class Connection( DbConfig ):
         if value is not None:
             self.__connectionstring = value
 
-    def __init__( self, src: Source, provider: Provider = Provider.SQLite ):
-        super( ).__init__( src, provider )
+    def __init__( self, source: Source, provider: Provider = Provider.SQLite ):
+        super( ).__init__( source, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
-        self.__datapath = super( ).getdbpath( )
+        self.__datapath = super( ).getdatapath( )
         self.__driver = super( ).getdriverinfo( )
         self.__dsn = super( ).tablename + ';'
         self.__connectionstring = super( ).getconnectionstring( )
@@ -1869,7 +1870,7 @@ class BudgetData( ):
     def __init__( self, source: Source ):
         self.__source = source
         self.__tablename = source.name
-        self.__path = DbConfig( source ).getdbpath( )
+        self.__path = DbConfig( source ).getdatapath( )
         self.__commandtext = f'SELECT * FROM {source.name};'
 
     def __dir__( self ) -> list[ str ]:

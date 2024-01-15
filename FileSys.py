@@ -96,33 +96,33 @@ class Path( ):
 			self.__extension = value
 
 	@property
-	def currentdirectory( self ) -> str:
+	def current_directory( self ) -> str:
 		if self.__currentdirectory is not None:
 			return self.__currentdirectory
 
-	@currentdirectory.setter
-	def currentdirectory( self, value: str ):
+	@current_directory.setter
+	def current_directory( self, value: str ):
 		if os.path.exists( value ):
 			os.chdir( value )
 			self.__currentdirectory = value
 
 	@property
-	def parentdirectory( self ) -> str:
+	def parent_directory( self ) -> str:
 		if self.__parentdirectory is not None:
 			return self.__parentdirectory
 
-	@parentdirectory.setter
-	def parentdirectory( self, value: str ):
+	@parent_directory.setter
+	def parent_directory( self, value: str ):
 		if value is not None:
 			self.__parentdirectory = value
 
 	@property
-	def pathseparator( self ) -> str:
+	def path_separator( self ) -> str:
 		if self.__pathseparator is not None:
 			return self.__pathseparator
 
-	@pathseparator.setter
-	def pathseparator( self, value: str ):
+	@path_separator.setter
+	def path_separator( self, value: str ):
 		if value is not None:
 			self.__pathseparator = value
 
@@ -137,32 +137,32 @@ class Path( ):
 			self.__drive = value
 
 	@property
-	def driveseparator( self ) -> str:
+	def drive_separator( self ) -> str:
 		if self.__driveseparator is not None:
 			return self.__driveseparator
 
-	@driveseparator.setter
-	def driveseparator( self, value: str ):
+	@drive_separator.setter
+	def drive_separator( self, value: str ):
 		if value is not None:
 			self.__driveseparator = value
 
 	@property
-	def extensionseparator( self ) -> str:
+	def extension_separator( self ) -> str:
 		if self.__extensionseparator is not None:
 			return self.__extensionseparator
 
-	@extensionseparator.setter
-	def extensionseparator( self, value: str ):
+	@extension_separator.setter
+	def extension_separator( self, value: str ):
 		if value is not None:
 			self.__extensionseparator = value
 
 	@property
-	def templatepath( self ):
+	def template_path( self ):
 		if self.__template is not None:
 			return self.__template
 
-	@templatepath.setter
-	def templatepath( self, value: str ):
+	@template_path.setter
+	def template_path( self, value: str ):
 		if value is not None:
 			self.__template = value
 
@@ -188,11 +188,11 @@ class Path( ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'input', 'name', 'currentdirectory', 'extension',
-		         'parentdirectory', 'pathseparator', 'drive',
-		         'driveseparator', 'extensionseparator', 'templatepath',
-		         'exists', 'isfolder', 'isfile', 'isabsolutepath',
-		         'isrelativepath', 'verify', 'join', 'copytree' ]
+		return [ 'input', 'name', 'current_directory', 'extension',
+		         'parent_directory', 'path_separator', 'drive',
+		         'drive_separator', 'extension_separator', 'template_path',
+		         'exists', 'is_folder', 'is_file', 'is_absolute',
+		         'is_relative', 'verify', 'join', 'copy_tree' ]
 
 	def exists( self ) -> bool:
 		'''
@@ -216,7 +216,7 @@ class Path( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def isfolder( self ) -> bool:
+	def is_folder( self ) -> bool:
 		'''
 		Purpose:
 
@@ -234,11 +234,11 @@ class Path( ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Path'
-			_exc.method = 'isfolder( self )'
+			_exc.method = 'is_folder( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def isfile( self ) -> bool:
+	def is_file( self ) -> bool:
 		'''
 		Purpose:
 
@@ -256,11 +256,11 @@ class Path( ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Path'
-			_exc.method = 'isfile( self )'
+			_exc.method = 'is_file( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def isabsolutepath( self ) -> bool:
+	def is_absolute( self ) -> bool:
 		'''
 		Purpose:
 
@@ -279,11 +279,11 @@ class Path( ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Path'
-			_exc.method = 'isabsolutepath( self )'
+			_exc.method = 'is_absolute_path( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def isrelativepath( self ) -> bool:
+	def is_relative( self ) -> bool:
 		'''
 		Purpose:
 
@@ -302,7 +302,7 @@ class Path( ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Path'
-			_exc.method = 'isrelativepath( self )'
+			_exc.method = 'is_relative_path( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -348,7 +348,7 @@ class Path( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def copytree( self, destination: str ):
+	def copy_tree( self, destination: str ):
 		'''
 
 		Purpose:
@@ -383,15 +383,14 @@ class File( Path ):
 	__contents = [ ]
 
 	@property
-	def absolutepath( self ) -> str:
+	def absolute_path( self ) -> str:
 		'''
 		Gets the absolute path
 		'''
 		if self.__absolutepath is not None:
 			return self.__absolutepath
-
-	@absolutepath.setter
-	def absolutepath( self, value: str ):
+	@absolute_path.setter
+	def absolute_path( self, value: str ):
 		'''
 		Sets the absolute path
 		'''
@@ -399,15 +398,15 @@ class File( Path ):
 			self.__absolutepath = value
 
 	@property
-	def relativepath( self ) -> str:
+	def relative_path( self ) -> str:
 		'''
 		Gets the relative path
 		'''
 		if self.__relativepath is not None:
 			return self.__relativepath
 
-	@relativepath.setter
-	def relativepath( self, value: str ):
+	@relative_path.setter
+	def relative_path( self, value: str ):
 		'''
 		Sets the relative path
 		'''
@@ -486,7 +485,7 @@ class File( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'absolutepath', 'relativepath', 'path',
+		return [ 'absolute_path', 'relative_path', 'path',
 		         'name', 'size', 'extension', 'created',
 		         'accessed', 'modified', 'rename', 'move',
 		         'create', 'delete', 'readlines', 'readall',
@@ -711,22 +710,22 @@ class Folder( Path ):
 			self.__path = value
 
 	@property
-	def absolutepath( self ) -> str:
+	def absolute_path( self ) -> str:
 		if self.__absolutepath is not None:
 			return self.__absolutepath
 
-	@absolutepath.setter
-	def absolutepath( self, value: str ):
+	@absolute_path.setter
+	def absolute_path( self, value: str ):
 		if value is not None:
 			self.__absolutepath = value
 
 	@property
-	def relativepath( self ) -> str:
+	def relative_path( self ) -> str:
 		if self.__relativepath is not None:
 			return self.__relativepath
 
-	@relativepath.setter
-	def relativepath( self, value: str ):
+	@relative_path.setter
+	def relative_path( self, value: str ):
 		if self.__relativepath is not None:
 			self.__relativepath = value
 
@@ -762,12 +761,12 @@ class Folder( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'absolutepath', 'relativepath', 'path',
-		         'name', 'size', 'getfiles', 'getsubfiles',
-		         'getsubfolders', 'rename', 'move', 'create',
+		return [ 'absolute_path', 'relative_path', 'path',
+		         'name', 'size', 'get_files', 'get_subfiles',
+		         'get_subfolders', 'rename', 'move', 'create',
 		         'delete', 'iterate' ]
 
-	def getfiles( self ) -> list:
+	def get_files( self ) -> list:
 		'''
 		Purpose:
 
@@ -787,11 +786,11 @@ class Folder( Path ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Folder'
-			_exc.method = 'getfiles( self )'
+			_exc.method = 'get_files( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def getsubfiles( self ) -> list:
+	def get_subfiles( self ) -> list:
 		'''
 		Purpose:
 
@@ -815,11 +814,11 @@ class Folder( Path ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Folder'
-			_exc.method = 'getsubfolders( self )'
+			_exc.method = 'get_subfolders( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def getsubfolders( self ) -> list:
+	def get_subfolders( self ) -> list:
 		'''
 		Purpose:
 
@@ -841,7 +840,7 @@ class Folder( Path ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'Folder'
-			_exc.method = 'getsubfolders( self )'
+			_exc.method = 'get_subfolders( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -1008,8 +1007,8 @@ class Message( ):
 		if value is not None:
 			self.__others = value
 
-	def __init__( self, sender: str, receiver: str,
-	              body: list[ str ], subject: str, copy: list[ str ] = None ):
+	def __init__( self, sender: str, receiver: str, body: list[ str ],
+	              subject: str, copy: list[ str ] = None ):
 		self.__sender = sender
 		self.__receiver = receiver
 		self.__body = body
@@ -1061,22 +1060,22 @@ class Excel( ):
 	__title = None
 
 	@property
-	def internalpath( self ) -> str:
+	def internal_path( self ) -> str:
 		if self.__internalpath is not None:
 			return self.__internalpath
 
-	@internalpath.setter
-	def internalpath( self, value: str ):
+	@internal_path.setter
+	def internal_path( self, value: str ):
 		if value is not None:
 			self.__internalpath = value
 
 	@property
-	def externalpath( self ) -> str:
+	def external_path( self ) -> str:
 		if self.__externalpath is not None:
 			return self.__externalpath
 
-	@externalpath.setter
-	def externalpath( self, value: str ):
+	@external_path.setter
+	def external_path( self, value: str ):
 		if value is not None:
 			self.__externalpath = value
 
@@ -1138,7 +1137,7 @@ class Excel( ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'internalpath', 'externalpath', 'name',
+		return [ 'internal_path', 'external_path', 'name',
 		         'title', 'workbook', 'worksheet', 'save' ]
 
 	def save( self ):
