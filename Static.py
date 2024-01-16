@@ -115,6 +115,7 @@ class Source( Enum ):
     CompassLevels = auto( )
     CongressionalProjects = auto( )
     CongressionalReprogrammings = auto( )
+    CombinedSchedules = auto( )
     Defactos = auto( )
     Deobligations = auto( )
     DocumentControlNumbers = auto( )

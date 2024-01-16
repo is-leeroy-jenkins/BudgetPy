@@ -25397,11 +25397,6 @@ class Transfers( BudgetUnit ):
         if value is not None:
             self.__efy = value
 
-    @rpio_name.setter
-    def rpio_name( self, name ):
-        if  name is not None:
-            self.__rpiocode = name
-
     @property
     def fund_code( self ) -> str:
         if self.__fundcode is not None:
@@ -25434,8 +25429,13 @@ class Transfers( BudgetUnit ):
 
     @property
     def rpio_name( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
+        if self.__rpioname is not None:
+            return self.__rpioname
+
+    @rpio_name.setter
+    def rpio_name( self, value: str ):
+        if value is not None:
+            self.__rpioname = value
 
     @property
     def ah_code( self ) -> str:
