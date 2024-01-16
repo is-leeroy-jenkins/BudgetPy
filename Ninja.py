@@ -52,149 +52,7 @@ from Static import SQL
 from Static import Source, Provider
 from Data import ( DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder )
 
-class Unit( ):
-    '''
-    Constructor:
-    Unit( id: int )
-
-    Purpose:
-    Base class defines an object representing fundemental unit of data
-    in the Budget Execution application
-    '''
-    __index = None
-    __code = None
-
-    @property
-    def id( self ) -> int:
-        if self.__index is not None:
-            return self.__index
-
-    @id.setter
-    def id( self, id: int ):
-        if id is not None:
-            self.__index = id
-
-    def __init__( self, id: int ):
-        self.__index = id
-
-    def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
-
-class DataUnit( Unit ):
-    '''
-    Constructor:
-    DataUnit( id: int, code: str, name: str )
-
-    Purpose:
-    Base class providing a code and name
-    '''
-    __index = None
-    __code = None
-    __name = None
-
-    @property
-    def name( self ) -> str:
-        if self.__name is not None:
-            return self.__name
-
-    @name.setter
-    def name( self, name: str ):
-        if name is not None:
-            self.__name = name
-
-    @property
-    def code( self ) -> str:
-        if self.__code is not None:
-            return self.__code
-
-    @code.setter
-    def code( self, value: str ):
-        if value is not None:
-            self.__code = value
-
-    def __init__( self, id: int, code: str, name: str ):
-        super( ).__init__( id )
-        self.__id = super( ).id
-        self.__code = code
-        self.__name = name
-
-    def __str__( self ) -> str:
-        if self.__code is not None:
-            return self.__code
-
-class BudgetUnit( DataUnit ):
-    '''
-    Constructor:
-    BudgetUnit( id: int, code: str, nam: str, treas: str, main: str )
-
-    Purpose:
-    Base class for OMB reporting classes
-    '''
-    __mainaccount = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
-    __treasuryaccountcode = None
-    __treasuryaccountname = None
-
-    @property
-    def main_account( self ) -> str:
-        if self.__mainaccount is not None:
-            return self.__mainaccount
-
-    @main_account.setter
-    def main_account( self, value: str ):
-        if value is not None:
-            self.__mainaccount = value
-
-    @property
-    def budget_account_code( self ) -> str:
-        if self.__budgetaccountcode is not None:
-            return self.__budgetaccountcode
-
-    @budget_account_code.setter
-    def budget_account_code( self, value: str ):
-        if value is not None:
-            self.__budgetaccountcode = value
-
-    @property
-    def budget_account_name( self ) -> str:
-        if self.__budgetaccountname is not None:
-            return self.__budgetaccountname
-
-    @budget_account_name.setter
-    def budget_account_name( self, value: str ):
-        if value is not None:
-            self.__budgetaccountname = value
-
-    @property
-    def treasury_account_code( self ) -> str:
-        if self.__treasuryaccountcode is not None:
-            return self.__treasuryaccountcode
-
-    @treasury_account_code.setter
-    def treasury_account_code( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountcode = value
-
-    @property
-    def treasury_account_name( self ) -> str:
-        if self.__treasuryaccountname is not None:
-            return self.__treasuryaccountname
-
-    @treasury_account_name.setter
-    def treasury_account_name( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountname = value
-
-    def __init__( self, id: int, code: str, name: str, treas: str, omb: str ):
-        super( ).__init__( id, code, name )
-        self.__mainaccount = super( ).code
-        self.__treasuryaccountcode = treas
-        self.__budgetaccountcode = omb
-        self.__budgetaccountname = super( ).name
-
-class Accounts( DataUnit ):
+class Accounts( ):
     '''
     Constructor:
     Account( treas: str, pvdr: Provider = Provider.SQLite )
@@ -326,7 +184,8 @@ class Accounts( DataUnit ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code: str, provider = Provider.SQLite ):
+    def __init__( self, id: int = None, code: str = None, provider = Provider.SQLite ):
+        self.__accountsid = id
         self.__code = code
         self.__provider = provider
         self.__source = Source.Accounts
@@ -352,6 +211,10 @@ class Accounts( DataUnit ):
         if self.__code is not None:
             return self.__code
 
+    def __dir__( self ) -> list[ str ]:
+        return [ 'id', 'code', 'name',
+                 'copy', 'getdata', 'getframe' ]
+    
     def copy( self ):
         try:
             _clone = Accounts( code = self.__code )
@@ -414,7 +277,7 @@ class Accounts( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ActivityCodes( DataUnit ):
+class ActivityCodes( ):
     '''
     Constructor:
     ActivityCode( code: str, provider: Provider = Provider.SQLite )
@@ -491,9 +354,10 @@ class ActivityCodes( DataUnit ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code: str, provider = Provider.SQLite ):
+    def __init__( self, id: int = None, code: str = None, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ActivityCodes
+        self.__activitycodesid = id
         self.__code = code
         self.__fields = [ 'ActivityCodesId',
                            'Code',
@@ -503,6 +367,10 @@ class ActivityCodes( DataUnit ):
     def __str__( self ) -> str:
         if self.__code is not None:
             return self.__code
+
+    def __dir__( self ) -> list[ str ]:
+        return [ 'id', 'code', 'name',
+                 'fields', 'getdata', 'getframe' ]
 
     def getdata( self ) -> list[ Row ]:
         '''
@@ -559,7 +427,7 @@ class ActivityCodes( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AdjustedTrialBalances( DataUnit ):
+class AdjustedTrialBalances( ):
 	'''
 	Constructor:
 	AdjustedTrialBalances( bfy: str, number: str )
@@ -572,11 +440,15 @@ class AdjustedTrialBalances( DataUnit ):
 	__bfy = None
 	__name = None
 
-	def __init__( self, bfy: str, number: str ):
-		self.__bfy = bfy
-		self.__number = number
+	def __init__( self, id: int = None, bfy: str = None, number: str = None ):
+        self.__adjustedtrialbalancesid = id
+	    self.__bfy = bfy
+        self.__number = number
 
-class AllowanceHolders( DataUnit ):
+    def __dir__( self ) -> list[ str ]:
+        return [ ]
+
+class AllowanceHolders( ):
     '''
     Constructor:
     AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
@@ -653,10 +525,12 @@ class AllowanceHolders( DataUnit ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+    def __init__( self, id: int = None, code: str = None,
+                  provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AllowanceHolders
-        self.__code = code if isinstance( self.__code, str ) else None
+        self.__allowanceholdersid = id
+        self.__code = code
         self.__fields = [ 'AllowanceHoldersId',
                            'Code',
                            'Name' ]
@@ -664,6 +538,10 @@ class AllowanceHolders( DataUnit ):
     def __str__( self ) -> str:
         if isinstance( self.__code, str ) and self.__code != '':
             return self.__code
+
+    def __dir__( self ) -> list[ str ]:
+        return [ 'id', 'code', 'name',
+                 'getdata', 'getframe' ]
 
     def getdata( self ) -> list[ Row ]:
         '''
@@ -720,7 +598,7 @@ class AllowanceHolders( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AmericanRescuePlanCarryoverEstimates( BudgetUnit ):
+class AmericanRescuePlanCarryoverEstimates( ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
@@ -1025,7 +903,7 @@ class AmericanRescuePlanCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AnnualCarryoverEstimates( BudgetUnit ):
+class AnnualCarryoverEstimates( ):
     '''
     Constructor:
     AnnualCarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -1332,7 +1210,7 @@ class AnnualCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AnnualReimbursableEstimates( BudgetUnit ):
+class AnnualReimbursableEstimates( ):
     '''
     Constructor:
     AnnualReimbursableEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -1617,7 +1495,7 @@ class AnnualReimbursableEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Appropriations( DataUnit ):
+class Appropriations( ):
     '''
     Constructor:
     Appropriation( fund: str, pvdr: Provider = Provider.SQLite )
@@ -1751,7 +1629,7 @@ class Appropriations( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AppropriationAvailableBalances( BudgetUnit ):
+class AppropriationAvailableBalances( ):
     '''
     Constructor:
     AppropriationAvailableBalance( bfy: str, efy: str, fund: str )
@@ -2043,7 +1921,7 @@ class AppropriationAvailableBalances( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AppropriationLevelAuthority( BudgetUnit ):
+class AppropriationLevelAuthority( ):
     '''
     Constructor:
     AppropriationLevelAuthority( bfy: str, efy: str, fund: str )
@@ -2301,7 +2179,7 @@ class AppropriationLevelAuthority( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Allocations( BudgetUnit ):
+class Allocations( ):
     '''
     Constructor:
     Allocation( bfy = None, fund = None, pvdr: Provider = Provider.SQLite )
@@ -2709,7 +2587,7 @@ class Allocations( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ApportionmentData( BudgetUnit ):
+class ApportionmentData( ):
     '''
     Constructor:
     ApportionmentData( bfy: str, efy: str, main: str,
@@ -2991,7 +2869,7 @@ class ApportionmentData( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Actuals( BudgetUnit ):
+class Actuals( ):
     '''
     Constructor:
     Actual( bfy, fund, pvdr = Provider.SQLite  )
@@ -3477,7 +3355,7 @@ class Actuals( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ApplicationTables( DataUnit ):
+class ApplicationTables( ):
     '''
     Constructor:
     ApplicationTable( name, pvdr = Provider.SQLite )
@@ -3540,7 +3418,7 @@ class ApplicationTables( DataUnit ):
         self.__provider = provider
         self.__tablename = name
 
-class AppropriationDocuments( BudgetUnit ):
+class AppropriationDocuments( ):
     '''
     Constructor:
     AppropriationDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -3992,7 +3870,7 @@ class AppropriationDocuments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetDocuments( BudgetUnit ):
+class BudgetDocuments( ):
     '''
     Constructor:
     BudgetDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -4765,7 +4643,7 @@ class BudgetContacts(  ):
         self.__lastname = last
         self.__first = first
 
-class BudgetControls( Unit ):
+class BudgetControls( ):
     '''
     Constructor:  BudgetControl( fund, pvdr = Provider.SQLite )
 
@@ -5277,7 +5155,7 @@ class BudgetControls( Unit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetFiscalYears( Unit ):
+class BudgetFiscalYears( ):
     '''
     Constructor:
     BudgetFiscalYear( bfy, efy, date = None, pvdr = Provider.SQLite ).
@@ -5564,7 +5442,7 @@ class BudgetFiscalYears( Unit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetObjectClasses( DataUnit ):
+class BudgetObjectClasses( ):
     '''
     Constructor:
     BudgetObjectClass( code, pvdr = Provider.SQLite  ).
@@ -5718,7 +5596,7 @@ class BudgetObjectClasses( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetaryResourceExecution( BudgetUnit ):
+class BudgetaryResourceExecution( ):
     '''
     Constructor:
     BudgetaryResourceExecution( bfy: str, efy: str,
@@ -5925,7 +5803,7 @@ class BudgetaryResourceExecution( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Outlays( BudgetUnit ):
+class Outlays( ):
     '''
     Constructor:
     Outlay( account: str, pvdr: Provider = Provider.SQLite  )
@@ -6570,7 +6448,7 @@ class CongressionalProjects( ):
 		self.__rpiocode = rpio
 		self.__ahcode = ahcode
 
-class CompassLevels( BudgetUnit ):
+class CompassLevels( ):
     '''
     Constructor:
     CompassLevel( bfy: str, efy: str,
@@ -6883,7 +6761,7 @@ class CompassLevels( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Commitments( BudgetUnit ):
+class Commitments( ):
     '''
     Constructor:
     Commitment( bfy: str = None, fund: str = None,
@@ -7484,7 +7362,7 @@ class Commitments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class CostAreas( DataUnit ):
+class CostAreas( ):
     '''
     Constructor:
     CostArea( fund, pvdr = Provider.SQLite )
@@ -7524,7 +7402,7 @@ class CostAreas( DataUnit ):
                           'Code',
                           'Name' ]
 
-class CapitalPlanningInvestmentCodes( DataUnit ):
+class CapitalPlanningInvestmentCodes( ):
     '''
     Constructor:
     CapitalPlanningInvestmentCodes( treas, pvdr = Provider.SQLite  )
@@ -7666,7 +7544,7 @@ class CapitalPlanningInvestmentCodes( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ColumnSchema( Unit ):
+class ColumnSchema( ):
     '''
     Constructor:
     ColumnSchema( column, table_name, pvdr = Provider.SQLite )
@@ -7741,7 +7619,7 @@ class ColumnSchema( Unit ):
         self.__columnname = column
         self.__tablename = table
 
-class DataRuleDescriptions( Unit ):
+class DataRuleDescriptions( ):
     '''
     Constructor:
     DataRuleDescription( schedule, line, rule, pvdr = Provider.SQLite )
@@ -7896,7 +7774,7 @@ class DataRuleDescriptions( Unit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Defactos( BudgetUnit ):
+class Defactos( ):
     '''
     Constructor:
     Defacto(  bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -8454,7 +8332,7 @@ class Defactos( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Deobligations( BudgetUnit ):
+class Deobligations( ):
     '''
     Constructor:
     Deobligation( bfy, fund, account, boc, pvdr = Provider.SQLite )
@@ -9040,7 +8918,7 @@ class Deobligations( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class DocumentControlNumbers( DataUnit ):
+class DocumentControlNumbers( ):
     '''
     Constructor:
     DocumentControlNumber( dcn, pvdr = Provider.SQLite )
@@ -9206,7 +9084,7 @@ class DocumentControlNumbers( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Expenditures( BudgetUnit ):
+class Expenditures( ):
     '''
     Constructor:
     Expenditure( bfy: str, fund: str, account: str,
@@ -9806,7 +9684,7 @@ class Expenditures( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FinanceObjectClasses( DataUnit ):
+class FinanceObjectClasses( ):
     '''
     Constructor:
     FinanceObjectClass( code: str, pvdr: Provider = Provider.SQLite )
@@ -9971,7 +9849,7 @@ class FinanceObjectClasses( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Funds( BudgetUnit ):
+class Funds( ):
     '''
     Constructor:
     Fund( bfy: str, efy: str,
@@ -10444,7 +10322,7 @@ class Funds( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FederalHolidays( DataUnit ):
+class FederalHolidays( ):
     '''
     Constructor:
     FederalHoliday( bfy: str, efy: str,
@@ -10991,7 +10869,7 @@ class FederalHolidays( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FullTimeEquivalents( BudgetUnit ):
+class FullTimeEquivalents( ):
     '''
     Constructor: FullTimeEquivalent( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
@@ -11463,7 +11341,7 @@ class FullTimeEquivalents( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class GeneralLedgerAccounts( DataUnit ):
+class GeneralLedgerAccounts( ):
     '''
     Constructor:
     GeneralLedgerAccount( bfy: str, number: str,
@@ -11592,7 +11470,7 @@ class GeneralLedgerAccounts( DataUnit ):
                           'DebitBalance',
                           'ClosingAmount' ]
 
-class Goals( DataUnit ):
+class Goals( ):
     '''
     Constructor:
     Goal( code: str, pvdr: Provider = Provider.SQLite )
@@ -11715,7 +11593,7 @@ class Goals( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class HeadquartersAuthority( BudgetUnit ):
+class HeadquartersAuthority( ):
     '''
     Constructor:
     HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )
@@ -12178,7 +12056,7 @@ class HeadquartersAuthority( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class HeadquartersOffices( DataUnit ):
+class HeadquartersOffices( ):
     '''
     Constructor:
     HeadquartersOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -12316,7 +12194,7 @@ class HeadquartersOffices( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class InflationReductionActCarryoverEstimates( BudgetUnit ):
+class InflationReductionActCarryoverEstimates( ):
     '''
     Constructor:
     InflationReductionActCarryoverEstimate( bfy: str,
@@ -12621,7 +12499,7 @@ class InflationReductionActCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class JobsActCarryoverEstimates( BudgetUnit ):
+class JobsActCarryoverEstimates( ):
     '''
     Constructor:
     JobsActCarryoverEstimate( bfy )
@@ -12924,7 +12802,7 @@ class JobsActCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class MainAccounts( DataUnit ):
+class MainAccounts( ):
     '''
 	Constructor:
 	MainAccounts( bfy: str, code: str )
@@ -13004,7 +12882,7 @@ class MainAccounts( DataUnit ):
     def __init__( self, code: str ):
         self.__code = code
 
-class MonthlyActuals( BudgetUnit ):
+class MonthlyActuals( ):
     '''
     Constructor:
     Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
@@ -13386,7 +13264,7 @@ class MonthlyActuals( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class MonthlyOutlays( BudgetUnit ):
+class MonthlyOutlays( ):
     '''
     Constructor:
     MonthlyOutlay( bfy, efy, main )
@@ -13778,7 +13656,7 @@ class MonthlyOutlays( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class NationalPrograms( DataUnit ):
+class NationalPrograms( ):
     '''
     Constructor:
     NationalProgram( code: str, pvdr = Provider.SQLite )
@@ -13943,7 +13821,7 @@ class NationalPrograms( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Objectives( DataUnit ):
+class Objectives( ):
     '''
     Constructor:
     Objective( code: str, pvdr: Provider = Provider.SQLite )
@@ -14087,7 +13965,7 @@ class Objectives( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Organizations( DataUnit ):
+class Organizations( ):
     '''
     Constructor:
     Organization( code: str, pvdr: Provider = Provider.SQLite  )
@@ -14208,7 +14086,7 @@ class Organizations( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class OperatingPlans( BudgetUnit ):
+class OperatingPlans( ):
     '''
     Constructor:
     OperatingPlan( bfy, efy, treas, pvdr = Provider.SQLite )
@@ -14649,7 +14527,7 @@ class OperatingPlans( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class OpenCommitments( BudgetUnit ):
+class OpenCommitments( ):
     '''
     Constructor:
     OpenCommitment( bfy: str, efy: str, fund: str,
@@ -15320,7 +15198,7 @@ class OpenCommitments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Obligations( BudgetUnit ):
+class Obligations( ):
     '''
     Constructor:  Obligation( bfy: str, efy: str, fund: str,
                   account: str, boc: str, pvdr: Provider = Provider.SQLite )
@@ -15985,7 +15863,7 @@ class Obligations( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class PublicLaws( DataUnit ):
+class PublicLaws( ):
     '''
     Constructor: PublicLaw( bfy: str, efy: str,
                   number: str, pvdr: Provider = Provider.SQLite  )
@@ -16068,7 +15946,7 @@ class PublicLaws( DataUnit ):
                           'Congress',
                           'BFY' ]
 
-class Projects( DataUnit ):
+class Projects( ):
     '''
     Constructor:  Project( code: str, pvdr: Provider = Provider.SQLite )
 
@@ -16194,7 +16072,7 @@ class Projects( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramAreas( DataUnit ):
+class ProgramAreas( ):
     '''
     Constructor:   ProgramArea( code: str, pvdr: Provider = Provider.SQLite  )
 
@@ -16322,7 +16200,7 @@ class ProgramAreas( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramProjects( DataUnit ):
+class ProgramProjects( ):
     '''
     Constructor:  ProgramProject( code: str, pvdr: Provider = Provider.SQLite )
 
@@ -16459,7 +16337,7 @@ class ProgramProjects( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramResultsCodes( BudgetUnit ):
+class ProgramResultsCodes( ):
     '''
     Constructor:   ProgramResultsCode( bfy: str = None, efy: str = None, fund: str = None,
                   rpio: str = None, ah: str = None, account: str = None, boc: str = None,
@@ -16993,7 +16871,7 @@ class ProgramResultsCodes( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ReportingLines( DataUnit ):
+class ReportingLines( ):
 	'''
 	Constructor:
 	ReportingLines( bfy: str, code: str )
@@ -17009,7 +16887,7 @@ class ReportingLines( DataUnit ):
 		self.__bfy = bfy
 		self.__code = code
 
-class ResponsibilityCenters( DataUnit ):
+class ResponsibilityCenters( ):
     '''
     Constructor:
     ResponsibilityCenter( code: str, pvdr: Provider = Provider.SQLite  )
@@ -17152,7 +17030,7 @@ class ResponsibilityCenters( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ResourcePlanningOffices( DataUnit ):
+class ResourcePlanningOffices( ):
     '''
     Constuctor:
     ResourcePlanningOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -17294,7 +17172,7 @@ class ResourcePlanningOffices( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class RegionalOffices( DataUnit ):
+class RegionalOffices( ):
     '''
     Constructor:
     RegionalOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -17410,7 +17288,7 @@ class RegionalOffices( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ReimbursableAgreements( DataUnit ):
+class ReimbursableAgreements( ):
     '''
     Constructor:
     ReimbursableAgreement( number: str, pvdr: Provider = Provider.SQLite  )
@@ -17706,7 +17584,7 @@ class ReimbursableAgreements( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class RegionalAuthority( BudgetUnit ):
+class RegionalAuthority( ):
     '''
     Constructor:
     RegionalAuthority( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -18245,7 +18123,7 @@ class RegionalAuthority( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfFunds( BudgetUnit ):
+class StatusOfFunds( ):
     '''
     Constructor:
     StatusOfFunds( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -18794,7 +18672,7 @@ class StatusOfFunds( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfBudgetaryResources( BudgetUnit ):
+class StatusOfBudgetaryResources( ):
     '''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -19047,7 +18925,7 @@ class StatusOfBudgetaryResources( BudgetUnit ):
         self.__source = Source.StatusOfBudgetaryResources
         self.__treasuryaccountcode = tsym
 
-class StatusOfBudgetExecution( BudgetUnit ):
+class StatusOfBudgetExecution( ):
     '''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -19199,7 +19077,7 @@ class StatusOfBudgetExecution( BudgetUnit ):
         self.__source = Source.StatusOfBudgetExecution
         self.__treasuryaccountcode = tsym
 
-class StatusOfSupplementalFunding( BudgetUnit ):
+class StatusOfSupplementalFunding( ):
     '''
     Constructor:
     StatusOfFunds( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -19742,7 +19620,7 @@ class StatusOfSupplementalFunding( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StateGrantObligations( BudgetUnit ):
+class StateGrantObligations( ):
     '''
     Constructor:
     StateGrantObligation( bfy: str, rpio: str, pvdr: Provider = Provider.SQLite )
@@ -20103,7 +19981,7 @@ class StateGrantObligations( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfSpecialAccountFunds( BudgetUnit ):
+class StatusOfSpecialAccountFunds( ):
     '''
      Constructor:
      StatusOfSpecialAccountFunds( bfy = None, fund = None,
@@ -20518,7 +20396,7 @@ class StatusOfSpecialAccountFunds( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SubAppropriations( DataUnit ):
+class SubAppropriations( ):
     '''
     Constructor:
     SubAppropriation( bfy: str, efy: str, code: str, pvdr: Provider = Provider.SQLite )
@@ -20674,7 +20552,7 @@ class SubAppropriations( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StateOrganizations( DataUnit ):
+class StateOrganizations( ):
     '''
     Constructor:
     StateOrganization( code: str, pvdr: Provider = Provider.SQLite )
@@ -20810,7 +20688,7 @@ class StateOrganizations( DataUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfAppropriations( BudgetUnit ):
+class StatusOfAppropriations( ):
     '''
     Constructor:
     StatusOfAppropriations( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -21589,7 +21467,7 @@ class StatusOfAppropriations( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SpendingRates( BudgetUnit ):
+class SpendingRates( ):
     '''
     Constructor:
     SpendingRate( accountcode: str, pvdr: Provider = Provider.SQLite )
@@ -22015,7 +21893,7 @@ class SpendingRates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfSupplementalFunds( BudgetUnit ):
+class StatusOfSupplementalFunds( ):
     '''
     Constructor:
     StatusOfSupplementalFunds( bfy, efy, fund, pvdr = Provider.SQLite )
@@ -22519,7 +22397,7 @@ class StatusOfSupplementalFunds( BudgetUnit ):
                            'NpmCode',
                            'NpmName' ]
 
-class StatusOfJobsActFunding( BudgetUnit ):
+class StatusOfJobsActFunding( ):
     '''
     Constructor:
     StatusOfJobsActFunding(  bfy: str, efy: str,
@@ -23026,7 +22904,7 @@ class StatusOfJobsActFunding( BudgetUnit ):
                            'Used',
                            'Available' ]
 
-class StatusOfEarmarks( BudgetUnit ):
+class StatusOfEarmarks( ):
     '''
     Constructor:
     StatusOfEarmarks(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -23554,7 +23432,7 @@ class StatusOfEarmarks( BudgetUnit ):
                            'Used',
                            'Available' ]
 
-class StatusOfSuperfundSites( BudgetUnit ):
+class StatusOfSuperfundSites( ):
     '''
     Constructor:
     StatusOfSuperfundSites(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -23804,7 +23682,7 @@ class StatusOfSuperfundSites( BudgetUnit ):
         self.__source = Source.StatusOfSuperfundSites
         self.__bfy = bfy
         self.__efy = efy
-        self.__rpiocode = rpio
+        self.__rpiocode = super( ).code
         self.__fields = [ 'SiteActivityId',
                            'FiscalYear',
                            'BFY',
@@ -23879,7 +23757,7 @@ class StatusOfSuperfundSites( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SpendingDocuments( BudgetUnit ):
+class SpendingDocuments( ):
     '''
     Constructor:
     SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
@@ -24562,7 +24440,7 @@ class SpendingDocuments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SupplementalCarryoverEstimates( BudgetUnit ):
+class SupplementalCarryoverEstimates( ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -24865,7 +24743,7 @@ class SupplementalCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SupplementalObligationEstimates( BudgetUnit ):
+class SupplementalObligationEstimates( ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -25136,7 +25014,7 @@ class SupplementalObligationEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class TreasurySymbols( BudgetUnit ):
+class TreasurySymbols( ):
     '''
     Constructor:
     TreasurySymbol( bfy: str, efy: str, treas: str, pvdr: Provider = Provider.SQLite)
@@ -25325,7 +25203,7 @@ class TreasurySymbols( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Transfers( BudgetUnit ):
+class Transfers( ):
     '''
      Constructor:
      Transfer( documentnumber: str, pvdr = Provider.SQLite )
@@ -25749,7 +25627,7 @@ class Transfers( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class TransTypes( DataUnit ):
+class TransTypes( ):
     '''
     Constructor:
     TransType( bfy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -25863,7 +25741,7 @@ class TransTypes( DataUnit ):
                           'SequesterReduction',
                           'SequesterReturn' ]
 
-class UnliquidatedObligations( BudgetUnit ):
+class UnliquidatedObligations( ):
     '''
     Constructor:
     UnliquidatedObligation( bfy: str, fund: str, account: str, boc: str, pvdr = Provider.SQLite )
