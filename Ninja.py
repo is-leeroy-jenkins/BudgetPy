@@ -194,7 +194,7 @@ class BudgetUnit( DataUnit ):
         self.__budgetaccountcode = omb
         self.__budgetaccountname = super( ).name
 
-class Accounts( ):
+class Accounts( DataUnit ):
     '''
     Constructor:
     Account( treas: str, pvdr: Provider = Provider.SQLite )
@@ -414,7 +414,7 @@ class Accounts( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ActivityCodes( ):
+class ActivityCodes( DataUnit ):
     '''
     Constructor:
     ActivityCode( code: str, provider: Provider = Provider.SQLite )
@@ -559,7 +559,7 @@ class ActivityCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AdjustedTrialBalances( ):
+class AdjustedTrialBalances( DataUnit ):
 	'''
 	Constructor:
 	AdjustedTrialBalances( bfy: str, number: str )
@@ -576,7 +576,7 @@ class AdjustedTrialBalances( ):
 		self.__bfy = bfy
 		self.__number = number
 
-class AllowanceHolders( ):
+class AllowanceHolders( DataUnit ):
     '''
     Constructor:
     AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
@@ -720,7 +720,7 @@ class AllowanceHolders( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AmericanRescuePlanCarryoverEstimates( ):
+class AmericanRescuePlanCarryoverEstimates( BudgetUnit ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
@@ -741,6 +741,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -1541,7 +1542,7 @@ class AnnualReimbursableEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Appropriations( ):
+class Appropriations( DataUnit ):
     '''
     Constructor:
     Appropriation( fund: str, pvdr: Provider = Provider.SQLite )
@@ -1675,7 +1676,7 @@ class Appropriations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AppropriationAvailableBalances( ):
+class AppropriationAvailableBalances( BudgetUnit ):
     '''
     Constructor:
     AppropriationAvailableBalance( bfy: str, efy: str, fund: str )
@@ -1690,10 +1691,11 @@ class AppropriationAvailableBalances( ):
     __efy = None
     __fundcode = None
     __fundname = None
-    __budgetaccountcode = None
-    __budgetaccountname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __authority = None
     __budgeted = None
     __carryover = None
@@ -1756,9 +1758,18 @@ class AppropriationAvailableBalances( ):
             self.__fundname = name
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -1768,8 +1779,7 @@ class AppropriationAvailableBalances( ):
 
     @property
     def treasury_account_name( self ) -> str:
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -1958,7 +1968,7 @@ class AppropriationAvailableBalances( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AppropriationLevelAuthority( ):
+class AppropriationLevelAuthority( BudgetUnit ):
     '''
     Constructor:
     AppropriationLevelAuthority( bfy: str, efy: str, fund: str )
@@ -1973,12 +1983,13 @@ class AppropriationLevelAuthority( ):
     __efy = None
     __fundcode = None
     __fundname = None
-    __treasuryaccountcode = None
     __budgeted = None
     __carryover = None
     __reimbursements = None
     __authority = None
     __recoveries = None
+    __mainaccount = None
+    __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
     __budgetaccountname = None
@@ -2037,9 +2048,18 @@ class AppropriationLevelAuthority( ):
             self.__fundname = name
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -2049,8 +2069,7 @@ class AppropriationLevelAuthority( ):
 
     @property
     def treasury_account_name( self ) -> str:
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -2207,7 +2226,7 @@ class AppropriationLevelAuthority( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Allocations( ):
+class Allocations( BudgetUnit ):
     '''
     Constructor:
     Allocation( bfy = None, fund = None, pvdr: Provider = Provider.SQLite )
@@ -2245,6 +2264,11 @@ class Allocations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -2610,7 +2634,7 @@ class Allocations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ApportionmentData( ):
+class ApportionmentData( BudgetUnit ):
     '''
     Constructor:
     ApportionmentData( bfy: str, efy: str, main: str,
@@ -2892,7 +2916,7 @@ class ApportionmentData( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Actuals( ):
+class Actuals( BudgetUnit ):
     '''
     Constructor:
     Actual( bfy, fund, pvdr = Provider.SQLite  )
@@ -2933,6 +2957,7 @@ class Actuals( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -3232,6 +3257,16 @@ class Actuals( ):
             self.__npmname = value
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -3466,6 +3501,7 @@ class AppropriationDocuments( BudgetUnit ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -3735,6 +3771,16 @@ class AppropriationDocuments( BudgetUnit ):
             self.__estimatedrecoveries = value
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -3871,7 +3917,7 @@ class AppropriationDocuments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetDocuments( ):
+class BudgetDocuments( BudgetUnit ):
     '''
     Constructor:
     BudgetDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -3920,6 +3966,11 @@ class BudgetDocuments( ):
     __carryoverin = None
     __estimatedreimbursements = None
     __estimatedrecoveries = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -4313,6 +4364,56 @@ class BudgetDocuments( ):
     def estimated_recoveries( self, value: str ):
         if value is not None:
             self.__estimatedrecoveries = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     @property
     def fields( self ) -> list[ str ]:
@@ -6350,7 +6451,7 @@ class CongressionalProjects( ):
 		self.__rpiocode = rpio
 		self.__ahcode = ahcode
 
-class CompassLevels( ):
+class CompassLevels( BudgetUnit ):
     '''
     Constructor:
     CompassLevel( bfy: str, efy: str,
@@ -6406,6 +6507,11 @@ class CompassLevels( ):
     __actualrecoveries = None
     __actualreimbursements = None
     __agreementreimbursables = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -6489,6 +6595,56 @@ class CompassLevels( ):
     def sub_appropriation_code( self, value: str ):
         if value is not None:
             self.__subappropriationcode = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     @property
     def fields( self ) -> list[ str ]:
@@ -6608,7 +6764,7 @@ class CompassLevels( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Commitments( ):
+class Commitments( BudgetUnit ):
     '''
     Constructor:
     Commitment( bfy: str = None, fund: str = None,
@@ -6658,6 +6814,11 @@ class Commitments( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -7043,6 +7204,56 @@ class Commitments( ):
             self.__npmname = value
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
     def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
@@ -7154,7 +7365,7 @@ class Commitments( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class CostAreas( ):
+class CostAreas( DataUnit ):
     '''
     Constructor:
     CostArea( fund, pvdr = Provider.SQLite )
@@ -7194,7 +7405,7 @@ class CostAreas( ):
                           'Code',
                           'Name' ]
 
-class CapitalPlanningInvestmentCodes( ):
+class CapitalPlanningInvestmentCodes( DataUnit ):
     '''
     Constructor:
     CapitalPlanningInvestmentCodes( treas, pvdr = Provider.SQLite  )
@@ -7336,7 +7547,7 @@ class CapitalPlanningInvestmentCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ColumnSchema( ):
+class ColumnSchema( Unit ):
     '''
     Constructor:
     ColumnSchema( column, table_name, pvdr = Provider.SQLite )
@@ -7411,7 +7622,7 @@ class ColumnSchema( ):
         self.__columnname = column
         self.__tablename = table
 
-class DataRuleDescriptions( ):
+class DataRuleDescriptions( Unit ):
     '''
     Constructor:
     DataRuleDescription( schedule, line, rule, pvdr = Provider.SQLite )
@@ -7566,7 +7777,7 @@ class DataRuleDescriptions( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Defactos( ):
+class Defactos( BudgetUnit ):
     '''
     Constructor:
     Defacto(  bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -7612,6 +7823,11 @@ class Defactos( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -7967,6 +8183,56 @@ class Defactos( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
     def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
@@ -8069,7 +8335,7 @@ class Defactos( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Deobligations( ):
+class Deobligations( BudgetUnit ):
     '''
     Constructor:
     Deobligation( bfy, fund, account, boc, pvdr = Provider.SQLite )
@@ -8118,6 +8384,11 @@ class Deobligations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -8503,6 +8774,56 @@ class Deobligations( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
+
+    @property
     def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
@@ -8600,7 +8921,7 @@ class Deobligations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class DocumentControlNumbers( ):
+class DocumentControlNumbers( DataUnit ):
     '''
     Constructor:
     DocumentControlNumber( dcn, pvdr = Provider.SQLite )
@@ -8766,7 +9087,7 @@ class DocumentControlNumbers( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Expenditures( ):
+class Expenditures( BudgetUnit ):
     '''
     Constructor:
     Expenditure( bfy: str, fund: str, account: str,
@@ -8816,6 +9137,7 @@ class Expenditures( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -9205,6 +9527,16 @@ class Expenditures( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -9355,7 +9687,7 @@ class Expenditures( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FinanceObjectClasses( ):
+class FinanceObjectClasses( DataUnit ):
     '''
     Constructor:
     FinanceObjectClass( code: str, pvdr: Provider = Provider.SQLite )
@@ -9520,7 +9852,7 @@ class FinanceObjectClasses( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Funds( ):
+class Funds( BudgetUnit ):
     '''
     Constructor:
     Fund( bfy: str, efy: str,
@@ -9557,6 +9889,7 @@ class Funds( ):
     __batsenddate = None
     __batsoptionid = None
     __securityorg = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -9807,6 +10140,16 @@ class Funds( ):
             self.__securityorg = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -9840,6 +10183,11 @@ class Funds( ):
     def budget_account_name( self ) -> str:
         if self.__budgetaccountname is not None:
             return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     @budget_account_name.setter
     def budget_account_name( self, value: str ):
@@ -9977,7 +10325,7 @@ class Funds( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FederalHolidays( ):
+class FederalHolidays( DataUnit ):
     '''
     Constructor:
     FederalHoliday( bfy: str, efy: str,
@@ -10524,7 +10872,7 @@ class FederalHolidays( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class FullTimeEquivalents( ):
+class FullTimeEquivalents( BudgetUnit ):
     '''
     Constructor: FullTimeEquivalent( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
@@ -10560,6 +10908,7 @@ class FullTimeEquivalents( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -10839,6 +11188,16 @@ class FullTimeEquivalents( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -10985,7 +11344,7 @@ class FullTimeEquivalents( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class GeneralLedgerAccounts( ):
+class GeneralLedgerAccounts( DatUnit ):
     '''
     Constructor:
     GeneralLedgerAccount( bfy: str, number: str,
@@ -11114,7 +11473,7 @@ class GeneralLedgerAccounts( ):
                           'DebitBalance',
                           'ClosingAmount' ]
 
-class Goals( ):
+class Goals( DataUnit ):
     '''
     Constructor:
     Goal( code: str, pvdr: Provider = Provider.SQLite )
@@ -11237,7 +11596,7 @@ class Goals( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class HeadquartersAuthority( ):
+class HeadquartersAuthority( BudgetUnit ):
     '''
     Constructor:
     HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )
@@ -11275,6 +11634,7 @@ class HeadquartersAuthority( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -11554,6 +11914,16 @@ class HeadquartersAuthority( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -11689,7 +12059,7 @@ class HeadquartersAuthority( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class HeadquartersOffices( ):
+class HeadquartersOffices( DataUnit ):
     '''
     Constructor:
     HeadquartersOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -11827,7 +12197,7 @@ class HeadquartersOffices( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class InflationReductionActCarryoverEstimates( ):
+class InflationReductionActCarryoverEstimates( BudgetUnit ):
     '''
     Constructor:
     InflationReductionActCarryoverEstimate( bfy: str,
@@ -11849,6 +12219,7 @@ class InflationReductionActCarryoverEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -11968,9 +12339,18 @@ class InflationReductionActCarryoverEstimates( ):
             self.__obligations = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
-        if isinstance( self.__treasuryaccountcode, str ) \
-                and self.__treasuryaccountcode != '':
+        if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
@@ -11980,8 +12360,7 @@ class InflationReductionActCarryoverEstimates( ):
 
     @property
     def treasury_account_name( self ) -> str:
-        if isinstance( self.__treasuryaccountname, str ) \
-                and self.__treasuryaccountname != '':
+        if self.__treasuryaccountname is not None:
             return self.__treasuryaccountname
 
     @treasury_account_name.setter
@@ -12123,7 +12502,7 @@ class InflationReductionActCarryoverEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class JobsActCarryoverEstimates( ):
+class JobsActCarryoverEstimates( BudgetUnit ):
     '''
     Constructor:
     JobsActCarryoverEstimate( bfy )
@@ -12143,6 +12522,7 @@ class JobsActCarryoverEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -12260,6 +12640,16 @@ class JobsActCarryoverEstimates( ):
     def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
+
+    @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -12495,7 +12885,7 @@ class MainAccounts( DataUnit ):
     def __init__( self, code: str ):
         self.__code = code
 
-class MonthlyActuals( ):
+class MonthlyActuals( BudgetUnit ):
     '''
     Constructor:
     Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
@@ -12528,6 +12918,7 @@ class MonthlyActuals( ):
     __netoutlays = None
     __grossoutlays = None
     __obligations = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -12727,6 +13118,16 @@ class MonthlyActuals( ):
             self.__programprojectname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -12866,7 +13267,7 @@ class MonthlyActuals( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class MonthlyOutlays( ):
+class MonthlyOutlays( BudgetUnit ):
     '''
     Constructor:
     MonthlyOutlay( bfy, efy, main )
@@ -12897,6 +13298,7 @@ class MonthlyOutlays( ):
     __october = None
     __november = None
     __december = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -13106,6 +13508,16 @@ class MonthlyOutlays( ):
             self.__december = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -13247,7 +13659,7 @@ class MonthlyOutlays( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class NationalPrograms( ):
+class NationalPrograms( DataUnit ):
     '''
     Constructor:
     NationalProgram( code: str, pvdr = Provider.SQLite )
@@ -13412,7 +13824,7 @@ class NationalPrograms( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Objectives( ):
+class Objectives( DataUnit ):
     '''
     Constructor:
     Objective( code: str, pvdr: Provider = Provider.SQLite )
@@ -13556,7 +13968,7 @@ class Objectives( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Organizations( ):
+class Organizations( DataUnit ):
     '''
     Constructor:
     Organization( code: str, pvdr: Provider = Provider.SQLite  )
@@ -13714,6 +14126,7 @@ class OperatingPlans( BudgetUnit ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -14003,6 +14416,16 @@ class OperatingPlans( BudgetUnit ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -14158,6 +14581,7 @@ class OpenCommitments( BudgetUnit ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -14627,6 +15051,16 @@ class OpenCommitments( BudgetUnit ):
             self.__focname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -14767,7 +15201,7 @@ class OpenCommitments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Obligations( ):
+class Obligations( BudgetUnit ):
     '''
     Constructor:  Obligation( bfy: str, efy: str, fund: str,
                   account: str, boc: str, pvdr: Provider = Provider.SQLite )
@@ -14813,6 +15247,7 @@ class Obligations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -15282,6 +15717,16 @@ class Obligations( ):
             self.__focname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -15421,7 +15866,7 @@ class Obligations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class PublicLaws( ):
+class PublicLaws( DataUnit ):
     '''
     Constructor: PublicLaw( bfy: str, efy: str,
                   number: str, pvdr: Provider = Provider.SQLite  )
@@ -15504,7 +15949,7 @@ class PublicLaws( ):
                           'Congress',
                           'BFY' ]
 
-class Projects( ):
+class Projects( DataUnit ):
     '''
     Constructor:  Project( code: str, pvdr: Provider = Provider.SQLite )
 
@@ -15630,7 +16075,7 @@ class Projects( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramAreas( ):
+class ProgramAreas( DataUnit ):
     '''
     Constructor:   ProgramArea( code: str, pvdr: Provider = Provider.SQLite  )
 
@@ -15758,7 +16203,7 @@ class ProgramAreas( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramProjects( ):
+class ProgramProjects( DataUnit ):
     '''
     Constructor:  ProgramProject( code: str, pvdr: Provider = Provider.SQLite )
 
@@ -15895,7 +16340,7 @@ class ProgramProjects( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ProgramResultsCodes( ):
+class ProgramResultsCodes( BudgetUnit ):
     '''
     Constructor:   ProgramResultsCode( bfy: str = None, efy: str = None, fund: str = None,
                   rpio: str = None, ah: str = None, account: str = None, boc: str = None,
@@ -16429,7 +16874,7 @@ class ProgramResultsCodes( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ReportingLines( ):
+class ReportingLines( DataUnit ):
 	'''
 	Constructor:
 	ReportingLines( bfy: str, code: str )
@@ -16445,7 +16890,7 @@ class ReportingLines( ):
 		self.__bfy = bfy
 		self.__code = code
 
-class ResponsibilityCenters( ):
+class ResponsibilityCenters( DataUnit ):
     '''
     Constructor:
     ResponsibilityCenter( code: str, pvdr: Provider = Provider.SQLite  )
@@ -16588,7 +17033,7 @@ class ResponsibilityCenters( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ResourcePlanningOffices( ):
+class ResourcePlanningOffices( DataUnit ):
     '''
     Constuctor:
     ResourcePlanningOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -16730,7 +17175,7 @@ class ResourcePlanningOffices( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class RegionalOffices( ):
+class RegionalOffices( DataUnit ):
     '''
     Constructor:
     RegionalOffice( code: str, pvdr: Provider = Provider.SQLite )
@@ -16846,7 +17291,7 @@ class RegionalOffices( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ReimbursableAgreements( ):
+class ReimbursableAgreements( DataUnit ):
     '''
     Constructor:
     ReimbursableAgreement( number: str, pvdr: Provider = Provider.SQLite  )
@@ -17726,6 +18171,7 @@ class StatusOfFunds( BudgetUnit ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -18083,6 +18529,16 @@ class StatusOfFunds( BudgetUnit ):
     def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
+
+    @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -19167,7 +19623,7 @@ class StatusOfSupplementalFunding( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StateGrantObligations( ):
+class StateGrantObligations( BudgetUnit ):
     '''
     Constructor:
     StateGrantObligation( bfy: str, rpio: str, pvdr: Provider = Provider.SQLite )
@@ -19196,6 +19652,7 @@ class StateGrantObligations( ):
     __statecode = None
     __statename = None
     __amount = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -19393,6 +19850,16 @@ class StateGrantObligations( ):
     def amount( self, value: float ):
         if value is not None:
             self.__amount = value
+
+    @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -19932,7 +20399,7 @@ class StatusOfSpecialAccountFunds( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SubAppropriations( ):
+class SubAppropriations( DataUnit ):
     '''
     Constructor:
     SubAppropriation( bfy: str, efy: str, code: str, pvdr: Provider = Provider.SQLite )
@@ -20088,7 +20555,7 @@ class SubAppropriations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StateOrganizations( ):
+class StateOrganizations( DataUnit ):
     '''
     Constructor:
     StateOrganization( code: str, pvdr: Provider = Provider.SQLite )
@@ -20224,7 +20691,7 @@ class StateOrganizations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfAppropriations( ):
+class StatusOfAppropriations( BudgetUnit ):
     '''
     Constructor:
     StatusOfAppropriations( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -20288,6 +20755,7 @@ class StatusOfAppropriations( ):
     __voidedamount = None
     __totalusedamount = None
     __availableamount = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -20827,6 +21295,16 @@ class StatusOfAppropriations( ):
             self.__availableamount = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -20992,7 +21470,7 @@ class StatusOfAppropriations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SpendingRates( ):
+class SpendingRates( BudgetUnit ):
     '''
     Constructor:
     SpendingRate( accountcode: str, pvdr: Provider = Provider.SQLite )
@@ -21005,6 +21483,7 @@ class SpendingRates( ):
     __spendingratesid = None
     __ombagencycode = None
     __ombagencyname = None
+    __mainaccount = None
     __treasuryagencycode = None
     __treasuryagencyname = None
     __treasuryaccountcode = None
@@ -21067,26 +21546,6 @@ class SpendingRates( ):
             self.__treasuryagencyname = value
 
     @property
-    def treasury_account_code( self ) -> str:
-        if self.__treasuryaccountcode is not None:
-            return self.__treasuryaccountcode
-
-    @treasury_account_code.setter
-    def treasury_account_code( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountcode = value
-
-    @property
-    def treasury_account_name( self ) -> str:
-        if self.__treasuryaccountname is not None:
-            return self.__treasuryaccountname
-
-    @treasury_account_name.setter
-    def treasury_account_name( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountname = value
-
-    @property
     def omb_agency_code( self ) -> str:
         if self.__ombagencycode is not None:
             return self.__ombagencycode
@@ -21105,6 +21564,36 @@ class SpendingRates( ):
     def omb_agency_name( self, value: str ):
         if value is not None:
             self.__ombagencyname = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
 
     @property
     def budget_account_code( self ) -> str:
@@ -21407,7 +21896,7 @@ class SpendingRates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfSupplementalFunds( ):
+class StatusOfSupplementalFunds( BudgetUnit ):
     '''
     Constructor:
     StatusOfSupplementalFunds( bfy, efy, fund, pvdr = Provider.SQLite )
@@ -21451,6 +21940,7 @@ class StatusOfSupplementalFunds( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -21810,6 +22300,16 @@ class StatusOfSupplementalFunds( ):
             self.__npmname = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -21900,7 +22400,7 @@ class StatusOfSupplementalFunds( ):
                            'NpmCode',
                            'NpmName' ]
 
-class StatusOfJobsActFunding( ):
+class StatusOfJobsActFunding( BudgetUnit ):
     '''
     Constructor:
     StatusOfJobsActFunding(  bfy: str, efy: str,
@@ -21947,6 +22447,7 @@ class StatusOfJobsActFunding( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -22304,6 +22805,16 @@ class StatusOfJobsActFunding( ):
     def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
+
+    @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -23249,7 +23760,7 @@ class StatusOfSuperfundSites( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SpendingDocuments( ):
+class SpendingDocuments( BudgetUnit ):
     '''
     Constructor:
     SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
@@ -23301,6 +23812,7 @@ class SpendingDocuments( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -23770,6 +24282,16 @@ class SpendingDocuments( ):
             self.__focname = value
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -23921,7 +24443,7 @@ class SpendingDocuments( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SupplementalCarryoverEstimates( ):
+class SupplementalCarryoverEstimates( BudgetUnit ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -23942,6 +24464,7 @@ class SupplementalCarryoverEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -24061,6 +24584,16 @@ class SupplementalCarryoverEstimates( ):
             self.__obligations = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -24213,7 +24746,7 @@ class SupplementalCarryoverEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SupplementalObligationEstimates( ):
+class SupplementalObligationEstimates( BudgetUnit ):
     '''
     Constructor:
     CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -24231,6 +24764,7 @@ class SupplementalObligationEstimates( ):
     __fundcode = None
     __fundname = None
     __amount = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -24320,6 +24854,16 @@ class SupplementalObligationEstimates( ):
             self.__amount = value
 
     @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -24473,7 +25017,7 @@ class SupplementalObligationEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class TreasurySymbols( ):
+class TreasurySymbols( BudgetUnit ):
     '''
     Constructor:
     TreasurySymbol( bfy: str, efy: str, treas: str, pvdr: Provider = Provider.SQLite)
@@ -24488,6 +25032,7 @@ class TreasurySymbols( ):
     __treasuryagencycode = None
     __bfy = None
     __efy = None
+    __mainaccount = None
     __budgetaccountcode = None
     __budgetaccountname = None
     __treasuryaccountcode = None
@@ -24525,6 +25070,16 @@ class TreasurySymbols( ):
     def efy( self, value: str ):
         if value is not None:
             self.__efy = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -25096,7 +25651,7 @@ class Transfers( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class TransTypes( ):
+class TransTypes( DataUnit ):
     '''
     Constructor:
     TransType( bfy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -25210,7 +25765,7 @@ class TransTypes( ):
                           'SequesterReduction',
                           'SequesterReturn' ]
 
-class UnliquidatedObligations( ):
+class UnliquidatedObligations( BudgetUnit ):
     '''
     Constructor:
     UnliquidatedObligation( bfy: str, fund: str, account: str, boc: str, pvdr = Provider.SQLite )
@@ -25259,6 +25814,7 @@ class UnliquidatedObligations( ):
     __objectivename = None
     __npmcode = None
     __npmname = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -25646,6 +26202,16 @@ class UnliquidatedObligations( ):
     def npm_name( self, value: str ):
         if value is not None:
             self.__npmname = value
+
+    @property
+    def main_account( self ):
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
