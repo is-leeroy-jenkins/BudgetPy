@@ -25325,7 +25325,7 @@ class TreasurySymbols( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Transfers( ):
+class Transfers( BudgetUnit ):
     '''
      Constructor:
      Transfer( documentnumber: str, pvdr = Provider.SQLite )
@@ -25339,27 +25339,26 @@ class Transfers( ):
     __documenttype = None
     __documentnumber = None
     __processeddate = None
-    __budgetlevel = None
-    __rpiocode = None
-    __rpioname = None
     __bfy = None
     __efy = None
-    __ahcode = None
-    __ahname = None
     __fundcode = None
     __fundname = None
+    __rpiocode = None
+    __rpioname = None
+    __ahcode = None
+    __ahname = None
     __orgcode = None
     __orgname = None
     __accountcode = None
-    __rccode = None
-    __rcname = None
-    __boccode = None
-    __bocname = None
-    __amount = None
     __programprojectcode = None
     __programprojectname = None
     __programareacode = None
     __programareaname = None
+    __fromto = None
+    __boccode = None
+    __bocname = None
+    __amount = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -25398,61 +25397,6 @@ class Transfers( ):
         if value is not None:
             self.__efy = value
 
-    @property
-    def budget_level( self ) -> str:
-        if self.__budgetlevel is not None:
-            return self.__budgetlevel
-
-    @budget_level.setter
-    def budget_level( self, value: str ):
-        if value is not None:
-            self.__budgetlevel = value
-
-    @property
-    def document_type( self ) -> str:
-        if self.__documenttype is not None:
-            return self.__documenttype
-
-    @document_type.setter
-    def document_type( self, value: str ):
-        if value is not None:
-            self.__documenttype = value
-
-    @property
-    def document_number( self ) -> str:
-        if self.__documentnumber is not None:
-            return self.__documentnumber
-
-    @document_number.setter
-    def document_number( self, value: str ):
-        if value is not None:
-            self.__documentnumber = value
-
-    @property
-    def processed_date( self ) -> str:
-        if self.__processeddate is not None:
-            return self.__processeddate
-
-    @processed_date.setter
-    def processed_date( self, value: str ):
-        if value is not None:
-            self.__processeddate = value
-
-    @property
-    def rpio_code( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
-    @rpio_code.setter
-    def rpio_code( self, value: str ):
-        if value is not None:
-            self.__rpiocode = value
-
-    @property
-    def rpio_name( self ) -> str:
-        if self.__rpiocode is not None:
-            return self.__rpiocode
-
     @rpio_name.setter
     def rpio_name( self, name ):
         if  name is not None:
@@ -25479,6 +25423,21 @@ class Transfers( ):
             self.__fundname = value
 
     @property
+    def rpio_code( self ) -> str:
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @rpio_code.setter
+    def rpio_code( self, value: str ):
+        if value is not None:
+            self.__rpiocode = value
+
+    @property
+    def rpio_name( self ) -> str:
+        if self.__rpiocode is not None:
+            return self.__rpiocode
+
+    @property
     def ah_code( self ) -> str:
         if self.__ahcode is not None:
             return self.__ahcode
@@ -25497,6 +25456,26 @@ class Transfers( ):
     def ah_name( self, value: str ):
         if value is not None:
             self.__ahname = value
+
+    @property
+    def org_code( self ) -> str:
+        if self.__orgcode is not None:
+            return self.__orgcode
+
+    @org_code.setter
+    def org_code( self, value: str ):
+        if value is not None:
+            self.__orgcode = value
+
+    @property
+    def org_name( self  ):
+        if self.__orgname is not None:
+            return self.__orgname
+
+    @org_name.setter
+    def org_name( self, value  ):
+        if value is not None:
+            self.__orgname = value
 
     @property
     def account_code( self ) -> str:
@@ -25529,54 +25508,34 @@ class Transfers( ):
             self.__programprojectname = value
 
     @property
-    def activity_code( self ) -> str:
-        if self.__activitycode is not None:
-            return self.__activitycode
+    def program_area_code( self ) -> str:
+        if self.__programareacode is not None:
+            return self.__programareacode
 
-    @activity_code.setter
-    def activity_code( self, value: str ):
+    @program_area_code.setter
+    def program_area_code( self, value: str ):
         if value is not None:
-            self.__activitycode = value
+            self.__programareacode = value
 
     @property
-    def activity_name( self ) -> str:
-        if self.__activityname is not None:
-            return self.__activityname
+    def program_area_name( self ) -> str:
+        if self.__programareaname is not None:
+            return self.__programareaname
 
-    @activity_name.setter
-    def activity_name( self, value: str ):
+    @program_area_name.setter
+    def program_area_name( self, value: str ):
         if value is not None:
-            self.__activityname = value
+            self.__programareaname = value
 
     @property
-    def org_code( self ) -> str:
-        if self.__orgcode is not None:
-            return self.__orgcode
+    def from_to( self ):
+        if self.__fromto is not None:
+            return self.__fromto
 
-    @org_code.setter
-    def org_code( self, value: str ):
+    @from_to.setter
+    def from_to( self, value: str ):
         if value is not None:
-            self.__orgcode = value
-
-    @property
-    def rc_code( self ) -> str:
-        if self.__rccode is not None:
-            return self.__rccode
-
-    @rc_code.setter
-    def rc_code( self, value: str ):
-        if value is not None:
-            self.__rccode = value
-
-    @property
-    def rc_name( self ) -> str:
-        if self.__rcname is not None:
-            return self.__rcname
-
-    @rc_name.setter
-    def rc_name( self, value: str ):
-        if value is not None:
-            self.__rcname = value
+            self.__fromto = value
 
     @property
     def boc_code( self ) -> str:
@@ -25609,24 +25568,44 @@ class Transfers( ):
             self.__amount = value
 
     @property
-    def program_area_code( self ) -> str:
-        if self.__programareacode is not None:
-            return self.__programareacode
+    def processed_date( self ) -> datetime:
+        if self.__processeddate is not None:
+            return self.__processeddate
 
-    @program_area_code.setter
-    def program_area_code( self, value: str ):
+    @processed_date.setter
+    def processed_date( self, value: datetime ):
         if value is not None:
-            self.__programareacode = value
+            self.__processeddate = value
 
     @property
-    def program_area_name( self ) -> str:
-        if self.__programareaname is not None:
-            return self.__programareaname
+    def document_type( self ) -> str:
+        if self.__documenttype is not None:
+            return self.__documenttype
 
-    @program_area_name.setter
-    def program_area_name( self, value: str ):
+    @document_type.setter
+    def document_type( self, value: str ):
         if value is not None:
-            self.__programareaname = value
+            self.__documenttype = value
+
+    @property
+    def document_number( self ) -> str:
+        if self.__documentnumber is not None:
+            return self.__documentnumber
+
+    @document_number.setter
+    def document_number( self, value: str ):
+        if value is not None:
+            self.__documentnumber = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
