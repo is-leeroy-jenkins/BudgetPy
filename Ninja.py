@@ -3477,7 +3477,7 @@ class Actuals( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class ApplicationTables( ):
+class ApplicationTables( DataUnit ):
     '''
     Constructor:
     ApplicationTable( name, pvdr = Provider.SQLite )
@@ -4599,7 +4599,7 @@ class BudgetDocuments( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetContacts( ):
+class BudgetContacts(  ):
     '''
     Constructor:
     BudgetContact( last: str, first: str )
@@ -4765,7 +4765,7 @@ class BudgetContacts( ):
         self.__lastname = last
         self.__first = first
 
-class BudgetControls( ):
+class BudgetControls( Unit ):
     '''
     Constructor:  BudgetControl( fund, pvdr = Provider.SQLite )
 
@@ -5277,7 +5277,7 @@ class BudgetControls( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetFiscalYears( ):
+class BudgetFiscalYears( Unit ):
     '''
     Constructor:
     BudgetFiscalYear( bfy, efy, date = None, pvdr = Provider.SQLite ).
@@ -5564,7 +5564,7 @@ class BudgetFiscalYears( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetObjectClasses( ):
+class BudgetObjectClasses( DataUnit ):
     '''
     Constructor:
     BudgetObjectClass( code, pvdr = Provider.SQLite  ).
@@ -5718,7 +5718,7 @@ class BudgetObjectClasses( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class BudgetaryResourceExecution( ):
+class BudgetaryResourceExecution( BudgetUnit ):
     '''
     Constructor:
     BudgetaryResourceExecution( bfy: str, efy: str,
@@ -5734,6 +5734,7 @@ class BudgetaryResourceExecution( ):
     __bfy = None
     __efy = None
     __fundcode = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -5773,6 +5774,16 @@ class BudgetaryResourceExecution( ):
             self.__efy = value
 
     @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
     def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
@@ -5804,7 +5815,7 @@ class BudgetaryResourceExecution( ):
 
     @property
     def budget_account_name( self ) -> str:
-        if  self.__budgetaccountname is not None:
+        if self.__budgetaccountname is not None:
             return self.__budgetaccountname
 
     @budget_account_name.setter
@@ -5914,7 +5925,7 @@ class BudgetaryResourceExecution( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class Outlays( ):
+class Outlays( BudgetUnit ):
     '''
     Constructor:
     Outlay( account: str, pvdr: Provider = Provider.SQLite  )
@@ -5926,6 +5937,9 @@ class Outlays( ):
     __provider = None
     __budgetoutlaysid = None
     __reportyear = None
+    __mainaccount = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
     __budgetaccountcode = None
     __budgetaccountname = None
     __linenumber = None
@@ -6029,6 +6043,36 @@ class Outlays( ):
     def bea_category_name( self, value: str ):
         if value is not None:
             self.__beacategoryname = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
 
     @property
     def budget_account_code( self ) -> str:
