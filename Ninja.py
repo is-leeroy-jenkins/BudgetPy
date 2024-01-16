@@ -1025,7 +1025,7 @@ class AmericanRescuePlanCarryoverEstimates( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AnnualCarryoverEstimates( ):
+class AnnualCarryoverEstimates( BudgetUnit ):
     '''
     Constructor:
     AnnualCarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -1046,6 +1046,7 @@ class AnnualCarryoverEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
@@ -1163,6 +1164,16 @@ class AnnualCarryoverEstimates( ):
     def obligations( self, value: float ):
         if value is not None:
             self.__obligations = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -1321,7 +1332,7 @@ class AnnualCarryoverEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class AnnualReimbursableEstimates( ):
+class AnnualReimbursableEstimates( BudgetUnit ):
     '''
     Constructor:
     AnnualReimbursableEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
@@ -1341,7 +1352,11 @@ class AnnualReimbursableEstimates( ):
     __opencommitments = None
     __obligations = None
     __estimate = None
+    __mainaccount = None
     __treasuryaccountcode = None
+    __treasuryaccountname = None
+    __budgetaccountcode = None
+    __budgetaccountname = None
     __fields = None
     __data = None
     __frame = None
@@ -1455,6 +1470,56 @@ class AnnualReimbursableEstimates( ):
     def table( self, value: DataFrame ):
         if value is not None:
             self.__frame = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
+
+    @property
+    def budget_account_code( self ) -> str:
+        if self.__budgetaccountcode is not None:
+            return self.__budgetaccountcode
+
+    @budget_account_code.setter
+    def budget_account_code( self, value: str ):
+        if value is not None:
+            self.__budgetaccountcode = value
+
+    @property
+    def budget_account_name( self ) -> str:
+        if self.__budgetaccountname is not None:
+            return self.__budgetaccountname
+
+    @budget_account_name.setter
+    def budget_account_name( self, value: str ):
+        if value is not None:
+            self.__budgetaccountname = value
 
     @property
     def fields( self ) -> list[ str ]:
