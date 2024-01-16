@@ -189,8 +189,10 @@ class BudgetUnit( DataUnit ):
 
     def __init__( self, id: int, code: str, name: str, treas: str, omb: str ):
         super( ).__init__( id, code, name )
+        self.__mainaccount = super( ).code
         self.__treasuryaccountcode = treas
         self.__budgetaccountcode = omb
+        self.__budgetaccountname = super( ).name
 
 class Accounts( ):
     '''
@@ -3428,7 +3430,7 @@ class ApplicationTables( ):
         self.__provider = provider
         self.__tablename = name
 
-class AppropriationDocuments( ):
+class AppropriationDocuments( BudgetUnit ):
     '''
     Constructor:
     AppropriationDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -12413,7 +12415,7 @@ class JobsActCarryoverEstimates( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class MainAccounts( ):
+class MainAccounts( DataUnit ):
     '''
 	Constructor:
 	MainAccounts( bfy: str, code: str )
@@ -13675,7 +13677,7 @@ class Organizations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class OperatingPlans( ):
+class OperatingPlans( BudgetUnit ):
     '''
     Constructor:
     OperatingPlan( bfy, efy, treas, pvdr = Provider.SQLite )
@@ -14105,7 +14107,7 @@ class OperatingPlans( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class OpenCommitments( ):
+class OpenCommitments( BudgetUnit ):
     '''
     Constructor:
     OpenCommitment( bfy: str, efy: str, fund: str,
@@ -17140,7 +17142,7 @@ class ReimbursableAgreements( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class RegionalAuthority( ):
+class RegionalAuthority( BudgetUnit ):
     '''
     Constructor:
     RegionalAuthority( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -17679,7 +17681,7 @@ class RegionalAuthority( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfFunds( ):
+class StatusOfFunds( BudgetUnit ):
     '''
     Constructor:
     StatusOfFunds( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -18217,7 +18219,7 @@ class StatusOfFunds( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfBudgetaryResources( ):
+class StatusOfBudgetaryResources( BudgetUnit ):
     '''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -18470,7 +18472,7 @@ class StatusOfBudgetaryResources( ):
         self.__source = Source.StatusOfBudgetaryResources
         self.__treasuryaccountcode = tsym
 
-class StatusOfBudgetExecution( ):
+class StatusOfBudgetExecution( BudgetUnit ):
     '''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -18622,7 +18624,7 @@ class StatusOfBudgetExecution( ):
         self.__source = Source.StatusOfBudgetExecution
         self.__treasuryaccountcode = tsym
 
-class StatusOfSupplementalFunding( ):
+class StatusOfSupplementalFunding( BudgetUnit ):
     '''
     Constructor:
     StatusOfFunds( bfy: str, efy: str, fund: str, pvdr: Provider = Provider.SQLite )
@@ -19515,7 +19517,7 @@ class StateGrantObligations( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class StatusOfSpecialAccountFunds( ):
+class StatusOfSpecialAccountFunds( BudgetUnit ):
     '''
      Constructor:
      StatusOfSpecialAccountFunds( bfy = None, fund = None,
@@ -22394,7 +22396,7 @@ class StatusOfJobsActFunding( ):
                            'Used',
                            'Available' ]
 
-class StatusOfEarmarks( ):
+class StatusOfEarmarks( BudgetUnit ):
     '''
     Constructor:
     StatusOfEarmarks(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -22922,7 +22924,7 @@ class StatusOfEarmarks( ):
                            'Used',
                            'Available' ]
 
-class StatusOfSuperfundSites( ):
+class StatusOfSuperfundSites( BudgetUnit ):
     '''
     Constructor:
     StatusOfSuperfundSites(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
