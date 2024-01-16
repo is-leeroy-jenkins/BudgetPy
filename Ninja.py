@@ -131,30 +131,21 @@ class BudgetUnit( DataUnit ):
     Purpose:
     Base class for OMB reporting classes
     '''
-    __treasuryaccountcode = None
-    __treasuryaccountname = None
+    __mainaccount = None
     __budgetaccountcode = None
     __budgetaccountname = None
+    __treasuryaccountcode = None
+    __treasuryaccountname = None
 
     @property
-    def treasury_account_code( self ) -> str:
-        if self.__treasuryaccountcode is not None:
-            return self.__treasuryaccountcode
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
 
-    @treasury_account_code.setter
-    def treasury_account_code( self, value: str ):
+    @main_account.setter
+    def main_account( self, value: str ):
         if value is not None:
-            self.__treasuryaccountcode = value
-
-    @property
-    def treasury_account_name( self ) -> str:
-        if self.__treasuryaccountname is not None:
-            return self.__treasuryaccountname
-
-    @treasury_account_name.setter
-    def treasury_account_name( self, value: str ):
-        if value is not None:
-            self.__treasuryaccountname = value
+            self.__mainaccount = value
 
     @property
     def budget_account_code( self ) -> str:
@@ -175,6 +166,26 @@ class BudgetUnit( DataUnit ):
     def budget_account_name( self, value: str ):
         if value is not None:
             self.__budgetaccountname = value
+
+    @property
+    def treasury_account_code( self ) -> str:
+        if self.__treasuryaccountcode is not None:
+            return self.__treasuryaccountcode
+
+    @treasury_account_code.setter
+    def treasury_account_code( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountcode = value
+
+    @property
+    def treasury_account_name( self ) -> str:
+        if self.__treasuryaccountname is not None:
+            return self.__treasuryaccountname
+
+    @treasury_account_name.setter
+    def treasury_account_name( self, value: str ):
+        if value is not None:
+            self.__treasuryaccountname = value
 
     def __init__( self, id: int, code: str, name: str, treas: str, omb: str ):
         super( ).__init__( id, code, name )
