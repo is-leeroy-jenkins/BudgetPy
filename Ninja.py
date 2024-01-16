@@ -861,12 +861,22 @@ class AmericanRescuePlanCarryoverEstimates( BudgetUnit ):
             self.__obligations = value
 
     @property
-    def treasury_account_code( self ) -> float:
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
+
+    @property
+    def treasury_account_code( self ) -> str:
         if self.__treasuryaccountcode is not None:
             return self.__treasuryaccountcode
 
     @treasury_account_code.setter
-    def treasury_account_code( self, value: float ):
+    def treasury_account_code( self, value: str ):
         if value is not None:
             self.__treasuryaccountcode = value
 
