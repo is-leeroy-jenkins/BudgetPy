@@ -11463,7 +11463,7 @@ class FullTimeEquivalents( BudgetUnit ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class GeneralLedgerAccounts( DatUnit ):
+class GeneralLedgerAccounts( DataUnit ):
     '''
     Constructor:
     GeneralLedgerAccount( bfy: str, number: str,
