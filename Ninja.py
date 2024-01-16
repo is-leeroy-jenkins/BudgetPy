@@ -12422,7 +12422,6 @@ class MainAccounts( ):
 	class models the OMB Budget Account
 	'''
     __mainaccountsid = None
-    __bfy = None
     __code = None
     __subfunctioncode = None
     __subfunctionname = None
@@ -12430,6 +12429,46 @@ class MainAccounts( ):
     __budgetenforcementactcategory = None
     __budgetaccountcode = None
     __budgetaccountname = None
+
+    @property
+    def code( self ):
+        if self.__code is not None:
+            return self.__code
+
+    @code.setter
+    def code( self, value: str ):
+        if value is not None:
+            self.__code = value
+
+    @property
+    def subfunction_code( self ):
+        if self.__subfunctioncode is not None:
+            return self.__subfunctioncode
+
+    @subfunction_code.setter
+    def subfunction_code( self, value: str ):
+        if value is not None:
+            self.__subfunctioncode = value
+
+    @property
+    def subfunction_name( self ):
+        if self.__subfunctionname is not None:
+            return self.__subfunctionname
+
+    @subfunction_name.setter
+    def subfunction_name( self, value: str ):
+        if value is not None:
+            self.__subfunctionname = value
+
+    @property
+    def budget_enforcement_act_category( self ):
+        if self.__budgetenforcementactcategory is not None:
+            return self.__budgetenforcementactcategory
+
+    @budget_enforcement_act_category.setter
+    def budget_enforcment_act_category( self, value: str ):
+        if value is not None:
+            self.__budgetenforcementactcategory = value
 
     @property
     def budget_account_code( self ) -> str:
@@ -12451,8 +12490,7 @@ class MainAccounts( ):
         if value is not None:
             self.__budgetaccountname = value
 
-    def __init__( self, bfy: str, code: str ):
-        self.__bfy = bfy
+    def __init__( self, code: str ):
         self.__code = code
 
 class MonthlyActuals( ):
