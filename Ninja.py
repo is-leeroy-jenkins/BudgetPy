@@ -2609,18 +2609,21 @@ class ApportionmentData( ):
     __source = None
     __provider = None
     __apportionmentdataid = None
+    __fiscalyear = None
     __bfy = None
     __efy = None
+    __mainaccount = None
     __treasuryaccountcode = None
     __treasuryaccountname = None
     __budgetaccountcode = None
     __budgetaccountname = None
     __linenumber = None
-    __linedescription = None
-    __sectionnumber = None
-    __sectiondescription = None
-    __subline = None
+    __linesplit = None
+    __linename = None
+    __approvaldate = None
     __amount = None
+    __fundcode = None
+    __fundname = None
     __fields = None
     __data = None
     __frame = None
@@ -2634,6 +2637,16 @@ class ApportionmentData( ):
     def id( self, value: int ):
         if value is not None:
             self.__apportionmentsid = value
+
+    @property
+    def fiscal_year( self ) -> str:
+        if self.__fiscalyear is not None:
+            return self.__fiscalyear
+
+    @fiscal_year.setter
+    def fiscal_year( self, value: str ):
+        if value is not None:
+            self.__fiscalyear = value
 
     @property
     def bfy( self ) -> str:
@@ -2654,6 +2667,16 @@ class ApportionmentData( ):
     def efy( self, value: str ):
         if value is not None:
             self.__efy = value
+
+    @property
+    def main_account( self ) -> str:
+        if self.__mainaccount is not None:
+            return self.__mainaccount
+
+    @main_account.setter
+    def main_account( self, value: str ):
+        if value is not None:
+            self.__mainaccount = value
 
     @property
     def treasury_account_code( self ) -> str:
@@ -2706,44 +2729,34 @@ class ApportionmentData( ):
             self.__linenumber = value
 
     @property
-    def line_description( self ) -> str:
-        if self.__linedescription is not None:
-            return self.__linedescription
+    def line_split( self ) -> str:
+        if self.__linesplit is not None:
+            return self.__linesplit
 
-    @line_description.setter
-    def line_description( self, value: str ):
+    @line_split.setter
+    def line_split( self, value: str ):
         if value is not None:
-            self.__linedescription = value
+            self.__linesplit = value
 
     @property
-    def section_number( self ) -> str:
-        if self.__sectionnumber is not None:
-            return self.__sectionnumber
+    def line_name( self ) -> str:
+        if self.__linename is not None:
+            return self.__linename
 
-    @section_number.setter
-    def section_number( self, value: str ):
+    @line_name.setter
+    def line_name( self, value: str ):
         if value is not None:
-            self.__sectionnumber = value
+            self.__linename = value
 
     @property
-    def section_description( self ) -> str:
-        if self.__sectiondescription is not None:
-            return self.__sectiondescription
+    def approval_date( self ):
+        if self.__approvaldate is not None:
+            return self.__approvaldate
 
-    @section_description.setter
-    def section_description( self, value: str ):
+    @approval_date.setter
+    def approval_date( self, value: datetime ):
         if value is not None:
-            self.__sectiondescription = value
-
-    @property
-    def subline( self ) -> str:
-        if self.__subline is not None:
-            return self.__subline
-
-    @subline.setter
-    def subline( self, value: str ):
-        if value is not None:
-            self.__subline = value
+            self.__approvaldate = value
 
     @property
     def amount( self ) -> float:
@@ -2756,6 +2769,26 @@ class ApportionmentData( ):
             self.__amount = value
 
     @property
+    def fund_code( self ) -> str:
+        if self.__fundcode is not None:
+            return self.__fundcode
+
+    @fund_code.setter
+    def fund_code( self, value: str  ):
+        if value is not None:
+            self.__fundcode = value
+
+    @property
+    def fund_name( self ) -> str:
+        if self.__fundname is not None:
+            return self.__fundname
+
+    @fund_name.setter
+    def fund_name( self, value: str  ):
+        if value is not None:
+            self.__fundname = value
+
+    @property
     def fields( self ) -> list[ str ]:
         if self.__fields is not None:
             return self.__fields
@@ -2765,34 +2798,31 @@ class ApportionmentData( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, bfy: str, efy: str, main: str,
-                  provider: Provider = Provider.SQLite ):
+    def __init__( self, year: str, bfy: str, efy: str,
+                main: str, provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ApportionmentData
+        self.__fiscalyear = year
         self.__bfy = bfy
         self.__efy = efy
-        self.__budgetaccountcode = main
+        self.__mainaccount = main
         self.__fields = [ 'ApportionmentDataId',
                           'FiscalYear',
                           'BFY',
                           'EFY',
-                          'Availability',
-                          'TreasuryFundCode',
-                          'TreasuryFundName',
-                          'TreasuryAgencyCode',
+                          'AvailabilityType',
+                          'MainAccount',
                           'TreasuryAccountCode',
                           'TreasuryAccountName',
-                          'OmbAgencyCode',
-                          'OmbBureauCode',
-                          'OmbAccountCode',
-                          'OmbAgencyName',
-                          'OmbAccountName',
+                          'BudgetAccountCode',
+                          'BudgetAccountName',
                           'ApprovalDate',
                           'LineNumber',
+                          'LineSplit',
                           'LineName',
                           'Amount',
-                          'Footnote',
-                          'Narrative' ]
+                          'FundCode',
+                          'FundName']
 
     def getdata( self  ) -> list[ Row ]:
         '''
@@ -11194,7 +11224,7 @@ class Goals( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class HeadquartersAuthoritys( ):
+class HeadquartersAuthority( ):
     '''
     Constructor:
     HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )

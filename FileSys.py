@@ -512,7 +512,7 @@ class File( Path ):
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'File'
-			_exc.method = 'rename( self, other )'
+			_exc.method = 'rename( self, other: str )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
