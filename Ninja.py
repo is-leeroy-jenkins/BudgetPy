@@ -354,7 +354,7 @@ class ActivityCodes( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, id: int = None, code: str = None, provider = Provider.SQLite ):
+    def __init__( self, code: str, provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.ActivityCodes
         self.__activitycodesid = id
@@ -440,13 +440,8 @@ class AdjustedTrialBalances( ):
 	__bfy = None
 	__name = None
 
-	def __init__( self, id: int = None, bfy: str = None, number: str = None ):
-        self.__adjustedtrialbalancesid = id
+	def __init__( self, bfy: str, number: str ):
 	    self.__bfy = bfy
-        self.__number = number
-
-    def __dir__( self ) -> list[ str ]:
-        return [ ]
 
 class AllowanceHolders( ):
     '''
@@ -525,11 +520,10 @@ class AllowanceHolders( ):
         if value is not None:
             self.__fields = value
 
-    def __init__( self, id: int = None, code: str = None,
+    def __init__( self, code: str = None,
                   provider: Provider = Provider.SQLite ):
         self.__provider = provider
         self.__source = Source.AllowanceHolders
-        self.__allowanceholdersid = id
         self.__code = code
         self.__fields = [ 'AllowanceHoldersId',
                            'Code',
