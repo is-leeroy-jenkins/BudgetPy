@@ -165,12 +165,12 @@ class Accounts( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -335,12 +335,12 @@ class ActivityCodes( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -626,7 +626,7 @@ class AdjustedTrialBalances( ):
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'bfy', 'efy', 'fundcode' ]
+			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = (self.__code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
@@ -727,12 +727,12 @@ class AllowanceHolders( ):
 			self.__data = cache
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, frame: DataFrame ):
+	@frame.setter
+	def frame( self, frame: DataFrame ):
 		if frame is not None:
 			self.__frame = frame
 
@@ -775,7 +775,7 @@ class AllowanceHolders( ):
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'Code', ]
+			_names = [ 'Id', 'Code', 'Name', ]
 			_values = (self.__code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
@@ -1019,12 +1019,12 @@ class AmericanRescuePlanCarryoverEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -1323,12 +1323,12 @@ class AnnualCarryoverEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -1558,12 +1558,12 @@ class AnnualReimbursableEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -5590,12 +5590,12 @@ class BudgetFiscalYears( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, frame: DataFrame ):
+	@frame.setter
+	def frame( self, frame: DataFrame ):
 		if frame is not None:
 			self.__frame = frame
 
@@ -5776,12 +5776,12 @@ class BudgetObjectClasses( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -7738,12 +7738,12 @@ class CapitalPlanningInvestmentCodes( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -10057,12 +10057,12 @@ class FinanceObjectClasses( ):
 			self.__data = cache
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, frame: DataFrame ):
+	@frame.setter
+	def frame( self, frame: DataFrame ):
 		if isinstance( frame, DataFrame ):
 			self.__frame = frame
 
@@ -10506,12 +10506,12 @@ class Funds( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -10724,12 +10724,12 @@ class FederalHolidays( ):
 			return self.__holidays
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -11834,12 +11834,12 @@ class Goals( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -12431,12 +12431,12 @@ class HeadquartersOffices( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -12713,12 +12713,12 @@ class InflationReductionActCarryoverEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -13015,12 +13015,12 @@ class JobsActCarryoverEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -14050,12 +14050,12 @@ class NationalPrograms( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -14195,12 +14195,12 @@ class Objectives( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -14337,12 +14337,12 @@ class Organizations( ):
 			self.__data = cache
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, frame ):
+	@frame.setter
+	def frame( self, frame ):
 		if isinstance( frame, DataFrame ):
 			self.__frame = frame
 
@@ -16347,12 +16347,12 @@ class Projects( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -16475,12 +16475,12 @@ class ProgramAreas( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -16625,12 +16625,12 @@ class ProgramProjects( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -17029,12 +17029,12 @@ class ProgramResultsCodes( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -17232,12 +17232,12 @@ class ResponsibilityCenters( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -17375,12 +17375,12 @@ class ResourcePlanningOffices( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -17517,12 +17517,12 @@ class RegionalOffices( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -25126,12 +25126,12 @@ class SupplementalCarryoverEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
@@ -25396,12 +25396,12 @@ class SupplementalObligationEstimates( ):
 			self.__data = value
 
 	@property
-	def table( self ) -> DataFrame:
+	def frame( self ) -> DataFrame:
 		if self.__frame is not None:
 			return self.__frame
 
-	@table.setter
-	def table( self, value: DataFrame ):
+	@frame.setter
+	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
 
