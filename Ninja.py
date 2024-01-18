@@ -1791,6 +1791,11 @@ class Appropriations( ):
 		if self.__code is not None:
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'data', 'fields',
+		         'code', 'name',
+		         'getdata', 'getframe']
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -2083,6 +2088,14 @@ class AppropriationAvailableBalances( ):
 		if self.__fundcode is not None:
 			return self.__fundcode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'authority',
+		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe']
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -2340,6 +2353,14 @@ class AppropriationLevelAuthority( ):
 	def __str__( self ) -> str:
 		if isinstance( self.__fundcode, str ) and self.__fundcode != '':
 			return self.__fundcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'authority',
+		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe']
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -2755,6 +2776,19 @@ class Allocations( ):
 		                  'NpmCode',
 		                  'NpmName' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'authority',
+		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -3116,7 +3150,7 @@ class Actuals( ):
 	__bocname = None
 	__balance = None
 	__obligations = None
-	__ulo = None
+	__unliquidatedobligations = None
 	__programprojectcode = None
 	__programprojectname = None
 	__programareacode = None
@@ -3307,14 +3341,14 @@ class Actuals( ):
 			self.__balance = value
 
 	@property
-	def ulo( self ) -> str:
-		if self.__ulo is not None:
-			return self.__ulo
+	def unliquidated_obligations( self ) -> str:
+		if self.__unliquidatedobligations is not None:
+			return self.__unliquidatedobligations
 
-	@ulo.setter
-	def ulo( self, value: str ):
+	@unliquidated_obligations.setter
+	def unliquidated_obligations( self, value: str ):
 		if value is not None:
-			self.__ulo = value
+			self.__unliquidatedobligations = value
 
 	@property
 	def obligations( self ) -> float:
@@ -3522,6 +3556,19 @@ class Actuals( ):
 		                  'GoalName',
 		                  'ObjectiveCode',
 		                  'ObjectiveName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'balance',
+		         'obligations', 'unliquidated_obligations',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -7018,7 +7065,7 @@ class Commitments( ):
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
-	__vendorage = None
+	__vendorname = None
 	__foccode = None
 	__focname = None
 	__amount = None
@@ -7525,6 +7572,21 @@ class Commitments( ):
 	def __str__( self ) -> str:
 		if isinstance( self.__amount, float ):
 			return str( self.__amount )
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -9846,6 +9908,21 @@ class Expenditures( ):
 		if self.__amount is not None:
 			return str( self.__amount )
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -11505,6 +11582,18 @@ class FullTimeEquivalents( ):
 		                  'ObjectiveCode',
 		                  'ObjectiveName' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -12219,6 +12308,18 @@ class HeadquartersAuthority( ):
 		                  'Amount',
 		                  'NpmCode',
 		                  'NpmName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -14784,11 +14885,10 @@ class OpenCommitments( ):
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
-	__vendorage = None
+	__vendorname = None
 	__foccode = None
 	__focname = None
 	__amount = None
-	_posted = None
 	__goalcode = None
 	__goalname = None
 	__objectivecode = None
@@ -15373,6 +15473,21 @@ class OpenCommitments( ):
 	def __str__( self ) -> str:
 		if self.__accountcode is not None:
 			return self.__accountcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -16038,6 +16153,21 @@ class Obligations( ):
 	def __str__( self ) -> str:
 		if self.__amount is not None:
 			return str( self.__amount )
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -16769,86 +16899,6 @@ class ProgramResultsCodes( ):
 			self.__amount = value
 
 	@property
-	def budgeted( self ) -> str:
-		if self.__budgeted is not None:
-			return self.__budgeted
-
-	@budgeted.setter
-	def budgeted( self, value: str ):
-		if value is not None:
-			self.__budgeted = value
-
-	@property
-	def posted( self ) -> float:
-		if self.__posted is not None:
-			return self.__posted
-
-	@posted.setter
-	def posted( self, value: float ):
-		if value is not None:
-			self.__posted = value
-
-	@property
-	def open_commitments( self ) -> float:
-		if self.__opencommitments is not None:
-			return self.__opencommitments
-
-	@open_commitments.setter
-	def open_commitments( self, value: float ):
-		if value is not None:
-			self.__opencommitments = value
-
-	@property
-	def obligations( self ) -> float:
-		if self.__obligations is not None:
-			return self.__obligations
-
-	@obligations.setter
-	def obligations( self, value: float ):
-		if value is not None:
-			self.__obligations = value
-
-	@property
-	def unliquidated_obligations( self ) -> float:
-		if self.__unliquidatedobligations is not None:
-			return self.__unliquidatedobligations
-
-	@unliquidated_obligations.setter
-	def unliquidated_obligations( self, value: float ):
-		if value is not None:
-			self.__unliquidatedobligations = value
-
-	@property
-	def expenditures( self ) -> float:
-		if self.__expenditures is not None:
-			return self.__expenditures
-
-	@expenditures.setter
-	def expenditures( self, value: float ):
-		if value is not None:
-			self.__expenditures = value
-
-	@property
-	def used( self ) -> float:
-		if self.__used is not None:
-			return self.__used
-
-	@used.setter
-	def used( self, value: float ):
-		if value is not None:
-			self.__used = value
-
-	@property
-	def available( self ) -> float:
-		if self.__avaialable is not None:
-			return self.__avaialable
-
-	@available.setter
-	def available( self, value: float ):
-		if value is not None:
-			self.__avaialable = value
-
-	@property
 	def program_project_code( self ) -> str:
 		if self.__programprojectcode is not None:
 			return self.__programprojectcode
@@ -17034,12 +17084,32 @@ class ProgramResultsCodes( ):
 		                  'RcCode',
 		                  'RcName',
 		                  'Amount',
+		                  'ActivityCode',
+		                  'ActivityName',
 		                  'NpmCode',
-		                  'NpmName' ]
+		                  'NpmName',
+		                  'ObjectiveCode',
+		                  'ObjectiveName',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ) -> str:
 		if self.__fundcode is not None:
 			return self.__fundcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'activity_code', 'activity_name',
+		         'amount', 'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
+		         'data', 'fields', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -18287,6 +18357,19 @@ class RegionalAuthority( ):
 		                  'NpmCode',
 		                  'NpmName' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -18842,6 +18925,19 @@ class StatusOfFunds( ):
 		                  'Available',
 		                  'NpmCode',
 		                  'NpmName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -19788,6 +19884,19 @@ class StatusOfSupplementalFunding( ):
 		                  'NpmCode',
 		                  'NpmName' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -20148,6 +20257,21 @@ class StateGrantObligations( ):
 		                  'BocCode',
 		                  'BocName',
 		                  'Amount' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -22613,6 +22737,72 @@ class StatusOfSupplementalFunds( ):
 		                  'NpmCode',
 		                  'NpmName' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'EFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfSupplementalFunds'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.createframe( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfSupplementalFunds'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class StatusOfJobsActFunding( ):
 	'''
     Constructor:
@@ -23119,6 +23309,72 @@ class StatusOfJobsActFunding( ):
 		                  'Obligation',
 		                  'Used',
 		                  'Available' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'EFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfJobsActFunding'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.createframe( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfJobsActFunding'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class StatusOfEarmarks( ):
 	'''
@@ -23647,6 +23903,19 @@ class StatusOfEarmarks( ):
 		                  'Obligation',
 		                  'Used',
 		                  'Available' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 class StatusOfSuperfundSites( ):
 	'''
@@ -24631,7 +24900,7 @@ class SpendingDocuments( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'Obligaions'
+			_exc.cause = 'SpendingDocuments'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -24651,7 +24920,7 @@ class SpendingDocuments( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'Obligation'
+			_exc.cause = 'SpendingDocuments'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -26503,6 +26772,21 @@ class UnliquidatedObligations( ):
 		if self.__amount is not None:
 			return str( self.__amount )
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'document_type',
+		         'document_number', 'document_control_number', 'rerference_document_number',
+		         'last_activity_date', 'processed_date', 'age', 'vendor_code', 'vendor_name',
+		         'foc_code', 'foc_name', 'amount',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -26531,7 +26815,7 @@ class UnliquidatedObligations( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'UnliquidatedObligation'
+			_exc.cause = 'UnliquidatedObligations'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -26551,7 +26835,7 @@ class UnliquidatedObligations( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'UnliquidatedObligation'
+			_exc.cause = 'UnliquidatedObligations'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
