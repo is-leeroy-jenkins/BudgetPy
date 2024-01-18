@@ -1,2 +1,2 @@
-ALTER TABLE {TableName} 
-RENAME TO {Name};
+ALTER TABLE {TableName}
+	RENAME TO {Name};

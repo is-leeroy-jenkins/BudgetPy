@@ -1,3 +1,3 @@
 SELECT *
-FROM Contacts 
+FROM Contacts
 ORDER BY Contacts.LastName;

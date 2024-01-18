@@ -1,6 +1,4 @@
-UPDATE AnnualCarryoverEstimates
-INNER JOIN Funds 
-ON (AnnualCarryoverEstimates.FundCode = Funds.Code) 
-AND (AnnualReimbursableEstimates.EFY = Funds.EFY) 
-AND (AnnualReimbursableEstimates.BFY = Funds.BFY) 
-SET AnnualCarryoverEstimates.TreasuryAccountCode = Funds.TreasuryAccountCode;
+UPDATE AnnualCarryoverSurvey
+	INNER JOIN Funds
+ON Funds.Code = AnnualCarryoverSurvey.FundCode
+SET AnnualCarryoverSurvey.FundName = Funds.Name WHERE AnnualCarryoverSurvey.FundCode = Funds.Code;

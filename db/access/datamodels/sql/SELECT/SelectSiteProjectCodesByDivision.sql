@@ -1,1 +1,2 @@
-DELETE FROM SiteProjectCodes;
+DELETE
+FROM SiteProjectCodes;

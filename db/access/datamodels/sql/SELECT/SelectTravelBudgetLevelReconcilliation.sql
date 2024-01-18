@@ -1,6 +1,7 @@
-SELECT * 
+SELECT *
 FROM UpperReconcilliation
-UNION SELECT *
+UNION
+SELECT *
 FROM LowerReconcilliation
-ORDER BY BFY DESC , FundCode, AccountCode, BocCode;
+ORDER BY BFY DESC, FundCode, AccountCode, BocCode;
 

@@ -1,5 +1,3 @@
-UPDATE OperatingPlans 
-INNER JOIN NationalPrograms 
-ON OperatingPlans.NpmCode = NationalPrograms.Code 
-SET OperatingPlans.NpmName = NationalPrograms.Name
-WHERE OperatingPlans.NpmName <> NationalPrograms.Name;
+UPDATE OperatingPlans
+SET OperatingPlans.BudgetLevel = '7'
+WHERE OperatingPlans.BudgetLevel Is Null;

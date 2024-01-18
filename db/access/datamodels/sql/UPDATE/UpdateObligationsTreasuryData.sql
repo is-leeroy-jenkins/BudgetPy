@@ -1,9 +1,9 @@
-UPDATE Obligations 
-INNER JOIN Funds 
-ON (Obligations.BFY = Funds.BFY) 
-AND (Obligations.EFY = Funds.EFY) 
-AND (Obligations.FundCode = Funds.Code) 
-SET Obligations.TreasurySymbol = Funds.TreasuryAccountCode, 
-Obligations.BudgetAccountCode = Funds.BudgetAccountCode, 
-Obligations.BudgetAccountName = Funds.BudgetAccountName, 
-Obligations.ApportionmentAccountCode = Funds.ApportionmentAccountCode;
+UPDATE Obligations
+	INNER JOIN FundSymbols
+ON (Obligations.BFY = FundSymbols.BFY)
+	AND (Obligations.EFY = FundSymbols.EFY)
+	AND (Obligations.FundCode = FundSymbols.FundCode)
+SET Obligations.TreasurySymbol = FundSymbols.TreasuryAccountCode, 
+Obligations.BudgetAccountCode = FundSymbols.BudgetAccountCode, 
+Obligations.BudgetAccountName = FundSymbols.BudgetAccountName, 
+Obligations.ApportionmentAccountCode = FundSymbols.ApportionmentAccountCode;

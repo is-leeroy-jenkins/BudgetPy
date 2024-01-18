@@ -1,0 +1,30 @@
+CREATE TABLE CombinedSchedules 
+(
+	CombinedSchedulesId INT NOT NULL UNIQUE,
+	ReportingYear	NVARCHAR(150) DEFAULT NS,
+	MainAccount	NVARCHAR(150) DEFAULT NS,
+	LineNumber	NVARCHAR(150) DEFAULT NS,
+	LineName	NVARCHAR(150) DEFAULT NS,
+	SplitNumber	NVARCHAR(150) DEFAULT NS,
+	PriorYear	DOUBLE DEFAULT 0.0,
+	CurrentYear	DOUBLE DEFAULT 0.0,
+	BudgetYear	DOUBLE DEFAULT 0.0,
+	BudgetYear1	DOUBLE DEFAULT 0.0,
+	BudgetYear2	DOUBLE DEFAULT 0.0,
+	BudgetYear3	DOUBLE DEFAULT 0.0,
+	BudgetYear4	DOUBLE DEFAULT 0.0,
+	BudgetYear5	DOUBLE DEFAULT 0.0,
+	BudgetYear6	DOUBLE DEFAULT 0.0,
+	BudgetYear7	DOUBLE DEFAULT 0.0,
+	BudgetYear8	DOUBLE DEFAULT 0.0,
+	BudgetYear9	DOUBLE DEFAULT 0.0,
+	AccountName	NVARCHAR(150) DEFAULT NS,
+	TreasuryAccount	NVARCHAR(150) DEFAULT NS,
+	Subfunction	NVARCHAR(150) DEFAULT NS,
+	Classification	NVARCHAR(150) DEFAULT NS,
+	BudgetEnforcementCategory	NVARCHAR(150) DEFAULT NS,
+	CONSTRAINT CombinedSchedulesPrimaryKey PRIMARY KEY
+	(
+		CombinedSchedulesId  ASC
+	)
+);
