@@ -440,11 +440,111 @@ class AdjustedTrialBalances( ):
 	__adjustedtrialbalancesid = None
 	__number = None
 	__bfy = None
-	__name = None
+	__efy = None
+	__fundcode = None
+	__fundname = None
+	__accountnumber = None
+	__accountname = None
+	__mainaccount = None
+	__treasuryaccountcode = None
+	__treasuryaccountname = None
+	__budgetaccountcode = None
+	__budgetaccountname = None
 
-	def __init__( self, bfy: str, number: str ):
+	@property
+	def id( self ) -> int:
+		if self.__adjustedtrialbalancesid_statusoffundsid is not None:
+			return self.__adjustedtrialbalancesid
+
+	@id.setter
+	def id( self, value: int ):
+		if value is not None:
+			self.__adjustedtrialbalancesid = value
+
+	@property
+	def bfy( self ) -> str:
+		if self.__bfy is not None:
+			return self.__bfy
+
+	@bfy.setter
+	def bfy( self, value: str ):
+		if value is not None:
+			self.__bfy = value
+
+	@property
+	def efy( self ) -> str:
+		if self.__efy is not None:
+			return self.__efy
+
+	@efy.setter
+	def efy( self, value: str ):
+		if value is not None:
+			self.__efy = value
+
+	@property
+	def main_account( self ):
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	@main_account.setter
+	def main_account( self, value: str ):
+		if value is not None:
+			self.__mainaccount = value
+
+	@property
+	def treasury_account_code( self ) -> str:
+		if self.__treasuryaccountcode is not None:
+			return self.__treasuryaccountcode
+
+	@treasury_account_code.setter
+	def treasury_account_code( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountcode = value
+
+	@property
+	def treasury_account_name( self ) -> str:
+		if self.__treasuryaccountname is not None:
+			return self.__treasuryaccountname
+
+	@treasury_account_name.setter
+	def treasury_account_name( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountname = value
+
+	@property
+	def budget_account_code( self ) -> str:
+		if self.__budgetaccountcode is not None:
+			return self.__budgetaccountcode
+
+	@budget_account_code.setter
+	def budget_account_code( self, value: str ):
+		if value is not None:
+			self.__budgetaccountcode = value
+
+	@property
+	def budget_account_name( self ) -> str:
+		if self.__budgetaccountname is not None:
+			return self.__budgetaccountname
+
+	@budget_account_name.setter
+	def budget_account_name( self, value: str ):
+		if value is not None:
+			self.__budgetaccountname = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
+
+	@fields.setter
+	def fields( self, value: list[ str ] ):
+		if value is not None:
+			self.__fields = value
+
+	def __init__( self, bfy: str, efy: str, fundcode: str ):
 		self.__bfy = bfy
-		self.__number = number
+		self.__efy = efy
+		self.__fundcode = fundcode
 
 class AllowanceHolders( ):
 	'''
