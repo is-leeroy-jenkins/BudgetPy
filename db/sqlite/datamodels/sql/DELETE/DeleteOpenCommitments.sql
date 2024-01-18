@@ -1,1 +1,2 @@
-DELETE FROM OpenCommitments;
+DELETE
+FROM OpenCommitments;

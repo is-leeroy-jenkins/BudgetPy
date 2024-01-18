@@ -1,3 +1,31 @@
-INSERT INTO Rescission ( PrcId, RPIO, BudgetLevel, AhCode, BFY, FundCode, OrgCode, AccountCode, ActivityCode, BocCode, RcCode, Allocation, Reduction, Amount, FundName, BocName, Division, DivisionName, ProgramProjectCode, ProgramProjectName, NpmCode, NpmName, GoalCode, GoalName, ObjectiveCode, ObjectiveName )
-SELECT DISTINCTROW Allocations.PrcId, Allocations.RPIO, Allocations.BudgetLevel, Allocations.AhCode, Allocations.BFY, Allocations.FundCode, Allocations.OrgCode, Allocations.AccountCode, Allocations.ActivityCode, Allocations.BocCode, Allocations.RcCode, CCur(Allocations.Amount) AS Allocation, CCur(Nz(ProgrammaticReserve.Reduction,0)) AS Reduction, CCur(Nz(ProgrammaticReserve.Budget,Amount)) AS Amount, Allocations.FundName, Allocations.BocName, Allocations.Division, Allocations.DivisionName, Allocations.ProgramProjectCode, Allocations.ProgramProjectName, Allocations.NpmCode, Allocations.NpmName, Allocations.GoalCode, Allocations.GoalName, Allocations.ObjectiveCode, Allocations.ObjectiveName
-FROM Allocations LEFT JOIN ProgrammaticReserve ON Allocations.PrcId = ProgrammaticReserve.PrcId;
+INSERT INTO Rescission (PrcId, RPIO, BudgetLevel, AhCode, BFY, FundCode, OrgCode, AccountCode,
+						ActivityCode, BocCode, RcCode, Allocation, Reduction, Amount, FundName,
+						BocName, Division, DivisionName, ProgramProjectCode, ProgramProjectName,
+						NpmCode, NpmName, GoalCode, GoalName, ObjectiveCode, ObjectiveName)
+SELECT DISTINCTROW Allocations.PrcId, Allocations.RPIO,
+	   Allocations.BudgetLevel,
+	   Allocations.AhCode,
+	   Allocations.BFY,
+	   Allocations.FundCode,
+	   Allocations.OrgCode,
+	   Allocations.AccountCode,
+	   Allocations.ActivityCode,
+	   Allocations.BocCode,
+	   Allocations.RcCode,
+	   CCur( Allocations.Amount )                       AS Allocation,
+	   CCur( Nz( ProgrammaticReserve.Reduction, 0 ) )   AS Reduction,
+	   CCur( Nz( ProgrammaticReserve.Budget, Amount ) ) AS Amount,
+	   Allocations.FundName,
+	   Allocations.BocName,
+	   Allocations.Division,
+	   Allocations.DivisionName,
+	   Allocations.ProgramProjectCode,
+	   Allocations.ProgramProjectName,
+	   Allocations.NpmCode,
+	   Allocations.NpmName,
+	   Allocations.GoalCode,
+	   Allocations.GoalName,
+	   Allocations.ObjectiveCode,
+	   Allocations.ObjectiveName
+FROM Allocations
+		 LEFT JOIN ProgrammaticReserve ON Allocations.PrcId = ProgrammaticReserve.PrcId;

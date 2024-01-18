@@ -1,1 +1,2 @@
-DELETE FROM DocumentControlNumbers;
+DELETE
+FROM DocumentControlNumbers;

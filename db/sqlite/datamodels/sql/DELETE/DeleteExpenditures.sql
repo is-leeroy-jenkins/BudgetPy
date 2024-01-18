@@ -1,1 +1,2 @@
-DELETE FROM Expenditures;
+DELETE
+FROM Expenditures;

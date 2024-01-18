@@ -1,11 +1,30 @@
 INSERT INTO ProgrammaticReservePriorYearUtilization
-SELECT DISTINCT SelectProgrammaticReserveYearOverYearAnalysis.OrgCode AS OrgCode, SelectProgrammaticReserveYearOverYearAnalysis.BFY AS BFY, SelectProgrammaticReserveYearOverYearAnalysis.RcCode AS RcCode, SelectProgrammaticReserveYearOverYearAnalysis.DivisionName AS DivisionName, SelectProgrammaticReserveYearOverYearAnalysis.FundCode AS FundCode, SelectProgrammaticReserveYearOverYearAnalysis.FundName AS FundName, SelectProgrammaticReserveYearOverYearAnalysis.AccountCode AS AccountCode, SelectProgrammaticReserveYearOverYearAnalysis.ProgramProjectName AS ProgramProjectName, SelectProgrammaticReserveYearOverYearAnalysis.BocCode AS BocCode, SelectProgrammaticReserveYearOverYearAnalysis.BocName AS BocName, 
-CCur(SelectProgrammaticReserveYearOverYearAnalysis.CurrentYear) AS CurrentYear, 
-CCur(SelectProgrammaticReserveYearOverYearAnalysis.Reduction) AS Reduction, 
-CCur(SelectProgrammaticReserveYearOverYearAnalysis.Budget) AS Budget, 
-CCur(SelectProgrammaticReserveYearOverYearAnalysis.PriorYear) AS PriorYear, 
-CCur(SUM(SelectProgrammaticReserveYearOverYearAnalysis.OpenCommitments)) AS OpenCommitments, 
-CCur(Sum(SelectProgrammaticReserveYearOverYearAnalysis.ULO)) AS ULO
+SELECT DISTINCT SelectProgrammaticReserveYearOverYearAnalysis.OrgCode                        AS OrgCode,
+				SelectProgrammaticReserveYearOverYearAnalysis.BFY                            AS BFY,
+				SelectProgrammaticReserveYearOverYearAnalysis.RcCode                         AS RcCode,
+				SelectProgrammaticReserveYearOverYearAnalysis.DivisionName                   AS DivisionName,
+				SelectProgrammaticReserveYearOverYearAnalysis.FundCode                       AS FundCode,
+				SelectProgrammaticReserveYearOverYearAnalysis.FundName                       AS FundName,
+				SelectProgrammaticReserveYearOverYearAnalysis.AccountCode                    AS AccountCode,
+				SelectProgrammaticReserveYearOverYearAnalysis.ProgramProjectName             AS ProgramProjectName,
+				SelectProgrammaticReserveYearOverYearAnalysis.BocCode                        AS BocCode,
+				SelectProgrammaticReserveYearOverYearAnalysis.BocName                        AS BocName,
+				CCur( SelectProgrammaticReserveYearOverYearAnalysis.CurrentYear )            AS CurrentYear,
+				CCur( SelectProgrammaticReserveYearOverYearAnalysis.Reduction )              AS Reduction,
+				CCur( SelectProgrammaticReserveYearOverYearAnalysis.Budget )                 AS Budget,
+				CCur( SelectProgrammaticReserveYearOverYearAnalysis.PriorYear )              AS PriorYear,
+				CCur( SUM( SelectProgrammaticReserveYearOverYearAnalysis.OpenCommitments ) ) AS OpenCommitments,
+				CCur( Sum( SelectProgrammaticReserveYearOverYearAnalysis.ULO ) )             AS ULO
 FROM SelectProgrammaticReserveYearOverYearAnalysis
-GROUP BY SelectProgrammaticReserveYearOverYearAnalysis.OrgCode, SelectProgrammaticReserveYearOverYearAnalysis.BFY, SelectProgrammaticReserveYearOverYearAnalysis.RcCode, SelectProgrammaticReserveYearOverYearAnalysis.DivisionName, SelectProgrammaticReserveYearOverYearAnalysis.FundCode, SelectProgrammaticReserveYearOverYearAnalysis.FundName, SelectProgrammaticReserveYearOverYearAnalysis.AccountCode, SelectProgrammaticReserveYearOverYearAnalysis.ProgramProjectName, SelectProgrammaticReserveYearOverYearAnalysis.BocCode, SelectProgrammaticReserveYearOverYearAnalysis.BocName, CurrentYear, Reduction, Budget, PriorYear
+GROUP BY SelectProgrammaticReserveYearOverYearAnalysis.OrgCode,
+		 SelectProgrammaticReserveYearOverYearAnalysis.BFY,
+		 SelectProgrammaticReserveYearOverYearAnalysis.RcCode,
+		 SelectProgrammaticReserveYearOverYearAnalysis.DivisionName,
+		 SelectProgrammaticReserveYearOverYearAnalysis.FundCode,
+		 SelectProgrammaticReserveYearOverYearAnalysis.FundName,
+		 SelectProgrammaticReserveYearOverYearAnalysis.AccountCode,
+		 SelectProgrammaticReserveYearOverYearAnalysis.ProgramProjectName,
+		 SelectProgrammaticReserveYearOverYearAnalysis.BocCode,
+		 SelectProgrammaticReserveYearOverYearAnalysis.BocName, CurrentYear, Reduction, Budget,
+		 PriorYear
 ORDER BY SelectProgrammaticReserveYearOverYearAnalysis.RcCode;

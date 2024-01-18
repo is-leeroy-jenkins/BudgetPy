@@ -1,33 +1,86 @@
-CREATE TABLE IF NOT EXISTS BudgetaryResourceExecution 
+CREATE TABLE IF NOT EXISTS BudgetaryResourceExecution
 (
-    BudgetaryResourceExecutionId AUTOINCREMENT NOT NULL UNIQUE,
-    FiscalYear TEXT(150) NULL DEFAULT NS,
-    BFY TEXT(150) NULL DEFAULT NS,
-    EFY TEXT(150) NULL DEFAULT NS,
-    LastUpdate TEXT(150) NULL DEFAULT NS,
-    BudgetAccountCode TEXT(150) NULL DEFAULT NS,
-    BudgetAccountName TEXT(150) NULL DEFAULT NS,
-    TreasuryAccountName TEXT(150) NULL DEFAULT NS,
-    STAT TEXT(150) NULL DEFAULT NS,
-    CreditIndicator TEXT(150) NULL DEFAULT NS,
-    LineNumber TEXT(150) NULL DEFAULT NS,
-    LineDescription TEXT(150) NULL DEFAULT NS,
-    SectionName TEXT(150) NULL DEFAULT NS,
-    SectionNumber TEXT(150) NULL DEFAULT NS,
-    LineType TEXT(150) NULL DEFAULT NS,
-    FinancingAccounts TEXT(150) NULL DEFAULT NS,
-    November DOUBLE NULL DEFAULT 0.0,
-    January DOUBLE NULL DEFAULT 0.0,
-    Feburary DOUBLE NULL DEFAULT 0.0,
-    April DOUBLE NULL DEFAULT 0.0,
-    May DOUBLE NULL DEFAULT 0.0,
-    June DOUBLE NULL DEFAULT 0.0,
-    August DOUBLE NULL DEFAULT 0.0,
-    October DOUBLE NULL DEFAULT 0.0,
-    Amount1 DOUBLE NULL DEFAULT 0.0,
-    Amount2 DOUBLE NULL DEFAULT 0.0,
-    Amount3 DOUBLE NULL DEFAULT 0.0,
-    Amount4 DOUBLE NULL DEFAULT 0.0,
-    CONSTRAINT BudgetaryResourceExecutionPrimaryKey
-    PRIMARY KEY(BudgetaryResourceExecutionId )
-);
+	BudgetaryResourceExecutionId
+	AUTOINCREMENT
+	NOT
+	NULL
+	UNIQUE,
+	FiscalYear
+	TEXT
+(
+	150
+) NULL DEFAULT NS,
+	BFY TEXT
+(
+	150
+) NULL DEFAULT NS,
+	EFY TEXT
+(
+	150
+) NULL DEFAULT NS,
+	LastUpdate TEXT
+(
+	150
+) NULL DEFAULT NS,
+	BudgetAccountCode TEXT
+(
+	150
+) NULL DEFAULT NS,
+	BudgetAccountName TEXT
+(
+	150
+) NULL DEFAULT NS,
+	TreasuryAccountName TEXT
+(
+	150
+) NULL DEFAULT NS,
+	STAT TEXT
+(
+	150
+) NULL DEFAULT NS,
+	CreditIndicator TEXT
+(
+	150
+) NULL DEFAULT NS,
+	LineNumber TEXT
+(
+	150
+) NULL DEFAULT NS,
+	LineDescription TEXT
+(
+	150
+) NULL DEFAULT NS,
+	SectionName TEXT
+(
+	150
+) NULL DEFAULT NS,
+	SectionNumber TEXT
+(
+	150
+) NULL DEFAULT NS,
+	LineType TEXT
+(
+	150
+) NULL DEFAULT NS,
+	FinancingAccounts TEXT
+(
+	150
+) NULL DEFAULT NS,
+	November DOUBLE NULL DEFAULT 0.0,
+	January DOUBLE NULL DEFAULT 0.0,
+	Feburary DOUBLE NULL DEFAULT 0.0,
+	April DOUBLE NULL DEFAULT 0.0,
+	May DOUBLE NULL DEFAULT 0.0,
+	June DOUBLE NULL DEFAULT 0.0,
+	August DOUBLE NULL DEFAULT 0.0,
+	October DOUBLE NULL DEFAULT 0.0,
+	Amount1 DOUBLE NULL DEFAULT 0.0,
+	Amount2 DOUBLE NULL DEFAULT 0.0,
+	Amount3 DOUBLE NULL DEFAULT 0.0,
+	Amount4 DOUBLE NULL DEFAULT 0.0,
+	CONSTRAINT BudgetaryResourceExecutionPrimaryKey
+	PRIMARY KEY
+(
+	BudgetaryResourceExecutionId
+)
+	);

@@ -1,4 +1,4 @@
-UPDATE ProgramFinancingSchedule 
+UPDATE ProgramFinancingSchedule
 SET ProgramFinancingSchedule.LedgerAccountCode = 'NS'
-WHERE IsNull(ProgramFinancingSchedule.LedgerAccountCode) 
-OR ProgramFinancingSchedule.LedgerAccountCode = ' ';
+WHERE IsNull( ProgramFinancingSchedule.LedgerAccountCode )
+   OR ProgramFinancingSchedule.LedgerAccountCode = ' ';

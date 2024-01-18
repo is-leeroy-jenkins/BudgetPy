@@ -1,4 +1,4 @@
-SELECT * 
+SELECT *
 FROM PayrollAuthority
-ORDER BY PayrollAuthority.BFY DESC, PayrollAuthority.FundCode, PayrollAuthority.RpioCode, 
-    PayrollAuthority.AccountCode, PayrollAuthority.BocCode;
+ORDER BY PayrollAuthority.BFY DESC, PayrollAuthority.FundCode, PayrollAuthority.RpioCode,
+		 PayrollAuthority.AccountCode, PayrollAuthority.BocCode;

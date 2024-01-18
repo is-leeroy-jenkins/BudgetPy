@@ -1,3 +1,3 @@
-UPDATE SiteActivity 
+UPDATE SiteActivity
 SET SiteActivity.EndDate = 'NS'
-WHERE IsNull(SiteActivity.EndDate);
+WHERE IsNull( SiteActivity.EndDate );

@@ -1,1 +1,2 @@
-DELETE FROM ProgrammaticReservePriorYearUtilization;
+DELETE
+FROM ProgrammaticReservePriorYearUtilization;

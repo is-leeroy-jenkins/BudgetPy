@@ -1,8 +1,6 @@
-UPDATE AppropriationLevelAuthority 
-INNER JOIN Funds 
-ON (AppropriationLevelAuthority.FiscalYear = Funds.EFY) 
-AND (AppropriationLevelAuthority.FiscalYear = Funds.BFY) 
-AND (AppropriationLevelAuthority.FundCode = Funds.Code) 
-SET AppropriationLevelAuthority.FundName = Funds.Name, 
-AppropriationLevelAuthority.BudgetAccountCode = Funds.BudgetAccountCode, 
-.BudgetAccountName = Funds.BudgetAccountName;
+UPDATE AppropriationLevelAuthority
+	INNER JOIN FundSymbols
+ON (AppropriationLevelAuthority.FiscalYear = FundSymbols.BFY)
+	AND (AppropriationLevelAuthority.FundCode = FundSymbols.FundCode)
+SET AppropriationLevelAuthority.FundName = FundSymbols.FundName, AppropriationLevelAuthority.BudgetAccountCode = FundSymbols.OmbAccountCode, AppropriationLevelAuthority.BudgetAccountName = FundSymbols.OmbAccountName
+WHERE AppropriationLevelAuthority.FundName IS NULL;

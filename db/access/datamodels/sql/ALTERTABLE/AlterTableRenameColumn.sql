@@ -1,3 +1,3 @@
-ALTER TABLE {TableName} 
-RENAME COLUMN {Original} 
-TO {Change}
+ALTER TABLE {TableName}
+	RENAME COLUMN {Original}
+	TO {Change}

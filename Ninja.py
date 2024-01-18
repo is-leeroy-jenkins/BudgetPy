@@ -273,7 +273,7 @@ class Accounts( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Account'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -423,7 +423,7 @@ class ActivityCodes( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Activity'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -437,10 +437,13 @@ class AdjustedTrialBalances( ):
 	Data class representing a record in the ATB
 
 	'''
+	__source = None
+	__provider = None
 	__adjustedtrialbalancesid = None
 	__number = None
 	__bfy = None
 	__efy = None
+	__treasurysymbol = None
 	__fundcode = None
 	__fundname = None
 	__accountnumber = None
@@ -480,6 +483,56 @@ class AdjustedTrialBalances( ):
 	def efy( self, value: str ):
 		if value is not None:
 			self.__efy = value
+
+	@property
+	def fund_code( self ) -> str:
+		if self.__fundcode is not None:
+			return self.__fundcode
+
+	@fund_code.setter
+	def fund_code( self, value: str ):
+		if value is not None:
+			self.__fundcode = value
+
+	@property
+	def fund_name( self ) -> str:
+		if self.__fundname is not None:
+			return self.__fundname
+
+	@fund_name.setter
+	def fund_name( self, value: str ):
+		if value is not None:
+			self.__fundname = value
+
+	@property
+	def treasury_symbol( self ) -> str:
+		if self.__treasuryaccount is not None:
+			return self.__treasuryaccount
+
+	@treasury_symbol.setter
+	def treasury_symbol( self, value: str ):
+		if value is not None:
+			self.__treasuryaccount = value
+
+	@property
+	def account_number( self ) -> str:
+		if self.__accountnumber is not None:
+			return self.__accountnumber
+
+	@account_number.setter
+	def account_number( self, value: str ):
+		if value is not None:
+			self.__accountnumber = value
+
+	@property
+	def account_name( self ) -> str:
+		if self.__accountname is not None:
+			return self.__accountname
+
+	@account_name.setter
+	def account_name( self, value: str ):
+		if value is not None:
+			self.__accountname = value
 
 	@property
 	def main_account( self ):
@@ -541,10 +594,80 @@ class AdjustedTrialBalances( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fundcode: str ):
+	def __init__( self, bfy: str, efy: str,
+	              fundcode: str, provider: Provider = Provider.SQLite ):
+		self.__source = Source.AdjustedTrialBalances
+		self.__provider = provider
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
+
+	def __str__( self ) -> str:
+		if self.__accountnumber is not None:
+			return self.__accountnumber
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
+		         'treasury_symbol', 'account_number', 'account_name',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name', 'credit_balance',
+		         'beginning_balance', 'ending_balance', 'debit_balance', 'fields',
+		         'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'bfy', 'efy', 'fundcode' ]
+			_values = (self.__code,)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Execution'
+			_exc.cause = 'AdjustedTrialBalances'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.createframe( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Execution'
+			_exc.cause = 'AdjustedTrialBalances'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class AllowanceHolders( ):
 	'''
@@ -691,7 +814,7 @@ class AllowanceHolders( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'AllowanceHolder'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -995,7 +1118,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -1301,7 +1424,7 @@ class AnnualCarryoverEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -1585,7 +1708,7 @@ class AnnualReimbursableEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -1719,7 +1842,7 @@ class Appropriations( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Appropriation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -2011,7 +2134,7 @@ class AppropriationAvailableBalances( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Appropriation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -2269,7 +2392,7 @@ class AppropriationLevelAuthority( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Appropriation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -2677,7 +2800,7 @@ class Allocations( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Allocation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -2959,7 +3082,7 @@ class ApportionmentData( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'Apportionment'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -3445,7 +3568,7 @@ class Actuals( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Actual'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -3960,7 +4083,7 @@ class AppropriationDocuments( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'AppropriationDocument'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -4567,7 +4690,7 @@ class BudgetDocuments( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetDocument'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -5245,7 +5368,7 @@ class BudgetControls( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetControl'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -5532,7 +5655,7 @@ class BudgetFiscalYears( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'BudgetFiscalYear'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -5686,7 +5809,7 @@ class BudgetObjectClasses( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'BudgetObjectClass'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -5893,7 +6016,7 @@ class BudgetaryResourceExecution( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'BudgetaryResourceExecution'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -6274,7 +6397,7 @@ class Outlays( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'BudgetOutlay'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -6851,7 +6974,7 @@ class CompassLevels( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'CompassLevel'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -7452,7 +7575,7 @@ class Commitments( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Commitment'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -7634,7 +7757,7 @@ class CapitalPlanningInvestmentCodes( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'ITProjectCode'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -7864,7 +7987,7 @@ class DataRuleDescriptions( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'DataRuleDescription'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -8422,7 +8545,7 @@ class Defactos( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Defacto'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -9008,7 +9131,7 @@ class Deobligations( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Deobligations'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -9174,7 +9297,7 @@ class DocumentControlNumbers( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'DocumentControlNumber'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -9774,7 +9897,7 @@ class Expenditures( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Expenditure'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -9939,7 +10062,7 @@ class FinanceObjectClasses( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'FinanceObjectClass'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -10412,7 +10535,7 @@ class Funds( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Fund'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -10644,7 +10767,7 @@ class FederalHolidays( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'FederalHoliday'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -11431,7 +11554,7 @@ class FullTimeEquivalents( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'FullTimeEquivalent'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -12146,7 +12269,7 @@ class HeadquartersAuthority( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'HeadquartersAuthority'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -12283,7 +12406,7 @@ class HeadquartersOffices( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'HeadquartersOffice'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -12587,7 +12710,7 @@ class InflationReductionActCarryoverEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -12889,7 +13012,7 @@ class JobsActCarryoverEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -13351,7 +13474,7 @@ class MonthlyActuals( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Actual'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -13723,7 +13846,7 @@ class MonthlyOutlays( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'MonthlyOutlay'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -13743,7 +13866,7 @@ class MonthlyOutlays( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'MonthlyOutlay'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -13908,7 +14031,7 @@ class NationalPrograms( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'NationalProgram'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -14052,7 +14175,7 @@ class Objectives( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Objective'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -14617,7 +14740,7 @@ class OperatingPlans( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'OperatingPlan'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -15288,7 +15411,7 @@ class OpenCommitments( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'OpenCommitment'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -15953,7 +16076,7 @@ class Obligations( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Obligation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -16162,7 +16285,7 @@ class Projects( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Project'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -16290,7 +16413,7 @@ class ProgramAreas( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'ProgramArea'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -16961,7 +17084,7 @@ class ProgramResultsCodes( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'ProgramResultsCode'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -17120,7 +17243,7 @@ class ResponsibilityCenters( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'ResponsibilityCenter'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -17262,7 +17385,7 @@ class ResourcePlanningOffices( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'ResourcePlanningOffice'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -17674,7 +17797,7 @@ class ReimbursableAgreements( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'ObjectClassOutlay'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -18213,7 +18336,7 @@ class RegionalAuthority( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'RegionalAuthority'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -18762,7 +18885,7 @@ class StatusOfFunds( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StatusOfFunds'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -19709,7 +19832,7 @@ class StatusOfSupplementalFunding( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StatusOfSupplementalFunding'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -20070,7 +20193,7 @@ class StateGrantObligations( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StateGrantObligation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -20485,7 +20608,7 @@ class StatusOfSpecialAccountFunds( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StatusOfSpecialAccountFunds'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -20641,7 +20764,7 @@ class SubAppropriations( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Appropriation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -20777,7 +20900,7 @@ class StateOrganizations( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'StateOrganization'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -21556,7 +21679,7 @@ class StatusOfAppropriations( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'StatusOfAppropriations'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -21982,7 +22105,7 @@ class SpendingRates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'SpendingRate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -23846,7 +23969,7 @@ class StatusOfSuperfundSites( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StatusOfSuperfundSites'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -24529,7 +24652,7 @@ class SpendingDocuments( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'Obligation'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -24832,7 +24955,7 @@ class SupplementalCarryoverEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -25102,7 +25225,7 @@ class SupplementalObligationEstimates( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'CarryoverEstimate'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -25291,7 +25414,7 @@ class TreasurySymbols( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'TreasurySymbol'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -25715,7 +25838,7 @@ class Transfers( ):
 			_exc = Error( e )
 			_exc.module = 'Execution'
 			_exc.cause = 'Transfer'
-			_exc.method = 'create_frame( self )'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 

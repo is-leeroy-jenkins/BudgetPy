@@ -1,5 +1,4 @@
 UPDATE OperatingPlans
-INNER JOIN NationalPrograms
+	INNER JOIN NationalPrograms
 ON OperatingPlans.NpmCode = NationalPrograms.Code
-SET OperatingPlans.NpmName = NationalPrograms.Name
-WHERE OperatingPlans.NpmName <> NationalPrograms.Name;
+SET OperatingPlans.NpmName = NationalPrograms.Name WHERE OperatingPlans.NpmName <> NationalPrograms.Name;
