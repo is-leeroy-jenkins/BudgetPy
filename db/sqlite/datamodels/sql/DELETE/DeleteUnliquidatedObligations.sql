@@ -1,1 +1,2 @@
-DELETE FROM UnliquidatedObligations;
+DELETE
+FROM UnliquidatedObligations;
