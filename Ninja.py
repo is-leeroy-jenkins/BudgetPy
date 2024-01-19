@@ -1090,6 +1090,10 @@ class AmericanRescuePlanCarryoverEstimates( ):
 		if self.__fundcode is not None:
 			return self.__fundcode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'code', 'name',
+		         'fields', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -1395,6 +1399,9 @@ class AnnualCarryoverEstimates( ):
 		if self.__fundcode is not None:
 			return str( self.__fundcode )
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -1698,6 +1705,9 @@ class AnnualReimbursableEstimates( ):
 	def __str__( self ) -> str:
 		if self.__fundcode is not None:
 			return self.__fundcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -3177,6 +3187,13 @@ class ApportionmentData( ):
 		                  'FundCode',
 		                  'FundName' ]
 
+	def __str__( self ) -> str:
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -3652,7 +3669,7 @@ class Actuals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Actuals
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -3829,10 +3846,17 @@ class ApplicationTables( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, name, provider = Provider.SQLite ):
+	def __init__( self, name: str, provider: Provider = Provider.SQLite ):
 		self.__source = Source.ApplicationTables
 		self.__provider = provider
 		self.__tablename = name
+
+	def __str__( self ) -> str:
+		if self.__tablename is not None:
+			return self.__tablename
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class AppropriationDocuments( ):
 	'''
@@ -4219,7 +4243,7 @@ class AppropriationDocuments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AppropriationDocuments
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4250,6 +4274,13 @@ class AppropriationDocuments( ):
 		                  'CarryIn',
 		                  'EstimatedReimbursements',
 		                  'EstimatedRecoveries' ]
+
+	def __str__( self ):
+		if self.__fundcode is not None:
+			return self.__fundcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -5560,7 +5591,8 @@ class BudgetControls( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, efy = None, fund = None, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str,
+	              fund: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetControls
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -5605,6 +5637,9 @@ class BudgetControls( ):
 		                  'FteSpendingControl',
 		                  'TransactionTypeControl',
 		                  'AuthorityDistributionControl' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -5889,6 +5924,9 @@ class BudgetFiscalYears( ):
 		if self.__bfy is not None:
 			return self.__bfy
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -6042,6 +6080,9 @@ class BudgetObjectClasses( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -6269,6 +6310,9 @@ class BudgetaryResourceExecution( ):
 		                  'Amount4',
 		                  'Agency',
 		                  'Bureau' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -6671,6 +6715,9 @@ class Outlays( ):
 		                  'BudgetYear8',
 		                  'BudgetYear9' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -6952,6 +6999,9 @@ class CongressionalControls( ):
 		                  'IncreaseRestriction',
 		                  'DecreaseRestriction',
 		                  'MemoRequirement' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -7287,6 +7337,9 @@ class CompassLevels( ):
 		                  'ActualRecoveries',
 		                  'ActualReimbursements',
 		                  'AgreementReimbursables' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -8039,6 +8092,9 @@ class CostAreas( ):
 		                  'Code',
 		                  'Name' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 class CapitalPlanningInvestmentCodes( ):
 	'''
     Constructor:
@@ -8115,7 +8171,7 @@ class CapitalPlanningInvestmentCodes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code, provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.CapitalPlanningInvestmentCodes
 		self.__code = code
@@ -8127,6 +8183,9 @@ class CapitalPlanningInvestmentCodes( ):
 	def __str__( self ) -> str:
 		if isinstance( self.__code, str ) and self.__code != '':
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -8276,6 +8335,9 @@ class ColumnSchema( ):
 		self.__columnname = column
 		self.__tablename = table
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 class DataRuleDescriptions( ):
 	'''
     Constructor:
@@ -8385,7 +8447,8 @@ class DataRuleDescriptions( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, schedule, line, rule, provider = Provider.SQLite ):
+	def __init__( self, schedule: str, line: str,
+	              rule: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.DataRuleDescriptions
 		self.__schedule = schedule
@@ -8397,6 +8460,9 @@ class DataRuleDescriptions( ):
 		                  'RuleNumber',
 		                  'RuleDescription',
 		                  'ScheduleOrder' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -8975,6 +9041,9 @@ class Defactos( ):
 		                  'Available',
 		                  'NpmCode',
 		                  'NpmName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -9582,6 +9651,9 @@ class Deobligations( ):
 		if isinstance( self.__amount, float ):
 			return str( self.__amount )
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -9767,6 +9839,9 @@ class DocumentControlNumbers( ):
 		                  'DocumentNumber',
 		                  'DocumentPrefix',
 		                  'DocumentControlNumbe' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -10568,6 +10643,9 @@ class FinanceObjectClasses( ):
 		if self.__code is not None:
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -11041,6 +11119,9 @@ class Funds( ):
 		if isinstance( self.__code, str ) and self.__code != '':
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -11272,6 +11353,9 @@ class FederalHolidays( ):
 	def __str__( self ) -> str:
 		if not self.__name == '':
 			return self.__name
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list:
 		'''
@@ -11643,9 +11727,11 @@ class FederalHolidays( ):
 
 class FullTimeEquivalents( ):
 	'''
+
     Constructor: FullTimeEquivalent( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:  Object representing Operating Plan FTE
+
     '''
 	__source = None
 	__provider = None
@@ -12294,6 +12380,9 @@ class GeneralLedgerAccounts( ):
 		                  'DebitBalance',
 		                  'ClosingAmount' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 class Goals( ):
 	'''
     Constructor:
@@ -12383,6 +12472,9 @@ class Goals( ):
 	def __str__( self ) -> str:
 		if isinstance( self.__code, str ) and self.__code != '':
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -13001,6 +13093,9 @@ class HeadquartersOffices( ):
 		if self.__rpiocode is not None:
 			return self.__rpiocode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -13299,6 +13394,9 @@ class InflationReductionActCarryoverEstimates( ):
 	def __str__( self ) -> str:
 		if self.__fundcode is not None:
 			return self.__fundcode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -13602,6 +13700,9 @@ class JobsActCarryoverEstimates( ):
 		if self.__fundcode is not None:
 			return self.__fundcode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -13757,6 +13858,9 @@ class MainAccounts( ):
 
 	def __init__( self, code: str ):
 		self.__code = code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class MonthlyActuals( ):
 	'''
@@ -14106,6 +14210,9 @@ class MonthlyActuals( ):
 		                  'GoalName',
 		                  'ObjectiveCode',
 		                  'ObjectiveName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -14519,6 +14626,9 @@ class MonthlyOutlays( ):
 		                  'August',
 		                  'September' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -14684,6 +14794,9 @@ class NationalPrograms( ):
 		if isinstance( self.__code, str ) and self.__code != '':
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -14828,6 +14941,9 @@ class Objectives( ):
 		if isinstance( self.__code, str ) and self.__code != '':
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -14968,6 +15084,9 @@ class Organizations( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -15414,6 +15533,9 @@ class OperatingPlans( ):
 		                  'ProgramAreaName',
 		                  'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
 		                  'ObjectiveCode', 'ObjectiveName' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -16979,6 +17101,9 @@ class PublicLaws( ):
 		                  'Congress',
 		                  'BFY' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 class Projects( ):
 	'''
     Constructor:  Project( code: str, pvdr: Provider = Provider.SQLite )
@@ -17068,6 +17193,9 @@ class Projects( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -17201,6 +17329,9 @@ class ProgramAreas( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -17358,6 +17489,9 @@ class ProgramProjects( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -17875,10 +18009,16 @@ class ReportingLines( ):
 	__reportinglinesid = None
 	__bfy = None
 	__code = None
+	__fields = None
+	__data = None
+	__fields = None
 
 	def __init__( self, bfy: str, code: str ):
 		self.__bfy = bfy
 		self.__code = code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class ResponsibilityCenters( ):
 	'''
@@ -17969,6 +18109,9 @@ class ResponsibilityCenters( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ tuple ]:
 		'''
@@ -18112,6 +18255,9 @@ class ResourcePlanningOffices( ):
 		if self.__code is not None:
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -18254,6 +18400,9 @@ class RegionalOffices( ):
 	def __str__( self ) -> str:
 		if self.__rpiocode is not None:
 			return self.__rpiocode
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -18543,6 +18692,9 @@ class ReimbursableAgreements( ):
 	def __str__( self ) -> str:
 		if self.__agreementnumber is not None:
 			return self.__agreementnumber
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -19115,6 +19267,9 @@ class RegionalAuthority( ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -19789,6 +19944,9 @@ class StatusOfBudgetaryResources( ):
 	__october = None
 	__november = None
 	__december = None
+	__fields = None
+	__data = None
+	__frame = None
 
 	@property
 	def id( self ) -> int:
@@ -20024,6 +20182,9 @@ class StatusOfBudgetaryResources( ):
 		self.__source = Source.StatusOfBudgetaryResources
 		self.__treasuryaccountcode = tsym
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 class StatusOfBudgetExecution( ):
 	'''
     Constructor:
@@ -20051,6 +20212,9 @@ class StatusOfBudgetExecution( ):
 	__linenumber = None
 	__linename = None
 	__amount = None
+	__fields = None
+	__data = None
+	__frame = None
 
 	@property
 	def id( self ) -> int:
@@ -20175,6 +20339,9 @@ class StatusOfBudgetExecution( ):
 	def __init__( self, tsym: str ):
 		self.__source = Source.StatusOfBudgetExecution
 		self.__treasuryaccountcode = tsym
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class StatusOfSupplementalFunding( ):
 	'''
@@ -21529,6 +21696,9 @@ class StatusOfSpecialAccountFunds( ):
 		if self.__sitecode is not None:
 			return self.__sitecode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -21695,6 +21865,9 @@ class SubAppropriations( ):
 		if self.__code is not None:
 			return self.__code
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -21840,6 +22013,9 @@ class StateOrganizations( ):
 	def __str__( self ) -> str:
 		if self.__code is not None:
 			return self.__code
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -22640,6 +22816,9 @@ class StatusOfAppropriations( ):
 		                  'TotalUsedAmount',
 		                  'AvailableAmount' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -23093,6 +23272,9 @@ class SpendingRates( ):
 		                  'OutYear10',
 		                  'OutYear11',
 		                  'TotalSpendout' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -25175,6 +25357,9 @@ class StatusOfSuperfundSites( ):
 		                  'Deobligations',
 		                  'Expenditures' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -25208,7 +25393,7 @@ class StatusOfSuperfundSites( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def create_frame( self ) -> DataFrame:
+	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
 
@@ -25878,6 +26063,9 @@ class SpendingDocuments( ):
 		if self.__amount is not None:
 			return self.__amount
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -26181,6 +26369,9 @@ class SupplementalCarryoverEstimates( ):
 		if self.__rpiocode is not None:
 			return self.__rpiocode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -26451,6 +26642,9 @@ class SupplementalObligationEstimates( ):
 		if self.__rpiocode is not None:
 			return self.__rpiocode
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -26658,6 +26852,9 @@ class TreasurySymbols( ):
 	def __str__( self ) -> str:
 		if self.__treasuryaccountname is not None:
 			return self.__treasuryaccountname
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -27104,6 +27301,9 @@ class Transfers( ):
 		                  'Purpose',
 		                  'ExtendedPurpose' ]
 
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -27290,6 +27490,9 @@ class TransTypes( ):
 		                  'RescissionPriorYear',
 		                  'SequesterReduction',
 		                  'SequesterReturn' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class UnliquidatedObligations( ):
 	'''
