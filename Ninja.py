@@ -623,6 +623,19 @@ class AdjustedTrialBalances( ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
+		self.__fields = [ 'AdjustedTrialBalancesId',
+		                  'BFY',
+		                  'EFY',
+		                  'FundCode',
+		                  'FundName',
+		                  'TreasurySymbol',
+		                  'AccountNumber',
+		                  'AccountName',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ) -> str:
 		if self.__accountnumber is not None:
@@ -693,17 +706,21 @@ class AdjustedTrialBalances( ):
 
 class AllowanceHolders( ):
 	'''
+
     Constructor:
     AllowanceHolder( code: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:
     Data class representing Allowance Holders
+
     '''
 	__source = None
 	__provider = None
 	__allowancholdersid = None
 	__code = None
 	__name = None
+	__status = None
+	__earmarkflag = None
 	__fields = None
 	__data = None
 	__frame = None
@@ -737,6 +754,36 @@ class AllowanceHolders( ):
 	def name( self, name: str ):
 		if name is not None:
 			self.__name = name
+
+	@property
+	def status( self ) -> str:
+		if self.__status is not None:
+			return self.__status
+
+	@status.setter
+	def status( self, value: str ):
+		if value is not None:
+			self.__status = value
+
+	@property
+	def earmark_flag( self ) -> str:
+		if self.__earmarkflag is not None:
+			return self.__earmarkflag
+
+	@earmark_flag.setter
+	def earmark_flag( self, value: str ):
+		if value is not None:
+			self.__earmarkflag = value
+
+	@property
+	def usage( self ) -> str:
+		if self.__usage is not None:
+			return self.__usage
+
+	@usage.setter
+	def usage( self, value: str ):
+		if value is not None:
+			self.__usage = value
 
 	@property
 	def data( self ) -> list[ Row ]:
@@ -775,7 +822,9 @@ class AllowanceHolders( ):
 		self.__code = code
 		self.__fields = [ 'AllowanceHoldersId',
 		                  'Code',
-		                  'Name' ]
+		                  'Name'
+		                  'Status'
+		                  'EarmarkFlag' ]
 
 	def __str__( self ) -> str:
 		if isinstance( self.__code, str ) and self.__code != '':
@@ -783,6 +832,7 @@ class AllowanceHolders( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'code', 'name',
+		         'status', 'earmark_flag', 'usage',
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -2441,10 +2491,20 @@ class AppropriationLevelAuthority( ):
 		self.__efy = efy
 		self.__fundcode = fundcode
 		self.__fields = [ 'AppropriationLevelAuthorityId',
-		                  'bfy', 'efy', 'fund_code', 'fund_name',
-		                  'main_account', 'budget_account_code', 'budget_account_name',
-		                  'authority', 'budgeted', 'reimbursements', 'recoveries',
-		                  'treasury_account_code', 'treasury_account_name' ]
+		                  'BFY',
+		                  'EFY',
+		                  'FundCode',
+		                  'FundName',
+		                  'MainAccount',
+		                  'Authority',
+		                  'Budgeted',
+		                  'Reimbursements',
+		                  'Recoveries',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ) -> str:
 		if isinstance( self.__fundcode, str ) and self.__fundcode != '':
@@ -2941,7 +3001,12 @@ class Allocations( ):
 		                  'LowerName',
 		                  'Amount',
 		                  'NpmCode',
-		                  'NpmName' ]
+		                  'NpmName',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ) -> str:
 		if self.__programprojectname is not None:
@@ -3265,7 +3330,12 @@ class ApportionmentData( ):
 			return self.__mainaccount
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'fiscal_year', 'bfy', 'efy', 'availability_type',
+		         'approval_date', 'line_number', 'line_split', 'line_name',
+		         'amount', 'fund_code', 'fund_name',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -3817,7 +3887,12 @@ class Actuals( ):
 		                  'GoalCode',
 		                  'GoalName',
 		                  'ObjectiveCode',
-		                  'ObjectiveName' ]
+		                  'ObjectiveName',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ) -> str:
 		if self.__programprojectname is not None:
@@ -3898,9 +3973,9 @@ class ApplicationTables( ):
 	__source = None
 	__provider = None
 	__applicationtablesid = None
-	__tablename = None
+	__name = None
 	__model = None
-	__title = None
+	__caption = None
 	__fields = None
 	__data = None
 	__frame = None
@@ -3916,14 +3991,14 @@ class ApplicationTables( ):
 			self.__applicationtablesid = value
 
 	@property
-	def table_name( self ) -> str:
-		if self.__tablename is not None:
-			return self.__tablename
+	def name( self ) -> str:
+		if self.__name is not None:
+			return self.__name
 
-	@table_name.setter
-	def table_name( self, value: str ):
+	@name.setter
+	def name( self, value: str ):
 		if value is not None:
-			self.__tablename = value
+			self.__name = value
 
 	@property
 	def model( self ) -> str:
@@ -3937,13 +4012,13 @@ class ApplicationTables( ):
 
 	@property
 	def title( self ) -> str:
-		if self.__title is not None:
-			return self.__title
+		if self.__caption is not None:
+			return self.__caption
 
 	@title.setter
 	def title( self, value: str ):
 		if value is not None:
-			self.__title = value
+			self.__caption = value
 
 	@property
 	def data( self ) -> list[ Row ]:
@@ -3965,17 +4040,38 @@ class ApplicationTables( ):
 		if value is not None:
 			self.__frame = value
 
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
+
+	@fields.setter
+	def fields( self, value: list[ str ] ):
+		if value is not None:
+			self.__fields = value
+
 	def __init__( self, name: str, provider: Provider = Provider.SQLite ):
 		self.__source = Source.ApplicationTables
 		self.__provider = provider
-		self.__tablename = name
+		self.__name = name
+		self.__fields = [ 'ApplicationTablesId',
+		                  'Name',
+		                  'Model',
+		                  'Caption' ]
 
 	def __str__( self ) -> str:
-		if self.__tablename is not None:
-			return self.__tablename
+		if self.__name is not None:
+			return self.__name
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'name', 'model',
+		         'caption', 'fields', 'data',
+		         'frame', 'getdata', 'getframe' ]
 
 class AppropriationDocuments( ):
 	'''
@@ -3991,7 +4087,7 @@ class AppropriationDocuments( ):
 	__bfy = None
 	__efy = None
 	__fundcode = None
-	__fund = None
+	__appropriation = None
 	__documenttype = None
 	__documentnumber = None
 	__documentdate = None
@@ -4063,14 +4159,14 @@ class AppropriationDocuments( ):
 			self.__fundcode = value
 
 	@property
-	def fund( self ) -> str:
-		if self.__fund is not None:
-			return self.__fund
+	def appropriation( self ) -> str:
+		if self.__appropriation is not None:
+			return self.__appropriation
 
-	@fund.setter
-	def fund( self, value: str ):
+	@appropriation.setter
+	def appropriation( self, value: str ):
 		if value is not None:
-			self.__fund = value
+			self.__appropriation = value
 
 	@property
 	def document_type( self ) -> str:
@@ -4371,7 +4467,7 @@ class AppropriationDocuments( ):
 		                  'BFY',
 		                  'EFY',
 		                  'Fund',
-		                  'FundCode',
+		                  'Appropriation',
 		                  'DocumentType',
 		                  'DocumentNumber',
 		                  'DocumentDate',
@@ -4389,17 +4485,33 @@ class AppropriationDocuments( ):
 		                  'ReimbursableAgreementControls',
 		                  'Budgeted',
 		                  'Posted',
-		                  'CarryOut',
-		                  'CarryIn',
+		                  'CarryoverOut',
+		                  'CarryoverIn',
 		                  'EstimatedReimbursements',
-		                  'EstimatedRecoveries' ]
+		                  'EstimatedRecoveries',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __str__( self ):
 		if self.__fundcode is not None:
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'appropriation',
+		         'budget_level', 'document_type', 'document_number', 'document_date',
+		         'last_document_date', 'budgeting_controls', 'posting_controls',
+		         'precommitment_controls', 'commitment_controls', 'obligation_controls',
+		         'accrual_controls', 'expenditure_controls', 'expense_controls',
+		         'reimbursement_controls', 'reimbursement_controls',
+		         'reimbursable_agreement_controls', 'budgeted', 'posted',
+		         'carryover_in', 'carryover_out',
+		         'estimated_reimbursments', 'estimated_recoveries',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -4984,13 +5096,12 @@ class BudgetDocuments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str = None, efy: str = None,
-	              fundcode: str = None, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str,fundcode: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetDocuments
-		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.__efy = efy if isinstance( efy, str ) and efy != '' else None
-		self.__fundcode = fundcode if isinstance( fundcode, str ) and fundcode != '' else None
+		self.__bfy = bfy
+		self.__efy = efy
+		self.__fundcode = fundcode
 		self.__fields = [ 'BudgetDocumentsId',
 		                  'BFY',
 		                  'EFY',
@@ -5025,11 +5136,33 @@ class BudgetDocuments( ):
 		                  'ReimbursementControls',
 		                  'Budgeted',
 		                  'Posted',
-		                  'CarryOut',
-		                  'CarryIn',
+		                  'CarryoverOut',
+		                  'CarryoverIn',
 		                  'EstimatedRecoveries',
-		                  'EstimatedReimbursements' ]
+		                  'EstimatedReimbursements',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
+	def __str__( self ) -> str:
+		if self.__documentnumber is not None:
+			return self.__documentnumber
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'bfy', 'efy', 'budget_level', 'document_date',
+		         'last_document_date', 'document_type','document_number', 'fund_code',
+		         'fund_name', 'rpio_code', 'rpio_name', 'ah_code', 'ah_name',
+		         'org_code', 'org_name', 'account_code', 'program_project_pame',
+		         'program_area_code', 'program_area_name', 'boc_code', 'boc_name',
+		         'reimbursable_agreement_controls', 'budgeting_controls', 'posting_controls',
+		         'precommitment_controls', 'commitment_controls', 'obligation_controls',
+		         'expenditure_controls', 'expense_controls', 'accrual_controls',
+		         'reimbursement_controls', 'budgeted', 'posted', 'carryover_out',
+		         'carryover_in', 'estimated_recoveries', 'estimated_reimbursements',
+		         'main_account', 'treasury_account_code',  'treasury_account_name',
+		         'budget_account_code',  'budget_account_name' ]
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -5170,12 +5303,12 @@ class BudgetContacts( ):
 			self.__jobtitle = value
 
 	@property
-	def zipcode( self ):
+	def zip_code( self ):
 		if self.__zipcode is not None:
 			return self.__zipcode
 
-	@zipcode.setter
-	def zipcode( self, value: str ):
+	@zip_code.setter
+	def zip_code( self, value: str ):
 		if value is not None:
 			self.__zipcode = value
 
@@ -5272,6 +5405,31 @@ class BudgetContacts( ):
 	def __init__( self, last: str, first: str ):
 		self.__lastname = last
 		self.__first = first
+		self.__fields = [ 'BudgetContactsId',
+		                  'FirstName',
+		                  'LastName',
+		                  'RpioCode',
+		                  'RpioName',
+		                  'Section',
+		                  'JobTitle',
+		                  'City',
+		                  'State',
+		                  'ZipCode',
+		                  'OfficeLocation',
+		                  'Account',
+		                  'EmailAddress',
+		                  'EmailType',
+		                  'DisplayName' ]
+
+	def __str__( self ) ->str:
+		if self.__emailaddress is not None:
+			return self.__emailaddress
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'first_name', 'last_name', 'rpio_code', 'rpio_name',
+		         'section', 'job_title', 'state', 'zip_code', 'office_location',
+		         'city', 'account', 'email_type', 'display_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 class BudgetControls( ):
 	'''
@@ -7455,7 +7613,16 @@ class CompassLevels( ):
 		                  'RecoveriesWithdrawn',
 		                  'ActualRecoveries',
 		                  'ActualReimbursements',
-		                  'AgreementReimbursables' ]
+		                  'AgreementReimbursables',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
+
+	def __str__( self ) -> str:
+		if self.__documenttype is not None:
+			return self.__documenttype
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
