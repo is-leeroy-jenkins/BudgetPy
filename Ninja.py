@@ -1397,10 +1397,16 @@ class AnnualCarryoverEstimates( ):
 
 	def __str__( self ) -> str:
 		if self.__fundcode is not None:
-			return str( self.__fundcode )
+			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name'
+		         'rpio_code', 'rpio_name', 'amount',
+		         'available', 'open_commitments', 'obligations',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -1707,7 +1713,13 @@ class AnnualReimbursableEstimates( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name'
+		         'rpio_code', 'rpio_name', 'amount', 'estimate'
+		         'available', 'open_commitments', 'obligations',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -2423,14 +2435,16 @@ class AppropriationLevelAuthority( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fundcode: str ):
-		self.__source = Source.Appropriations
+		self.__source = Source.AppropriationLevelAuthority
 		self.__provider = Provider.SQLite
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
 		self.__fields = [ 'AppropriationLevelAuthorityId',
-		                  'Code',
-		                  'Name' ]
+		                  'bfy', 'efy', 'fund_code', 'fund_name',
+		                  'main_account', 'budget_account_code', 'budget_account_name',
+		                  'authority', 'budgeted', 'reimbursements', 'recoveries',
+		                  'treasury_account_code', 'treasury_account_name' ]
 
 	def __str__( self ) -> str:
 		if isinstance( self.__fundcode, str ) and self.__fundcode != '':
@@ -2817,6 +2831,56 @@ class Allocations( ):
 			self.__npmname = value
 
 	@property
+	def main_account( self ) -> str:
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	@main_account.setter
+	def main_account( self, value: str ):
+		if value is not None:
+			self.__mainaccount = value
+
+	@property
+	def treasury_account_code( self ) -> str:
+		if self.__treasuryaccountcode is not None:
+			return self.__treasuryaccountcode
+
+	@treasury_account_code.setter
+	def treasury_account_code( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountcode = value
+
+	@property
+	def treasury_account_name( self ) -> str:
+		if self.__treasuryaccountname is not None:
+			return self.__treasuryaccountname
+
+	@treasury_account_name.setter
+	def treasury_account_name( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountname = value
+
+	@property
+	def budget_account_code( self ) -> str:
+		if self.__budgetaccountcode is not None:
+			return self.__budgetaccountcode
+
+	@budget_account_code.setter
+	def budget_account_code( self, value: str ):
+		if value is not None:
+			self.__budgetaccountcode = value
+
+	@property
+	def budget_account_name( self ) -> str:
+		if self.__budgetaccountname is not None:
+			return self.__budgetaccountname
+
+	@budget_account_name.setter
+	def budget_account_name( self, value: str ):
+		if value is not None:
+			self.__budgetaccountname = value
+
+	@property
 	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
@@ -2846,7 +2910,8 @@ class Allocations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fundcode: str,
+	              provider: Provider = Provider.SQLite ):
 		self.__source = Source.Allocations
 		self.__provider = provider
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -2878,6 +2943,10 @@ class Allocations( ):
 		                  'NpmCode',
 		                  'NpmName' ]
 
+	def __str__( self ) -> str:
+		if self.__programprojectname is not None:
+			return self.__programprojectname
+
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
@@ -2903,7 +2972,7 @@ class Allocations( ):
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'BFY', 'FundCode' ]
+			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = (self.__bfy, self.__fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
@@ -2920,14 +2989,18 @@ class Allocations( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'Allocation'
+			_exc.cause = 'Allocations'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
 	def getframe( self ) -> DataFrame:
-		'''Method returning pandas dataframe
-        comprised of datatable data'''
+		'''
+
+		Purpose: Method returning pandas dataframe
+        comprised of datatable data
+
+        '''
 		try:
 			_source = self.__source
 			_data = BudgetData( _source )
@@ -2935,7 +3008,7 @@ class Allocations( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'Allocation'
+			_exc.cause = 'Allocations'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -3330,6 +3403,66 @@ class Actuals( ):
 			self.__efy = value
 
 	@property
+	def fund_code( self ) -> str:
+		if self.__fundcode is not None:
+			return self.__fundcode
+
+	@fund_code.setter
+	def fund_code( self, value: str ):
+		if value is not None:
+			self.__fundcode = value
+
+	@property
+	def fund_name( self ) -> str:
+		if self.__fundname is not None:
+			return self.__fundname
+
+	@fund_name.setter
+	def fund_name( self, value: str ):
+		if value is not None:
+			self.__fundname = value
+
+	@property
+	def appropriation_code( self ) -> str:
+		if self.__appropriationcode is not None:
+			return self.__appropriationcode
+
+	@appropriation_code.setter
+	def appropriation_code( self, value: str ):
+		if value is not None:
+			self.__appropriationcode = value
+
+	@property
+	def appropriation_name( self ) -> str:
+		if self.__appropriationname is not None:
+			return self.__appropriationname
+
+	@appropriation_name.setter
+	def appropriation_name( self, value: str ):
+		if value is not None:
+			self.__appropriationname = value
+
+	@property
+	def subappropriation_code( self ) -> str:
+		if self.__subappropriationcode is not None:
+			return self.__subappropriationcode
+
+	@subappropriation_code.setter
+	def subappropriation_code( self, value: str ):
+		if value is not None:
+			self.__subappropriationcode = value
+
+	@property
+	def subappropriation_name( self ) -> str:
+		if self.__subappropriationname is not None:
+			return self.__subappropriationname
+
+	@subappropriation_name.setter
+	def subappropriation_name( self, value: str ):
+		if value is not None:
+			self.__subappropriationname = value
+
+	@property
 	def rpio_code( self ) -> str:
 		if self.__rpiocode is not None:
 			return self.__rpiocode
@@ -3368,26 +3501,6 @@ class Actuals( ):
 	def ah_name( self, value: str ):
 		if value is not None:
 			self.__ahname = value
-
-	@property
-	def fund_code( self ) -> str:
-		if self.__fundcode is not None:
-			return self.__fundcode
-
-	@fund_code.setter
-	def fund_code( self, value: str ):
-		if value is not None:
-			self.__fundcode = value
-
-	@property
-	def fund_name( self ) -> str:
-		if self.__fundname is not None:
-			return self.__fundname
-
-	@fund_name.setter
-	def fund_name( self, value: str ):
-		if value is not None:
-			self.__fundname = value
 
 	@property
 	def org_code( self ) -> str:
@@ -3672,8 +3785,8 @@ class Actuals( ):
 	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Actuals
-		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+		self.__bfy = bfy if bfy is not None and len( bfy ) == 4 else None
+		self.__fundcode = fund if fund is not None and fund != '' else None
 		self.__fields = [ 'ActualsId',
 		                  'BFY',
 		                  'EFY',
@@ -3706,8 +3819,14 @@ class Actuals( ):
 		                  'ObjectiveCode',
 		                  'ObjectiveName' ]
 
+	def __str__( self ) -> str:
+		if self.__programprojectname is not None:
+			return self.__programprojectname
+
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
+		         'appropriation_code', 'appropriation_name', 'subappropriation_code',
+		         'subappropriation_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
@@ -7913,7 +8032,7 @@ class Commitments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str = None, fund: str = None, account: str = None,
+	def __init__( self, bfy: str, efy: str,  fund: str = None, account: str = None,
 	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.OpenCommitments
@@ -10415,8 +10534,8 @@ class Expenditures( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, account: str,
-	              boc: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
+	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Expenditures
 		self.__bfy = bfy
@@ -16889,7 +17008,7 @@ class Obligations( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              account: str, boc: str, provider: Provider = Provider.SQLite ):
+	              account: str = None, boc: str = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Obligations
 		self.__bfy = bfy
@@ -28012,8 +28131,8 @@ class UnliquidatedObligations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, account: str,
-	              boc: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
+	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.UnliquidatedObligations
 		self.__bfy = bfy
