@@ -161,7 +161,7 @@ class Accounts( ):
 
 	@data.setter
 	def data( self, value: list[ Row ] ):
-		if value is not None:
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -325,13 +325,13 @@ class ActivityCodes( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -453,6 +453,8 @@ class AdjustedTrialBalances( ):
 	__treasuryaccountname = None
 	__budgetaccountcode = None
 	__budgetaccountname = None
+	__data = None
+	__frame = None
 
 	@property
 	def id( self ) -> int:
@@ -583,6 +585,26 @@ class AdjustedTrialBalances( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -722,9 +744,9 @@ class AllowanceHolders( ):
 			return self.__data
 
 	@data.setter
-	def data( self, cache: list[ Row ] ):
-		if list is not None:
-			self.__data = cache
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
 
 	@property
 	def frame( self ) -> DataFrame:
@@ -732,9 +754,9 @@ class AllowanceHolders( ):
 			return self.__frame
 
 	@frame.setter
-	def frame( self, frame: DataFrame ):
-		if frame is not None:
-			self.__frame = frame
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -1015,7 +1037,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 
 	@data.setter
 	def data( self, value: list[ Row ] ):
-		if value is not None:
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -1313,12 +1335,12 @@ class AnnualCarryoverEstimates( ):
 			self.__budgetaccountname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -1618,6 +1640,26 @@ class AnnualReimbursableEstimates( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -1768,6 +1810,16 @@ class Appropriations( ):
 	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -2053,6 +2105,16 @@ class AppropriationAvailableBalances( ):
 			self.__data = value
 
 	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -2329,6 +2391,16 @@ class AppropriationLevelAuthority( ):
 	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -2735,6 +2807,26 @@ class Allocations( ):
 			self.__npmname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -3028,6 +3120,26 @@ class ApportionmentData( ):
 	def fund_name( self, value: str ):
 		if value is not None:
 			self.__fundname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -3511,6 +3623,26 @@ class Actuals( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -3676,6 +3808,26 @@ class ApplicationTables( ):
 	def title( self, value: str ):
 		if value is not None:
 			self.__title = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	def __init__( self, name, provider = Provider.SQLite ):
 		self.__source = Source.ApplicationTables
@@ -4036,6 +4188,26 @@ class AppropriationDocuments( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -4633,6 +4805,26 @@ class BudgetDocuments( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -4642,7 +4834,8 @@ class BudgetDocuments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, efy = None, fundcode = None, provider = Provider.SQLite ):
+	def __init__( self, bfy: str = None, efy: str = None,
+	              fundcode: str = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetDocuments
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4762,6 +4955,9 @@ class BudgetContacts( ):
 	__emailtype = None
 	__displayname = None
 	__officelocation = None
+	__fields = None
+	__data = None
+	__frame = None
 
 	@property
 	def first_name( self ):
@@ -4902,6 +5098,26 @@ class BudgetContacts( ):
 	def office_location( self, value: str ):
 		if value is not None:
 			self.__officelocation = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	def __init__( self, last: str, first: str ):
 		self.__lastname = last
@@ -5315,6 +5531,26 @@ class BudgetControls( ):
 			self.__authoritydistributioncontrol = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -5580,13 +5816,13 @@ class BudgetFiscalYears( ):
 			return self.__holidays
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -5595,9 +5831,9 @@ class BudgetFiscalYears( ):
 			return self.__frame
 
 	@frame.setter
-	def frame( self, frame: DataFrame ):
-		if frame is not None:
-			self.__frame = frame
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -5766,13 +6002,13 @@ class BudgetObjectClasses( ):
 			self.__value = val
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -5964,6 +6200,26 @@ class BudgetaryResourceExecution( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -6357,6 +6613,26 @@ class Outlays( ):
 			self.__outyear9 = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -6626,6 +6902,26 @@ class CongressionalControls( ):
 	def memorandum_required( self, value: str ):
 		if value is not None:
 			self.__memorandumrequired = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -6906,6 +7202,26 @@ class CompassLevels( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -7515,6 +7831,26 @@ class Commitments( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -7653,6 +7989,8 @@ class CostAreas( ):
 	__provider = None
 	__code = None
 	__fields = None
+	__data = None
+	__frame = None
 
 	@property
 	def id( self ) -> int:
@@ -7663,6 +8001,26 @@ class CostAreas( ):
 	def id( self, value: int ):
 		if value is not None:
 			self.__transfersid = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -7728,12 +8086,12 @@ class CapitalPlanningInvestmentCodes( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -7892,6 +8250,26 @@ class ColumnSchema( ):
 		if value is not None:
 			self.__columncaption = value
 
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
 	def __init__( self, column, table, provider = Provider.SQLite ):
 		self.__source = Source.ColumnSchema
 		self.__provider = provider
@@ -7976,6 +8354,26 @@ class DataRuleDescriptions( ):
 	def rule_description( self, value: str ):
 		if value is not None:
 			self.__ruledescription = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -8507,6 +8905,26 @@ class Defactos( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -9100,6 +9518,26 @@ class Deobligations( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -9287,6 +9725,26 @@ class DocumentControlNumbers( ):
 	def document_control_number( self, value: str ):
 		if value is not None:
 			self.__documentcontrolnumber = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -9853,6 +10311,26 @@ class Expenditures( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -10047,14 +10525,14 @@ class FinanceObjectClasses( ):
 			self.__bocname = name
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, cache ):
-		if list is not None:
-			self.__data = cache
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
 
 	@property
 	def frame( self ) -> DataFrame:
@@ -10062,9 +10540,9 @@ class FinanceObjectClasses( ):
 			return self.__frame
 
 	@frame.setter
-	def frame( self, frame: DataFrame ):
-		if isinstance( frame, DataFrame ):
-			self.__frame = frame
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -10496,12 +10974,12 @@ class Funds( ):
 			self.__apportionmentaccountcode = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -10709,19 +11187,24 @@ class FederalHolidays( ):
 			return self.__month
 
 	@property
-	def data( self ) -> list[ str ]:
+	def holidays( self ) -> list[ str ]:
+		if self.__holidays is not None:
+			return self.__holidays
+
+	@property
+	def observances( self ) -> dict:
+		if self.__observance is not None:
+			return self.__observance
+
+	@property
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
-
-	@property
-	def holidays( self ) -> list[ str ]:
-		if self.__holidays is not None:
-			return self.__holidays
 
 	@property
 	def frame( self ) -> DataFrame:
@@ -10732,11 +11215,6 @@ class FederalHolidays( ):
 	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
-
-	@property
-	def observances( self ) -> dict:
-		if self.__observance is not None:
-			return self.__observance
 
 	@property
 	def fields( self ) -> list:
@@ -11529,6 +12007,26 @@ class FullTimeEquivalents( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -11749,6 +12247,26 @@ class GeneralLedgerAccounts( ):
 			self.__treasuryaccount = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -11824,12 +12342,12 @@ class Goals( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -12267,6 +12785,26 @@ class HeadquartersAuthority( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -12421,12 +12959,12 @@ class HeadquartersOffices( ):
 			self.__rpioname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -12703,12 +13241,12 @@ class InflationReductionActCarryoverEstimates( ):
 			self.__budgetaccountname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -13005,12 +13543,12 @@ class JobsActCarryoverEstimates( ):
 			self.__budgetaccountname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -13133,6 +13671,9 @@ class MainAccounts( ):
 	__budgetenforcementactcategory = None
 	__budgetaccountcode = None
 	__budgetaccountname = None
+	__fields = None
+	__data = None
+	__frame = None
 
 	@property
 	def code( self ):
@@ -13193,6 +13734,26 @@ class MainAccounts( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	def __init__( self, code: str ):
 		self.__code = code
@@ -13478,6 +14039,26 @@ class MonthlyActuals( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -13870,6 +14451,26 @@ class MonthlyOutlays( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -14040,12 +14641,12 @@ class NationalPrograms( ):
 			self.__title = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -14185,13 +14786,13 @@ class Objectives( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -14327,14 +14928,14 @@ class Organizations( ):
 			self.__name = name
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, cache ):
-		if list is not None:
-			self.__data = cache
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
 
 	@property
 	def frame( self ) -> DataFrame:
@@ -14342,9 +14943,9 @@ class Organizations( ):
 			return self.__frame
 
 	@frame.setter
-	def frame( self, frame ):
-		if isinstance( frame, DataFrame ):
-			self.__frame = frame
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -14776,6 +15377,26 @@ class OperatingPlans( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.__source = Source.OperatingPlans
@@ -15413,6 +16034,26 @@ class OpenCommitments( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -16096,6 +16737,26 @@ class Obligations( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -16270,6 +16931,31 @@ class PublicLaws( ):
 			self.__lawnumber = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -16337,12 +17023,12 @@ class Projects( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -16355,6 +17041,11 @@ class Projects( ):
 	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -16465,13 +17156,13 @@ class ProgramAreas( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -16483,6 +17174,11 @@ class ProgramAreas( ):
 	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -16615,12 +17311,12 @@ class ProgramProjects( ):
 			self.____programareaname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -16633,6 +17329,11 @@ class ProgramProjects( ):
 	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -17019,12 +17720,12 @@ class ProgramResultsCodes( ):
 			self.__activityname = value
 
 	@property
-	def data( self ) -> list[ tuple ]:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list[ tuple ] ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -17037,6 +17738,11 @@ class ProgramResultsCodes( ):
 	def frame( self, value: DataFrame ):
 		if value is not None:
 			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -17222,12 +17928,12 @@ class ResponsibilityCenters( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -17365,12 +18071,12 @@ class ResourcePlanningOffices( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
+	def data( self, value: list[ Row ] ):
 		if isinstance( value, list ):
 			self.__data = value
 
@@ -17507,13 +18213,13 @@ class RegionalOffices( ):
 			self.__rpioname = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
 
 	@property
@@ -17778,6 +18484,26 @@ class ReimbursableAgreements( ):
 	def available( self, value: float ):
 		if value is not None:
 			self.__avaialable = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -18313,6 +19039,26 @@ class RegionalAuthority( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -18878,6 +19624,26 @@ class StatusOfFunds( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -19233,6 +19999,26 @@ class StatusOfBudgetaryResources( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	def __init__( self, tsym: str ):
 		self.__source = Source.StatusOfBudgetaryResources
@@ -19835,6 +20621,26 @@ class StatusOfSupplementalFunding( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -20222,6 +21028,26 @@ class StateGrantObligations( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -20630,6 +21456,26 @@ class StatusOfSpecialAccountFunds( ):
 			self.__collectionsandinterest = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -20816,6 +21662,16 @@ class SubAppropriations( ):
 			self.__data = value
 
 	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -20942,14 +21798,24 @@ class StateOrganizations( ):
 			self.__name = value
 
 	@property
-	def data( self ) -> list:
+	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
 
 	@data.setter
-	def data( self, value: list ):
-		if value is not None:
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -21682,6 +22548,26 @@ class StatusOfAppropriations( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -22141,6 +23027,26 @@ class SpendingRates( ):
 	def total_spendout( self, value: str ):
 		if value is not None:
 			self.__totalspendout = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -22685,6 +23591,26 @@ class StatusOfSupplementalFunds( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -23258,6 +24184,26 @@ class StatusOfJobsActFunding( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -23854,6 +24800,26 @@ class StatusOfEarmarks( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -24151,6 +25117,26 @@ class StatusOfSuperfundSites( ):
 	def expenditures( self, value: float ):
 		if value is not None:
 			self.__expenditures = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -24812,6 +25798,26 @@ class SpendingDocuments( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -25603,6 +26609,26 @@ class TreasurySymbols( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -26010,6 +27036,26 @@ class Transfers( ):
 			self.__budgetaccountname = value
 
 	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
 	def fields( self ) -> list[ str ]:
 		if self.__fields is not None:
 			return self.__fields
@@ -26195,6 +27241,26 @@ class TransTypes( ):
 	def treasury_symbol( self, value: str ):
 		if value is not None:
 			self.__treasuryaccount = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
@@ -26712,6 +27778,26 @@ class UnliquidatedObligations( ):
 	def budget_account_name( self, value: str ):
 		if value is not None:
 			self.__budgetaccountname = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
 
 	@property
 	def fields( self ) -> list[ str ]:
