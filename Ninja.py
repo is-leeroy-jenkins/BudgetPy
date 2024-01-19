@@ -24555,7 +24555,16 @@ class StatusOfJobsActFunding( ):
 		                  'Expenditure',
 		                  'Obligation',
 		                  'Used',
-		                  'Available' ]
+		                  'Available',
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
+
+	def __str__( self ) -> str:
+		if self.__fundname is not None:
+			return self.__fundname
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
@@ -24672,6 +24681,7 @@ class StatusOfEarmarks( ):
 	__statecode = None
 	__statename = None
 	__zipcode = None
+	__mainaccount = None
 	__treasuryaccountcode = None
 	__treasuryaccountname = None
 	__budgetaccountcode = None
@@ -25061,6 +25071,16 @@ class StatusOfEarmarks( ):
 			self.__npmname = value
 
 	@property
+	def main_account( self ):
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	@main_account.setter
+	def main_account( self, value: str ):
+		if value is not None:
+			self.__mainaccount = value
+
+	@property
 	def treasury_account_code( self ) -> str:
 		if self.__treasuryaccountcode is not None:
 			return self.__treasuryaccountcode
@@ -25130,7 +25150,8 @@ class StatusOfEarmarks( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str,
+	              fundcode: str, provider: Provider = Provider.SQLite ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
@@ -25160,16 +25181,23 @@ class StatusOfEarmarks( ):
 		                  'NpmName',
 		                  'RcCode',
 		                  'RcName',
-		                  'LowerName',
+		                  'StateCode',
+		                  'ZipCode'
+		                  'StateName',
 		                  'Amount',
 		                  'Budgeted',
 		                  'Posted',
-		                  'OpenCommitment',
-		                  'ULO',
-		                  'Expenditure',
-		                  'Obligation',
+		                  'OpenCommitments',
+		                  'UnliquidatedObligations',
+		                  'Expenditures',
+		                  'Obligations',
 		                  'Used',
-		                  'Available' ]
+		                  'Available' 
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
@@ -25177,7 +25205,9 @@ class StatusOfEarmarks( ):
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
 		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
-		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'objective_code', 'objective_name', 'state_code', 'state_name', 'zip_code',
+		         'county_name', 'city_name', 'site_id', 'site_name',
+		         'budgeted', 'posted', 'open_commitments',
 		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
@@ -25215,6 +25245,11 @@ class StatusOfSuperfundSites( ):
 	__obligations = None
 	__deobligations = None
 	__expenditures = None
+	__mainaccount = None
+	__treasuryaccountcode = None
+	__treasuryaccountname = None
+	__budgetaccountcode = None
+	__budgetaccountname = None
 	__fields = None
 	__data = None
 	__frame = None
@@ -25420,6 +25455,56 @@ class StatusOfSuperfundSites( ):
 			self.__expenditures = value
 
 	@property
+	def main_account( self ):
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	@main_account.setter
+	def main_account( self, value: str ):
+		if value is not None:
+			self.__mainaccount = value
+
+	@property
+	def treasury_account_code( self ) -> str:
+		if self.__treasuryaccountcode is not None:
+			return self.__treasuryaccountcode
+
+	@treasury_account_code.setter
+	def treasury_account_code( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountcode = value
+
+	@property
+	def treasury_account_name( self ) -> str:
+		if self.__treasuryaccountname is not None:
+			return self.__treasuryaccountname
+
+	@treasury_account_name.setter
+	def treasury_account_name( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountname = value
+
+	@property
+	def budget_account_code( self ) -> str:
+		if self.__budgetaccountcode is not None:
+			return self.__budgetaccountcode
+
+	@budget_account_code.setter
+	def budget_account_code( self, value: str ):
+		if value is not None:
+			self.__budgetaccountcode = value
+
+	@property
+	def budget_account_name( self ) -> str:
+		if self.__budgetaccountname is not None:
+			return self.__budgetaccountname
+
+	@budget_account_name.setter
+	def budget_account_name( self, value: str ):
+		if value is not None:
+			self.__budgetaccountname = value
+
+	@property
 	def data( self ) -> list[ Row ]:
 		if self.__data is not None:
 			return self.__data
@@ -25474,10 +25559,31 @@ class StatusOfSuperfundSites( ):
 		                  'StateName',
 		                  'Obligations',
 		                  'Deobligations',
-		                  'Expenditures' ]
+		                  'Expenditures' 
+		                  'MainAccount',
+		                  'TreasuryAccountCode',
+		                  'TreasuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName' ]
+
+	def __str__( self ):
+		if self.__sitename is not None:
+			return self.__sitename
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name', 'state_code', 'state_name', 'zip_code',
+		         'county_name', 'city_name', 'site_id', 'site_name',
+		         'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'deobligations', 'expenditures',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -26240,11 +26346,13 @@ class SpendingDocuments( ):
 
 class SupplementalCarryoverEstimates( ):
 	'''
+
     Constructor:
     CarryoverEstimate( bfy: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:
-    Class defines object providing Supplemental Carryover Estimate data for
+    Class defines object providing Supplemental Carryover Estimates
+
     '''
 	__source = None
 	__provider = None
@@ -26962,10 +27070,11 @@ class TreasurySymbols( ):
 		                  'EFY',
 		                  'FundCode',
 		                  'FundName',
+		                  'MainAccount',
 		                  'TreasuryAccountCode',
 		                  'TreasuryAccountName',
-		                  'OmbAccountCode',
-		                  'OmbAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName',
 		                  'ApportionmentAccountCode' ]
 
 	def __str__( self ) -> str:
@@ -26973,7 +27082,9 @@ class TreasurySymbols( ):
 			return self.__treasuryaccountname
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy', 'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code', 'budget_account_name'
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
