@@ -4129,7 +4129,7 @@ class CsvForm( Sith ):
 					_data = _frame.values.tolist( )
 					if _button == 'Yes':
 						_header = _frame.iloc[ 0 ].tolist( )
-						_data = _frame[ 1: ].values.tolist( )
+						_data = _frame[ 1: ].column_values.tolist( )
 					elif _button == 'No':
 						_header = [ 'Column' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
 				except Exception:
