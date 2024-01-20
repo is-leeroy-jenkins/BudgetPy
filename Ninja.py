@@ -5447,7 +5447,7 @@ class BudgetControls( ):
 	__spendingadjustmenttranstype = None
 	__estimatedrecoveriestranstype = None
 	__actualrecoveriestranstype = None
-	__statusreservetranstype = None
+	__strategicreservetranstype = None
 	__profitlosstranstype = None
 	__estimatedreimbursementsspendingoptions = None
 	__estimatedreimbursementsbudgetingoptions = None
@@ -5569,14 +5569,14 @@ class BudgetControls( ):
 			self.__actualrecoveriestranstype = value
 
 	@property
-	def status_reserve_transtype( self ) -> str:
-		if self.__statusreservetranstype is not None:
-			return self.__statusreservetranstype
+	def strategic_reserve_transtype( self ) -> str:
+		if self.__strategicreservetranstype is not None:
+			return self.__strategicreservetranstype
 
-	@status_reserve_transtype.setter
-	def status_reserve_transtype( self, value: str ):
+	@strategic_reserve_transtype.setter
+	def strategic_reserve_transtype( self, value: str ):
 		if value is not None:
-			self.__statusreservetranstype = value
+			self.__strategicreservetranstype = value
 
 	@property
 	def profit_loss_transtype( self ) -> str:
@@ -5872,9 +5872,9 @@ class BudgetControls( ):
 	              fund: str, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetControls
-		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.__efy = efy if isinstance( efy, str ) and efy != '' else None
-		self.__fundcode = fund if isinstance( fund, str ) and fund != '' else None
+		self.__bfy = bfy
+		self.__efy = efy
+		self.__fundcode = fund
 		self.__fields = [ 'BudgetControlValuesId',
 		                  'Code',
 		                  'Name',
@@ -5886,7 +5886,7 @@ class BudgetControls( ):
 		                  'EstimatedRecoveriesTransType',
 		                  'ActualRecoveriesTransType',
 		                  'StategicReserveTransType',
-		                  'ProfLossTransType',
+		                  'ProfitLossTransType',
 		                  'EstimatedReimbursableSpendingOption',
 		                  'EstimatedReimbursableBudgetingOption',
 		                  'TrackAgreementLowerLevel',
@@ -5916,7 +5916,25 @@ class BudgetControls( ):
 		                  'AuthorityDistributionControl' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'code', 'name', 'security_org', 'posted_trans_type',
+		         'estimated_reimbursements_transtype', 'spending_adjustment_transtype',
+		         'estimated_recoveries_transtype', 'actual_recoveries_transtype',
+		         'strategic_reserve_transtype',  'profit_loss_transtype',
+		         'estimated_reimbursements_spending_option',
+		         'estimated_reimbursable_budgeting_option',
+		         'track_agreement_lower_level', 'budget_estimate_lower_level',
+		         'estimated_recoveries_spending_option', 'estimated_recoveries_budgeting_option',
+		         'record_next_level', 'record_budgeting_mismatch', 'profitloss_spending_option',
+		         'profitloss_budgeting_option', 'record_carryoverin_lowerlevel',
+		         'RecordCarryInLowerLevelControl', 'record_carryin_amount_control',
+		         'BudgetingControl', 'PostingControl', 'PreCommitmentSpendingControl',
+		         'CommitmentSpendingControl', 'ObligationSpendingControl',
+		         'accrual_spending_control', 'expenditure_spending_control',
+		         'expense_spending_control', 'reimbursable_spending_control',
+		         'reimbursable_agreement_spending_control', 'fte_budgeting_control',
+		         'fte_spending_control', 'transaction_type_control',
+		         'authority_distribution_control'
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
