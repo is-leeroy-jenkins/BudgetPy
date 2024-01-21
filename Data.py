@@ -569,7 +569,7 @@ class DbConfig( ):
     '''
     __source = None
     __provider = None
-    __data = [ ]
+    __data = None
     __accessdriver = None
     __accesspath = None
     __sqldriver = None
@@ -748,8 +748,7 @@ class DbConfig( ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'source', 'provider',
-                 'table_name', 'get_driver_info',
+        return [ 'table_name', 'get_driver_info',
                  'get_data_path', 'get_connection_string' ]
 
     def get_driver_info( self ) -> str:
@@ -1259,9 +1258,9 @@ class SqlStatement( ):
         Returns a list[ str ] of member names.
 
         '''
-        return [ 'source', 'provider', 'table_name',
-                'command_type', 'column_names', 'values',
-                'updates', 'command_text'  ]
+        return [ 'provider', 'table_name',
+                 'command_type', 'column_names', 'values',
+                 'updates', 'command_text'  ]
 
     def __getquerytext( self ) -> str:
         '''

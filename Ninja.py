@@ -225,7 +225,7 @@ class Accounts( ):
 			return _clone
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Account'
 			_exc.method = 'copy( self )'
 			_err = ErrorDialog( _exc )
@@ -250,7 +250,7 @@ class Accounts( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Account'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -271,7 +271,7 @@ class Accounts( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Account'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -400,7 +400,7 @@ class ActivityCodes( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Activity'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -421,7 +421,7 @@ class ActivityCodes( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Activity'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -677,7 +677,7 @@ class AdjustedTrialBalances( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'AdjustedTrialBalances'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -698,7 +698,7 @@ class AdjustedTrialBalances( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'AdjustedTrialBalances'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -863,7 +863,7 @@ class AllowanceHolders( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'AllowanceHolder'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -884,7 +884,7 @@ class AllowanceHolders( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'AllowanceHolder'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -1948,7 +1948,7 @@ class Appropriations( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -1969,7 +1969,7 @@ class Appropriations( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -2258,7 +2258,7 @@ class AppropriationAvailableBalances( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -2279,7 +2279,7 @@ class AppropriationAvailableBalances( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -2546,7 +2546,7 @@ class AppropriationLevelAuthority( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -2567,7 +2567,7 @@ class AppropriationLevelAuthority( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -3879,7 +3879,7 @@ class Actuals( ):
 		                  'RpioActivityName',
 		                  'BocCode',
 		                  'BocName',
-		                  'ULO',
+		                  'UnliquidatedObligations',
 		                  'Obligation',
 		                  'Balance',
 		                  'ProgramAreaCode',
@@ -4072,6 +4072,65 @@ class ApplicationTables( ):
 		return [ 'id', 'name', 'model',
 		         'caption', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Name', ]
+			_values = ( self.__bfy, self.__fundcode )
+			_dbconfig = DbConfig( self.__source, self.__provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ApplicationTables'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose: Method returning pandas dataframe
+        comprised of datatable data
+
+        Parameters:
+
+        Returns:
+
+        	'''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ApplicationTables'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class AppropriationDocuments( ):
 	'''
@@ -5163,6 +5222,7 @@ class BudgetDocuments( ):
 		         'carryover_in', 'estimated_recoveries', 'estimated_reimbursements',
 		         'main_account', 'treasury_account_code',  'treasury_account_name',
 		         'budget_account_code',  'budget_account_name' ]
+
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -5430,6 +5490,59 @@ class BudgetContacts( ):
 		         'section', 'job_title', 'state', 'zip_code', 'office_location',
 		         'city', 'account', 'email_type', 'display_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'EFY' ]
+			_values = (self.__bfy, self.__efy)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'BudgetContacts'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'BudgetContacts'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class BudgetControls( ):
 	'''
@@ -6249,7 +6362,7 @@ class BudgetFiscalYears( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetFiscalYear'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -6269,7 +6382,7 @@ class BudgetFiscalYears( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetFiscalYear'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -6406,7 +6519,7 @@ class BudgetObjectClasses( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetObjectClass'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -6426,7 +6539,7 @@ class BudgetObjectClasses( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'BudgetObjectClass'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -7306,18 +7419,19 @@ class CongressionalControls( ):
 
         Returns:
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
-			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -7326,8 +7440,31 @@ class CongressionalControls( ):
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Ninja'
-			_exc.cause = 'CongressionalControl'
+			_exc.cause = 'CongressionalControls'
 			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'CongressionalControls'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -7352,6 +7489,63 @@ class CongressionalProjects( ):
 		self.__fundcode = fund
 		self.__rpiocode = rpio
 		self.__ahcode = ahcode
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.command_text
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'CongressionalProjects'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'CongressionalProjects'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class CompassLevels( ):
 	'''
@@ -8399,6 +8593,63 @@ class CostAreas( ):
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.command_text
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'CostAreas'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'CostAreas'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class CapitalPlanningInvestmentCodes( ):
 	'''
     Constructor:
@@ -8518,7 +8769,7 @@ class CapitalPlanningInvestmentCodes( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ITProjectCode'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -8538,7 +8789,7 @@ class CapitalPlanningInvestmentCodes( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ITProjectCode'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -8641,6 +8892,65 @@ class ColumnSchema( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.command_text
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ColumnSchema'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ColumnSchema'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class DataRuleDescriptions( ):
 	'''
@@ -10977,7 +11287,7 @@ class FinanceObjectClasses( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FinanceObjectClass'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -10997,7 +11307,7 @@ class FinanceObjectClasses( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FinanceObjectClass'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -11453,7 +11763,7 @@ class Funds( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Fund'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -11473,7 +11783,7 @@ class Funds( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Fund'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -11688,7 +11998,7 @@ class FederalHolidays( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -11708,7 +12018,7 @@ class FederalHolidays( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -11735,7 +12045,7 @@ class FederalHolidays( ):
 						return self.__columbus
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'columnbusday( self )'
 			_err = ErrorDialog( _exc )
@@ -11749,7 +12059,7 @@ class FederalHolidays( ):
 				return self.__veterans
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_veterans_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11769,7 +12079,7 @@ class FederalHolidays( ):
 						return self.__thanksgiving
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_thanksgiving_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11783,7 +12093,7 @@ class FederalHolidays( ):
 				return self.__christmas
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_christmas_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11797,7 +12107,7 @@ class FederalHolidays( ):
 				return self.__newyearsday
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_newyears_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11817,7 +12127,7 @@ class FederalHolidays( ):
 						return self.__martinlutherking
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_martinlutherking_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11837,7 +12147,7 @@ class FederalHolidays( ):
 						return self.__washingtons
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_presidents_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11857,7 +12167,7 @@ class FederalHolidays( ):
 						return self.__memorial
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_memorial_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11871,7 +12181,7 @@ class FederalHolidays( ):
 				return self.__juneteenth
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_juneteenth_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11885,7 +12195,7 @@ class FederalHolidays( ):
 				return self.__independence
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_independence_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11907,7 +12217,7 @@ class FederalHolidays( ):
 				return self.__labor
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'get_labor_day( self )'
 			_err = ErrorDialog( _exc )
@@ -11938,7 +12248,7 @@ class FederalHolidays( ):
 				return self.__dayofweek
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'day_of_week( self )'
 			_err = ErrorDialog( _exc )
@@ -11952,7 +12262,7 @@ class FederalHolidays( ):
 				return False
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'is_weekday( self )'
 			_err = ErrorDialog( _exc )
@@ -11966,7 +12276,7 @@ class FederalHolidays( ):
 				return False
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'is_weekend( self )'
 			_err = ErrorDialog( _exc )
@@ -12007,7 +12317,7 @@ class FederalHolidays( ):
 					return self.__date
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'set_date( self, value )'
 			_err = ErrorDialog( _exc )
@@ -12023,7 +12333,7 @@ class FederalHolidays( ):
 				return self.__name
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
 			_exc.method = 'set_name( self, value  ) '
 			_err = ErrorDialog( _exc )
@@ -12687,6 +12997,65 @@ class GeneralLedgerAccounts( ):
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.command_text
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'GeneralLedgerAccounts'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'GeneralLedgerAccounts'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class Goals( ):
 	'''
     Constructor:
@@ -12782,24 +13151,27 @@ class Goals( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = (self.__code,)
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
-			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sql = SqlStatement( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -12807,9 +13179,32 @@ class Goals( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
-			_exc.cause = 'Goal'
+			_exc.module = 'Ninja'
+			_exc.cause = 'Goals'
 			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'Goals'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -13427,7 +13822,7 @@ class HeadquartersOffices( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'HeadquartersOffice'
 			_exc.method = 'getdata( self ) '
 			_err = ErrorDialog( _exc )
@@ -13442,7 +13837,7 @@ class HeadquartersOffices( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'HeadquartersOffice'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -14165,6 +14560,63 @@ class MainAccounts( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'MainAccounts'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'MainAccounts'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class MonthlyActuals( ):
 	'''
@@ -15128,7 +15580,7 @@ class NationalPrograms( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'NationalProgram'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -15148,7 +15600,7 @@ class NationalPrograms( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'NationalProgram'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -15275,7 +15727,7 @@ class Objectives( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Objective'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -15295,7 +15747,7 @@ class Objectives( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Objective'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -15394,34 +15846,52 @@ class Organizations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'Code', ]
-			_values = (self.__code,)
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
-			_connection = Connection( self.__source )
-			_sql = SqlStatement( _dbconfig, _sqlconfig )
-			_sqlite = _connection.connect( )
-			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
-			_db = _cursor.execute( _query )
-			self.__data = [ i for i in _db.fetchall( ) ]
-			_cursor.close( )
-			_sqlite.close( )
-			return self.__data
+			_command = SQL.SELECTALL
+			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
+			           'AccountCode', 'BocCode', 'Amount' ]
+			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
+			_db = DataBuilder( _source, _provider, _command, _names, _values )
+			self.__data = _db.createtable( )
+			return [ (i) for i in self.__data ]
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
-			_exc.cause = 'Organization'
+			_exc.module = 'Ninja'
+			_exc.cause = 'Organizations'
 			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'Organizations'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -17408,6 +17878,57 @@ class PublicLaws( ):
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_command = SQL.SELECTALL
+			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
+			           'AccountCode', 'BocCode', 'Amount' ]
+			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
+			_db = DataBuilder( _source, _provider, _command, _names, _values )
+			self.__data = _db.createtable( )
+			return [ (i) for i in self.__data ]
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'PublicLaws'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'PublicLaws'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class Projects( ):
 	'''
     Constructor:  Project( code: str, pvdr: Provider = Provider.SQLite )
@@ -17521,7 +18042,7 @@ class Projects( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Project'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -17536,7 +18057,7 @@ class Projects( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Project'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -17657,7 +18178,7 @@ class ProgramAreas( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ProgramArea'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -17672,7 +18193,7 @@ class ProgramAreas( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ProgramArea'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -17798,28 +18319,53 @@ class ProgramProjects( ):
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'Code', ]
-			_values = (self.__code,)
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
-			_connection = Connection( self.__source )
-			_sql = SqlStatement( _dbconfig, _sqlconfig )
-			_sqlite = _connection.connect( )
-			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
-			_db = _cursor.execute( _query )
-			self.__data = [ i for i in _db.fetchall( ) ]
-			_cursor.close( )
-			_sqlite.close( )
-			return self.__data
+			_command = SQL.SELECTALL
+			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
+			           'AccountCode', 'BocCode', 'Amount' ]
+			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
+			_db = DataBuilder( _source, _provider, _command, _names, _values )
+			self.__data = _db.createtable( )
+			return [ (i) for i in self.__data ]
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
-			_exc.cause = 'ProgramProject'
+			_exc.module = 'Ninja'
+			_exc.cause = 'ProgramProjects'
 			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ProgramProjects'
+			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -18276,7 +18822,7 @@ class ProgramResultsCodes( ):
 			return [ (i) for i in self.__data ]
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ProgramResultsCode'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -18296,7 +18842,7 @@ class ProgramResultsCodes( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ProgramResultsCode'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -18323,6 +18869,63 @@ class ReportingLines( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'Code', ]
+			_values = (self.__code,)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ReportingLines'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'ReportingLines'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class ResponsibilityCenters( ):
 	'''
@@ -18444,7 +19047,7 @@ class ResponsibilityCenters( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ResponsibilityCenter'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -18464,7 +19067,7 @@ class ResponsibilityCenters( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ResponsibilityCenter'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -18589,7 +19192,7 @@ class ResourcePlanningOffices( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ResourcePlanningOffice'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -18609,7 +19212,7 @@ class ResourcePlanningOffices( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'ResourcePlanningOffice'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -18728,7 +19331,7 @@ class RegionalOffices( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'RegionalOffice'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -20489,6 +21092,56 @@ class StatusOfBudgetaryResources( ):
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfBudgetaryResources'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''Method returning pandas dataframe
+        comprised of datatable data'''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfBudgetaryResources'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class StatusOfBudgetExecution( ):
 	'''
     Constructor:
@@ -20646,6 +21299,65 @@ class StatusOfBudgetExecution( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfBudgetExecution'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:  Method returning pandas dataframe
+        comprised of datatable data
+
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfBudgetExecution'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class StatusOfSupplementalFunding( ):
 	'''
@@ -22199,7 +22911,7 @@ class SubAppropriations( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'SubAppropriation'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -22219,7 +22931,7 @@ class SubAppropriations( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Appropriation'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -22348,7 +23060,7 @@ class StateOrganizations( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'StateOrganization'
 			_exc.method = 'getdata( self ) '
 			_err = ErrorDialog( _exc )
@@ -22368,7 +23080,7 @@ class StateOrganizations( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'StateOrganization'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -25399,6 +26111,65 @@ class StatusOfEarmarks( ):
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
 
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfEarmark'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:  Method returning pandas dataframe
+        comprised of datatable data
+
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'StatusOfEarmark'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class StatusOfSuperfundSites( ):
 	'''
     Constructor:
@@ -27299,7 +28070,7 @@ class TreasurySymbols( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'TreasurySymbol'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -27319,7 +28090,7 @@ class TreasurySymbols( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'TreasurySymbol'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -27746,7 +28517,7 @@ class Transfers( ):
 			return self.__data
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Transfer'
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
@@ -27766,7 +28537,7 @@ class Transfers( ):
 			return _data.create_frame( )
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Execution'
+			_exc.module = 'Ninja'
 			_exc.cause = 'Transfer'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
@@ -27908,6 +28679,65 @@ class TransTypes( ):
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'BFY', 'FundCode' ]
+			_values = (self.__bfy, self.__fundcode)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = SqlStatement( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'TransTypes'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+
+        Purpose:  Method returning pandas dataframe
+        comprised of datatable data
+
+
+        Parameters:
+
+        Returns:
+
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Ninja'
+			_exc.cause = 'TransTypes'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
 
 class UnliquidatedObligations( ):
 	'''
