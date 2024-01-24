@@ -45,6 +45,7 @@ import os
 import zipfile as zp
 from openpyxl import Workbook
 import shutil as sh
+from datetime import datetime
 from Booger import Error, ErrorDialog
 
 class Path( ):
@@ -55,16 +56,16 @@ class Path( ):
 	Purpose:  Class representing a path
 
 	'''
-	__name = None
-	__input = None
-	__extension = None
-	__currentdirectory = None
-	__template = None
-	__drive = None
-	__pathseparator = None
-	__extensionseparator = None
-	__driveseparator = None
-	__parentdirectory = None
+	__name: str = None
+	__input: str = None
+	__extension: str = None
+	__currentdirectory: str = None
+	__template: str = None
+	__drive: str = None
+	__pathseparator: str = None
+	__extensionseparator: str = None
+	__driveseparator: str = None
+	__parentdirectory: str = None
 
 	@property
 	def input( self ) -> str:
@@ -80,6 +81,7 @@ class Path( ):
 	def name( self ) -> str:
 		if self.__name is not None:
 			return self.__name
+
 	@name.setter
 	def name( self, value: str ):
 		if value is not None:
@@ -172,7 +174,7 @@ class Path( ):
 		self.__currentdirectory = os.getcwd( )
 		self.__extension = os.path.splitext( filepath )[ 1 ]
 		self.__parentdirectory = os.path.split( filepath )[ 0 ]
-		self.__template = r'etc\templates\report\Excel.xlsx'
+		self.__template = r'etc\templates\report\Report.xlsx'
 		self.__pathseparator = os.path.sep
 		self.__extensionseparator = os.extsep
 		self.__driveseparator = ':\\'
@@ -330,11 +332,14 @@ class Path( ):
 
 	def join( self, first: str, second: str ) -> str:
 		'''
-		Purpose:
 
-		Parameters:
+		Purpose: Joins two paths into one.
 
-		Returns:
+		Parameters: 'first: str' representing the first path
+		that is joined to the second path 'second: str'.
+
+		Returns: a single string representing a path
+
 		'''
 
 		try:
@@ -373,14 +378,13 @@ class File( Path ):
 
 	Purpose: Class providing file information
 	 '''
-	__absolutepath = None
-	__relativepath = None
-	__path = None
-	__size = None
-	__created = None
-	__modified = None
-	__accessed = None
-	__contents = [ ]
+	__absolutepath: str = None
+	__relativepath: str = None
+	__size: int = None
+	__created: datetime = None
+	__modified: datetime = None
+	__accessed: datetime = None
+	__contents: list = [ ]
 
 	@property
 	def absolute_path( self ) -> str:
@@ -389,6 +393,7 @@ class File( Path ):
 		'''
 		if self.__absolutepath is not None:
 			return self.__absolutepath
+
 	@absolute_path.setter
 	def absolute_path( self, value: str ):
 		'''
@@ -415,13 +420,13 @@ class File( Path ):
 
 	@property
 	def path( self ) -> str:
-		if self.__buffer is not None:
-			return self.__buffer
+		if self.__input is not None:
+			return self.__input
 
 	@path.setter
 	def path( self, value: str ):
 		if value is not None:
-			self.__buffer = value
+			self.__input = value
 
 	@property
 	def size( self ) -> int:
@@ -434,38 +439,38 @@ class File( Path ):
 			self.__size = value
 
 	@property
-	def modified( self ) -> float:
+	def modified( self ) -> datetime:
 		if self.__modified is not None:
 			return self.__modified
 
 	@modified.setter
-	def modified( self, value: float ):
-		if isinstance( value, float ):
+	def modified( self, value: datetime ):
+		if value is not None:
 			self.__modified = value
 
 	@property
-	def accessed( self ) -> float:
+	def accessed( self ) -> datetime:
 		if self.__accessed is not None:
 			return self.__accessed
 
 	@accessed.setter
-	def accessed( self, value: float ):
+	def accessed( self, value: datetime ):
 		if value is not None:
 			self.__accessed = value
 
 	@property
-	def created( self ) -> float:
+	def created( self ) -> datetime:
 		if self.__created is not None:
 			return self.__created
 
 	@created.setter
-	def created( self, value: float ):
+	def created( self, value: datetime ):
 		if value is not None:
 			self.__created = value
 
 	def __init__( self, path: str = None ):
 		super( ).__init__( path )
-		self.__path = super( ).input
+		self.__input = super( ).input
 		self.__absolutepath = os.path.abspath( path )
 		self.__relativepath = os.path.relpath( path )
 		self.__name = os.path.basename( path )
@@ -683,31 +688,29 @@ class Folder( Path ):
 
 	Purpose: Class providing file directory information
 	'''
-	__absolutepath = None
-	__relativepath = None
-	__path = None
-	__dir = None
+	__absolutepath: str = None
+	__relativepath: str = None
 	__size = None
 
 	@property
 	def name( self ) -> str:
-		if self.__path is not None:
-			return self.__path
+		if self.__name is not None:
+			return self.__name
 
 	@name.setter
 	def name( self, value: str ):
 		if value is not None:
-			self.__path = value
+			self.__name = value
 
 	@property
 	def path( self ) -> str:
-		if self.__path is not None:
-			return self.__path
+		if self.__input is not None:
+			return self.__input
 
 	@path.setter
 	def path( self, value: str ):
 		if value is not None:
-			self.__path = value
+			self.__input = value
 
 	@property
 	def absolute_path( self ) -> str:
@@ -741,19 +744,15 @@ class Folder( Path ):
 
 	def __init__( self, filepath: str ):
 		super( ).__init__( filepath )
-		self.__path = super( ).input
-		self.__name = os.path.basename( filepath )
+		self.__input = super( ).input
+		self.__name = super( ).name
 		self.__size = os.path.getsize( filepath )
 		self.__absolutepath = os.path.abspath( filepath )
 		self.__relativepath = f'{os.getcwd( )}\\{os.path.basename( filepath )}'
 
 	def __str__( self ) -> str:
-		if self.__path is not None:
-			return self.__path
-
-	def __str__( self ) -> str:
-		if self.__path is not None:
-			return self.__path
+		if self.__input is not None:
+			return self.__input
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1121,7 +1120,7 @@ class Excel( ):
 
 	def __init__( self, path: str = None ):
 		self.__internalpath = r'etc/templates/report/Excel.xlsx'
-		self.__externalpath = path if path is not None else self.__internalpath
+		self.__externalpath = path
 		self.__name = os.path.split( path )[ 1 ]
 		self.__title = os.path.split( path )[ 1 ]
 		self.__workbook = Workbook( )
@@ -1142,11 +1141,13 @@ class Excel( ):
 
 	def save( self ):
 		'''
+
 		Purpose:
 
 		Parameters:
 
 		Returns:
+
 		'''
 		try:
 			self.__workbook.save( self.__externalpath )
