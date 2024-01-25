@@ -6504,7 +6504,7 @@ class BudgetObjectClasses( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -9074,6 +9074,10 @@ class DataRuleDescriptions( ):
 		                  'RuleNumber',
 		                  'RuleDescription',
 		                  'ScheduleOrder' ]
+
+	def __str__( self ) -> str:
+		if self.__ruledescription is not None:
+			return self.__ruledescription
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]

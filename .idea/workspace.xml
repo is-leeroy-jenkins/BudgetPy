@@ -11,7 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/CREATETABLE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/CREATETABLE.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +28,9 @@
     <disable_hints>
       <file url="file://$PROJECT_DIR$/Data.py" />
     </disable_hints>
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileColors">
     <fileColor scope="Project Files" color="Blue" />
@@ -117,6 +126,7 @@
       <option value="16" />
       <option value="100" />
       <option value="200" />
+      <option value="300" />
     </hideBySeverity>
     <option name="proportion" value="0.5651322" />
     <option name="selectedTabId" value="CurrentFile" />
@@ -139,39 +149,41 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/teppler/source/compilers/js/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;C:\\Users\\teppler\\source\\compilers\\js\\npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24475019&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
+    "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
+    "run.code.analysis.last.selected.profile": "pBudget",
+    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.splitter.proportion": "0.24475019",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -364,7 +376,39 @@
       <workItem from="1703531353586" duration="18321000" />
       <workItem from="1703609912068" duration="6263000" />
       <workItem from="1703683186049" duration="8257000" />
-      <workItem from="1704226479868" duration="2538000" />
+      <workItem from="1704226479868" duration="7655000" />
+      <workItem from="1704653764697" duration="4182000" />
+      <workItem from="1704676581817" duration="1061000" />
+      <workItem from="1704704559339" duration="8096000" />
+      <workItem from="1704808622309" duration="7150000" />
+      <workItem from="1704983275578" duration="706000" />
+      <workItem from="1705416050356" duration="16197000" />
+      <workItem from="1705500912910" duration="941000" />
+      <workItem from="1705503895902" duration="157000" />
+      <workItem from="1705504073978" duration="54000" />
+      <workItem from="1705504151367" duration="81000" />
+      <workItem from="1705504465251" duration="303000" />
+      <workItem from="1705504777143" duration="1731000" />
+      <workItem from="1705506681395" duration="1034000" />
+      <workItem from="1705507755835" duration="114000" />
+      <workItem from="1705507904859" duration="2762000" />
+      <workItem from="1705521402251" duration="1015000" />
+      <workItem from="1705522470327" duration="850000" />
+      <workItem from="1705523380905" duration="1168000" />
+      <workItem from="1705526845333" duration="3442000" />
+      <workItem from="1705586439105" duration="707000" />
+      <workItem from="1705588300126" duration="93000" />
+      <workItem from="1705588432268" duration="18000" />
+      <workItem from="1705588479517" duration="43000" />
+      <workItem from="1705588705448" duration="4574000" />
+      <workItem from="1705612215573" duration="4308000" />
+      <workItem from="1705618759178" duration="135000" />
+      <workItem from="1705675170334" duration="13687000" />
+      <workItem from="1705936760980" duration="3883000" />
+      <workItem from="1705949505675" duration="4703000" />
+      <workItem from="1705960937665" duration="1826000" />
+      <workItem from="1706018139001" duration="4680000" />
+      <workItem from="1706203962778" duration="7670000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -709,7 +753,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="630" />
+    <option name="localTasksCounter" value="656" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -744,16 +788,5 @@
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <option name="LAST_COMMIT_MESSAGE" value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>mock:///a.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
