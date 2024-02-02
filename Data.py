@@ -199,62 +199,62 @@ class SqlPath( ):
     __sqldatabase = None
 
     @property
-    def sqlitedriver( self ) -> str:
+    def sqlite_driver( self ) -> str:
         if self.__sqlitedriver is not None:
             return self.__sqlitedriver
 
-    @sqlitedriver.setter
-    def sqlitedriver( self, value: str ):
+    @sqlite_driver.setter
+    def sqlite_driver( self, value: str ):
         if value is not None:
             self.__sqlitedriver = value
 
     @property
-    def sqlitedatabase( self ) -> str:
+    def sqlite_database( self ) -> str:
         if self.__sqlitepath is not None:
             return self.__sqlitepath
 
-    @sqlitedatabase.setter
-    def sqlitedatabase( self, value: str ):
+    @sqlite_database.setter
+    def sqlite_database( self, value: str ):
         if value is not None:
             self.__sqlitepath = value
 
     @property
-    def accessdriver( self ) -> str:
+    def access_driver( self ) -> str:
         if self.__accessdriver is not None:
             return self.__accessdriver
 
-    @accessdriver.setter
-    def accessdriver( self, value: str ):
+    @access_driver.setter
+    def access_driver( self, value: str ):
         if value is not None:
             self.__accessdriver = value
 
     @property
-    def accessdatabase( self ) -> str:
+    def access_database( self ) -> str:
         if self.__accesspath is not None:
             return self.__accesspath
 
-    @accessdatabase.setter
-    def accessdatabase( self, value: str ):
+    @access_database.setter
+    def access_database( self, value: str ):
         if value is not None:
             self.__accesspath = value
 
     @property
-    def sqldriver( self ) -> str:
+    def sqlserver_driver( self ) -> str:
         if self.__sqldriver is not None:
             return self.__sqldriver
 
-    @sqldriver.setter
-    def sqldriver( self, value: str ):
+    @sqlserver_driver.setter
+    def sqlserver_driver( self, value: str ):
         if value is not None:
             self.__sqldriver = value
 
     @property
-    def sqldatabase( self ) -> str:
+    def sqlserver_database( self ) -> str:
         if self.__sqldatabase is not None:
             return self.__sqldatabase
 
-    @sqldatabase.setter
-    def sqldatabase( self, value: str ):
+    @sqlserver_database.setter
+    def sqlserver_database( self, value: str ):
         if value is not None:
             self.__sqldatabase = value
 
@@ -270,8 +270,9 @@ class SqlPath( ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'sqlitedriver', 'sqlitedatabase',
-                 'accessdriver', 'accessdatabase' ]
+        return [ 'sqlite_driver', 'sqlite_database',
+                 'access_driver', 'access_database',
+                 'sqlserver_driver', 'sqlserver_database' ]
 
 class SqlFile( ):
     '''
@@ -455,7 +456,7 @@ class SqlFile( ):
         return [ 'source', 'provider', 'command', 'getfilepath',
                  'getfolderpath', 'getcommandtext' ]
 
-    def getfilepath( self ) -> str:
+    def get_file_path( self ) -> str:
         '''
 
         Purpose:
@@ -494,7 +495,7 @@ class SqlFile( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def getfolderpath( self ) -> str:
+    def get_folder_path( self ) -> str:
         '''
         Purpose:
 
@@ -512,16 +513,16 @@ class SqlFile( ):
             _current = os.getcwd( )
             _folder = ''
             if _provider == 'SQLite' and _source in _data:
-                _folder = f'{_sqlpath.sqlitedatabase}\\{_command}'
+                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'ACCDB' and _source in _data:
-                _folder = f'{_sqlpath.accessdatabase}\\{_command}'
+                _folder = f'{_sqlpath.access_database}\\{_command}'
                 return os.path.join( _current, _folder )
             elif _provider == 'SqlServer' and _source in _data:
-                _folder = f'{_sqlpath.sqldatabase}\\{_command}'
+                _folder = f'{_sqlpath.sqlserver_database}\\{_command}'
                 return os.path.join( _current, _folder )
             else:
-                _folder = f'{_sqlpath.sqlitedatabase}\\{_command}'
+                _folder = f'{_sqlpath.sqlite_database}\\{_command}'
                 return os.path.join( _current, _folder )
         except Exception as e:
             _exc = Error( e )
@@ -531,7 +532,7 @@ class SqlFile( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def getcommandtext( self ) -> str:
+    def get_command_text( self ) -> str:
         '''
         Purpose:
 
@@ -543,7 +544,7 @@ class SqlFile( ):
         try:
             _source = self.__source.name
             _paths = self.get_datapath( )
-            _folder = self.getfolderpath( )
+            _folder = self.get_folder_path( )
             _sql = ''
             for name in os.listdir( _folder ):
                 if name.endswith( '.sql' ) and os.path.splitext( name )[ 0 ] == _source:
@@ -1686,7 +1687,7 @@ class AccessData( Query ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SqlData( Query ):
+class SqlServerData( Query ):
     '''
 
      Constructor:
@@ -1699,7 +1700,7 @@ class SqlData( Query ):
      value models in the MS SQL Server database
 
      '''
-    __querytext = None
+    __commandtext = None
     __serverpath = None
     __driverinfo = None
     __dsn = None
@@ -1707,11 +1708,11 @@ class SqlData( Query ):
     __data = None
 
     @property
-    def commandtext( self ) -> str:
+    def command_text( self ) -> str:
         if self.__commandtext is not None:
             return self.__commandtext
 
-    @commandtext.setter
+    @command_text.setter
     def command_text( self, value: str ):
         if value is not None:
             self.__commandtext = value
@@ -1721,7 +1722,7 @@ class SqlData( Query ):
         self.__provider = Provider.SqlServer
         self.__connection = connection
         self.__source = connection.source
-        self.__querytext = sqlstatement.command_text
+        self.__commandtext = sqlstatement.command_text
         self.__table = connection.source.name
         self.__serverpath = r'(LocalDB)\MSSQLLocalDB;'
         self.__driverinfo = r'{ SQL Server Native Client 11.0 };'
@@ -1753,7 +1754,7 @@ class SqlData( Query ):
         '''
 
         try:
-            _query = self.__querytext
+            _query = self.__commandtext
             _connection = self.__connection.connect( )
             _cursor = _connection.cursor( )
             _data = _cursor.execute( _query )
@@ -1941,7 +1942,7 @@ class DataBuilder( ):
     Constructor:
 
     DataBuilder( source: Source, provider = Provider.SQLite,
-                  command_type = SQL.SELECTALL, names: list[ str ] = None,
+                  commandtype = SQL.SELECTALL, names: list[ str ] = None,
                   values: tuple = None ).
 
     Purpose:
@@ -2034,16 +2035,16 @@ class DataBuilder( ):
             self.__sqlconfig = value
 
     def __init__( self, source: Source, provider = Provider.SQLite,
-                  command = SQL.SELECTALL, names: list[ str ] = None,
+                  commandtype = SQL.SELECTALL, names: list[ str ] = None,
                   values: tuple = None ):
         self.__source = source
         self.__provider = provider
-        self.__commandtype = command
+        self.__commandtype = commandtype
         self.__name = names
         self.__values = values
         self.__dbconfig = DbConfig( source, provider )
         self.__connection = Connection( source )
-        self.__sqlconfig = SqlConfig( command, names, values )
+        self.__sqlconfig = SqlConfig( commandtype, names, values )
         self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
 
     def create_table( self ) -> list[ db.Row ]:
@@ -2057,7 +2058,7 @@ class DataBuilder( ):
                 self.__data = [ i for i in _access.create_table( ) ]
                 return self.__data
             elif self.__provider == Provider.SqlServer:
-                _sql = SqlData( self.__connection, self.__sqlstatement )
+                _sql = SqlServerData( self.__connection, self.__sqlstatement )
                 self.__data = [ i for i in _sql.create_table( ) ]
                 return self.__data
             else:

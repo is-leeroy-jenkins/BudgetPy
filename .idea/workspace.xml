@@ -13,11 +13,10 @@
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetPy.psproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/CREATETABLE.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/CREATETABLE.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/access/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/mssql/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/mssql/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/sqlite/datamodels/sql/CREATETABLE/EarmarkAccounts.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/xvba_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/xvba_debug.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +168,7 @@
     "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
     "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "inlay.hints",
     "settings.editor.splitter.proportion": "0.24475019",
     "vue.rearranger.settings.migration": "true"
   },
@@ -408,7 +407,16 @@
       <workItem from="1705949505675" duration="4703000" />
       <workItem from="1705960937665" duration="1826000" />
       <workItem from="1706018139001" duration="4680000" />
-      <workItem from="1706203962778" duration="7670000" />
+      <workItem from="1706203962778" duration="7913000" />
+      <workItem from="1706278781372" duration="1553000" />
+      <workItem from="1706282056578" duration="1873000" />
+      <workItem from="1706535025873" duration="730000" />
+      <workItem from="1706546237114" duration="3934000" />
+      <workItem from="1706644131155" duration="1000" />
+      <workItem from="1706725192408" duration="2033000" />
+      <workItem from="1706727581496" duration="1652000" />
+      <workItem from="1706795126958" duration="9569000" />
+      <workItem from="1706881931980" duration="1451000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -753,7 +761,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="656" />
+    <option name="localTasksCounter" value="657" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

@@ -892,11 +892,13 @@ class AllowanceHolders( ):
 
 class AmericanRescuePlanCarryoverEstimates( ):
 	'''
+
     Constructor:
     CarryoverEstimate( bfy: str, pvdr = Provider.SQLite )
 
     Purpose:
     Class representing estimates for ARP carryover
+
     '''
 	__source = None
 	__provider = None
