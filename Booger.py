@@ -170,7 +170,7 @@ class Error( Exception ):
 		if self.__info is not None:
 			return self.__info
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -231,7 +231,7 @@ class ButtonIcon( ):
 		if self.__filepath is not None:
 			return self.__filepath
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -290,7 +290,7 @@ class TitleIcon( ):
 		if self.__filepath is not None:
 			return self.__filepath
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -520,7 +520,7 @@ class Sith( ):
 		sg.set_options( font = self.__themefont )
 		sg.user_settings_save( 'Budget', self.__settingspath )
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -695,7 +695,7 @@ class FolderDialog( Sith ):
 		if isinstance( self.__selecteditem, str ):
 			return self.__selecteditem
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -799,7 +799,7 @@ class SaveFileDialog( Sith ):
 		if self.__filename is not None:
 			return self.__filename
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -903,7 +903,7 @@ class GoogleDialog( Sith ):
 		if isinstance( self.__results, list ):
 			return self.__results[ 0 ]
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1073,7 +1073,7 @@ class EmailDialog( Sith ):
 		if self.__message is not None:
 			return self.__message
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1182,7 +1182,7 @@ class MessageDialog( Sith ):
 		if self.__text is not None:
 			return self.__text
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1335,7 +1335,7 @@ class ErrorDialog( Sith ):
 		if isinstance( self.__info, str ):
 			return self.__info
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1428,7 +1428,7 @@ class InputDialog( Sith ):
 		if isinstance( self.__response, str ):
 			return self.__response
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1519,7 +1519,7 @@ class ScrollingDialog( Sith ):
 		if isinstance( self.__text, str ):
 			return self.__text
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1607,7 +1607,7 @@ class ContactForm( Sith ):
 		self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
 		self.__formsize = (500, 300)
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1721,7 +1721,7 @@ class GridForm( Sith ):
 		self.__columns = columns
 		self.__formsize = (1250, 700)
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1810,7 +1810,7 @@ class LoadingPanel( Sith ):
 		self.__formsize = ( 800, 600 )
 		self.__timeout = 6000
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1893,7 +1893,7 @@ class WaitingPanel( Sith ):
 		self.__formsize = (800, 600)
 		self.__timeout = 6000
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -1976,7 +1976,7 @@ class ProcessingPanel( Sith ):
 		self.__formsize = (800, 600)
 		self.__timeout = None
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2067,7 +2067,7 @@ class SplashPanel( Sith ):
 		self.__formsize = ( 800, 600 )
 		self.__timeout = 6000
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2216,7 +2216,7 @@ class Notification( Sith ):
 		if self.__message is not None:
 			return self.__message
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2269,7 +2269,7 @@ class ImageSizeEncoder( Sith ):
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2485,7 +2485,7 @@ class PdfForm( Sith ):
 		self.__buttoncolor = super( ).button_color
 		self.__formsize = ( 600, 800 )
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2697,7 +2697,7 @@ class CalendarDialog( Sith ):
 			_date = f'{_yr}/{_mo}/{_dy}'
 			return _date
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2794,7 +2794,7 @@ class ComboBoxDialog( Sith ):
 		if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
 			return self.__selecteditem
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -2908,7 +2908,7 @@ class ListBoxDialog( Sith ):
 		if self.__selecteditem is not None:
 			return self.__selecteditem
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -3057,7 +3057,7 @@ class ColorDialog( Sith ):
 		self.__buttoncolor = super( ).button_color
 		self.__formsize = ( 450, 450 )
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -3939,7 +3939,7 @@ class BudgetForm( Sith ):
 		self.__formsize = (1200, 650)
 		self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -4371,7 +4371,7 @@ class ChartPanel( Sith ):
 		self.__icon = super( ).icon_path
 		self.__formsize = ( 750, 650 )
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -4478,7 +4478,7 @@ class CsvForm( Sith ):
 		self.__buttoncolor = super( ).button_color
 		self.__formsize = (800, 600)
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -4589,7 +4589,7 @@ class ExcelForm( Sith ):
 		self.__buttoncolor = super( ).button_color
 		self.__formsize = (1350, 700)
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
@@ -4712,7 +4712,7 @@ class GraphForm( Sith ):
 		self.__buttoncolor = super( ).button_color
 		self.__formsize = (800, 600)
 
-	def __dir__( self ) -> Iterable[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
