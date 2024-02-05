@@ -231,6 +231,14 @@ class ButtonIcon( ):
 		if self.__filepath is not None:
 			return self.__filepath
 
+	def __dir__( self ) -> Iterable[ str ]:
+		'''
+
+        Returns a list[ str ] of member names
+
+		'''
+		return [ 'folder', 'name', 'file_path' ]
+
 class TitleIcon( ):
 	'''
 	Construcotr:
@@ -281,6 +289,14 @@ class TitleIcon( ):
 	def __str__( self ) -> str:
 		if self.__filepath is not None:
 			return self.__filepath
+
+	def __dir__( self ) -> Iterable[ str ]:
+		'''
+
+        Returns a list[ str ] of member names
+
+		'''
+		return [ 'folder', 'name', 'file_path' ]
 
 class Sith( ):
 	'''
@@ -504,6 +520,19 @@ class Sith( ):
 		sg.set_options( font = self.__themefont )
 		sg.user_settings_save( 'Budget', self.__settingspath )
 
+	def __dir__( self ) -> Iterable[ str ]:
+		'''
+
+        Returns a list[ str ] of member names
+
+		'''
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color' ]
+
 class FileDialog( Sith ):
 	'''
 
@@ -581,7 +610,13 @@ class FileDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'selectec_path', 'message', 'show' ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'selectec_path', 'message', 'show' ]
 
 	def show( self ):
 		'''
@@ -666,7 +701,13 @@ class FolderDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'selected_path', 'show' ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'selected_path', 'show' ]
 
 	def show( self ):
 		'''
@@ -764,7 +805,13 @@ class SaveFileDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'original', 'file_name', 'show' ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'original', 'file_name', 'show' ]
 
 	def show( self ):
 		'''
@@ -862,7 +909,13 @@ class GoogleDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'search', 'results', 'show' ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'search', 'results', 'show' ]
 
 	def show( self ):
 		'''
@@ -1026,7 +1079,13 @@ class EmailDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'sender', 'reciever', 'message',
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'sender', 'reciever', 'message',
 		         'subject', 'others', 'password',
 		         'username', 'show' ]
 
@@ -1085,10 +1144,12 @@ class EmailDialog( Sith ):
 
 class MessageDialog( Sith ):
 	'''
+
 	Construcotr:  MessageDialog( text = '' )
 
 	Purpose:  Class that provides form used
     to display informational messages
+
     '''
 	__text = None
 
@@ -1127,7 +1188,13 @@ class MessageDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'text', 'show',
+		         'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color' ]
 
 	def show( self ):
 		try:
@@ -1169,10 +1236,12 @@ class MessageDialog( Sith ):
 
 class ErrorDialog( Sith ):
 	'''
+
 	Construcotr:  ErrorDialog( exception )
 
 	Purpose:  Class that displays excetption data that accepts
      a single, optional argument 'exception' of type Error
+
     '''
 	__class = None
 	__module = None
@@ -1272,7 +1341,14 @@ class ErrorDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'info', 'cause', 'method',
+		         'module', 'type', 'message' 'show' ]
 
 	def show( self ):
 		_msg = self.__heading if isinstance( self.__heading, str ) else None
@@ -1358,7 +1434,13 @@ class InputDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'question', 'response', 'show' ]
 
 	def show( self ):
 		try:
@@ -1443,7 +1525,14 @@ class ScrollingDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'text', 'show' ]
+
 	def show( self ):
 		try:
 			_line = (100, 1)
@@ -1524,7 +1613,13 @@ class ContactForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'show' ]
 
 	def show( self ):
 		try:
@@ -1632,7 +1727,13 @@ class GridForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'field_width', 'rows', 'columns', 'show' ]
 
 	def show( self ):
 		try:
@@ -1715,7 +1816,12 @@ class LoadingPanel( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'timeout', 'show' ]
 
 	def show( self ):
 		try:
@@ -1793,7 +1899,12 @@ class WaitingPanel( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'timeout', 'show' ]
 
 	def show( self ):
 		try:
@@ -1871,7 +1982,13 @@ class ProcessingPanel( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'timeout', 'show' ]
 
 	def show( self ):
 		try:
@@ -1956,7 +2073,13 @@ class SplashPanel( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'timeout', 'show' ]
 
 	def show( self ):
 		try:
@@ -2099,7 +2222,13 @@ class Notification( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'message', 'show' ]
 
 	def show( self ) -> int:
 		try:
@@ -2146,7 +2275,13 @@ class ImageSizeEncoder( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'timeout', 'show' ]
 
 	def show( self ):
 		'''
@@ -2356,7 +2491,12 @@ class PdfForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'show' ]
 
 	def show( self ):
 		'''
@@ -2563,7 +2703,13 @@ class CalendarDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'selected_item', 'day', 'month', 'year', 'show' ]
 
 	def show( self ):
 		'''
@@ -2654,7 +2800,13 @@ class ComboBoxDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'items',
+		         'selected_item', 'show' ]
 
 	def show( self ):
 		'''
@@ -2762,7 +2914,13 @@ class ListBoxDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'items',
+		         'selected_items', 'show' ]
 
 	def show( self ):
 		'''
@@ -2905,7 +3063,13 @@ class ColorDialog( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'rgb', 'hex', 'html', 'argb', 'show' ]
 
 	def show( self ):
 		'''
@@ -3781,7 +3945,17 @@ class BudgetForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'title_items', 'header_items', 'first_items',
+		         'second_items', 'third_items', 'form_size',
+		         'image', 'show', 'create_title', 'create_header',
+		         'create_first', 'create_second', 'create_third',
+				 'create_fourth', 'set_layout', 'show' ]
 
 	def create_title( self, items: list ) -> list:
 		'''
@@ -4203,7 +4377,12 @@ class ChartPanel( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'header', 'show' ]
 
 	def show( self ):
 		'''
@@ -4305,7 +4484,13 @@ class CsvForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'header',
+		         'show' ]
 
 	def show( self ):
 		'''
@@ -4410,7 +4595,13 @@ class ExcelForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color',
+		         'header', 'show' ]
 
 	def show( self ):
 		'''
@@ -4527,7 +4718,12 @@ class GraphForm( Sith ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ ]
+		return [ 'size', 'settings_path', 'theme_background',
+		         'theme_textcolor', 'element_backcolor', 'element_forecolor',
+		         'text_forecolor', 'text_backcolor', 'input_backcolor',
+		         'input_forecolor', 'button_color', 'button_backcolor',
+		         'button_forecolor', 'icon_path', 'theme_font',
+		         'scrollbar_color', 'progressbar_color', 'show' ]
 
 	def show( self ):
 		'''
