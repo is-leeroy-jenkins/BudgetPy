@@ -604,7 +604,7 @@ class FileDialog( Sith ):
 		if self.__selecteditem is not None:
 			return self.__selecteditem
 
-	def __dir__( self ) -> Iterable[str]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
         Returns a list[ str ] of member names
