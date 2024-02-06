@@ -325,8 +325,7 @@ class SqlFile( ):
                   commandype: SQL = SQL.SELECTALL ):
         self.__data = [ 'Actuals',
                         'AdjustedTrialBalances'
-                        'AdministrativeRequ'
-                        'ests',
+                        'AdministrativeRequests',
                         'Allocations',
                         'AmericanRescuePlanCarryoverEstimates',
                         'AnnualCarryoverEstimates',
@@ -344,6 +343,7 @@ class SqlFile( ):
                         'CompassLevels',
                         'CongressionalProjects',
                         'Contacts',
+                        'CombinedSchedules',
                         'Defactos',
                         'Deobligations',
                         'DocumentControlNumbers',
@@ -639,6 +639,7 @@ class DbConfig( ):
                         'CompassLevels',
                         'CongressionalProjects',
                         'Contacts',
+                        'CombinedSchedules',
                         'Defactos',
                         'Deobligations',
                         'DocumentControlNumbers',
