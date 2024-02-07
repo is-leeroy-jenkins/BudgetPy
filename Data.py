@@ -990,7 +990,7 @@ class SqlConfig( ):
         if value is not None:
             self.__criteria = value
 
-    def __init__( self, commandtype: SQL = SQL.SELECTALL, columnnames: list = None,
+    def __init__( self, commandtype: SQL = SQL.SELECTALL, columnnames: list[ str ] = None,
                   columnvalues: tuple = ( ), paramstyle: ParamStyle = None ):
         self.__commandtype = commandtype
         self.__columnnames = columnnames
@@ -1133,7 +1133,7 @@ class SqlConfig( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class SqlStatement( ):
+class Command( ):
     '''
 
     Constructor:
@@ -1145,7 +1145,7 @@ class SqlStatement( ):
     Class represents the values models used in the SQLite database
 
     '''
-    __commandtype = None
+    __type = None
     __source = None
     __provider = None
     __tablename = None
@@ -1153,7 +1153,7 @@ class SqlStatement( ):
     __columnvalues = None
     __criteria = None
     __updates = None
-    __commandtext = None
+    __querytext = None
 
     @property
     def source( self ) -> Source:
@@ -1217,30 +1217,30 @@ class SqlStatement( ):
             self.__updates = value
 
     @property
-    def command_text( self ) -> str:
-        if self.__commandtext is not None:
-            return self.__commandtext
+    def query_text( self ) -> str:
+        if self.__querytext is not None:
+            return self.__querytext
 
-    @command_text.setter
-    def command_text( self, value: str ):
+    @query_text.setter
+    def query_text( self, value: str ):
         if value is not None:
-            self.__commandtext = value
+            self.__querytext = value
 
     @property
-    def command_type( self ) -> SQL:
-        if self.__commandtype is not None:
-            return self.__commandtype
+    def type( self ) -> SQL:
+        if self.__type is not None:
+            return self.__type
 
-    @command_type.setter
-    def command_type( self, value: SQL ):
+    @type.setter
+    def type( self, value: SQL ):
         if value is not None:
-            self.__commandtype = value
+            self.__type = value
         else:
             command = SQL( 'SELECT' )
-            self.__commandtype = command
+            self.__type = command
 
     def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
-        self.__commandtype = sqlcfg.command_type
+        self.__type = sqlcfg.command_type
         self.__provider = dbcfg.provider
         self.__source = dbcfg.source
         self.__tablename = dbcfg.table_name
@@ -1248,11 +1248,11 @@ class SqlStatement( ):
         self.__columnvalues = sqlcfg.value_dump( )
         self.__updates = sqlcfg.set_dump( ) 
         self.__criteria = dict( zip( sqlcfg.column_names, list( sqlcfg.column_values ) ) ) 
-        self.__commandtext = self.__getquerytext( )
+        self.__querytext = self.__getquerytext( )
 
     def __str__( self ) -> str:
-        if self.__commandtext is not None:
-            return self.__commandtext
+        if self.__querytext is not None:
+            return self.__querytext
 
     def __dir__(self) -> list[ str ]:
         '''
@@ -1279,32 +1279,32 @@ class SqlStatement( ):
             _cols = self.__columnnames
             _vals = self.__columnvalues
             if self.__columnnames is not None and _vals is not None:
-                if self.__commandtype == SQL.SELECTALL:
+                if self.__type == SQL.SELECTALL:
                     if len( _where.items( ) ) == 0:
                         return  f'SELECT * FROM {_table}'
                     if len( _where.items( ) ) > 0:
                         return  f'SELECT ' + _cols + f'FROM {_table}' + f' {_where}'
-                elif self.__commandtype == SQL.SELECT:
+                elif self.__type == SQL.SELECT:
                     if len( _where.items( ) ) == 0:
                         return  f'SELECT * FROM {_table}'
                     if len( _where.items( ) ) > 0:
                         return  f'SELECT ' + _cols + f' FROM {_table}' + f' {_where}'
-                elif self.__commandtype == SQL.INSERT and self.__updates is not None:
+                elif self.__type == SQL.INSERT and self.__updates is not None:
                     return  f'INSERT INTO {_table} ' + f'{_cols} ' + f'{_vals}'
-                elif self.__commandtype == SQL.UPDATE:
+                elif self.__type == SQL.UPDATE:
                     _set = self.__updates
                     return f'UPDATE {_table} ' + f'{_set} ' + f'{_vals}' + f' {_where}'
-                elif self.__commandtype == SQL.DELETE:
+                elif self.__type == SQL.DELETE:
                     return f'DELETE FROM {_table} ' + f'{_where}'
             else:
                 if self.__columnnames is not None and _vals is None:
-                    if self.__commandtype == SQL.SELECT:
+                    if self.__type == SQL.SELECT:
                         cols = _cols.lstrip( '(' ).rstrip( ')' )
                         return f'SELECT {cols} FROM {_table}'
                 elif self.__columnnames is None and _vals is None:
-                    if self.__commandtype == SQL.SELECTALL:
+                    if self.__type == SQL.SELECTALL:
                         return f'SELECT * FROM {_table}'
-                elif self.__commandtype == 'DELETE':
+                elif self.__type == 'DELETE':
                     return f'DELETE FROM {_table}'
         except Exception as e:
             _exc = Error( e )
@@ -1382,13 +1382,13 @@ class Query( ):
             self.__connection = value
 
     @property
-    def sqlstatement( self ) -> SqlStatement:
+    def sqlstatement( self ) -> Command:
         if self.__sqlstatement is not None:
             return self.__sqlstatement
 
     @sqlstatement.setter
-    def sqlstatement( self, value: SqlStatement ):
-        if isinstance( value, SqlStatement ):
+    def sqlstatement( self, value: Command ):
+        if isinstance( value, Command ):
             self.__sqlstatement = value
 
     @property
@@ -1455,19 +1455,19 @@ class Query( ):
         if value is not None:
             self.__connectionstring = value
 
-    def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+    def __init__( self, connection: Connection, sqlstatement: Command ):
         self.__connection = connection
         self.__sqlstatement = sqlstatement
         self.__sqlconfig = SqlConfig( connection.source, connection.provider )
         self.__source = connection.source
         self.__tablename = self.__source.name
         self.__provider = connection.provider
-        self.__commandtype = sqlstatement.command_type
+        self.__commandtype = sqlstatement.type
         self.__datapath = connection.path
         self.__connectionstring = connection.connection_string
         self.__columnnames = list( self.__sqlconfig.criteria.keys( ) )
         self.__columnvalues = tuple( self.__sqlconfig.criteria.values( ) )
-        self.__commandtext = sqlstatement.command_text
+        self.__commandtext = sqlstatement.query_text
 
     def __str__( self ) -> str:
         if self.__commandtext is not None:
@@ -1503,7 +1503,7 @@ class SQLiteData( Query ):
         if value is not None:
             self.__commandtext = value
 
-    def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+    def __init__( self, connection: Connection, sqlstatement: Command ):
         super( ).__init__( connection, sqlstatement )
         self.__provider = super( ).provider
         self.__connection = super( ).connection
@@ -1613,13 +1613,13 @@ class AccessData( Query ):
         if value is not None:
             self.__commandtext = value
 
-    def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+    def __init__( self, connection: Connection, sqlstatement: Command ):
         super( ).__init__( connection, sqlstatement )
         self.__source = super( ).source
         self.__provider = Provider.Access
         self.__connection = super( ).connection
         self.__sqlstatement = super( ).sqlstatement
-        self.__commandtext = sqlstatement.command_text
+        self.__commandtext = sqlstatement.query_text
         self.__driverinfo = r'DRIVER={ Microsoft ACCDB Driver( *.mdb, *.accdb ) };'
         self.__data = [ ]
 
@@ -1701,11 +1701,9 @@ class SqlServerData( Query ):
      value models in the MS SQL Server database
 
      '''
-    __commandtext = None
     __serverpath = None
     __driverinfo = None
     __dsn = None
-    __columnnames = None
     __data = None
 
     @property
@@ -1718,13 +1716,13 @@ class SqlServerData( Query ):
         if value is not None:
             self.__commandtext = value
 
-    def __init__( self, connection: Connection, sqlstatement: SqlStatement ):
+    def __init__( self, connection: Connection, sqlstatement: Command ):
         super( ).__init__( connection, sqlstatement )
         self.__provider = Provider.SqlServer
-        self.__connection = connection
-        self.__source = connection.source
-        self.__commandtext = sqlstatement.command_text
-        self.__table = connection.source.name
+        self.__connection = super( ).connection
+        self.__source = super( ).source
+        self.__commandtext = super( ).command_text
+        self.__tablename = super( ).table_name
         self.__serverpath = r'(LocalDB)\MSSQLLocalDB;'
         self.__driverinfo = r'{ SQL Server Native Client 11.0 };'
 
@@ -2046,7 +2044,7 @@ class DataBuilder( ):
         self.__dbconfig = DbConfig( source, provider )
         self.__connection = Connection( source )
         self.__sqlconfig = SqlConfig( commandtype, names, values )
-        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+        self.__sqlstatement = Command( self.__dbconfig, self.__sqlconfig )
 
     def create_table( self ) -> list[ db.Row ]:
         try:
