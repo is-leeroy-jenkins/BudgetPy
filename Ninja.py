@@ -279,11 +279,13 @@ class Accounts( ):
 
 class ActivityCodes( ):
 	'''
+
     Constructor:
     ActivityCode( code: str, provider: Provider = Provider.SQLite )
 
     Purpose:
     Data class representing Activity Codes
+
     '''
 	__source = None
 	__provider = None
@@ -408,11 +410,13 @@ class ActivityCodes( ):
 
 	def getframe( self ) -> DataFrame:
 		'''
+		
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
 		try:

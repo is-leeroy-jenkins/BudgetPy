@@ -1716,8 +1716,8 @@ class SqlServerData( Query ):
         if value is not None:
             self.__commandtext = value
 
-    def __init__( self, connection: Connection, sqlstatement: Command ):
-        super( ).__init__( connection, sqlstatement )
+    def __init__( self, connection: Connection, sql: Command ):
+        super( ).__init__( connection, sql )
         self.__provider = Provider.SqlServer
         self.__connection = super( ).connection
         self.__source = super( ).source
