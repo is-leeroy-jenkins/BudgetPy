@@ -1491,17 +1491,16 @@ class SQLiteData( Query ):
 
     '''
     __driverinfo = None
-    __dsn = None
 
     @property
     def driver_info( self ) -> str:
-        if self.__commandtext is not None:
-            return self.__commandtext
+        if self.__driverinfo is not None:
+            return self.__driverinfo
 
     @driver_info.setter
     def driver_info( self, value: str ):
         if value is not None:
-            self.__commandtext = value
+            self.__driverinfo = value
 
     def __init__( self, connection: Connection, sqlstatement: Command ):
         super( ).__init__( connection, sqlstatement )
@@ -1765,7 +1764,7 @@ class SqlServerData( Query ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
-            _exc.cause = 'SqlData'
+            _exc.cause = 'SqlServerData'
             _exc.method = 'create_table( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
@@ -1788,7 +1787,7 @@ class SqlServerData( Query ):
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
-            _exc.cause = 'SqlData'
+            _exc.cause = 'SqlServerData'
             _exc.method = 'create_frame( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
