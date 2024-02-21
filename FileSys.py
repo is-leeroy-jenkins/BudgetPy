@@ -1330,7 +1330,7 @@ class ZipFile( ):
 	def __str__( self ):
 		if self.__path is not None:
 			return self.__path
-	def __dir__( self ): -> list[ str ]:
+	def __dir__( self ) -> list[ str ]:
 		'''
 
 		Returns a list[ str ] of member names.
