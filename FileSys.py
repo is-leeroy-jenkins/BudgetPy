@@ -1295,48 +1295,92 @@ class ZipFile( ):
 	__input = None
 	__filename = None
 	__filepath = None
-	__extension = None
+	__fileextension = None
 	__zippath = None
+	__zipname = None
 	__zipextension = None
 
 	@property
-	def path( self ) -> str:
+	def file_path( self ) -> str:
 		if self.__filepath is not None:
 			return self.__filepath
 
-	@path.setter
-	def path( self, value: str ):
+	@file_path.setter
+	def file_path( self, value: str ):
 		if value is not None:
 			self.__filepath = value
 
 	@property
-	def name( self ) -> str:
+	def file_name( self ) -> str:
 		if not self.__filename == '':
 			return self.__filename
 
-	@name.setter
-	def name( self, value: str ):
+	@file_name.setter
+	def file_name( self, value: str ):
 		if not value == '':
 			self.__filename = value
+
+	@property
+	def file_extension( self ):
+		if self.__fileextension is not None:
+			return self.__fileextension
+	@file_extension.setter
+	def file_extension( self, value: str ):
+		if value is not None:
+			self.__fileextension = value
+
+	@property
+	def zip_path( self ):
+		if self.__zippath is not None:
+			return self.__zippath
+
+	@zip_path.setter
+	def zip_path( self, value: str ):
+		if value is not None:
+			self.__zippath = value
+
+	@property
+	def zip_name( self ):
+		if self.__zipname is not None:
+			return self.__zipname
+
+	@zip_name.setter
+	def zip_name( self, value: str ):
+		if value is not None:
+			self.__zipname = value
+
+	@property
+	def zip_extension( self ):
+		if self.__zipextension is not None:
+			return self.__zipextension
+
+	@zip_extension.setter
+	def zip_extension( self, value: str ):
+		if value is not None:
+			self.__zipextension = value
 
 	def __init__( self, path: str ):
 		self.__input = path
 		self.__zipextension = '.zip'
 		self.__filepath = path
-		self.__extension = os.path.splitext( path )[ 1 ]
-		self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
+		self.__fileextension = os.path.splitext( path )[ 1 ]
+		self.__zipname = self.__filename + self.__zipextension
+		self.__zippath = self.__filepath.replace( self.__fileextension, self.__zipextension )
 		self.__filename = os.path.basename( path )
 
 	def __str__( self ):
 		if self.__path is not None:
 			return self.__path
+
 	def __dir__( self ) -> list[ str ]:
 		'''
 
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'name', 'path',  ]
+		return [ 'file_name', 'file_path', 'file_extenstion',
+		         'zip_name', 'zip_path', 'zip_extension',
+		         'create', 'unzip'  ]
 
 	def create( self ):
 		'''
