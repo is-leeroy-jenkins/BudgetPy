@@ -493,8 +493,8 @@ class File( Path ):
 		return [ 'absolute_path', 'relative_path', 'path',
 		         'name', 'size', 'extension', 'created',
 		         'accessed', 'modified', 'rename', 'move',
-		         'create', 'delete', 'readlines', 'readall',
-		         'writelines', 'writeall' ]
+		         'create', 'delete', 'get_lines', 'readlines', 'readall',
+		         'iterlines', 'writelines', 'writeall' ]
 
 	def rename( self, other: str ) -> str:
 		'''
@@ -576,6 +576,69 @@ class File( Path ):
 			_exc.module = 'FileSys'
 			_exc.cause = 'File'
 			_exc.method = 'delete( self, other )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def get_lines( self ) -> list[ str ]:
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
+		_lines = list( )
+		try:
+			file = open( self.__input )
+			for i in file.readlines( ):
+				_lines.append( i )
+			return _lines
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'FileSys'
+			_exc.cause = 'File'
+			_exc.method = 'get_lines( )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def delete( self, other: str ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+
+		try:
+			if os.path.isfile( other ):
+				os.remove( other )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'FileSys'
+			_exc.cause = 'File'
+			_exc.method = 'delete( self, other )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def iterlines( self ):
+		'''
+		Purpose:
+
+		Parameters:
+
+		Returns:
+		'''
+		try:
+			file = open( self.__input )
+			for i in file.readlines():
+				yield i
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'FileSys'
+			_exc.cause = 'File'
+			_exc.method = 'iterlines( )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -765,7 +828,7 @@ class Folder( Path ):
 		         'get_subfolders', 'rename', 'move', 'create',
 		         'delete', 'iterate' ]
 
-	def get_files( self ) -> list:
+	def get_files( self ) -> list[ str ]:
 		'''
 		Purpose:
 
@@ -789,7 +852,7 @@ class Folder( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def get_subfiles( self ) -> list:
+	def get_subfiles( self ) -> list[ str ]:
 		'''
 		Purpose:
 
@@ -817,7 +880,7 @@ class Folder( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def get_subfolders( self ) -> list:
+	def get_subfolders( self ) -> list[ str ]:
 		'''
 		Purpose:
 
@@ -1051,7 +1114,7 @@ class Excel( ):
 	Purpose: Class provides the spreadsheet for reports
 
 	'''
-	__internalpath = None
+	__templatepath = None
 	__externalpath = None
 	__workbook = None
 	__worksheet = None
@@ -1059,14 +1122,14 @@ class Excel( ):
 	__title = None
 
 	@property
-	def internal_path( self ) -> str:
-		if self.__internalpath is not None:
-			return self.__internalpath
+	def template_path( self ) -> str:
+		if self.__templatepath is not None:
+			return self.__templatepath
 
-	@internal_path.setter
-	def internal_path( self, value: str ):
+	@template_path.setter
+	def template_path( self, value: str ):
 		if value is not None:
-			self.__internalpath = value
+			self.__templatepath = value
 
 	@property
 	def external_path( self ) -> str:
@@ -1119,10 +1182,10 @@ class Excel( ):
 			self.__name = value.active
 
 	def __init__( self, path: str = None ):
-		self.__internalpath = r'etc/templates/report/Excel.xlsx'
+		self.__templatepath = r'etc/templates/report/Excel.xlsx'
 		self.__externalpath = path
 		self.__name = os.path.split( path )[ 1 ]
-		self.__title = os.path.split( path )[ 1 ]
+		self.__title = self.__name.split( '.' )[ 0 ]
 		self.__workbook = Workbook( )
 		self.__worksheet = self.__workbook.create_sheet( self.__title, 0 )
 
@@ -1229,8 +1292,8 @@ class ZipFile( ):
 	Purpose:  Class defines object providing zip file functionality
 
 	'''
-	__infile = None
-	__name = None
+	__input = None
+	__filename = None
 	__filepath = None
 	__extension = None
 	__zippath = None
@@ -1248,21 +1311,32 @@ class ZipFile( ):
 
 	@property
 	def name( self ) -> str:
-		if not self.__name == '':
-			return self.__name
+		if not self.__filename == '':
+			return self.__filename
 
 	@name.setter
 	def name( self, value: str ):
 		if not value == '':
-			self.__name = value
+			self.__filename = value
 
 	def __init__( self, path: str ):
-		self.__infile = path
+		self.__input = path
 		self.__zipextension = '.zip'
 		self.__filepath = path
 		self.__extension = os.path.splitext( path )[ 1 ]
 		self.__zippath = self.__filepath.replace( self.__extension, self.__zipextension )
-		self.__name = os.path.basename( path )
+		self.__filename = os.path.basename( path )
+
+	def __str__( self ):
+		if self.__path is not None:
+			return self.__path
+	def __dir__( self ): -> list[ str ]:
+		'''
+
+		Returns a list[ str ] of member names.
+
+		'''
+		return [ 'name', 'path',  ]
 
 	def create( self ):
 		'''
@@ -1275,7 +1349,7 @@ class ZipFile( ):
 
 		try:
 			if not self.__filepath == '':
-				zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__name )
+				zp.ZipFile( self.__zippath, 'w' ).write( self.__filepath, self.__filename )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
