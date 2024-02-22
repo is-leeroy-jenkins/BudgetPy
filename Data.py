@@ -51,11 +51,13 @@ from Booger import Error, ErrorDialog
 
 class Pascal( ):
     '''
+
     Constructor:
     Pascal( input: str )
 
     Purpose:
     Class splits string 'input' argument into Pascal Casing
+
     '''
     __input = None
     __output = None
@@ -184,12 +186,15 @@ class Pascal( ):
 
 class SqlPath( ):
     '''
+
     Constructor:
     SqlPath( )
 
     Purpose:
     Class providing relative_path paths to the
-    folders containing sqlstatement files and driverinfo paths used in the application
+    folders containing sqlstatement files and driverinfo
+    paths used in the application
+
     '''
     __accessdriver = None
     __accesspath = None
