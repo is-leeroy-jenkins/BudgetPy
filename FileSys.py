@@ -206,10 +206,11 @@ class Path( ):
 		'''
 
 		try:
-			if os.path.exists( self.__input ):
-				return True
+			if not os.path.exists( self.__input ):
+				_msg = "The object 'self' does not exist or is None!"
+				raise Exception( _msg )
 			else:
-				return False
+				return True
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -228,7 +229,8 @@ class Path( ):
 		'''
 
 		try:
-			if os.path.isdir( self.__input ):
+			if not os.path.isdir( self.__input ):
+				_msg = "The object 'self' is not a directory!"
 				return True
 			else:
 				return False
@@ -250,10 +252,11 @@ class Path( ):
 		'''
 
 		try:
-			if os.path.isfile( self.__input ):
-				return True
+			if not os.path.isfile( self.__input ):
+				_msg = "The object 'self' is not a file!"
+				raise Exception( _msg )
 			else:
-				return False
+				return True
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -272,11 +275,11 @@ class Path( ):
 		'''
 
 		try:
-			if isinstance( self.__input, str ) and self.__input != '':
-				if os.path.isabs( self.__input ):
-					return True
-				elif not os.path.isabs( self.__input ):
-					return False
+			if not os.path.isabs( self.__input ):
+				_msg = "The object 'self' is not a file!"
+				raise Exception( _msg )
+			else:
+				return True
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -295,11 +298,9 @@ class Path( ):
 		'''
 
 		try:
-			if isinstance( self.__input, str ) and self.__input != '':
-				if os.path.isabs( self.__input ):
-					return False
-				elif not os.path.isabs( self.__input ):
-					return True
+			if not os.path.isabs( self.__input ):
+				_msg = "The object 'self' is not a file!"
+				raise Exception( _msg )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -318,10 +319,11 @@ class Path( ):
 		'''
 
 		try:
-			if os.path.exists( other ):
-				return True
+			if not os.path.exists( other ):
+				_msg = "The object 'self' is not a path!"
+				raise Exception( _msg )
 			else:
-				return False
+				return True
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -343,7 +345,10 @@ class Path( ):
 		'''
 
 		try:
-			if os.path.exists( first ) and os.path.exists( second ):
+			if not os.path.exists( first ) or not os.path.exists( second ):
+				_msg = "The arguement 'first' or 'second' is not a file!"
+				raise Exception( _msg )
+			else:
 				return os.path.join( first, second )
 		except Exception as e:
 			_exc = Error( e )
@@ -369,7 +374,10 @@ class Path( ):
 		Void
 
 		'''
-		if destination is not None:
+		if destination is None:
+			_msg = "The argument 'destination' is None"
+			raise Exception( _msg )
+		else:
 			sh.copytree( self.__input, destination )
 
 class File( Path ):
@@ -508,7 +516,10 @@ class File( Path ):
 		'''
 
 		try:
-			if other is not None:
+			if other is None:
+				_msg = " The argument 'other' has not been specified!"
+				raise Exception( _msg )
+			else:
 				_src = os.path.abspath( self.__path )
 				_dest = os.path.join( self.directory, other )
 				os.rename( _src, _dest )
@@ -531,7 +542,10 @@ class File( Path ):
 		'''
 
 		try:
-			if os.path.isdir( destination ):
+			_msg = " The argument 'destination' has not been specified!"
+			if destination is None:
+				raise Exception( _msg )
+			else:
 				return os.path.join( self.__name, destination )
 		except Exception as e:
 			_exc = Error( e )
@@ -544,12 +558,14 @@ class File( Path ):
 	def create( self, other: str, lines: list[ str ] = None ):
 		''' creates and returns 'selected_path' file '''
 		try:
-			if other is not None:
+			_msg = " The argument 'other' has not been specified!"
+			if other is None:
+				raise Exception( _msg )
+			else:
 				_file = open( other, 'r+' )
-				if isinstance( lines, list ) and len( lines ) > 0:
+				if len( lines ) > 0:
 					for line in lines:
 						_file.write( line )
-
 					_file.flush( )
 		except Exception as e:
 			_exc = Error( e )
@@ -569,7 +585,11 @@ class File( Path ):
 		'''
 
 		try:
-			if os.path.isfile( other ):
+			if other is None or not os.path.isfile( other ):
+				_msg = " The argument 'other' has not been specified " \
+				       "or does not exist!"
+				raise Exception( _msg )
+			else:
 				os.remove( other )
 		except Exception as e:
 			_exc = Error( e )
@@ -590,10 +610,14 @@ class File( Path ):
 
 		_lines = list( )
 		try:
-			file = open( self.__input )
-			for i in file.readlines( ):
-				_lines.append( i )
-			return _lines
+			if not os.path.isfile( self.__input ):
+				_msg = "The object 'self' does not exist or is None!"
+				raise Exception( _msg )
+			else:
+				file = open( self.__input )
+				for i in file.readlines( ):
+					_lines.append( i )
+				return _lines
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -612,7 +636,11 @@ class File( Path ):
 		'''
 
 		try:
-			if os.path.isfile( other ):
+			if other is None or not os.path.isfile( other ):
+				_msg = "The argument 'other' has not been " \
+				       "specified or does not exist!"
+				raise Exception( _msg )
+			else:
 				os.remove( other )
 		except Exception as e:
 			_exc = Error( e )
@@ -631,9 +659,13 @@ class File( Path ):
 		Returns:
 		'''
 		try:
-			file = open( self.__input )
-			for i in file.readlines():
-				yield i
+			if not os.path.isfile( self.__input ):
+				_msg = "The object 'self' does not exist"
+				raise Exception( _msg )
+			else:
+				file = open( self.__input )
+				for i in file.readlines( ):
+					yield i
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -652,8 +684,11 @@ class File( Path ):
 		'''
 
 		try:
-			if os.path.isfile( self.__input ):
-				_contents = list( )
+			_contents = list( )
+			if not os.path.isfile( self.__input ):
+				_msg = "The object 'self' is not a file or is None!"
+				raise Exception( _msg )
+			else:
 				_file = open( self.__input )
 				for i in _file.readlines( ):
 					_contents.append( i )
@@ -667,7 +702,7 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def readall( self ):
+	def readall( self ) -> str:
 		'''
 		Purpose:
 
@@ -678,7 +713,10 @@ class File( Path ):
 
 		try:
 			_contents = ''
-			if os.path.isfile( self.__input ):
+			if not os.path.isfile( self.__input ):
+				_msg = "The object 'self' is not a file or is None!"
+				raise Exception( _msg )
+			else:
 				_file = open( self.__input )
 				_contents = _file.read( )
 				_file.close( )
@@ -691,7 +729,7 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def writelines( self, lines: list[ str ] = None ):
+	def writelines( self, lines: list[ str ] ):
 		'''
 		Purpose:
 
@@ -701,7 +739,10 @@ class File( Path ):
 		'''
 
 		try:
-			if isinstance( lines, list ):
+			if lines is None:
+				_msg = "The argument 'lines' has not been specified!"
+				raise Exception( _msg )
+			else:
 				_path = os.path.relpath( self.__path )
 				_contents = open( _path, 'a' )
 				for line in lines:
@@ -730,8 +771,11 @@ class File( Path ):
 		try:
 			_contents = [ ]
 			_lines = [ ]
-			if os.path.isfile( other ):
-				_path = os.path.relpath( self.__path )
+			if other is None:
+				_msg = "The argument 'other' has not been specified"
+				raise Exception( _msg )
+			else:
+				_path = os.path.relpath( self.__input )
 				_contents = open( _path, 'a' )
 				_lines = open( other )
 				for line in _lines.readlines( ):
@@ -843,11 +887,15 @@ class Folder( Path ):
 
 		try:
 			_names = [ ]
-			for i in os.listdir( self.__absolutepath ):
-				_path = os.path.join( self.__absolutepath, i )
-				if os.path.isfile( _path ):
-					_names.append( _path )
-			return _names
+			_msg = "The object 'self' is not a directory!"
+			if not os.path.isdir( self.__input ):
+				raise Exception( _msg )
+			else:
+				for i in os.listdir( self.__input ):
+					_path = os.path.join( self.__absolutepath, i )
+					if os.path.isfile( _path ):
+						_names.append( _path )
+				return _names
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -866,16 +914,18 @@ class Folder( Path ):
 		'''
 
 		try:
-			_current = self.__current
-			_abspath = self.__absolutepath
 			_names = [ ]
-			for i in os.walk( _abspath ):
-				_dirpath = i[ 0 ]
-				if len( i[ 1 ] ) > 0:
-					for name in i[ 1 ]:
-						path = os.path.join( _dirpath, name )
-						_names.append( path )
-			return _names
+			_msg = "The object 'self' is not a directory!"
+			if not os.path.isdir( self.__input ):
+				raise Exception( _msg )
+			else:
+				for i in os.walk( _abspath ):
+					_dirpath = i[ 0 ]
+					if len( i[ 1 ] ) > 0:
+						for name in i[ 1 ]:
+							path = os.path.join( _dirpath, name )
+							_names.append( path )
+					return _names
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -895,13 +945,17 @@ class Folder( Path ):
 
 		try:
 			_names = [ ]
-			for i in os.walk( self.__absolutepath ):
-				if len( i[ 1 ] ) > 0:
-					for file in i[ 1 ]:
-						_path = os.path.join( self.__absolutepath, file )
-						if os.path.isdir( _path ):
-							_names.append( _path )
-			return _names
+			if not os.path.isdir( self.__input ):
+				_msg = "The object 'self' is not a directory!"
+				raise Exception( _msg )
+			else:
+				for i in os.walk( self.__absolutepath ):
+					if len( i[ 1 ] ) > 0:
+						for file in i[ 1 ]:
+							_path = os.path.join( self.__absolutepath, file )
+							if os.path.isdir( _path ):
+								_names.append( _path )
+				return _names
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -920,7 +974,10 @@ class Folder( Path ):
 		'''
 
 		try:
-			if self.__name is not None:
+			if name is None:
+				_msg = "The argument 'name' has not been specified!"
+				raise Exception( _msg )
+			else:
 				return os.rename( self.__name, name )
 		except Exception as e:
 			_exc = Error( e )
@@ -940,7 +997,10 @@ class Folder( Path ):
 		'''
 
 		try:
-			if destination is not None and os.path.exists( destination ):
+			if destination is None:
+				_msg = "The 'destination' has not been specified!"
+				raise Exception( _msg )
+			else:
 				return os.path.join( self.__name, destination )
 		except Exception as e:
 			_exc = Error( e )
@@ -960,7 +1020,10 @@ class Folder( Path ):
 		'''
 
 		try:
-			if other is not None:
+			if other is None:
+				_msg = "The argument 'other' has not been specified!"
+				raise Exception( _msg )
+			else:
 				os.mkdir( other )
 		except Exception as e:
 			_exc = Error( e )
@@ -980,7 +1043,10 @@ class Folder( Path ):
 		'''
 
 		try:
-			if other is not None and os.path.isdir( other ):
+			if other is None:
+				_msg = "The argument 'other' has not been specified!"
+				raise Exception( _msg )
+			else:
 				os.rmdir( other )
 		except Exception as e:
 			_exc = Error( e )
@@ -1000,8 +1066,12 @@ class Folder( Path ):
 		'''
 
 		try:
-			for i in os.walk( self.__path ):
-				yield i
+			if not os.path.isdir( self.__input ):
+				_msg = " 'self' is not a directory!"
+				raise Exception( _msg )
+			else:
+				for i in os.walk( self.__path ):
+					yield i
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
