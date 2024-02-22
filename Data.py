@@ -322,7 +322,7 @@ class SqlFile( ):
             self.__commandtype = value
 
     def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
-                  commandype: SQL = SQL.SELECTALL ):
+                  commandtype: SQL = SQL.SELECTALL ):
         self.__data = [ 'Actuals',
                         'AdjustedTrialBalances'
                         'AdministrativeRequests',
@@ -453,8 +453,8 @@ class SqlFile( ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'source', 'provider', 'command', 'getfilepath',
-                 'getfolderpath', 'getcommandtext' ]
+        return [ 'source', 'provider', 'command', 'get_file_path',
+                 'get_folder_path', 'get_command_text' ]
 
     def get_file_path( self ) -> str:
         '''
@@ -468,30 +468,30 @@ class SqlFile( ):
         '''
 
         try:
-            _path = SqlPath( )
+            _sqlpath = SqlPath( )
             _data = self.__data
             _provider = self.__provider.name
             _tablename = self.__source.name
             _command = self.__commandtype.name
             _current = os.getcwd( )
-            _path = ''
+            _filepath = ''
             if _provider == 'SQLite' and _tablename in _data:
-                _path = f'{_path.sqlitedatabase}\\{_command}\\{_tablename}.sql'
-                return os.path.join( _current, _path )
+                _filepath = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
+                return os.path.join( _current, _filepath )
             elif _provider == 'ACCDB' and _tablename in _data:
-                _path = f'{_path.accessdatabase}\\{_command}\\{_tablename}.sql'
-                return os.path.join( _current, _path )
+                _filepath = f'{_sqlpath.access_database}\\{_command}\\{_tablename}.sql'
+                return os.path.join( _current, _filepath )
             elif _provider == 'SqlServer' and _tablename in _data:
-                _path = f'{_path.sqldatabase}\\{_command}\\{_tablename}.sql'
-                return os.path.join( _current, _path )
+                _filepath = f'{_sqlpath.sqlserver_database}\\{_command}\\{_tablename}.sql'
+                return os.path.join( _current, _filepath )
             else:
-                _path = f'{_path.sqlitedatabase}\\{_command}\\{_tablename}.sql'
-                return os.path.join( _current, _path )
+                _filepath = f'{_sqlpath.sqlite_database}\\{_command}\\{_tablename}.sql'
+                return os.path.join( _current, _filepath )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SqlFile'
-            _exc.method = 'getfilepath( self )'
+            _exc.method = 'get_file_path( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -528,7 +528,7 @@ class SqlFile( ):
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SqlFile'
-            _exc.method = 'directory( self )'
+            _exc.method = 'get_folder_path( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -543,7 +543,7 @@ class SqlFile( ):
 
         try:
             _source = self.__source.name
-            _paths = self.get_datapath( )
+            _paths = self.get_file_path( )
             _folder = self.get_folder_path( )
             _sql = ''
             for name in os.listdir( _folder ):
@@ -556,7 +556,7 @@ class SqlFile( ):
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SqlFile'
-            _exc.method = '_query( self, other )'
+            _exc.method = 'get_command_text( self, other )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1877,8 +1877,8 @@ class BudgetData( ):
         '''
         Returns a list[ str ] of member names
         '''
-        return [ 'source', 'datapath', 'tablename',
-                 'commandtext', 'create_frame', 'createtupels']
+        return [ 'source', 'data_path', 'table_name',
+                 'command_text', 'create_frame', 'create_tuples']
 
     def create_frame( self ) -> DataFrame:
         '''
