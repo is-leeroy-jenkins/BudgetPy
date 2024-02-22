@@ -58,7 +58,7 @@ class Path( ):
 	'''
 	__name: str = None
 	__input: str = None
-	__extension: str = None
+	__fileextension: str = None
 	__currentdirectory: str = None
 	__template: str = None
 	__drive: str = None
@@ -88,14 +88,14 @@ class Path( ):
 			self.__name = value
 
 	@property
-	def extension( self ) -> str:
-		if self.__extension is not None:
-			return self.__extension
+	def file_extension( self ) -> str:
+		if self.__fileextension is not None:
+			return self.__fileextension
 
-	@extension.setter
-	def extension( self, value: str ):
+	@file_extension.setter
+	def file_extension( self, value: str ):
 		if value is not None:
-			self.__extension = value
+			self.__fileextension = value
 
 	@property
 	def current_directory( self ) -> str:
@@ -172,7 +172,7 @@ class Path( ):
 		self.__input = filepath
 		self.__name = os.path.split( filepath )[ 1 ]
 		self.__currentdirectory = os.getcwd( )
-		self.__extension = os.path.splitext( filepath )[ 1 ]
+		self.__fileextension = os.path.splitext( filepath )[ 1 ]
 		self.__parentdirectory = os.path.split( filepath )[ 0 ]
 		self.__template = r'etc\templates\report\Report.xlsx'
 		self.__pathseparator = os.path.sep
@@ -475,7 +475,7 @@ class File( Path ):
 		self.__relativepath = os.path.relpath( path )
 		self.__name = os.path.basename( path )
 		self.__size = os.path.getsize( path )
-		self.__extension = super( ).extension
+		self.__extension = super( ).file_extension
 		self.__created = os.path.getctime( path )
 		self.__accessed = os.path.getatime( path )
 		self.__modified = os.path.getmtime( path )
@@ -642,7 +642,7 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def readlines( self, other: str ):
+	def readlines( self ) -> list[ str ]:
 		'''
 		Purpose:
 
@@ -652,20 +652,22 @@ class File( Path ):
 		'''
 
 		try:
-			if os.path.isfile( other ):
-				_file = open( other )
-				_contents = _file.readlines( )
+			if os.path.isfile( self.__input ):
+				_contents = list( )
+				_file = open( self.__input )
+				for i in _file.readlines( ):
+					_contents.append( i )
 				_file.close( )
 				return _contents
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
 			_exc.cause = 'File'
-			_exc.method = 'realines( self, other )'
+			_exc.method = 'readlines( self, other )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def readall( self, other: str ):
+	def readall( self ):
 		'''
 		Purpose:
 
@@ -676,8 +678,8 @@ class File( Path ):
 
 		try:
 			_contents = ''
-			if os.path.isfile( other ):
-				_file = open( other )
+			if os.path.isfile( self.__input ):
+				_file = open( self.__input )
 				_contents = _file.read( )
 				_file.close( )
 				return _contents
@@ -747,9 +749,11 @@ class File( Path ):
 
 class Folder( Path ):
 	'''
+
 	Constructor: Folder( filepath: str )
 
 	Purpose: Class providing file directory information
+
 	'''
 	__absolutepath: str = None
 	__relativepath: str = None
