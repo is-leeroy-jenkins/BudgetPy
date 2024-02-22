@@ -750,7 +750,7 @@ class DbConfig( ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'table_name', 'get_driver_info',
+        return [ 'source', 'provider', 'table_name', 'get_driver_info',
                  'get_data_path', 'get_connection_string' ]
 
     def get_driver_info( self ) -> str:
