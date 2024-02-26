@@ -502,7 +502,7 @@ class File( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'input', 'name', 'current_directory', 'extension',
+		return [ 'name', 'current_directory', 'extension',
 		         'parent_directory', 'path_separator', 'drive',
 		         'drive_separator', 'extension_separator', 'template_path',
 		         'exists', 'is_folder', 'is_file', 'is_absolute',
@@ -551,8 +551,9 @@ class File( Path ):
 		'''
 
 		try:
-			_msg = " The argument 'destination' has not been specified!"
-			if destination is None:
+			_msg = " The 'path' is not a file or the argument " \
+			        "'destination' has not been specified!"
+			if os.path.isfile( self.__input ) == false or destination is None:
 				raise Exception( _msg )
 			else:
 				return os.path.join( self.__name, destination )
@@ -619,8 +620,8 @@ class File( Path ):
 
 		_lines = list( )
 		try:
-			if not os.path.isfile( self.__input ):
-				_msg = "The object 'self' does not exist or is None!"
+			if os.path.isfile( self.__input ) == False:
+				_msg = "The 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				file = open( self.__input )
@@ -645,7 +646,7 @@ class File( Path ):
 		'''
 
 		try:
-			if other is None or not os.path.isfile( other ):
+			if other is None or os.path.isfile( self.__input ) == False:
 				_msg = "The argument 'other' has not been " \
 				       "specified or does not exist!"
 				raise Exception( _msg )
@@ -668,8 +669,8 @@ class File( Path ):
 		Returns:
 		'''
 		try:
-			if not os.path.isfile( self.__input ):
-				_msg = "The object 'self' does not exist"
+			if os.path.isfile( self.__input ) == False:
+				_msg = "The 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				file = open( self.__input )
@@ -694,8 +695,8 @@ class File( Path ):
 
 		try:
 			_contents = list( )
-			if not os.path.isfile( self.__input ):
-				_msg = "The object 'self' is not a file or is None!"
+			if os.path.isfile( self.__input ) == False:
+				_msg = "The 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				_file = open( self.__input )
@@ -722,8 +723,8 @@ class File( Path ):
 
 		try:
 			_contents = ''
-			if not os.path.isfile( self.__input ):
-				_msg = "The object 'self' is not a file or is None!"
+			if os.path.isfile( self.__input ) == False:
+				_msg = "The 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				_file = open( self.__input )
@@ -748,8 +749,8 @@ class File( Path ):
 		'''
 
 		try:
-			if lines is None:
-				_msg = "The argument 'lines' has not been specified!"
+			if lines is None or os.path.isfile( self.__input ) == False:
+				_msg = "The 'lines' is None or 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				_path = os.path.relpath( self.__path )
@@ -780,8 +781,9 @@ class File( Path ):
 		try:
 			_contents = [ ]
 			_lines = [ ]
-			if other is None:
-				_msg = "The argument 'other' has not been specified"
+			if other is None or os.path.isfile( self.__input ) == False:
+				_msg = "The argument 'other' has not been specified " \
+					"or the 'path' is not a file!"
 				raise Exception( _msg )
 			else:
 				_path = os.path.relpath( self.__input )
@@ -880,7 +882,7 @@ class Folder( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'input', 'name', 'current_directory', 'extension',
+		return [ 'name', 'current_directory', 'extension',
 		         'parent_directory', 'path_separator', 'drive',
 		         'drive_separator', 'extension_separator', 'template_path',
 		         'exists', 'is_folder', 'is_file', 'is_absolute',
