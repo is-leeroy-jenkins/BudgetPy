@@ -6113,26 +6113,27 @@ class BudgetFiscalYears( ):
     Purpose:
     Class to describe the federal fiscal year
     '''
-	__source = None
-	__provider = None
-	__budgetfiscalyearsid = None
-	__input = None
-	__bfy = None
-	__efy = None
-	__today = None
-	__date = None
-	__startdate = None
-	__enddate = None
-	__expiration = None
-	__weekends = None
-	__workdays = None
-	__currentyear = None
-	__currentmonth = None
-	__currentday = None
-	__holidays = None
-	__fields = None
-	__data = None
-	__frame = None
+	__source: Source = None
+	__provider: Provider = None
+	__budgetfiscalyearsid: int = None
+	__input: str = None
+	__bfy: str = None
+	__efy: str = None
+	__today: datetime = None
+	__date: datetime = None
+	__startdate: datetime = None
+	__enddate: datetime = None
+	__expirationdate: datetime = None
+	__expiringyear: str = None
+	__weekends: int = None
+	__workdays: int = None
+	__currentyear: int = None
+	__currentmonth: int = None
+	__currentday: int = None
+	__holidays: list[ str ] = None
+	__fields: list[ str ] = None
+	__data: list[ Row ] = None
+	__frame: DataFrame = None
 
 	@property
 	def id( self ) -> int:
@@ -6195,14 +6196,14 @@ class BudgetFiscalYears( ):
 			self.__enddate = value
 
 	@property
-	def expiration( self ) -> str:
-		if self.__expiration is not None:
-			return self.__expiration
+	def expiring_year( self ) -> str:
+		if self.__expiringyear is not None:
+			return self.__expiringyear
 
-	@expiration.setter
-	def expiration( self, value: str ):
+	@expiring_year.setter
+	def expiring_year( self, value: str ):
 		if value is not None:
-			self.__expiration = value
+			self.__expiringyear = value
 
 	@property
 	def weekends( self ) -> int:
@@ -6258,6 +6259,16 @@ class BudgetFiscalYears( ):
 	def current_month( self ) -> int:
 		if self.__currentmonth is not None:
 			return self.__currentmonth
+
+	@property
+	def expiration_date( self ) -> datetime:
+		if self.__date is not None:
+			return self.__date
+
+	@expiriation_date.setter
+	def expiration_date( self, value: datetime ):
+		if value is not None:
+			self.__date = value
 
 	@property
 	def holidays( self ) -> list[ str ]:
@@ -6339,7 +6350,10 @@ class BudgetFiscalYears( ):
 			return self.__bfy
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'first_year', 'last_year', 'weekdays', 'weekends',
+		         'today', 'date', 'current_day', 'current_month', 'current_year',
+		         'start_date', 'end_date', 'holidays', 'expiring_year', 'expiration_date',
+				 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -11808,33 +11822,28 @@ class FederalHolidays( ):
     Purpose:
     Defines the FederalHoliday class
     '''
-	__source = None
-	__provider = None
-	__federalholidaysid = None
-	__bfy = None
-	__efy = None
-	__name = None
-	__newyearsday = None
-	__martinlutherking = None
-	__memorial = None
-	__juneteenth = None
-	__independence = None
-	__washingtons = None
-	__labor = None
-	__columbus = None
-	__veterans = None
-	__thanksgiving = None
-	__christmas = None
-	__holidays = None
-	__today = None
-	__date = None
-	__dayofweek = None
-	__day = None
-	__month = None
-	__year = None
-	__fields = None
-	__data = None
-	__frame = None
+	__source: Source = None
+	__provider: Provider = None
+	__federalholidaysid: int = None
+	__bfy: str = None
+	__name: str = None
+	__dayofweek: int = None
+	__newyearsday: datetime = None
+	__martinlutherkingsday: datetime = None
+	__memorialday: datetime = None
+	__juneteenthday: datetime = None
+	__independenceday: datetime = None
+	__presidentsday: datetime = None
+	__laborday: datetime = None
+	__columbusday: datetime = None
+	__veteransday: datetime = None
+	__thanksgivingday: datetime = None
+	__christmasday: datetime = None
+	__holidays: list[ str ] = None
+	__observances: dict( ) = None
+	__fields: list[ str ] = None
+	__data: list[ Row ] = None
+	__frame: DataFrame = None
 
 	@property
 	def id( self ) -> int:
@@ -11857,49 +11866,14 @@ class FederalHolidays( ):
 			self.__bfy = value
 
 	@property
-	def efy( self ) -> str:
-		if self.__efy is not None:
-			return self.__efy
-
-	@efy.setter
-	def efy( self, value: str ):
-		if value is not None:
-			self.__efy = value
-
-	@property
-	def name( self ) -> str:
+	def name( self ) -> list[ Row ]:
 		if self.__name is not None:
 			return self.__name
 
 	@name.setter
-	def name( self, value: str ):
-		if value in self.__holidays:
+	def name( self, value: list[ Row ] ):
+		if isinstance( value, list ):
 			self.__name = value
-
-	@property
-	def date( self ) -> datetime:
-		if self.__date is not None:
-			return self.__date
-
-	@property
-	def day( self ) -> int:
-		if self.__day is not None:
-			return self.__day
-
-	@property
-	def month( self ) -> int:
-		if self.__month is not None:
-			return self.__month
-
-	@property
-	def holidays( self ) -> list[ str ]:
-		if self.__holidays is not None:
-			return self.__holidays
-
-	@property
-	def observances( self ) -> dict:
-		if self.__observance is not None:
-			return self.__observance
 
 	@property
 	def data( self ) -> list[ Row ]:
@@ -11935,42 +11909,38 @@ class FederalHolidays( ):
 	              provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FederalHolidays
-		self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
-		                    'NewYearsDay', 'MartinLutherKing', 'Washingtons',
-		                    'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
-		self.__observance = { 'Columbus': 'The second Monday in October',
-		                      'Veterans': 'Veterans Day, November 11',
-		                      'Thanksgiving': 'The fourth Thursday in November',
-		                      'Christmas': 'Christmas Day, December 25',
+		self.__holidays = [ 'ColumbusDay', 'VeteransDay', 'ThanksgivingDay', 'ChristmasDay',
+		                    'NewYearsDay', 'MartinLutherKingsDay', 'PresidentsDay',
+		                    'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
+		self.__observance = { 'ColumbusDay': 'The second Monday in October',
+		                      'VeteransDay': 'Veterans Day, November 11',
+		                      'ThanksgivingDay': 'The fourth Thursday in November',
+		                      'ChristmasDay': 'Christmas Day, December 25',
 		                      'NewYearsDay': 'January 1',
-		                      'MartinLutherKing': 'The third Monday in January',
-		                      'Washingtons': 'The third Monday in February',
-		                      'Memorial': 'The last Monday in May.',
-		                      'Juneteenth': 'Juneteenth National Independence Day, June 19',
-		                      'Independence': 'Independence Day, July 4',
-		                      'Labor': 'The first Monday in September' }
+		                      'MartinLutherKingDay': 'The third Monday in January',
+		                      'WashingtonsDay': 'The third Monday in February',
+		                      'MemorialDay': 'The last Monday in May.',
+		                      'JuneteenthDay': 'Juneteenth National Independence Day, June 19',
+		                      'IndependenceDay': 'Independence Day, July 4',
+		                      'LaborDay': 'The first Monday in September' }
 		self.__bfy = bfy
 		self.__efy = efy
-		self.__year = int( bfy )
+		self.__year = bfy
 		self.__today = dt.datetime.today( )
 		self.__name = self.set_name( name )
-		self.__date = self.set_date( name )
-		self.__dayofweek = self.__date.day
-		self.__month = self.__date.month
-		self.__day = self.__date.isoweekday( )
 		self.__fields = [ 'FederalHolidaysId',
 		                  'BFY',
-		                  'Columbus',
-		                  'Veterans',
-		                  'Thanksgiving',
-		                  'Christmas',
-		                  'NewYears',
-		                  'MartinLutherKing',
-		                  'Presidents',
-		                  'Memorial',
-		                  'Juneteenth',
-		                  'Independence',
-		                  'Labor' ]
+		                  'ColumbusDay',
+		                  'VeteransDay',
+		                  'ThanksgivingDay',
+		                  'ChristmasDay',
+		                  'NewYearsDay',
+		                  'MartinLutherKingDay',
+		                  'PresidentsDay',
+		                  'MemorialDay',
+		                  'JuneteenthDay',
+		                  'IndependenceDay',
+		                  'LaborDay' ]
 		self.__data = None
 		self.__frame = None
 
@@ -11979,7 +11949,12 @@ class FederalHolidays( ):
 			return self.__name
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe',
+		         'get_columbus_day', 'get_veterans_day', 'get_thanksgiving_day',
+		         'get_christmas_day', 'get_newyears_day', 'get_martinlutherking_day',
+		         'get_presidents_day', 'get_memorial_day', 'independence_day',
+		         'labor_day', 'day_of_week', 'is_weekday', 'is_weekend', 'set_date',
+		         'set_name' ]
 
 	def getdata( self ) -> list:
 		'''
@@ -12057,7 +12032,7 @@ class FederalHolidays( ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'FederalHoliday'
-			_exc.method = 'columnbusday( self )'
+			_exc.method = 'get_columnbus_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -12084,7 +12059,8 @@ class FederalHolidays( ):
 				__delta = (__start - __end).days
 				for i in range( 15, 31 ):
 					d = datetime( self.__year, 11, i )
-					if (21 < d.day < 31) and datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
+					if (21 < d.day < 31) and \
+							datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
 						self.__thanksgiving = datetime( self.__year, 11, d.day )
 						return self.__thanksgiving
 		except Exception as e:
@@ -12295,34 +12271,34 @@ class FederalHolidays( ):
 	def set_date( self, name: str ):
 		try:
 			if isinstance( name, str ) and name in self.__holidays:
-				if name == 'Columbus':
+				if name == 'ColumbusDay':
 					self.__date = self.get_columbus_day( )
 					return self.__date
-				elif name == 'Veterans':
+				elif name == 'VeteransDay':
 					self.__date = self.get_veterans_day( )
 					return self.__date
-				elif name == 'Thanksgiving':
+				elif name == 'ThanksgivingDay':
 					self.__date = self.get_thanksgiving_day( )
 					return self.__date
-				elif name == 'Christmas':
+				elif name == 'ChristmasDay':
 					self.__date = self.get_christmas_day( )
 					return self.__date
 				elif name == 'NewYearsDay':
 					self.__date = self.get_newyears_day( )
 					return self.__date
-				elif name == 'MartinLutherKing':
+				elif name == 'MartinLutherKingDay':
 					self.__date = self.get_martinlutherking_day( )
 					return self.__date
-				elif name == 'Washingtons':
+				elif name == 'PresidentsDay':
 					self.__date = self.get_presidents_day( )
 					return self.__date
-				elif name == 'Memorial':
+				elif name == 'MemorialDay':
 					self.__date = self.get_memorial_day( )
 					return self.__date
-				elif name == 'Juneteenth':
+				elif name == 'JuneteenthDay':
 					self.__date = self.get_juneteenth_day( )
 					return self.__date
-				elif name == 'Labor':
+				elif name == 'LaborDay':
 					self.__date = self.get_labor_day( )
 					return self.__date
 		except Exception as e:
