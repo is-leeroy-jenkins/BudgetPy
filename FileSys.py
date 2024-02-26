@@ -502,7 +502,12 @@ class File( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'absolute_path', 'relative_path', 'path',
+		return [ 'input', 'name', 'current_directory', 'extension',
+		         'parent_directory', 'path_separator', 'drive',
+		         'drive_separator', 'extension_separator', 'template_path',
+		         'exists', 'is_folder', 'is_file', 'is_absolute',
+		         'is_relative', 'verify', 'join', 'copy_tree',
+		         'absolute_path', 'relative_path', 'path',
 		         'name', 'size', 'extension', 'created',
 		         'accessed', 'modified', 'rename', 'move',
 		         'create', 'delete', 'get_lines', 'readlines', 'readall',
@@ -875,7 +880,12 @@ class Folder( Path ):
 		Returns a list[ str ] of member names.
 
 		'''
-		return [ 'absolute_path', 'relative_path', 'path',
+		return [ 'input', 'name', 'current_directory', 'extension',
+		         'parent_directory', 'path_separator', 'drive',
+		         'drive_separator', 'extension_separator', 'template_path',
+		         'exists', 'is_folder', 'is_file', 'is_absolute',
+		         'is_relative', 'verify', 'join', 'copy_tree',
+		         'absolute_path', 'relative_path', 'path',
 		         'name', 'size', 'get_files', 'get_subfiles',
 		         'get_subfolders', 'rename', 'move', 'create',
 		         'delete', 'iterate' ]
