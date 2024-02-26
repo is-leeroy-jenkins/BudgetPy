@@ -144,6 +144,7 @@ class Source( Enum ):
     ObligationActivity = auto( )
     Obligations = auto( )
     Outlays = auto( )
+    OutlayRates = auto( )
     OpenCommitments = auto( )
     SpendingRates = auto( )
     SpendingDocuments = auto( )
@@ -202,7 +203,6 @@ class Source( Enum ):
     Objectives = auto( )
     OperatingPlans = auto( )
     OperatingPlanUpdates = auto( )
-    OutlayRates = auto( )
     Organizations = auto( )
     ProgramAreas = auto( )
     ProgramProjectDescriptions = auto( )
@@ -218,6 +218,7 @@ class Source( Enum ):
     ResponsibilityCenters = auto( )
     ReportingLines = auto( )
     SchemaTypes = auto( )
+    SequestrationAccounts  = auto( )
     StateOrganizations = auto( )
     SubAppropriations = auto( )
     TransTypes = auto( )
@@ -246,7 +247,6 @@ class ParamStyle( Enum ):
     pyformat = 3
     name = 4
     qmark = 5
-    NS = 6
 
 class SQL( Enum ):
     '''
@@ -287,7 +287,6 @@ class PNG( Enum ):
 
     Pupose:  Enumeration of images
     '''
-    NS = auto( )
     Attachment = auto( )
     Access = auto( )
     Adobe = auto( )
@@ -403,7 +402,6 @@ class ICO( Enum ):
 
     Purpose:  Enumeration of ICO files
     '''
-    NS = auto( )
     Access = auto( )
     Browse = auto( )
     CSV = auto( )
@@ -421,7 +419,6 @@ class RPIO( Enum ):
 
     Pupose:  Enumeration of Resource Planning and Implementation Offices
     '''
-    NS = 0
     R1 = 1
     R2 = 2
     R3 = 3
@@ -1119,7 +1116,7 @@ class Holiday( Enum ):
     '''
     NewYearsDay = auto( )
     MartinLutherKingDay = auto( )
-    WashingtonsDay = auto( )
+    PresidentsDay = auto( )
     MemorialDay = auto( )
     JuneteenthDay = auto( )
     IndependenceDay = auto( )

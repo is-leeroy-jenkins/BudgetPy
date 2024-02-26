@@ -6205,22 +6205,22 @@ class BudgetFiscalYears( ):
 			self.__expiration = value
 
 	@property
-	def weekends( self ) -> str:
+	def weekends( self ) -> int:
 		if self.__weekends is not None:
 			return self.__weekends
 
 	@weekends.setter
-	def weekends( self, value: str ):
+	def weekends( self, value: int ):
 		if value is not None:
 			self.__weekends = value
 
 	@property
-	def workdays( self ) -> str:
+	def workdays( self ) -> int:
 		if self.__workdays is not None:
 			return self.__workdays
 
 	@workdays.setter
-	def workdays( self, value: str ):
+	def workdays( self, value: int ):
 		if value is not None:
 			self.__workdays = value
 
@@ -6298,34 +6298,34 @@ class BudgetFiscalYears( ):
 	              dt: datetime = None, provider: Provider = Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FiscalYears
-		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.__efy = efy if isinstance( efy, str ) and len( efy ) <= 4 else None
+		self.__bfy = bfy
+		self.__efy = efy
 		self.__today = datetime.today( )
 		self.__currentday = datetime.today( ).day
 		self.__currentmonth = datetime.today( ).month
-		self.__date = dt if isinstance( dt, datetime ) else datetime.today( )
+		self.__date = dt if dt is not None else datetime.today( )
 		self.__currentyear = datetime.today( ).year
 		self.__startdate = datetime( datetime.today( ).year, 10, 1 )
 		self.__enddate = datetime( datetime.today( ).year + 1, 9, 30 )
-		self.__holidays = [ 'Columbus', 'Veterans', 'Thanksgiving', 'Christmas',
-		                    'NewYearsDay', 'MartinLutherKing', 'Washingtons',
-		                    'Memorial', 'Juneteenth', 'Independence', 'Labor' ]
+		self.__holidays = [ 'ColumbusDay', 'VeteransDay', 'ThanksgivingDay', 'ChristmasDay',
+		                    'NewYearsDay', 'MartinLutherKingDay', 'PresidentsDay',
+		                    'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
 		self.__fields = [ 'FiscalYearsId',
 		                  'BFY',
 		                  'EFY',
 		                  'StartDate',
 		                  'EndDate',
-		                  'Columbus',
-		                  'Veterans',
-		                  'Thanksgiving',
-		                  'Christmas',
-		                  'NewYears',
-		                  'MartinLutherKing',
-		                  'Presidents',
-		                  'Memorial',
-		                  'Juneteenth',
-		                  'Independence',
-		                  'Labor',
+		                  'ColumbusDay',
+		                  'VeteransDay',
+		                  'ThanksgivingDay',
+		                  'ChristmasDay',
+		                  'NewYearsDay',
+		                  'MartinLutherKingsDay',
+		                  'PresidentsDay',
+		                  'MemorialDay',
+		                  'JuneteenthDay',
+		                  'IndependenceDay',
+		                  'LaborDay',
 		                  'ExpiringYear',
 		                  'ExpirationDate',
 		                  'CancellationDate',
