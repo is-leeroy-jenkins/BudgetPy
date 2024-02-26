@@ -229,11 +229,13 @@ class Path( ):
 		'''
 
 		try:
-			if not os.path.isdir( self.__input ):
-				_msg = "The object 'self' is not a directory!"
-				return True
-			else:
+			if self.__input is None:
+				_msg = "The 'input' is None!"
+				raise Exception( _msg )
+			if os.path.isdir( self.__input ) == False:
 				return False
+			else:
+				return True
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -252,9 +254,11 @@ class Path( ):
 		'''
 
 		try:
-			if not os.path.isfile( self.__input ):
-				_msg = "The object 'self' is not a file!"
+			if self.__input is None:
+				_msg = "The 'input' is None!"
 				raise Exception( _msg )
+			elif os.path.isfile( self.__input ) == False:
+				return False
 			else:
 				return True
 		except Exception as e:
