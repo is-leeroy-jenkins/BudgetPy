@@ -212,7 +212,15 @@ class Accounts( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'code', 'name',
+		         'goal_code', 'objective_code', 'npm_code',
+		         'program_project_code', 'program_project_name',
+		         'data', 'fields', 'frame',
 		         'copy', 'getdata', 'getframe' ]
 
 	def copy( self ):
@@ -371,7 +379,13 @@ class ActivityCodes( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'code', 'name',
+		         'data', 'fields', 'frame',
 		         'fields', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -646,11 +660,16 @@ class AdjustedTrialBalances( ):
 			return self.__accountnumber
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
 		         'treasury_symbol', 'account_number', 'account_name',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
-		         'budget_account_code', 'budget_account_name', 'credit_balance',
-		         'beginning_balance', 'ending_balance', 'debit_balance', 'fields',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -835,8 +854,14 @@ class AllowanceHolders( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'code', 'name',
 		         'status', 'earmark_flag', 'usage',
+		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -1147,8 +1172,18 @@ class AmericanRescuePlanCarryoverEstimates( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'code', 'name',
-		         'fields', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy',
+		         'rpio_code', 'rpio_name', 'fund_code', 'fund_name',
+		         'amount', 'available', 'open_commitments', 'obligations',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name', 'estimate',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -1456,7 +1491,12 @@ class AnnualCarryoverEstimates( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name'
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
 		         'rpio_code', 'rpio_name', 'amount',
 		         'available', 'open_commitments', 'obligations',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
@@ -1769,8 +1809,13 @@ class AnnualReimbursableEstimates( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name'
-		         'rpio_code', 'rpio_name', 'amount', 'estimate'
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
+		         'rpio_code', 'rpio_name', 'amount', 'estimate',
 		         'available', 'open_commitments', 'obligations',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
@@ -1922,6 +1967,11 @@ class Appropriations( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'data', 'fields',
 		         'code', 'name',
 		         'getdata', 'getframe']
@@ -2229,11 +2279,16 @@ class AppropriationAvailableBalances( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'authority',
 		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
-		         'data', 'fields',
+		         'data', 'fields', 'frame',
 		         'getdata', 'getframe']
 
 	def getdata( self ) -> list[ Row ]:
@@ -2517,11 +2572,16 @@ class AppropriationLevelAuthority( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'authority',
 		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
-		         'data', 'fields',
+		         'data', 'fields', 'frame',
 		         'getdata', 'getframe']
 
 	def getdata( self ) -> list[ Row ]:
@@ -3019,16 +3079,22 @@ class Allocations( ):
 			return self.__programprojectname
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
-		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
-		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 
+		         'rpio_code', 'rpio_name', 'ah_code', 'ah_name',
+		         'org_code', 'org_name', 'boc_code', 'boc_name',
+		         'rc_code', 'rc_name', 'npm_code', 'npm_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
-		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
-		         'objective_code', 'objective_name', 'authority',
+		         'program_area_name',  'goal_code', 'goal_name',
+		         'account_code', 'objective_code', 'objective_name', 'authority',
 		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
-		         'data', 'fields',
+		         'data', 'fields', 'frame',
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -3336,6 +3402,11 @@ class ApportionmentData( ):
 			return self.__mainaccount
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'fiscal_year', 'bfy', 'efy', 'availability_type',
 		         'approval_date', 'line_number', 'line_split', 'line_name',
 		         'amount', 'fund_code', 'fund_name',
@@ -3905,6 +3976,11 @@ class Actuals( ):
 			return self.__programprojectname
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
 		         'appropriation_code', 'appropriation_name', 'subappropriation_code',
 		         'subappropriation_name', 'rpio_code', 'rpio_name',
@@ -3916,7 +3992,7 @@ class Actuals( ):
 		         'obligations', 'unliquidated_obligations',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
-		         'data', 'fields',
+		         'data', 'fields', 'frame',
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
@@ -4075,6 +4151,11 @@ class ApplicationTables( ):
 			return self.__name
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'name', 'model',
 		         'caption', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
@@ -4565,6 +4646,11 @@ class AppropriationDocuments( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'appropriation',
 		         'budget_level', 'document_type', 'document_number', 'document_date',
 		         'last_document_date', 'budgeting_controls', 'posting_controls',
@@ -5217,6 +5303,11 @@ class BudgetDocuments( ):
 			return self.__documentnumber
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'budget_level', 'document_date',
 		         'last_document_date', 'document_type','document_number', 'fund_code',
 		         'fund_name', 'rpio_code', 'rpio_name', 'ah_code', 'ah_name',
@@ -5495,6 +5586,11 @@ class BudgetContacts( ):
 			return self.__emailaddress
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'first_name', 'last_name', 'rpio_code', 'rpio_name',
 		         'section', 'job_title', 'state', 'zip_code', 'office_location',
 		         'city', 'account', 'email_type', 'display_name',
@@ -6038,6 +6134,11 @@ class BudgetControls( ):
 		                  'AuthorityDistributionControl' ]
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'code', 'name', 'security_org', 'posted_trans_type',
 		         'estimated_reimbursements_transtype', 'spending_adjustment_transtype',
 		         'estimated_recoveries_transtype', 'actual_recoveries_transtype',
@@ -6353,6 +6454,11 @@ class BudgetFiscalYears( ):
 			return self.__bfy
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'first_year', 'last_year', 'weekdays', 'weekends',
 		         'today', 'date', 'current_day', 'current_month', 'current_year',
 		         'start_date', 'end_date', 'holidays', 'expiring_year', 'expiration_date',
@@ -6513,7 +6619,13 @@ class BudgetObjectClasses( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'fields', 'data',
+		         'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -6743,7 +6855,16 @@ class BudgetaryResourceExecution( ):
 		                  'Bureau' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -6794,410 +6915,6 @@ class BudgetaryResourceExecution( ):
 			_exc = Error( e )
 			_exc.module = 'Reporting'
 			_exc.cause = 'BudgetaryResourceExecution'
-			_exc.method = 'getframe( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-class Outlays( ):
-	'''
-    Constructor:
-    Outlay( account: str, pvdr: Provider = Provider.SQLite  )
-
-    Purpose:
-    Class defines object that provides OMB data
-    '''
-	__source: Source = None
-	__provider: Provider = None
-	__budgetoutlaysid = None
-	__reportyear = None
-	__mainaccount: str = None
-	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__linenumber: str = None
-	__linesection: str = None
-	__linename: str = None
-	__linecategory: str = None
-	__beacategory: str = None
-	__beacategoryname: str = None
-	__prioryear: float = None
-	__currentyear: float = None
-	__budgetyear: float = None
-	__outyear1: float = None
-	__outyear2: float = None
-	__outyear3: float = None
-	__outyear4: float = None
-	__outyear5: float = None
-	__outyear6: float = None
-	__outyear7: float = None
-	__outyear8: float = None
-	__outyear9: float = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
-
-	@property
-	def id( self ) -> int:
-		if self.__budgetoutlaysid is not None:
-			return self.__budgetoutlaysid
-
-	@id.setter
-	def id( self, value: int ):
-		if value is not None:
-			self.__budgetoutlaysid = value
-
-	@property
-	def report_year( self ) -> str:
-		if self.__reportyear is not None:
-			return self.__reportyear
-
-	@report_year.setter
-	def report_year( self, value: str ):
-		if value is not None:
-			self.__reportyear = value
-
-	@property
-	def line_number( self ) -> str:
-		if self.__linenumber is not None:
-			return self.__linenumber
-
-	@line_number.setter
-	def line_number( self, value: str ):
-		if value is not None:
-			self.__linenumber = value
-
-	@property
-	def line_section( self ) -> str:
-		if self.__linesection is not None:
-			return self.__linesection
-
-	@line_section.setter
-	def line_section( self, value: str ):
-		if value is not None:
-			self.__linesection = value
-
-	@property
-	def line_name( self ) -> str:
-		if self.__linename is not None:
-			return self.__linename
-
-	@line_name.setter
-	def line_name( self, value: str ):
-		if value is not None:
-			self.__linename = value
-
-	@property
-	def line_category( self ) -> str:
-		if self.__linecategory is not None:
-			return self.__linecategory
-
-	@line_category.setter
-	def line_category( self, value: str ):
-		if value is not None:
-			self.__linecategory = value
-
-	@property
-	def bea_category( self ) -> str:
-		if self.__beacategory is not None:
-			return self.__beacategory
-
-	@bea_category.setter
-	def bea_category( self, value: str ):
-		if value is not None:
-			self.__beacategory = value
-
-	@property
-	def bea_category_name( self ) -> str:
-		if self.__beacategoryname is not None:
-			return self.__beacategoryname
-
-	@bea_category_name.setter
-	def bea_category_name( self, value: str ):
-		if value is not None:
-			self.__beacategoryname = value
-
-	@property
-	def main_account( self ) -> str:
-		if self.__mainaccount is not None:
-			return self.__mainaccount
-
-	@main_account.setter
-	def main_account( self, value: str ):
-		if value is not None:
-			self.__mainaccount = value
-
-	@property
-	def treasury_account_code( self ) -> str:
-		if self.__treasuryaccountcode is not None:
-			return self.__treasuryaccountcode
-
-	@treasury_account_code.setter
-	def treasury_account_code( self, value: str ):
-		if value is not None:
-			self.__treasuryaccountcode = value
-
-	@property
-	def treasury_account_name( self ) -> str:
-		if self.__treasuryaccountname is not None:
-			return self.__treasuryaccountname
-
-	@treasury_account_name.setter
-	def treasury_account_name( self, value: str ):
-		if value is not None:
-			self.__treasuryaccountname = value
-
-	@property
-	def budget_account_code( self ) -> str:
-		if self.__budgetaccountcode is not None:
-			return self.__budgetaccountcode
-
-	@budget_account_code.setter
-	def budget_account_code( self, value: str ):
-		if value is not None:
-			self.__budgetaccountcode = value
-
-	@property
-	def budget_account_name( self ) -> str:
-		if self.__budgetaccountname is not None:
-			return self.__budgetaccountname
-
-	@budget_account_name.setter
-	def budget_account_name( self, value: str ):
-		if value is not None:
-			self.__budgetaccountname = value
-
-	@property
-	def prior_year( self ) -> float:
-		if self.__prioryear is not None:
-			return self.__prioryear
-
-	@prior_year.setter
-	def prior_year( self, value: float ):
-		if value is not None:
-			self.__prioryear = value
-
-	@property
-	def current_year( self ) -> float:
-		if self.__currentyear is not None:
-			return self.__currentyear
-
-	@current_year.setter
-	def current_year( self, value: float ):
-		if value is not None:
-			self.__currentyear = value
-
-	@property
-	def budget_year( self ) -> float:
-		if self.__budgetyear is not None:
-			return self.__budgetyear
-
-	@budget_year.setter
-	def budget_year( self, value: float ):
-		if value is not None:
-			self.__budgetyear = value
-
-	@property
-	def out_year_1( self ) -> float:
-		if self.__outyear1 is not None:
-			return self.__outyear1
-
-	@out_year_1.setter
-	def out_year_1( self, value: float ):
-		if value is not None:
-			self.__outyear1 = value
-
-	@property
-	def out_year_2( self ) -> float:
-		if self.__outyear2 is not None:
-			return self.__outyear2
-
-	@out_year_2.setter
-	def out_year_2( self, value: float ):
-		if value is not None:
-			self.__outyear2 = value
-
-	@property
-	def out_year_3( self ) -> float:
-		if self.__outyear3 is not None:
-			return self.__outyear3
-
-	@out_year_3.setter
-	def out_year_3( self, value: float ):
-		if value is not None:
-			self.__outyear3 = value
-
-	@property
-	def out_year_4( self ) -> float:
-		if self.__outyear4 is not None:
-			return self.__outyear4
-
-	@out_year_4.setter
-	def out_year_4( self, value: float ):
-		if value is not None:
-			self.__outyear4 = value
-
-	@property
-	def out_year_5( self ) -> float:
-		if self.__outyear5 is not None:
-			return self.__outyear5
-
-	@out_year_5.setter
-	def out_year_5( self, value: float ):
-		if value is not None:
-			self.__outyear5 = value
-
-	@property
-	def out_year_6( self ) -> float:
-		if self.__outyear6 is not None:
-			return self.__outyear6
-
-	@out_year_6.setter
-	def out_year_6( self, value: float ):
-		if value is not None:
-			self.__outyear6 = value
-
-	@property
-	def out_year_7( self ) -> float:
-		if self.__outyear7 is not None:
-			return self.__outyear7
-
-	@out_year_7.setter
-	def out_year_7( self, value: float ):
-		if value is not None:
-			self.__outyear7 = value
-
-	@property
-	def out_year_8( self ) -> float:
-		if self.__outyear8 is not None:
-			return self.__outyear8
-
-	@out_year_8.setter
-	def out_year_8( self, value: float ):
-		if value is not None:
-			self.__outyear8 = value
-
-	@property
-	def out_year_9( self ) -> float:
-		if self.__outyear9 is not None:
-			return self.__outyear9
-
-	@out_year_9.setter
-	def out_year_9( self, value: float ):
-		if value is not None:
-			self.__outyear9 = value
-
-	@property
-	def data( self ) -> list[ Row ]:
-		if self.__data is not None:
-			return self.__data
-
-	@data.setter
-	def data( self, value: list[ Row ] ):
-		if isinstance( value, list ):
-			self.__data = value
-
-	@property
-	def frame( self ) -> DataFrame:
-		if self.__frame is not None:
-			return self.__frame
-
-	@frame.setter
-	def frame( self, value: DataFrame ):
-		if value is not None:
-			self.__frame = value
-
-	@property
-	def fields( self ) -> list[ str ]:
-		if self.__fields is not None:
-			return self.__fields
-
-	@fields.setter
-	def fields( self, value: list[ str ] ):
-		if value is not None:
-			self.__fields = value
-
-	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
-		self.__provider = provider
-		self.__source = Source.Outlays
-		self.__budgetaccountcode = account
-		self.__fields = [ 'BudgetOutlaysId',
-		                  'ReportYear',
-		                  'Category',
-		                  'AgencyName',
-		                  'LineNumber',
-		                  'LineSection',
-		                  'OmbAccount',
-		                  'LineTitle',
-		                  'AccountType',
-		                  'AuthorityTypeName',
-		                  'Line',
-		                  'AuthorityType',
-		                  'PriorYear',
-		                  'CurrentYear',
-		                  'BudgetYear',
-		                  'BudgetYear1',
-		                  'BudgetYear2',
-		                  'BudgetYear3',
-		                  'BudgetYear4',
-		                  'BudgetYear5',
-		                  'BudgetYear6',
-		                  'BudgetYear7',
-		                  'BudgetYear8',
-		                  'BudgetYear9' ]
-
-	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
-	def getdata( self ) -> list[ Row ]:
-		'''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
-		try:
-			_source = self.__source
-			_provider = self.__provider
-			_names = [ 'OmbAccountCode', ]
-			_values = (self.__budgetaccountcode,)
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
-			_connection = Connection( self.__source )
-			_sql = Command( _dbconfig, _sqlconfig )
-			_sqlite = _connection.connect( )
-			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
-			_db = _cursor.execute( _query )
-			self.__data = [ i for i in _db.fetchall( ) ]
-			_cursor.close( )
-			_sqlite.close( )
-			return self.__data
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Reporting'
-			_exc.cause = 'BudgetOutlay'
-			_exc.method = 'getdata( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-	def getframe( self ) -> DataFrame:
-		'''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
-		try:
-			_source = self.__source
-			_data = BudgetData( _source )
-			return _data.create_frame( )
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Reporting'
-			_exc.cause = 'BudgetOutlay'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -7432,7 +7149,17 @@ class CongressionalControls( ):
 		                  'MemoRequirement' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name',  'sub_project_code', 'sub_project_name',
+		         'reprogramming_restriction', 'increase_restriction', 'decrease_restiction',
+		         'memorandum_required', 'data', 'fields', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -7509,6 +7236,66 @@ class CongressionalProjects( ):
 	__ahcode: str = None
 	__amount: float = None
 
+	@property
+	def bfy( self ) -> str:
+		if self.__bfy is not None:
+			return self.__bfy
+
+	@bfy.setter
+	def bfy( self, value: str ):
+		if value is not None:
+			self.__bfy = value
+
+	@property
+	def efy( self ) -> str:
+		if self.__efy is not None:
+			return self.__efy
+
+	@efy.setter
+	def efy( self, value: str ):
+		if value is not None:
+			self.__efy = value
+
+	@property
+	def fund_code( self ) -> str:
+		if self.__fundcode is not None:
+			return self.__fundcode
+
+	@fund_code.setter
+	def fund_code( self, value: str ):
+		if value is not None:
+			self.__fundcode = value
+
+	@property
+	def rpio_code( self ) -> str:
+		if self.__rpiocode is not None:
+			return self.__rpiocode
+
+	@rpio_code.setter
+	def rpio_code( self, value: str ):
+		if value is not None:
+			self.__rpiocode = value
+
+	@property
+	def ah_code( self ) -> str:
+		if self.__ahcode is not None:
+			return self.__ahcode
+
+	@ah_code.setter
+	def ah_code( self, value: str ):
+		if value is not None:
+			self.__ahcode = value
+
+	@property
+	def amount( self ) -> float:
+		if self.__amount is not None:
+			return self.__amount
+
+	@amount.setter
+	def amount( self, value: float ):
+		if value is not None:
+			self.__amount = value
+
 	def __init__( self, bfy: str, fund: str, 
 	              rpio: str, ahcode: str, provider = Provider.SQLite ):
 		self.__source = Source.CongressionalProjects
@@ -7517,6 +7304,16 @@ class CongressionalProjects( ):
 		self.__fundcode = fund
 		self.__rpiocode = rpio
 		self.__ahcode = ahcode
+
+	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy',
+		         'fund_code', 'ah_code', 'amount'
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -7865,7 +7662,14 @@ class CompassLevels( ):
 			return self.__documenttype
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'appropriation',
+				 'subappropriation_code', 'main_account', 'treasury_account_code',
+				 'treasury_account_name', 'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -8489,6 +8293,11 @@ class Commitments( ):
 			return str( self.__amount )
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
@@ -11108,6 +10917,11 @@ class Expenditures( ):
 			return str( self.__amount )
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
@@ -12775,6 +12589,10 @@ class FullTimeEquivalents( ):
 		                  'ObjectiveName' ]
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
@@ -17763,6 +17581,418 @@ class Obligations( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
+class OutlayRates( ):
+	'''
+    Constructor:
+    Outlay( account: str, pvdr: Provider = Provider.SQLite  )
+
+    Purpose:
+    Class defines object that provides OMB data
+    '''
+	__source: Source = None
+	__provider: Provider = None
+	__budgetoutlaysid = None
+	__reportyear = None
+	__mainaccount: str = None
+	__treasuryaccountcode = None
+	__treasuryaccountname: str = None
+	__budgetaccountcode: str = None
+	__budgetaccountname: str = None
+	__linenumber: str = None
+	__linesection: str = None
+	__linename: str = None
+	__linecategory: str = None
+	__beacategory: str = None
+	__beacategoryname: str = None
+	__prioryear: float = None
+	__currentyear: float = None
+	__budgetyear: float = None
+	__outyear1: float = None
+	__outyear2: float = None
+	__outyear3: float = None
+	__outyear4: float = None
+	__outyear5: float = None
+	__outyear6: float = None
+	__outyear7: float = None
+	__outyear8: float = None
+	__outyear9: float = None
+	__fields:  list[ str ]= None
+	__data: list[ Row ] = None
+	__frame: DataFrame = None
+
+	@property
+	def id( self ) -> int:
+		if self.__budgetoutlaysid is not None:
+			return self.__budgetoutlaysid
+
+	@id.setter
+	def id( self, value: int ):
+		if value is not None:
+			self.__budgetoutlaysid = value
+
+	@property
+	def report_year( self ) -> str:
+		if self.__reportyear is not None:
+			return self.__reportyear
+
+	@report_year.setter
+	def report_year( self, value: str ):
+		if value is not None:
+			self.__reportyear = value
+
+	@property
+	def line_number( self ) -> str:
+		if self.__linenumber is not None:
+			return self.__linenumber
+
+	@line_number.setter
+	def line_number( self, value: str ):
+		if value is not None:
+			self.__linenumber = value
+
+	@property
+	def line_section( self ) -> str:
+		if self.__linesection is not None:
+			return self.__linesection
+
+	@line_section.setter
+	def line_section( self, value: str ):
+		if value is not None:
+			self.__linesection = value
+
+	@property
+	def line_name( self ) -> str:
+		if self.__linename is not None:
+			return self.__linename
+
+	@line_name.setter
+	def line_name( self, value: str ):
+		if value is not None:
+			self.__linename = value
+
+	@property
+	def line_category( self ) -> str:
+		if self.__linecategory is not None:
+			return self.__linecategory
+
+	@line_category.setter
+	def line_category( self, value: str ):
+		if value is not None:
+			self.__linecategory = value
+
+	@property
+	def bea_category( self ) -> str:
+		if self.__beacategory is not None:
+			return self.__beacategory
+
+	@bea_category.setter
+	def bea_category( self, value: str ):
+		if value is not None:
+			self.__beacategory = value
+
+	@property
+	def bea_category_name( self ) -> str:
+		if self.__beacategoryname is not None:
+			return self.__beacategoryname
+
+	@bea_category_name.setter
+	def bea_category_name( self, value: str ):
+		if value is not None:
+			self.__beacategoryname = value
+
+	@property
+	def main_account( self ) -> str:
+		if self.__mainaccount is not None:
+			return self.__mainaccount
+
+	@main_account.setter
+	def main_account( self, value: str ):
+		if value is not None:
+			self.__mainaccount = value
+
+	@property
+	def treasury_account_code( self ) -> str:
+		if self.__treasuryaccountcode is not None:
+			return self.__treasuryaccountcode
+
+	@treasury_account_code.setter
+	def treasury_account_code( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountcode = value
+
+	@property
+	def treasury_account_name( self ) -> str:
+		if self.__treasuryaccountname is not None:
+			return self.__treasuryaccountname
+
+	@treasury_account_name.setter
+	def treasury_account_name( self, value: str ):
+		if value is not None:
+			self.__treasuryaccountname = value
+
+	@property
+	def budget_account_code( self ) -> str:
+		if self.__budgetaccountcode is not None:
+			return self.__budgetaccountcode
+
+	@budget_account_code.setter
+	def budget_account_code( self, value: str ):
+		if value is not None:
+			self.__budgetaccountcode = value
+
+	@property
+	def budget_account_name( self ) -> str:
+		if self.__budgetaccountname is not None:
+			return self.__budgetaccountname
+
+	@budget_account_name.setter
+	def budget_account_name( self, value: str ):
+		if value is not None:
+			self.__budgetaccountname = value
+
+	@property
+	def prior_year( self ) -> float:
+		if self.__prioryear is not None:
+			return self.__prioryear
+
+	@prior_year.setter
+	def prior_year( self, value: float ):
+		if value is not None:
+			self.__prioryear = value
+
+	@property
+	def current_year( self ) -> float:
+		if self.__currentyear is not None:
+			return self.__currentyear
+
+	@current_year.setter
+	def current_year( self, value: float ):
+		if value is not None:
+			self.__currentyear = value
+
+	@property
+	def budget_year( self ) -> float:
+		if self.__budgetyear is not None:
+			return self.__budgetyear
+
+	@budget_year.setter
+	def budget_year( self, value: float ):
+		if value is not None:
+			self.__budgetyear = value
+
+	@property
+	def out_year_1( self ) -> float:
+		if self.__outyear1 is not None:
+			return self.__outyear1
+
+	@out_year_1.setter
+	def out_year_1( self, value: float ):
+		if value is not None:
+			self.__outyear1 = value
+
+	@property
+	def out_year_2( self ) -> float:
+		if self.__outyear2 is not None:
+			return self.__outyear2
+
+	@out_year_2.setter
+	def out_year_2( self, value: float ):
+		if value is not None:
+			self.__outyear2 = value
+
+	@property
+	def out_year_3( self ) -> float:
+		if self.__outyear3 is not None:
+			return self.__outyear3
+
+	@out_year_3.setter
+	def out_year_3( self, value: float ):
+		if value is not None:
+			self.__outyear3 = value
+
+	@property
+	def out_year_4( self ) -> float:
+		if self.__outyear4 is not None:
+			return self.__outyear4
+
+	@out_year_4.setter
+	def out_year_4( self, value: float ):
+		if value is not None:
+			self.__outyear4 = value
+
+	@property
+	def out_year_5( self ) -> float:
+		if self.__outyear5 is not None:
+			return self.__outyear5
+
+	@out_year_5.setter
+	def out_year_5( self, value: float ):
+		if value is not None:
+			self.__outyear5 = value
+
+	@property
+	def out_year_6( self ) -> float:
+		if self.__outyear6 is not None:
+			return self.__outyear6
+
+	@out_year_6.setter
+	def out_year_6( self, value: float ):
+		if value is not None:
+			self.__outyear6 = value
+
+	@property
+	def out_year_7( self ) -> float:
+		if self.__outyear7 is not None:
+			return self.__outyear7
+
+	@out_year_7.setter
+	def out_year_7( self, value: float ):
+		if value is not None:
+			self.__outyear7 = value
+
+	@property
+	def out_year_8( self ) -> float:
+		if self.__outyear8 is not None:
+			return self.__outyear8
+
+	@out_year_8.setter
+	def out_year_8( self, value: float ):
+		if value is not None:
+			self.__outyear8 = value
+
+	@property
+	def out_year_9( self ) -> float:
+		if self.__outyear9 is not None:
+			return self.__outyear9
+
+	@out_year_9.setter
+	def out_year_9( self, value: float ):
+		if value is not None:
+			self.__outyear9 = value
+
+	@property
+	def data( self ) -> list[ Row ]:
+		if self.__data is not None:
+			return self.__data
+
+	@data.setter
+	def data( self, value: list[ Row ] ):
+		if isinstance( value, list ):
+			self.__data = value
+
+	@property
+	def frame( self ) -> DataFrame:
+		if self.__frame is not None:
+			return self.__frame
+
+	@frame.setter
+	def frame( self, value: DataFrame ):
+		if value is not None:
+			self.__frame = value
+
+	@property
+	def fields( self ) -> list[ str ]:
+		if self.__fields is not None:
+			return self.__fields
+
+	@fields.setter
+	def fields( self, value: list[ str ] ):
+		if value is not None:
+			self.__fields = value
+
+	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
+		self.__provider = provider
+		self.__source = Source.Outlays
+		self.__budgetaccountcode = account
+		self.__fields = [ 'BudgetOutlaysId',
+		                  'ReportYear',
+		                  'Category',
+		                  'AgencyName',
+		                  'LineNumber',
+		                  'LineSection',
+		                  'OmbAccount',
+		                  'LineTitle',
+		                  'AccountType',
+		                  'AuthorityTypeName',
+		                  'Line',
+		                  'AuthorityType',
+		                  'PriorYear',
+		                  'CurrentYear',
+		                  'BudgetYear',
+		                  'BudgetYear1',
+		                  'BudgetYear2',
+		                  'BudgetYear3',
+		                  'BudgetYear4',
+		                  'BudgetYear5',
+		                  'BudgetYear6',
+		                  'BudgetYear7',
+		                  'BudgetYear8',
+		                  'BudgetYear9' ]
+
+	def __dir__( self ) -> list[ str ]:
+		return [ 'id', 'report_year', 'line_number',
+		         'line_section', 'line_name', 'line_category',
+		         'bea_category', 'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
+		         'prior_year', 'current_year', 'budget_year', 'out_year_1', 'out_year_2',
+		         'out_year_3', 'out_year_4', 'out_year_5', 'out_year_6', 'out_year_7',
+		         'out_year_8', 'out_year_9',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
+
+	def getdata( self ) -> list[ Row ]:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_provider = self.__provider
+			_names = [ 'OmbAccountCode', ]
+			_values = (self.__budgetaccountcode,)
+			_dbconfig = DbConfig( _source, _provider )
+			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_connection = Connection( self.__source )
+			_sql = Command( _dbconfig, _sqlconfig )
+			_sqlite = _connection.connect( )
+			_cursor = _sqlite.cursor( )
+			_query = _sql.__getquerytext( )
+			_db = _cursor.execute( _query )
+			self.__data = [ i for i in _db.fetchall( ) ]
+			_cursor.close( )
+			_sqlite.close( )
+			return self.__data
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Reporting'
+			_exc.cause = 'BudgetOutlay'
+			_exc.method = 'getdata( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
+	def getframe( self ) -> DataFrame:
+		'''
+        Purpose:
+
+        Parameters:
+
+        Returns:
+        '''
+		try:
+			_source = self.__source
+			_data = BudgetData( _source )
+			return _data.create_frame( )
+		except Exception as e:
+			_exc = Error( e )
+			_exc.module = 'Reporting'
+			_exc.cause = 'BudgetOutlay'
+			_exc.method = 'getframe( self )'
+			_err = ErrorDialog( _exc )
+			_err.show( )
+
 class PublicLaws( ):
 	'''
     Constructor: PublicLaw( bfy: str, efy: str,
@@ -20751,6 +20981,11 @@ class StatusOfFunds( ):
 		                  'NpmName' ]
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
