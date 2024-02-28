@@ -16900,6 +16900,11 @@ class OpenCommitments( ):
 			return self.__accountcode
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
@@ -16980,18 +16985,18 @@ class Obligations( ):
 	__bocname: str = None
 	__rccode: str = None
 	__rcname: str = None
-	__documenttype = None
-	__documentnumber = None
-	__documentcontrolnumber = None
-	__referencedocumentnumber = None
+	__documenttype: str = None
+	__documentnumber: str = None
+	__documentcontrolnumber: str = None
+	__referencedocumentnumber: str = None
 	__programprojectcode: str = None
 	__programareacode: str = None
 	__programareaname: str = None
-	__processeddate = None
-	__lastactivitydate = None
-	__age = None
-	__vendorcode = None
-	__vendorage = None
+	__processeddate: datetime = None
+	__lastactivitydate: datetime = None
+	__age: int = None
+	__vendorcode: str = None
+	__vendorage: str = None
 	__foccode: str = None
 	__focname: str = None
 	__amount: float = None
@@ -17666,9 +17671,9 @@ class OutlayRates( ):
 	__source: Source = None
 	__provider: Provider = None
 	__budgetoutlaysid = None
-	__reportyear = None
+	__reportyear: str = None
 	__mainaccount: str = None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str = None
 	__treasuryaccountname: str = None
 	__budgetaccountcode: str = None
 	__budgetaccountname: str = None
@@ -18320,7 +18325,8 @@ class Projects( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'code', 'name', 'fields', 'data',
+		         'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -19609,7 +19615,8 @@ class RegionalOffices( ):
 			return self.__rpiocode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'rpio_code', 'rpio_name', 'fields',
+		         'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		try:
@@ -21142,24 +21149,24 @@ class StatusOfBudgetaryResources( ):
 	__efy: str = None
 	__fundcode: str = None
 	__fundname: str = None
-	__beginningperiodofavailability = None
-	__endingperiodofavailability = None
-	__sectionnumber = None
-	__sectionname = None
-	__linenumber = None
-	__linename = None
-	__january = None
-	__feburary = None
-	__march = None
-	__april = None
-	__may = None
-	__june = None
-	__july = None
-	__august = None
-	__september = None
-	__october = None
-	__november = None
-	__december = None
+	__beginningperiodofavailability: str = None
+	__endingperiodofavailability: str = None
+	__sectionnumber: str = None
+	__sectionname: str = None
+	__linenumber: str = None
+	__linename: str = None
+	__january: float = None
+	__feburary: float = None
+	__march: float = None
+	__april: float = None
+	__may: float = None
+	__june: float = None
+	__july: float = None
+	__august: float = None
+	__september: float = None
+	__october: float = None
+	__november: float = None
+	__december: float = None
 	__fields:  list[ str ]= None
 	__data: list[ Row ] = None
 	__frame: DataFrame = None
