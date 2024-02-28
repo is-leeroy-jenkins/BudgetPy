@@ -12150,7 +12150,8 @@ class FederalHolidays( ):
 class FullTimeEquivalents( ):
 	'''
 
-    Constructor: FullTimeEquivalent( bfy: str, fund: str, pvdr: Provider = Provider.SQLite )
+    Constructor: FullTimeEquivalent( bfy: str, fund: str,
+        pvdr: Provider = Provider.SQLite )
 
     Purpose:  Object representing Operating Plan FTE
 
@@ -12595,10 +12596,10 @@ class FullTimeEquivalents( ):
 		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
-		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name', 'account_code',
 		         'program_project_code', 'program_project_name', 'program_area_code',
 		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
-		         'objective_code', 'objective_name', 'amount',
+		         'objective_code', 'objective_name', 'amount', 'npm_code', 'npm_name',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
@@ -12959,7 +12960,9 @@ class Goals( ):
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'code', 'name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -13451,12 +13454,17 @@ class HeadquartersAuthority( ):
 		                  'NpmName' ]
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
 		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
-		         'objective_code', 'objective_name', 'amount',
+		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
+		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
@@ -13605,7 +13613,13 @@ class HeadquartersOffices( ):
 			return self.__rpiocode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'rpio_code', 'rpio_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -13907,7 +13921,17 @@ class InflationReductionActCarryoverEstimates( ):
 			return self.__fundcode
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'rpio_code', 'rpio_name',
+		         'fund_code', 'fund_name', 'amount', 'available',
+		         'open_commitments', 'obligations', 'main_account',
+		         'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -14373,7 +14397,15 @@ class MainAccounts( ):
 		self.__code = code
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'code', 'subfunction_code', 'subfunction_name',
+				 'budget_enforcement_act_category',
+				 'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -14782,7 +14814,20 @@ class MonthlyActuals( ):
 		                  'ObjectiveName' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'program_project_code',
+		         'program_project_name', 'npm_code', 'npm_name',
+		         'goal_code', 'goal_name',
+		         'gross_outlays', 'net_outlays', 'obligations',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -14851,23 +14896,23 @@ class MonthlyOutlays( ):
 	__reportyear = None
 	__bfy: str = None
 	__efy: str = None
-	__linenumber = None
-	__linename = None
-	__taxationcode = None
-	__treasuryagencycode = None
-	__subaccountcode = None
-	__january = None
-	__february = None
-	__march = None
-	__april = None
-	__may = None
-	__june = None
-	__july = None
-	__august = None
-	__september = None
-	__october = None
-	__november = None
-	__december = None
+	__linenumber: str = None
+	__linename: str = None
+	__taxationcode: str = None
+	__treasuryagencycode: str = None
+	__subaccountcode: str = None
+	__january: float = None
+	__february: float = None
+	__march: float = None
+	__april: float = None
+	__may: float = None
+	__june: float = None
+	__july: float = None
+	__august: float = None
+	__september: float = None
+	__october: float = None
+	__november: float = None
+	__december: float = None
 	__mainaccount: str = None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str = None
@@ -15197,7 +15242,22 @@ class MonthlyOutlays( ):
 		                  'September' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'line_number', 'line_name', 'bfy', 'efy',
+		         'fund_code', 'fund_name', 'taxation_code',
+		         'treasury_agency_code', 'january',
+		         'feburary', 'march', 'april',
+		         'may', 'june', 'july', 'august',
+		         'september', 'october', 'november',
+		         'january', 'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
+
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -15264,8 +15324,8 @@ class NationalPrograms( ):
 	__nationalprogramsid = None
 	__code: str = None
 	__name: str = None
-	__rpio = None
-	__title = None
+	__rpio: str = None
+	__title: str = None
 	__fields:  list[ str ]= None
 	__data: list[ Row ] = None
 	__frame: DataFrame = None
@@ -16123,7 +16183,21 @@ class OperatingPlans( ):
 		                  'ObjectiveCode', 'ObjectiveName' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+
+		'''
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
+		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
+		         'boc_code', 'boc_name', 'rc_code', 'rc_name', 'amount',
+		         'program_project_code', 'program_project_name', 'program_area_code',
+		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
+		         'objective_code', 'objective_name',
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name',
+		         'data', 'fields',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -20389,6 +20463,10 @@ class RegionalAuthority( ):
 		                  'NpmName' ]
 
 	def __dir__( self ) -> list[ str ]:
+		'''
+
+		:return: a list[ str ] of object members
+		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
 		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
 		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
@@ -21137,6 +21215,26 @@ class StatusOfBudgetaryResources( ):
 			self.__fundname = value
 
 	@property
+	def beginning_period_availability( self ) -> str:
+		if self.__beginningperiodofavailability is not None:
+			return self.__beginningperiodofavailability
+
+	@beginning_period_availability.setter
+	def beginning_period_availability( self, value: str ):
+		if value is not None:
+			self.__beginningperiodofavailability = value
+
+	@property
+	def ending_period_availability( self ) -> str:
+		if self.__endingperiodofavailability is not None:
+			return self.__endingperiodofavailability
+
+	@ending_period_availability.setter
+	def ending_period_availability( self, value: str ):
+		if value is not None:
+			self.__endingperiodofavailability = value
+
+	@property
 	def january( self ) -> float:
 		if self.__january is not None:
 			return self.__january
@@ -21321,7 +21419,18 @@ class StatusOfBudgetaryResources( ):
 		self.__treasuryaccountcode = tsym
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+		'''
+		return [ 'id', 'fiscal_year', 'bfy', 'efy',
+		         'fund_code', 'fund_name', 'begging_period_availability',
+		         'ending_period_availability', 'january',
+		         'feburary', 'march', 'april',
+		         'may', 'june', 'july', 'august',
+		         'september', 'october', 'november',
+		         'january', 'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -21529,7 +21638,16 @@ class StatusOfBudgetExecution( ):
 		self.__treasuryaccountcode = tsym
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		:return: a list[ str ] of object members
+		'''
+		return [ 'id', 'fiscal_year', 'bfy', 'efy',
+		         'section_name', 'section_number', 'line_number',
+		         'amount', 'treasury_account_code', 'treasury_account_name',
+		         'budget_accocunt_code', 'budget_account_name',
+		         'fields', 'data', 'frame',
+		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
