@@ -71,8 +71,8 @@ from Static import EXT, Client
 class Error( Exception ):
 	'''
     Constructor:
-    Error( exception: Exception, heading: str = '', cause: str = '',
-                  method: str = '', module: str = '' )
+    Error( exception: Exception, heading: str=None, cause: str=None,
+                  method: str=None, module: str=None )
 
     Purpose:
     Class wrapping exception used as the input argument for ErrorDialog class
@@ -155,8 +155,8 @@ class Error( Exception ):
 		if value is not None:
 			self.__class = value
 
-	def __init__( self, exception: Exception, heading: str = '', cause: str = '',
-	              method: str = '', module: str = '' ):
+	def __init__( self, exception: Exception, heading: str=None, cause: str=None,
+	              method: str=None, module: str=None ):
 		super( ).__init__( )
 		self.__heading = heading
 		self.__class = cause
@@ -306,30 +306,30 @@ class Sith( ):
 	Purpose:
 	Base class for the dark-mode controls
 	'''
-	__themebackground = None
-	__elementbackcolor = None
-	__elementforecolor = None
-	__themetextcolor = None
-	__textbackcolor = None
-	__inputbackcolor = None
-	__inputforecolor = None
-	__buttoncolor = None
-	__buttonforecolor = None
-	__buttonbackcolor = None
-	__icon = None
-	__themefont = None
-	__scrollbarcolor = None
-	__progressbarbackcolor = None
-	__formsize = None
-	__settingspath = None
+	__themebackground: str=None
+	__elementbackcolor: str=None
+	__elementforecolor: str=None
+	__themetextcolor: str=None
+	__textbackcolor: str=None
+	__inputbackcolor: str=None
+	__inputforecolor: str=None
+	__buttoncolor: str=None
+	__buttonforecolor: str=None
+	__buttonbackcolor: str=None
+	__icon: str=None
+	__themefont: str=None
+	__scrollbarcolor: str=None
+	__progressbarbackcolor: str=None
+	__formsize: ( int, int )=None
+	__settingspath: str=None
 
 	@property
-	def size( self ) -> (int, int):
+	def size( self ) -> ( int, int ):
 		if self.__formsize is not None:
 			return self.__formsize
 
 	@size.setter
-	def size( self, value: (int, int) ):
+	def size( self, value: ( int, int ) ):
 		if value is not None:
 			self.__formsize = value
 
@@ -575,7 +575,7 @@ class FileDialog( Sith ):
 		if value is not None:
 			self.__message = value
 
-	def __init__( self, extension = EXT.XLSX ):
+	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -780,7 +780,7 @@ class SaveFileDialog( Sith ):
 		if value is not None:
 			self.__filename = value
 
-	def __init__( self, path = '' ):
+	def __init__( self, path='' ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -896,7 +896,7 @@ class GoogleDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 500, 250 )
+		self.__formsize = ( 500, 235 )
 		self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
 	def __str__( self ) -> str:
@@ -964,10 +964,12 @@ class GoogleDialog( Sith ):
 
 class EmailDialog( Sith ):
 	'''
-	Construcotr: EmailDialog( sender: str = '', receiver: str = '',
-			subject: str = '', heading: str = '' )
+
+	Construcotr: EmailDialog( sender: str=None, receiver: str=None,
+			subject: str=None, heading: str=None )
 
 	Purpose:  Class providing form used to send email messages.
+
     '''
 	__image = None
 	__folderpath = None
@@ -1049,8 +1051,8 @@ class EmailDialog( Sith ):
 		if value is not None:
 			self.__password = value
 
-	def __init__( self, sender: str = '', receiver: str = '',
-	              subject: str = '', message: str = '' ):
+	def __init__( self, sender: str=None, receiver: str=None,
+	              subject: str=None, message: str=None ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -1063,7 +1065,7 @@ class EmailDialog( Sith ):
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
 		self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-		self.__formsize = (650, 550)
+		self.__formsize = ( 570, 550 )
 		self.__sender = sender
 		self.__receiver = receiver
 		self.__subject = subject
@@ -1163,7 +1165,7 @@ class MessageDialog( Sith ):
 		if value is not None:
 			self.__text = value
 
-	def __init__( self, text: str = '' ):
+	def __init__( self, text: str=None ):
 		self.__text = text
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
@@ -1703,7 +1705,7 @@ class GridForm( Sith ):
 		if value is not None:
 			self.__columns = value
 
-	def __init__( self, rows = 30, columns = 10 ):
+	def __init__( self, rows=30, columns=10 ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -1719,7 +1721,7 @@ class GridForm( Sith ):
 		self.__width = ( 17, 1 )
 		self.__rows = rows
 		self.__columns = columns
-		self.__formsize = (1250, 700)
+		self.__formsize = ( 1250, 650 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2888,7 +2890,7 @@ class ListBoxDialog( Sith ):
 		if value is not None:
 			self.__selecteditem = value
 
-	def __init__( self, data: list = None ):
+	def __init__( self, data: list[ str ]=None ):
 		super( ).__init__( )
 		self.__themebackground = super( ).theme_background
 		self.__themefont = super( ).theme_font
@@ -2900,7 +2902,7 @@ class ListBoxDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (400, 250)
+		self.__formsize = ( 400, 250 )
 		self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
 		self.__items = data
 
@@ -4587,7 +4589,7 @@ class ExcelForm( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = (1350, 700)
+		self.__formsize = ( 1250, 650 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
