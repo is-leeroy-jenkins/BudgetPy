@@ -59,8 +59,8 @@ class Pascal( ):
     Class splits string 'input' argument into Pascal Casing
 
     '''
-    __input = None
-    __output = None
+    __input: str=None
+    __output: str=None
 
     @property
     def input( self ) -> str:
@@ -82,7 +82,7 @@ class Pascal( ):
         if value is not None and value != self.__input:
             self.__output = value
 
-    def __init__( self, input: str = None ):
+    def __init__( self, input: str=None ):
         self.__input = input
 
     def __str__( self ) -> str:
@@ -196,12 +196,12 @@ class SqlPath( ):
     paths used in the application
 
     '''
-    __accessdriver = None
-    __accesspath = None
-    __sqlitedriver = None
-    __sqlitepath = None
-    __sqldriver = None
-    __sqldatabase = None
+    __accessdriver: str=None
+    __accesspath: str=None
+    __sqlitedriver: str=None
+    __sqlitepath: str=None
+    __sqldriver: str=None
+    __sqldatabase: str=None
 
     @property
     def sqlite_driver( self ) -> str:
@@ -284,17 +284,17 @@ class SqlFile( ):
 
     Constructor:
     SqlFile( source: Source = None, provider: Provider  = Provider.SQLite,
-            command: SQL = SQL.SELECTALL )
+            command: SQL=SQL.SELECTALL )
 
     Purpuse:
     Class providing access to sqlstatement sub-folders in the application provided
     optional arguments source, provider, and command.
 
     '''
-    __data = None
-    __commandtype = None
-    __source = None
-    __provider = None
+    __data: list[ str ]=None
+    __commandtype: str=None
+    __source: Source=None
+    __provider: Provider=None
 
     @property
     def provider( self ) -> Provider:
@@ -327,7 +327,7 @@ class SqlFile( ):
             self.__commandtype = value
 
     def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
-                  commandtype: SQL = SQL.SELECTALL ):
+                  commandtype: SQL=SQL.SELECTALL ):
         self.__data = [ 'Actuals',
                         'AdjustedTrialBalances'
                         'AdministrativeRequests',
@@ -573,16 +573,16 @@ class DbConfig( ):
     Purpose:
     Class provides list of Budget Execution tables across two databases
     '''
-    __source = None
-    __provider = None
-    __data = None
-    __accessdriver = None
-    __accesspath = None
-    __sqldriver = None
-    __sqlpath = None
-    __sqlitepath = None
-    __sqlitedriver = None
-    __tablename = None
+    __source: Source=None
+    __provider: Provider=None
+    __data: list[ str ]=None
+    __accessdriver: str=None
+    __accesspath: str=None
+    __sqldriver: str=None
+    __sqlpath: str=None
+    __sqlitepath: str=None
+    __sqlitedriver: str=None
+    __tablename: str=None
 
     @property
     def source( self ) -> Source:
@@ -849,9 +849,9 @@ class Connection( DbConfig ):
     Class providing object used to connect to the databases
 
     '''
-    __driver = None
-    __datapath = None
-    __connectionstring = None
+    __driver: str=None
+    __datapath: str=None
+    __connectionstring: str=None
 
     @property
     def driver_info( self ) -> str:
@@ -884,7 +884,7 @@ class Connection( DbConfig ):
         if value is not None:
             self.__connectionstring = value
 
-    def __init__( self, source: Source, provider: Provider = Provider.SQLite ):
+    def __init__( self, source: Source, provider: Provider=Provider.SQLite ):
         super( ).__init__( source, provider )
         self.__source = super( ).source
         self.__provider = super( ).provider
@@ -897,8 +897,10 @@ class Connection( DbConfig ):
         '''
         Retunes a list[ str ] of member names.
         '''
-        return [ 'driver_info', 'data_path',
-                 'connection_string', 'connect' ]
+        return [  'source', 'provider', 'table_name', 'get_driver_info',
+                  'get_data_path', 'get_connection_string',
+                  'driver_info', 'data_path', 
+                  'connection_string', 'connect' ]
 
     def connect( self ):
         '''
@@ -929,7 +931,7 @@ class SqlConfig( ):
 
      Constructor:
 
-     SqlConfig( commandtype: SQL = SQL.SELECTALL, columnnames: list = None,
+     SqlConfig( commandtype: SQL=SQL.SELECTALL, columnnames: list = None,
                 columnvalues: tuple = None, paramstyle: ParamStyle = None )
 
      Purpose:
@@ -937,11 +939,11 @@ class SqlConfig( ):
      Class provides database interaction behavior
 
      '''
-    __commandtype = None
-    __columnnames = None
-    __columnvalues = None
-    __paramstyle = None
-    __criteria = None
+    __commandtype: str=None
+    __columnnames: str=None
+    __columnvalues: str=None
+    __paramstyle: str=None
+    __criteria: str=None
 
     @property
     def command_type( self ) -> SQL:
@@ -995,8 +997,8 @@ class SqlConfig( ):
         if value is not None:
             self.__criteria = value
 
-    def __init__( self, commandtype: SQL = SQL.SELECTALL, columnnames: list[ str ] = None,
-                  columnvalues: tuple = ( ), paramstyle: ParamStyle = None ):
+    def __init__( self, commandtype: SQL=SQL.SELECTALL, columnnames: list[ str ]=None,
+                  columnvalues: tuple=( ), paramstyle: ParamStyle=None ):
         self.__commandtype = commandtype
         self.__columnnames = columnnames
         self.__columnvalues = columnvalues
@@ -1150,15 +1152,15 @@ class Command( ):
     Class represents the values models used in the SQLite database
 
     '''
-    __type = None
-    __source = None
-    __provider = None
-    __tablename = None
-    __columnnames = None
-    __columnvalues = None
-    __criteria = None
-    __updates = None
-    __querytext = None
+    __type: SQL=None
+    __source: Source=None
+    __provider: Provider=None
+    __tablename: str=None
+    __columnnames: str=None
+    __columnvalues: str=None
+    __criteria: dict=None
+    __updates: str=None
+    __querytext: str=None
 
     @property
     def source( self ) -> Source:
@@ -1331,18 +1333,18 @@ class Query( ):
     Base class for database interaction
 
     '''
-    __connection = None
-    __sqlstatement = None
-    __sqlconfig = None
-    __commandtype = None
-    __source = None
-    __tablename = None
-    __provider = None
-    __columnnames = None
-    __columnvalues = None
-    __datapath = None
-    __connectionstring = None
-    __commandtext = None
+    __connection: Connection=None
+    __sqlstatement: SqlStatement=None
+    __sqlconfig: SqlConfig=None
+    __commandtype: SQL=None
+    __source: Source=None
+    __tablename: str=None
+    __provider: Provider=None
+    __columnnames: list[ str ]=None
+    __columnvalues: tuple=None
+    __datapath: str=None
+    __connectionstring: str=None
+    __commandtext: str=None
 
     @property
     def source( self ) -> Source:
@@ -1495,7 +1497,7 @@ class SQLiteData( Query ):
     Class represents the SQLite data factory
 
     '''
-    __driverinfo = None
+    __driverinfo: str=None
 
     @property
     def driver_info( self ) -> str:
@@ -1601,11 +1603,11 @@ class AccessData( Query ):
     values model classes in the MS ACCDB database
 
     '''
-    __driverinfo = None
-    __dsn = None
-    __data = None
+    __driverinfo: str=None
+    __dsn: str=None
+    __data: list[ str ]=None
     __columnnames = None
-    __commandtext = None
+    __commandtext: str=None
 
     @property
     def command_text( self ) -> str:
@@ -1705,10 +1707,10 @@ class SqlServerData( Query ):
      value models in the MS SQL Server database
 
      '''
-    __serverpath = None
-    __driverinfo = None
-    __dsn = None
-    __data = None
+    __serverpath: str=None
+    __driverinfo: str=None
+    __dsn: str=None
+    __data: list[ db.Row ]=None
 
     @property
     def command_text( self ) -> str:
@@ -1810,11 +1812,11 @@ class BudgetData( ):
     pandas dataframes.
 
     '''
-    __source = None
-    __tablename = None
-    __path = None
-    __connection = None
-    __commandtext = None
+    __source: Source=None
+    __tablename: str=None
+    __path: str=None
+    __connection: Connection=None
+    __commandtext: str=None
 
     @property
     def source( self ) -> Source:
@@ -1945,7 +1947,7 @@ class DataBuilder( ):
     Constructor:
 
     DataBuilder( source: Source, provider = Provider.SQLite,
-                  commandtype = SQL.SELECTALL, names: list[ str ] = None,
+                  commandtype = SQL.SELECTALL, names: list[ str ]=None,
                   values: tuple = None ).
 
     Purpose:
@@ -1953,17 +1955,17 @@ class DataBuilder( ):
     Class provides functionality to access application data.
 
     '''
-    __names = None
-    __values = None
-    __commandtype = None
-    __source = None
-    __provider = None
-    __dbconfig = None
-    __sqlconfig = None
-    __connection = None
-    __sqlstatement = None
-    __commandtext = None
-    __data = None
+    __names: list[ str ]=None
+    __values: tuple=None
+    __commandtype: SQL=None
+    __source: Source=None
+    __provider: Provider=None
+    __dbconfig: DbConfig=None
+    __sqlconfig: SqlConfig=None
+    __connection: Connection=None
+    __sqlstatement: Command=None
+    __commandtext: str=None
+    __data: list[ db.Row ]=None
 
     @property
     def source( self ) -> Source:
@@ -2038,7 +2040,7 @@ class DataBuilder( ):
             self.__sqlconfig = value
 
     def __init__( self, source: Source, provider = Provider.SQLite,
-                  commandtype = SQL.SELECTALL, names: list[ str ] = None,
+                  commandtype = SQL.SELECTALL, names: list[ str ]=None,
                   values: tuple = None ):
         self.__source = source
         self.__provider = provider
@@ -2090,14 +2092,14 @@ class DataColumn( ):
      '''
     __series = None
     __row = None
-    __name = None
-    __value = None
-    __label = None
-    __id = None
-    __type = None
-    __caption = None
-    __table = None
-    __frame = None
+    __name: str=None
+    __value: object=None
+    __label: str=None
+    __id: int=None
+    __type: str=None
+    __caption: str=None
+    __table: list[ db.Row ]=None
+    __frame: DataFrame=None
 
     @property
     def id( self ) -> int:
@@ -2224,14 +2226,14 @@ class DataRow( ):
 
     Constructor:
 
-    DataRow( names: list[ str ] = None, values: tuple = ( ), source: Source = None)
+    DataRow( names: list[ str ]=None, values: tuple = ( ), source: Source = None)
 
     Purpose:
 
     Defines the class representing rows of data
 
     '''
-    __source = None
+    __source: Source=None
     __names = None
     __items = None
     __data = None
@@ -2309,7 +2311,7 @@ class DataRow( ):
         if value is not None:
             self.__source = value
 
-    def __init__( self, names: list[ str ] = None, values: tuple = ( ),
+    def __init__( self, names: list[ str ]=None, values: tuple = ( ),
                   source: Source = None ):
         self.__source = source
         self.__names = names
@@ -2326,7 +2328,7 @@ class DataTable( ):
     '''
     Constructor:
 
-    DataTable( columns: list[ str ] = None, rows: list = None,
+    DataTable( columns: list[ str ]=None, rows: list = None,
         source: Source = None, dataframe: DataFrame = None  )
 
     Purpose:
@@ -2340,7 +2342,7 @@ class DataTable( ):
     __rows = None
     __columns = None
     __schema = None
-    __source = None
+    __source: Source=None
 
     @property
     def name( self ) -> str:
@@ -2412,7 +2414,7 @@ class DataTable( ):
         if value is not None:
             self.__source = value
 
-    def __init__( self, columns: list[ str ] = None, rows: list = None,
+    def __init__( self, columns: list[ str ]=None, rows: list = None,
                   source: Source = None, dataframe: DataFrame = None ):
         self.__frame = dataframe
         self.__name = source.name
