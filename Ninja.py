@@ -146,8 +146,8 @@ class Accounts( ):
 
 	@property
 	def program_project_name( self ) -> str:
-		if self.__programprojectcode is not None:
-			return self.__programprojectcode
+		if self.__programprojectname is not None:
+			return self.__programprojectname
 
 	@program_project_name.setter
 	def program_project_name( self, value: str ):

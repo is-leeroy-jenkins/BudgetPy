@@ -56,13 +56,13 @@ class App( ):
     processes based on 'Client' enumeration input args
     '''
     __app: Client=None
-    __sqliteclient = None
-    __accessclient = None
-    __excelapp = None
-    __edge = None
-    __chrome = None
-    __control = None
-    __calculator = None
+    __sqliteclient: str=None
+    __accessclient: str=None
+    __excelapp: str=None
+    __edge: str=None
+    __chrome: str=None
+    __control: str=None
+    __calculator: str=None
 
     @property
     def sqlite( self ) -> str:

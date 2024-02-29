@@ -587,7 +587,7 @@ class FileDialog( Sith ):
 		self.__inputbackcolor = super( ).input_backcolor
 		self.__inputforecolor = super( ).input_forecolor
 		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 475, 250 )
+		self.__formsize = ( 475, 240 )
 		self.__selecteditem = None
 		self.__message = 'Search for File'
 		self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
@@ -616,7 +616,7 @@ class FileDialog( Sith ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
-		         'selectec_path', 'message', 'show' ]
+		         'selected_path', 'message', 'show' ]
 
 	def show( self ):
 		'''
