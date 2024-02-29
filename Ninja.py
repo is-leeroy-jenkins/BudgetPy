@@ -70,7 +70,7 @@ class Accounts( ):
 	__npmcode: str  = None
 	__programprojectcode: str  = None
 	__programproject: str=None
-	__fields: list[ str ] = None
+	__fields: list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -297,7 +297,7 @@ class ActivityCodes( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__activitycodesid int=None
+	__activitycodesid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -457,7 +457,7 @@ class AdjustedTrialBalances( ):
 	'''
 	__source: Source=None
 	__provider: Provider=None
-	__adjustedtrialbalancesid int=None
+	__adjustedtrialbalancesid: int=None
 	__number: str=None
 	__bfy: str=None
 	__efy: str=None
@@ -476,7 +476,7 @@ class AdjustedTrialBalances( ):
 
 	@property
 	def id( self ) -> int:
-		if self.__adjustedtrialbalancesid_statusoffundsid is not None:
+		if self.__adjustedtrialbalancesid is not None:
 			return self.__adjustedtrialbalancesid
 
 	@id.setter
@@ -739,7 +739,7 @@ class AllowanceHolders( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__allowancholdersid int=None
+	__allowancholdersid: int=None
 	__code: str=None
 	__name: str=None
 	__status = None
@@ -931,17 +931,17 @@ class AmericanRescuePlanCarryoverEstimates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__arpcarryoverestimatesid int=None
+	__arpcarryoverestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__estimate = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__estimate: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
@@ -1249,16 +1249,16 @@ class AnnualCarryoverEstimates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__annualcarryoverestimatesid int=None
+	__annualcarryoverestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
 	__estimate = None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
@@ -1568,16 +1568,16 @@ class AnnualReimbursableEstimates( ):
     Class defining object representing reimbursable estimates'''
 	__source: Source=None
 	__provider: Provider=None
-	__annualreimbursableestimatesid int=None
+	__annualreimbursableestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
 	__estimate = None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
@@ -1887,7 +1887,7 @@ class Appropriations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__appropriationsid int=None
+	__appropriationsid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -2041,7 +2041,7 @@ class AppropriationAvailableBalances( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__appropriationavailablebalancesid int=None
+	__appropriationavailablebalancesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -2051,13 +2051,13 @@ class AppropriationAvailableBalances( ):
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
-	__authority: float = None
-	__budgeted: float = None
-	__carryover: float = None
-	__reimbursements: float = None
-	__recoveries: float = None
-	__used: float = None
-	__available = None
+	__authority: float=None
+	__budgeted: float=None
+	__carryover: float=None
+	__reimbursements: float=None
+	__recoveries: float=None
+	__used: float=None
+	__available: float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -2356,18 +2356,18 @@ class AppropriationLevelAuthority( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__appropriationlevelauthorityid int=None
+	__appropriationlevelauthorityid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__budgeted: float = None
-	__carryover: float = None
-	__reimbursements: float = None
-	__authority: float = None
-	__recoveries: float = None
+	__budgeted: float=None
+	__carryover: float=None
+	__reimbursements: float=None
+	__authority: float=None
+	__recoveries: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -2646,11 +2646,12 @@ class Allocations( ):
 
     Purpose:
     Class defining object representing Allocations
+
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__allocationsid int=None
-	__statusoffundsid int=None
+	__allocationsid: int=None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -2666,7 +2667,7 @@ class Allocations( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
+	__amount: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -3161,7 +3162,7 @@ class ApportionmentData( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__apportionmentdataid int=None
+	__apportionmentdataid: int=None
 	__fiscalyear: str=None
 	__bfy: str=None
 	__efy: str=None
@@ -3174,7 +3175,7 @@ class ApportionmentData( ):
 	__linesplit: str=None
 	__linename: str=None
 	__approvaldate: datetime=None
-	__amount: float = None
+	__amount: float=None
 	__fundcode: str=None
 	__fundname: str=None
 	__fields:  list[ str ]=None
@@ -3479,7 +3480,7 @@ class Actuals( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__actualsid int=None
+	__actualsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -3497,9 +3498,9 @@ class Actuals( ):
 	__accountcode: str=None
 	__boccode: str=None
 	__bocname: str=None
-	__balance: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
+	__balance: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -4054,7 +4055,7 @@ class ApplicationTables( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__applicationtablesid int=None
+	__applicationtablesid: int=None
 	__name: str=None
 	__model: str=None
 	__caption: str=None
@@ -4229,7 +4230,7 @@ class AppropriationDocuments( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__appropriationdocumentsid int=None
+	__appropriationdocumentsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -4249,12 +4250,12 @@ class AppropriationDocuments( ):
 	__expensecontrols: str=None
 	__reimbursementcontrols: str=None
 	__reimbursableagreementcontrols: str=None
-	__budgeted: float = None
-	__posted: float = None
-	__carryoverout: float = None
-	__carryoverin: float = None
-	__estimatedreimbursements: float = None
-	__estimatedrecoveries: float = None
+	__budgeted: float=None
+	__posted: float=None
+	__carryoverout: float=None
+	__carryoverin: float=None
+	__estimatedreimbursements: float=None
+	__estimatedrecoveries: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
@@ -4729,7 +4730,7 @@ class BudgetDocuments( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetdocumentsid int=None
+	__budgetdocumentsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__budgetlevel: str=None
@@ -4762,8 +4763,8 @@ class BudgetDocuments( ):
 	__expensecontrols: str=None
 	__reimbursementcontrols: str=None
 	__reimbursableagreementcontrols: str=None
-	__budgeted: float = None
-	__posted: float = None
+	__budgeted: float=None
+	__posted: float=None
 	__carryoverout = None
 	__carryoverin = None
 	__estimatedreimbursements = None
@@ -5385,6 +5386,7 @@ class BudgetContacts( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
+	__budgetcontactsid: int=None
 	__firstname: str=None
 	__lastname: str=None
 	__rpiocode: str=None
@@ -5658,7 +5660,7 @@ class BudgetControls( ):
     Purpose;  Class defines object representing compass control data'''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetcontrolsid int=None
+	__budgetcontrolsid: int=None
 	__code: str=None
 	__name: str=None
 	__budgetedtranstype: str=None
@@ -6221,7 +6223,7 @@ class BudgetFiscalYears( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetfiscalyearsid: int = None
+	__budgetfiscalyearsid: int=None
 	__input: str=None
 	__bfy: str=None
 	__efy: str=None
@@ -6236,8 +6238,8 @@ class BudgetFiscalYears( ):
 	__currentyear: int = None
 	__currentmonth: int = None
 	__currentday: int = None
-	__holidays: list[ str ] = None
-	__fields: list[ str ] = None
+	__holidays: list[ str ]=None
+	__fields: list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -6529,12 +6531,12 @@ class BudgetObjectClasses( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetobjectclassesid: int = None
+	__budgetobjectclassesid: int=None
 	__code: str=None
 	__boc: str=None
 	__name: str=None
 	__value: str=None
-	__fields: list[ str ] = None
+	__fields: list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -6694,7 +6696,7 @@ class BudgetaryResourceExecution( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetaryresourceexecutionid: int = None
+	__budgetaryresourceexecutionid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -6703,7 +6705,7 @@ class BudgetaryResourceExecution( ):
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
-	__fields: list[ str ] = None
+	__fields: list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -6931,7 +6933,7 @@ class CongressionalControls( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__congressionalcontrolsid int=None
+	__congressionalcontrolsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -7230,13 +7232,13 @@ class CongressionalProjects( ):
 	'''
 	__source: Source=None
 	__provider: Provider=None
-	__congressionalprojectsid int=None
+	__congressionalprojectsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
 	__rpiocode: str=None
 	__ahcode: str=None
-	__amount: float = None
+	__amount: float=None
 
 	@property
 	def bfy( self ) -> str:
@@ -7330,7 +7332,7 @@ class CongressionalProjects( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -7385,7 +7387,7 @@ class CompassLevels( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__compasslevelsid int=None
+	__compasslevelsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -7419,17 +7421,17 @@ class CompassLevels( ):
 	__lowerrecoveriesoption: str=None
 	__lowerreimbursablespendingoption: str=None
 	__date: datetime=None
-	__totalauthority: float = None
-	__originalauthority: float = None
-	__carryoveravailabilitypercentage: float = None
-	__carryoverin: float = None
-	__carryoverout: float = None
-	__fundsin: float = None
-	__fundsout: float = None
-	__recoverieswithdrawn: float = None
-	__actualrecoveries: float = None
-	__actualreimbursements: float = None
-	__agreementreimbursables: float = None
+	__totalauthority: float=None
+	__originalauthority: float=None
+	__carryoveravailabilitypercentage: float=None
+	__carryoverin: float=None
+	__carryoverout: float=None
+	__fundsin: float=None
+	__fundsout: float=None
+	__recoverieswithdrawn: float=None
+	__actualrecoveries: float=None
+	__actualreimbursements: float=None
+	__agreementreimbursables: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
@@ -7737,8 +7739,8 @@ class Commitments( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__opencommitmentsid int=None
-	__obligationsid int=None
+	__opencommitmentsid: int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -7764,12 +7766,12 @@ class Commitments( ):
 	__programareaname: str=None
 	__processeddate: datetime=None
 	__lastactivitydate: datetime=None
-	__age: int = None
+	__age: int=None
 	__vendorcode: str=None
 	__vendorname: str=None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -8377,6 +8379,7 @@ class CostAreas( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
+	__costareasid: int=None
 	__code: str=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
@@ -8384,13 +8387,13 @@ class CostAreas( ):
 
 	@property
 	def id( self ) -> int:
-		if isinstance( self.__transfersid, int ):
-			return self.__transfersid
+		if isinstance( self.__costareasid, int ):
+			return self.__costareasid
 
 	@id.setter
 	def id( self, value: int ):
 		if value is not None:
-			self.__transfersid = value
+			self.__costareasid = value
 
 	@property
 	def data( self ) -> list[ Row ]:
@@ -8498,7 +8501,7 @@ class CapitalPlanningInvestmentCodes( ):
     Class eefines the CPIC Codes'''
 	__source: Source=None
 	__provider: Provider=None
-	__capitalplanninginvestmentcodesid int=None
+	__capitalplanninginvestmentcodesid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -8644,7 +8647,7 @@ class ColumnSchema( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__columnschemaid int=None
+	__columnschemaid: int=None
 	__datatype: str=None
 	__columnname: str=None
 	__tablename: str=None
@@ -8800,7 +8803,7 @@ class DataRuleDescriptions( ):
     Class defines object providing OMB MAX A11 rule data '''
 	__source: Source=None
 	__provider: Provider=None
-	__dataruledescriptionsid int=None
+	__dataruledescriptionsid: int=None
 	__schedule: str=None
 	__linenumber: str=None
 	__rulenumber: str=None
@@ -8984,8 +8987,8 @@ class Defactos( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__defactosid int=None
-	__statusoffundsid int=None
+	__defactosid: int=None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -9001,15 +9004,15 @@ class Defactos( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -9565,8 +9568,8 @@ class Deobligations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__deobligationsid int=None
-	__obligationsid int=None
+	__deobligationsid: int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -9597,7 +9600,7 @@ class Deobligations( ):
 	__vendorage = None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -10174,13 +10177,13 @@ class DocumentControlNumbers( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__documentcontrolnumbersid int=None
+	__documentcontrolnumbersid: int=None
 	__rpiocode: str=None
 	__rpioname: str=None
-	__documenttype = None
-	__documentnumber = None
-	__documentprefix = None
-	__documentcontrolnumber = None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentprefix: str=None
+	__documentcontrolnumber: str=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -10364,8 +10367,8 @@ class Expenditures( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__expendituresid int=None
-	__obligationsid int=None
+	__expendituresid: int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -10382,10 +10385,10 @@ class Expenditures( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__documenttype = None
-	__documentnumber = None
-	__documentcontrolnumber = None
-	__referencedocumentnumber = None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentcontrolnumber: str=None
+	__referencedocumentnumber: str=None
 	__programprojectcode: str=None
 	__programareacode: str=None
 	__programareaname: str=None
@@ -10396,7 +10399,7 @@ class Expenditures( ):
 	__vendorage = None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -11002,7 +11005,7 @@ class FinanceObjectClasses( ):
     Class defines object representing the Finance Object Class'''
 	__source: Source=None
 	__provider: Provider=None
-	__financeobjectclassesid int=None
+	__financeobjectclassesid: int=None
 	__code: str=None
 	__name: str=None
 	__boccode: str=None
@@ -11172,38 +11175,38 @@ class Funds( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__fundsid int=None
+	__fundsid: int=None
 	__code: str=None
 	__name: str=None
 	__bfy: str=None
 	__efy: str=None
-	__shortname = None
-	__status = None
-	__beginningperiodofavailability = None
-	__endingperiodofavailability = None
-	__main = None
-	__multiyearindicator = None
-	__sublevelprefix = None
-	__allocationtransferagency = None
-	__agencyidentifier = None
-	__fundcategory = None
-	__appropriationcode = None
-	__appropriationname = None
-	__fundgroup = None
-	__noyear = None
-	__carryover: float = None
-	__cancelledyearspendingaccount = None
-	__applyatalllevels = None
-	__batsfund = None
-	__batsenddate = None
-	__batsoptionid int=None
-	__securityorg = None
+	__shortname: str=None
+	__status: str=None
+	__beginningperiodofavailability: str=None
+	__endingperiodofavailability: str=None
+	__main: str=None
+	__multiyearindicator: str=None
+	__sublevelprefix: str=None
+	__allocationtransferagency: str=None
+	__agencyidentifier: str=None
+	__fundcategory: str=None
+	__appropriationcode: str=None
+	__appropriationname: str=None
+	__fundgroup: str=None
+	__noyear: str=None
+	__carryover: float=None
+	__cancelledyearspendingaccount: str=None
+	__applyatalllevels: str=None
+	__batsfund: str=None
+	__batsenddate: datetime=None
+	__batsoptionid: str=None
+	__securityorg: str=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
-	__apportionmentaccountcode = None
+	__apportionmentaccountcode: str=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -11648,10 +11651,10 @@ class FederalHolidays( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__federalholidaysid: int = None
+	__federalholidaysid: int=None
 	__bfy: str=None
 	__name: str=None
-	__dayofweek: int = None
+	__dayofweek: int=None
 	__newyearsday: datetime=None
 	__martinlutherkingsday: datetime=None
 	__memorialday: datetime=None
@@ -11663,9 +11666,9 @@ class FederalHolidays( ):
 	__veteransday: datetime=None
 	__thanksgivingday: datetime=None
 	__christmasday: datetime=None
-	__holidays: list[ str ] = None
-	__observances: dict( ) = None
-	__fields: list[ str ] = None
+	__holidays: list[ str ]=None
+	__observances: dict( )=None
+	__fields: list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -12160,8 +12163,8 @@ class FullTimeEquivalents( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__fulltimeequivalentsid int=None
-	__operatingplansid int=None
+	__fulltimeequivalentsid: int=None
+	__operatingplansid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -12177,7 +12180,7 @@ class FullTimeEquivalents( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
+	__amount: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -12671,7 +12674,7 @@ class GeneralLedgerAccounts( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__generalledgeraccountsid int=None
+	__generalledgeraccountsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__treasurysymbol = None
@@ -12881,7 +12884,7 @@ class Goals( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__goalsid int=None
+	__goalsid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -13035,8 +13038,8 @@ class HeadquartersAuthority( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__headquartersauthorityid int=None
-	__statusoffundsid int=None
+	__headquartersauthorityid: int=None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -13052,7 +13055,7 @@ class HeadquartersAuthority( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
+	__amount: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -13534,7 +13537,7 @@ class HeadquartersOffices( ):
     Class defines object representing RPIO'''
 	__source: Source=None
 	__provider: Provider=None
-	__resourceplanningofficesid int=None
+	__resourceplanningofficesid: int=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fields:  list[ str ]=None
@@ -13682,16 +13685,16 @@ class InflationReductionActCarryoverEstimates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__iracarryoverestimatesid int=None
+	__iracarryoverestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
 	__estimate = None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
@@ -13990,23 +13993,26 @@ class InflationReductionActCarryoverEstimates( ):
 
 class JobsActCarryoverEstimates( ):
 	'''
+
     Constructor:
     JobsActCarryoverEstimate( bfy )
 
     Purpose:
-    Class defines object providing IIJA Carryover Estimate data for'''
+    Class defines object providing IIJA Carryover Estimate data for
+
+    '''
 	__source: Source=None
 	__provider: Provider=None
-	__jobsactcarryoverestimatesid int=None
+	__jobsactcarryoverestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
 	__estimate = None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
@@ -14303,12 +14309,12 @@ class MainAccounts( ):
 	'''
 	__source: Source=None
 	__provider: Provider=None
-	__mainaccountsid int=None
+	__mainaccountsid: int=None
 	__code: str=None
 	__subfunctioncode = None
 	__subfunctionname = None
 	__type = None
-	__budgetenforcementactcategory = None
+	__budgetenforcementactcategory: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
 	__fields:  list[ str ]=None
@@ -14476,7 +14482,7 @@ class MonthlyActuals( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__monthlyactualsid int=None
+	__monthlyactualsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -14498,9 +14504,9 @@ class MonthlyActuals( ):
 	__bocname: str=None
 	__netoutlays = None
 	__grossoutlays = None
-	__obligations: float = None
+	__obligations: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -14894,7 +14900,7 @@ class MonthlyOutlays( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__monthlyoutlaysid int=None
+	__monthlyoutlaysid: int=None
 	__reportyear = None
 	__bfy: str=None
 	__efy: str=None
@@ -14903,18 +14909,18 @@ class MonthlyOutlays( ):
 	__taxationcode: str=None
 	__treasuryagencycode: str=None
 	__subaccountcode: str=None
-	__january: float = None
-	__february: float = None
-	__march: float = None
-	__april: float = None
-	__may: float = None
-	__june: float = None
-	__july: float = None
-	__august: float = None
-	__september: float = None
-	__october: float = None
-	__november: float = None
-	__december: float = None
+	__january: float=None
+	__february: float=None
+	__march: float=None
+	__april: float=None
+	__may: float=None
+	__june: float=None
+	__july: float=None
+	__august: float=None
+	__september: float=None
+	__october: float=None
+	__november: float=None
+	__december: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
@@ -15323,7 +15329,7 @@ class NationalPrograms( ):
     Class defines object representing the NationalProgram Class'''
 	__source: Source=None
 	__provider: Provider=None
-	__nationalprogramsid int=None
+	__nationalprogramsid: int=None
 	__code: str=None
 	__name: str=None
 	__rpio: str=None
@@ -15493,7 +15499,7 @@ class Objectives( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__objectivesid int=None
+	__objectivesid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -15638,7 +15644,7 @@ class Organizations( ):
     Class defines object representing the Organization Codes'''
 	__source: Source=None
 	__provider: Provider=None
-	__organizationsid int=None
+	__organizationsid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -15779,7 +15785,7 @@ class OperatingPlans( ):
     Purpose:
     Class defining object representing Operating plan allocations
     '''
-	__operatingplansid int=None
+	__operatingplansid: int=None
 	__source: Source=None
 	__provider: Provider=None
 	__bfy: str=None
@@ -15797,7 +15803,7 @@ class OperatingPlans( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
+	__amount: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -16263,8 +16269,8 @@ class OpenCommitments( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__opencommitmentsid int=None
-	__obligationsid int=None
+	__opencommitmentsid: int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -16295,7 +16301,7 @@ class OpenCommitments( ):
 	__vendorname = None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -16970,7 +16976,7 @@ class Obligations( ):
     Purpose:  Class defines object providing Obligation data'''
 	__source: Source=None
 	__provider: Provider=None
-	__obligationsid int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -17001,7 +17007,7 @@ class Obligations( ):
 	__vendorage: str=None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -17672,7 +17678,7 @@ class OutlayRates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__budgetoutlaysid int=None
+	__budgetoutlaysid: int=None
 	__reportyear: str=None
 	__mainaccount: str=None
 	__treasuryaccountcode: str=None
@@ -17685,18 +17691,18 @@ class OutlayRates( ):
 	__linecategory: str=None
 	__beacategory: str=None
 	__beacategoryname: str=None
-	__prioryear: float = None
-	__currentyear: float = None
-	__budgetyear: float = None
-	__outyear1: float = None
-	__outyear2: float = None
-	__outyear3: float = None
-	__outyear4: float = None
-	__outyear5: float = None
-	__outyear6: float = None
-	__outyear7: float = None
-	__outyear8: float = None
-	__outyear9: float = None
+	__prioryear: float=None
+	__currentyear: float=None
+	__budgetyear: float=None
+	__outyear1: float=None
+	__outyear2: float=None
+	__outyear3: float=None
+	__outyear4: float=None
+	__outyear5: float=None
+	__outyear6: float=None
+	__outyear7: float=None
+	__outyear8: float=None
+	__outyear9: float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -18083,7 +18089,7 @@ class PublicLaws( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__publiclawsid int=None
+	__publiclawsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__lawnumber = None
@@ -18242,7 +18248,7 @@ class Projects( ):
 
     Purpoe:  Class defines the Organization Class'''
 	__source: Source=None
-	__projectsid int=None
+	__projectsid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -18379,7 +18385,7 @@ class ProgramAreas( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__programareasid int=None
+	__programareasid = None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -18515,7 +18521,7 @@ class ProgramProjects( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__programprojectsid int=None
+	__programprojectsid = None
 	__code: str=None
 	__name: str=None
 	__programareacode: str=None
@@ -18687,7 +18693,7 @@ class ProgramResultsCodes( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__allocationsid int=None
+	__allocationsid = None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__bfy: str=None
@@ -18706,7 +18712,7 @@ class ProgramResultsCodes( ):
 	__rcname: str=None
 	__boccode: str=None
 	__bocname: str=None
-	__amount: float = None
+	__amount: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -19164,7 +19170,7 @@ class ReportingLines( ):
 	Purpose:
 	class models the lines on the SF-133 and SF-132
 	'''
-	__reportinglinesid int=None
+	__reportinglinesid: int=None
 	__bfy: str=None
 	__code: str=None
 	__fields:  list[ str ]=None
@@ -19245,7 +19251,7 @@ class ResponsibilityCenters( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__responsibilitycentersid int=None
+	__responsibilitycentersid = None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -19391,7 +19397,7 @@ class ResourcePlanningOffices( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__resourceplanningofficesid int=None
+	__resourceplanningofficesid: int=None
 	__code: str=None
 	__name: str=None
 	__fields:  list[ str ]=None
@@ -19536,7 +19542,7 @@ class RegionalOffices( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__resourceplanningofficesid int=None
+	__resourceplanningofficesid: int=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fields:  list[ str ]=None
@@ -19656,26 +19662,26 @@ class ReimbursableAgreements( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__reimbursableagreementsid int=None
+	__reimbursableagreementsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
 	__rpiocode: str=None
 	__agreementnumber = None
-	__startdate = None
-	__enddate = None
+	__startdate: datetime=None
+	__enddate: datetime=None
 	__rccode: str=None
 	__rcname: str=None
 	__orgcode: str=None
-	__siteprojectcode = None
+	__siteprojectcode: str=None
 	__accountcode: str=None
-	__vendorcode = None
-	__vendorname = None
-	__amount: float = None
-	__opencommitments: float = None
-	__unliquidatedobligations: float = None
-	__obligations: float = None
-	__available = None
+	__vendorcode: str=None
+	__vendorname: str=None
+	__amount: float=None
+	__opencommitments: float=None
+	__unliquidatedobligations: float=None
+	__obligations: float=None
+	__available:  float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -19975,8 +19981,8 @@ class RegionalAuthority( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__regionalauthorityid int=None
-	__statusoffundsid int=None
+	__regionalauthorityid: int=None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -19992,14 +19998,14 @@ class RegionalAuthority( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__used: float = None
-	__available = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__used: float=None
+	__available: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -20010,7 +20016,7 @@ class RegionalAuthority( ):
 	__objectivename: str=None
 	__npmcode: str=None
 	__npmname: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode:  str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -20554,7 +20560,7 @@ class StatusOfFunds( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusoffundsid int=None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -20570,15 +20576,15 @@ class StatusOfFunds( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -21141,7 +21147,7 @@ class StatusOfBudgetaryResources( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofbudgetaryresourcesid int=None
+	__statusofbudgetaryresourcesid: int=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
@@ -21157,18 +21163,18 @@ class StatusOfBudgetaryResources( ):
 	__sectionname: str=None
 	__linenumber: str=None
 	__linename: str=None
-	__january: float = None
-	__feburary: float = None
-	__march: float = None
-	__april: float = None
-	__may: float = None
-	__june: float = None
-	__july: float = None
-	__august: float = None
-	__september: float = None
-	__october: float = None
-	__november: float = None
-	__december: float = None
+	__january: float=None
+	__feburary: float=None
+	__march: float=None
+	__april: float=None
+	__may: float=None
+	__june: float=None
+	__july: float=None
+	__august: float=None
+	__september: float=None
+	__october: float=None
+	__november: float=None
+	__december: float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -21501,7 +21507,7 @@ class StatusOfBudgetExecution( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofbudgetexecutionid int=None
+	__statusofbudgetexecutionid: int=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
@@ -21517,7 +21523,7 @@ class StatusOfBudgetExecution( ):
 	__sectionname = None
 	__linenumber = None
 	__linename = None
-	__amount: float = None
+	__amount: float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -21727,8 +21733,8 @@ class StatusOfSupplementalFunding( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofsupplementalfundsid int=None
-	__statusoffundsid int=None
+	__statusofsupplementalfundsid: int=None
+	__statusoffundsid = None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -21744,15 +21750,15 @@ class StatusOfSupplementalFunding( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -22302,7 +22308,7 @@ class StateGrantObligations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__stategrantobligationsid int=None
+	__stategrantobligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -22320,7 +22326,7 @@ class StateGrantObligations( ):
 	__bocname: str=None
 	__statecode = None
 	__statename = None
-	__amount: float = None
+	__amount: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
@@ -22699,39 +22705,39 @@ class StatusOfSpecialAccountFunds( ):
      '''
 	__source: Source=None
 	__provider: Provider=None
-	__specialaccountsid int=None
+	__specialaccountsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
 	__fundname: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
-	__specialaccountnumber = None
-	__specialaccountname = None
-	__specialaccountstatus = None
-	__nplstatusname = None
-	__nplstatuscode = None
-	__epasiteid int=None
-	__cerclisid int=None
-	__sitecode = None
-	__sitename = None
-	__operableunit = None
-	__pipelinecode = None
-	__pipelinedescription = None
-	__programcode = None
-	__interestdate = None
-	__trustfundtransfer = None
-	__transactiontype = None
-	__transactiondescription = None
-	__availablebalance = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__disbursements = None
-	__unpaidbalances = None
-	__collectionsandinterest = None
-	__cumulativereciepts = None
-	__netreceipts = None
+	__specialaccountnumber: str=None
+	__specialaccountname: str=None
+	__specialaccountstatus: str=None
+	__nplstatusname: str=None
+	__nplstatuscode: str=None
+	__epasiteid: str=None
+	__cerclisid: str=None
+	__sitecode: str=None
+	__sitename: str=None
+	__operableunit: str=None
+	__pipelinecode: str=None
+	__pipelinedescription: str=None
+	__programcode: str=None
+	__interestdate: datetime=None
+	__trustfundtransfer: float=None
+	__transactiontype: str=None
+	__transactiondescription: str=None
+	__availablebalance: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__disbursements: float=None
+	__unpaidbalances: float=None
+	__collectionsandinterest: float=None
+	__cumulativereciepts: float=None
+	__netreceipts: float=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -23136,7 +23142,7 @@ class SubAppropriations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__subappropriationsid int=None
+	__subappropriationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__code: str=None
@@ -23305,7 +23311,7 @@ class StateOrganizations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__stateorganizationsid int=None
+	__stateorganizationsid: int=None
 	__code: str=None
 	__name: str=None
 	__orgcode: str=None
@@ -23454,62 +23460,62 @@ class StatusOfAppropriations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofappropriationsid int=None
+	__statusofappropriationsid: int=None
 	__bfy: str=None
 	__efy: str=None
-	__budgetlevel = None
-	__appropriationfundcode = None
-	__appropriationfundname = None
-	__appropriationcreationdate = None
-	__appropriationcode = None
-	__subappropriationcode = None
-	__appropriationdescription = None
-	__fundgroup = None
-	__fundgroupname = None
-	__documenttype = None
-	__transtype = None
-	__actualrecoverytranstype = None
-	__commitmentspendingcontrolflag = None
-	__expensespendingcontrolflag = None
-	__agreementlimit = None
-	__estimatedrecoveriestranstype = None
-	__estimatedreimbursementstranstype = None
-	__obligationspendingcontrolflag = None
-	__precommitmentspendingcontrolflag = None
-	__postedcontrolflag = None
-	__postedflag = None
-	__recordcarryoveratlowerlevel = None
-	__reimbursablespendingoption = None
-	__recoveriesoption = None
-	__recoveriesspendingoption = None
-	__originalbudgetedamount = None
-	__apportionmentsposted = None
-	__totalauthority = None
-	__totalbudgeted = None
-	__totalpostedamount = None
-	__fundswithdrawnprioryearamounts = None
-	__fundinginamount = None
-	__fundingoutamount = None
-	__totalaccrualrecoveries = None
-	__totalactualreimbursements = None
-	__totalagreeementreimbursables = None
-	__totalcarriedforwardin = None
-	__totalcarriedforwardout = None
-	__totalcommited = None
-	__totalestimatedrecoveries = None
-	__totalestimatedreimbursements = None
-	__totalexpenses = None
-	__totalexpenditureexpenses = None
-	__totalexpenseaccruals = None
-	__totalprecommitments = None
-	__unliquidatedprecommitments = None
-	__totalobligations = None
-	__unliquidatedobligations: float = None
-	__voidedamount = None
-	__totalusedamount = None
-	__availableamount = None
+	__budgetlevel: str=None
+	__appropriationfundcode: str=None
+	__appropriationfundname: str=None
+	__appropriationcreationdate: str=None
+	__appropriationcode: str=None
+	__subappropriationcode: str=None
+	__appropriationdescription: str=None
+	__fundgroup: str=None
+	__fundgroupname: str=None
+	__documenttype: str=None
+	__transtype: str=None
+	__actualrecoverytranstype: str=None
+	__commitmentspendingcontrolflag: str=None
+	__expensespendingcontrolflag: str=None
+	__agreementlimit: str=None
+	__estimatedrecoveriestranstype: str=None
+	__estimatedreimbursementstranstype: str=None
+	__obligationspendingcontrolflag: str=None
+	__precommitmentspendingcontrolflag: str=None
+	__postedcontrolflag: str=None
+	__postedflag: str=None
+	__recordcarryoveratlowerlevel: str=None
+	__reimbursablespendingoption: str=None
+	__recoveriesoption: str=None
+	__recoveriesspendingoption: str=None
+	__originalbudgetedamount: float=None
+	__apportionmentsposted: float=None
+	__totalauthority: float=None
+	__totalbudgeted: float=None
+	__totalpostedamount: float=None
+	__fundswithdrawnprioryearamounts: float=None
+	__fundinginamount: float=None
+	__fundingoutamount: float=None
+	__totalaccrualrecoveries: float=None
+	__totalactualreimbursements: float=None
+	__totalagreeementreimbursables: float=None
+	__totalcarriedforwardin: float=None
+	__totalcarriedforwardout: float=None
+	__totalcommited: float=None
+	__totalestimatedrecoveries: float=None
+	__totalestimatedreimbursements: float=None
+	__totalexpenses: float=None
+	__totalexpenditureexpenses: float=None
+	__totalexpenseaccruals: float=None
+	__totalprecommitments: float=None
+	__unliquidatedprecommitments: float=None
+	__totalobligations: float=None
+	__unliquidatedobligations: float=None
+	__voidedamount: float=None
+	__totalusedamount: float=None
+	__availableamount: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -24256,38 +24262,38 @@ class SpendingRates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__spendingratesid int=None
-	__ombagencycode = None
-	__ombagencyname = None
+	__spendingratesid: int=None
+	__ombagencycode: str=None
+	__ombagencyname: str=None
 	__mainaccount: str=None
-	__treasuryagencycode = None
-	__treasuryagencyname = None
-	__treasuryaccountcode = None
+	__treasuryagencycode: str=None
+	__treasuryagencyname: str=None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
-	__ombaccounttitle = None
-	__subfunction = None
-	__linenumber = None
-	__linename = None
-	__category = None
-	__subcategory = None
-	__subcategoryname = None
-	__jurisdiction = None
-	__yearofauthority = None
-	__budgetauthority = None
-	__outyear1 = None
-	__outyear2 = None
-	__outyear3 = None
-	__outyear4 = None
-	__outyear5 = None
-	__outyear6 = None
-	__outyear7 = None
-	__outyear8 = None
-	__outyear9 = None
-	__outyear10 = None
-	__outyear11 = None
-	__totalspendout = None
+	__ombaccounttitle: str=None
+	__subfunction: str=None
+	__linenumber: str=None
+	__linename: str=None
+	__category: str=None
+	__subcategory: str=None
+	__subcategoryname: str=None
+	__jurisdiction: str=None
+	__yearofauthority: str=None
+	__budgetauthority: str=None
+	__outyear1: float=None
+	__outyear2: float=None
+	__outyear3: float=None
+	__outyear4: float=None
+	__outyear5: float=None
+	__outyear6: float=None
+	__outyear7: float=None
+	__outyear8: float=None
+	__outyear9: float=None
+	__outyear10: float=None
+	__outyear11: float=None
+	__totalspendout: float=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
 
@@ -24703,8 +24709,8 @@ class StatusOfSupplementalFunds( ):
     Purpose:
     Class defines object used for reporting on Supplemental funding
     '''
-	__statusofsupplementalfundsid int=None
-	__statusoffundsid int=None
+	__statusofsupplementalfundsid = None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -24720,15 +24726,15 @@ class StatusOfSupplementalFunds( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -25296,8 +25302,8 @@ class StatusOfJobsActFunding( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofjobsactfundingid int=None
-	__statusoffundsid int=None
+	__statusofjobsactfundingid = None
+	__statusoffundsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -25313,15 +25319,15 @@ class StatusOfJobsActFunding( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -25333,7 +25339,7 @@ class StatusOfJobsActFunding( ):
 	__npmcode: str=None
 	__npmname: str=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -25897,8 +25903,8 @@ class StatusOfEarmarks( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofearmarksid int=None
-	__statusoffundsid int=None
+	__statusofearmarksid: int=None
+	__statusoffundsid: str=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -25914,15 +25920,15 @@ class StatusOfEarmarks( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__amount: float = None
-	__budgeted: float = None
-	__posted: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__unliquidatedobligations: float = None
-	__expenditures: float = None
-	__used: float = None
-	__avaialable: float = None
+	__amount: float=None
+	__budgeted: float=None
+	__posted: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__unliquidatedobligations: float=None
+	__expenditures: float=None
+	__used: float=None
+	__avaialable: float=None
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__programareacode: str=None
@@ -26538,7 +26544,7 @@ class StatusOfSuperfundSites( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__statusofsuperfundsitesid int=None
+	__statusofsuperfundsitesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -26548,7 +26554,7 @@ class StatusOfSuperfundSites( ):
 	__programprojectcode: str=None
 	__programprojectname: str=None
 	__cityname = None
-	__siteid int=None
+	__siteid = None
 	__sitename = None
 	__statecode = None
 	__statename = None
@@ -26556,9 +26562,9 @@ class StatusOfSuperfundSites( ):
 	__zipcode = None
 	__streetaddress = None
 	__zipcode = None
-	__obligations: float = None
+	__obligations: float=None
 	__deobligations = None
-	__expenditures: float = None
+	__expenditures: float=None
 	__mainaccount: str=None
 	__treasuryaccountcode = None
 	__treasuryaccountname: str=None
@@ -26986,18 +26992,18 @@ class SpendingDocuments( ):
 	__programprojectcode: str=None
 	__programareacode: str=None
 	__programareaname: str=None
-	__processeddate = None
-	__lastactivitydate = None
-	__age = None
-	__vendorcode = None
-	__vendorage = None
+	__processeddate: datetime=None
+	__lastactivitydate: datetime=None
+	__age: int=None
+	__vendorcode: str=None
+	__vendor: str=None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
-	__commitments = None
-	__obligations: float = None
-	__deobligations = None
-	__unliquidatedobligations: float = None
+	__amount: float=None
+	__commitments: float=None
+	__obligations: float=None
+	__deobligations: float=None
+	__unliquidatedobligations: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -27005,7 +27011,7 @@ class SpendingDocuments( ):
 	__npmcode: str=None
 	__npmname: str=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -27670,19 +27676,19 @@ class SupplementalCarryoverEstimates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__supplementalcarryoverestimatesid int=None
+	__supplementalcarryoverestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
-	__opencommitments: float = None
-	__obligations: float = None
-	__estimate = None
+	__amount: float=None
+	__opencommitments: float=None
+	__obligations: float=None
+	__estimate: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -27976,16 +27982,16 @@ class SupplementalObligationEstimates( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__supplementalobligationestimatesid int=None
+	__supplementalobligationestimatesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
 	__rpioname: str=None
 	__fundcode: str=None
 	__fundname: str=None
-	__amount: float = None
+	__amount: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -28249,9 +28255,9 @@ class TreasurySymbols( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__treasurysymbolsid int=None
-	__ombagencycode = None
-	__treasuryagencycode = None
+	__treasurysymbolsid: int=None
+	__ombagencycode: str=None
+	__treasuryagencycode: str=None
 	__bfy: str=None
 	__efy: str=None
 	__mainaccount: str=None
@@ -28464,10 +28470,10 @@ class Transfers( ):
      '''
 	__source: Source=None
 	__provider: Provider=None
-	__transfersid int=None
-	__documenttype = None
-	__documentnumber = None
-	__processeddate = None
+	__transfersid: int=None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__processeddate: datetime=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
@@ -28483,12 +28489,12 @@ class Transfers( ):
 	__programprojectname: str=None
 	__programareacode: str=None
 	__programareaname: str=None
-	__fromto = None
+	__fromto: str=None
 	__boccode: str=None
 	__bocname: str=None
-	__amount: float = None
+	__amount: float=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
@@ -28911,17 +28917,17 @@ class TransTypes( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__transtypesid int=None
+	__transtypesid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__fundcode: str=None
-	__doctype = None
-	__appropriationbill = None
-	__continuingresolution = None
-	__rescissioncurrentyear = None
-	__rescissionprioryear = None
-	__sequesterreduction = None
-	__sequesterreturn = None
+	__doctype: str=None
+	__appropriationbill: str=None
+	__continuingresolution: str=None
+	__rescissioncurrentyear: str=None
+	__rescissionprioryear: str=None
+	__sequesterreduction: str=None
+	__sequesterreturn: str=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__frame: DataFrame=None
@@ -29108,8 +29114,8 @@ class UnliquidatedObligations( ):
     '''
 	__source: Source=None
 	__provider: Provider=None
-	__unliquidatedobligationsid int=None
-	__obligationsid int=None
+	__unliquidatedobligationsid: int=None
+	__obligationsid: int=None
 	__bfy: str=None
 	__efy: str=None
 	__rpiocode: str=None
@@ -29126,21 +29132,21 @@ class UnliquidatedObligations( ):
 	__bocname: str=None
 	__rccode: str=None
 	__rcname: str=None
-	__documenttype = None
-	__documentnumber = None
-	__documentcontrolnumber = None
-	__referencedocumentnumber = None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentcontrolnumber: str=None
+	__referencedocumentnumber: str=None
 	__programprojectcode: str=None
 	__programareacode: str=None
 	__programareaname: str=None
-	__processeddate = None
-	__lastactivitydate = None
-	__age = None
-	__vendorcode = None
-	__vendorage = None
+	__processeddate: datetime=None
+	__lastactivitydate: datetime=None
+	__age: int=None
+	__vendorcode: str=None
+	__vendorage: str=None
 	__foccode: str=None
 	__focname: str=None
-	__amount: float = None
+	__amount: float=None
 	__goalcode: str=None
 	__goalname: str=None
 	__objectivecode: str=None
@@ -29148,7 +29154,7 @@ class UnliquidatedObligations( ):
 	__npmcode: str=None
 	__npmname: str=None
 	__mainaccount: str=None
-	__treasuryaccountcode = None
+	__treasuryaccountcode: str=None
 	__treasuryaccountname: str=None
 	__budgetaccountcode: str=None
 	__budgetaccountname: str=None
