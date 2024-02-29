@@ -56,16 +56,16 @@ class Path( ):
 	Purpose:  Class representing a path
 
 	'''
-	__name: str = None
-	__input: str = None
-	__fileextension: str = None
-	__currentdirectory: str = None
-	__template: str = None
-	__drive: str = None
-	__pathseparator: str = None
-	__extensionseparator: str = None
-	__driveseparator: str = None
-	__parentdirectory: str = None
+	__name: str=None
+	__input: str=None
+	__fileextension: str=None
+	__currentdirectory: str=None
+	__template: str=None
+	__drive: str=None
+	__pathseparator: str=None
+	__extensionseparator: str=None
+	__driveseparator: str=None
+	__parentdirectory: str=None
 
 	@property
 	def input( self ) -> str:
@@ -390,8 +390,8 @@ class File( Path ):
 
 	Purpose: Class providing file information
 	 '''
-	__absolutepath: str = None
-	__relativepath: str = None
+	__absolutepath: str=None
+	__relativepath: str=None
 	__size: int = None
 	__created: datetime = None
 	__modified: datetime = None
@@ -480,7 +480,7 @@ class File( Path ):
 		if value is not None:
 			self.__created = value
 
-	def __init__( self, path: str = None ):
+	def __init__( self, path: str=None ):
 		super( ).__init__( path )
 		self.__input = super( ).input
 		self.__absolutepath = os.path.abspath( path )
@@ -565,7 +565,7 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def create( self, other: str, lines: list[ str ] = None ):
+	def create( self, other: str, lines: list[ str ]=None ):
 		''' creates and returns 'selected_path' file '''
 		try:
 			_msg = " The argument 'other' has not been specified!"
@@ -810,9 +810,9 @@ class Folder( Path ):
 	Purpose: Class providing file directory information
 
 	'''
-	__absolutepath: str = None
-	__relativepath: str = None
-	__size = None
+	__absolutepath: str=None
+	__relativepath: str=None
+	__size: int=None
 
 	@property
 	def name( self ) -> str:
@@ -1103,11 +1103,11 @@ class Message( ):
 
 	Purpose: Class providing email behavior
 	'''
-	__sender = None
-	__receiver = None
-	__subject = None
-	__body = None
-	__others = None
+	__sender: str=None
+	__receiver: str=None
+	__subject: str=None
+	__body: str=None
+	__others: list[ str ]=None
 
 	@property
 	def sender( self ) -> str:
@@ -1160,7 +1160,7 @@ class Message( ):
 			self.__others = value
 
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
-	              subject: str, copy: list[ str ] = None ):
+	              subject: str, copy: list[ str ]=None ):
 		self.__sender = sender
 		self.__receiver = receiver
 		self.__body = body
@@ -1179,7 +1179,7 @@ class Email( Message ):
 	Purpose: Class providing email behavior '''
 
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
-	              subject: str, copy: list[ str ] = None ):
+	              subject: str, copy: list[ str ]=None ):
 		super( ).__init__( sender, receiver, body, subject, copy )
 		self.__sender = super( ).sender
 		self.__receiver = super( ).receiver
@@ -1204,12 +1204,12 @@ class Excel( ):
 	Purpose: Class provides the spreadsheet for reports
 
 	'''
-	__templatepath = None
-	__externalpath = None
-	__workbook = None
-	__worksheet = None
-	__name = None
-	__title = None
+	__templatepath: str=None
+	__externalpath: str=None
+	__workbook: Workbook=None
+	__worksheet: Workbook=None
+	__name: str=None
+	__title: str=None
 
 	@property
 	def template_path( self ) -> str:
@@ -1271,7 +1271,7 @@ class Excel( ):
 		if value is not None:
 			self.__name = value.active
 
-	def __init__( self, path: str = None ):
+	def __init__( self, path: str=None ):
 		self.__templatepath = r'etc/templates/report/Excel.xlsx'
 		self.__externalpath = path
 		self.__name = os.path.split( path )[ 1 ]
@@ -1320,9 +1320,9 @@ class ExcelReport( Excel ):
 	Purpose:  Class providing spreadsheet for reports
 
 	'''
-	__rows = None
-	__columns = None
-	__dimensions = None
+	__rows: int=None
+	__columns: int=None
+	__dimensions: ( int, int )=None
 
 	@property
 	def rows( self ) -> int:
@@ -1354,7 +1354,7 @@ class ExcelReport( Excel ):
 		if value is not None:
 			self.__dimensions = value
 
-	def __init__( self, path: str = None, rows: int = 46, cols: int = 12 ):
+	def __init__( self, path: str=None, rows: int=46, cols: int=12 ):
 		super( ).__init__( path )
 		self.__internal = super( ).internal
 		self.__path = super( ).path
@@ -1382,13 +1382,13 @@ class ZipFile( ):
 	Purpose:  Class defines object providing zip file functionality
 
 	'''
-	__input = None
-	__filename = None
-	__filepath = None
-	__fileextension = None
-	__zippath = None
-	__zipname = None
-	__zipextension = None
+	__input: str=None
+	__filename: str=None
+	__filepath: str=None
+	__fileextension: str=None
+	__zippath: str=None
+	__zipname: str=None
+	__zipextension: str=None
 
 	@property
 	def file_path( self ) -> str:
