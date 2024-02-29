@@ -29669,7 +29669,7 @@ class UnliquidatedObligations( ):
 
 	def __str__( self ) -> str:
 		if self.__amount is not None:
-			return str( self.__amount )
+			return self.__amount
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
