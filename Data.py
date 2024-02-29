@@ -1334,7 +1334,7 @@ class Query( ):
 
     '''
     __connection: Connection=None
-    __sqlstatement: SqlStatement=None
+    __sqlstatement: Command=None
     __sqlconfig: SqlConfig=None
     __commandtype: SQL=None
     __source: Source=None
