@@ -60,19 +60,19 @@ class Accounts( ):
     Purpose:
     Class defines object representing Account Codes
     '''
-	__source: Source = None
-	__provider: Provider = None
+	__source: Source=None
+	__provider: Provider=None
 	__accountsid: int = None
-	__code: str = None
+	__code: str=None
 	__name: str  = None
 	__goalcode: str  = None
 	__objectivecode: str  = None
 	__npmcode: str  = None
 	__programprojectcode: str  = None
-	__programproject: str = None
+	__programproject: str=None
 	__fields: list[ str ] = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -184,7 +184,7 @@ class Accounts( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, id: int = None, code: str = None, provider = Provider.SQLite ):
+	def __init__( self, id: int = None, code: str=None, provider=Provider.SQLite ):
 		self.__accountsid = id
 		self.__code = code
 		self.__provider = provider
@@ -289,20 +289,20 @@ class ActivityCodes( ):
 	'''
 
     Constructor:
-    ActivityCode( code: str, provider: Provider = Provider.SQLite )
+    ActivityCode( code: str, provider: Provider=Provider.SQLite )
 
     Purpose:
     Data class representing Activity Codes
 
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__activitycodesid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__activitycodesid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -364,7 +364,7 @@ class ActivityCodes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider = Provider.SQLite ):
+	def __init__( self, code: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ActivityCodes
 		self.__activitycodesid = id
@@ -455,24 +455,24 @@ class AdjustedTrialBalances( ):
 	Data class representing a record in the ATB
 
 	'''
-	__source: Source = None
-	__provider: Provider = None
-	__adjustedtrialbalancesid = None
-	__number: str = None
-	__bfy: str = None
-	__efy: str = None
-	__treasurysymbol: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__accountnumber: str = None
-	__accountname: str = None
-	__mainaccount: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__adjustedtrialbalancesid int=None
+	__number: str=None
+	__bfy: str=None
+	__efy: str=None
+	__treasurysymbol: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__accountnumber: str=None
+	__accountname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -635,7 +635,7 @@ class AdjustedTrialBalances( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              fundcode: str, provider: Provider = Provider.SQLite ):
+	              fundcode: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.AdjustedTrialBalances
 		self.__provider = provider
 		self.__bfy = bfy
@@ -737,16 +737,16 @@ class AllowanceHolders( ):
     Data class representing Allowance Holders
 
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__allowancholdersid = None
-	__code: str = None
-	__name: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__allowancholdersid int=None
+	__code: str=None
+	__name: str=None
 	__status = None
 	__earmarkflag = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -838,8 +838,8 @@ class AllowanceHolders( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str = None,
-	              provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str=None,
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AllowanceHolders
 		self.__code = code
@@ -929,27 +929,27 @@ class AmericanRescuePlanCarryoverEstimates( ):
     Class representing estimates for ARP carryover
 
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__arpcarryoverestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__arpcarryoverestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -1141,7 +1141,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AmericanRescuePlanCarryoverEstimates
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1247,27 +1247,27 @@ class AnnualCarryoverEstimates( ):
     Purpose:
     Class providing Carryover Estimate data for
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__annualcarryoverestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__annualcarryoverestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -1459,7 +1459,7 @@ class AnnualCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AnnualCarryoverEstimates
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1566,27 +1566,27 @@ class AnnualReimbursableEstimates( ):
 
     Purpose:
     Class defining object representing reimbursable estimates'''
-	__source: Source = None
-	__provider: Provider = None
-	__annualreimbursableestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__annualreimbursableestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -1778,7 +1778,7 @@ class AnnualReimbursableEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AnnualReimbursableEstimates
 		self.__bfy = bfy
@@ -1885,14 +1885,14 @@ class Appropriations( ):
     Purpose:
     Data class representing Appropriations
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__appropriationsid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__appropriationsid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -2039,18 +2039,18 @@ class AppropriationAvailableBalances( ):
     Purpose:
     Data class representing Appropriation-level balances
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__appropriationavailablebalancesid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__mainaccount: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__appropriationavailablebalancesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
 	__authority: float = None
 	__budgeted: float = None
 	__carryover: float = None
@@ -2058,9 +2058,9 @@ class AppropriationAvailableBalances( ):
 	__recoveries: float = None
 	__used: float = None
 	__available = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -2354,26 +2354,26 @@ class AppropriationLevelAuthority( ):
     Purpose:
     Data class representing Appropriation-level authority
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__appropriationlevelauthorityid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__appropriationlevelauthorityid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__budgeted: float = None
 	__carryover: float = None
 	__reimbursements: float = None
 	__authority: float = None
 	__recoveries: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -2647,44 +2647,44 @@ class Allocations( ):
     Purpose:
     Class defining object representing Allocations
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__allocationsid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__allocationsid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -3037,7 +3037,7 @@ class Allocations( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fundcode: str,
-	              provider: Provider = Provider.SQLite ):
+	              provider: Provider=Provider.SQLite ):
 		self.__source = Source.Allocations
 		self.__provider = provider
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -3159,27 +3159,27 @@ class ApportionmentData( ):
     Purpose:
     Data class representing Letters Of Apportionment
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__apportionmentdataid = None
-	__fiscalyear: str = None
-	__bfy: str = None
-	__efy: str = None
-	__mainaccount: str = None
-	__treasuryaccountcode: str = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__linenumber: str = None
-	__linesplit: str = None
-	__linename: str = None
-	__approvaldate: datetime = None
+	__source: Source=None
+	__provider: Provider=None
+	__apportionmentdataid int=None
+	__fiscalyear: str=None
+	__bfy: str=None
+	__efy: str=None
+	__mainaccount: str=None
+	__treasuryaccountcode: str=None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__linenumber: str=None
+	__linesplit: str=None
+	__linename: str=None
+	__approvaldate: datetime=None
 	__amount: float = None
-	__fundcode: str = None
-	__fundname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fundcode: str=None
+	__fundname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -3372,7 +3372,7 @@ class ApportionmentData( ):
 			self.__fields = value
 
 	def __init__( self, year: str, bfy: str, efy: str,
-	              main: str, provider: Provider = Provider.SQLite ):
+	              main: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ApportionmentData
 		self.__fiscalyear = year
@@ -3477,47 +3477,47 @@ class Actuals( ):
     Purpose:
     Object representing expenditure data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__actualsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__appropriationcode: str = None
-	__appropriationname: str = None
-	__subappropriationcode: str = None
-	__subappropriationname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__actualsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__appropriationcode: str=None
+	__appropriationname: str=None
+	__subappropriationcode: str=None
+	__subappropriationname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
 	__balance: float = None
 	__obligations: float = None
 	__unliquidatedobligations: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
-	__treasuryaccountcode: str = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
+	__treasuryaccountcode: str=None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -3929,11 +3929,11 @@ class Actuals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Actuals
-		self.__bfy = bfy if bfy is not None and len( bfy ) == 4 else None
-		self.__fundcode = fund if fund is not None and fund != '' else None
+		self.__bfy = bfy
+		self.__fundcode = fund
 		self.__fields = [ 'ActualsId',
 		                  'BFY',
 		                  'EFY',
@@ -4052,15 +4052,15 @@ class ApplicationTables( ):
     Purpose:
     Class defines object that represents all the tables
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__applicationtablesid = None
-	__name: str = None
-	__model: str = None
-	__caption: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__applicationtablesid int=None
+	__name: str=None
+	__model: str=None
+	__caption: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -4137,7 +4137,7 @@ class ApplicationTables( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, name: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, name: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.ApplicationTables
 		self.__provider = provider
 		self.__name = name
@@ -4227,42 +4227,42 @@ class AppropriationDocuments( ):
     Purpose:
     Class defines object representing Level 1 documents
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__appropriationdocumentsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__appropriation: str = None
-	__documenttype: str = None
-	__documentnumber: str = None
-	__documentdate: datetime = None
-	__lastdocumentdate: datetime = None
-	__budgetlevel: str = None
-	__budgetingcontrols: str = None
-	__postingcontrols: str = None
-	__precommitmentcontrols: str = None
-	__commitmentcontrols: str = None
-	__obligationcontrols: str = None
-	__accrualcontrols: str = None
-	__expenditurecontrols: str = None
-	__expensecontrols: str = None
-	__reimbursementcontrols: str = None
-	__reimbursableagreementcontrols: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__appropriationdocumentsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__appropriation: str=None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentdate: datetime=None
+	__lastdocumentdate: datetime=None
+	__budgetlevel: str=None
+	__budgetingcontrols: str=None
+	__postingcontrols: str=None
+	__precommitmentcontrols: str=None
+	__commitmentcontrols: str=None
+	__obligationcontrols: str=None
+	__accrualcontrols: str=None
+	__expenditurecontrols: str=None
+	__expensecontrols: str=None
+	__reimbursementcontrols: str=None
+	__reimbursableagreementcontrols: str=None
 	__budgeted: float = None
 	__posted: float = None
 	__carryoverout: float = None
 	__carryoverin: float = None
 	__estimatedreimbursements: float = None
 	__estimatedrecoveries: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -4604,7 +4604,7 @@ class AppropriationDocuments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AppropriationDocuments
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -4727,55 +4727,55 @@ class BudgetDocuments( ):
     Purpose:
     Class defines object representing Level 2-3 documents
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__budgetdocumentsid = None
-	__bfy: str = None
-	__efy: str = None
-	__budgetlevel = None
-	__fundcode: str = None
-	__fundname: str = None
-	__documenttype: str = None
-	__documentnumber: str = None
-	__documentdate: datetime = None
-	__lastdocumentdate: datetime = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__budgetingcontrols: str = None
-	__postingcontrols: str = None
-	__precommitmentcontrols: str = None
-	__commitmentcontrols: str = None
-	__obligationcontrols: str = None
-	__accrualcontrols: str = None
-	__expenditurecontrols: str = None
-	__expensecontrols: str = None
-	__reimbursementcontrols: str = None
-	__reimbursableagreementcontrols: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__budgetdocumentsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__budgetlevel: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentdate: datetime=None
+	__lastdocumentdate: datetime=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__budgetingcontrols: str=None
+	__postingcontrols: str=None
+	__precommitmentcontrols: str=None
+	__commitmentcontrols: str=None
+	__obligationcontrols: str=None
+	__accrualcontrols: str=None
+	__expenditurecontrols: str=None
+	__expensecontrols: str=None
+	__reimbursementcontrols: str=None
+	__reimbursableagreementcontrols: str=None
 	__budgeted: float = None
 	__posted: float = None
 	__carryoverout = None
 	__carryoverin = None
 	__estimatedreimbursements = None
 	__estimatedrecoveries = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -5248,7 +5248,7 @@ class BudgetDocuments( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,fundcode: str,
-	              provider: Provider = Provider.SQLite ):
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetDocuments
 		self.__bfy = bfy
@@ -5383,24 +5383,24 @@ class BudgetContacts( ):
     Purpose:
     Class defines object represent budget contact info
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__firstname: str = None
-	__lastname: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__section: str = None
-	__jobtitle: str = None
-	__zipcode : str = None
-	__state: str = None
-	__account: str = None
-	__emailaddress: str = None
-	__emailtype: str = None
-	__displayname: str = None
-	__officelocation: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__firstname: str=None
+	__lastname: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__section: str=None
+	__jobtitle: str=None
+	__zipcode : str=None
+	__state: str=None
+	__account: str=None
+	__emailaddress: str=None
+	__emailtype: str=None
+	__displayname: str=None
+	__officelocation: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def first_name( self ):
@@ -5598,11 +5598,13 @@ class BudgetContacts( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
+		
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 		try:
 			_source = self.__source
@@ -5654,47 +5656,47 @@ class BudgetControls( ):
     Constructor:  BudgetControl( fund, pvdr = Provider.SQLite )
 
     Purpose;  Class defines object representing compass control data'''
-	__source: Source = None
-	__provider: Provider = None
-	__budgetcontrolsid = None
-	__code: str = None
-	__name: str = None
-	__budgetedtranstype: str = None
-	__postedtranstype: str = None
-	__estimatedreimbursementstranstype: str = None
-	__spendingadjustmenttranstype: str = None
-	__estimatedrecoveriestranstype: str = None
-	__actualrecoveriestranstype: str = None
-	__strategicreservetranstype: str = None
-	__profitlosstranstype: str = None
-	__estimatedreimbursementsspendingoptions: str = None
-	__estimatedreimbursementsbudgetingoptions: str = None
-	__trackagreementlowerlevels: str = None
-	__budgetestimatedlowerlevels: str = None
-	__recoverynextlevel: str = None
-	__recoverybudgetmismatch: str = None
-	__profitlossspendingoption: str = None
-	__profitlossbudgetingoption: str = None
-	__recoveriescarryinlowerlevelcontrol: str = None
-	__recoveriescarryinlowerlevel: str = None
-	__recoveriescarryinamountcontrol: str = None
-	__budgetedcontrol: str = None
-	__postedcontrol: str = None
-	__precommitmentspendingcontrol: str = None
-	__commitmentspendingcontrol: str = None
-	__obligationspendingcontrol: str = None
-	__accrualspendingcontrol: str = None
-	__expenditurespendingcontrol: str = None
-	__expensespendingcontrol: str = None
-	__reimbursementspendingcontrol: str = None
-	__reimbursableagreementspendingcontrol: str = None
-	__ftebudgetingcontrol: str = None
-	__ftespendingcontrol: str = None
-	__transactiontypecontrol: str = None
-	__authoritydistributioncontrol: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__budgetcontrolsid int=None
+	__code: str=None
+	__name: str=None
+	__budgetedtranstype: str=None
+	__postedtranstype: str=None
+	__estimatedreimbursementstranstype: str=None
+	__spendingadjustmenttranstype: str=None
+	__estimatedrecoveriestranstype: str=None
+	__actualrecoveriestranstype: str=None
+	__strategicreservetranstype: str=None
+	__profitlosstranstype: str=None
+	__estimatedreimbursementsspendingoptions: str=None
+	__estimatedreimbursementsbudgetingoptions: str=None
+	__trackagreementlowerlevels: str=None
+	__budgetestimatedlowerlevels: str=None
+	__recoverynextlevel: str=None
+	__recoverybudgetmismatch: str=None
+	__profitlossspendingoption: str=None
+	__profitlossbudgetingoption: str=None
+	__recoveriescarryinlowerlevelcontrol: str=None
+	__recoveriescarryinlowerlevel: str=None
+	__recoveriescarryinamountcontrol: str=None
+	__budgetedcontrol: str=None
+	__postedcontrol: str=None
+	__precommitmentspendingcontrol: str=None
+	__commitmentspendingcontrol: str=None
+	__obligationspendingcontrol: str=None
+	__accrualspendingcontrol: str=None
+	__expenditurespendingcontrol: str=None
+	__expensespendingcontrol: str=None
+	__reimbursementspendingcontrol: str=None
+	__reimbursableagreementspendingcontrol: str=None
+	__ftebudgetingcontrol: str=None
+	__ftespendingcontrol: str=None
+	__transactiontypecontrol: str=None
+	__authoritydistributioncontrol: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -6087,7 +6089,7 @@ class BudgetControls( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              fund: str, provider: Provider = Provider.SQLite ):
+	              fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetControls
 		self.__bfy = bfy
@@ -6217,18 +6219,18 @@ class BudgetFiscalYears( ):
     Purpose:
     Class to describe the federal fiscal year
     '''
-	__source: Source = None
-	__provider: Provider = None
+	__source: Source=None
+	__provider: Provider=None
 	__budgetfiscalyearsid: int = None
-	__input: str = None
-	__bfy: str = None
-	__efy: str = None
-	__today: datetime = None
-	__date: datetime = None
-	__startdate: datetime = None
-	__enddate: datetime = None
-	__expirationdate: datetime = None
-	__expiringyear: str = None
+	__input: str=None
+	__bfy: str=None
+	__efy: str=None
+	__today: datetime=None
+	__date: datetime=None
+	__startdate: datetime=None
+	__enddate: datetime=None
+	__expirationdate: datetime=None
+	__expiringyear: str=None
 	__weekends: int = None
 	__workdays: int = None
 	__currentyear: int = None
@@ -6236,8 +6238,8 @@ class BudgetFiscalYears( ):
 	__currentday: int = None
 	__holidays: list[ str ] = None
 	__fields: list[ str ] = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -6410,7 +6412,7 @@ class BudgetFiscalYears( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              dt: datetime = None, provider: Provider = Provider.SQLite ):
+	              dt: datetime=None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FiscalYears
 		self.__bfy = bfy
@@ -6525,16 +6527,16 @@ class BudgetObjectClasses( ):
     Purpose:
     Defines the BudgetObjectClass Class
     '''
-	__source: Source = None
-	__provider: Provider = None
+	__source: Source=None
+	__provider: Provider=None
 	__budgetobjectclassesid: int = None
-	__code: str = None
-	__boc: str = None
-	__name: str = None
-	__value: str = None
+	__code: str=None
+	__boc: str=None
+	__name: str=None
+	__value: str=None
 	__fields: list[ str ] = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -6606,7 +6608,7 @@ class BudgetObjectClasses( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetObjectClasses
 		self.__code = code
@@ -6690,20 +6692,20 @@ class BudgetaryResourceExecution( ):
     Class defines object representing the MAX A-11 DE/SF-133
     Status Of Budgetary Resources Execution Report
     '''
-	__source: Source = None
-	__provider: Provider = None
+	__source: Source=None
+	__provider: Provider=None
 	__budgetaryresourceexecutionid: int = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__mainaccount: str = None
-	__treasuryaccountcode: str = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__mainaccount: str=None
+	__treasuryaccountcode: str=None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
 	__fields: list[ str ] = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -6816,7 +6818,7 @@ class BudgetaryResourceExecution( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              main: str, provider: Provider = Provider.SQLite ):
+	              main: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.BudgetaryResourceExecution
 		self.__bfy = bfy
@@ -6927,26 +6929,26 @@ class CongressionalControls( ):
     Purpose:
     Class defining object representing congressional control data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__congressionalcontrolsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__subprojectcode: str = None
-	__subprojectname: str = None
-	__reprogrammingrestriction: str = None
-	__increaserestriction: str = None
-	__decreaserestriction: str = None
-	__memorandumrequired: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__congressionalcontrolsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__subprojectcode: str=None
+	__subprojectname: str=None
+	__reprogrammingrestriction: str=None
+	__increaserestriction: str=None
+	__decreaserestriction: str=None
+	__memorandumrequired: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -7128,8 +7130,8 @@ class CongressionalControls( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str = None, fundcode: str = None,
-	              provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str=None, fundcode: str=None,
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.CongressionalControls
 		self.__bfy = bfy
@@ -7226,14 +7228,14 @@ class CongressionalProjects( ):
 	Purpose:
 	Class used to allocated Earmarks
 	'''
-	__source: Source = None
-	__provider: Provider = None
-	__congressionalprojectsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__rpiocode: str = None
-	__ahcode: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__congressionalprojectsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__rpiocode: str=None
+	__ahcode: str=None
 	__amount: float = None
 
 	@property
@@ -7297,7 +7299,7 @@ class CongressionalProjects( ):
 			self.__amount = value
 
 	def __init__( self, bfy: str, fund: str, 
-	              rpio: str, ahcode: str, provider = Provider.SQLite ):
+	              rpio: str, ahcode: str, provider=Provider.SQLite ):
 		self.__source = Source.CongressionalProjects
 		self.__provider = provider
 		self.__bfy = bfy
@@ -7381,42 +7383,42 @@ class CompassLevels( ):
     Purpose:
     Class defines object representing Compass data levels 1-7
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__compasslevelsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__appropriationcode: str = None
-	__subappropriationcode: str = None
-	__appropriationname: str = None
-	__treasurysymbol: str = None
-	__documenttype: str = None
-	__lowername: str = None
-	__description: str = None
-	__postedcontrolflag: str = None
-	__actualrecoverytranstype: str = None
-	__commitmentspendingcontrolflag: str = None
-	__budgetdefault: str = None
-	__lowerchildexpenditurecontrolflag: str = None
-	__lowerchildexpensespendingcontrolflag: str = None
-	__ftecontrolflag: str = None
-	__accrualspendigcontrolflag: str = None
-	__obligationspendingcontrolflag: str = None
-	__precommitmentspendingcontrolflag: str = None
-	__lowercommitmentspendingcontrolflag: str = None
-	__lowerobligationspendingcontrolflag: str = None
-	__lowerexpenditurespendingcontrolflag: str = None
-	__lowerexpensespendingcontrolflag: str = None
-	__lowerpostedcontrolflag: str = None
-	__lowerpostedtranstype: str = None
-	__lowerpostedflag: str = None
-	__lowerprecommitmentspendingcontrolflag: str = None
-	__lowerrecoveriesspendingoption: str = None
-	__lowerrecoveriesoption: str = None
-	__lowerreimbursablespendingoption: str = None
-	__date: datetime = None
+	__source: Source=None
+	__provider: Provider=None
+	__compasslevelsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__appropriationcode: str=None
+	__subappropriationcode: str=None
+	__appropriationname: str=None
+	__treasurysymbol: str=None
+	__documenttype: str=None
+	__lowername: str=None
+	__description: str=None
+	__postedcontrolflag: str=None
+	__actualrecoverytranstype: str=None
+	__commitmentspendingcontrolflag: str=None
+	__budgetdefault: str=None
+	__lowerchildexpenditurecontrolflag: str=None
+	__lowerchildexpensespendingcontrolflag: str=None
+	__ftecontrolflag: str=None
+	__accrualspendigcontrolflag: str=None
+	__obligationspendingcontrolflag: str=None
+	__precommitmentspendingcontrolflag: str=None
+	__lowercommitmentspendingcontrolflag: str=None
+	__lowerobligationspendingcontrolflag: str=None
+	__lowerexpenditurespendingcontrolflag: str=None
+	__lowerexpensespendingcontrolflag: str=None
+	__lowerpostedcontrolflag: str=None
+	__lowerpostedtranstype: str=None
+	__lowerpostedflag: str=None
+	__lowerprecommitmentspendingcontrolflag: str=None
+	__lowerrecoveriesspendingoption: str=None
+	__lowerrecoveriesoption: str=None
+	__lowerreimbursablespendingoption: str=None
+	__date: datetime=None
 	__totalauthority: float = None
 	__originalauthority: float = None
 	__carryoveravailabilitypercentage: float = None
@@ -7428,14 +7430,14 @@ class CompassLevels( ):
 	__actualrecoveries: float = None
 	__actualreimbursements: float = None
 	__agreementreimbursables: float = None
-	__mainaccount: str = None
-	__treasuryaccountcode: str = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__mainaccount: str=None
+	__treasuryaccountcode: str=None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -7598,7 +7600,7 @@ class CompassLevels( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              fund: str, provider: Provider = Provider.SQLite ):
+	              fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.CompassLevels
 		self.__bfy = bfy
@@ -7727,61 +7729,61 @@ class CompassLevels( ):
 class Commitments( ):
 	'''
     Constructor:
-    Commitment( bfy: str = None, fund: str = None,
-                account: str = None, boc: str = None, pvdr: Provider = Provider.SQLite )
+    Commitment( bfy: str=None, fund: str=None,
+                account: str=None, boc: str=None, pvdr: Provider = Provider.SQLite )
 
     Purpose:
     Defines the CommitmentS class.
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__opencommitmentsid = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
-	__documenttype: str = None
-	__documentnumber: str = None
-	__documentcontrolnumber: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__opencommitmentsid int=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentcontrolnumber: str=None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__processeddate: datetime = None
-	__lastactivitydate: datetime = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__processeddate: datetime=None
+	__lastactivitydate: datetime=None
 	__age: int = None
-	__vendorcode: str = None
-	__vendorname: str = None
-	__foccode: str = None
-	__focname: str = None
+	__vendorcode: str=None
+	__vendorname: str=None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -8243,8 +8245,8 @@ class Commitments( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str,  fund: str = None, account: str = None,
-	              boc: str = None, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str,  fund: str=None, account: str=None,
+	              boc: str=None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.OpenCommitments
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -8373,12 +8375,12 @@ class CostAreas( ):
     Purpose:
     Data class object for cost areas
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__code: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__code: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -8420,7 +8422,7 @@ class CostAreas( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__code = code
 		self.__provider = provider
 		self.__fields = [ 'CostAreasId',
@@ -8494,14 +8496,14 @@ class CapitalPlanningInvestmentCodes( ):
 
     Purpose:
     Class eefines the CPIC Codes'''
-	__source: Source = None
-	__provider: Provider = None
-	__capitalplanninginvestmentcodesid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__capitalplanninginvestmentcodesid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -8563,7 +8565,7 @@ class CapitalPlanningInvestmentCodes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.CapitalPlanningInvestmentCodes
 		self.__code = code
@@ -8640,16 +8642,16 @@ class ColumnSchema( ):
     Purpose:
     Provides data on the coolumn_names used in the application
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__columnschemaid = None
-	__datatype: str = None
-	__columnname: str = None
-	__tablename: str = None
-	__columncaption: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__columnschemaid int=None
+	__datatype: str=None
+	__columnname: str=None
+	__tablename: str=None
+	__columncaption: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -8721,7 +8723,7 @@ class ColumnSchema( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, column, table, provider = Provider.SQLite ):
+	def __init__( self, column, table, provider=Provider.SQLite ):
 		self.__source = Source.ColumnSchema
 		self.__provider = provider
 		self.__columnname = column
@@ -8796,17 +8798,17 @@ class DataRuleDescriptions( ):
 
     Purpose:
     Class defines object providing OMB MAX A11 rule data '''
-	__source: Source = None
-	__provider: Provider = None
-	__dataruledescriptionsid = None
-	__schedule: str = None
-	__linenumber: str = None
-	__rulenumber: str = None
-	__ruledescription: str = None
-	__scheduleorder: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__dataruledescriptionsid int=None
+	__schedule: str=None
+	__linenumber: str=None
+	__rulenumber: str=None
+	__ruledescription: str=None
+	__scheduleorder: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -8899,7 +8901,7 @@ class DataRuleDescriptions( ):
 			self.__fields = value
 
 	def __init__( self, schedule: str, line: str,
-	              rule: str, provider: Provider = Provider.SQLite ):
+	              rule: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.DataRuleDescriptions
 		self.__schedule = schedule
@@ -8980,25 +8982,25 @@ class Defactos( ):
     Purpose:
     Class defines object representing defacto obligations
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__defactosid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__defactosid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -9008,24 +9010,24 @@ class Defactos( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -9457,7 +9459,7 @@ class Defactos( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.Defactos
 		self.__provider = provider
 		self.__bfy = bfy
@@ -9561,55 +9563,55 @@ class Deobligations( ):
     Purpose:
     Class defines object providing Deobligation data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__deobligationsid = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__deobligationsid int=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentcontrolnumber = None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__processeddate = None
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
 	__vendorage = None
-	__foccode: str = None
-	__focname: str = None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -10072,7 +10074,7 @@ class Deobligations( ):
 			self.__fields = value
 
 	def __init__( self, bfy = None, fund = None,
-	              account = None, boc = None, provider = Provider.SQLite ):
+	              account = None, boc = None, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Deobligations
 		self.__bfy = bfy
@@ -10170,18 +10172,18 @@ class DocumentControlNumbers( ):
     Purpose:
     Class defines object provides DCN data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__documentcontrolnumbersid = None
-	__rpiocode: str = None
-	__rpioname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__documentcontrolnumbersid int=None
+	__rpiocode: str=None
+	__rpioname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentprefix = None
 	__documentcontrolnumber = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -10283,7 +10285,7 @@ class DocumentControlNumbers( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, dcn, provider = Provider.SQLite ):
+	def __init__( self, dcn, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.DocumentControlNumbers
 		self.__documentcontrolnumber = dcn
@@ -10360,55 +10362,55 @@ class Expenditures( ):
     Purpose:
     Class defines object providing Expenditure data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__expendituresid = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__expendituresid int=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentcontrolnumber = None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__processeddate = None
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
 	__vendorage = None
-	__foccode: str = None
-	__focname: str = None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -10870,8 +10872,8 @@ class Expenditures( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
-	              boc: str = None, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
+	              boc: str=None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Expenditures
 		self.__bfy = bfy
@@ -10998,16 +11000,16 @@ class FinanceObjectClasses( ):
 
     Purpose:
     Class defines object representing the Finance Object Class'''
-	__source: Source = None
-	__provider: Provider = None
-	__financeobjectclassesid = None
-	__code: str = None
-	__name: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__financeobjectclassesid int=None
+	__code: str=None
+	__name: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -11089,7 +11091,7 @@ class FinanceObjectClasses( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FinanceObjectClasses
 		self.__code = code
@@ -11168,13 +11170,13 @@ class Funds( ):
     Purpose:
     Class defines object represening Funds
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__fundsid = None
-	__code: str = None
-	__name: str = None
-	__bfy: str = None
-	__efy: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__fundsid int=None
+	__code: str=None
+	__name: str=None
+	__bfy: str=None
+	__efy: str=None
 	__shortname = None
 	__status = None
 	__beginningperiodofavailability = None
@@ -11194,17 +11196,17 @@ class Funds( ):
 	__applyatalllevels = None
 	__batsfund = None
 	__batsenddate = None
-	__batsoptionid = None
+	__batsoptionid int=None
 	__securityorg = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
 	__apportionmentaccountcode = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -11541,7 +11543,7 @@ class Funds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Funds
 		self.__bfy = bfy
@@ -11644,28 +11646,28 @@ class FederalHolidays( ):
     Purpose:
     Defines the FederalHoliday class
     '''
-	__source: Source = None
-	__provider: Provider = None
+	__source: Source=None
+	__provider: Provider=None
 	__federalholidaysid: int = None
-	__bfy: str = None
-	__name: str = None
+	__bfy: str=None
+	__name: str=None
 	__dayofweek: int = None
-	__newyearsday: datetime = None
-	__martinlutherkingsday: datetime = None
-	__memorialday: datetime = None
-	__juneteenthday: datetime = None
-	__independenceday: datetime = None
-	__presidentsday: datetime = None
-	__laborday: datetime = None
-	__columbusday: datetime = None
-	__veteransday: datetime = None
-	__thanksgivingday: datetime = None
-	__christmasday: datetime = None
+	__newyearsday: datetime=None
+	__martinlutherkingsday: datetime=None
+	__memorialday: datetime=None
+	__juneteenthday: datetime=None
+	__independenceday: datetime=None
+	__presidentsday: datetime=None
+	__laborday: datetime=None
+	__columbusday: datetime=None
+	__veteransday: datetime=None
+	__thanksgivingday: datetime=None
+	__christmasday: datetime=None
 	__holidays: list[ str ] = None
 	__observances: dict( ) = None
 	__fields: list[ str ] = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -11728,7 +11730,7 @@ class FederalHolidays( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, name: str = '',
-	              provider: Provider = Provider.SQLite ):
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FederalHolidays
 		self.__holidays = [ 'ColumbusDay', 'VeteransDay', 'ThanksgivingDay', 'ChristmasDay',
@@ -11763,8 +11765,8 @@ class FederalHolidays( ):
 		                  'JuneteenthDay',
 		                  'IndependenceDay',
 		                  'LaborDay' ]
-		self.__data: list[ Row ] = None
-		self.__frame: DataFrame = None
+		self.__data: list[ Row ]=None
+		self.__frame: DataFrame=None
 
 	def __str__( self ) -> str:
 		if not self.__name == '':
@@ -12156,44 +12158,44 @@ class FullTimeEquivalents( ):
     Purpose:  Object representing Operating Plan FTE
 
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__fulltimeequivalentsid = None
-	__operatingplansid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__fulltimeequivalentsid int=None
+	__operatingplansid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -12545,7 +12547,7 @@ class FullTimeEquivalents( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.FullTimeEquivalents
 		self.__bfy = bfy
@@ -12667,17 +12669,17 @@ class GeneralLedgerAccounts( ):
     Purpose:
     Class defines object representing General Ledger Accounts
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__generalledgeraccountsid = None
-	__bfy: str = None
-	__efy: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__generalledgeraccountsid int=None
+	__bfy: str=None
+	__efy: str=None
 	__treasurysymbol = None
-	__fundcode: str = None
-	__fundname: str = None
+	__fundcode: str=None
+	__fundname: str=None
 	__accountnumber = None
 	__accountname = None
-	__fields:  list[ str ]= None
+	__fields:  list[ str ]=None
 
 	@property
 	def id( self ) -> int:
@@ -12789,7 +12791,7 @@ class GeneralLedgerAccounts( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, number: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, number: str, provider: Provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__accountnumber = number
 		self.__provider = provider
@@ -12877,14 +12879,14 @@ class Goals( ):
     Purpose:
     Class defines object representing EPA  Goals
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__goalsid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__goalsid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -12946,7 +12948,7 @@ class Goals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Goals
 		self.__code = code
@@ -13031,44 +13033,44 @@ class HeadquartersAuthority( ):
     Purpose:
     Class defines object representing HQ Allocation
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__headquartersauthorityid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__headquartersauthorityid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -13420,7 +13422,7 @@ class HeadquartersAuthority( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy, efy, rpio, provider = Provider.SQLite ):
+	def __init__( self, bfy, efy, rpio, provider=Provider.SQLite ):
 		self.__source = Source.HeadquartersAuthority
 		self.__provider = provider
 		self.__bfy = bfy
@@ -13530,14 +13532,14 @@ class HeadquartersOffices( ):
 
     Prupose:
     Class defines object representing RPIO'''
-	__source: Source = None
-	__provider: Provider = None
-	__resourceplanningofficesid = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__resourceplanningofficesid int=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -13599,7 +13601,7 @@ class HeadquartersOffices( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__rpiocode = code
 		self.__provider = provider
 		self.__source = Source.HeadquartersOffices
@@ -13678,27 +13680,27 @@ class InflationReductionActCarryoverEstimates( ):
     Purpose:
     Class defines object providing IRA Carryover Estimates
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__iracarryoverestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__iracarryoverestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -13890,7 +13892,7 @@ class InflationReductionActCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AnnualCarryoverEstimates
 		self.__bfy = bfy
@@ -13993,27 +13995,27 @@ class JobsActCarryoverEstimates( ):
 
     Purpose:
     Class defines object providing IIJA Carryover Estimate data for'''
-	__source: Source = None
-	__provider: Provider = None
-	__jobsactcarryoverestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__jobsactcarryoverestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -14205,7 +14207,7 @@ class JobsActCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.JobsActCarryoverEstimates
 		self.__bfy = bfy
@@ -14299,19 +14301,19 @@ class MainAccounts( ):
 	Purpose:
 	class models the OMB Budget Account
 	'''
-	__source: Source = None
-	__provider: Provider = None
-	__mainaccountsid = None
-	__code: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__mainaccountsid int=None
+	__code: str=None
 	__subfunctioncode = None
 	__subfunctionname = None
 	__type = None
 	__budgetenforcementactcategory = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def code( self ):
@@ -14472,39 +14474,39 @@ class MonthlyActuals( ):
     Purpose:
     Class defines object representing expenditure data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__monthlyactualsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__ahcode: str = None
-	__ahname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__monthlyactualsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__ahcode: str=None
+	__ahname: str=None
 	__appropriationcode = None
 	__appropriationname = None
 	__subappropriationcode = None
 	__subappropriationname = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
 	__netoutlays = None
 	__grossoutlays = None
 	__obligations: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -14776,7 +14778,7 @@ class MonthlyActuals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, provider = Provider.SQLite ):
+	def __init__( self, bfy = None, fund = None, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.MonthlyActuals
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -14890,17 +14892,17 @@ class MonthlyOutlays( ):
     Purpose:
     Class defines object providing OMB outlay data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__monthlyoutlaysid = None
+	__source: Source=None
+	__provider: Provider=None
+	__monthlyoutlaysid int=None
 	__reportyear = None
-	__bfy: str = None
-	__efy: str = None
-	__linenumber: str = None
-	__linename: str = None
-	__taxationcode: str = None
-	__treasuryagencycode: str = None
-	__subaccountcode: str = None
+	__bfy: str=None
+	__efy: str=None
+	__linenumber: str=None
+	__linename: str=None
+	__taxationcode: str=None
+	__treasuryagencycode: str=None
+	__subaccountcode: str=None
 	__january: float = None
 	__february: float = None
 	__march: float = None
@@ -14913,14 +14915,14 @@ class MonthlyOutlays( ):
 	__october: float = None
 	__november: float = None
 	__december: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -15202,7 +15204,7 @@ class MonthlyOutlays( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy, efy, account, provider = Provider.SQLite ):
+	def __init__( self, bfy, efy, account, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.MonthlyOutlays
 		self.__bfy = bfy
@@ -15319,16 +15321,16 @@ class NationalPrograms( ):
 
     Purpose:
     Class defines object representing the NationalProgram Class'''
-	__source: Source = None
-	__provider: Provider = None
-	__nationalprogramsid = None
-	__code: str = None
-	__name: str = None
-	__rpio: str = None
-	__title: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__nationalprogramsid int=None
+	__code: str=None
+	__name: str=None
+	__rpio: str=None
+	__title: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -15410,7 +15412,7 @@ class NationalPrograms( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider = Provider.SQLite ):
+	def __init__( self, code: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.NationalPrograms
 		self.__code = code
@@ -15489,14 +15491,14 @@ class Objectives( ):
     Purpose:
     Class defines object representing the Objective Class
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__objectivesid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__objectivesid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -15558,7 +15560,7 @@ class Objectives( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Objectives
 		self.__code = code
@@ -15634,14 +15636,14 @@ class Organizations( ):
 
     Purpose:
     Class defines object representing the Organization Codes'''
-	__source: Source = None
-	__provider: Provider = None
-	__organizationsid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__organizationsid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -15703,7 +15705,7 @@ class Organizations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Organizations
 		self.__code = code
@@ -15777,43 +15779,43 @@ class OperatingPlans( ):
     Purpose:
     Class defining object representing Operating plan allocations
     '''
-	__operatingplansid = None
-	__source: Source = None
-	__provider: Provider = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__operatingplansid int=None
+	__source: Source=None
+	__provider: Provider=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -16165,7 +16167,7 @@ class OperatingPlans( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.OperatingPlans
 		self.__provider = provider
 		self.__bfy = bfy
@@ -16259,55 +16261,55 @@ class OpenCommitments( ):
     Purpose:
     Class defines object providing OpenCommitment data.
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__opencommitmentsid = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__opencommitmentsid int=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentcontrolnumber = None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__processeddate = None
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
 	__vendorname = None
-	__foccode: str = None
-	__focname: str = None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -16850,7 +16852,7 @@ class OpenCommitments( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              account: str, boc: str, provider: Provider = Provider.SQLite ):
+	              account: str, boc: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.OpenCommitments
 		self.__bfy = bfy
@@ -16966,54 +16968,54 @@ class Obligations( ):
                   account: str, boc: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:  Class defines object providing Obligation data'''
-	__source: Source = None
-	__provider: Provider = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
-	__documenttype: str = None
-	__documentnumber: str = None
-	__documentcontrolnumber: str = None
-	__referencedocumentnumber: str = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__processeddate: datetime = None
-	__lastactivitydate: datetime = None
+	__source: Source=None
+	__provider: Provider=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
+	__documenttype: str=None
+	__documentnumber: str=None
+	__documentcontrolnumber: str=None
+	__referencedocumentnumber: str=None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__processeddate: datetime=None
+	__lastactivitydate: datetime=None
 	__age: int = None
-	__vendorcode: str = None
-	__vendorage: str = None
-	__foccode: str = None
-	__focname: str = None
+	__vendorcode: str=None
+	__vendorage: str=None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -17556,7 +17558,7 @@ class Obligations( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              account: str = None, boc: str = None, provider: Provider = Provider.SQLite ):
+	              account: str=None, boc: str=None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Obligations
 		self.__bfy = bfy
@@ -17668,21 +17670,21 @@ class OutlayRates( ):
     Purpose:
     Class defines object that provides OMB data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__budgetoutlaysid = None
-	__reportyear: str = None
-	__mainaccount: str = None
-	__treasuryaccountcode: str = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__linenumber: str = None
-	__linesection: str = None
-	__linename: str = None
-	__linecategory: str = None
-	__beacategory: str = None
-	__beacategoryname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__budgetoutlaysid int=None
+	__reportyear: str=None
+	__mainaccount: str=None
+	__treasuryaccountcode: str=None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__linenumber: str=None
+	__linesection: str=None
+	__linename: str=None
+	__linecategory: str=None
+	__beacategory: str=None
+	__beacategoryname: str=None
 	__prioryear: float = None
 	__currentyear: float = None
 	__budgetyear: float = None
@@ -17695,9 +17697,9 @@ class OutlayRates( ):
 	__outyear7: float = None
 	__outyear8: float = None
 	__outyear9: float = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -17979,7 +17981,7 @@ class OutlayRates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Outlays
 		self.__budgetaccountcode = account
@@ -18079,17 +18081,17 @@ class PublicLaws( ):
 
     Purpose:
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__publiclawsid = None
-	__bfy: str = None
-	__efy: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__publiclawsid int=None
+	__bfy: str=None
+	__efy: str=None
 	__lawnumber = None
 	__enacteddate = None
 	__congress = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -18167,7 +18169,7 @@ class PublicLaws( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              number: str, provider: Provider = Provider.SQLite ):
+	              number: str, provider: Provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__lawnumber = number
@@ -18239,13 +18241,13 @@ class Projects( ):
     Constructor:  Project( code: str, pvdr: Provider = Provider.SQLite )
 
     Purpoe:  Class defines the Organization Class'''
-	__source: Source = None
-	__projectsid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__projectsid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -18312,7 +18314,7 @@ class Projects( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Projects
 		self.__code = code
@@ -18375,14 +18377,14 @@ class ProgramAreas( ):
 
     Purpose:  defines the ProgramArea class
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__programareasid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__programareasid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -18449,7 +18451,7 @@ class ProgramAreas( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ProgramAreas
 		self.__code = code
@@ -18511,16 +18513,16 @@ class ProgramProjects( ):
 
     Purpose:  Defines the ProgramProject Class
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__programprojectsid = None
-	__code: str = None
-	__name: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__programprojectsid int=None
+	__code: str=None
+	__name: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -18607,7 +18609,7 @@ class ProgramProjects( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ProgramProjects
 		self.__code = code
@@ -18677,47 +18679,47 @@ class ProgramProjects( ):
 
 class ProgramResultsCodes( ):
 	'''
-    Constructor:   ProgramResultsCode( bfy: str = None, efy: str = None, fund: str = None,
-                  rpio: str = None, ah: str = None, account: str = None, boc: str = None,
+    Constructor:   ProgramResultsCode( bfy: str=None, efy: str=None, fund: str=None,
+                  rpio: str=None, ah: str=None, account: str=None, boc: str=None,
                   amount: float = 0.0, pvdr: Provider = Provider.SQLite )
 
     Purpose:  Class defines the PRCs
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__allocationsid = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__bfy: str = None
-	__efy: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__allocationsid int=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__bfy: str=None
+	__efy: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
 	__accountname = None
-	__activitycode: str = None
+	__activitycode: str=None
 	__activityname = None
-	__rccode: str = None
-	__rcname: str = None
-	__boccode: str = None
-	__bocname: str = None
+	__rccode: str=None
+	__rcname: str=None
+	__boccode: str=None
+	__bocname: str=None
 	__amount: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -19044,9 +19046,9 @@ class ProgramResultsCodes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str = None, efy: str = None, fund: str = None,
-	              rpio: str = None, ah: str = None, account: str = None, boc: str = None,
-	              amount: float = 0.0, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str=None, efy: str=None, fund: str=None,
+	              rpio: str=None, ah: str=None, account: str=None, boc: str=None,
+	              amount: float = 0.0, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Allocations
 		self.__accountcode = account
@@ -19162,12 +19164,12 @@ class ReportingLines( ):
 	Purpose:
 	class models the lines on the SF-133 and SF-132
 	'''
-	__reportinglinesid = None
-	__bfy: str = None
-	__code: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__fields:  list[ str ]= None
+	__reportinglinesid int=None
+	__bfy: str=None
+	__code: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__fields:  list[ str ]=None
 
 	def __init__( self, bfy: str, code: str ):
 		self.__bfy = bfy
@@ -19241,14 +19243,14 @@ class ResponsibilityCenters( ):
     Purpose:
     Class defines the ResponsibilityCenter Class
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__responsibilitycentersid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__responsibilitycentersid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -19310,7 +19312,7 @@ class ResponsibilityCenters( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ResponsibilityCenters
 		self.__code = code if isinstance( code, str ) else None
@@ -19387,14 +19389,14 @@ class ResourcePlanningOffices( ):
     Purpose:
     Defines the ResponsiblePlanningOffice class
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__resourceplanningofficesid = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__resourceplanningofficesid int=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -19456,7 +19458,7 @@ class ResourcePlanningOffices( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ResourcePlanningOffices
 		self.__code = code
@@ -19532,14 +19534,14 @@ class RegionalOffices( ):
     Purpose:
     Defines a regional RPIO
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__resourceplanningofficesid = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__resourceplanningofficesid int=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -19601,7 +19603,7 @@ class RegionalOffices( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ResourcePlanningOffices
 		self.__rpiocode = code
@@ -19652,21 +19654,21 @@ class ReimbursableAgreements( ):
     Purpose:
     Class defines object representing Reimbursable Agreements
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__reimbursableagreementsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__rpiocode: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__reimbursableagreementsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__rpiocode: str=None
 	__agreementnumber = None
 	__startdate = None
 	__enddate = None
-	__rccode: str = None
-	__rcname: str = None
-	__orgcode: str = None
+	__rccode: str=None
+	__rcname: str=None
+	__orgcode: str=None
 	__siteprojectcode = None
-	__accountcode: str = None
+	__accountcode: str=None
 	__vendorcode = None
 	__vendorname = None
 	__amount: float = None
@@ -19674,9 +19676,9 @@ class ReimbursableAgreements( ):
 	__unliquidatedobligations: float = None
 	__obligations: float = None
 	__available = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -19878,7 +19880,7 @@ class ReimbursableAgreements( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, number: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, number: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ReimbursableAgreements
 		self.__agreementnumber = number
@@ -19971,25 +19973,25 @@ class RegionalAuthority( ):
     Purpose:
     Class defines object representing Regional Allocation
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__regionalauthorityid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__regionalauthorityid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -19998,23 +20000,23 @@ class RegionalAuthority( ):
 	__unliquidatedobligations: float = None
 	__used: float = None
 	__available = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -20436,7 +20438,7 @@ class RegionalAuthority( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.RegionalAuthority
 		self.__provider = provider
 		self.__bfy = bfy
@@ -20550,24 +20552,24 @@ class StatusOfFunds( ):
     Purpose:
     Class defines object representing execution data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -20577,24 +20579,24 @@ class StatusOfFunds( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -21026,7 +21028,7 @@ class StatusOfFunds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.StatusOfFunds
 		self.__provider = provider
 		self.__bfy = bfy
@@ -21137,24 +21139,24 @@ class StatusOfBudgetaryResources( ):
     Purpose:
     Class representing the Monthly SF-133
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofbudgetaryresourcesid = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofbudgetaryresourcesid int=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fiscalyear: str = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__beginningperiodofavailability: str = None
-	__endingperiodofavailability: str = None
-	__sectionnumber: str = None
-	__sectionname: str = None
-	__linenumber: str = None
-	__linename: str = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fiscalyear: str=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__beginningperiodofavailability: str=None
+	__endingperiodofavailability: str=None
+	__sectionnumber: str=None
+	__sectionname: str=None
+	__linenumber: str=None
+	__linename: str=None
 	__january: float = None
 	__feburary: float = None
 	__march: float = None
@@ -21167,9 +21169,9 @@ class StatusOfBudgetaryResources( ):
 	__october: float = None
 	__november: float = None
 	__december: float = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -21497,18 +21499,18 @@ class StatusOfBudgetExecution( ):
     Purpose:
     Class representing the Monthly SF-133
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofbudgetexecutionid = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofbudgetexecutionid int=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fiscalyear: str = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fiscalyear: str=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__beginningperiodofavailability = None
 	__endingperiodofavailability = None
 	__sectionnumber = None
@@ -21516,9 +21518,9 @@ class StatusOfBudgetExecution( ):
 	__linenumber = None
 	__linename = None
 	__amount: float = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -21723,25 +21725,25 @@ class StatusOfSupplementalFunding( ):
     Purpose:
     Class representing Supplemental Funding execution data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofsupplementalfundsid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofsupplementalfundsid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -21751,23 +21753,23 @@ class StatusOfSupplementalFunding( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields: list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -22189,7 +22191,7 @@ class StatusOfSupplementalFunding( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.StatusOfSupplementalFunding
 		self.__provider = Provider.SQLite
 		self.__bfy = bfy
@@ -22298,35 +22300,35 @@ class StateGrantObligations( ):
     Purpose:
     Class defines object representing the BIS
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__stategrantobligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__rccode: str = None
-	__rcname: str = None
-	__boccode: str = None
-	__bocname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__stategrantobligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__rccode: str=None
+	__rcname: str=None
+	__boccode: str=None
+	__bocname: str=None
 	__statecode = None
 	__statename = None
 	__amount: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -22598,7 +22600,7 @@ class StateGrantObligations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, rpio: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, rpio: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.StateGrantObligations
 		self.__provider = provider
 		self.__bfy = bfy
@@ -22695,22 +22697,22 @@ class StatusOfSpecialAccountFunds( ):
      Purpose:
      Class defines object providing SF Special Account data
      '''
-	__source: Source = None
-	__provider: Provider = None
-	__specialaccountsid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__specialaccountsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
 	__specialaccountnumber = None
 	__specialaccountname = None
 	__specialaccountstatus = None
 	__nplstatusname = None
 	__nplstatuscode = None
-	__epasiteid = None
-	__cerclisid = None
+	__epasiteid int=None
+	__cerclisid int=None
 	__sitecode = None
 	__sitename = None
 	__operableunit = None
@@ -22730,9 +22732,9 @@ class StatusOfSpecialAccountFunds( ):
 	__collectionsandinterest = None
 	__cumulativereciepts = None
 	__netreceipts = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -23024,7 +23026,7 @@ class StatusOfSpecialAccountFunds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, account = None, provider = Provider.SQLite ):
+	def __init__( self, bfy = None, fund = None, account = None, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSpecialAccountFunds
 		self.__bfy = bfy
@@ -23132,16 +23134,16 @@ class SubAppropriations( ):
     Purpose:
     Class defines object representing the Sub-Appropriations
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__subappropriationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__code: str = None
-	__name: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__source: Source=None
+	__provider: Provider=None
+	__subappropriationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__code: str=None
+	__name: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -23223,7 +23225,7 @@ class SubAppropriations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Appropriations
 		self.__bfy = bfy
@@ -23301,16 +23303,16 @@ class StateOrganizations( ):
     Purpose:
     Class defines object representing state organization codes
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__stateorganizationsid = None
-	__code: str = None
-	__name: str = None
-	__orgcode: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
+	__source: Source=None
+	__provider: Provider=None
+	__stateorganizationsid int=None
+	__code: str=None
+	__name: str=None
+	__orgcode: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
 
 	@property
 	def id( self ) -> int:
@@ -23372,7 +23374,7 @@ class StateOrganizations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StateOrganizations
 		self.__code = code
@@ -23450,11 +23452,11 @@ class StatusOfAppropriations( ):
     Purpose:
     Class defines object representing Appropriation-level execution data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofappropriationsid = None
-	__bfy: str = None
-	__efy: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofappropriationsid int=None
+	__bfy: str=None
+	__efy: str=None
 	__budgetlevel = None
 	__appropriationfundcode = None
 	__appropriationfundname = None
@@ -23506,14 +23508,14 @@ class StatusOfAppropriations( ):
 	__voidedamount = None
 	__totalusedamount = None
 	__availableamount = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -24125,7 +24127,7 @@ class StatusOfAppropriations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfAppropriations
 		self.__bfy = bfy
@@ -24252,18 +24254,18 @@ class SpendingRates( ):
     Purpose:
     Class object providing OMB spending rate data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__spendingratesid = None
+	__source: Source=None
+	__provider: Provider=None
+	__spendingratesid int=None
 	__ombagencycode = None
 	__ombagencyname = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryagencycode = None
 	__treasuryagencyname = None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
 	__ombaccounttitle = None
 	__subfunction = None
 	__linenumber = None
@@ -24286,8 +24288,8 @@ class SpendingRates( ):
 	__outyear10 = None
 	__outyear11 = None
 	__totalspendout = None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -24609,7 +24611,7 @@ class SpendingRates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, accountcode: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, accountcode: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.SpendingRates
 		self.__budgetaccountcode = accountcode
@@ -24701,23 +24703,23 @@ class StatusOfSupplementalFunds( ):
     Purpose:
     Class defines object used for reporting on Supplemental funding
     '''
-	__statusofsupplementalfundsid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__statusofsupplementalfundsid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -24727,24 +24729,24 @@ class StatusOfSupplementalFunds( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -25176,7 +25178,7 @@ class StatusOfSupplementalFunds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSupplementalFunding
 		self.__bfy = bfy
@@ -25292,25 +25294,25 @@ class StatusOfJobsActFunding( ):
     Purpose:
     Class defines object for reporting on IIJA funds
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofjobsactfundingid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofjobsactfundingid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -25320,24 +25322,24 @@ class StatusOfJobsActFunding( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -25769,7 +25771,7 @@ class StatusOfJobsActFunding( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fundcode: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fundcode: str, provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
@@ -25893,25 +25895,25 @@ class StatusOfEarmarks( ):
      Purpose:
      Class defines object for reporting on Earmarks
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofearmarksid = None
-	__statusoffundsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofearmarksid int=None
+	__statusoffundsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__amount: float = None
 	__budgeted: float = None
 	__posted: float = None
@@ -25921,27 +25923,27 @@ class StatusOfEarmarks( ):
 	__expenditures: float = None
 	__used: float = None
 	__avaialable: float = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
 	__statecode = None
 	__statename = None
 	__zipcode = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -26404,7 +26406,7 @@ class StatusOfEarmarks( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str,
-	              fundcode: str, provider: Provider = Provider.SQLite ):
+	              fundcode: str, provider: Provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
@@ -26534,19 +26536,19 @@ class StatusOfSuperfundSites( ):
      Purpose:
      Class defines object for reporting on Earmarks
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__statusofsuperfundsitesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__statusofsuperfundsitesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__programprojectcode: str=None
+	__programprojectname: str=None
 	__cityname = None
-	__siteid = None
+	__siteid int=None
 	__sitename = None
 	__statecode = None
 	__statename = None
@@ -26557,14 +26559,14 @@ class StatusOfSuperfundSites( ):
 	__obligations: float = None
 	__deobligations = None
 	__expenditures: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -26846,7 +26848,7 @@ class StatusOfSuperfundSites( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSuperfundSites
 		self.__bfy = bfy
@@ -26959,57 +26961,57 @@ class SpendingDocuments( ):
     Purpose:
     Class defines object representing Spending documnets
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentcontrolnumber = None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__processeddate = None
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
 	__vendorage = None
-	__foccode: str = None
-	__focname: str = None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
 	__commitments = None
 	__obligations: float = None
 	__deobligations = None
 	__unliquidatedobligations: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -27552,7 +27554,7 @@ class SpendingDocuments( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fund: str, account: str,
-	              boc: str, provider = Provider.SQLite ):
+	              boc: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Obligations
 		self.__bfy = bfy
@@ -27666,27 +27668,27 @@ class SupplementalCarryoverEstimates( ):
     Class defines object providing Supplemental Carryover Estimates
 
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__supplementalcarryoverestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__supplementalcarryoverestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
 	__opencommitments: float = None
 	__obligations: float = None
 	__estimate = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -27878,7 +27880,7 @@ class SupplementalCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.SupplementalCarryoverEstimates
 		self.__bfy = bfy
@@ -27972,24 +27974,24 @@ class SupplementalObligationEstimates( ):
     Purpose:
     Class defines object providing Supplemental Carryover Estimate data for
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__supplementalobligationestimatesid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__supplementalobligationestimatesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
 	__amount: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -28151,7 +28153,7 @@ class SupplementalObligationEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.SupplementalCarryoverEstimates
 		self.__bfy = bfy
@@ -28245,21 +28247,21 @@ class TreasurySymbols( ):
     Purpose:
     Class defines object that represents a TAFS
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__treasurysymbolsid = None
+	__source: Source=None
+	__provider: Provider=None
+	__treasurysymbolsid int=None
 	__ombagencycode = None
 	__treasuryagencycode = None
-	__bfy: str = None
-	__efy: str = None
-	__mainaccount: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
+	__bfy: str=None
+	__efy: str=None
+	__mainaccount: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -28371,7 +28373,7 @@ class TreasurySymbols( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, treas: str, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, treas: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__soruce = Source.FundSymbols
 		self.__bfy = bfy
@@ -28460,39 +28462,39 @@ class Transfers( ):
      Purpose:
      Class defines object representing EPA reprogrammings
      '''
-	__source: Source = None
-	__provider: Provider = None
-	__transfersid = None
+	__source: Source=None
+	__provider: Provider=None
+	__transfersid int=None
 	__documenttype = None
 	__documentnumber = None
 	__processeddate = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectcode: str = None
-	__programprojectname: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectcode: str=None
+	__programprojectname: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__fromto = None
-	__boccode: str = None
-	__bocname: str = None
+	__boccode: str=None
+	__bocname: str=None
 	__amount: float = None
-	__mainaccount: str = None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -28804,7 +28806,7 @@ class Transfers( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, documentnumber: str, provider = Provider.SQLite ):
+	def __init__( self, documentnumber: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Transfers
 		self.__documentnumber = documentnumber
@@ -28907,12 +28909,12 @@ class TransTypes( ):
     Purpose:
     Class defines object representing trans types
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__transtypesid = None
-	__bfy: str = None
-	__efy: str = None
-	__fundcode: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__transtypesid int=None
+	__bfy: str=None
+	__efy: str=None
+	__fundcode: str=None
 	__doctype = None
 	__appropriationbill = None
 	__continuingresolution = None
@@ -28920,9 +28922,9 @@ class TransTypes( ):
 	__rescissionprioryear = None
 	__sequesterreduction = None
 	__sequesterreturn = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -29014,7 +29016,7 @@ class TransTypes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fundcode: str, provider = Provider.SQLite ):
+	def __init__( self, bfy: str, fundcode: str, provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.TransTypes
 		self.__bfy = bfy
@@ -29104,55 +29106,55 @@ class UnliquidatedObligations( ):
     Purpose:
     Class defines object providing ULO data
     '''
-	__source: Source = None
-	__provider: Provider = None
-	__unliquidatedobligationsid = None
-	__obligationsid = None
-	__bfy: str = None
-	__efy: str = None
-	__rpiocode: str = None
-	__rpioname: str = None
-	__fundcode: str = None
-	__fundname: str = None
-	__ahcode: str = None
-	__ahname: str = None
-	__orgcode: str = None
-	__orgname: str = None
-	__accountcode: str = None
-	__programprojectname: str = None
-	__boccode: str = None
-	__bocname: str = None
-	__rccode: str = None
-	__rcname: str = None
+	__source: Source=None
+	__provider: Provider=None
+	__unliquidatedobligationsid int=None
+	__obligationsid int=None
+	__bfy: str=None
+	__efy: str=None
+	__rpiocode: str=None
+	__rpioname: str=None
+	__fundcode: str=None
+	__fundname: str=None
+	__ahcode: str=None
+	__ahname: str=None
+	__orgcode: str=None
+	__orgname: str=None
+	__accountcode: str=None
+	__programprojectname: str=None
+	__boccode: str=None
+	__bocname: str=None
+	__rccode: str=None
+	__rcname: str=None
 	__documenttype = None
 	__documentnumber = None
 	__documentcontrolnumber = None
 	__referencedocumentnumber = None
-	__programprojectcode: str = None
-	__programareacode: str = None
-	__programareaname: str = None
+	__programprojectcode: str=None
+	__programareacode: str=None
+	__programareaname: str=None
 	__processeddate = None
 	__lastactivitydate = None
 	__age = None
 	__vendorcode = None
 	__vendorage = None
-	__foccode: str = None
-	__focname: str = None
+	__foccode: str=None
+	__focname: str=None
 	__amount: float = None
-	__goalcode: str = None
-	__goalname: str = None
-	__objectivecode: str = None
-	__objectivename: str = None
-	__npmcode: str = None
-	__npmname: str = None
-	__mainaccount: str = None
+	__goalcode: str=None
+	__goalname: str=None
+	__objectivecode: str=None
+	__objectivename: str=None
+	__npmcode: str=None
+	__npmname: str=None
+	__mainaccount: str=None
 	__treasuryaccountcode = None
-	__treasuryaccountname: str = None
-	__budgetaccountcode: str = None
-	__budgetaccountname: str = None
-	__fields:  list[ str ]= None
-	__data: list[ Row ] = None
-	__frame: DataFrame = None
+	__treasuryaccountname: str=None
+	__budgetaccountcode: str=None
+	__budgetaccountname: str=None
+	__fields:  list[ str ]=None
+	__data: list[ Row ]=None
+	__frame: DataFrame=None
 
 	@property
 	def id( self ) -> int:
@@ -29614,8 +29616,8 @@ class UnliquidatedObligations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
-	              boc: str = None, provider: Provider = Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
+	              boc: str=None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.UnliquidatedObligations
 		self.__bfy = bfy
