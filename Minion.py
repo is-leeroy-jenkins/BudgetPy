@@ -55,7 +55,7 @@ class App( ):
     Class defines object providing factory methods run( ) and run( args ) that run
     processes based on 'Client' enumeration input args
     '''
-    __app = None
+    __app: Client=None
     __sqliteclient = None
     __accessclient = None
     __excelapp = None
@@ -65,57 +65,57 @@ class App( ):
     __calculator = None
 
     @property
-    def sqlite( self ):
-        if isinstance( self.__sqliteclient, str ) and self.__sqliteclient != '':
+    def sqlite( self ) -> str:
+        if self.__sqliteclient is not None:
             return self.__sqliteclient
 
     @sqlite.setter
-    def sqlite( self, value ):
-        if isinstance( value, str ) and value != '':
+    def sqlite( self, value: str ):
+        if value is not None:
             self.__sqliteclient = value
 
     @property
-    def access( self ):
-        if isinstance( self.__accessclient, str ) and self.__accessclient != '':
+    def access( self ) -> str:
+        if self.__accessclient is not None:
             return self.__accessclient
 
     @access.setter
-    def access( self, value ):
-        if isinstance( value, str ) and value!= '':
+    def access( self, value: str ):
+        if value is not None:
             self.__accessclient = value
 
     @property
-    def excel( self ):
-        if isinstance( self.__excelapp, str ) and self.__excelapp != '':
+    def excel( self ) -> str:
+        if self.__excelapp is not None:
             return self.__excelapp
 
     @excel.setter
-    def excel( self, value ):
+    def excel( self, value: str ):
         if isinstance( value, str ) and value != '':
             self.__excelapp = value
 
     @property
-    def chrome( self ):
-        if isinstance( self.__chrome, str ) and self.__chrome != '':
+    def chrome( self ) -> str:
+        if self.__chrome is not None:
             return self.__chrome
 
     @chrome.setter
-    def chrome( self, value ):
+    def chrome( self, value: str ):
         if isinstance( value, str ) and value != '':
             self.__chrome = value
 
     @property
-    def edge( self ):
-        if isinstance( self.__edge, str ) and self.__edge != '':
+    def edge( self ) -> str:
+        if self.__edge is not None:
             return self.__edge
 
     @edge.setter
-    def edge( self, value ):
+    def edge( self, value: str ):
         if isinstance( value, str ) and value != '':
             self.__edge = value
 
-    def __init__( self, client ):
-        self.__app = client if isinstance( client, Client ) else None
+    def __init__( self, client: Client ):
+        self.__app = client
         self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
         self.__accessclient = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
@@ -133,19 +133,19 @@ class App( ):
         Returns:
         '''
         try:
-            if isinstance( self.__app, Client ) and self.__app == Client.SQLite:
+            if self.__app == Client.SQLite:
                 sp.Popen( self.__sqliteclient )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Access:
+            elif self.__app == Client.Access:
                 sp.Popen( self.__accessclient )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Excel:
+            elif self.__app == Client.Excel:
                 sp.Popen( self.__excelapp )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Edge:
+            elif self.__app == Client.Edge:
                 sp.Popen( self.__edge )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Chrome:
+            elif self.__app == Client.Chrome:
                 sp.Popen( self.__chrome )
-            elif isinstance( self.__app, Client ) and self.__app == Client.ControlPanel:
+            elif self.__app == Client.ControlPanel:
                 sp.Popen( self.__control )
-            elif isinstance( self.__app, Client ) and self.__app == Client.Calculator:
+            elif self.__app == Client.Calculator:
                 sp.Popen( self.__calculator )
         except Exception as e:
             _exc = Error( e )
@@ -155,7 +155,7 @@ class App( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-    def run_args( self, args ):
+    def run_args( self, args: str ):
         '''
         Purpose:
 
@@ -164,18 +164,18 @@ class App( ):
         Returns:
         '''
         try:
-            if isinstance( args, str ) and self.__app == Client.SQLite:
+            if args is not None and self.__app == Client.SQLite:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__sqliteclient, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Access:
+            elif args is not None and self.__app == Client.Access:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__accessclient, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Excel:
+            elif args is not None and self.__app == Client.Excel:
                 if os.path.isfile( args ):
                     sp.Popen( [ self.__excelapp, args ] )
-            elif isinstance( args, str ) and self.__app == Client.Edge:
+            elif args is not None and self.__app == Client.Edge:
                     sp.Popen( args )
-            elif isinstance( args, str ) and self.__app == Client.Chrome:
+            elif args is not None and self.__app == Client.Chrome:
                     sp.Popen( [ self.__chrome, args ] )
         except Exception as e:
             _exc = Error( e )
