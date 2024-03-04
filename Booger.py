@@ -298,7 +298,7 @@ class TitleIcon( ):
 		'''
 		return [ 'folder', 'name', 'file_path' ]
 
-class Sith( ):
+class Dark( ):
 	'''
 	Construcotr:
 	Sith( )
@@ -533,7 +533,7 @@ class Sith( ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color' ]
 
-class FileDialog( Sith ):
+class FileDialog( Dark ):
 	'''
 
 	Construcotr:
@@ -656,7 +656,7 @@ class FileDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class FolderDialog( Sith ):
+class FolderDialog( Dark ):
 	'''
 	Construcotr:
 	FolderDialog( )
@@ -749,7 +749,7 @@ class FolderDialog( Sith ):
 			_error = ErrorDialog( _exc )
 			_error.show( )
 
-class SaveFileDialog( Sith ):
+class SaveFileDialog( Dark ):
 	'''
 	Constructor:
 	SaveFileDialog( path = '' ):
@@ -842,7 +842,7 @@ class SaveFileDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class GoogleDialog( Sith ):
+class GoogleDialog( Dark ):
 	'''
 	Construcotr:
 	GoogleDialog(  )
@@ -962,7 +962,7 @@ class GoogleDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class EmailDialog( Sith ):
+class EmailDialog( Dark ):
 	'''
 
 	Construcotr: EmailDialog( sender: str=None, receiver: str=None,
@@ -1144,7 +1144,7 @@ class EmailDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class MessageDialog( Sith ):
+class MessageDialog( Dark ):
 	'''
 
 	Construcotr:  MessageDialog( text = '' )
@@ -1236,7 +1236,7 @@ class MessageDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ErrorDialog( Sith ):
+class ErrorDialog( Dark ):
 	'''
 
 	Construcotr:  ErrorDialog( exception )
@@ -1380,7 +1380,7 @@ class ErrorDialog( Sith ):
 
 		_window.close( )
 
-class InputDialog( Sith ):
+class InputDialog( Dark ):
 	'''
 	Construcotr:  Input( question )
 
@@ -1483,7 +1483,7 @@ class InputDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ScrollingDialog( Sith ):
+class ScrollingDialog( Dark ):
 	'''
 	Construcotr:  ScrollingDialog( text = '' )
 
@@ -1577,7 +1577,7 @@ class ScrollingDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ContactForm( Sith ):
+class ContactForm( Dark ):
 	'''
 	Construcotr: ContactForm( contact )
 
@@ -1665,7 +1665,7 @@ class ContactForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class GridForm( Sith ):
+class GridForm( Dark ):
 	'''
 	Construcotr: GridForm( )
 
@@ -1777,7 +1777,7 @@ class GridForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class LoadingPanel( Sith ):
+class LoadingPanel( Dark ):
 	'''
 	Construcotr:  LoadingPanel( )
 
@@ -1859,7 +1859,7 @@ class LoadingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class WaitingPanel( Sith ):
+class WaitingPanel( Dark ):
 	'''
 	Construcotr:  WaitingPanel( )
 
@@ -1943,7 +1943,7 @@ class WaitingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ProcessingPanel( Sith ):
+class ProcessingPanel( Dark ):
 	'''
 	Construcotr:  ProcessingPanel( )
 
@@ -2032,7 +2032,7 @@ class ProcessingPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SplashPanel( Sith ):
+class SplashPanel( Dark ):
 	'''
 	Construcotr:  SplashPanel( )
 
@@ -2111,7 +2111,7 @@ class SplashPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Notification( Sith ):
+class Notification( Dark ):
 	'''
 	Construcotr:  Notification( )
 
@@ -2249,7 +2249,7 @@ class Notification( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ImageSizeEncoder( Sith ):
+class ImageSizeEncoder( Dark ):
 	'''
 	Construcotr:  ImageSizeEncoder( )
 
@@ -2465,7 +2465,7 @@ class ImageSizeEncoder( Sith ):
 
 		_window.close( )
 
-class PdfForm( Sith ):
+class PdfForm( Dark ):
 	'''
 	Construcotr:
 	PdfForm( )
@@ -2620,7 +2620,7 @@ class PdfForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CalendarDialog( Sith ):
+class CalendarDialog( Dark ):
 	'''
 	Construcotr:
 	CalendarDialog( )
@@ -2746,7 +2746,7 @@ class CalendarDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ComboBoxDialog( Sith ):
+class ComboBoxDialog( Dark ):
 	'''
 	Construcotr:
 	ComboBoxDialog( data: list = None )
@@ -2858,7 +2858,7 @@ class ComboBoxDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ListBoxDialog( Sith ):
+class ListBoxDialog( Dark ):
 	'''
 	Construcotr:
 	ListBox( data: list = None )
@@ -2992,7 +2992,7 @@ class ListBoxDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ColorDialog( Sith ):
+class ColorDialog( Dark ):
 	'''
 	Construcotr:
 	ColorDialog( )
@@ -3824,7 +3824,7 @@ class ColorDialog( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetForm( Sith ):
+class BudgetForm( Dark ):
 	'''
     Constructor:
     BudgetForm( )
@@ -4349,7 +4349,7 @@ class BudgetForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ChartPanel( Sith ):
+class ChartPanel( Dark ):
 	'''
     Constructor:
     ChartPanel( )
@@ -4447,7 +4447,7 @@ class ChartPanel( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CsvForm( Sith ):
+class CsvForm( Dark ):
 	'''
 	Construcotr:
 	CsvForm( )
@@ -4558,7 +4558,7 @@ class CsvForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ExcelForm( Sith ):
+class ExcelForm( Dark ):
 	'''
 	Construcotr:
 	ExcelForm( )
@@ -4691,7 +4691,7 @@ class ExcelForm( Sith ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class GraphForm( Sith ):
+class GraphForm( Dark ):
 	'''
 	Construcotr:
 	GraphForm( )
