@@ -1357,13 +1357,13 @@ class ErrorDialog( Dark ):
 		_info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
 		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
 		_red = '#F70202'
-		_font = ('Roboto', 10)
-		_padsz = (3, 3)
+		_font = ( 'Roboto', 10 )
+		_padsz = ( 3, 3 )
 		_layout = [ [ sg.Text( ) ],
 		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
 			            font = _font ) ],
 		            [ sg.Text( size = (150, 1) ) ],
-		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz )],
+		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz ) ],
 		            [ sg.Text( ) ],
 		            [ sg.Text( size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
 		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
@@ -1537,19 +1537,19 @@ class ScrollingDialog( Dark ):
 
 	def show( self ):
 		try:
-			_line = (100, 1)
-			_space = (5, 1)
-			_btnsize = (25, 1)
+			_line = ( 100, 1 )
+			_space = ( 5, 1 )
+			_btnsize = ( 25, 1 )
 			_arrow = self.__arrowcolor
 			_back = super( ).button_backcolor
-			_padsz = (3, 3, 3, 3)
+			_padsz = ( 3, 3, 3, 3 )
 			_layout = [ [ sg.Text( ' ', size = _line ) ],
 			            [ sg.Text( ' ', size = _line ) ],
 			            [ sg.Text( size = _space ),
-			             sg.Multiline( size = (70, 20), key = '-TEXT-', pad = _padsz ),
+			             sg.Multiline( size = ( 70, 20 ), key = '-TEXT-', pad = _padsz ),
 			             sg.Text( size = _space ) ],
 			            [ sg.Text( ' ', size = _line ) ],
-			            [ sg.Text( ' ', size = _space ), sg.Input( k = '-IN-', size = (70, 20) ),
+			            [ sg.Text( ' ', size = _space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ),
 			             sg.Text( size = _space ) ],
 			            [ sg.Text( ' ', size = _line ) ],
 			            [ sg.Text( size = _space ), sg.Button( 'Submit', size = _btnsize ),
@@ -1585,12 +1585,12 @@ class ContactForm( Dark ):
 	'''
 
 	@property
-	def size( self ) -> (int, int):
+	def size( self ) -> ( int, int ):
 		if self.__formsize is not None:
 			return self.__formsize
 
 	@size.setter
-	def size( self, value: (int, int) ):
+	def size( self, value: ( int, int ) ):
 		if value is not None:
 			self.__formsize = value
 
@@ -1627,17 +1627,17 @@ class ContactForm( Dark ):
 		try:
 			_layout = [ [ sg.Text( size = (100, 1) ) ],
 			            [ sg.Text( r'Enter Contact Details' ) ],
-			            [ sg.Text( size = (100, 1) ) ],
-			            [ sg.Text( 'Name', size = (10, 1) ),
-			              sg.InputText( '1', size = (80, 1), key = '-NAME-' ) ],
-			            [ sg.Text( 'Address', size = (10, 1) ),
-			              sg.InputText( '2', size = (80, 1), key = '-ADDRESS-' ) ],
-			            [ sg.Text( 'Phone', size = (10, 1) ),
-			              sg.InputText( '3', size = (80, 1), key = '-PHONE-' ) ],
-			            [ sg.Text( size = (100, 1) ) ],
-			            [ sg.Text( size = (100, 1) ) ],
-			            [ sg.Text( size = (10, 1) ), sg.Submit( size = (10, 1) ),
-			              sg.Text( size = (20, 1) ), sg.Cancel( size = (10, 1) ) ] ]
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( 'Name', size = ( 10, 1 ) ),
+			              sg.InputText( '1', size = (80, 1 ), key = '-NAME-' ) ],
+			            [ sg.Text( 'Address', size = ( 10, 1 ) ),
+			              sg.InputText( '2', size = ( 80, 1 ), key = '-ADDRESS-' ) ],
+			            [ sg.Text( 'Phone', size = ( 10, 1 ) ),
+			              sg.InputText( '3', size = ( 80, 1 ), key = '-PHONE-' ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( size = ( 100, 1 ) ) ],
+			            [ sg.Text( size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ) ),
+			              sg.Text( size = ( 20, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
 				icon = self.__icon,
@@ -1676,12 +1676,12 @@ class GridForm( Dark ):
 	__columns = None
 
 	@property
-	def field_width( self ) -> (int, int):
+	def field_width( self ) -> ( int, int ):
 		if self.__width is not None:
 			return self.__width
 
 	@field_width.setter
-	def field_width( self, value: (int, int) ):
+	def field_width( self, value: ( int, int ) ):
 		if value is not None:
 			self.__width = value
 
@@ -2302,7 +2302,7 @@ class ImageSizeEncoder( Dark ):
 			_newwidth, _newheight = size
 			if _newwidth != _width or _newheight != _height:
 				_scale = min( _newheight / _height, _newwidth / _width )
-				_resizedimage = _image.resize( (int( _width * _scale ), int( _height * _scale )),
+				_resizedimage = _image.resize( ( int( _width * _scale ), int( _height * _scale )),
 					Image.ANTIALIAS )
 			else:
 				_resizedimage = _image
