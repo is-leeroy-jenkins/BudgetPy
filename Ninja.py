@@ -9618,7 +9618,7 @@ class Deobligations( ):
 
 	@property
 	def id( self ) -> int:
-		if isinstance( self.__deobligationsid, int ):
+		if self.__deobligationsid is not None:
 			return self.__deobligationsid
 
 	@id.setter
