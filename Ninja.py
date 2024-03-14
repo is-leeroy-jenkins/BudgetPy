@@ -184,7 +184,7 @@ class Accounts( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, id: int = None, code: str=None, provider=Provider.SQLite ):
+	def __init__( self, id: int = None, code: str=None, provider: Provider=Provider.SQLite ):
 		self.__accountsid = id
 		self.__code = code
 		self.__provider = provider
@@ -244,7 +244,7 @@ class Accounts( ):
 			_source = Source.Accounts
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( _source, _provider )
 			_sql = Command( _connection, _sqlconfig )
@@ -364,7 +364,7 @@ class ActivityCodes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.ActivityCodes
 		self.__activitycodesid = id
@@ -401,7 +401,7 @@ class ActivityCodes( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -685,7 +685,7 @@ class AdjustedTrialBalances( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -850,7 +850,7 @@ class AllowanceHolders( ):
 		                  'EarmarkFlag' ]
 
 	def __str__( self ) -> str:
-		if isinstance( self.__code, str ) and self.__code != '':
+		if self.__code is not None:
 			return self.__code
 
 	def __dir__( self ) -> list[ str ]:
@@ -876,8 +876,8 @@ class AllowanceHolders( ):
 		try:
 			_source = self.__source
 			_provider = self.__provider
-			_names = [ 'Id', 'Code', 'Name', ]
-			_values = (self.__code,)
+			_names = [ 'AllowanceHoldersId', 'Code', 'Name', ]
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -1141,7 +1141,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, provider=Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.AmericanRescuePlanCarryoverEstimates
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -1989,7 +1989,7 @@ class Appropriations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code' ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -5564,7 +5564,7 @@ class BudgetContacts( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, last: str, first: str ):
+	def __init__( self, last: str, first: str, provider: Provider=Provider.SQLite ):
 		self.__lastname = last
 		self.__first = first
 		self.__fields = [ 'BudgetContactsId',
@@ -7178,7 +7178,7 @@ class CongressionalControls( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -7301,7 +7301,7 @@ class CongressionalProjects( ):
 			self.__amount = value
 
 	def __init__( self, bfy: str, fund: str, 
-	              rpio: str, ahcode: str, provider=Provider.SQLite ):
+	              rpio: str, ahcode: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.CongressionalProjects
 		self.__provider = provider
 		self.__bfy = bfy
@@ -8448,7 +8448,7 @@ class CostAreas( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -8596,7 +8596,7 @@ class CapitalPlanningInvestmentCodes( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -8726,7 +8726,7 @@ class ColumnSchema( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, column, table, provider=Provider.SQLite ):
+	def __init__( self, column: str, table: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.ColumnSchema
 		self.__provider = provider
 		self.__columnname = column
@@ -8750,7 +8750,7 @@ class ColumnSchema( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -10077,7 +10077,7 @@ class Deobligations( ):
 			self.__fields = value
 
 	def __init__( self, bfy = None, fund = None,
-	              account = None, boc = None, provider=Provider.SQLite ):
+	              account = None, boc = None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Deobligations
 		self.__bfy = bfy
@@ -10288,7 +10288,7 @@ class DocumentControlNumbers( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, dcn, provider=Provider.SQLite ):
+	def __init__( self, dcn: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.DocumentControlNumbers
 		self.__documentcontrolnumber = dcn
@@ -11123,7 +11123,7 @@ class FinanceObjectClasses( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -12813,7 +12813,8 @@ class GeneralLedgerAccounts( ):
 		                  'ClosingAmount' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'fields', 'data',
+		         'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -12830,7 +12831,7 @@ class GeneralLedgerAccounts( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -12984,7 +12985,7 @@ class Goals( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -13425,7 +13426,7 @@ class HeadquartersAuthority( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy, efy, rpio, provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.HeadquartersAuthority
 		self.__provider = provider
 		self.__bfy = bfy
@@ -14401,8 +14402,9 @@ class MainAccounts( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, code: str ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__code = code
+		self.__provider = provider
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -14784,7 +14786,7 @@ class MonthlyActuals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, provider=Provider.SQLite ):
+	def __init__( self, bfy:str = None, fund: str = None, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.MonthlyActuals
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -15210,7 +15212,7 @@ class MonthlyOutlays( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy, efy, account, provider=Provider.SQLite ):
+	def __init__( self, bfy, efy, account, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.MonthlyOutlays
 		self.__bfy = bfy
@@ -15418,7 +15420,7 @@ class NationalPrograms( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, code: str, provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.NationalPrograms
 		self.__code = code
@@ -15447,7 +15449,7 @@ class NationalPrograms( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -15594,7 +15596,7 @@ class Objectives( ):
 			_source = Source.Objectives
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -18341,7 +18343,7 @@ class Projects( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -18477,7 +18479,7 @@ class ProgramAreas( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -19170,16 +19172,19 @@ class ReportingLines( ):
 	Purpose:
 	class models the lines on the SF-133 and SF-132
 	'''
-	__reportinglinesid: int=None
+	__source: Source=None
+	__provider: Provider=None
 	__bfy: str=None
 	__code: str=None
 	__fields:  list[ str ]=None
 	__data: list[ Row ]=None
 	__fields:  list[ str ]=None
 
-	def __init__( self, bfy: str, code: str ):
+	def __init__( self, bfy: str, code: str, provider: Provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__code = code
+		self.__provider = provider
+		self.__source = Source.ReportingLines
 
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
@@ -19198,7 +19203,7 @@ class ReportingLines( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -19346,7 +19351,7 @@ class ResponsibilityCenters( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -19491,7 +19496,7 @@ class ResourcePlanningOffices( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -20444,7 +20449,8 @@ class RegionalAuthority( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str,
+	              provider: Provider=Provider.SQLite ):
 		self.__source = Source.RegionalAuthority
 		self.__provider = provider
 		self.__bfy = bfy
@@ -21429,9 +21435,11 @@ class StatusOfBudgetaryResources( ):
 		if value is not None:
 			self.__frame = value
 
-	def __init__( self, tsym: str ):
+	def __init__( self, year: str, account: str, provider: Provider=Provider.SQLite ):
+		self.__provider = provider
 		self.__source = Source.StatusOfBudgetaryResources
-		self.__treasuryaccountcode = tsym
+		self.__fiscalyear = year
+		self.__budgetaccountcode = account
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -21648,9 +21656,10 @@ class StatusOfBudgetExecution( ):
 		if value is not None:
 			self.__budgetaccountname = value
 
-	def __init__( self, tsym: str ):
+	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
 		self.__source = Source.StatusOfBudgetExecution
-		self.__treasuryaccountcode = tsym
+		self.__treasuryaccountcode = account
+		self.__provider = provider
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -22197,9 +22206,10 @@ class StatusOfSupplementalFunding( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, 
+	              provider: Provider=Provider.SQLite ):
 		self.__source = Source.StatusOfSupplementalFunding
-		self.__provider = Provider.SQLite
+		self.__provider = provider
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fund
@@ -23032,7 +23042,8 @@ class StatusOfSpecialAccountFunds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy = None, fund = None, account = None, provider=Provider.SQLite ):
+	def __init__( self, bfy = None, fund = None, account = None, 
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSpecialAccountFunds
 		self.__bfy = bfy
@@ -23231,7 +23242,8 @@ class SubAppropriations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, code: str, 
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Appropriations
 		self.__bfy = bfy
@@ -23260,7 +23272,7 @@ class SubAppropriations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code' ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -23409,7 +23421,7 @@ class StateOrganizations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__code,)
+			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -24133,7 +24145,8 @@ class StatusOfAppropriations( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, 
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfAppropriations
 		self.__bfy = bfy
@@ -24617,10 +24630,10 @@ class SpendingRates( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, accountcode: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.SpendingRates
-		self.__budgetaccountcode = accountcode
+		self.__budgetaccountcode = account
 		self.__fields = [ 'SpendingRatesId',
 		                  'OmbAgencyCode',
 		                  'OmbAgencyName',
@@ -24629,6 +24642,8 @@ class SpendingRates( ):
 		                  'TreausuryAgencyCode',
 		                  'TreausuryAccountCode',
 		                  'TreausuryAccountName',
+		                  'BudgetAccountCode',
+		                  'BudgetAccountName',
 		                  'AccountTitle',
 		                  'Subfunction',
 		                  'Line',
@@ -24654,7 +24669,22 @@ class SpendingRates( ):
 		                  'TotalSpendout' ]
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		'''
+
+		returns a list[ str ] of class members
+
+		'''
+		return [ 'id', 'treasury_agency_code', 'treasury_agency_name',
+		         'omb_agency_code', 'omb_agency_name', 'main_account',
+		         'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name', 'subaccount',
+		         'subcategory', 'subfunction', 'category',
+		         'line_number', 'line_name', 'year_of_authority',
+		         'budget_authority', 'out_year_1', 'out_year_2', 'out_year_3',
+				 'out_year_4', 'out_year_5', 'out_year_6',
+				 'out_year_7', 'out_year_8', 'out_year_9',
+				 'out_year_10', 'out_year_11', 'total_spendout',
+		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -24668,7 +24698,7 @@ class SpendingRates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_command = SQL.SELECTALL
-			_names = [ 'OmbAccountCode', ]
+			_names = [ 'BudgetAccountCode', ]
 			_values = (self.__budgetaccountcode,)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = [ i for i in _db.createtable( ) ]
@@ -25184,7 +25214,8 @@ class StatusOfSupplementalFunds( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fund: str, provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fund: str, 
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSupplementalFunding
 		self.__bfy = bfy
@@ -25777,7 +25808,8 @@ class StatusOfJobsActFunding( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, fundcode: str, provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, fundcode: str,
+	              provider: Provider=Provider.SQLite ):
 		self.__bfy = bfy
 		self.__efy = efy
 		self.__fundcode = fundcode
@@ -26854,7 +26886,8 @@ class StatusOfSuperfundSites( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, rpio: str,
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.StatusOfSuperfundSites
 		self.__bfy = bfy
@@ -27560,7 +27593,7 @@ class SpendingDocuments( ):
 			self.__fields = value
 
 	def __init__( self, bfy: str, efy: str, fund: str, account: str,
-	              boc: str, provider=Provider.SQLite ):
+	              boc: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Obligations
 		self.__bfy = bfy
@@ -28379,12 +28412,13 @@ class TreasurySymbols( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, efy: str, treas: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, account: str,
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__soruce = Source.FundSymbols
 		self.__bfy = bfy
 		self.__efy = efy
-		self.__treasuryaccountcode = treas
+		self.__treasuryaccountcode = account
 		self.__fields = [ 'TreasurySymbolsId',
 		                  'BFY',
 		                  'EFY',
@@ -28812,7 +28846,7 @@ class Transfers( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, documentnumber: str, provider=Provider.SQLite ):
+	def __init__( self, documentnumber: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.Transfers
 		self.__documentnumber = documentnumber
@@ -29022,7 +29056,7 @@ class TransTypes( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy: str, fundcode: str, provider=Provider.SQLite ):
+	def __init__( self, bfy: str, fundcode: str, provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.TransTypes
 		self.__bfy = bfy
