@@ -1198,7 +1198,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -1517,7 +1517,7 @@ class AnnualCarryoverEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -1835,7 +1835,7 @@ class AnnualReimbursableEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -2304,7 +2304,7 @@ class AppropriationAvailableBalances( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code' ]
-			_values = (self.__fundcode,)
+			_values = ( self.__fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -3111,7 +3111,7 @@ class Allocations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -3428,7 +3428,7 @@ class ApportionmentData( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = (self.__bfy, self.__efy, self.__budgetaccountcode)
+			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -4009,7 +4009,7 @@ class Actuals( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -4678,7 +4678,7 @@ class AppropriationDocuments( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -5335,7 +5335,7 @@ class BudgetDocuments( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode)
+			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -5612,7 +5612,7 @@ class BudgetContacts( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -6176,7 +6176,7 @@ class BudgetControls( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode)
+			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -6480,7 +6480,7 @@ class BudgetFiscalYears( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -6882,7 +6882,7 @@ class BudgetaryResourceExecution( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = (self.__bfy, self.__efy, self.__budgetaccountcode)
+			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -7687,7 +7687,7 @@ class CompassLevels( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode)
+			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -8328,7 +8328,7 @@ class Commitments( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -8936,7 +8936,7 @@ class DataRuleDescriptions( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
-			_values = (self.__schedule, self.__linenumber, self.__rulenumber)
+			_values = ( self.__schedule, self.__linenumber, self.__rulenumber)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -9517,7 +9517,7 @@ class Defactos( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -10126,7 +10126,7 @@ class Deobligations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -10315,7 +10315,7 @@ class DocumentControlNumbers( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'DocumentControlNumber', ]
-			_values = (self.__documentcontrolnumber,)
+			_values = ( self.__documentcontrolnumber,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -10954,7 +10954,7 @@ class Expenditures( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -11599,7 +11599,7 @@ class Funds( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'Code', ]
-			_values = (self.__bfy, self.__efy, self.__code)
+			_values = ( self.__bfy, self.__efy, self.__code )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -11795,7 +11795,7 @@ class FederalHolidays( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'Name', ]
-			_values = (self.__bfy, self.__efy, self.__name,)
+			_values = ( self.__bfy, self.__efy, self.__name,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -12622,7 +12622,7 @@ class FullTimeEquivalents( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode,)
+			_values = ( self.__bfy, self.__fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -13488,7 +13488,7 @@ class HeadquartersAuthority( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = (self.__bfy, self.__rpiocode)
+			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -13639,7 +13639,7 @@ class HeadquartersOffices( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'RpioCode', ]
-			_values = (self.__rpiocode,)
+			_values = ( self.__rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -13951,7 +13951,7 @@ class InflationReductionActCarryoverEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -14259,7 +14259,7 @@ class JobsActCarryoverEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -14431,7 +14431,7 @@ class MainAccounts( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -14786,7 +14786,8 @@ class MonthlyActuals( ):
 		if value is not None:
 			self.__fields = value
 
-	def __init__( self, bfy:str = None, fund: str = None, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy:str = None, fund: str = None,
+	              provider: Provider=Provider.SQLite ):
 		self.__provider = provider
 		self.__source = Source.MonthlyActuals
 		self.__bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
@@ -14851,7 +14852,7 @@ class MonthlyActuals( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -15281,7 +15282,7 @@ class MonthlyOutlays( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = (self.__bfy, self.__efy, self.__budgetaccountcode)
+			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -15744,8 +15745,8 @@ class Organizations( ):
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
-			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
+			_values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount )
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = _db.createtable( )
 			return [ (i) for i in self.__data ]
@@ -16219,7 +16220,7 @@ class OperatingPlans( ):
         '''
 		try:
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( self.__source, self.__provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -16934,7 +16935,7 @@ class OpenCommitments( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -17634,7 +17635,7 @@ class Obligations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -18041,7 +18042,7 @@ class OutlayRates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'OmbAccountCode', ]
-			_values = (self.__budgetaccountcode,)
+			_values = ( self.__budgetaccountcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -18209,7 +18210,7 @@ class PublicLaws( ):
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			_values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
 			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = _db.createtable( )
@@ -18650,7 +18651,7 @@ class ProgramProjects( ):
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			_values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
 			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = _db.createtable( )
@@ -19131,7 +19132,7 @@ class ProgramResultsCodes( ):
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = (self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
+			_values = ( self.__bfy, self.__efy, self.__fundcode, self.__rpiocode,
 			           self.__ahcode, self.__accountcode, self.__boccode, self.__amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = _db.createtable( )
@@ -19636,7 +19637,7 @@ class RegionalOffices( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
-			_values = (self.__rpiocode,)
+			_values = ( self.__rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -19935,7 +19936,7 @@ class ReimbursableAgreements( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', ]
-			_values = (self.__bfy,)
+			_values = ( self.__bfy,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -20515,7 +20516,7 @@ class RegionalAuthority( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = (self.__bfy, self.__rpiocode)
+			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -21469,7 +21470,7 @@ class StatusOfBudgetaryResources( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -21687,7 +21688,7 @@ class StatusOfBudgetExecution( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -22272,7 +22273,7 @@ class StatusOfSupplementalFunding( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -22668,7 +22669,7 @@ class StateGrantObligations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = (self.__rpiocode, self.__rpiocode)
+			_values = ( self.__rpiocode, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -23102,7 +23103,7 @@ class StatusOfSpecialAccountFunds( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__programcode, self.__interestdate)
+			_values = ( self.__bfy, self.__fundcode, self.__programcode, self.__interestdate )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -24224,7 +24225,7 @@ class StatusOfAppropriations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
-			_values = (self.__bfy, self.__efy, self.__appropriationfundcode)
+			_values = ( self.__bfy, self.__efy, self.__appropriationfundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -24699,7 +24700,7 @@ class SpendingRates( ):
 			_provider = self.__provider
 			_command = SQL.SELECTALL
 			_names = [ 'BudgetAccountCode', ]
-			_values = (self.__budgetaccountcode,)
+			_values = ( self.__budgetaccountcode,)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.__data = [ i for i in _db.createtable( ) ]
 			return [ i for i in self.__data ]
@@ -25281,7 +25282,7 @@ class StatusOfSupplementalFunds( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -25884,7 +25885,7 @@ class StatusOfJobsActFunding( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -26521,7 +26522,7 @@ class StatusOfEarmarks( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -26950,7 +26951,7 @@ class StatusOfSuperfundSites( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = (self.__bfy, self.__rpiocode)
+			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -27656,7 +27657,7 @@ class SpendingDocuments( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -27964,7 +27965,7 @@ class SupplementalCarryoverEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -28237,7 +28238,7 @@ class SupplementalObligationEstimates( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = (self.__bfy, self.__efy)
+			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -28281,7 +28282,7 @@ class SupplementalObligationEstimates( ):
 class TreasurySymbols( ):
 	'''
     Constructor:
-    TreasurySymbol( bfy: str, efy: str, treas: str, pvdr: Provider = Provider.SQLite)
+    TreasurySymbol( bfy: str, efy: str, treas: str, pvdr: Provider = Provider.SQLite )
 
     Purpose:
     Class defines object that represents a TAFS
@@ -28436,9 +28437,11 @@ class TreasurySymbols( ):
 			return self.__treasuryaccountname
 
 	def __dir__( self ) -> list[ str ]:
-		return [ 'id', 'bfy', 'efy', 'main_account', 'treasury_account_code',
-		         'treasury_account_name', 'budget_account_code', 'budget_account_name'
-		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
+		return [ 'id', 'bfy', 'efy',
+		         'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code',
+		         'budget_account_name', 'fields', 'data',
+		         'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
 		'''
@@ -28453,7 +28456,7 @@ class TreasurySymbols( ):
 			_provider = self.__provider
 			command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
-			_values = (self.__bfy, self.__efy, self.__treasuryaccountcode)
+			_values = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
 			dbcfg = DbConfig( _source, _provider )
 			sqlcfg = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -28900,7 +28903,7 @@ class Transfers( ):
 			_source = self.__source
 			command = SQL.SELECTALL
 			_names = [ 'DocumentNumber', ]
-			_values = (self.__documentnumber,)
+			_values = ( self.__documentnumber,)
 			_dbconfig = DbConfig( _source )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -29092,7 +29095,7 @@ class TransTypes( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = (self.__bfy, self.__fundcode)
+			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
@@ -29732,7 +29735,7 @@ class UnliquidatedObligations( ):
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = (self.__bfy, self.__fundcode, self.__accountcode, self.__boccode)
+			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( names = _names, values = _values )
 			_connection = Connection( self.__source )
