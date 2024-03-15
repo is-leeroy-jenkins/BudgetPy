@@ -50,7 +50,7 @@ from sqlite3 import Row
 from Booger import Error, ErrorDialog
 from Static import SQL
 from Static import Source, Provider
-from Data import (DbConfig, SqlConfig, Connection, Command, BudgetData, DataBuilder)
+from Data import ( DbConfig, SqlConfig, Connection, Command, BudgetData, DataBuilder )
 
 class Accounts( ):
 	'''
@@ -245,7 +245,7 @@ class Accounts( ):
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( _source, _provider )
 			_sql = Command( _connection, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -403,7 +403,7 @@ class ActivityCodes( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -687,7 +687,7 @@ class AdjustedTrialBalances( ):
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -871,6 +871,7 @@ class AllowanceHolders( ):
         Parameters:
 
         Returns:
+        	
         '''
 
 		try:
@@ -879,7 +880,7 @@ class AllowanceHolders( ):
 			_names = [ 'AllowanceHoldersId', 'Code', 'Name', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -1187,11 +1188,13 @@ class AmericanRescuePlanCarryoverEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -1200,7 +1203,7 @@ class AmericanRescuePlanCarryoverEstimates( ):
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -1506,11 +1509,13 @@ class AnnualCarryoverEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -1519,7 +1524,7 @@ class AnnualCarryoverEstimates( ):
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -1824,11 +1829,13 @@ class AnnualReimbursableEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -1837,7 +1844,7 @@ class AnnualReimbursableEstimates( ):
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -1978,11 +1985,13 @@ class Appropriations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -1991,7 +2000,7 @@ class Appropriations( ):
 			_names = [ 'Code' ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -2293,11 +2302,13 @@ class AppropriationAvailableBalances( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -2306,7 +2317,7 @@ class AppropriationAvailableBalances( ):
 			_names = [ 'Code' ]
 			_values = ( self.__fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -2586,11 +2597,13 @@ class AppropriationLevelAuthority( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -2599,7 +2612,7 @@ class AppropriationLevelAuthority( ):
 			_names = [ 'Code' ]
 			_values = tuple( self.__fundcode, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -3100,11 +3113,13 @@ class Allocations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -3113,7 +3128,7 @@ class Allocations( ):
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -3417,11 +3432,13 @@ class ApportionmentData( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -3430,7 +3447,7 @@ class ApportionmentData( ):
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
 			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -3998,11 +4015,13 @@ class Actuals( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -4011,7 +4030,7 @@ class Actuals( ):
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -4164,11 +4183,11 @@ class ApplicationTables( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
 
@@ -4178,7 +4197,7 @@ class ApplicationTables( ):
 			_names = [ 'Name', ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( self.__source, self.__provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -4667,11 +4686,13 @@ class AppropriationDocuments( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -4680,7 +4701,7 @@ class AppropriationDocuments( ):
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -5324,11 +5345,13 @@ class BudgetDocuments( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -5337,7 +5360,7 @@ class BudgetDocuments( ):
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -5600,21 +5623,22 @@ class BudgetContacts( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-		
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -6165,11 +6189,13 @@ class BudgetControls( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -6178,7 +6204,7 @@ class BudgetControls( ):
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -6470,19 +6496,22 @@ class BudgetFiscalYears( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -6503,12 +6532,15 @@ class BudgetFiscalYears( ):
 
 	def getframe( self ) -> DataFrame:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_data = BudgetData( _source )
@@ -6633,19 +6665,22 @@ class BudgetObjectClasses( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -6872,19 +6907,22 @@ class BudgetaryResourceExecution( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
 			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -7167,11 +7205,13 @@ class CongressionalControls( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -7180,7 +7220,7 @@ class CongressionalControls( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -7334,7 +7374,7 @@ class CongressionalProjects( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -7677,19 +7717,22 @@ class CompassLevels( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__efy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -8318,19 +8361,22 @@ class Commitments( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -8442,11 +8488,13 @@ class CostAreas( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -8455,7 +8503,7 @@ class CostAreas( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -8596,19 +8644,22 @@ class CapitalPlanningInvestmentCodes( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -8753,11 +8804,11 @@ class ColumnSchema( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
 
@@ -8767,7 +8818,7 @@ class ColumnSchema( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -8946,19 +8997,22 @@ class DataRuleDescriptions( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
 			_values = ( self.__schedule, self.__linenumber, self.__rulenumber)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -9532,19 +9586,22 @@ class Defactos( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -10146,19 +10203,22 @@ class Deobligations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -10340,19 +10400,22 @@ class DocumentControlNumbers( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'DocumentControlNumber', ]
 			_values = ( self.__documentcontrolnumber,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -10978,11 +11041,13 @@ class Expenditures( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
 
 		try:
@@ -10991,7 +11056,7 @@ class Expenditures( ):
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -11153,19 +11218,22 @@ class FinanceObjectClasses( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -11186,12 +11254,15 @@ class FinanceObjectClasses( ):
 
 	def getframe( self ) -> DataFrame:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_src = self.__source
 			_data = BudgetData( _src )
@@ -11634,19 +11705,22 @@ class Funds( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'Code', ]
 			_values = ( self.__bfy, self.__efy, self.__code )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -11847,7 +11921,7 @@ class FederalHolidays( ):
 			_names = [ 'BFY', 'EFY', 'Name', ]
 			_values = ( self.__bfy, self.__efy, self.__name,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -12663,19 +12737,22 @@ class FullTimeEquivalents( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -12875,11 +12952,11 @@ class GeneralLedgerAccounts( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
 
@@ -12889,7 +12966,7 @@ class GeneralLedgerAccounts( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -13034,11 +13111,11 @@ class Goals( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
 
@@ -13048,7 +13125,7 @@ class Goals( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbcfg = DbConfig( _source, _provider )
-			_sqlcfg = SqlConfig( names = _names, values = _values )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
@@ -13540,19 +13617,22 @@ class HeadquartersAuthority( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
 			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -13691,19 +13771,22 @@ class HeadquartersOffices( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'RpioCode', ]
 			_values = ( self.__rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -14003,19 +14086,22 @@ class InflationReductionActCarryoverEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -14316,19 +14402,22 @@ class JobsActCarryoverEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -14487,20 +14576,21 @@ class MainAccounts( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -14909,19 +14999,22 @@ class MonthlyActuals( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -15339,19 +15432,22 @@ class MonthlyOutlays( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
 			_values = ( self.__bfy, self.__efy, self.__budgetaccountcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -15512,19 +15608,22 @@ class NationalPrograms( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -15664,19 +15763,22 @@ class Objectives( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = Source.Objectives
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -15814,13 +15916,14 @@ class Organizations( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -16294,17 +16397,20 @@ class OperatingPlans( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( self.__source, self.__provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -17013,13 +17119,23 @@ class OpenCommitments( ):
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        :return: list[ Row ]
+
+        :param: self
+
+		:purpose:
+
+        '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -17718,13 +17834,23 @@ class Obligations( ):
 		         'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        :return: list[ Row ]
+
+        :param: self
+
+		:purpose:
+
+        '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -18124,19 +18250,22 @@ class OutlayRates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'OmbAccountCode', ]
 			_values = ( self.__budgetaccountcode,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -18295,13 +18424,14 @@ class PublicLaws( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -18443,13 +18573,23 @@ class Projects( ):
 		         'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        :return: list[ Row ]
+
+        :param: self
+
+		:purpose:
+
+        '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -18584,13 +18724,23 @@ class ProgramAreas( ):
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        :return: list[ Row ]
+
+        :param: self
+
+		:purpose:
+
+        '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -18751,13 +18901,14 @@ class ProgramProjects( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -19238,12 +19389,15 @@ class ProgramResultsCodes( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -19316,20 +19470,21 @@ class ReportingLines( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -19482,7 +19637,7 @@ class ResponsibilityCenters( ):
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -19620,19 +19775,22 @@ class ResourcePlanningOffices( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -19771,13 +19929,23 @@ class RegionalOffices( ):
 		         'data', 'frame', 'getdata', 'getframe' ]
 
 	def getdata( self ) -> list[ Row ]:
+		'''
+
+        :return: list[ Row ]
+
+        :param: self
+
+		:purpose:
+
+        '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -20069,19 +20237,22 @@ class ReimbursableAgreements( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', ]
 			_values = ( self.__bfy,)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -20667,7 +20838,7 @@ class RegionalAuthority( ):
 			_names = [ 'BFY', 'RpioCode' ]
 			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -21249,12 +21420,15 @@ class StatusOfFunds( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -21609,20 +21783,21 @@ class StatusOfBudgetaryResources( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -21828,20 +22003,21 @@ class StatusOfBudgetExecution( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -22419,19 +22595,22 @@ class StatusOfSupplementalFunding( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -22820,19 +22999,22 @@ class StateGrantObligations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
 			_values = ( self.__rpiocode, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -23259,19 +23441,22 @@ class StatusOfSpecialAccountFunds( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__programcode, self.__interestdate )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -23434,19 +23619,22 @@ class SubAppropriations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code' ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -23588,19 +23776,22 @@ class StateOrganizations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'Code', ]
 			_values = ( self.__code, )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -24396,19 +24587,22 @@ class StatusOfAppropriations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
 			_values = ( self.__bfy, self.__efy, self.__appropriationfundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -24870,12 +25064,15 @@ class SpendingRates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -25458,19 +25655,22 @@ class StatusOfSupplementalFunds( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -26066,19 +26266,22 @@ class StatusOfJobsActFunding( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -26707,20 +26910,21 @@ class StatusOfEarmarks( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -27142,19 +27346,22 @@ class StatusOfSuperfundSites( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'RpioCode' ]
 			_values = ( self.__bfy, self.__rpiocode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -27853,19 +28060,22 @@ class SpendingDocuments( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -28166,19 +28376,22 @@ class SupplementalCarryoverEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -28444,19 +28657,22 @@ class SupplementalObligationEstimates( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'EFY' ]
 			_values = ( self.__bfy, self.__efy)
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -28666,12 +28882,15 @@ class TreasurySymbols( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
@@ -28679,7 +28898,7 @@ class TreasurySymbols( ):
 			_names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
 			_values = ( self.__bfy, self.__efy, self.__treasuryaccountcode )
 			dbcfg = DbConfig( _source, _provider )
-			sqlcfg = SqlConfig( names = _names, values = _values )
+			sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( dbcfg, sqlcfg )
 			_sqlite = _connection.connect( )
@@ -29119,19 +29338,22 @@ class Transfers( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			command = SQL.SELECTALL
 			_names = [ 'DocumentNumber', ]
 			_values = ( self.__documentnumber,)
 			_dbconfig = DbConfig( _source )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -29310,20 +29532,21 @@ class TransTypes( ):
 	def getdata( self ) -> list[ Row ]:
 		'''
 
-        Purpose:
+        :return: list[ Row ]
 
-        Parameters:
+        :param: self
 
-        Returns:
+		:purpose:
 
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode' ]
 			_values = ( self.__bfy, self.__fundcode )
 			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
 			_sql = Command( _dbconfig, _sqlconfig )
 			_sqlite = _connection.connect( )
@@ -29956,24 +30179,27 @@ class UnliquidatedObligations( ):
 
 	def getdata( self ) -> list[ Row ]:
 		'''
-        Purpose:
 
-        Parameters:
+        :return: list[ Row ]
 
-        Returns:
+        :param: self
+
+		:purpose:
+
         '''
+
 		try:
 			_source = self.__source
 			_provider = self.__provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
 			_values = ( self.__bfy, self.__fundcode, self.__accountcode, self.__boccode )
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( names = _names, values = _values )
+			_dbcfg = DbConfig( _source, _provider )
+			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.__source )
-			_sql = Command( _dbconfig, _sqlconfig )
+			_command = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
+			_query = _command.__getquerytext( )
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
