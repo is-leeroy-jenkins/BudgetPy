@@ -23497,11 +23497,13 @@ class StatusOfSpecialAccountFunds( ):
 
 class SubAppropriations( ):
 	'''
+
     Constructor:
     SubAppropriation( bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite )
 
     Purpose:
     Class defines object representing the Sub-Appropriations
+
     '''
 	__source: Source=None
 	__provider: Provider=None
