@@ -978,11 +978,11 @@ class Folder( Path ):
 
 		try:
 			_names = [ ]
-			_msg = "The object 'self' is not a directory!"
+			_msg = "The input path 'input' is not a directory!"
 			if not os.path.isdir( self.__input ):
 				raise Exception( _msg )
 			else:
-				for i in os.walk( _abspath ):
+				for i in os.walk( self.__input ):
 					_dirpath = i[ 0 ]
 					if len( i[ 1 ] ) > 0:
 						for name in i[ 1 ]:
@@ -1133,7 +1133,7 @@ class Folder( Path ):
 				_msg = " 'self' is not a directory!"
 				raise Exception( _msg )
 			else:
-				for i in os.walk( self.__path ):
+				for i in os.walk( self.__input ):
 					yield i
 		except Exception as e:
 			_exc = Error( e )
