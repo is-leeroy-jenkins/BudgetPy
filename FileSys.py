@@ -384,6 +384,53 @@ class Path( ):
 		else:
 			sh.copytree( self.__input, destination )
 
+	def create_link( self, path: str, name: str ) -> str:
+		'''
+
+		Purpose:
+
+			creates a symbolic link of 'path' the name 'name'
+
+		Parameters:
+
+			path: str, name: str
+
+		Returns:
+
+			str
+
+		'''
+		if path is None:
+			_msg = "The argument 'path' is None"
+			raise Exception( _msg )
+		elif name is None:
+			_msg = "The argument 'name' is None"
+			raise Exception( _msg )
+		else:
+			os.link( path, name )
+
+	def read_link( self, path: str ) -> str:
+		'''
+
+		Purpose:
+
+			reads a symbolic link of 'path'
+
+		Parameters:
+
+			path: str, name: str
+
+		Returns:
+
+			str
+
+		'''
+		if path is None:
+			_msg = "The argument 'path' is None"
+			raise Exception( _msg )
+		else:
+			os.readlink( path )
+
 class File( Path ):
 	'''
 	Constructor: File( path: str )
