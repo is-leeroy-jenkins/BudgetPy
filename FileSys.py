@@ -1361,7 +1361,7 @@ class ExcelReport( Excel ):
 		self.__name = super( ).name
 		self.__rows = rows
 		self.__columns = cols
-		self.__dimensions = ( self.__rows, self.__columns )
+		self.__dimensions = ( rows, cols )
 		self.__title = super( ).title
 		self.__workbook = super( ).workbook
 		self.__worksheet = super( ).worksheet
