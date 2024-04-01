@@ -61,7 +61,7 @@ class App( ):
     __excelapp: str=None
     __edge: str=None
     __chrome: str=None
-    __control: str=None
+    __controlpanel: str=None
     __calculator: str=None
 
     @property
@@ -91,7 +91,7 @@ class App( ):
 
     @excel.setter
     def excel( self, value: str ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__excelapp = value
 
     @property
@@ -101,7 +101,7 @@ class App( ):
 
     @chrome.setter
     def chrome( self, value: str ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__chrome = value
 
     @property
@@ -111,7 +111,7 @@ class App( ):
 
     @edge.setter
     def edge( self, value: str ):
-        if isinstance( value, str ) and value != '':
+        if value is not None:
             self.__edge = value
 
     def __init__( self, client: Client ):
@@ -121,7 +121,7 @@ class App( ):
         self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
         self.__edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
-        self.__control = r'C:\Windows\System32\control.exe'
+        self.__controlpanel = r'C:\Windows\System32\control.exe'
         self.__calculator = r'C:\Windows\System32\calc.exe'
 
     def run( self ):
@@ -144,7 +144,7 @@ class App( ):
             elif self.__app == Client.Chrome:
                 sp.Popen( self.__chrome )
             elif self.__app == Client.ControlPanel:
-                sp.Popen( self.__control )
+                sp.Popen( self.__controlpanel )
             elif self.__app == Client.Calculator:
                 sp.Popen( self.__calculator )
         except Exception as e:
