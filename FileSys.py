@@ -1461,6 +1461,7 @@ class ZipFile( ):
 	def file_extension( self ):
 		if self.__fileextension is not None:
 			return self.__fileextension
+
 	@file_extension.setter
 	def file_extension( self, value: str ):
 		if value is not None:
