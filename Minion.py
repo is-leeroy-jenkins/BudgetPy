@@ -11,7 +11,7 @@
   <copyright file="Minion.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
-     Copyright ©  2023  Terry Eppler
+     Copyright ©  2024  Terry Eppler
 
      Permission is hereby granted, free of charge, to any person obtaining a copy
      of this software and associated documentation files (the “Software”),

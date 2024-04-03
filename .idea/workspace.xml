@@ -11,12 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BudgetPy.psproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetPy.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSys.py" beforeDir="false" afterPath="$PROJECT_DIR$/FileSys.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Minion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Minion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/xvba_debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/xvba_debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Static.py" beforeDir="false" afterPath="$PROJECT_DIR$/Static.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +107,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Booger.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Booger.py" root0="SKIP_INSPECTION" />
     <setting file="notebook://C:/Users/teppler/source/repos/BudgetPy/BudgetPy.ipynb" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Data.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
@@ -148,41 +150,41 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/teppler/source/repos/BudgetPy",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "C:/Users/teppler/source/compilers/js/node",
-    "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
-    "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "settings.editor.splitter.proportion": "0.24475019",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/teppler/source/repos/BudgetPy&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/teppler/source/compilers/js/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;C:\\Users\\teppler\\source\\compilers\\js\\npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pBudget&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24475019&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ],
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -417,6 +419,33 @@
       <workItem from="1706727581496" duration="1652000" />
       <workItem from="1706795126958" duration="9569000" />
       <workItem from="1706881931980" duration="1451000" />
+      <workItem from="1710426715539" duration="1371000" />
+      <workItem from="1710428171049" duration="647000" />
+      <workItem from="1710428894339" duration="937000" />
+      <workItem from="1710430675470" duration="585000" />
+      <workItem from="1710431280465" duration="19000" />
+      <workItem from="1710431339132" duration="410000" />
+      <workItem from="1710433871096" duration="347000" />
+      <workItem from="1710434234413" duration="1702000" />
+      <workItem from="1710437100827" duration="344000" />
+      <workItem from="1710437480180" duration="317000" />
+      <workItem from="1710437814681" duration="2060000" />
+      <workItem from="1710441059409" duration="207000" />
+      <workItem from="1710441300690" duration="329000" />
+      <workItem from="1710441639600" duration="7791000" />
+      <workItem from="1711630552026" duration="4218000" />
+      <workItem from="1711670411776" duration="1216000" />
+      <workItem from="1711716619034" duration="608000" />
+      <workItem from="1711960352374" duration="1320000" />
+      <workItem from="1711969887998" duration="7863000" />
+      <workItem from="1711993420693" duration="4568000" />
+      <workItem from="1712055082972" duration="707000" />
+      <workItem from="1712059652784" duration="58000" />
+      <workItem from="1712059728991" duration="1928000" />
+      <workItem from="1712063572618" duration="6946000" />
+      <workItem from="1712148866548" duration="1749000" />
+      <workItem from="1712154348454" duration="1989000" />
+      <workItem from="1712168035079" duration="3998000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -761,7 +790,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="657" />
+    <option name="localTasksCounter" value="665" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
