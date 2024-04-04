@@ -567,11 +567,13 @@ class SqlFile( ):
 
 class DbConfig( ):
     '''
+
     Constructor:
-    DbConfig( source: Source, provider: Provider = Provider.SQLite )
+        DbConfig( source: Source, provider: Provider = Provider.SQLite )
 
     Purpose:
-    Class provides list of Budget Execution tables across two databases
+        Class provides list of Budget Execution tables across two databases
+
     '''
     __source: Source=None
     __provider: Provider=None
@@ -761,7 +763,8 @@ class DbConfig( ):
     def get_driver_info( self ) -> str:
         '''
 
-        Purpose: Returns a string defining the driverinfo being used
+        Purpose:
+            Returns a string defining the driverinfo being used
 
         Parameters:  None
 
@@ -905,10 +908,14 @@ class Connection( DbConfig ):
     def connect( self ):
         '''
         Purpose:
+			Establishes a data connections using the connecdtion
+			string.
 
         Parameters:
+        	self
 
         Returns:
+        	None
         '''
 
         try:
@@ -931,12 +938,12 @@ class SqlConfig( ):
 
      Constructor:
 
-     SqlConfig( commandtype: SQL=SQL.SELECTALL, columnnames: list = None,
-                columnvalues: tuple = None, paramstyle: ParamStyle = None )
+	     SqlConfig( commandtype: SQL=SQL.SELECTALL, columnnames: list = None,
+	                columnvalues: tuple = None, paramstyle: ParamStyle = None )
 
      Purpose:
 
-     Class provides database interaction behavior
+	     Class provides database interaction behavior
 
      '''
     __commandtype: str=None
@@ -2039,9 +2046,9 @@ class DataBuilder( ):
         if value is not None:
             self.__sqlconfig = value
 
-    def __init__( self, source: Source, provider = Provider.SQLite,
-                  commandtype = SQL.SELECTALL, names: list[ str ]=None,
-                  values: tuple = None ):
+    def __init__( self, source: Source, provider: Provider=Provider.SQLite,
+                  commandtype: SQL=SQL.SELECTALL, names: list[ str ]=None,
+                  values: tuple=None ):
         self.__source = source
         self.__provider = provider
         self.__commandtype = commandtype
