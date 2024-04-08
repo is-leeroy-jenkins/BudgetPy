@@ -56,9 +56,9 @@ class App( ):
     processes based on 'Client' enumeration input args
     '''
     __app: Client=None
-    __sqliteclient: str=None
-    __accessclient: str=None
-    __excelapp: str=None
+    __sqlite: str=None
+    __access: str=None
+    __excel: str=None
     __edge: str=None
     __chrome: str=None
     __controlpanel: str=None
@@ -66,33 +66,33 @@ class App( ):
 
     @property
     def sqlite( self ) -> str:
-        if self.__sqliteclient is not None:
-            return self.__sqliteclient
+        if self.__sqlite is not None:
+            return self.__sqlite
 
     @sqlite.setter
     def sqlite( self, value: str ):
         if value is not None:
-            self.__sqliteclient = value
+            self.__sqlite = value
 
     @property
     def access( self ) -> str:
-        if self.__accessclient is not None:
-            return self.__accessclient
+        if self.__access is not None:
+            return self.__access
 
     @access.setter
     def access( self, value: str ):
         if value is not None:
-            self.__accessclient = value
+            self.__access = value
 
     @property
     def excel( self ) -> str:
-        if self.__excelapp is not None:
-            return self.__excelapp
+        if self.__excel is not None:
+            return self.__excel
 
     @excel.setter
     def excel( self, value: str ):
         if value is not None:
-            self.__excelapp = value
+            self.__excel = value
 
     @property
     def chrome( self ) -> str:
@@ -116,9 +116,9 @@ class App( ):
 
     def __init__( self, client: Client ):
         self.__app = client
-        self.__sqliteclient = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
-        self.__accessclient = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
-        self.__excelapp = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
+        self.__sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
+        self.__access = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
+        self.__excel = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
         self.__edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         self.__controlpanel = r'C:\Windows\System32\control.exe'
@@ -134,11 +134,11 @@ class App( ):
         '''
         try:
             if self.__app == Client.SQLite:
-                sp.Popen( self.__sqliteclient )
+                sp.Popen( self.__sqlite )
             elif self.__app == Client.Access:
-                sp.Popen( self.__accessclient )
+                sp.Popen( self.__access )
             elif self.__app == Client.Excel:
-                sp.Popen( self.__excelapp )
+                sp.Popen( self.__excel )
             elif self.__app == Client.Edge:
                 sp.Popen( self.__edge )
             elif self.__app == Client.Chrome:
@@ -166,13 +166,13 @@ class App( ):
         try:
             if args is not None and self.__app == Client.SQLite:
                 if os.path.isfile( args ):
-                    sp.Popen( [ self.__sqliteclient, args ] )
+                    sp.Popen( [ self.__sqlite, args ] )
             elif args is not None and self.__app == Client.Access:
                 if os.path.isfile( args ):
-                    sp.Popen( [ self.__accessclient, args ] )
+                    sp.Popen( [ self.__access, args ] )
             elif args is not None and self.__app == Client.Excel:
                 if os.path.isfile( args ):
-                    sp.Popen( [ self.__excelapp, args ] )
+                    sp.Popen( [ self.__excel, args ] )
             elif args is not None and self.__app == Client.Edge:
                     sp.Popen( args )
             elif args is not None and self.__app == Client.Chrome:
