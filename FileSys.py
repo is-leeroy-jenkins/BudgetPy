@@ -439,7 +439,7 @@ class File( Path ):
 	 '''
 	__absolutepath: str=None
 	__relativepath: str=None
-	__size: int = None
+	__size: int=None
 	__created: datetime = None
 	__modified: datetime = None
 	__accessed: datetime = None

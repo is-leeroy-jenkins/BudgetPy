@@ -63,6 +63,7 @@ class App( ):
     __chrome: str=None
     __controlpanel: str=None
     __calculator: str=None
+    __taskmanager: str=None
 
     @property
     def sqlite( self ) -> str:
@@ -114,6 +115,26 @@ class App( ):
         if value is not None:
             self.__edge = value
 
+    @property
+    def control_panel( self ) -> str:
+        if self.__controlpanel is not None:
+            return self.__controlpanel
+
+    @control_panel.setter
+    def control_panel( self, value: str ):
+        if value is not None:
+            self.__controlpanel = value
+
+    @property
+    def calculator( self ) -> str:
+        if self.__calculator is not None:
+            return self.__calculator
+
+    @calculator.setter
+    def calculator( self, value: str ):
+        if value is not None:
+            self.__calculator = value
+
     def __init__( self, client: Client ):
         self.__app = client
         self.__sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
@@ -123,6 +144,7 @@ class App( ):
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         self.__controlpanel = r'C:\Windows\System32\control.exe'
         self.__calculator = r'C:\Windows\System32\calc.exe'
+        self.__taskmanager = r'C:\WINDOWS\system32\Taskmgr.exe'
 
     def run( self ):
         '''
