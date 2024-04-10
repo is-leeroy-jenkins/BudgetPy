@@ -408,7 +408,7 @@ class ActivityCodes( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -7225,7 +7225,7 @@ class CongressionalControls( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -7379,7 +7379,7 @@ class CongressionalProjects( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -8508,7 +8508,7 @@ class CostAreas( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -8823,7 +8823,7 @@ class ColumnSchema( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -12971,7 +12971,7 @@ class GeneralLedgerAccounts( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
@@ -13130,7 +13130,7 @@ class Goals( ):
 			_sql = Command( _dbcfg, _sqlcfg )
 			_sqlite = _connection.connect( )
 			_cursor = _sqlite.cursor( )
-			_query = _sql.query_text
+			_query = _sql.command_text
 			_db = _cursor.execute( _query )
 			self.__data = [ i for i in _db.fetchall( ) ]
 			_cursor.close( )
