@@ -63,8 +63,7 @@ class App( ):
     __chrome: str=None
     __controlpanel: str=None
     __calculator: str=None
-    __taskmanager: str=None
-    __pyscripter: str=None
+    __outlook: str=None
 
     @property
     def sqlite( self ) -> str:
@@ -147,11 +146,21 @@ class App( ):
             self.__taskmanager = value
 
     @property
+    def outlook( self ) -> str:
+        if self.__outlook is not None:
+            return self.__outlook
+
+    @outlook.setter
+    def outlook( self, value: str ):
+        if value is not None:
+            self.__outlook = value
+
+    @property
     def pyscripter( self ) -> str:
         if self.__pyscripter is not None:
             return self.__pyscripter
 
-    @calculator.setter
+    @pyscripter.setter
     def pyscripter( self, value: str ):
         if value is not None:
             self.__pyscripter = value
@@ -166,8 +175,9 @@ class App( ):
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         self.__controlpanel = r'C:\Windows\System32\control.exe'
         self.__calculator = r'C:\Windows\System32\calc.exe'
+        self.__outlook = r'C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE'
+        self.__pyscripter = r'db\python\PyScripter\PyScripter.exe'
         self.__taskmanager = r'C:\Windows\System32\Taskmgr.exe'
-        self.__pyscripter = r'C:\Users\teppler\source\repos\BudgetPy\db\python\PyScripter\PyScripter.exe'
 
     def run( self ):
         '''
@@ -192,6 +202,12 @@ class App( ):
                 sp.Popen( self.__controlpanel )
             elif self.__app == Client.Calculator:
                 sp.Popen( self.__calculator )
+            elif self.__app == Client.Outlook:
+                sp.Popen( self.__outlook )
+            elif self.__app == Client.Pyscripter:
+                sp.Popen( self.__pyscripter )
+            elif self.__app == Client.TaskManager:
+                sp.Popen( self.__taskmanager )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Minion'
@@ -222,10 +238,8 @@ class App( ):
                     sp.Popen( args )
             elif args is not None and self.__app == Client.Chrome:
                     sp.Popen( [ self.__chrome, args ] )
-            elif args is not None and self.__app == Client.TaskManager:
-                    sp.Popen( [ self.__taskmanager, args ] )
-            elif args is not None and self.__app == Client.Pyscripter:
-                    sp.Popen( [ self.__pyscripter, args ] )
+            elif args is not None and self.__app == Client.Outlook:
+                    sp.Popen( [ self.__outlook, args ] )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Minion'
