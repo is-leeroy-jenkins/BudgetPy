@@ -2189,7 +2189,7 @@ class DataColumn( ):
         if value is not None:
             self.__frame = value
 
-    def __init__( self, name: str = '', dtype: type = None, value: object = None ):
+    def __init__( self, name: str='', dtype: type=None, value: object=None ):
         self.__name = name
         self.__label = name
         self.__caption = name
@@ -2197,7 +2197,7 @@ class DataColumn( ):
         self.__value = value
 
     def __str__( self ) -> str:
-        if isinstance( self.__name, str ) and self.__name != '':
+        if self.__name is not None:
             return self.__name
 
     def is_numeric( self ) -> bool:
