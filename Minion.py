@@ -165,7 +165,6 @@ class App( ):
         if value is not None:
             self.__pyscripter = value
 
-
     def __init__( self, client: Client ):
         self.__app = client
         self.__sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'

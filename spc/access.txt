@@ -8,9 +8,9 @@ from Ninja import *
 import Static as bs
 reload( bs )
 from Static import *
-import Execution as bx
-reload( bx )
-from Execution import *
+import Data as bd
+reload( bd )
+from Data import *
 import FileSys as bf
 reload( bf )
 from FileSys import *
@@ -22,7 +22,8 @@ from Minion import *
 src = Source.ProgramProjects
 pro = Provider.Access
 dbc = DbConfig( src, pro )
-sqc = SqlConfig( )
-sql = SqlStatement( dbc, sqc )
+cols = [ 'ProgramProjectsId', 'Code', 'Name']
+sqc = SqlConfig( columnnames=cols )
+sql = Command( dbc, sqc )
 cnx = Connection( src, pro )
 access = AccessData( cnx, sql )

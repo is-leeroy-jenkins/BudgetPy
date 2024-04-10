@@ -1005,7 +1005,7 @@ class SqlConfig( ):
             self.__criteria = value
 
     def __init__( self, commandtype: SQL=SQL.SELECTALL, columnnames: list[ str ]=None,
-                  columnvalues: tuple=( ), paramstyle: ParamStyle=None ):
+                  columnvalues: tuple=None, paramstyle: ParamStyle=None ):
         self.__commandtype = commandtype
         self.__columnnames = columnnames
         self.__columnvalues = columnvalues
@@ -1253,15 +1253,16 @@ class Command( ):
             command = SQL( 'SELECT' )
             self.__type = command
 
-    def __init__( self, dbcfg: DbConfig, sqlcfg: SqlConfig ):
-        self.__type = sqlcfg.command_type
-        self.__provider = dbcfg.provider
-        self.__source = dbcfg.source
-        self.__tablename = dbcfg.table_name
-        self.__columnnames = sqlcfg.column_dump( )
-        self.__columnvalues = sqlcfg.value_dump( )
-        self.__updates = sqlcfg.set_dump( ) 
-        self.__criteria = dict( zip( sqlcfg.column_names, list( sqlcfg.column_values ) ) ) 
+    def __init__( self, dbconfig: DbConfig, sqlconfig: SqlConfig ):
+        self.__type = sqlconfig.command_type
+        self.__provider = dbconfig.provider
+        self.__source = dbconfig.source
+        self.__tablename = dbconfig.table_name
+        self.__columnnames = sqlconfig.column_dump( )
+        self.__columnvalues = sqlconfig.value_dump( )
+        self.__updates = sqlconfig.set_dump( )
+        self.__criteria = dict( zip( self.__columnnames, list( self.__columnvalues ) ) ) \
+            if self.__columnnames is not None and self.__columnvalues is not None else None
         self.__querytext = self.__getquerytext( )
 
     def __str__( self ) -> str:
@@ -1477,10 +1478,11 @@ class Query( ):
         self.__tablename = self.__source.name
         self.__provider = connection.provider
         self.__commandtype = sqlstatement.type
-        self.__datapath = connection.path
+        self.__datapath = connection.data_path
         self.__connectionstring = connection.connection_string
-        self.__columnnames = list( self.__sqlconfig.criteria.keys( ) )
-        self.__columnvalues = tuple( self.__sqlconfig.criteria.values( ) )
+        self.__columnnames = self.__sqlconfig.column_names
+        self.__columnvalues = tuple( self.__sqlconfig.criteria.values( ) ) \
+            if self.__columnvalues is not None else None
         self.__commandtext = sqlstatement.query_text
 
     def __str__( self ) -> str:
