@@ -281,6 +281,8 @@ class Client( Enum ):
     Chrome = auto( )
     ControlPanel = auto( )
     Calculator = auto( )
+    TaskManager = auto( )
+    Pyscripter = auto( )
 
 class PNG( Enum ):
     '''

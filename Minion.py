@@ -64,6 +64,7 @@ class App( ):
     __controlpanel: str=None
     __calculator: str=None
     __taskmanager: str=None
+    __pyscripter: str=None
 
     @property
     def sqlite( self ) -> str:
@@ -135,6 +136,27 @@ class App( ):
         if value is not None:
             self.__calculator = value
 
+    @property
+    def task_manager( self ) -> str:
+        if self.__taskmanager is not None:
+            return self.__taskmanager
+
+    @task_manager.setter
+    def task_manager( self, value: str ):
+        if value is not None:
+            self.__taskmanager = value
+
+    @property
+    def pyscripter( self ) -> str:
+        if self.__pyscripter is not None:
+            return self.__pyscripter
+
+    @calculator.setter
+    def pyscripter( self, value: str ):
+        if value is not None:
+            self.__pyscripter = value
+
+
     def __init__( self, client: Client ):
         self.__app = client
         self.__sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
@@ -144,7 +166,8 @@ class App( ):
         self.__chrome = r'C:\Program Files\Google\Chrome\Application\chrome.exe'
         self.__controlpanel = r'C:\Windows\System32\control.exe'
         self.__calculator = r'C:\Windows\System32\calc.exe'
-        self.__taskmanager = r'C:\WINDOWS\system32\Taskmgr.exe'
+        self.__taskmanager = r'C:\Windows\System32\Taskmgr.exe'
+        self.__pyscripter = r'C:\Users\teppler\source\repos\BudgetPy\db\python\PyScripter\PyScripter.exe'
 
     def run( self ):
         '''
@@ -199,6 +222,10 @@ class App( ):
                     sp.Popen( args )
             elif args is not None and self.__app == Client.Chrome:
                     sp.Popen( [ self.__chrome, args ] )
+            elif args is not None and self.__app == Client.TaskManager:
+                    sp.Popen( [ self.__taskmanager, args ] )
+            elif args is not None and self.__app == Client.Pyscripter:
+                    sp.Popen( [ self.__pyscripter, args ] )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Minion'
