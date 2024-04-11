@@ -44,7 +44,6 @@
   '''
 import datetime as dt
 from datetime import datetime
-
 from pandas import DataFrame
 from sqlite3 import Row
 from Booger import Error, ErrorDialog
