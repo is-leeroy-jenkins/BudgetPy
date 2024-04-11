@@ -165,6 +165,26 @@ class App( ):
         if value is not None:
             self.__pyscripter = value
 
+    @property
+    def storage( self ) -> str:
+        if self.__storage is not None:
+            return self.__storage
+
+    @storage.setter
+    def storage( self, value: str ):
+        if value is not None:
+            self.__storage = value
+
+    @property
+    def word( self ) -> str:
+        if self.__word is not None:
+            return self.__word
+
+    @word.setter
+    def word( self, value: str ):
+        if value is not None:
+            self.__word = value
+
     def __init__( self, client: Client ):
         self.__app = client
         self.__sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
@@ -177,6 +197,8 @@ class App( ):
         self.__outlook = r'C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE'
         self.__pyscripter = r'db\python\PyScripter\PyScripter.exe'
         self.__taskmanager = r'C:\Windows\System32\Taskmgr.exe'
+        self.__storage = r'C:\Users\teppler\AppData\Local\Microsoft\OneDrive\OneDrive.exe'
+        self.__word = r'C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE'
 
     def run( self ):
         '''

@@ -276,7 +276,7 @@ class Client( Enum ):
     SQLite = auto( )
     Access = auto( )
     Excel = auto( )
-    Linq = auto( )
+    Word = auto( )
     Edge = auto( )
     Chrome = auto( )
     ControlPanel = auto( )
@@ -284,6 +284,7 @@ class Client( Enum ):
     Outlook = auto( )
     Pyscripter = auto( )
     TaskManager = auto( )
+    Storage = auto( )
 
 class PNG( Enum ):
     '''
