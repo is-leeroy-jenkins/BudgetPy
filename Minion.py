@@ -229,6 +229,10 @@ class App( ):
                 sp.Popen( self.__pyscripter )
             elif self.__app == Client.TaskManager:
                 sp.Popen( self.__taskmanager )
+            elif self.__app == Client.Storage:
+                sp.Popen( self.__storage )
+            elif self.__app == Client.Word:
+                sp.Popen( self.__word )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Minion'
@@ -261,6 +265,16 @@ class App( ):
                     sp.Popen( [ self.__chrome, args ] )
             elif args is not None and self.__app == Client.Outlook:
                     sp.Popen( [ self.__outlook, args ] )
+            elif args is not None and self.__app == Client.Pyscripter:
+                    sp.Popen( [ self.__pyscripter, args ] )
+            elif args is not None and self.__app == Client.Word:
+                    sp.Popen( [ self.__word, args ] )
+            elif args is not None and self.__app == Client.TaskManager:
+                    sp.Popen( [ self.__taskmanager, args ] )
+            elif args is not None and self.__app == Client.ControlPanel:
+                    sp.Popen( [ self.__controlpanel, args ] )
+            elif args is not None and self.__app == Client.Storage:
+                    sp.Popen( [ self.__storage, args ] )
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Minion'

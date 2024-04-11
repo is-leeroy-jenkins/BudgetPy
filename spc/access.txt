@@ -22,8 +22,7 @@ from Minion import *
 src = Source.ProgramProjects
 pro = Provider.Access
 dbc = DbConfig( src, pro )
-cols = [ 'ProgramProjectsId', 'Code', 'Name']
-sqc = SqlConfig( columnnames=cols )
-sql = Command( dbc, sqc )
+sqc = SqlConfig( )
+sql = SqlStatement( dbc, sqc )
 cnx = Connection( src, pro )
 access = AccessData( cnx, sql )

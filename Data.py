@@ -1292,34 +1292,28 @@ class SqlStatement( ):
             _cols = self.__columnnames
             _vals = self.__columnvalues
             _where = self.__criteria
-            if self.__columnnames is not None and _vals is not None:
-                if self.__commandtype == SQL.SELECTALL:
-                    if len( _where.items( ) ) == 0:
-                        return  f'SELECT * FROM { _table }'
-                    if len( _where.items( ) ) > 0:
-                        return  f'SELECT ' + _cols + f'FROM { _table }' + f' { _where }'
-                elif self.__commandtype == SQL.SELECT:
-                    if len( _where.items( ) ) == 0:
-                        return  f'SELECT * FROM { _table }'
-                    if len( _where.items( ) ) > 0:
-                        return  f'SELECT ' + _cols + f' FROM { _table }' + f' { _where }'
-                elif self.__commandtype == SQL.INSERT and self.__updates is not None:
-                    return  f'INSERT INTO { _table } ' + f'{ _cols } ' + f'{ _vals }'
-                elif self.__commandtype == SQL.UPDATE:
-                    _set = self.__updates
-                    return f'UPDATE { _table } ' + f'{ _set } ' + f'{ _vals }' + f' { _where }'
-                elif self.__commandtype == SQL.DELETE:
-                    return f'DELETE FROM { _table } ' + f'{ _where }'
-            else:
-                if self.__columnnames is not None and _vals is None:
-                    if self.__commandtype == SQL.SELECT:
-                        cols = _cols.lstrip( '(' ).rstrip( ')' )
-                        return f'SELECT { cols } FROM { _table }'
-                elif self.__columnnames is None and _vals is None:
-                    if self.__commandtype == SQL.SELECTALL:
-                        return f'SELECT * FROM { _table }'
-                elif self.__commandtype == 'DELETE':
-                    return f'DELETE FROM { _table }'
+            _cmd = self.__commandtype
+            _updates = self.__updates
+            if _cmd == SQL.SELECTALL and _cols is None and _vals is None and _where is None:
+	            return  f'SELECT * FROM { _table }'
+            elif _cmd == SQL.SELECT and _cols is not None and _vals is None and _where is not None:
+                return  f'SELECT ' + _cols + f'FROM { _table }' + f' { _where }'
+            elif _cmd == SQL.INSERT and len( _where.items( ) ) > 0:
+                return  f'SELECT ' + _cols + f' FROM { _table }' + f' { _where }'
+            elif _cmd == SQL.INSERT and _cols is not None and _vals is not None:
+                return  f'INSERT INTO { _table } ' + f'{ _cols } ' + f'{ _vals }'
+            elif _cmd == SQL.UPDATE and _cols is not None and _vals is None and _where is not None:
+                _set = self.__updates
+                return f'UPDATE { _table } ' + f'{ _set }' + f'{ _vals }' + f'{ _where }'
+            elif _cmd == SQL.DELETE and _cols is None and _vals is None and _where is not None:
+                return f'DELETE FROM { _table } ' + f'{ _where }'
+            elif _cmd == SQL.SELECT and _cols is not None and _vals is None and _where is None:
+                cols = _cols.lstrip( '(' ).rstrip( ')' )
+                return f'SELECT { cols } FROM { _table }'
+            elif _cmd == SQL.SELECTALL and _cols is None and _vals is None and _where is not None:
+	            return f'SELECT * FROM { _table }' + f'{ _where }'
+            elif _cmd == SQL.DELETE and _cols is None and _vals is None and _where is not None:
+                return f'DELETE FROM { _table }' + f'{ _where }'
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1689,7 +1683,7 @@ class AccessData( Query ):
         '''
 
         try:
-            _query = self.__cooandtext
+            _query = self.__commandtext
             _conn = self.__connection.connect( )
             self.__frame = sqlreader( _query, _conn )
             _conn.close( )
