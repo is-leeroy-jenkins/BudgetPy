@@ -18,7 +18,6 @@ import Minion as bm
 reload( bm )
 from Minion import *
 
-
 src = Source.ProgramProjects
 pro = Provider.Access
 dbc = DbConfig( src, pro )

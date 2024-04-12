@@ -1252,14 +1252,14 @@ class SqlStatement( ):
             command = SQL( 'SELECT' )
             self.__commandtype = command
 
-    def __init__( self, dbconfig: DbConfig, sqlconfig: SqlConfig ):
-        self.__commandtype = sqlconfig.command_type
-        self.__provider = dbconfig.provider
-        self.__source = dbconfig.source
-        self.__tablename = dbconfig.table_name
-        self.__columnnames = sqlconfig.column_dump( )
-        self.__columnvalues = sqlconfig.value_dump( )
-        self.__updates = sqlconfig.set_dump( )
+    def __init__( self, dbcfg: DbConfig, sqcfg: SqlConfig ):
+        self.__commandtype = sqcfg.command_type
+        self.__provider = dbcfg.provider
+        self.__source = dbcfg.source
+        self.__tablename = dbcfg.table_name
+        self.__columnnames = sqcfg.column_dump( )
+        self.__columnvalues = sqcfg.value_dump( )
+        self.__updates = sqcfg.set_dump( )
         self.__criteria = dict( zip( self.__columnnames, list( self.__columnvalues ) ) ) \
             if self.__columnnames is not None and self.__columnvalues is not None else None
         self.__commandtext = self.__getquerytext( )

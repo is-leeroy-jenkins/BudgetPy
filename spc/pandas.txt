@@ -1,5 +1,22 @@
-import numpy as np
-import pandas as pd
+from importlib import reload
+import Booger as bg
+reload( bg )
+from Booger import *
+import Ninja as bn
+reload( bn )
+from Ninja import *
+import Static as bs
+reload( bs )
+from Static import *
+import Data as bd
+reload( bd )
+from Data import *
+import FileSys as bf
+reload( bf )
+from FileSys import *
+import Minion as bm
+reload( bm )
+from Minion import *
 
 a1 = np.array( [ 1, 2, 3, 4, 5 ] )
 a2 = np.array( range( 10 ) )

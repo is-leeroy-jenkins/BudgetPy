@@ -200,6 +200,12 @@ class App( ):
         self.__storage = r'C:\Users\teppler\AppData\Local\Microsoft\OneDrive\OneDrive.exe'
         self.__word = r'C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE'
 
+    def __dir__( self ) -> list[ str ]:
+	    return [ 'sqlite', 'access', 'excel', 'chrome',
+		         'edge', 'control', 'calculator', 'task_manager',
+		         'outlook', 'pyscripter', 'storage', 'word',
+		         'run', 'run_args' ]
+
     def run( self ):
         '''
         Purpose:
