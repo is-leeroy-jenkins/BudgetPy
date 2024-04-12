@@ -617,10 +617,10 @@ class DbConfig( ):
         if value is not None:
             self.__tablename = value
 
-    def __init__( self, source: Source, provider: Provider = Provider.SQLite ):
-        self.__provider = provider
-        self.__source = source
-        self.__tablename = source.name
+    def __init__( self, src: Source, pro: Provider = Provider.SQLite ):
+        self.__provider = pro
+        self.__source = src
+        self.__tablename = src.name
         self.__sqlitepath = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
         self.__accessdriver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
         self.__accesspath = os.getcwd( ) + r'\db\access\datamodels\sql\Data.accdb'
@@ -887,8 +887,8 @@ class Connection( DbConfig ):
         if value is not None:
             self.__connectionstring = value
 
-    def __init__( self, source: Source, provider: Provider=Provider.SQLite ):
-        super( ).__init__( source, provider )
+    def __init__( self, src: Source, pro: Provider=Provider.SQLite ):
+        super( ).__init__( src, pro )
         self.__source = super( ).source
         self.__provider = super( ).provider
         self.__datapath = super( ).get_data_path( )
@@ -1004,14 +1004,14 @@ class SqlConfig( ):
         if value is not None:
             self.__criteria = value
 
-    def __init__( self, commandtype: SQL=SQL.SELECTALL, columnnames: list[ str ]=None,
-                  columnvalues: tuple=None, paramstyle: ParamStyle=None ):
-        self.__commandtype = commandtype
-        self.__columnnames = columnnames
-        self.__columnvalues = columnvalues
+    def __init__( self, cmd: SQL=SQL.SELECTALL, names: list[ str ]=None,
+                  values: tuple=None, paramstyle: ParamStyle=None ):
+        self.__commandtype = cmd
+        self.__columnnames = names
+        self.__columnvalues = values
         self.__paramstyle = paramstyle
-        self.__criteria = dict( zip( columnnames, list( columnvalues ) ) ) \
-            if columnnames is not None and columnvalues is not None else None
+        self.__criteria = dict( zip( names, list( values ) ) ) \
+            if names is not None and values is not None else None
 
     def __dir__( self ) -> list[ str ]:
         '''
@@ -1230,6 +1230,19 @@ class SqlStatement( ):
             self.__updates = value
 
     @property
+    def command_type( self ) -> SQL:
+        if self.__commandtype is not None:
+            return self.__commandtype
+
+    @command_type.setter
+    def command_type( self, value: SQL ):
+        if value is not None:
+            self.__commandtype = value
+        else:
+            command = SQL( 'SELECT' )
+            self.__commandtype = command
+
+    @property
     def command_text( self ) -> str:
         if self.__commandtext is not None:
             return self.__commandtext
@@ -1238,19 +1251,6 @@ class SqlStatement( ):
     def command_text( self, value: str ):
         if value is not None:
             self.__commandtext = value
-
-    @property
-    def type( self ) -> SQL:
-        if self.__commandtype is not None:
-            return self.__commandtype
-
-    @type.setter
-    def type( self, value: SQL ):
-        if value is not None:
-            self.__commandtype = value
-        else:
-            command = SQL( 'SELECT' )
-            self.__commandtype = command
 
     def __init__( self, dbcfg: DbConfig, sqcfg: SqlConfig ):
         self.__commandtype = sqcfg.command_type
@@ -1470,7 +1470,7 @@ class Query( ):
         self.__source = conn.source
         self.__tablename = self.__source.name
         self.__provider = conn.provider
-        self.__commandtype = sql.type
+        self.__commandtype = sql.command_type
         self.__datapath = conn.data_path
         self.__connectionstring = conn.connection_string
         self.__columnnames = self.__sqlconfig.column_names
@@ -1876,11 +1876,11 @@ class BudgetData( ):
         if value is not None:
             self.__commandtext = value
 
-    def __init__( self, source: Source ):
-        self.__source = source
-        self.__tablename = source.name
-        self.__path = DbConfig( source ).get_data_path( )
-        self.__commandtext = f'SELECT * FROM {source.name};'
+    def __init__( self, src: Source ):
+        self.__source = src
+        self.__tablename = src.name
+        self.__path = DbConfig( src ).get_data_path( )
+        self.__commandtext = f'SELECT * FROM {src.name};'
 
     def __dir__( self ) -> list[ str ]:
         '''
@@ -1944,7 +1944,7 @@ class BudgetData( ):
             _err = ErrorDialog( _exc )
             _err.show( )
 
-class DataBuilder( ):
+class DataBuilder( BudgetData ):
     '''
     Constructor:
 
@@ -1957,17 +1957,6 @@ class DataBuilder( ):
     Class provides functionality to access application data.
 
     '''
-    __names: list[ str ]=None
-    __values: tuple=None
-    __commandtype: SQL=None
-    __source: Source=None
-    __provider: Provider=None
-    __dbconfig: DbConfig=None
-    __sqlconfig: SqlConfig=None
-    __connection: Connection=None
-    __sqlstatement: SqlStatement=None
-    __commandtext: str=None
-    __data: list[ db.Row ]=None
 
     @property
     def source( self ) -> Source:
@@ -1992,36 +1981,6 @@ class DataBuilder( ):
             self.__provider = Provider.SQLite
 
     @property
-    def command( self ) -> SQL:
-        if self.__commandtype is not None:
-            return self.__commandtype
-
-    @command.setter
-    def command( self, value: SQL ):
-        if value is not None:
-            self.__commandtype = value
-
-    @property
-    def names( self ) -> list[ str ]:
-        if self.__names is not None:
-            return self.__names
-
-    @names.setter
-    def names( self, value: list[ str ] ):
-        if value is not None:
-            self.__names = value
-
-    @property
-    def values( self ) -> tuple:
-        if self.__values is not None:
-            return self.__values
-
-    @values.setter
-    def values( self, value: tuple ):
-        if value is not None:
-            self.__values = value
-
-    @property
     def dbconfig( self ) -> DbConfig:
         if self.__dbconfig is not None:
             return self.__dbconfig
@@ -2041,42 +2000,42 @@ class DataBuilder( ):
         if value is not None:
             self.__sqlconfig = value
 
-    def __init__( self, source: Source, provider: Provider=Provider.SQLite,
-                  command: SQL=SQL.SELECTALL, names: list[ str ]=None,
-                  values: tuple=None ):
-        self.__source = source
-        self.__provider = provider
-        self.__commandtype = command
-        self.__name = names
-        self.__values = values
-        self.__dbconfig = DbConfig( source, provider )
-        self.__connection = Connection( source )
-        self.__sqlconfig = SqlConfig( command, names, values )
-        self.__sqlstatement = SqlStatement( self.__dbconfig, self.__sqlconfig )
+    def __init__( self, src: Source ):
+	    super( ).__init__( src )
+	    self.__source = super( ).source
+	    self.__tablename = super( ).table_name
+	    self.__path = super( ).data_path
+	    self.__commandtext = super( ).command_text
 
-    def create_table( self ) -> list[ db.Row ]:
+    def create_tuples( self ) -> list[ tuple ]:
+	    try:
+		    _data = super( ).create_tuples( )
+		    _msg = 'INVALID INPUT!'
+		    if _data is None:
+			    raise Exception( _msg )
+			elif _data is not None:
+			    return _data
+	    except Exception as e:
+		    _exc = Error( e )
+		    _exc.module = 'Data'
+		    _exc.cause = 'DataBuilder'
+		    _exc.method = 'create_tuples( self )'
+		    _error = ErrorDialog( _exc )
+		    _error.show( )
+
+    def create_frame( self ) -> DataFrame:
         try:
-            if self.__provider == Provider.SQLite:
-                _sqlite = SQLiteData( self.__connection, self.__sqlstatement )
-                self.__data = [ i for i in _sqlite.create_table( ) ]
-                return self.__data
-            elif self.__provider == Provider.Access:
-                _access = AccessData( self.__connection, self.__sqlstatement )
-                self.__data = [ i for i in _access.create_table( ) ]
-                return self.__data
-            elif self.__provider == Provider.SqlServer:
-                _sql = SqlServerData( self.__connection, self.__sqlstatement )
-                self.__data = [ i for i in _sql.create_table( ) ]
-                return self.__data
-            else:
-                _sqlite = SQLiteData( self.__connection, self.__sqlstatement )
-                self.__data = [ i for i in _sqlite.create_table( ) ]
-                return self.__data
+	        _frame = super( ).create_frame()
+	        _msg = 'INVALID INPUT!'
+	        if _frame is None:
+		        raise Exception( _msg )
+		    elif _frame is not None
+			    return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'DataBuilder'
-            _exc.method = 'create_table( self )'
+            _exc.method = 'create_frame( self )'
             _error = ErrorDialog( _exc )
             _error.show( )
 
