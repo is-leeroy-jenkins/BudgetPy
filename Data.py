@@ -556,7 +556,11 @@ class SqlFile( ):
                     _path = os.path.join( _folder, name )
                     _query = open( _path )
                     _sql = _query.read( )
-                    return _sql
+                if _sql is None:
+                    _msg = 'INVALID INPUT!'
+                    raise ValueError( _msg )
+                else:
+	                return _sql
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1039,7 +1043,11 @@ class SqlConfig( ):
                 for k, v in _kvp:
                     _pairs += f'{k} = \'{v}\' AND '
                 _criteria = _pairs.rstrip( ' AND ' )
-                return _criteria
+                if _criteria is None:
+	                _msg = 'INVALID INPUT!'
+	                raise ValueError( _msg )
+	        else:
+	                return _criteria
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1058,12 +1066,17 @@ class SqlConfig( ):
         '''
 
         try:
-            if isinstance( self.__columnnames, list ) and isinstance( self.__columnvalues, tuple ):
+            if (isinstance( self.__columnnames, list ) and
+		            isinstance( self.__columnvalues, tuple )):
                 pairs = ''
                 for k, v in zip( self.__columnnames, self.__columnvalues ):
                     pairs += f'{k} = \'{v}\' AND '
                 criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
-                return criteria
+                if _criteria is None:
+	                _msg = 'INVALID INPUT!'
+	                raise ValueError( _msg )
+	        else:
+	                return criteria
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1090,7 +1103,11 @@ class SqlConfig( ):
                 for k, v in zip( self.__columnnames, self.__columnvalues ):
                     _pairs += f'{k} = \'{v}\', '
                 _criteria = 'SET ' + _pairs.rstrip( ', ' )
-                return _criteria
+                if _criteria is None:
+	                _msg = 'INVALID INPUT!'
+	                raise ValueError( _msg )
+	        else:
+	                return _criteria
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1114,6 +1131,10 @@ class SqlConfig( ):
                 for n in self.__columnnames:
                     _colnames += f'{n}, '
                 _columns = '(' + _colnames.rstrip( ', ' ) + ')'
+                if _columsn is None:
+	                _msg = 'INVALID INPUT!'
+	                raise ValueError( _msg )
+            else:
                 return _columns
         except Exception as e:
             _exc = Error( e )
@@ -1137,8 +1158,12 @@ class SqlConfig( ):
                 _vals = ''
                 for v in self.__columnvalues:
                     _vals += f'{v}, '
-                _values = 'VALUES (' + _vals.rstrip( ', ' ) + ')'
-                return _values
+                    _values = 'VALUES (' + _vals.rstrip( ', ' ) + ')'
+	            if _values is None:
+	                _msg = 'INVALID INPUT!'
+	                raise ValueError( _msg )
+		    else:
+		        return _values
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1540,33 +1565,6 @@ class SQLiteData( Query ):
                  'commandtype', 'tablename', 'columnnames', 'values', 'driverinfo',
                  'commandtext', 'connectionstring', 'create_table', 'create_frame' ]
 
-    def create_table( self ) -> list[ db.Row ]:
-        '''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
-
-        try:
-            _query = self.__query
-            _conn = self.__connection.connect( )
-            _cursor = _conn.cursor( )
-            _data = _cursor.execute( _query )
-            self.__columns = [ i[ 0 ] for i in _cursor.description ]
-            self.__data = [ i for i in _data.fetchall( ) ]
-            _cursor.close( )
-            _conn.close( )
-            return self.__data
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'SQLiteData'
-            _exc.method = 'create_table( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
     def create_frame( self ) -> DataFrame:
         '''
 
@@ -1579,16 +1577,54 @@ class SQLiteData( Query ):
         '''
 
         try:
-            _query = f'SELECT * FROM {self.__source.name}'
-            _connection = self.__connection.connect( )
-            self.__frame = sqlreader( _query, _connection )
-            _connection.close( )
-            return self.__frame
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            if _frame is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SQLiteData'
             _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
+    def create_tuples( self ) -> list[ tuple ]:
+        '''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+        try:
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            _data = [ tuple( i ) for i in _frame.iterrows( ) ]
+            if _data is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _data
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Data'
+            _exc.cause = 'SQLiteData'
+            _exc.method = 'create_tuples( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1646,53 +1682,66 @@ class AccessData( Query ):
                  'command_text', 'connection_string',
                  'frame', 'create_table', 'create_frame' ]
 
-    def create_table( self ) -> list[ db.Row ]:
-        '''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
-
-        try:
-            _query = self.__cooandtext
-            _access = self.__connection.connect( )
-            _cursor = _access.cursor( )
-            _data = _cursor.execute( _query )
-            self.__columns = [ i[ 0 ] for i in _cursor.description ]
-            self.__data = [ i for i in _data.fetchall( ) ]
-            _cursor.close( )
-            _access.close( )
-            return self.__data
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'AccessData'
-            _exc.method = 'create_table( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
     def create_frame( self ) -> DataFrame:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
-            _query = self.__commandtext
-            _conn = self.__connection.connect( )
-            self.__frame = sqlreader( _query, _conn )
-            _conn.close( )
-            return self.__frame
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            if _frame is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'AccessData'
             _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
+    def create_tuples( self ) -> list[ tuple ]:
+        '''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+        try:
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            _data = [ tuple( i ) for i in _frame.iterrows( ) ]
+            if _data is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _data
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Data'
+            _exc.cause = 'AccessData'
+            _exc.method = 'create_tuples( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1749,55 +1798,66 @@ class SqlServerData( Query ):
                  'commandtext', 'connectionstring',
                  'frame', 'create_table', 'create_frame' ]
 
-    def create_table( self ) -> list[ db.Row ]:
-        '''
-
-        Purpose:
-
-        Parameters:
-
-        Returns:
-
-        '''
-
-        try:
-            _query = self.__commandtext
-            _connection = self.__connection.connect( )
-            _cursor = _connection.cursor( )
-            _data = _cursor.execute( _query )
-            self.__columns = [ i[ 0 ] for i in _cursor.description ]
-            self.__data = [ i for i in _data.fetchall( ) ]
-            _cursor.close( )
-            _connection.close( )
-            return self.__data
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'SqlServerData'
-            _exc.method = 'create_table( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
-
     def create_frame( self ) -> DataFrame:
         '''
+
         Purpose:
 
         Parameters:
 
         Returns:
+
         '''
 
         try:
-            _query = f'SELECT * FROM {self.__table}'
-            _connection = self.__connection.connect( )
-            self.__frame = sqlreader( _query, _connection )
-            _connection.close( )
-            return self.__frame
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            if _frame is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
             _exc.cause = 'SqlServerData'
             _exc.method = 'create_frame( self )'
+            _err = ErrorDialog( _exc )
+            _err.show( )
+
+    def create_tuples( self ) -> list[ tuple ]:
+        '''
+
+        Purpose:
+
+        Parameters:
+
+        Returns:
+
+        '''
+
+        try:
+            _path = self.__path
+            _source = self.__source
+            _table = self.__source.name
+            _connection = sqlite.connect( _path )
+            _sql = f'SELECT * FROM {_table};'
+            _frame = sqlreader( _sql, _connection )
+            _data = [ tuple( i ) for i in _frame.iterrows( ) ]
+            if _data is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _data
+        except Exception as e:
+            _exc = Error( e )
+            _exc.module = 'Data'
+            _exc.cause = 'SqlServerData'
+            _exc.method = 'create_tuples( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
 
@@ -1907,7 +1967,11 @@ class BudgetData( ):
             _connection = sqlite.connect( _path )
             _sql = f'SELECT * FROM {_table};'
             _frame = sqlreader( _sql, _connection )
-            return _frame
+            if _frame is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1935,7 +1999,11 @@ class BudgetData( ):
             _sql = f'SELECT * FROM {_table};'
             _frame = sqlreader( _sql, _connection )
             _data = [ tuple( i ) for i in _frame.iterrows( ) ]
-            return _data
+            if _data is None:
+                _msg = "INVALID INPUT!"
+                raise ValueError( _msg )
+            else:
+                return _data
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -2010,11 +2078,11 @@ class DataBuilder( BudgetData ):
     def create_tuples( self ) -> list[ tuple ]:
 	    try:
 		    _data = super( ).create_tuples( )
-		    _msg = 'INVALID INPUT!'
 		    if _data is None:
-			    raise Exception( _msg )
-			elif _data is not None:
-			    return _data
+			    _msg = 'INVALID INPUT!'
+			    raise ValueError( _msg )
+		    else:
+		        return _data
 	    except Exception as e:
 		    _exc = Error( e )
 		    _exc.module = 'Data'
@@ -2026,11 +2094,11 @@ class DataBuilder( BudgetData ):
     def create_frame( self ) -> DataFrame:
         try:
 	        _frame = super( ).create_frame()
-	        _msg = 'INVALID INPUT!'
 	        if _frame is None:
-		        raise Exception( _msg )
-		    elif _frame is not None
-			    return _frame
+	            _msg = 'INVALID INPUT!'
+	            raise ValueError( _msg )
+	        else:
+		        return _frame
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'

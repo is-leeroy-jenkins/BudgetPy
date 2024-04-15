@@ -1351,7 +1351,7 @@ class ErrorDialog( Dark ):
 		         'info', 'cause', 'method',
 		         'module', 'type', 'message' 'show' ]
 
-	def show( self ):
+	def show( self ) -> object:
 		_msg = self.__heading if isinstance( self.__heading, str ) else None
 		_info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
 		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
