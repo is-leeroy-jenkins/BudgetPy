@@ -1368,67 +1368,6 @@ class BudgetData( ):
         pandas dataframes.
 
     '''
-    source: Source=None
-    tablename: str=None
-    __path: str=None
-    connection: Connection=None
-    commandtext: str=None
-
-    @property
-    def source( self ) -> Source:
-        ''' Gets a member of the Source enumeration'''
-        if self.source is not None:
-            return self.source
-
-    @source.setter
-    def source( self, value: Source ):
-        '''Sets a member of the Source enumeration'''
-        if value is not None:
-            self.source = value
-
-    @property
-    def table_name( self ) -> str:
-        '''Get the name of the data source'''
-        if self.table_name is not None:
-            return self.table_name
-
-    @table_name.setter
-    def table_name( self, value: str ):
-        '''Sets the name of the data source'''
-        if value is not None:
-            self.table_name = value
-
-    @property
-    def data_path( self ) -> str:
-        '''
-        Gets a string  to the data source
-        '''
-        if self.data_path is not None:
-            return self.data_path
-
-    @data_path.setter
-    def data_path( self, value: str ):
-        '''
-        Sets a string to the data source
-        '''
-        if value is not None:
-            self.data_path = value
-
-    @property
-    def command_text( self ) -> str:
-        '''
-        Gets a string representing the SQL command text
-        '''
-        if self.command_text is not None:
-            return self.command_text
-
-    @command_text.setter
-    def command_text( self, value: str ):
-        '''
-        Sets a string representing the SQL command text
-        '''
-        if value is not None:
-            self.command_text = value
 
     def __init__( self, src: Source ):
         self.source = src
