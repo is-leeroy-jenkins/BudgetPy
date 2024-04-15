@@ -1046,7 +1046,7 @@ class SqlConfig( ):
                 if _criteria is None:
 	                _msg = 'INVALID INPUT!'
 	                raise ValueError( _msg )
-	        else:
+            else:
 	                return _criteria
         except Exception as e:
             _exc = Error( e )
@@ -1071,12 +1071,12 @@ class SqlConfig( ):
                 pairs = ''
                 for k, v in zip( self.__columnnames, self.__columnvalues ):
                     pairs += f'{k} = \'{v}\' AND '
-                criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
+                _criteria = 'WHERE ' + pairs.rstrip( ' AND ' )
                 if _criteria is None:
 	                _msg = 'INVALID INPUT!'
 	                raise ValueError( _msg )
-	        else:
-	                return criteria
+            else:
+	            return _criteria
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1106,8 +1106,8 @@ class SqlConfig( ):
                 if _criteria is None:
 	                _msg = 'INVALID INPUT!'
 	                raise ValueError( _msg )
-	        else:
-	                return _criteria
+            else:
+	            return _criteria
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
@@ -1159,11 +1159,11 @@ class SqlConfig( ):
                 for v in self.__columnvalues:
                     _vals += f'{v}, '
                     _values = 'VALUES (' + _vals.rstrip( ', ' ) + ')'
-	            if _values is None:
-	                _msg = 'INVALID INPUT!'
-	                raise ValueError( _msg )
-		    else:
-		        return _values
+                    if _values is None:
+                        _msg = 'INVALID INPUT!'
+                        raise ValueError( _msg )
+            else:
+		            return _values
         except Exception as e:
             _exc = Error( e )
             _exc.module = 'Data'
