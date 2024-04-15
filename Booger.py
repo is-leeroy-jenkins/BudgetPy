@@ -46,13 +46,13 @@ import PySimpleGUI as sg
 from typing import Type
 import base64
 import webbrowser
-#import fitz
+# import fitz
 from PIL import Image, ImageTk, ImageSequence
 from enum import Enum
 from sys import exit, exc_info
 import random
 import io
-#from googlesearch import search
+# from googlesearch import search
 from Minion import App
 import traceback
 import numpy as np
@@ -76,10 +76,10 @@ class Error( Exception ):
     Purpose:
         Class wrapping exception used as the input argument for ErrorDialog class
     '''
-
-
-	def __init__( self, exception: Exception, heading: str=None, cause: str=None,
-	              method: str=None, module: str=None ):
+	
+	
+	def __init__( self, exception: Exception, heading: str = None, cause: str = None,
+	              method: str = None, module: str = None ):
 		super( ).__init__( )
 		self.heading = heading
 		self.cause = cause
@@ -88,11 +88,11 @@ class Error( Exception ):
 		self.type = exc_info( )[ 0 ]
 		self.trace = traceback.format_exc( )
 		self.info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
-
+	
 	def __str__( self ) -> str:
 		if self.info is not None:
 			return self.info
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -116,11 +116,11 @@ class ButtonIcon( ):
 		self.name = png.name
 		self.button = os.getcwd( ) + r'\etc\img\button'
 		self.file_path = self.button + r'\\' + self.name + '.png'
-
+	
 	def __str__( self ) -> str:
 		if self.file_path is not None:
 			return self.file_path
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -137,16 +137,16 @@ class TitleIcon( ):
 	Purpose:
 	Class used to define the TitleIcon used on the GUI
 	'''
-
+	
 	def __init__( self, ico ):
 		self.name = ico.name
 		self.folder = os.getcwd( ) + r'etc\ico'
 		self.file_path = self.folder + r'\\' + self.name + r'.ico'
-
+	
 	def __str__( self ) -> str:
 		if self.file_path is not None:
 			return self.file_path
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -156,15 +156,24 @@ class TitleIcon( ):
 		return [ 'folder', 'name', 'file_path' ]
 
 class Dark( ):
-	'''
-	Construcotr:
-	Sith( )
 
-	Purpose:
-	Base class for the dark-mode controls
-	'''
-
-
+	theme_background: str=None
+	element_backcolor: str=None
+	element_forecolor: str=None
+	text_forecolor: str=None
+	text_backcolor: str=None
+	input_backcolor: str=None
+	input_forecolor: str=None
+	button_color: str=None
+	button_forecolor: str=None
+	button_backcolor: str=None
+	icon_path: str=None
+	theme_font: str=None
+	scroll_barcolor: str=None
+	progressbar_backcolor: str=None
+	form_size: ( int, int )=None
+	settings_path: str=None
+	
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
 		sg.theme_input_text_color( '#FFFFFF' )
@@ -174,22 +183,23 @@ class Dark( ):
 		self.theme_textcolor = sg.theme_text_color( )
 		self.element_backcolor = sg.theme_text_element_background_color( )
 		self.element_forecolor = sg.theme_element_text_color( )
+		self.text_forecolor = sg.theme_text_color( )
 		self.text_backcolor = sg.theme_text_element_background_color( )
 		self.input_forecolor = sg.theme_input_text_color( )
 		self.input_backcolor = sg.theme_input_background_color( )
 		self.button_backcolor = sg.theme_button_color_background( )
 		self.button_forecolor = sg.theme_button_color_text( )
 		self.button_color = sg.theme_button_color( )
-		self.icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
-		self.theme_font = ( 'Roboto', 9 )
+		self.icon_path = os.getcwd( ) + r'\etc\ico\ninja.ico'
+		self.theme_font = ('Roboto', 9)
 		self.scrollbar_color = '#755600'
 		self.progressbar_backcolor = sg.theme_progress_bar_color( )
-		self.form_size = ( 400, 200 )
+		self.form_size = (400, 200)
 		self.settings_path = os.getcwd( ) + r'\etc\theme'
-		sg.set_global_icon( icon = self.icon )
-		sg.set_options( font = self.theme_font )
+		sg.set_global_icon( icon=self.icon_path )
+		sg.set_options( font=self.theme_font )
 		sg.user_settings_save( 'Budget', self.settings_path )
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -214,36 +224,36 @@ class FileDialog( Dark ):
 
 	'''
 	
-
+	
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
-		self.theme_background = super( ).theme_background
-		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.theme_background = sg.theme_background_color( )
+		self.theme_font = ('Roboto', 9)
+		self.icon_path = os.getcwd( ) + r'\etc\ico\ninja.ico'
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
-		self.theme_textcolor = super( ).text_forecolor
+		self.text_forecolor = super( ).text_forecolor
 		self.text_backcolor = super( ).text_backcolor
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 475, 240 )
+		self.form_size = (475, 240)
 		self.selected_item = None
 		self.message = 'Search for File'
 		self.extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-		self.excel = ( ( 'Excel Files', '*.xlsx' ), )
-		self.csv = ( ( 'CSV Files', '*.csv' ), )
-		self.pdf = ( ( 'PDF Files', '*.pdf' ), )
-		self.sql = ( ( 'SQL Files', '*.sqlstatement', ), )
-		self.text = ( ( 'Text Files', '*.txt' ), )
-		self.access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
-		self.sqlite = ( ( 'SQLite Databases', '*.db' ), )
-		self.sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
-
+		self.excel = (('Excel Files', '*.xlsx'),)
+		self.csv = (('CSV Files', '*.csv'),)
+		self.pdf = (('PDF Files', '*.pdf'),)
+		self.sql = (('SQL Files', '*.sqlstatement',),)
+		self.text = (('Text Files', '*.txt'),)
+		self.access = (('MS ACCDB Databases', '*.accdb'),)
+		self.sqlite = (('SQLite Databases', '*.db'),)
+		self.sqlserver = (('SQL Server Databases', '*.mdf', '*.ldf', '*.sdf'),)
+	
 	def __str__( self ) -> str:
 		if self.selected_item is not None:
 			return self.selected_item
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -257,7 +267,7 @@ class FileDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'selected_path', 'message', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -268,25 +278,25 @@ class FileDialog( Dark ):
 		'''
 		try:
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Text( self.message, font = ( 'Roboto', 11 ) ) ],
+			            [ sg.Text( self.message, font=('Roboto', 11) ) ],
 			            [ sg.Text( ) ],
-			            [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
+			            [ sg.Input( key='-PATH-' ), sg.FileBrowse( size=(15, 1) ) ],
 			            [ sg.Text( ) ],
 			            [ sg.Text( ) ],
-			            [ sg.OK( size = ( 8, 1 ), ), sg.Cancel( size = ( 10, 1 ) ) ] ]
-
+			            [ sg.OK( size=(8, 1), ), sg.Cancel( size=(10, 1) ) ] ]
+			
 			_window = sg.Window( ' Budget Execution', _layout,
-				font = self.theme_font,
-				size = self.form_size )
-
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
-				if _event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
+				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
-				elif _event == 'OK':
+				elif _event=='OK':
 					self.selected_item = _values[ '-PATH-' ]
 					_window.close( )
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -305,12 +315,12 @@ class FolderDialog( Dark ):
 	Class defining dialog used to select a directory path
 	'''
 	
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -318,13 +328,13 @@ class FolderDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 475, 250 )
+		self.form_size = (475, 250)
 		self.selected_item = None
-
+	
 	def __str__( self ) -> str:
 		if isinstance( self.selected_item, str ):
 			return self.selected_item
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -338,7 +348,7 @@ class FolderDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'selected_path', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -351,26 +361,26 @@ class FolderDialog( Dark ):
 			_layout = [ [ sg.Text( ) ],
 			            [ sg.Text( 'Search for Directory' ) ],
 			            [ sg.Text( ) ],
-			            [ sg.Input( key = '-PATH-' ), sg.FolderBrowse( size = ( 15, 1 ) ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
-
+			            [ sg.Input( key='-PATH-' ), sg.FolderBrowse( size=(15, 1) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.OK( size=(8, 1) ), sg.Cancel( size=(10, 1) ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				font = self.theme_font,
-				size = self.form_size )
-
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
-				elif _event == 'OK':
+				elif _event=='OK':
 					self.selected_item = _values[ '-PATH-' ]
 					sg.popup_ok( self.selected_item,
-						title = 'Results',
-						icon = self.icon,
-						font = self.theme_font )
-
+						title='Results',
+						icon=self.icon_path,
+						font=self.theme_font )
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -388,12 +398,12 @@ class SaveFileDialog( Dark ):
     Class define object that provides a dialog to locate file destinations
     '''
 	
-
+	
 	def __init__( self, path='' ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -401,13 +411,13 @@ class SaveFileDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 400, 250 )
+		self.form_size = (400, 250)
 		self.original = path
-
+	
 	def __str__( self ) -> str:
 		if self.file_name is not None:
 			return self.file_name
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -421,7 +431,7 @@ class SaveFileDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'original', 'file_name', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -433,13 +443,13 @@ class SaveFileDialog( Dark ):
 		try:
 			_username = os.environ.get( 'USERNAME' )
 			_filename = sg.popup_get_file( 'Select Location / Enter File Name',
-				title = '  Budget Execution',
-				font = self.theme_font,
-				icon = self.icon,
-				save_as = True )
-
+				title='  Budget Execution',
+				font=self.theme_font,
+				icon=self.icon_path,
+				save_as=True )
+			
 			self.file_name = _filename
-
+			
 			if os.path.exists( self.original ):
 				_src = io.open( self.original ).read( )
 				_dest = io.open( _filename, 'w+' ).write( _src )
@@ -464,7 +474,7 @@ class GoogleDialog( Dark ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -472,13 +482,13 @@ class GoogleDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 500, 235 )
+		self.form_size = (500, 235)
 		self.image = os.getcwd( ) + r'\etc\img\app\web\google.png'
-
+	
 	def __str__( self ) -> str:
 		if isinstance( self.results, list ):
 			return self.results[ 0 ]
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -492,7 +502,7 @@ class GoogleDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'search', 'results', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -504,31 +514,31 @@ class GoogleDialog( Dark ):
 		try:
 			self.results = [ ]
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Image( source = self.image ) ],
-			            [ sg.Text( size = ( 10, 1 ) ),
-			              sg.Input( key = '-QUERY-', size = ( 40, 2 ) ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( size = ( 10, 1 ) ), sg.Submit( size = ( 15, 1 ) ),
-			              sg.Text( size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
-
+			            [ sg.Image( source=self.image ) ],
+			            [ sg.Text( size=(10, 1) ),
+			              sg.Input( key='-QUERY-', size=(40, 2) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(10, 1) ), sg.Submit( size=(15, 1) ),
+			              sg.Text( size=(5, 1) ), sg.Cancel( size=(15, 1) ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				font = self.theme_font,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
 					break
-				elif _event == 'Submit':
+				elif _event=='Submit':
 					self.querytext = _values[ '-QUERY-' ]
-					_google = search( term = self.querytext, num_results = 5 )
+					_google = search( term=self.querytext, num_results=5 )
 					_app = App( Client.Edge )
 					for result in list( _google ):
 						self.results.append( result )
 						_app.run_args( result )
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -541,24 +551,24 @@ class GoogleDialog( Dark ):
 class EmailDialog( Dark ):
 	'''
 
-	Construcotr: 
+	Construcotr:
 	
 	    EmailDialog( sender: str=None, receiver: str=None,
 			subject: str=None, heading: str=None )
 
-	Purpose:  
+	Purpose:
 	
 	    Class providing form used to send email messages.
 
     '''
 	
-
-	def __init__( self, sender: str=None, receiver: str=None,
-	              subject: str=None, message: str=None ):
+	
+	def __init__( self, sender: str = None, receiver: str = None,
+	              subject: str = None, message: str = None ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -567,16 +577,16 @@ class EmailDialog( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-		self.form_size = ( 570, 550 )
+		self.form_size = (570, 550)
 		self.sender = sender
 		self.receiver = receiver
 		self.subject = subject
 		self.message = message
-
+	
 	def __str__( self ) -> str:
 		if self.message is not None:
 			return self.message
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -592,7 +602,7 @@ class EmailDialog( Dark ):
 		         'sender', 'reciever', 'message',
 		         'subject', 'others', 'password',
 		         'username', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_btn = (20, 1)
@@ -600,43 +610,43 @@ class EmailDialog( Dark ):
 			_spc = (5, 1)
 			_img = (50, 22)
 			_clr = '#69B1EF'
-			_layout = [ [ sg.Text( ' ', size = _spc ), ],
-			            [ sg.Text( ' ', size = _spc ), ],
-			            [ sg.Text( ' ', size = _spc ),
-			              sg.Text( 'From:', size = _btn, text_color = _clr ),
-			              sg.Input( key = '-EMAIL FROM-', size = _input ) ],
-			            [ sg.Text( ' ', size = _spc ), sg.Text( 'To:', size = _btn, text_color =
+			_layout = [ [ sg.Text( ' ', size=_spc ), ],
+			            [ sg.Text( ' ', size=_spc ), ],
+			            [ sg.Text( ' ', size=_spc ),
+			              sg.Text( 'From:', size=_btn, text_color=_clr ),
+			              sg.Input( key='-EMAIL FROM-', size=_input ) ],
+			            [ sg.Text( ' ', size=_spc ), sg.Text( 'To:', size=_btn, text_color=
 			            _clr ),
-			              sg.Input( key = '-EMAIL TO-', size = _input ) ],
-			            [ sg.Text( ' ', size = _spc ),
-			              sg.Text( 'Subject:', size = _btn, text_color = _clr ),
-			              sg.Input( key = '-EMAIL SUBJECT-', size = _input ) ],
-			            [ sg.Text( ' ', size = _spc ), sg.Text( ) ],
-			            [ sg.Text( ' ', size = _spc ),
-			              sg.Text( 'Username:', size = _btn, text_color = _clr ),
-			              sg.Input( key = '-USER-', size = _input ) ],
-			            [ sg.Text( ' ', size = _spc ),
-			              sg.Text( 'Password:', size = _btn, text_color = _clr ),
-			              sg.Input( password_char = '*', key = '-PASSWORD-', size = _input ) ],
-			            [ sg.Text( ' ', size = _spc ) ],
-			            [ sg.Text( ' ', size = _spc ),
-			              sg.Multiline( 'Type your message here', size = (65, 10),
-				              key = '-EMAIL TEXT-' ) ],
-			            [ sg.Text( ' ', size = (100, 1) ) ],
-			            [ sg.Text( ' ', size = _spc ), sg.Button( 'Send', size = _btn ),
-			              sg.Text( ' ', size = _btn ), sg.Button( 'Cancel', size = _btn ) ] ]
-
+			              sg.Input( key='-EMAIL TO-', size=_input ) ],
+			            [ sg.Text( ' ', size=_spc ),
+			              sg.Text( 'Subject:', size=_btn, text_color=_clr ),
+			              sg.Input( key='-EMAIL SUBJECT-', size=_input ) ],
+			            [ sg.Text( ' ', size=_spc ), sg.Text( ) ],
+			            [ sg.Text( ' ', size=_spc ),
+			              sg.Text( 'Username:', size=_btn, text_color=_clr ),
+			              sg.Input( key='-USER-', size=_input ) ],
+			            [ sg.Text( ' ', size=_spc ),
+			              sg.Text( 'Password:', size=_btn, text_color=_clr ),
+			              sg.Input( password_char='*', key='-PASSWORD-', size=_input ) ],
+			            [ sg.Text( ' ', size=_spc ) ],
+			            [ sg.Text( ' ', size=_spc ),
+			              sg.Multiline( 'Type your message here', size=(65, 10),
+				              key='-EMAIL TEXT-' ) ],
+			            [ sg.Text( ' ', size=(100, 1) ) ],
+			            [ sg.Text( ' ', size=_spc ), sg.Button( 'Send', size=_btn ),
+			              sg.Text( ' ', size=_btn ), sg.Button( 'Cancel', size=_btn ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				size=self.form_size )
+			
 			while True:  # Event Loop
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
 					break
-				if _event == 'Send':
+				if _event=='Send':
 					sg.popup_quick_message( 'Sending...this will take a moment...',
-						background_color = 'red' )
+						background_color='red' )
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -655,13 +665,13 @@ class MessageDialog( Dark ):
     to display informational messages
 
     '''
-
-	def __init__( self, text: str=None ):
+	
+	def __init__( self, text: str = None ):
 		self.text = text
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -670,11 +680,11 @@ class MessageDialog( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.form_size = (450, 250)
-
+	
 	def __str__( self ) -> str:
 		if self.text is not None:
 			return self.text
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -688,36 +698,36 @@ class MessageDialog( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color' ]
-
+	
 	def show( self ):
 		try:
 			_txtsz = (100, 1)
 			_btnsz = (10, 1)
-			_layout = [ [ sg.Text( size = _txtsz ) ],
-			            [ sg.Text( size = _txtsz ) ],
-			            [ sg.Text( size = (5, 1) ),
+			_layout = [ [ sg.Text( size=_txtsz ) ],
+			            [ sg.Text( size=_txtsz ) ],
+			            [ sg.Text( size=(5, 1) ),
 			              sg.Text( self.text,
-				              font = ('Roboto', 11),
-				              enable_events = True,
-				              key = '-TEXT-',
-				              text_color = '#69B1EF',
-				              size = (80, 1) ) ],
-			            [ sg.Text( size = _txtsz ) ],
-			            [ sg.Text( size = _txtsz ) ],
-			            [ sg.Text( size = _txtsz ) ],
-			            [ sg.Text( size = (5, 1) ), sg.Ok( size = _btnsz ),
-			              sg.Text( size = (15, 1) ), sg.Cancel( size = _btnsz ) ] ]
-
+				              font=('Roboto', 11),
+				              enable_events=True,
+				              key='-TEXT-',
+				              text_color='#69B1EF',
+				              size=(80, 1) ) ],
+			            [ sg.Text( size=_txtsz ) ],
+			            [ sg.Text( size=_txtsz ) ],
+			            [ sg.Text( size=_txtsz ) ],
+			            [ sg.Text( size=(5, 1) ), sg.Ok( size=_btnsz ),
+			              sg.Text( size=(15, 1) ), sg.Cancel( size=_btnsz ) ] ]
+			
 			_window = sg.Window( r'  Budget Execution', _layout,
-				icon = self.icon,
-				font = self.theme_font,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Ok', 'Cancel'):
 					break
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -737,7 +747,7 @@ class ErrorDialog( Dark ):
 
     '''
 	
-
+	
 	def __init__( self, exception ):
 		super( ).__init__( )
 		self.__exception = exception if isinstance( exception, Error ) else None
@@ -747,7 +757,7 @@ class ErrorDialog( Dark ):
 		self.__cause = exception.cause
 		self.method = exception.method
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -756,11 +766,11 @@ class ErrorDialog( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.form_size = (500, 300)
-
+	
 	def __str__( self ) -> str:
 		if isinstance( self.info, str ):
 			return self.info
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -775,33 +785,33 @@ class ErrorDialog( Dark ):
 		         'scrollbar_color', 'progressbar_color',
 		         'info', 'cause', 'method',
 		         'module', 'type', 'message' 'show' ]
-
+	
 	def show( self ) -> object:
 		_msg = self.heading if isinstance( self.heading, str ) else None
 		_info = f'Module:\t{self.module}\r\nClass:\t{self.__cause}\r\n' \
 		        f'Method:\t{self.method}\r\n \r\n{self.info}'
 		_red = '#F70202'
-		_font = ( 'Roboto', 10 )
-		_padsz = ( 3, 3 )
+		_font = ('Roboto', 10)
+		_padsz = (3, 3)
 		_layout = [ [ sg.Text( ) ],
-		            [ sg.Text( f'{_msg}', size = (100, 1), key = '-MSG-', text_color = _red,
-			            font = _font ) ],
-		            [ sg.Text( size = (150, 1) ) ],
-		            [ sg.Multiline( f'{_info}', key = '-INFO-', size = (80, 7), pad = _padsz ) ],
+		            [ sg.Text( f'{_msg}', size=(100, 1), key='-MSG-', text_color=_red,
+			            font=_font ) ],
+		            [ sg.Text( size=(150, 1) ) ],
+		            [ sg.Multiline( f'{_info}', key='-INFO-', size=(80, 7), pad=_padsz ) ],
 		            [ sg.Text( ) ],
-		            [ sg.Text( size = (20, 1) ), sg.Cancel( size = (15, 1), key = '-CANCEL-' ),
-		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
-
+		            [ sg.Text( size=(20, 1) ), sg.Cancel( size=(15, 1), key='-CANCEL-' ),
+		              sg.Text( size=(10, 1) ), sg.Ok( size=(15, 1), key='-OK-' ) ] ]
+		
 		_window = sg.Window( r' Budget Execution', _layout,
-			icon = self.icon,
-			font = self.theme_font,
-			size = self.form_size )
-
+			icon=self.icon_path,
+			font=self.theme_font,
+			size=self.form_size )
+		
 		while True:
 			_event, _values = _window.read( )
 			if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Canel', '-OK-'):
 				break
-
+		
 		_window.close( )
 
 class InputDialog( Dark ):
@@ -811,13 +821,13 @@ class InputDialog( Dark ):
 	Purpose:  class that produces a contact input form
 	'''
 	
-
+	
 	def __init__( self, question ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.question = question if isinstance( question, str ) else None
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -827,11 +837,11 @@ class InputDialog( Dark ):
 		self.button_color = super( ).button_color
 		self.form_size = (500, 250)
 		self.response = None
-
+	
 	def __str__( self ) -> str:
 		if isinstance( self.response, str ):
 			return self.response
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -845,37 +855,37 @@ class InputDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'question', 'response', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Text( self.question, font = ('Roboto', 9, 'bold') ) ],
+			            [ sg.Text( self.question, font=('Roboto', 9, 'bold') ) ],
 			            [ sg.Text( ) ],
-			            [ sg.Text( 'Enter:', size = (10, 2) ),
-			              sg.InputText( key = '-INPUT-', size = (40, 2) ) ],
-			            [ sg.Text( size = (100, 1) ) ],
-			            [ sg.Text( size = (100, 1) ) ],
-			            [ sg.Text( size = (10, 1) ),
-			              sg.Submit( size = (15, 1), key = '-SUBMIT-' ),
-			              sg.Text( size = (5, 1) ),
-			              sg.Cancel( size = (15, 1), key = '-CANCEL-' ) ] ]
-
+			            [ sg.Text( 'Enter:', size=(10, 2) ),
+			              sg.InputText( key='-INPUT-', size=(40, 2) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(10, 1) ),
+			              sg.Submit( size=(15, 1), key='-SUBMIT-' ),
+			              sg.Text( size=(5, 1) ),
+			              sg.Cancel( size=(15, 1), key='-CANCEL-' ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				font = self.theme_font,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, '-CANCEL-', 'Exit'):
 					break
-
+				
 				self.response = _values[ '-INPUT-' ]
 				sg.popup( _event, _values, self.response,
-					text_color = self.themetextcolor,
-					font = self.theme_font,
-					icon = self.icon )
-
+					text_color=self.theme_textcolor,
+					font=self.theme_font,
+					icon=self.icon )
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -888,21 +898,21 @@ class InputDialog( Dark ):
 class ScrollingDialog( Dark ):
 	'''
 	
-	'Construcotr:  
+	'Construcotr:
 	
 	    ScrollingDialog( text = '' )
 
-	Purpose:  
+	Purpose:
 	
 	    Provides form for multiline input/output
 	    
 	'''
 	
-	def __init__( self, text = '' ):
+	def __init__( self, text='' ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -912,12 +922,12 @@ class ScrollingDialog( Dark ):
 		self.button_color = super( ).button_color
 		self.arrowcolor = super( ).scrollbar_color
 		self.form_size = (700, 600)
-		self.text = text if isinstance( text, str ) and text != '' else None
-
+		self.text = text if isinstance( text, str ) and text!='' else None
+	
 	def __str__( self ) -> str:
 		if isinstance( self.text, str ):
 			return self.text
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -931,40 +941,40 @@ class ScrollingDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'text', 'show' ]
-
+	
 	def show( self ):
 		try:
-			_line = ( 100, 1 )
-			_space = ( 5, 1 )
-			_btnsize = ( 25, 1 )
+			_line = (100, 1)
+			_space = (5, 1)
+			_btnsize = (25, 1)
 			_arrow = self.arrowcolor
 			_back = super( ).button_backcolor
-			_padsz = ( 3, 3, 3, 3 )
-			_layout = [ [ sg.Text( ' ', size = _line ) ],
-			            [ sg.Text( ' ', size = _line ) ],
-			            [ sg.Text( size = _space ),
-			             sg.Multiline( size = ( 70, 20 ), key = '-TEXT-', pad = _padsz ),
-			             sg.Text( size = _space ) ],
-			            [ sg.Text( ' ', size = _line ) ],
-			            [ sg.Text( ' ', size = _space ), sg.Input( k = '-IN-', size = ( 70, 20 ) ),
-			             sg.Text( size = _space ) ],
-			            [ sg.Text( ' ', size = _line ) ],
-			            [ sg.Text( size = _space ), sg.Button( 'Submit', size = _btnsize ),
-			             sg.Text( size = (15, 1) ), sg.Button( 'Exit', size = _btnsize ),
-			             sg.Text( size = _space ), ] ]
-
+			_padsz = (3, 3, 3, 3)
+			_layout = [ [ sg.Text( ' ', size=_line ) ],
+			            [ sg.Text( ' ', size=_line ) ],
+			            [ sg.Text( size=_space ),
+			              sg.Multiline( size=(70, 20), key='-TEXT-', pad=_padsz ),
+			              sg.Text( size=_space ) ],
+			            [ sg.Text( ' ', size=_line ) ],
+			            [ sg.Text( ' ', size=_space ), sg.Input( k='-IN-', size=(70, 20) ),
+			              sg.Text( size=_space ) ],
+			            [ sg.Text( ' ', size=_line ) ],
+			            [ sg.Text( size=_space ), sg.Button( 'Submit', size=_btnsize ),
+			              sg.Text( size=(15, 1) ), sg.Button( 'Exit', size=_btnsize ),
+			              sg.Text( size=_space ), ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				size = self.form_size,
-				font = self.theme_font,
-				resizable = True )
-
+				icon=self.icon_path,
+				size=self.form_size,
+				font=self.theme_font,
+				resizable=True )
+			
 			while True:
 				event, values = _window.read( )
 				self.text = values[ '-TEXT-' ]
 				if event in (sg.WIN_CLOSED, 'Exit'):
 					break
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -980,12 +990,12 @@ class ContactForm( Dark ):
 
 	Purpose:  class that produces a contact input form
 	'''
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -995,7 +1005,7 @@ class ContactForm( Dark ):
 		self.button_color = super( ).button_color
 		self.image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
 		self.form_size = (500, 300)
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1009,40 +1019,40 @@ class ContactForm( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'show' ]
-
+	
 	def show( self ):
 		try:
-			_layout = [ [ sg.Text( size = (100, 1) ) ],
+			_layout = [ [ sg.Text( size=(100, 1) ) ],
 			            [ sg.Text( r'Enter Contact Details' ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( 'Name', size = ( 10, 1 ) ),
-			              sg.InputText( '1', size = (80, 1 ), key = '-NAME-' ) ],
-			            [ sg.Text( 'Address', size = ( 10, 1 ) ),
-			              sg.InputText( '2', size = ( 80, 1 ), key = '-ADDRESS-' ) ],
-			            [ sg.Text( 'Phone', size = ( 10, 1 ) ),
-			              sg.InputText( '3', size = ( 80, 1 ), key = '-PHONE-' ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( size = ( 100, 1 ) ) ],
-			            [ sg.Text( size = ( 10, 1 ) ), sg.Submit( size = ( 10, 1 ) ),
-			              sg.Text( size = ( 20, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
-
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( 'Name', size=(10, 1) ),
+			              sg.InputText( '1', size=(80, 1), key='-NAME-' ) ],
+			            [ sg.Text( 'Address', size=(10, 1) ),
+			              sg.InputText( '2', size=(80, 1), key='-ADDRESS-' ) ],
+			            [ sg.Text( 'Phone', size=(10, 1) ),
+			              sg.InputText( '3', size=(80, 1), key='-PHONE-' ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(100, 1) ) ],
+			            [ sg.Text( size=(10, 1) ), sg.Submit( size=(10, 1) ),
+			              sg.Text( size=(20, 1) ), sg.Cancel( size=(10, 1) ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				font = self.theme_font,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				font=self.theme_font,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				sg.popup( 'Results', _values, _values[ '-NAME-' ],
 					_values[ '-ADDRESS-' ],
 					_values[ '-PHONE-' ],
-					text_color = self.themetextcolor,
-					font = self.theme_font,
-					icon = self.icon )
-
+					text_color=self.theme_textcolor,
+					font=self.theme_font,
+					icon=self.icon )
+				
 				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1063,7 +1073,7 @@ class GridForm( Dark ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1072,11 +1082,11 @@ class GridForm( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.image = None
-		self.width = ( 17, 1 )
+		self.width = (17, 1)
 		self.rows = rows
 		self.columns = columns
-		self.form_size = ( 1250, 650 )
-
+		self.form_size = (1250, 650)
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1090,38 +1100,38 @@ class GridForm( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'field_width', 'rows', 'columns', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_black = self.theme_background
 			_columns = self.columns
 			_headings = [ f'HEADER-{i + 1}' for i in range( _columns ) ]
-			_space = [ [ sg.Text( size = ( 10, 1 ) ) ], [ sg.Text( size = ( 10, 1 ) ) ],
-			           [ sg.Text( size = ( 10, 1 ) ) ] ]
+			_space = [ [ sg.Text( size=(10, 1) ) ], [ sg.Text( size=(10, 1) ) ],
+			           [ sg.Text( size=(10, 1) ) ] ]
 			_header = [
-					[ sg.Text( h, size = ( 16, 1 ), justification = 'left' ) for h in _headings ] ]
-			_records = [ [ [ sg.Input( size = self.width, pad = (0, 0), font = self.theme_font )
+					[ sg.Text( h, size=(16, 1), justification='left' ) for h in _headings ] ]
+			_records = [ [ [ sg.Input( size=self.width, pad=(0, 0), font=self.theme_font )
 			                 for c in range( len( _headings ) ) ] for r in range( self.rows )
 			               ], ]
-			_buttons = [ [ sg.Text( size = ( 35, 1 ) ), sg.Text( size = ( 10, 1 ) ), ],
-			             [ sg.Text( size = ( 100, 1 ) ), sg.Text( size = ( 100, 1 ) ),
-			               sg.Ok( size = ( 35, 2 ) ) ],
-			             [ sg.Sizegrip( background_color = _black ) ] ]
+			_buttons = [ [ sg.Text( size=(35, 1) ), sg.Text( size=(10, 1) ), ],
+			             [ sg.Text( size=(100, 1) ), sg.Text( size=(100, 1) ),
+			               sg.Ok( size=(35, 2) ) ],
+			             [ sg.Sizegrip( background_color=_black ) ] ]
 			# noinspection PyTypeChecker
 			_layout = _space + _header + _records + _buttons
-
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				finalize = True,
-				size = self.form_size,
-				icon = self.icon,
-				font = self.theme_font,
-				resizable = True )
-
+				finalize=True,
+				size=self.form_size,
+				icon=self.icon_path,
+				font=self.theme_font,
+				resizable=True )
+			
 			while True:
 				_event, _values = _window.read( )
-				if _event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-' ):
+				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, '-CANCEL-'):
 					break
-
+				
 				_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1137,12 +1147,12 @@ class LoadingPanel( Dark ):
 
 	Purpose:  object providing form loading behavior
 	'''
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1151,9 +1161,9 @@ class LoadingPanel( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
-		self.form_size = ( 800, 600 )
+		self.form_size = (800, 600)
 		self.timeout = 6000
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1166,32 +1176,32 @@ class LoadingPanel( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'timeout', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_layout = [ [ sg.Text(
-				background_color = '#000000',
-				text_color = '#FFF000',
-				justification = 'c',
-				key = '-T-',
-				font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
-
+				background_color='#000000',
+				text_color='#FFF000',
+				justification='c',
+				key='-T-',
+				font=('Bodoni MT', 40) ) ], [ sg.Image( key='-IMAGE-' ) ] ]
+			
 			_window = sg.Window( '  Loading...', _layout,
-				icon = self.icon,
-				element_justification = 'c',
-				margins = ( 0, 0 ),
-				size = ( 800, 600 ),
-				element_padding = ( 0, 0 ), finalize = True )
-
+				icon=self.icon_path,
+				element_justification='c',
+				margins=(0, 0),
+				size=(800, 600),
+				element_padding=(0, 0), finalize=True )
+			
 			_window[ '-T-' ].expand( True, True )
 			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
-
+			
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
-					_event, _values = _window.read( timeout = _interframe_duration )
-					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
+					_event, _values = _window.read( timeout=_interframe_duration )
+					if _event==sg.WIN_CLOSED or _event==sg.WIN_X_EVENT:
 						exit( 0 )
-					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					_window[ '-IMAGE-' ].update( data=ImageTk.PhotoImage( frame ) )
 					_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1207,13 +1217,13 @@ class WaitingPanel( Dark ):
 
 	Purpose:  object providing form loader behavior
 	'''
-
-
+	
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1225,7 +1235,7 @@ class WaitingPanel( Dark ):
 		self.theme_font = ('Roboto', 9)
 		self.form_size = (800, 600)
 		self.timeout = 6000
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1238,33 +1248,33 @@ class WaitingPanel( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'timeout', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_layout = [ [ sg.Text(
-				background_color = '#000000',
-				text_color = '#FFF000',
-				justification = 'c',
-				key = '-T-',
-				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
-
+				background_color='#000000',
+				text_color='#FFF000',
+				justification='c',
+				key='-T-',
+				font=('Bodoni MT', 40) ) ], [ sg.Image( key='-IMAGE-' ) ] ]
+			
 			_window = sg.Window( '  Waiting...', _layout,
-				icon = self.icon,
-				element_justification = 'c',
-				margins = (0, 0),
-				element_padding = (0, 0),
-				size = (800, 600),
-				finalize = True )
-
-			_window[ '-T-' ].expand( True, True  )
+				icon=self.icon_path,
+				element_justification='c',
+				margins=(0, 0),
+				element_padding=(0, 0),
+				size=(800, 600),
+				finalize=True )
+			
+			_window[ '-T-' ].expand( True, True )
 			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
-
+			
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
-					_event, _values = _window.read( timeout = _interframe_duration )
-					if _event == sg.WIN_CLOSED:
+					_event, _values = _window.read( timeout=_interframe_duration )
+					if _event==sg.WIN_CLOSED:
 						exit( 0 )
-					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					_window[ '-IMAGE-' ].update( data=ImageTk.PhotoImage( frame ) )
 					_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -1280,12 +1290,12 @@ class ProcessingPanel( Dark ):
 
 	Purpose:  object providing form processing behavior
 	'''
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1296,7 +1306,7 @@ class ProcessingPanel( Dark ):
 		self.image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
 		self.form_size = (800, 600)
 		self.timeout = None
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1310,39 +1320,39 @@ class ProcessingPanel( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'timeout', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_layout = [ [ sg.Text(
-				background_color = '#000000',
-				text_color = '#FFF000',
-				justification = 'c',
-				key = '-T-',
-				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
-
+				background_color='#000000',
+				text_color='#FFF000',
+				justification='c',
+				key='-T-',
+				font=('Bodoni MT', 40) ) ], [ sg.Image( key='-IMAGE-' ) ] ]
+			
 			_window = sg.Window( '  Processing...', _layout,
-				element_justification = 'c',
-				icon = self.icon,
-				margins = (0, 0),
-				size = (800, 600),
-				element_padding = (0, 0),
-				finalize = True )
-
+				element_justification='c',
+				icon=self.icon_path,
+				margins=(0, 0),
+				size=(800, 600),
+				element_padding=(0, 0),
+				finalize=True )
+			
 			_window[ '-T-' ].expand( True, True )
-
+			
 			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
 			self.timeout = _interframe_duration
-
+			
 			while True:
 				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
-					_event, _values = _window.read( timeout = self.timeout,
-						timeout_key = '-TIMEOUT-' )
-					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
+					_event, _values = _window.read( timeout=self.timeout,
+						timeout_key='-TIMEOUT-' )
+					if _event==sg.WIN_CLOSED or _event==sg.WIN_X_EVENT:
 						exit( 0 )
-
-					_window[ '-IMAGE-' ].update( data = ImageTk.PhotoImage( frame ) )
+					
+					_window[ '-IMAGE-' ].update( data=ImageTk.PhotoImage( frame ) )
 					_window.close( )
-
+		
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1357,12 +1367,12 @@ class SplashPanel( Dark ):
 
 	Purpose:  Class providing splash dialog behavior
 	'''
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1373,9 +1383,9 @@ class SplashPanel( Dark ):
 		self.button_forecolor = super( ).button_forecolor
 		self.button_backcolor = super( ).button_backcolor
 		self.image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
-		self.form_size = ( 800, 600 )
+		self.form_size = (800, 600)
 		self.timeout = 6000
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1389,24 +1399,24 @@ class SplashPanel( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'timeout', 'show' ]
-
+	
 	def show( self ):
 		try:
 			_img = self.image
-			_imgsize = ( 500, 400 )
-			_line = ( 100, 2 )
-			_space = ( 15, 1 )
-			_layout = [ [ sg.Text( size = _space ), sg.Text( size = _line ) ],
-			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
-			            [ sg.Text( size = _space ),
-			             sg.Image( filename = self.image, size = _imgsize ) ] ]
+			_imgsize = (500, 400)
+			_line = (100, 2)
+			_space = (15, 1)
+			_layout = [ [ sg.Text( size=_space ), sg.Text( size=_line ) ],
+			            [ sg.Text( size=_space ), sg.Text( size=_line ) ],
+			            [ sg.Text( size=_space ),
+			              sg.Image( filename=self.image, size=_imgsize ) ] ]
 			_window = sg.Window( '  Budget Execution', _layout,
-				no_titlebar = True,
-				keep_on_top = True,
-				grab_anywhere = True,
-				size = self.form_size )
+				no_titlebar=True,
+				keep_on_top=True,
+				grab_anywhere=True,
+				size=self.form_size )
 			while True:
-				_event, _values = _window.read( timeout = self.timeout, close = True )
+				_event, _values = _window.read( timeout=self.timeout, close=True )
 				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
 			_window.close( )
@@ -1436,83 +1446,83 @@ class Notification( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.success = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
-		                 b'/gAAAACXBIWXMAAAEKAAABCgEWpLzLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5r' \
-		                 b'c2NhcGUub3Jnm+48GgAAAHJQTFRF////ZsxmbbZJYL9gZrtVar9VZsJcbMRYaM' \
-		                 b'ZVasFYaL9XbMFbasRZaMFZacRXa8NYasFaasJaasFZasJaasNZasNYasJYasJZ' \
-		                 b'asJZasJZasJZasJZasJYasJZasJZasJZasJZasJaasJZasJZasJZasJZ2IAizQ' \
-		                 b'AAACV0Uk5TAAUHCA8YGRobHSwtPEJJUVtghJeYrbDByNjZ2tvj6vLz9fb3/CyrN0oAAA' \
-		                 b'DnSURBVDjLjZPbWoUgFIQnbNPBIgNKiwwo5v1fsQvMvUXI5oqPf4DFOgCrhLKjC8GNV' \
-		                 b'gnsJY3nKm9kgTsduVHU3SU/TdxpOp15P7OiuV/PVzk5L3d0ExuachyaTWkAkLFtiBKAq' \
-		                 b'ZHPh/yuAYSv8R7XE0l6AVXnwBNJUsE2+GMOzWL8k3OEW7a/q5wOIS9e7t5qnGExvF5Bvl' \
-		                 b'c4w/LEM4Abt+d0S5BpAHD7seMcf7+ZHfclp10TlYZc2y2nOqc6OwruxUWx0rDjNJtyp6' \
-		                 b'HkUW4bJn0VWdf/a7nDpj1u++PBOR694+Ftj/8PKNdnDLn/V8YAAAAASUVORK5CYII='
+		               b'/gAAAACXBIWXMAAAEKAAABCgEWpLzLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5r' \
+		               b'c2NhcGUub3Jnm+48GgAAAHJQTFRF////ZsxmbbZJYL9gZrtVar9VZsJcbMRYaM' \
+		               b'ZVasFYaL9XbMFbasRZaMFZacRXa8NYasFaasJaasFZasJaasNZasNYasJYasJZ' \
+		               b'asJZasJZasJZasJZasJYasJZasJZasJZasJZasJaasJZasJZasJZasJZ2IAizQ' \
+		               b'AAACV0Uk5TAAUHCA8YGRobHSwtPEJJUVtghJeYrbDByNjZ2tvj6vLz9fb3/CyrN0oAAA' \
+		               b'DnSURBVDjLjZPbWoUgFIQnbNPBIgNKiwwo5v1fsQvMvUXI5oqPf4DFOgCrhLKjC8GNV' \
+		               b'gnsJY3nKm9kgTsduVHU3SU/TdxpOp15P7OiuV/PVzk5L3d0ExuachyaTWkAkLFtiBKAq' \
+		               b'ZHPh/yuAYSv8R7XE0l6AVXnwBNJUsE2+GMOzWL8k3OEW7a/q5wOIS9e7t5qnGExvF5Bvl' \
+		               b'c4w/LEM4Abt+d0S5BpAHD7seMcf7+ZHfclp10TlYZc2y2nOqc6OwruxUWx0rDjNJtyp6' \
+		               b'HkUW4bJn0VWdf/a7nDpj1u++PBOR694+Ftj/8PKNdnDLn/V8YAAAAASUVORK5CYII='
 		self.fail = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
-		              b'/gAAAACXBIWXMAAADlAAAA5QGP5Zs8AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm' \
-		              b'+48GgAAAIpQTFRF////20lt30Bg30pg4FJc409g4FBe4E9f4U9f4U9g4U9f4E9g31Bf4E9f4E9f' \
-		              b'4E9f4E9f4E9f4FFh4Vdm4lhn42Bv5GNx5W575nJ' \
-		              b'/6HqH6HyI6YCM6YGM6YGN6oaR8Kev9MPI9cb' \
-		              b'M9snO9s3R+Nfb+dzg+d/i++vt/O7v/fb3/vj5//z8//7' \
-		              b'+////KofnuQAAABF0Uk5TAAcIGBktSY' \
-		              b'SXmMHI2uPy8/XVqDFbAAAA8UlEQVQ4y4VT15LCMBBTQkgPYem9d9D' \
-		              b'//x4P2I7vILN68kj2WtsAh' \
-		              b'yDO8rKuyzyLA3wjSnvi0Eujf3KY9OUP+kno651CvlB0Gr1byQ9UXff' \
-		              b'+py5SmRhhIS0oPj4SaUUC' \
-		              b'AJHxP9+tLb/ezU0uEYDUsCc+l5' \
-		              b'/T8smTIVMgsPXZkvepiMj0Tm5txQLENu7gSF7HIuMreRxYNkb' \
-		              b'mHI0u5Hk4PJOXkSMz5I3nyY08HMjbpOFylF5WswdJPmYeVaL28968yNfGZ2r9gvqFalJNUy2UW' \
-		              b'mq1Wa7di/3Kxl3tF1671YHRR04dWn3s9cXRV09f3vb1fwPD7z9j1WgeRgAAAABJRU5ErkJggg=='
+		            b'/gAAAACXBIWXMAAADlAAAA5QGP5Zs8AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm' \
+		            b'+48GgAAAIpQTFRF////20lt30Bg30pg4FJc409g4FBe4E9f4U9f4U9g4U9f4E9g31Bf4E9f4E9f' \
+		            b'4E9f4E9f4E9f4FFh4Vdm4lhn42Bv5GNx5W575nJ' \
+		            b'/6HqH6HyI6YCM6YGM6YGN6oaR8Kev9MPI9cb' \
+		            b'M9snO9s3R+Nfb+dzg+d/i++vt/O7v/fb3/vj5//z8//7' \
+		            b'+////KofnuQAAABF0Uk5TAAcIGBktSY' \
+		            b'SXmMHI2uPy8/XVqDFbAAAA8UlEQVQ4y4VT15LCMBBTQkgPYem9d9D' \
+		            b'//x4P2I7vILN68kj2WtsAh' \
+		            b'yDO8rKuyzyLA3wjSnvi0Eujf3KY9OUP+kno651CvlB0Gr1byQ9UXff' \
+		            b'+py5SmRhhIS0oPj4SaUUC' \
+		            b'AJHxP9+tLb/ezU0uEYDUsCc+l5' \
+		            b'/T8smTIVMgsPXZkvepiMj0Tm5txQLENu7gSF7HIuMreRxYNkb' \
+		            b'mHI0u5Hk4PJOXkSMz5I3nyY08HMjbpOFylF5WswdJPmYeVaL28968yNfGZ2r9gvqFalJNUy2UW' \
+		            b'mq1Wa7di/3Kxl3tF1671YHRR04dWn3s9cXRV09f3vb1fwPD7z9j1WgeRgAAAABJRU5ErkJggg=='
 		self.ninja = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAnCAYAAABuf0pMAAABhWlDQ1BJQ0MgUHJvZmlsZQA' \
-		               b'AeJx9kT1Iw0AcxV9bS1WqDnYo4pChOlkQFRFcpIpFsFDaCq06mFz6BU0akhQXR8G14ODHYtXB' \
-		               b'xVlXB1dBEPwAcXRyUnSREv+XFFrEeHDcj3f3HnfvAG' \
-		               b'+jwhSjaxxQVFNPxWNCNrcqBF7hRz96E' \
-		               b'MasyAwtkV7MwHV83cPD17soz3I/9+fok/MGAzwC8RzTdJN4g3h609Q47xOHWEmUic' \
-		               b'+Jx3S6I' \
-		               b'PEj1yWH3zgXbfbyzJCeSc0Th4iFYgdLHcxKukI8RRyRFZXyvVmHZc5bnJVKjbXuyV8YzKsr' \
-		               b'aa7THEYcS0ggCQESaiijAhNRWlVSDKRoP+biH7L9SXJJ5CqDkWMBVSgQbT/4H/zu1ihMTjh' \
-		               b'JwRjgf7GsjxEgsAs065b1fWxZzRPA9wxcqW1/tQHMfJJeb2uRI2BgG7i4bmvSHnC5A4SfNF' \
-		               b'EXbclH01soAO9n9E05YPAW6F1zemvt4/QByFBXyzfAwSEwWqTsdZd3d3f29u+ZVn8/pE' \
-		               b'Fyu/Q7rYsAAAbASURBVHicvZd/bJVXGcc/55z3vvdHuf3BbaFldGyDbQhSJsGNlSC66S' \
-		               b'gM/hDYxhJLRIcsbs7IRBONiTEi0RmDJltUthlykegYCT+EyUKZcZBABGSzU34NKpcC7S' \
-		               b'1tb2/f3h/v+57jH6Vd6S+gbXyS88853+d5vuf7nuc85xWMhVXWrgbWAAuBU8B24DUS8a5' \
-		               b'buYpRJq4Bfg5UDbLaDLxMIr4N4P3tmyLBoB357uZdFWkncP6fJw9lRkUgWF7zW19F13ky' \
-		               b'NCRmnKV5sabkaM38ioiBKs/39fZ9Z+Qfj4rf5S9tex7AGklyu/zJZYHcx+ssqwRlleCpK' \
-		               b'L6wAZgQ8lk4XbGq5h7KxkfIZvPzUp0ZxhcV0NGZlasWz2hxDu5ueutGLDkSAoHcpbVCO2g' \
-		               b'ZxlWFvckBHrrPJxyL8dKvz5DJ5ABwulyuJjs5eOwC44tC79ydPzu5B3/nClTWRkTq0CLI' \
-		               b'o2UEgQYMLyyfzhe/MJei4jCHD5+gtfEqUkqUkgSDkt3vNXP6cisLKs8ejSn18i+KS8P' \
-		               b'fa2/J3DGBSPbCHKE7bIRizlTBN55bwaxZDyKl4Oy58xw4cJz3/v4fFswIEw7ZHDp6gSMft' \
-		               b'HDgfAGfKbdIvH1sabll1QOPAftu+xDGYjGSyaRdGJu5eO1Xl+x66qkVTJ02DcdxOH' \
-		               b'GynncP/oMtf7nYiy8JaIqCgsspB+k7eIHxlNiae13FOq/hz1P0paNPNDVuvi0FtNbCGD' \
-		               b'PbGLOxufHEJMuySKfT1NW9zxtbd3PoVIrualC9Pm2upM2FymiEq2mQOkdbPsh1YVFsVT7' \
-		               b'9nO/th8Zbl2FrW9tdGF7yPO9bnueFHafr3N69e+/XydOUlpfhtLUjlaCwIISlJJ6vSTtZ' \
-		               b'XNdn2oyZdF2/wjMb6zEotAxiRC/Jk8C8QRVQSpFMJudms7n1zU3JpzsdR9t2IB4KhTZXL' \
-		               b'fhmTnWePL3ha0tFkeuSzuZZ9MTjZJINXEk6VEyIUFx+H/sPvEsm08Uv45fxVHSwNHOAH' \
-		               b'w5QoOX69QVdXZmfdKQ6Pt/RmW4BXgVeq573SHMPpqB4+p5IwFv27JLZLP5cFRcbW3lz10' \
-		               b'VOJKNUFki+vXwCD02PUXesiZ/taR1O4LabCDQ0/Hd5KtWx08lkEmBeAfF69byHM/29gh' \
-		               b'O/NDWQ/fgEVmERQgESX0XJ2hWYO7taNvQS+PBf9YA46DjOW8aYP1Q/+og7nGekdF611J3' \
-		               b'7kcEiEPhyHJlg5bDZBLqHoAN8h0R8Sy+BU6c+FEKK0OyqWQN2PJTZ5UsetPz2VwRmmVYF' \
-		               b'ZAPlGARg6N9mlM4Q9FpM3irb4cnQ90nEGxiAGoEFK55caXmtO4wM4aoijLDwZLhf8mxL' \
-		               b'wE/FtQz9Jn9lT0PftRE1o74mdWamMB7C70TKMDk1bgDGl6Fav3HHXwf1Hy0BLUOHDdKA' \
-		               b'RvlpAn4aYfz+sPVD+Y/6EwDYFctqLL/9DV9FJ+Ws2JAwEvEBB3vUCgDkreI6hDJGDPtF5' \
-		               b'w82OToClbUhAIGOCe3edQt045gRkJOfLaWytg5oobJ2o+U7VUaANC7K3KzyphfnA6RIx' \
-		               b'M+NGQHbu75JYB4DCoAfuCq6ptpNpSf5DqABWFFdyOs/XsTKZQt5Xqf2DRVrRIcwPPHx1a5' \
-		               b'VvNWTke4gxufu7HlmG03UKqLCZFBRi/uXzqX8nikEH5ieql2/bda1M/FE/1gjugdygbJ3' \
-		               b'gm6L8e2wMAiMUFyxK7hmXPJWCQvcFOdyUTbc+wA76v7NgV8d18DDwAACIy7DgrJH610rNj' \
-		               b'NvlfTOKZNDC4sVuascscvwIiGSGQPwdRLxNweLM4oqENdstwlLf9I6tAi0hgx7pnlN1Pg' \
-		               b'dPckN8PZQUUZMQMvwTiMsZJ9Tb5AbVnvXUkV2IVNxeqaPkIh3jDmBrD1xixH2cWF8hPG1' \
-		               b'1Ll222s/Dd5KVxWyy+ptzYeHizOqq1hOXlVoe6lPeaogLf2ujzwV9QM6rfLW+BttGYC' \
-		               b'VJOI7h4oxqm6oL/+pIwvHAILli/Jg7JwVw9Jd9JQoQ9yAvZsYDYG+pnT2b9x48fZJDvD' \
-		               b'B/4WAr8b9Pugm6T70pme6mUR82BfWmBHIXd2301WF9QE/jaVzH0njbwVm3spv1C+iHgu' \
-		               b'WL1pjdObTvopkfBmqHq70+trYKFD5FSG99vW+jKBlKAysvV3XnlqRQBCwgQDdyki6f/b' \
-		               b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
-		               b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
-		               b'ywIVvIgAAAAASUVORK5CYII='
+		             b'AeJx9kT1Iw0AcxV9bS1WqDnYo4pChOlkQFRFcpIpFsFDaCq06mFz6BU0akhQXR8G14ODHYtXB' \
+		             b'xVlXB1dBEPwAcXRyUnSREv+XFFrEeHDcj3f3HnfvAG' \
+		             b'+jwhSjaxxQVFNPxWNCNrcqBF7hRz96E' \
+		             b'MasyAwtkV7MwHV83cPD17soz3I/9+fok/MGAzwC8RzTdJN4g3h609Q47xOHWEmUic' \
+		             b'+Jx3S6I' \
+		             b'PEj1yWH3zgXbfbyzJCeSc0Th4iFYgdLHcxKukI8RRyRFZXyvVmHZc5bnJVKjbXuyV8YzKsr' \
+		             b'aa7THEYcS0ggCQESaiijAhNRWlVSDKRoP+biH7L9SXJJ5CqDkWMBVSgQbT/4H/zu1ihMTjh' \
+		             b'JwRjgf7GsjxEgsAs065b1fWxZzRPA9wxcqW1/tQHMfJJeb2uRI2BgG7i4bmvSHnC5A4SfNF' \
+		             b'EXbclH01soAO9n9E05YPAW6F1zemvt4/QByFBXyzfAwSEwWqTsdZd3d3f29u+ZVn8/pE' \
+		             b'Fyu/Q7rYsAAAbASURBVHicvZd/bJVXGcc/55z3vvdHuf3BbaFldGyDbQhSJsGNlSC66S' \
+		             b'gM/hDYxhJLRIcsbs7IRBONiTEi0RmDJltUthlykegYCT+EyUKZcZBABGSzU34NKpcC7S' \
+		             b'1tb2/f3h/v+57jH6Vd6S+gbXyS88853+d5vuf7nuc85xWMhVXWrgbWAAuBU8B24DUS8a5' \
+		             b'buYpRJq4Bfg5UDbLaDLxMIr4N4P3tmyLBoB357uZdFWkncP6fJw9lRkUgWF7zW19F13ky' \
+		             b'NCRmnKV5sabkaM38ioiBKs/39fZ9Z+Qfj4rf5S9tex7AGklyu/zJZYHcx+ssqwRlleCpK' \
+		             b'L6wAZgQ8lk4XbGq5h7KxkfIZvPzUp0ZxhcV0NGZlasWz2hxDu5ueutGLDkSAoHcpbVCO2g' \
+		             b'ZxlWFvckBHrrPJxyL8dKvz5DJ5ABwulyuJjs5eOwC44tC79ydPzu5B3/nClTWRkTq0CLI' \
+		             b'o2UEgQYMLyyfzhe/MJei4jCHD5+gtfEqUkqUkgSDkt3vNXP6cisLKs8ejSn18i+KS8P' \
+		             b'fa2/J3DGBSPbCHKE7bIRizlTBN55bwaxZDyKl4Oy58xw4cJz3/v4fFswIEw7ZHDp6gSMft' \
+		             b'HDgfAGfKbdIvH1sabll1QOPAftu+xDGYjGSyaRdGJu5eO1Xl+x66qkVTJ02DcdxOH' \
+		             b'GynncP/oMtf7nYiy8JaIqCgsspB+k7eIHxlNiae13FOq/hz1P0paNPNDVuvi0FtNbCGD' \
+		             b'PbGLOxufHEJMuySKfT1NW9zxtbd3PoVIrualC9Pm2upM2FymiEq2mQOkdbPsh1YVFsVT7' \
+		             b'9nO/th8Zbl2FrW9tdGF7yPO9bnueFHafr3N69e+/XydOUlpfhtLUjlaCwIISlJJ6vSTtZ' \
+		             b'XNdn2oyZdF2/wjMb6zEotAxiRC/Jk8C8QRVQSpFMJudms7n1zU3JpzsdR9t2IB4KhTZXL' \
+		             b'fhmTnWePL3ha0tFkeuSzuZZ9MTjZJINXEk6VEyIUFx+H/sPvEsm08Uv45fxVHSwNHOAH' \
+		             b'w5QoOX69QVdXZmfdKQ6Pt/RmW4BXgVeq573SHMPpqB4+p5IwFv27JLZLP5cFRcbW3lz10' \
+		             b'VOJKNUFki+vXwCD02PUXesiZ/taR1O4LabCDQ0/Hd5KtWx08lkEmBeAfF69byHM/29gh' \
+		             b'O/NDWQ/fgEVmERQgESX0XJ2hWYO7taNvQS+PBf9YA46DjOW8aYP1Q/+og7nGekdF611J3' \
+		             b'7kcEiEPhyHJlg5bDZBLqHoAN8h0R8Sy+BU6c+FEKK0OyqWQN2PJTZ5UsetPz2VwRmmVYF' \
+		             b'ZAPlGARg6N9mlM4Q9FpM3irb4cnQ90nEGxiAGoEFK55caXmtO4wM4aoijLDwZLhf8mxL' \
+		             b'wE/FtQz9Jn9lT0PftRE1o74mdWamMB7C70TKMDk1bgDGl6Fav3HHXwf1Hy0BLUOHDdKA' \
+		             b'RvlpAn4aYfz+sPVD+Y/6EwDYFctqLL/9DV9FJ+Ws2JAwEvEBB3vUCgDkreI6hDJGDPtF5' \
+		             b'w82OToClbUhAIGOCe3edQt045gRkJOfLaWytg5oobJ2o+U7VUaANC7K3KzyphfnA6RIx' \
+		             b'M+NGQHbu75JYB4DCoAfuCq6ptpNpSf5DqABWFFdyOs/XsTKZQt5Xqf2DRVrRIcwPPHx1a5' \
+		             b'VvNWTke4gxufu7HlmG03UKqLCZFBRi/uXzqX8nikEH5ieql2/bda1M/FE/1gjugdygbJ3' \
+		             b'gm6L8e2wMAiMUFyxK7hmXPJWCQvcFOdyUTbc+wA76v7NgV8d18DDwAACIy7DgrJH610rNj' \
+		             b'NvlfTOKZNDC4sVuascscvwIiGSGQPwdRLxNweLM4oqENdstwlLf9I6tAi0hgx7pnlN1Pg' \
+		             b'dPckN8PZQUUZMQMvwTiMsZJ9Tb5AbVnvXUkV2IVNxeqaPkIh3jDmBrD1xixH2cWF8hPG1' \
+		             b'1Ll222s/Dd5KVxWyy+ptzYeHizOqq1hOXlVoe6lPeaogLf2ujzwV9QM6rfLW+BttGYC' \
+		             b'VJOI7h4oxqm6oL/+pIwvHAILli/Jg7JwVw9Jd9JQoQ9yAvZsYDYG+pnT2b9x48fZJDvD' \
+		             b'B/4WAr8b9Pugm6T70pme6mUR82BfWmBHIXd2301WF9QE/jaVzH0njbwVm3spv1C+iHgu' \
+		             b'WL1pjdObTvopkfBmqHq70+trYKFD5FSG99vW+jKBlKAysvV3XnlqRQBCwgQDdyki6f/b' \
+		             b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
+		             b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
+		             b'ywIVvIgAAAAASUVORK5CYII='
 		self.message = '\r\nThe action you have performed \
                           has been successful!'
-
+	
 	def __str__( self ) -> str:
 		if self.message is not None:
 			return self.message
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1526,16 +1536,16 @@ class Notification( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'message', 'show' ]
-
+	
 	def show( self ) -> int:
 		try:
 			return sg.popup_notify( self.message,
-				title = 'Budget Execution Notification',
-				icon = self.ninja,
-				display_duration_in_ms = 10000,
-				fade_in_duration = 5000,
-				alpha = 1 )
-
+				title='Budget Execution Notification',
+				icon=self.ninja,
+				display_duration_in_ms=10000,
+				fade_in_duration=5000,
+				alpha=1 )
+		
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -1555,7 +1565,7 @@ class ImageSizeEncoder( Dark ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1563,7 +1573,7 @@ class ImageSizeEncoder( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1577,7 +1587,7 @@ class ImageSizeEncoder( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'timeout', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -1588,27 +1598,27 @@ class ImageSizeEncoder( Dark ):
 		'''
 		version = '1.3.1'
 		__version__ = version.split( )[ 0 ]
-
-		def resize( input_file, size, output_file = None, encode_format = 'PNG' ):
+		
+		def resize( input_file, size, output_file=None, encode_format='PNG' ):
 			_image = Image.open( input_file )
 			_width, _height = _image.size
 			_newwidth, _newheight = size
-			if _newwidth != _width or _newheight != _height:
+			if _newwidth!=_width or _newheight!=_height:
 				_scale = min( _newheight / _height, _newwidth / _width )
-				_resizedimage = _image.resize( ( int( _width * _scale ), int( _height * _scale )),
+				_resizedimage = _image.resize( (int( _width * _scale ), int( _height * _scale )),
 					Image.ANTIALIAS )
 			else:
 				_resizedimage = _image
-
+			
 			if output_file is not None:
 				_resizedimage.save( output_file )
-
+			
 			with io.BytesIO( ) as bio:
-				_resizedimage.save( bio, format = encode_format )
+				_resizedimage.save( bio, format=encode_format )
 				_contents = bio.getvalue( )
 				_encoded = base64.b64encode( _contents )
 			return _encoded
-
+		
 		def update_outfilename( ):
 			_infile = _values[ '-IN-' ]
 			if os.path.isfile( _infile ):
@@ -1620,18 +1630,18 @@ class ImageSizeEncoder( Dark ):
 				if not _values[ '-HEIGHT-' ]:
 					_window[ '-HEIGHT-' ].update( _image.size[ 1 ] )
 				_window[ '-ORIG HEIGHT-' ].update( _image.size[ 1 ] )
-
+				
 				_infilename = os.path.basename( _infile )
 				_infilenameonly, _infileext = os.path.splitext( _infilename )
 				if _values[ '-NEW FORMAT-' ]:
 					outfileext = _values[ '-NEW FORMAT-' ].lower( )
-					if outfileext == 'jpeg':
+					if outfileext=='jpeg':
 						outfileext = 'jpg'
 				else:
 					outfileext = _infileext[ 1: ]  # strip off the .
 				outfile = f'{_infilenameonly}{_width}x{_height}.{outfileext}'
 				_outfullname = os.path.join( os.path.dirname( _infile ), outfile )
-
+				
 				if _values[ '-DO NOT SAVE-' ]:
 					_window[ '-NEW FILENAME-' ].update( '' )
 					_window[ '-BASE64-' ].update( True )
@@ -1644,68 +1654,68 @@ class ImageSizeEncoder( Dark ):
 				_window[ '-ORIG HEIGHT-' ].update( '' )
 				# _window['-HEIGHT-'].update('')
 				_window[ '-NEW FILENAME-' ].update( )
-
+		
 		_formatlist = ('', 'PNG', 'JPEG', 'BMP', 'ICO', 'GIF', 'TIFF')
 		_newformat = [
 				[ sg.Combo( _formatlist,
-					default_value = sg.user_settings_get_entry( '-new format-', '' ),
-					readonly = True, enable_events = True, key = '-NEW FORMAT-' ) ] ]
-
+					default_value=sg.user_settings_get_entry( '-new format-', '' ),
+					readonly=True, enable_events=True, key='-NEW FORMAT-' ) ] ]
+		
 		_layout = [ [ sg.Text( 'Image Resizer' ) ],
 		            [ sg.Frame( 'Input Filename', [
-				           [ sg.Input( key = '-IN-', enable_events = True, s = 80 ),
-				             sg.FileBrowse( ), ],
-				           [ sg.T( 'Original size' ), sg.T( k = '-ORIG WIDTH-' ), sg.T( 'X' ),
-				             sg.T( k = '-ORIG HEIGHT-' ) ] ] ) ],
+				            [ sg.Input( key='-IN-', enable_events=True, s=80 ),
+				              sg.FileBrowse( ), ],
+				            [ sg.T( 'Original size' ), sg.T( k='-ORIG WIDTH-' ), sg.T( 'X' ),
+				              sg.T( k='-ORIG HEIGHT-' ) ] ] ) ],
 		            [ sg.Frame( 'Output Filename',
-			           [ [ sg.In( k = '-NEW FILENAME-', s = 80 ), sg.FileBrowse( ), ],
-			             [ sg.In( default_text = sg.user_settings_get_entry( '-_width-', '' ),
-				             s = 4,
-				             k = '-WIDTH-' ), sg.T( 'X' ),
-			               sg.In( default_text = sg.user_settings_get_entry( '-_height-', '' ),
-				               s = 4, k = '-HEIGHT-' ) ] ] ) ],
+			            [ [ sg.In( k='-NEW FILENAME-', s=80 ), sg.FileBrowse( ), ],
+			              [ sg.In( default_text=sg.user_settings_get_entry( '-_width-', '' ),
+				              s=4,
+				              k='-WIDTH-' ), sg.T( 'X' ),
+			                sg.In( default_text=sg.user_settings_get_entry( '-_height-', '' ),
+				                s=4, k='-HEIGHT-' ) ] ] ) ],
 		            [ sg.Frame( 'Convert To New Format', _newformat ) ],
-		            [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k = '-BASE64-',
-			           default = sg.user_settings_get_entry( '-base64-', True ) ) ],
+		            [ sg.CBox( 'Encode to Base64 and leave on Clipboard', k='-BASE64-',
+			            default=sg.user_settings_get_entry( '-base64-', True ) ) ],
 		            [ sg.CBox( 'Do not save file - Only convert and Base64 Encode',
-			           k = '-DO NOT SAVE-', enable_events = True,
-			           default = sg.user_settings_get_entry( '-do not save-', False ) ) ],
+			            k='-DO NOT SAVE-', enable_events=True,
+			            default=sg.user_settings_get_entry( '-do not save-', False ) ) ],
 		            [ sg.CBox( 'Autoclose Immediately When Done',
-			           default = sg.user_settings_get_entry( '-autoclose-',
-				           True if sg.running_windows( ) else False ),
-			           k = '-AUTOCLOSE-' ) ],
-		            [ sg.Button( 'Resize', bind_return_key = True ), sg.Button( 'Exit' ) ],
+			            default=sg.user_settings_get_entry( '-autoclose-',
+				            True if sg.running_windows( ) else False ),
+			            k='-AUTOCLOSE-' ) ],
+		            [ sg.Button( 'Resize', bind_return_key=True ), sg.Button( 'Exit' ) ],
 		            [ sg.T(
-			           'Note - on some systems, autoclose cannot be used because the clipboard is '
-			           'cleared by tkinter' ) ],
+			            'Note - on some systems, autoclose cannot be used because the clipboard is '
+			            'cleared by tkinter' ) ],
 		            [ sg.T( 'Your settings are automatically saved between runs' ) ],
 		            [ sg.T( f'Version {version}' ),
-		             sg.T( 'Go to psgresizer GitHub Repo', font = '_ 8', enable_events = True,
-			             k = '-PSGRESIZER-' ),
-		             sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font = '_ 8',
-			             enable_events = True, k = '-PYSIMPLEGUI-' ) ],
+		              sg.T( 'Go to psgresizer GitHub Repo', font='_ 8', enable_events=True,
+			              k='-PSGRESIZER-' ),
+		              sg.T( 'A PySimpleGUI Application - Go to PySimpleGUI home', font='_ 8',
+			              enable_events=True, k='-PYSIMPLEGUI-' ) ],
 		            ]
-
+		
 		_window = sg.Window( 'Resize Image', _layout,
-			icon = self.icon,
-			right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
-			enable_close_attempted_event = True,
-			finalize = True )
+			icon=self.icon_path,
+			right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
+			enable_close_attempted_event=True,
+			finalize=True )
 		_window[ '-PSGRESIZER-' ].set_cursor( 'hand1' )
 		_window[ '-PYSIMPLEGUI-' ].set_cursor( 'hand1' )
 		while True:
 			_event, _values = _window.read( )
 			# print(_event, _values)
-			if _event in ( sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit' ):
+			if _event in (sg.WIN_CLOSED, sg.WIN_CLOSE_ATTEMPTED_EVENT, 'Exit'):
 				break
 			_infile = _values[ '-IN-' ]
 			update_outfilename( )
-
-			if _event == '-DO NOT SAVE-':
+			
+			if _event=='-DO NOT SAVE-':
 				if _values[ '-DO NOT SAVE-' ]:
 					_window[ '-NEW FILENAME-' ].update( '' )
 					_window[ '-BASE64-' ].update( True )
-			if _event == 'Resize':
+			if _event=='Resize':
 				try:
 					if os.path.isfile( _infile ):
 						update_outfilename( )
@@ -1715,47 +1725,47 @@ class ImageSizeEncoder( Dark ):
 							encode_format = _values[ '-NEW FORMAT-' ].upper( )
 						else:
 							encode_format = infileext[ 1: ].upper( )  # strip off the .
-						if encode_format == 'JPG':
+						if encode_format=='JPG':
 							encode_format = 'JPEG'
 						outfullfilename = _values[ '-NEW FILENAME-' ]
 						width, height = int( _values[ '-WIDTH-' ] ), int( _values[ '-HEIGHT-' ] )
 						if _values[ '-DO NOT SAVE-' ]:
-							encoded = resize( input_file = _infile, size = (width, height),
-								encode_format = encode_format )
+							encoded = resize( input_file=_infile, size=(width, height),
+								encode_format=encode_format )
 						else:
-							encoded = resize( input_file = _infile, size = (width, height),
-								output_file = outfullfilename, encode_format = encode_format )
-
+							encoded = resize( input_file=_infile, size=(width, height),
+								output_file=outfullfilename, encode_format=encode_format )
+						
 						if _values[ '-BASE64-' ]:
 							sg.clipboard_set( encoded )
-
-						sg.popup_quick_message( 'DONE!', font = '_ 40', background_color = 'red',
-							text_color = 'white' )
-
+						
+						sg.popup_quick_message( 'DONE!', font='_ 40', background_color='red',
+							text_color='white' )
+				
 				except Exception as e:
 					sg.popup_error_with_traceback( 'Error resizing or converting',
 						'Error encountered during the resize or Base64 encoding', e )
 				if _values[ '-AUTOCLOSE-' ]:
 					break
-			elif _event == 'Version':
-				sg.popup_scrolled( sg.get_versions( ), non_blocking = True )
-			elif _event == 'Edit Me':
+			elif _event=='Version':
+				sg.popup_scrolled( sg.get_versions( ), non_blocking=True )
+			elif _event=='Edit Me':
 				sg.execute_editor( __file__ )
-			elif _event == 'File Location':
+			elif _event=='File Location':
 				sg.popup_scrolled( 'This Python file is:', __file__ )
-			elif _event == '-PYSIMPLEGUI-':
+			elif _event=='-PYSIMPLEGUI-':
 				webbrowser.open_new_tab( r'http://www.PySimpleGUI.com' )
-			elif _event == '-PSGRESIZER-':
+			elif _event=='-PSGRESIZER-':
 				webbrowser.open_new_tab( r'https://github.com/PySimpleGUI/psgresizer' )
-
-		if _event != sg.WIN_CLOSED:
+		
+		if _event!=sg.WIN_CLOSED:
 			sg.user_settings_set_entry( '-autoclose-', _values[ '-AUTOCLOSE-' ] )
 			sg.user_settings_set_entry( '-new format-', _values[ '-NEW FORMAT-' ] )
 			sg.user_settings_set_entry( '-do not save-', _values[ '-DO NOT SAVE-' ] )
 			sg.user_settings_set_entry( '-base64-', _values[ '-BASE64-' ] )
 			sg.user_settings_set_entry( '-_width-', _values[ '-WIDTH-' ] )
 			sg.user_settings_set_entry( '-_height-', _values[ '-HEIGHT-' ] )
-
+		
 		_window.close( )
 
 class PdfForm( Dark ):
@@ -1766,11 +1776,12 @@ class PdfForm( Dark ):
 	Purpose:
 	Creates form to view a PDF
 	'''
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1778,8 +1789,8 @@ class PdfForm( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 600, 800 )
-
+		self.form_size = (600, 800)
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1792,7 +1803,7 @@ class PdfForm( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -1805,22 +1816,22 @@ class PdfForm( Dark ):
 			_oldpage = 0
 			_zoom = 0
 			_oldzoom = 0
-
+			
 			_filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
-				icon = self.icon,
-				font = self.theme_font,
-				file_types = ( ( 'PDF Files', '*.pdf' ), ) )
-
+				icon=self.icon_path,
+				font=self.theme_font,
+				file_types=(('PDF Files', '*.pdf'),) )
+			
 			if _filename is None:
 				sg.popup_cancel( 'Cancelling' )
 				exit( 0 )
-
+			
 			_pdf = fitz.open( _filename )
 			_pages = len( _pdf )
 			_displaylist = [ None ] * _pages
 			_title = ' Budget Execution'
-
-			def getpage( pno, zoom = 0 ):
+			
+			def getpage( pno, zoom=0 ):
 				_display = _displaylist[ pno ]
 				if _display:
 					_displaylist[ pno ] = _pdf[ pno ].get_displaylist( )
@@ -1832,46 +1843,46 @@ class PdfForm( Dark ):
 					_mr = _r.tr + (_r.br - _r.tr) * 0.5  # middle of right egde
 					_mb = _r.bl + (_r.br - _r.bl) * 0.5  # middle of bottom edge
 					_mat = fitz.Matrix( 2, 2 )
-					if zoom == 1:
+					if zoom==1:
 						_clip = fitz.Rect( _r.tl, _mp )
-					elif zoom == 4:
+					elif zoom==4:
 						_clip = fitz.Rect( _mp, _r.br )
-					elif zoom == 2:
+					elif zoom==2:
 						_clip = fitz.Rect( _mt, _mr )
-					elif zoom == 3:
+					elif zoom==3:
 						_clip = fitz.Rect( _ml, _mb )
-					if zoom == 0:
-						_pix = _display.get_pixmap( alpha = False )
+					if zoom==0:
+						_pix = _display.get_pixmap( alpha=False )
 					else:
-						_pix = _display.get_pixmap( alpha = False, matrix = _mat )
+						_pix = _display.get_pixmap( alpha=False, matrix=_mat )
 					return _pix.tobytes( )
-
+			
 			_current = 0
 			_data = getpage( _current )
-			_image = sg.Image( data = _data )
-			_goto = sg.InputText( f'{str( _current + 1 )} of {str( _pages )}', size = (10, 1) )
+			_image = sg.Image( data=_data )
+			_goto = sg.InputText( f'{str( _current + 1 )} of {str( _pages )}', size=(10, 1) )
 			_layout = [ [ sg.Button( 'Prev' ), sg.Button( 'Next' ),
 			              sg.Text( ),
 			              sg.Text( 'Page:' ), _goto,
-			              sg.Text( size = (10, 1) ), sg.Text( 'Zoom: ' ),
-			              sg.Button( ' In ', key = '-IN-' ), sg.Button( ' Out', key = '-OUT-' ), ],
+			              sg.Text( size=(10, 1) ), sg.Text( 'Zoom: ' ),
+			              sg.Button( ' In ', key='-IN-' ), sg.Button( ' Out', key='-OUT-' ), ],
 			            [ _image ], ]
-
+			
 			_keys = ('Next', 'Next:34', 'Prev', 'Prior:33', 'MouseWheel:Down', 'MouseWheel:Up',
-					'-IN-', '-OUT-')
-
+			         '-IN-', '-OUT-')
+			
 			_window = sg.Window( _title, _layout,
-				size = self.form_size,
-				font = self.theme_font,
-				modal = True,
-				resizable = True,
-				grab_anywhere = True,
-				icon = self.icon )
-
+				size=self.form_size,
+				font=self.theme_font,
+				modal=True,
+				resizable=True,
+				grab_anywhere=True,
+				icon=self.icon )
+			
 			while True:
 				_event, _values = _window.read( )
 				_forcepage = False
-				if _event == sg.WIN_CLOSED:
+				if _event==sg.WIN_CLOSED:
 					break
 				elif _event in ('Next', 'Next:34', 'MouseWheel:Down'):
 					_current += 1
@@ -1879,30 +1890,30 @@ class PdfForm( Dark ):
 				elif _event in ('Prev', 'Prior:33', 'MouseWheel:Up'):
 					_current -= 1
 					_goto.Update( f'{str( _current + 1 )} of {str( _pages )}' )
-				elif _event == '-IN-':
+				elif _event=='-IN-':
 					_zoom += 1
-				elif _event == '-OUT-':
+				elif _event=='-OUT-':
 					_zoom -= 1
-
+				
 				if _current >= _pages:
 					_current = 0
-
+				
 				while _current < 0:
 					_current += _pages
-
-				if _current != _oldpage:
+				
+				if _current!=_oldpage:
 					_zoom = _oldzoom = 0
 					_forcepage = True
-					if _zoom != _oldzoom:
+					if _zoom!=_oldzoom:
 						_forcepage = True
-
+				
 				if _forcepage:
 					_data = getpage( _current, _zoom )
-					_image.update( data = _data )
+					_image.update( data=_data )
 					_oldpage = _current
-
+				
 				_oldzoom = _zoom
-
+				
 				if _event in _keys or not _values[ 0 ]:
 					_goto.update( f'{str( _current + 1 )} of {str( _pages )}' )
 		except Exception as e:
@@ -1926,7 +1937,7 @@ class CalendarDialog( Dark ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -1934,8 +1945,8 @@ class CalendarDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 500, 250 )
-
+		self.form_size = (500, 250)
+	
 	def __str__( self ) -> str:
 		if isinstance( self.selected_item, tuple ):
 			_yr = str( self.selected_item[ 2 ] )
@@ -1943,7 +1954,7 @@ class CalendarDialog( Dark ):
 			_dy = str( self.selected_item[ 1 ] ).zfill( 2 )
 			_date = f'{_yr}/{_mo}/{_dy}'
 			return _date
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1957,7 +1968,7 @@ class CalendarDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'selected_item', 'day', 'month', 'year', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -1967,21 +1978,21 @@ class CalendarDialog( Dark ):
 		Returns:
 		'''
 		try:
-			_btnsize = ( 20, 1 )
-			_calendar = ( 250, 250 )
-
+			_btnsize = (20, 1)
+			_calendar = (250, 250)
+			
 			_months = [ 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL',
-			           'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
-
+			            'AUG', 'SEP', 'OCT', 'NOV', 'DEC' ]
+			
 			_days = [ 'SUN', 'MON', 'TUE', 'WEC', 'THU', 'FRI', 'SAT' ]
-
-			_cal = sg.popup_get_date( title = 'Calendar',
-				no_titlebar = False,
-				icon = self.icon,
-				month_names = _months,
-				day_abbreviations = _days,
-				close_when_chosen = True )
-
+			
+			_cal = sg.popup_get_date( title='Calendar',
+				no_titlebar=False,
+				icon=self.icon_path,
+				month_names=_months,
+				day_abbreviations=_days,
+				close_when_chosen=True )
+			
 			self.selected_item = _cal
 		except Exception as e:
 			_exc = Error( e )
@@ -1999,13 +2010,13 @@ class ComboBoxDialog( Dark ):
 	Purpose:
 	Logger object provides form for log printing
 	'''
-
-
-	def __init__( self, data: list=None ):
+	
+	
+	def __init__( self, data: list = None ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -2013,13 +2024,13 @@ class ComboBoxDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 400, 150 )
+		self.form_size = (400, 150)
 		self.items = data
-
+	
 	def __str__( self ) -> str:
 		if self.selected_item is not None:
 			return self.selected_item
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2033,7 +2044,7 @@ class ComboBoxDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'items',
 		         'selected_item', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -2048,31 +2059,31 @@ class ComboBoxDialog( Dark ):
 			if self.items is None:
 				self.items = [ f'Item {x} ' for x in range( 30 ) ]
 				_values = self.items
-
-			_layout = [ [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
-			            [ sg.Text( size = _spc ), sg.Text( 'Select Item' ) ],
-			            [ sg.Text( size = _spc ),
-			             sg.DropDown( self.items, key = '-ITEM-', size = ( 35, 1 ) ) ],
-			            [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
-			            [ sg.Text( size = _spc ), sg.OK( size = _btnsz ), sg.Text( size = (8,
-			                                                                               1) ),
-			              sg.Cancel( size = _btnsz ) ] ]
-
+			
+			_layout = [ [ sg.Text( size=_spc ), sg.Text( size=_spc ) ],
+			            [ sg.Text( size=_spc ), sg.Text( 'Select Item' ) ],
+			            [ sg.Text( size=_spc ),
+			              sg.DropDown( self.items, key='-ITEM-', size=(35, 1) ) ],
+			            [ sg.Text( size=_spc ), sg.Text( size=_spc ) ],
+			            [ sg.Text( size=_spc ), sg.OK( size=_btnsz ), sg.Text( size=(8,
+			                                                                         1) ),
+			              sg.Cancel( size=_btnsz ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.icon,
-				size = self.form_size )
-
+				icon=self.icon_path,
+				size=self.form_size )
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, 'Exit', 'Cancel'):
 					break
-
+				
 				self.selected_item = _values[ '-ITEM-' ]
 				sg.popup( _event, _values, self.selected_item,
-					text_color = self.themetextcolor,
-					font = self.theme_font,
-					icon = self.icon )
-
+					text_color=self.theme_textcolor,
+					font=self.theme_font,
+					icon=self.icon )
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -2090,12 +2101,12 @@ class ListBoxDialog( Dark ):
 	Purpose:
 	    List search and selection
     '''
-
-	def __init__( self, data: list[ str ]=None ):
+	
+	def __init__( self, data: list[ str ] = None ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -2103,14 +2114,14 @@ class ListBoxDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 400, 250 )
+		self.form_size = (400, 250)
 		self.image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
 		self.items = data
-
+	
 	def __str__( self ) -> str:
 		if self.selected_item is not None:
 			return self.selected_item
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2124,7 +2135,7 @@ class ListBoxDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'items',
 		         'selected_items', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -2134,56 +2145,56 @@ class ListBoxDialog( Dark ):
 		Returns:
 		'''
 		try:
-			_btnsize = ( 10, 1 )
-			_space = ( 10, 1 )
-			_line = ( 100, 1 )
-			_txtsz = ( 25, 1 )
-			_inpsz = ( 25, 1 )
-			_lstsz = ( 25, 5 )
+			_btnsize = (10, 1)
+			_space = (10, 1)
+			_line = (100, 1)
+			_txtsz = (25, 1)
+			_inpsz = (25, 1)
+			_lstsz = (25, 5)
 			_names = [ ]
-
+			
 			if isinstance( self.items, list ):
 				_names = [ src for src in self.items ]
 			else:
 				_names = [ f'Item - {i}' for i in range( 40 ) ]
-
-			_layout = [ [ sg.Text( size = _space ), sg.Text( size = _line ) ],
-			            [ sg.Text( size = _space ), sg.Text( r'Search:' ) ],
-			            [ sg.Text( size = _space ),
-			             sg.Input( size = _inpsz, enable_events = True, key = '-INPUT-' ) ],
-			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
-			            [ sg.Text( size = _space ),
-			             sg.Listbox( _names, size = _lstsz, key = '-ITEM-',
-				             font = self.theme_font ) ],
-			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
-			            [ sg.Text( size = _space ),
-			             sg.Button( 'Select', size = _btnsize, enable_events = True ),
-			             sg.Text( size = ( 3, 1 ) ), sg.Button( 'Exit', size = _btnsize ) ] ]
-
+			
+			_layout = [ [ sg.Text( size=_space ), sg.Text( size=_line ) ],
+			            [ sg.Text( size=_space ), sg.Text( r'Search:' ) ],
+			            [ sg.Text( size=_space ),
+			              sg.Input( size=_inpsz, enable_events=True, key='-INPUT-' ) ],
+			            [ sg.Text( size=_space ), sg.Text( size=_line ) ],
+			            [ sg.Text( size=_space ),
+			              sg.Listbox( _names, size=_lstsz, key='-ITEM-',
+				              font=self.theme_font ) ],
+			            [ sg.Text( size=_space ), sg.Text( size=_line ) ],
+			            [ sg.Text( size=_space ),
+			              sg.Button( 'Select', size=_btnsize, enable_events=True ),
+			              sg.Text( size=(3, 1) ), sg.Button( 'Exit', size=_btnsize ) ] ]
+			
 			_window = sg.Window( '  Budget Execution', _layout,
-				size = self.form_size,
-				font = self.theme_font,
-				icon = self.icon )
-
+				size=self.form_size,
+				font=self.theme_font,
+				icon=self.icon )
+			
 			while True:
 				_event, _values = _window.read( )
-				if _event in ( sg.WIN_CLOSED, 'Exit' ):
+				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
 				self.selected_item = str( _values[ '-ITEM-' ][ 0 ] )
-				if _event == 'Selected':
+				if _event=='Selected':
 					self.selected_item = str( _values[ '-ITEM-' ][ 0 ] )
 					sg.popup( 'Results', self.selected_item,
-						font = self.theme_font,
-						icon = self.icon )
+						font=self.theme_font,
+						icon=self.icon )
 					_window.close( )
-
-				if _values[ '-INPUT-' ] != '':
+				
+				if _values[ '-INPUT-' ]!='':
 					_search = _values[ '-INPUT-' ]
 					_newvalues = [ x for x in _names if _search in x ]
 					_window[ '-ITEM-' ].update( _newvalues )
 				else:
 					_window[ '-ITEM-' ].update( _names )
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -2205,52 +2216,52 @@ class ColorDialog( Dark ):
 	__hex = None
 	__html = None
 	__argb = None
-
+	
 	@property
 	def rgb( self ) -> str:
 		if self.__rgb is not None:
 			return self.__rgb
-
+	
 	@rgb.setter
 	def rgb( self, value: str ):
 		if value is not None:
 			self.__rgb = value
-
+	
 	@property
 	def hex( self ) -> str:
 		if self.__hex is not None:
 			return self.__hex
-
+	
 	@hex.setter
 	def hex( self, value: str ):
 		if value is not None:
 			self.__hex = value
-
+	
 	@property
 	def argb( self ) -> str:
 		if self.__argb is not None:
 			return self.__argb
-
+	
 	@argb.setter
 	def argb( self, value: str ):
 		if value is not None:
 			self.__argb = value
-
+	
 	@property
 	def html( self ) -> str:
 		if self.__html is not None:
 			return self.__html
-
+	
 	@html.setter
 	def html( self, value: str ):
 		if value is not None:
 			self.__html = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -2258,8 +2269,8 @@ class ColorDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 450, 450 )
-
+		self.form_size = (450, 450)
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2273,7 +2284,7 @@ class ColorDialog( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'rgb', 'hex', 'html', 'argb', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -2938,24 +2949,24 @@ class ColorDialog( Dark ):
 			_colorlist = list( _colormap.keys( ) )
 			COLORS_PER_ROW = 40
 			_fontsize = 9
-
+			
 			def make_window( ):
 				_layout = [ [ sg.Text( ), ],
-				            [ sg.Text( f'{len( _colorlist )} Colors', font = self.theme_font ), ],
-				            [ sg.Text( size = (5, 1) ), ] ]
-
+				            [ sg.Text( f'{len( _colorlist )} Colors', font=self.theme_font ), ],
+				            [ sg.Text( size=(5, 1) ), ] ]
+				
 				for rows in range( len( _colorlist ) // COLORS_PER_ROW + 1 ):
 					_row = [ ]
-
+					
 					for i in range( COLORS_PER_ROW ):
 						try:
 							color = _colorlist[ rows * COLORS_PER_ROW + i ]
 							_row.append(
-								sg.Text( ' ', s = 1, background_color = color, text_color = color,
-									font = self.theme_font,
-									right_click_menu = [ '_', _colormap[ color ] ],
-									tooltip = color, enable_events = True,
-									key = (color, _colormap[ color ]) ) )
+								sg.Text( ' ', s=1, background_color=color, text_color=color,
+									font=self.theme_font,
+									right_click_menu=[ '_', _colormap[ color ] ],
+									tooltip=color, enable_events=True,
+									key=(color, _colormap[ color ]) ) )
 						except IndexError as e:
 							break
 						except Exception as e:
@@ -2963,60 +2974,60 @@ class ColorDialog( Dark ):
 								f'rows = {rows}  i = {i}' )
 							break
 					_layout.append( _row )
-				_layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
-				_layout.append( [ sg.Text( ' ', size = (10, 1) ), ] )
-				_layout.append( [ sg.Text( ' ', size = (50, 1) ), sg.Cancel( size = ( 20, 1 ) ), ] )
-
+				_layout.append( [ sg.Text( ' ', size=(10, 1) ), ] )
+				_layout.append( [ sg.Text( ' ', size=(10, 1) ), ] )
+				_layout.append( [ sg.Text( ' ', size=(50, 1) ), sg.Cancel( size=(20, 1) ), ] )
+				
 				return sg.Window( ' Budget Execution', _layout,
-					font = self.theme_font,
-					size = self.form_size,
-					element_padding = (1, 1),
-					border_depth = 0,
-					icon = self.icon,
-					right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
-					use_ttk_buttons = True )
-
+					font=self.theme_font,
+					size=self.form_size,
+					element_padding=(1, 1),
+					border_depth=0,
+					icon=self.icon_path,
+					right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_EXIT,
+					use_ttk_buttons=True )
+			
 			_window = make_window( )
-
+			
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
 					break
-				if _event == 'Edit me':
+				if _event=='Edit me':
 					sg.execute_editor( __file__ )
 					continue
 				elif isinstance( _event, tuple ):
 					_color, _colorhex = _event[ 0 ], _event[ 1 ]
 				else:
 					_color, _colorhex = _hextocolor[ _event ], _event
-
+				
 				_layout2 = [ [ sg.Text( _colorhex + ' on clipboard' ) ],
-				             [ sg.DummyButton( _color, button_color = self.button_color,
-					            tooltip = _colorhex ),
-				              sg.DummyButton( _color, button_color = self.button_color,
-					              tooltip = _colorhex ) ] ]
-
+				             [ sg.DummyButton( _color, button_color=self.button_color,
+					             tooltip=_colorhex ),
+				               sg.DummyButton( _color, button_color=self.button_color,
+					               tooltip=_colorhex ) ] ]
+				
 				_window2 = sg.Window( 'Buttons with white and black text', _layout2,
-					keep_on_top = True,
-					finalize = True,
-					size = self.form_size,
-					icon = self.icon )
-
+					keep_on_top=True,
+					finalize=True,
+					size=self.form_size,
+					icon=self.icon )
+				
 				sg.clipboard_set( _colorhex )
-
+			
 			_window.close( )
-
+			
 			sg.popup_quick_message( 'Building _window... one moment please...',
-				background_color = self.theme_background,
-				icon = self.icon,
-				text_color = self.themetextcolor,
-				font = self.theme_font )
-
-			sg.set_options( button_element_size = (12, 1),
-				element_padding = (0, 0),
-				auto_size_buttons = False,
-				border_width = 1,
-				tooltip_time = 100 )
+				background_color=self.theme_background,
+				icon=self.icon_path,
+				text_color=self.theme_textcolor,
+				font=self.theme_font )
+			
+			sg.set_options( button_element_size=(12, 1),
+				element_padding=(0, 0),
+				auto_size_buttons=False,
+				border_width=1,
+				tooltip_time=100 )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -3046,92 +3057,92 @@ class BudgetForm( Dark ):
 	__fourthitems = None
 	__fourthlayout = None
 	__formlayout = None
-
+	
 	@property
 	def title_items( self ) -> str:
 		if self.__titleitems is not None:
 			return self.__titleitems
-
+	
 	@title_items.setter
 	def title_items( self, value: str ):
 		if value is not None:
 			self.__titleitems = value
-
+	
 	@property
 	def header_items( self ) -> str:
 		if self.__headeritems is not None:
 			return self.__headeritems
-
+	
 	@header_items.setter
 	def header_items( self, value: str ):
 		if value is not None:
 			self.__headeritems = value
-
+	
 	@property
 	def first_items( self ) -> str:
 		if self.__firstitems is not None:
 			return self.__firstitems
-
+	
 	@first_items.setter
 	def first_items( self, value: str ):
 		if value is not None:
 			self.__firstitems = value
-
+	
 	@property
 	def second_items( self ) -> str:
 		if self.__seconditems is not None:
 			return self.__seconditems
-
+	
 	@second_items.setter
 	def second_items( self, value: str ):
 		if value is not None:
 			self.__seconditems = value
-
+	
 	@property
 	def third_items( self ) -> str:
 		if self.__thirditems is not None:
 			return self.__thirditems
-
+	
 	@third_items.setter
 	def third_items( self, value: str ):
 		if value is not None:
 			self.__thirditems = value
-
+	
 	@property
 	def fourth_items( self ) -> str:
 		if self.__fourthitems is not None:
 			return self.__fourthitems
-
+	
 	@fourth_items.setter
 	def fourth_items( self, value: str ):
 		if value is not None:
 			self.__fourthitems = value
-
+	
 	@property
 	def form_size( self ) -> (int, int):
 		if self.form_size is not None:
 			return self.form_size
-
+	
 	@form_size.setter
 	def form_size( self, value: (int, int) ):
 		if value is not None:
 			self.form_size = value
-
+	
 	@property
 	def image( self ) -> str:
 		if self.image is not None:
 			return self.image
-
+	
 	@image.setter
 	def image( self, value: str ):
 		if value is not None:
 			self.image = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -3141,7 +3152,7 @@ class BudgetForm( Dark ):
 		self.button_color = super( ).button_color
 		self.form_size = (1200, 650)
 		self.image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3158,8 +3169,8 @@ class BudgetForm( Dark ):
 		         'second_items', 'third_items', 'form_size',
 		         'image', 'show', 'create_title', 'create_header',
 		         'create_first', 'create_second', 'create_third',
-				 'create_fourth', 'set_layout', 'show' ]
-
+		         'create_fourth', 'set_layout', 'show' ]
+	
 	def create_title( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3181,10 +3192,10 @@ class BudgetForm( Dark ):
 				_form = (450, 150)
 				_hdrsz = (920, 100)
 				_title = [
-						[ sg.Text( f'{items[ 0 ]}', font = _font, background_color = _mblk,
-							enable_events = True, grab = False ),
-						  sg.Push( background_color = _mblk ),
-						  sg.Text( f'{items[ 1 ]}', font = _font, background_color = _mblk ) ],
+						[ sg.Text( f'{items[ 0 ]}', font=_font, background_color=_mblk,
+							enable_events=True, grab=False ),
+						  sg.Push( background_color=_mblk ),
+						  sg.Text( f'{items[ 1 ]}', font=_font, background_color=_mblk ) ],
 				]
 				self.__titlelayout = _title
 				return _title
@@ -3195,7 +3206,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'create_title( self, items )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def create_header( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3216,7 +3227,7 @@ class BudgetForm( Dark ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				_header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font = _hdr ), sg.Push( ) ],
+				_header = [ [ sg.Push( ), sg.Text( f'{items[ 0 ]}', font=_hdr ), sg.Push( ) ],
 				            [ sg.Text( f'{items[ 1 ]}' ) ],
 				            [ sg.Text( f'{items[ 2 ]}' ) ] ]
 				self.__headerlayout = _header
@@ -3228,7 +3239,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'create_header( self, items )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def create_first( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3249,13 +3260,13 @@ class BudgetForm( Dark ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				_first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 1', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 2', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 3', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 4', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 5', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 1 line 6', font = _hdr ), sg.Push( ) ] ]
+				_first = [ [ sg.Push( ), sg.Text( 'Block 1 Header', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 1', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 2', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 3', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 4', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 5', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 1 line 6', font=_hdr ), sg.Push( ) ] ]
 				self.__firstlayout = _first
 				return _first
 			except Exception as e:
@@ -3265,7 +3276,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'setfirsttext( self, items )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def create_second( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3286,13 +3297,13 @@ class BudgetForm( Dark ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				_second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 1', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 2', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 3', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 4', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 5', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 2 line 6', font = _hdr ), sg.Push( ) ] ]
+				_second = [ [ sg.Push( ), sg.Text( 'Block 2 Header', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 1', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 2', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 3', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 4', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 5', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 2 line 6', font=_hdr ), sg.Push( ) ] ]
 				self.__secondlayout = _second
 				return _second
 			except Exception as e:
@@ -3302,7 +3313,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'create_second( self, items )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def create_third( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3323,13 +3334,13 @@ class BudgetForm( Dark ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				_third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 1', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 2', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 3', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 4', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 5', font = _hdr ), sg.Push( ) ],
-				           [ sg.Push( ), sg.Text( 'Block 3 line 6', font = _hdr ), sg.Push( ) ] ]
+				_third = [ [ sg.Push( ), sg.Text( 'Block 3 Header', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 1', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 2', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 3', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 4', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 5', font=_hdr ), sg.Push( ) ],
+				           [ sg.Push( ), sg.Text( 'Block 3 line 6', font=_hdr ), sg.Push( ) ] ]
 				self.__thirdlayout = _third
 				return _third
 			except Exception as e:
@@ -3339,7 +3350,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'create_third( self, items: list )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def create_fourth( self, items: list ) -> list:
 		'''
 		Purpose:
@@ -3360,13 +3371,13 @@ class BudgetForm( Dark ):
 				_hdr = 'Roboto 20'
 				_frasz = (450, 150)
 				_hdrsz = (920, 100)
-				_fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 1', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 2', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 3', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 4', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 5', font = _hdr ), sg.Push( ) ],
-				            [ sg.Push( ), sg.Text( 'Block 4 line 6', font = _hdr ), sg.Push( ) ] ]
+				_fourth = [ [ sg.Push( ), sg.Text( 'Block 4 Header', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 1', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 2', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 3', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 4', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 5', font=_hdr ), sg.Push( ) ],
+				            [ sg.Push( ), sg.Text( 'Block 4 line 6', font=_hdr ), sg.Push( ) ] ]
 				self.__fourthlayout = _fourth
 				return _fourth
 			except Exception as e:
@@ -3376,7 +3387,7 @@ class BudgetForm( Dark ):
 				_exc.method = 'create_fourth( self, items: list )'
 				_err = ErrorDialog( _exc )
 				_err.show( )
-
+	
 	def set_layout( self ) -> list:
 		'''
 		Purpose:
@@ -3398,31 +3409,31 @@ class BudgetForm( Dark ):
 			_frasz = (450, 150)
 			_hdrsz = (920, 100)
 			_layout = [
-					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = _mblk,
-						expand_x = True,
-						border_width = 0, grab = True ) ],
-					[ sg.Frame( '', self.__headerlayout, size = _hdrsz, pad = BPAD_TOP,
-						expand_x = True,
-						relief = sg.RELIEF_FLAT, border_width = 0 ) ],
+					[ sg.Frame( '', self.__titlelayout, pad=(0, 0), background_color=_mblk,
+						expand_x=True,
+						border_width=0, grab=True ) ],
+					[ sg.Frame( '', self.__headerlayout, size=_hdrsz, pad=BPAD_TOP,
+						expand_x=True,
+						relief=sg.RELIEF_FLAT, border_width=0 ) ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__firstlayout, size = _frasz, pad =
+						[ [ sg.Frame( '', self.__firstlayout, size=_frasz, pad=
 						BPAD_LEFT_INSIDE,
-							border_width = 0, expand_x = True, expand_y = True, ) ],
-						  [ sg.Frame( '', self.__thirdlayout, size = _frasz, pad =
+							border_width=0, expand_x=True, expand_y=True, ) ],
+						  [ sg.Frame( '', self.__thirdlayout, size=_frasz, pad=
 						  BPAD_LEFT_INSIDE,
-							  border_width = 0, expand_x = True, expand_y = True ) ] ],
-						pad = BPAD_LEFT, background_color = _blk, border_width = 0,
-						expand_x = True, expand_y = True ),
+							  border_width=0, expand_x=True, expand_y=True ) ] ],
+						pad=BPAD_LEFT, background_color=_blk, border_width=0,
+						expand_x=True, expand_y=True ),
 					  sg.Frame( '',
-						  [ [ sg.Frame( '', self.__secondlayout, size = _frasz,
-							  pad = BPAD_LEFT_INSIDE,
-							  border_width = 0, expand_x = True, expand_y = True ) ],
-						    [ sg.Frame( '', self.__fourthlayout, size = _frasz,
-							    pad = BPAD_LEFT_INSIDE,
-							    border_width = 0, expand_x = True, expand_y = True ) ] ],
-						  pad = BPAD_LEFT, background_color = _blk, border_width = 0,
-						  expand_x = True, expand_y = True ), ],
-					[ sg.Sizegrip( background_color = _mblk ) ] ]
+						  [ [ sg.Frame( '', self.__secondlayout, size=_frasz,
+							  pad=BPAD_LEFT_INSIDE,
+							  border_width=0, expand_x=True, expand_y=True ) ],
+						    [ sg.Frame( '', self.__fourthlayout, size=_frasz,
+							    pad=BPAD_LEFT_INSIDE,
+							    border_width=0, expand_x=True, expand_y=True ) ] ],
+						  pad=BPAD_LEFT, background_color=_blk, border_width=0,
+						  expand_x=True, expand_y=True ), ],
+					[ sg.Sizegrip( background_color=_mblk ) ] ]
 			self.__formlayout = _layout
 			return _layout
 		except Exception as e:
@@ -3432,7 +3443,7 @@ class BudgetForm( Dark ):
 			_exc.method = 'set_layout( self, items )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -3454,92 +3465,92 @@ class BudgetForm( Dark ):
 			_frasz = (450, 150)
 			_hdrsz = (920, 100)
 			self.__titlelayout = [
-					[ sg.Text( 'Budget Execution', font = _hdr, background_color = _mblk,
-						enable_events = True, grab = False ), sg.Push( background_color = _mblk ),
-					  sg.Text( 'Wednesday 27 Oct 2021', font = _hdr, background_color = _mblk ) ],
+					[ sg.Text( 'Budget Execution', font=_hdr, background_color=_mblk,
+						enable_events=True, grab=False ), sg.Push( background_color=_mblk ),
+					  sg.Text( 'Wednesday 27 Oct 2021', font=_hdr, background_color=_mblk ) ],
 			]
-			self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = _hdr ), sg.Push(
+			self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font=_hdr ), sg.Push(
 			) ],
-			                        [ sg.Image( source = self.image, subsample = 3,
-				                        enable_events = True ), sg.Push( ) ],
+			                        [ sg.Image( source=self.image, subsample=3,
+				                        enable_events=True ), sg.Push( ) ],
 			                        [ sg.Text( 'Top Header line 2' ), sg.Push( ) ] ]
 			self.__firstlayout = [
-					[ sg.Push( ), sg.Text( 'Block 1 Header', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 1', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 2', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 3', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 4', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 5', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 1 line 6', font = _hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 1 Header', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 1', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 2', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 3', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 4', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 5', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 1 line 6', font=_hdr ), sg.Push( ) ] ]
 			self.__secondlayout = [
-					[ sg.Push( ), sg.Text( 'Block 2 Header', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 1', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 2', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 3', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 4', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 5', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 2 line 6', font = _hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 2 Header', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 1', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 2', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 3', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 4', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 5', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 2 line 6', font=_hdr ), sg.Push( ) ] ]
 			self.__thirdlayout = [
-					[ sg.Push( ), sg.Text( 'Block 3 Header', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 1', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 2', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 3', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 4', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 5', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 3 line 6', font = _hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 3 Header', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 1', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 2', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 3', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 4', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 5', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 3 line 6', font=_hdr ), sg.Push( ) ] ]
 			self.__fourthlayout = [
-					[ sg.Push( ), sg.Text( 'Block 4 Header', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 1', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 2', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 3', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 4', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 5', font = _hdr ), sg.Push( ) ],
-					[ sg.Push( ), sg.Text( 'Block 4 line 6', font = _hdr ), sg.Push( ) ] ]
+					[ sg.Push( ), sg.Text( 'Block 4 Header', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 1', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 2', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 3', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 4', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 5', font=_hdr ), sg.Push( ) ],
+					[ sg.Push( ), sg.Text( 'Block 4 line 6', font=_hdr ), sg.Push( ) ] ]
 			self.__formlayout = [
-					[ sg.Frame( '', self.__titlelayout, pad = (0, 0), background_color = _mblk,
-						expand_x = True, border_width = 0, grab = True ) ],
+					[ sg.Frame( '', self.__titlelayout, pad=(0, 0), background_color=_mblk,
+						expand_x=True, border_width=0, grab=True ) ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__headerlayout, size = _frasz, pad = BPAD_TOP,
-							expand_x = True,
-							relief = sg.RELIEF_FLAT, border_width = 0 ) ] ], pad = BPAD_LEFT,
-						background_color = _blu, border_width = 0, expand_x = True ), ],
+						[ [ sg.Frame( '', self.__headerlayout, size=_frasz, pad=BPAD_TOP,
+							expand_x=True,
+							relief=sg.RELIEF_FLAT, border_width=0 ) ] ], pad=BPAD_LEFT,
+						background_color=_blu, border_width=0, expand_x=True ), ],
 					[ sg.Frame( '',
-						[ [ sg.Frame( '', self.__firstlayout, size = _frasz, pad =
+						[ [ sg.Frame( '', self.__firstlayout, size=_frasz, pad=
 						BPAD_LEFT_INSIDE,
-							border_width = 0, expand_x = True, expand_y = True, ) ],
-						  [ sg.Frame( '', self.__thirdlayout, size = _frasz, pad =
+							border_width=0, expand_x=True, expand_y=True, ) ],
+						  [ sg.Frame( '', self.__thirdlayout, size=_frasz, pad=
 						  BPAD_LEFT_INSIDE,
-							  border_width = 0, expand_x = True, expand_y = True ) ] ],
-						pad = BPAD_LEFT, background_color = _blu, border_width = 0,
-						expand_x = True, expand_y = True ),
+							  border_width=0, expand_x=True, expand_y=True ) ] ],
+						pad=BPAD_LEFT, background_color=_blu, border_width=0,
+						expand_x=True, expand_y=True ),
 					  sg.Frame( '',
-						  [ [ sg.Frame( '', self.__secondlayout, size = _frasz,
-							  pad = BPAD_LEFT_INSIDE,
-							  border_width = 0, expand_x = True, expand_y = True ) ],
-						    [ sg.Frame( '', self.__fourthlayout, size = _frasz,
-							    pad = BPAD_LEFT_INSIDE,
-							    border_width = 0, expand_x = True, expand_y = True ) ] ],
-						  pad = BPAD_LEFT, background_color = _blu, border_width = 0,
-						  expand_x = True, expand_y = True ), ],
-					[ sg.Sizegrip( background_color = _mblk ) ] ]
+						  [ [ sg.Frame( '', self.__secondlayout, size=_frasz,
+							  pad=BPAD_LEFT_INSIDE,
+							  border_width=0, expand_x=True, expand_y=True ) ],
+						    [ sg.Frame( '', self.__fourthlayout, size=_frasz,
+							    pad=BPAD_LEFT_INSIDE,
+							    border_width=0, expand_x=True, expand_y=True ) ] ],
+						  pad=BPAD_LEFT, background_color=_blu, border_width=0,
+						  expand_x=True, expand_y=True ), ],
+					[ sg.Sizegrip( background_color=_mblk ) ] ]
 			_window = sg.Window( '  Budget Execution', self.__formlayout,
-				size = self.form_size,
-				margins = (0, 0),
-				background_color = _blk,
-				grab_anywhere = True,
-				no_titlebar = True,
-				resizable = True,
-				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
+				size=self.form_size,
+				margins=(0, 0),
+				background_color=_blk,
+				grab_anywhere=True,
+				no_titlebar=True,
+				resizable=True,
+				right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT )
 			while True:
 				_event, _values = _window.read( )
 				print( _event, _values )
-				if _event == sg.WIN_CLOSED or _event == 'Exit':
+				if _event==sg.WIN_CLOSED or _event=='Exit':
 					break
-				elif _event == 'Edit Me':
+				elif _event=='Edit Me':
 					sg.execute_editor( __file__ )
-				elif _event == 'Version':
-					sg.popup_scrolled( sg.get_versions( ), keep_on_top = True )
-				elif _event == 'File Location':
+				elif _event=='Version':
+					sg.popup_scrolled( sg.get_versions( ), keep_on_top=True )
+				elif _event=='File Location':
 					sg.popup_scrolled( 'This Python file is:', __file__ )
 			_window.close( )
 		except Exception as e:
@@ -3558,22 +3569,23 @@ class ChartPanel( Dark ):
     Purpose:
     Provides form with a bar chart
     '''
+	
 	@property
 	def header( self ) -> str:
 		if self.__header is not None:
 			return self.__header
-
+	
 	@header.setter
 	def header( self, value: str ):
 		if value is not None:
 			self.__header = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		sg.theme( 'DarkGrey15' )
-		self.icon = super( ).icon_path
-		self.form_size = ( 750, 650 )
-
+		self.icon_path = super( ).icon_path
+		self.form_size = (750, 650)
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3586,7 +3598,7 @@ class ChartPanel( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'header', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -3596,49 +3608,49 @@ class ChartPanel( Dark ):
 		Returns:
 		'''
 		try:
-			_sm = ( 10, 1 )
-			_md = ( 15, 1 )
-			_lg = ( 20, 1 )
-			_xl = ( 100, 1 )
+			_sm = (10, 1)
+			_md = (15, 1)
+			_lg = (20, 1)
+			_xl = (100, 1)
 			_width = 50
 			_space = 75
 			_offset = 3
 			_graphsz = _datasz = (500, 500)
 			_black = sg.theme_background_color( )
-
-			_layout = [ [ sg.Text( size = _sm ), sg.Text( size = _xl ) ],
-			            [ sg.Text( size = _sm ),
-			              sg.Graph( _graphsz, ( 0, 0 ), _datasz, k = '-GRAPH-' ) ],
-			            [ sg.Text( size = _sm ), sg.Text( size = _xl ) ],
-			            [ sg.Text( size = _lg ), sg.Button( 'Next', size = _md ),
-			             sg.Text( size = _lg ), sg.Exit( size = _md ) ],
-			            [ sg.Sizegrip( background_color = _black ) ] ]
-
+			
+			_layout = [ [ sg.Text( size=_sm ), sg.Text( size=_xl ) ],
+			            [ sg.Text( size=_sm ),
+			              sg.Graph( _graphsz, (0, 0), _datasz, k='-GRAPH-' ) ],
+			            [ sg.Text( size=_sm ), sg.Text( size=_xl ) ],
+			            [ sg.Text( size=_lg ), sg.Button( 'Next', size=_md ),
+			              sg.Text( size=_lg ), sg.Exit( size=_md ) ],
+			            [ sg.Sizegrip( background_color=_black ) ] ]
+			
 			_window = sg.Window( 'Budget Execution', _layout,
-				finalize = True,
-				resizable = True,
-				icon = self.icon,
-				font = self.theme_font,
-				size = self.form_size )
-
+				finalize=True,
+				resizable=True,
+				icon=self.icon_path,
+				font=self.theme_font,
+				size=self.form_size )
+			
 			_graph = _window[ '-GRAPH-' ]
-
+			
 			while True:
 				_graph.erase( )
 				for i in range( 7 ):
 					_item = random.randint( 0, _graphsz[ 1 ] )
-					_graph.draw_rectangle( top_left = ( i * _space + _offset, _item ),
-						bottom_right = ( i * _space + _offset + _width, 0 ),
-						fill_color = sg.theme_button_color_background( ),
-						line_color = sg.theme_button_color_text( ) )
-
-					_graph.draw_text( text = _item, color = '#FFFFFF',
-						location = ( i * _space + _offset + 25, _item + 10 ) )
-
+					_graph.draw_rectangle( top_left=(i * _space + _offset, _item),
+						bottom_right=(i * _space + _offset + _width, 0),
+						fill_color=sg.theme_button_color_background( ),
+						line_color=sg.theme_button_color_text( ) )
+					
+					_graph.draw_text( text=_item, color='#FFFFFF',
+						location=(i * _space + _offset + 25, _item + 10) )
+				
 				_event, _values = _window.read( )
-				if _event in ( sg.WIN_CLOSED, 'Exit' ):
+				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
-
+			
 			_window.close( )
 		except Exception as e:
 			_exc = Error( e )
@@ -3656,22 +3668,22 @@ class CsvForm( Dark ):
 	Purpose:
 	Provides form that reads CSV file with pandas
 	'''
-
+	
 	@property
 	def header( self ) -> str:
 		if self.__header is not None:
 			return self.__header
-
+	
 	@header.setter
 	def header( self, value: str ):
 		if value is not None:
 			self.__header = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -3680,7 +3692,7 @@ class CsvForm( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.form_size = (800, 600)
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3694,7 +3706,7 @@ class CsvForm( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'header',
 		         'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -3710,45 +3722,45 @@ class CsvForm( Dark ):
 			_dialog = FileDialog( )
 			_dialog.show( )
 			_path = _dialog.selected_path
-
-			if _path == '':
+			
+			if _path=='':
 				_msg = MessageDialog( 'No file path was provided!' )
 				_msg.show( )
 				return
-
+			
 			_data = [ ]
 			_header = [ ]
-
+			
 			_button = sg.popup_yes_no( 'Does file have column column_names?',
-				icon = self.icon,
-				font = self.theme_font )
-
+				icon=self.icon_path,
+				font=self.theme_font )
+			
 			if _path is not None:
 				try:
-					_frame = CsvReader( _path, sep = ',', engine = 'python', header = None )
+					_frame = CsvReader( _path, sep=',', engine='python', header=None )
 					_data = _frame.values.tolist( )
-					if _button == 'Yes':
+					if _button=='Yes':
 						_header = _frame.iloc[ 0 ].tolist( )
 						_data = _frame[ 1: ].column_values.tolist( )
-					elif _button == 'No':
+					elif _button=='No':
 						_header = [ 'Column' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
 				except Exception:
 					sg.popup_error( 'Error reading file' )
 					return
-
-			_left = [ [ sg.Text( size = _sm ), ] ]
-			_right = [ [ sg.Text( size = _sm ), ] ]
-			_datagrid = [ [ sg.Table( values = _data, headings = _header, justification = 'center',
-				row_height = 18, display_row_numbers = True, vertical_scroll_only = False,
-				header_background_color = '#1B262E', header_relief = sg.RELIEF_FLAT,
-				header_border_width = 1, selected_row_colors = ('#FFFFFF', '#4682B4'),
-				header_text_color = '#FFFFFF', header_font = ('Roboto', 8, 'bold'),
-				font = ('Roboto', 8), background_color = '#EDF3F8',
-				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
-				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
-				num_rows = min( 26, len( _data ) ) ), ], ]
-			_window = sg.Window( '  Budget Execution', _datagrid, icon = self.icon,
-				font = self.theme_font, resizable = True )
+			
+			_left = [ [ sg.Text( size=_sm ), ] ]
+			_right = [ [ sg.Text( size=_sm ), ] ]
+			_datagrid = [ [ sg.Table( values=_data, headings=_header, justification='center',
+				row_height=18, display_row_numbers=True, vertical_scroll_only=False,
+				header_background_color='#1B262E', header_relief=sg.RELIEF_FLAT,
+				header_border_width=1, selected_row_colors=('#FFFFFF', '#4682B4'),
+				header_text_color='#FFFFFF', header_font=('Roboto', 8, 'bold'),
+				font=('Roboto', 8), background_color='#EDF3F8',
+				alternating_row_color='#EDF3F8', border_width=1, text_color='#000000',
+				expand_x=True, expand_y=True, sbar_relief=sg.RELIEF_FLAT,
+				num_rows=min( 26, len( _data ) ) ), ], ]
+			_window = sg.Window( '  Budget Execution', _datagrid, icon=self.icon_path,
+				font=self.theme_font, resizable=True )
 			_event, _values = _window.read( )
 			_window.close( )
 		except Exception as e:
@@ -3767,22 +3779,22 @@ class ExcelForm( Dark ):
 	Purpose:
 	Provides form that reads CSV file with pandas
 	'''
-
+	
 	@property
 	def header( self ) -> str:
 		if self.__header is not None:
 			return self.__header
-
+	
 	@header.setter
 	def header( self, value: str ):
 		if value is not None:
 			self.__header = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -3790,8 +3802,8 @@ class ExcelForm( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = ( 1250, 650 )
-
+		self.form_size = (1250, 650)
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3805,7 +3817,7 @@ class ExcelForm( Dark ):
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color',
 		         'header', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -3821,61 +3833,61 @@ class ExcelForm( Dark ):
 			_dialog = FileDialog( )
 			_dialog.show( )
 			_filename = _dialog.selected_path
-
-			if _filename == '':
+			
+			if _filename=='':
 				_msg = MessageDialog( 'No file was provided!' )
 				_msg.show( )
 				return
-
+			
 			_data = [ ]
 			_header = [ ]
-
+			
 			_button = sg.popup_yes_no( 'First Row Has Headers?',
-				title = 'Headers?',
-				icon = self.icon,
-				font = ('Roboto', 9) )
+				title='Headers?',
+				icon=self.icon_path,
+				font=('Roboto', 9) )
 			if _filename is not None:
 				try:
-					_dataframe = ExcelReader( _filename, index_col = 0 )
+					_dataframe = ExcelReader( _filename, index_col=0 )
 					_data = _dataframe.values.tolist( )
-					if _button == 'Yes':
+					if _button=='Yes':
 						_header = [ f'{i} ' for i in _dataframe.columns ]
-					elif _button == 'No':
+					elif _button=='No':
 						_header = [ 'Column - ' + str( x ) for x in range( len( _data[ 0 ] ) ) ]
 				except:
 					sg.popup_error( 'Error reading file' )
 					return
-			_left = [ [ sg.Text( size = _small ), ] ]
-			_right = [ [ sg.Text( size = _small ), ] ]
-			_datagrid = [ [ sg.Table( values = _data, headings = _header, justification = 'center',
-				row_height = 18, display_row_numbers = True, vertical_scroll_only = False,
-				header_background_color = '#1B262E', header_relief = sg.RELIEF_FLAT,
-				header_border_width = 1, selected_row_colors = ('#FFFFFF', '#4682B4'),
-				header_text_color = '#FFFFFF', header_font = ('Roboto', 8, 'bold'),
-				font = ('Roboto', 8), background_color = '#EDF3F8',
-				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
-				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
-				num_rows = min( 26, len( _data ) ) ), ], ]
-			_layout = [ [ sg.Text( size = (3, 3) ) ],
-			            [ sg.Column( _left, expand_x = True ),
-			              sg.Column( _datagrid, expand_x = True, expand_y = True ),
-			              sg.Column( _right, expand_x = True ) ],
-			            [ sg.Text( size = _small ) ],
-			            [ sg.Text( size = (10, 1) ), sg.Button( 'Open', size = _med,
-				            key = '-OPEN-' ),
-			              sg.Text( size = _spc ), sg.Button( 'Export', size = _med,
-				            key = '-EXPORT-' ),
-			              sg.Text( size = _spc ), sg.Button( 'Save', size = _med, key = '-SAVE-' ),
-			              sg.Text( size = _spc ), sg.Button( 'Close', size = _med, key = '-CLOSE-'
+			_left = [ [ sg.Text( size=_small ), ] ]
+			_right = [ [ sg.Text( size=_small ), ] ]
+			_datagrid = [ [ sg.Table( values=_data, headings=_header, justification='center',
+				row_height=18, display_row_numbers=True, vertical_scroll_only=False,
+				header_background_color='#1B262E', header_relief=sg.RELIEF_FLAT,
+				header_border_width=1, selected_row_colors=('#FFFFFF', '#4682B4'),
+				header_text_color='#FFFFFF', header_font=('Roboto', 8, 'bold'),
+				font=('Roboto', 8), background_color='#EDF3F8',
+				alternating_row_color='#EDF3F8', border_width=1, text_color='#000000',
+				expand_x=True, expand_y=True, sbar_relief=sg.RELIEF_FLAT,
+				num_rows=min( 26, len( _data ) ) ), ], ]
+			_layout = [ [ sg.Text( size=(3, 3) ) ],
+			            [ sg.Column( _left, expand_x=True ),
+			              sg.Column( _datagrid, expand_x=True, expand_y=True ),
+			              sg.Column( _right, expand_x=True ) ],
+			            [ sg.Text( size=_small ) ],
+			            [ sg.Text( size=(10, 1) ), sg.Button( 'Open', size=_med,
+				            key='-OPEN-' ),
+			              sg.Text( size=_spc ), sg.Button( 'Export', size=_med,
+				            key='-EXPORT-' ),
+			              sg.Text( size=_spc ), sg.Button( 'Save', size=_med, key='-SAVE-' ),
+			              sg.Text( size=_spc ), sg.Button( 'Close', size=_med, key='-CLOSE-'
 			            ) ],
 			            [ sg.Sizegrip( ) ], ]
 			_window = sg.Window( ' Budget Execution', _layout,
-				size = self.form_size,
-				grab_anywhere = True,
-				icon = self.icon,
-				font = self.theme_font,
-				resizable = True,
-				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
+				size=self.form_size,
+				grab_anywhere=True,
+				icon=self.icon_path,
+				font=self.theme_font,
+				resizable=True,
+				right_click_menu=sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 			_event, _values = _window.read( )
 			if _event in (sg.WIN_X_EVENT, '-CLOSE-'):
 				_window.close( )
@@ -3900,12 +3912,12 @@ class GraphForm( Dark ):
 	Purpose:
 	Provides form that reads CSV file with pandas
 	'''
-
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
-		self.icon = super( ).icon_path
+		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
 		self.theme_textcolor = super( ).text_forecolor
@@ -3914,7 +3926,7 @@ class GraphForm( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.form_size = (800, 600)
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3927,7 +3939,7 @@ class GraphForm( Dark ):
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
 		         'scrollbar_color', 'progressbar_color', 'show' ]
-
+	
 	def show( self ):
 		'''
 		Purpose:
@@ -3936,9 +3948,10 @@ class GraphForm( Dark ):
 
 		Returns:
 		'''
+		
 		def create_axis_grid( ):
 			plt.close( 'all' )
-
+			
 			def get_demo_image( ):
 				_delta = 0.5
 				_extent = (-3, 4, -4, 3)
@@ -3948,9 +3961,9 @@ class GraphForm( Dark ):
 				_Z1 = np.exp( -_X ** 2 - _Y ** 2 )
 				_Z2 = np.exp( -(_X - 1) ** 2 - (_Y - 1) ** 2 )
 				_Z = (_Z1 - _Z2) * 2
-
+				
 				return _Z, _extent
-
+			
 			def get_rgb( ):
 				_Z, _extent = get_demo_image( )
 				_Z[ _Z < 0 ] = 0.
@@ -3959,74 +3972,74 @@ class GraphForm( Dark ):
 				_green = _Z[ 2:, 2: ]
 				_blue = _Z[ :13, 2: ]
 				return _red, _green, _blue
-
+			
 			_figure = plt.figure( 1 )
 			_axis = RGBAxes( _figure, [ 0.1, 0.1, 0.8, 0.8 ] )
 			_r, _g, _b = get_rgb( )
-			_kwargs = dict( origin = "lower", interpolation = "nearest" )
+			_kwargs = dict( origin="lower", interpolation="nearest" )
 			_axis.imshow_rgb( _r, _g, _b, **_kwargs )
 			_axis.RGB.set_xlim( 0., 9.5 )
 			_axis.RGB.set_ylim( 0.9, 10.6 )
 			plt.draw( )
 			return plt.gcf( )
-
+		
 		def create_figure( ):
-			_figure = matplotlib.figure.Figure( figsize = (5, 4), dpi = 100 )
+			_figure = matplotlib.figure.Figure( figsize=(5, 4), dpi=100 )
 			_data = np.arange( 0, 3, .01 )
 			_figure.add_subplot( 111 ).plot( _data, 2 * np.sin( 2 * np.pi * _data ) )
 			return _figure
-
+		
 		def create_subplot_3d( ):
 			_figure = plt.figure( )
-			_axis = _figure.add_subplot( 1, 2, 1, projection = '3d' )
+			_axis = _figure.add_subplot( 1, 2, 1, projection='3d' )
 			_x = np.arange( -5, 5, 0.25 )
 			_y = np.arange( -5, 5, 0.25 )
 			_x, _y = np.meshgrid( _x, _y )
 			_r = np.sqrt( _x ** 2 + _y ** 2 )
 			_z = np.sin( _r )
-			surf = _axis.plot_surface( _x, _y, _z, rstride = 1, cstride = 1, cmap = cm,
-				linewidth = 0, antialiased = False )
-
+			surf = _axis.plot_surface( _x, _y, _z, rstride=1, cstride=1, cmap=cm,
+				linewidth=0, antialiased=False )
+			
 			_axis.set_zlim3d( -1.01, 1.01 )
-			_figure.colorbar( surf, shrink = 0.5, aspect = 5 )
-			_axis = _figure.add_subplot( 1, 2, 2, projection = '3d' )
+			_figure.colorbar( surf, shrink=0.5, aspect=5 )
+			_axis = _figure.add_subplot( 1, 2, 2, projection='3d' )
 			_x, _y, _z = get_test_data( )
-			_axis.plot_wireframe( _x, _y, _z, rstride = 10, cstride = 10 )
+			_axis.plot_wireframe( _x, _y, _z, rstride=10, cstride=10 )
 			return _figure
-
+		
 		def create_pyplot_scales( ):
 			plt.close( 'all' )
 			np.random.seed( 19680801 )
-
-			_y = np.random.normal( loc = 0.5, scale = 0.4, size = 1000 )
+			
+			_y = np.random.normal( loc=0.5, scale=0.4, size=1000 )
 			_y = _y[ (_y > 0) & (_y < 1) ]
 			_y.sort( )
 			_x = np.arange( len( _y ) )
-
+			
 			# plot with various axes scales
 			plt.figure( 1 )
-
+			
 			# linear
 			plt.subplot( 221 )
 			plt.plot( _x, _y )
 			plt.yscale( 'linear' )
 			plt.title( 'linear' )
 			plt.grid( True )
-
+			
 			# log
 			plt.subplot( 222 )
 			plt.plot( _x, _y )
 			plt.yscale( 'log' )
 			plt.title( 'log' )
 			plt.grid( True )
-
+			
 			# symmetric log
 			plt.subplot( 223 )
 			plt.plot( _x, _y - _y.mean( ) )
-			plt.yscale( 'symlog', linthreshy = 0.01 )
+			plt.yscale( 'symlog', linthreshy=0.01 )
 			plt.title( 'symlog' )
 			plt.grid( True )
-
+			
 			# logit
 			plt.subplot( 224 )
 			plt.plot( _x, _y )
@@ -4034,68 +4047,68 @@ class GraphForm( Dark ):
 			plt.title( 'logit' )
 			plt.grid( True )
 			plt.gca( ).yaxis.set_minor_formatter( NullFormatter( ) )
-			plt.subplots_adjust( top = 0.92, bottom = 0.08, left = 0.10, right = 0.95,
-				hspace = 0.25,
-				wspace = 0.35 )
-
+			plt.subplots_adjust( top=0.92, bottom=0.08, left=0.10, right=0.95,
+				hspace=0.25,
+				wspace=0.35 )
+			
 			return plt.gcf( )
-
+		
 		def draw_figure( element, figure ):
 			plt.close( 'all' )
 			_canvas = FigureCanvasAgg( figure )
 			_buffer = io.BytesIO( )
-			_canvas.print_figure( _buffer, format = 'png' )
+			_canvas.print_figure( _buffer, format='png' )
 			if _buffer is None:
 				return None
 			_buffer.seek( 0 )
-			element.update( data = _buffer.read( ) )
+			element.update( data=_buffer.read( ) )
 			return _canvas
-
+		
 		_figures = {
 				'Axis Grid': create_axis_grid,
 				'Subplot 3D': create_subplot_3d,
 				'Scales': create_pyplot_scales,
 				'Basic Figure': create_figure }
-
+		
 		def create_window( ):
 			_leftcolumn = [ [ sg.T( 'Charts' ) ],
 			                [ sg.Listbox( list( _figures ),
-				                default_values = [ list( _figures )[ 0 ] ], size = (15, 5),
-				                key = '-LB-' ) ],
+				                default_values=[ list( _figures )[ 0 ] ], size=(15, 5),
+				                key='-LB-' ) ],
 			                [ sg.T( 'Styles' ) ],
-			                [ sg.Combo( plt.style.available, size = (15, 10), key = '-STYLE-' ) ],
+			                [ sg.Combo( plt.style.available, size=(15, 10), key='-STYLE-' ) ],
 			                [ sg.T( 'Themes' ) ],
 			                [ sg.Combo( sg.theme_list( ),
-				                default_value = sg.theme( ),
-				                size = (15, 10),
-				                key = '-THEME-' ) ] ]
-
-			_layout = [ [ sg.T( 'Budget Chart', font = ('Roboto', 10) ) ],
-			            [ sg.Col( _leftcolumn ), sg.Image( key = '-IMAGE-' ) ],
+				                default_value=sg.theme( ),
+				                size=(15, 10),
+				                key='-THEME-' ) ] ]
+			
+			_layout = [ [ sg.T( 'Budget Chart', font=('Roboto', 10) ) ],
+			            [ sg.Col( _leftcolumn ), sg.Image( key='-IMAGE-' ) ],
 			            [ sg.B( 'Draw' ), sg.B( 'Exit' ) ] ]
-
-			_window = sg.Window( 'Budget Execution', _layout, finalize = True )
-
+			
+			_window = sg.Window( 'Budget Execution', _layout, finalize=True )
+			
 			return _window
-
+		
 		_window = create_window( )
-
+		
 		while True:
 			_event, _values = _window.read( )
 			print( _event, _values )
-			if _event == 'Exit' or _event == sg.WIN_CLOSED:
+			if _event=='Exit' or _event==sg.WIN_CLOSED:
 				break
-			if _event == 'Draw':
-				if _values[ '-THEME-' ] != sg.theme( ):
+			if _event=='Draw':
+				if _values[ '-THEME-' ]!=sg.theme( ):
 					_window.close( )
 					sg.theme( _values[ '-THEME-' ] )
 					_window = create_window( )
-
+				
 				if _values[ '-LB-' ]:
 					_func = _figures[ _values[ '-LB-' ][ 0 ] ]
 					if _values[ '-STYLE-' ]:
 						plt.style.use( _values[ '-STYLE-' ] )
-
+					
 					draw_figure( _window[ '-IMAGE-' ], _func( ) )
-
+		
 		_window.close( )
