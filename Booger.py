@@ -76,98 +76,22 @@ class Error( Exception ):
     Purpose:
         Class wrapping exception used as the input argument for ErrorDialog class
     '''
-	__class = None
-	__module = None
-	__method = None
-	__heading = None
-	__type = None
-	__trace = None
-	__info = None
 
-	@property
-	def message( self ) -> str:
-		if self.__heading is not None:
-			return self.__heading
-
-	@message.setter
-	def message( self, value: str ):
-		if value is not None:
-			self.__heading = value
-
-	@property
-	def cause( self ) -> str:
-		if self.__class is not None:
-			return self.__class
-
-	@cause.setter
-	def cause( self, value: str ):
-		if value is not None:
-			self.__class = value
-
-	@property
-	def method( self ) -> str:
-		if self.__method is not None:
-			return self.__method
-
-	@method.setter
-	def method( self, value: str ):
-		if value is not None:
-			self.__method = value
-
-	@property
-	def module( self ) -> str:
-		if self.__module is not None:
-			return self.__module
-
-	@module.setter
-	def module( self, value: str ):
-		if value is not None:
-			self.__module = value
-
-	@property
-	def type( self ) -> BaseException:
-		if self.__type is not None:
-			return self.__type
-
-	@type.setter
-	def type( self, value: BaseException ):
-		if value is not None:
-			self.__type = value
-
-	@property
-	def stack_trace( self ) -> str:
-		if self.__trace is not None:
-			return self.__trace
-
-	@stack_trace.setter
-	def stack_trace( self, value: str ):
-		if value is not None:
-			self.__trace = value
-
-	@property
-	def info( self ) -> str:
-		if self.__class is not None:
-			return self.__class
-
-	@info.setter
-	def info( self, value: str ):
-		if value is not None:
-			self.__class = value
 
 	def __init__( self, exception: Exception, heading: str=None, cause: str=None,
 	              method: str=None, module: str=None ):
 		super( ).__init__( )
-		self.__heading = heading
-		self.__class = cause
-		self.__method = method
-		self.__module = module
-		self.__type = exc_info( )[ 0 ]
-		self.__trace = traceback.format_exc( )
-		self.__info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
+		self.heading = heading
+		self.cause = cause
+		self.method = method
+		self.module = module
+		self.type = exc_info( )[ 0 ]
+		self.trace = traceback.format_exc( )
+		self.info = str( exc_info( )[ 0 ] ) + ': \r\n \r\n' + traceback.format_exc( )
 
 	def __str__( self ) -> str:
-		if self.__info is not None:
-			return self.__info
+		if self.info is not None:
+			return self.info
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -187,48 +111,15 @@ class ButtonIcon( ):
     Pupose:
     Class representing form images
     '''
-	__button = None
-	__name = None
-	__filepath = None
-
-	@property
-	def folder( self ) -> str:
-		if self.__button is not None:
-			return self.__button
-
-	@folder.setter
-	def folder( self, value: str ):
-		if value is not None:
-			self.__button = value
-
-	@property
-	def name( self ) -> str:
-		if self.__name is not None:
-			return self.__name
-
-	@name.setter
-	def name( self, value: str ):
-		if value is not None:
-			self.__name = value
-
-	@property
-	def file_path( self ) -> str:
-		if self.__filepath is not None:
-			return self.__filepath
-
-	@file_path.setter
-	def file_path( self, value: str ):
-		if value is not None:
-			self.__filepath = value
-
+	
 	def __init__( self, png: Enum ):
-		self.__name = png.name
-		self.__button = os.getcwd( ) + r'\etc\img\button'
-		self.__filepath = self.__button + r'\\' + self.__name + '.png'
+		self.name = png.name
+		self.button = os.getcwd( ) + r'\etc\img\button'
+		self.file_path = self.button + r'\\' + self.name + '.png'
 
 	def __str__( self ) -> str:
-		if self.__filepath is not None:
-			return self.__filepath
+		if self.file_path is not None:
+			return self.file_path
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -246,48 +137,15 @@ class TitleIcon( ):
 	Purpose:
 	Class used to define the TitleIcon used on the GUI
 	'''
-	__folder = None
-	__name = None
-	__filepath = None
-
-	@property
-	def folder( self ) -> str:
-		if self.__button is not None:
-			return self.__button
-
-	@folder.setter
-	def folder( self, value: str ):
-		if value is not None:
-			self.__button = value
-
-	@property
-	def name( self ) -> str:
-		if self.__name is not None:
-			return self.__name
-
-	@name.setter
-	def name( self, value: str ):
-		if isinstance( value, str ):
-			self.__name = value
-
-	@property
-	def file_path( self ) -> str:
-		if self.__filepath is not None:
-			return self.__filepath
-
-	@file_path.setter
-	def file_path( self, value: str ):
-		if value is not None:
-			self.__filepath = value
 
 	def __init__( self, ico ):
-		self.__name = ico.name
-		self.__folder = os.getcwd( ) + r'etc\ico'
-		self.__filepath = self.__folder + r'\\' + self.__name + r'.ico'
+		self.name = ico.name
+		self.folder = os.getcwd( ) + r'etc\ico'
+		self.file_path = self.folder + r'\\' + self.name + r'.ico'
 
 	def __str__( self ) -> str:
-		if self.__filepath is not None:
-			return self.__filepath
+		if self.file_path is not None:
+			return self.file_path
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -305,219 +163,32 @@ class Dark( ):
 	Purpose:
 	Base class for the dark-mode controls
 	'''
-	__themebackground: str=None
-	__elementbackcolor: str=None
-	__elementforecolor: str=None
-	__themetextcolor: str=None
-	__textbackcolor: str=None
-	__inputbackcolor: str=None
-	__inputforecolor: str=None
-	__buttoncolor: str=None
-	__buttonforecolor: str=None
-	__buttonbackcolor: str=None
-	__icon: str=None
-	__themefont: str=None
-	__scrollbarcolor: str=None
-	__progressbarbackcolor: str=None
-	__formsize: ( int, int )=None
-	__settingspath: str=None
 
-	@property
-	def size( self ) -> ( int, int ):
-		if self.__formsize is not None:
-			return self.__formsize
-
-	@size.setter
-	def size( self, value: ( int, int ) ):
-		if value is not None:
-			self.__formsize = value
-
-	@property
-	def settings_path( self ) -> str:
-		if self.__settingspath is not None:
-			return self.__settingspath
-
-	@settings_path.setter
-	def settings_path( self, value: str ):
-		'''Sets the size property'''
-		if value is not None:
-			self.__settingspath = value
-
-	@property
-	def theme_background( self ) -> str:
-		if self.__themebackground is not None:
-			return self.__themebackground
-
-	@theme_background.setter
-	def theme_background( self, value: str ):
-		if value is not None:
-			self.__themebackground = value
-
-	@property
-	def theme_textcolor( self ) -> str:
-		if self.__themetextcolor is not None:
-			return self.__themetextcolor
-
-	@theme_textcolor.setter
-	def theme_textcolor( self, value: str ):
-		if value is not None:
-			self.__themetextcolor = value
-
-	@property
-	def element_backcolor( self ) -> str:
-		if self.__elementbackcolor is not None:
-			return self.__elementbackcolor
-
-	@element_backcolor.setter
-	def element_backcolor( self, value: str ):
-		if value is not None:
-			self.__elementbackcolor = value
-
-	@property
-	def element_forecolor( self ) -> str:
-		if self.__elementforecolor is not None:
-			return self.__elementforecolor
-
-	@element_forecolor.setter
-	def element_forecolor( self, value: str ):
-		if value is not None:
-			self.__elementforecolor = value
-
-	@property
-	def text_forecolor( self ) -> str:
-		if self.__themetextcolor is not None:
-			return self.__themetextcolor
-
-	@text_forecolor.setter
-	def text_forecolor( self, value: str ):
-		if value is not None:
-			self.__themetextcolor = value
-
-	@property
-	def text_backcolor( self ) -> str:
-		if self.__textbackcolor is not None:
-			return self.__textbackcolor
-
-	@text_backcolor.setter
-	def text_backcolor( self, value: str ):
-		if value is not None:
-			self.__textbackcolor = value
-
-	@property
-	def input_backcolor( self ) -> str:
-		if self.__inputbackcolor is not None:
-			return self.__inputbackcolor
-
-	@input_backcolor.setter
-	def input_backcolor( self, value: str ):
-		if value is not None:
-			self.__inputbackcolor = value
-
-	@property
-	def input_forecolor( self ) -> str:
-		if self.__inputforecolor is not None:
-			return self.__inputforecolor
-
-	@input_forecolor.setter
-	def input_forecolor( self, value: str ):
-		if value is not None:
-			self.__inputforecolor = value
-
-	@property
-	def button_color( self ) -> (str, str):
-		if self.__buttoncolor is not None:
-			return self.__buttoncolor
-
-	@button_color.setter
-	def button_color( self, value: (str, str) ):
-		if value is not None:
-			self.__buttoncolor = value
-
-	@property
-	def button_backcolor( self ) -> str:
-		if self.__buttonbackcolor is not None:
-			return self.__buttonbackcolor
-
-	@button_backcolor.setter
-	def button_backcolor( self, value: str ):
-		if value is not None:
-			self.__buttonbackcolor = value
-
-	@property
-	def button_forecolor( self ) -> str:
-		if self.__buttonforecolor is not None:
-			return self.__buttonforecolor
-
-	@button_forecolor.setter
-	def button_forecolor( self, value: str ):
-		if value is not None:
-			self.__buttonforecolor = value
-
-	@property
-	def icon_path( self ) -> str:
-		if self.__icon is not None:
-			return self.__icon
-
-	@icon_path.setter
-	def icon_path( self, value: str ):
-		if value is not None:
-			self.__icon = value
-
-	@property
-	def theme_font( self ) -> (str, int):
-		if self.__themefont is not None:
-			return self.__themefont
-
-	@theme_font.setter
-	def theme_font( self, value: (str, int) ):
-		if value is not None:
-			self.__themefont = value
-
-	@property
-	def scrollbar_color( self ) -> str:
-		if self.__scrollbarcolor is not None:
-			return self.__scrollbarcolor
-
-	@scrollbar_color.setter
-	def scrollbar_color( self, value: str ):
-		if value is not None:
-			self.__scrollbarcolor = value
-
-	@property
-	def progressbar_color( self ) -> (str, str):
-		if self.__progressbarcolor is not None:
-			return self.__progressbarcolor
-
-	@progressbar_color.setter
-	def progressbar_color( self, value: (str, str) ):
-		if value is not None:
-			self.__progressbarcolor = value
 
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
 		sg.theme_input_text_color( '#FFFFFF' )
 		sg.theme_element_text_color( '#69B1EF' )
 		sg.theme_text_color( '#69B1EF' )
-		self.__themebackground = sg.theme_background_color( )
-		self.__themetextcolor = sg.theme_text_color( )
-		self.__elementbackcolor = sg.theme_text_element_background_color( )
-		self.__elementforecolor = sg.theme_element_text_color( )
-		self.__textbackcolor = sg.theme_text_element_background_color( )
-		self.__inputforecolor = sg.theme_input_text_color( )
-		self.__inputbackcolor = sg.theme_input_background_color( )
-		self.__buttonbackcolor = sg.theme_button_color_background( )
-		self.__buttonforecolor = sg.theme_button_color_text( )
-		self.__buttoncolor = sg.theme_button_color( )
-		self.__icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
-		self.__themefont = ( 'Roboto', 9 )
-		self.__scrollbarcolor = '#755600'
-		self.__progressbarbackcolor = sg.theme
-		self.__progressbarcolor = sg.theme_progress_bar_color( )
-		self.__formsize = ( 400, 200 )
-		self.__settingspath = os.getcwd( ) + r'\etc\theme'
-		sg.set_global_icon( icon = self.__icon )
-		sg.set_options( font = self.__themefont )
-		sg.user_settings_save( 'Budget', self.__settingspath )
+		self.theme_background = sg.theme_background_color( )
+		self.theme_textcolor = sg.theme_text_color( )
+		self.element_backcolor = sg.theme_text_element_background_color( )
+		self.element_forecolor = sg.theme_element_text_color( )
+		self.text_backcolor = sg.theme_text_element_background_color( )
+		self.input_forecolor = sg.theme_input_text_color( )
+		self.input_backcolor = sg.theme_input_background_color( )
+		self.button_backcolor = sg.theme_button_color_background( )
+		self.button_forecolor = sg.theme_button_color_text( )
+		self.button_color = sg.theme_button_color( )
+		self.icon = os.getcwd( ) + r'\etc\ico\ninja.ico'
+		self.theme_font = ( 'Roboto', 9 )
+		self.scrollbar_color = '#755600'
+		self.progressbar_backcolor = sg.theme_progress_bar_color( )
+		self.form_size = ( 400, 200 )
+		self.settings_path = os.getcwd( ) + r'\etc\theme'
+		sg.set_global_icon( icon = self.icon )
+		sg.set_options( font = self.theme_font )
+		sg.user_settings_save( 'Budget', self.settings_path )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -542,66 +213,36 @@ class FileDialog( Dark ):
 		Class that handles filenames a file
 
 	'''
-	__selecteditem = None
-	__extension = None
-	__message = None
-	__excel = None
-	__csv = None
-	__pdf = None
-	__sqlite = None
-	__sql = None
-	__sqlserver = None
-	__access = None
-	__text = None
-
-	@property
-	def selected_path( self ) -> str:
-		if self.__selecteditem is not None:
-			return self.__selecteditem
-
-	@selected_path.setter
-	def selected_path( self, value: str ):
-		if value is not None:
-			self.__selecteditem = value
-
-	@property
-	def message( self ) -> str:
-		if self.__message is not None:
-			return self.__message
-
-	@message.setter
-	def message( self, value: str ):
-		if value is not None:
-			self.__message = value
+	
 
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 475, 240 )
-		self.__selecteditem = None
-		self.__message = 'Search for File'
-		self.__extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-		self.__excel = ( ( 'Excel Files', '*.xlsx' ), )
-		self.__csv = ( ( 'CSV Files', '*.csv' ), )
-		self.__pdf = ( ( 'PDF Files', '*.pdf' ), )
-		self.__sql = ( ( 'SQL Files', '*.sqlstatement', ), )
-		self.__text = ( ( 'Text Files', '*.txt' ), )
-		self.__access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
-		self.__sqlite = ( ( 'SQLite Databases', '*.db' ), )
-		self.__sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 475, 240 )
+		self.selected_item = None
+		self.message = 'Search for File'
+		self.extension = extension if isinstance( extension, EXT ) else EXT.XLSX
+		self.excel = ( ( 'Excel Files', '*.xlsx' ), )
+		self.csv = ( ( 'CSV Files', '*.csv' ), )
+		self.pdf = ( ( 'PDF Files', '*.pdf' ), )
+		self.sql = ( ( 'SQL Files', '*.sqlstatement', ), )
+		self.text = ( ( 'Text Files', '*.txt' ), )
+		self.access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
+		self.sqlite = ( ( 'SQLite Databases', '*.db' ), )
+		self.sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
 
 	def __str__( self ) -> str:
-		if self.__selecteditem is not None:
-			return self.__selecteditem
+		if self.selected_item is not None:
+			return self.selected_item
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -627,7 +268,7 @@ class FileDialog( Dark ):
 		'''
 		try:
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Text( self.__message, font = ( 'Roboto', 11 ) ) ],
+			            [ sg.Text( self.message, font = ( 'Roboto', 11 ) ) ],
 			            [ sg.Text( ) ],
 			            [ sg.Input( key = '-PATH-' ), sg.FileBrowse( size = ( 15, 1 ) ) ],
 			            [ sg.Text( ) ],
@@ -635,15 +276,15 @@ class FileDialog( Dark ):
 			            [ sg.OK( size = ( 8, 1 ), ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
 			_window = sg.Window( ' Budget Execution', _layout,
-				font = self.__themefont,
-				size = self.__formsize )
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in ( sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel' ):
 					break
 				elif _event == 'OK':
-					self.__selecteditem = _values[ '-PATH-' ]
+					self.selected_item = _values[ '-PATH-' ]
 					_window.close( )
 
 			_window.close( )
@@ -663,36 +304,26 @@ class FolderDialog( Dark ):
 	Purpose:
 	Class defining dialog used to select a directory path
 	'''
-	__selecteditem = None
-
-	@property
-	def selected_path( self ) -> str:
-		if self.__selecteditem is not None:
-			return self.__selecteditem
-
-	@selected_path.setter
-	def selected_path( self, value: str ):
-		if value is not None:
-			self.__selecteditem = value
+	
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 475, 250 )
-		self.__selecteditem = None
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 475, 250 )
+		self.selected_item = None
 
 	def __str__( self ) -> str:
-		if isinstance( self.__selecteditem, str ):
-			return self.__selecteditem
+		if isinstance( self.selected_item, str ):
+			return self.selected_item
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -726,19 +357,19 @@ class FolderDialog( Dark ):
 			            [ sg.OK( size = ( 8, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				font = self.__themefont,
-				size = self.__formsize )
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
 				elif _event == 'OK':
-					self.__selecteditem = _values[ '-PATH-' ]
-					sg.popup_ok( self.__selecteditem,
+					self.selected_item = _values[ '-PATH-' ]
+					sg.popup_ok( self.selected_item,
 						title = 'Results',
-						icon = self.__icon,
-						font = self.__themefont )
+						icon = self.icon,
+						font = self.theme_font )
 
 			_window.close( )
 		except Exception as e:
@@ -756,47 +387,26 @@ class SaveFileDialog( Dark ):
     Purpose:
     Class define object that provides a dialog to locate file destinations
     '''
-	__original = None
-	__filename = None
-
-	@property
-	def original( self ) -> str:
-		if self.__original is not None:
-			return self.__original
-
-	@original.setter
-	def original( self, value: str ):
-		if value is not None:
-			self.__original = value
-
-	@property
-	def file_name( self ) -> str:
-		if self.__filename is not None:
-			return self.__filename
-
-	@file_name.setter
-	def file_name( self, value: str ):
-		if value is not None:
-			self.__filename = value
+	
 
 	def __init__( self, path='' ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 400, 250 )
-		self.__original = path
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 400, 250 )
+		self.original = path
 
 	def __str__( self ) -> str:
-		if self.__filename is not None:
-			return self.__filename
+		if self.file_name is not None:
+			return self.file_name
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -824,14 +434,14 @@ class SaveFileDialog( Dark ):
 			_username = os.environ.get( 'USERNAME' )
 			_filename = sg.popup_get_file( 'Select Location / Enter File Name',
 				title = '  Budget Execution',
-				font = self.__themefont,
-				icon = self.__icon,
+				font = self.theme_font,
+				icon = self.icon,
 				save_as = True )
 
-			self.__filename = _filename
+			self.file_name = _filename
 
-			if os.path.exists( self.__original ):
-				_src = io.open( self.__original ).read( )
+			if os.path.exists( self.original ):
+				_src = io.open( self.original ).read( )
 				_dest = io.open( _filename, 'w+' ).write( _src )
 		except Exception as e:
 			_exc = Error( e )
@@ -849,58 +459,25 @@ class GoogleDialog( Dark ):
 	Purpose:
 	class that renames a folder
 	'''
-	__image = None
-	__querytext = None
-	__results = None
-
-	@property
-	def search( self ) -> str:
-		if self.__querytext is not None:
-			return self.__querytext
-
-	@search.setter
-	def search( self, value: str ):
-		if value is not None:
-			self.__querytext = value
-
-	@property
-	def image( self ) -> str:
-		if self.__image is not None:
-			return self.__image
-
-	@image.setter
-	def image( self, value: str ):
-		if value is not None:
-			self.__image = value
-
-	@property
-	def results( self ) -> str:
-		if self.__results is not None:
-			return self.__results
-
-	@results.setter
-	def results( self, value: str ):
-		if value is not None:
-			self.__results = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 500, 235 )
-		self.__image = os.getcwd( ) + r'\etc\img\app\web\google.png'
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 500, 235 )
+		self.image = os.getcwd( ) + r'\etc\img\app\web\google.png'
 
 	def __str__( self ) -> str:
-		if isinstance( self.__results, list ):
-			return self.__results[ 0 ]
+		if isinstance( self.results, list ):
+			return self.results[ 0 ]
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -925,9 +502,9 @@ class GoogleDialog( Dark ):
 		Returns:
 		'''
 		try:
-			self.__results = [ ]
+			self.results = [ ]
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Image( source = self.__image ) ],
+			            [ sg.Image( source = self.image ) ],
 			            [ sg.Text( size = ( 10, 1 ) ),
 			              sg.Input( key = '-QUERY-', size = ( 40, 2 ) ) ],
 			            [ sg.Text( size = ( 100, 1 ) ) ],
@@ -936,20 +513,20 @@ class GoogleDialog( Dark ):
 			              sg.Text( size = ( 5, 1 ) ), sg.Cancel( size = ( 15, 1 ) ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				font = self.__themefont,
-				size = self.__formsize )
+				icon = self.icon,
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, 'Cancel'):
 					break
 				elif _event == 'Submit':
-					self.__querytext = _values[ '-QUERY-' ]
-					_google = search( term = self.__querytext, num_results = 5 )
+					self.querytext = _values[ '-QUERY-' ]
+					_google = search( term = self.querytext, num_results = 5 )
 					_app = App( Client.Edge )
 					for result in list( _google ):
-						self.__results.append( result )
+						self.results.append( result )
 						_app.run_args( result )
 
 			_window.close( )
@@ -964,115 +541,41 @@ class GoogleDialog( Dark ):
 class EmailDialog( Dark ):
 	'''
 
-	Construcotr: EmailDialog( sender: str=None, receiver: str=None,
+	Construcotr: 
+	
+	    EmailDialog( sender: str=None, receiver: str=None,
 			subject: str=None, heading: str=None )
 
-	Purpose:  Class providing form used to send email messages.
+	Purpose:  
+	
+	    Class providing form used to send email messages.
 
     '''
-	__image = None
-	__folderpath = None
-	__sender = None
-	__receiver = None
-	__subject = None
-	__message = None
-	__others = None
-	__username = None
-	__password = None
-
-	@property
-	def sender( self ) -> str:
-		if self.__sender is not None:
-			return self.__sender
-
-	@sender.setter
-	def sender( self, value: str ):
-		if value is not None:
-			self.__sender = value
-
-	@property
-	def receiver( self ) -> str:
-		if self.__receiver is not None:
-			return self.__receiver
-
-	@receiver.setter
-	def receiver( self, value: str ):
-		if value is not None:
-			self.__receiver = value
-
-	@property
-	def message( self ) -> str:
-		if self.__message is not None:
-			return self.__message
-
-	@message.setter
-	def message( self, value: str ):
-		if value is not None:
-			self.__message = value
-
-	@property
-	def subject( self ) -> str:
-		if self.__subject is not None:
-			return self.__subject
-
-	@subject.setter
-	def subject( self, value: str ):
-		if value is not None:
-			self.__subject = value
-
-	@property
-	def others( self ) -> str:
-		if self.__others is not None:
-			return self.__others
-
-	@others.setter
-	def others( self, value: str ):
-		if value is not None:
-			self.__others = value
-
-	@property
-	def username( self ) -> str:
-		if self.__username is not None:
-			return self.__username
-
-	@username.setter
-	def username( self, value: str ):
-		if value is not None:
-			self.__username = value
-
-	@property
-	def password( self ) -> str:
-		if self.__password is not None:
-			return self.__password
-
-	@password.setter
-	def password( self, value: str ):
-		if value is not None:
-			self.__password = value
+	
 
 	def __init__( self, sender: str=None, receiver: str=None,
 	              subject: str=None, message: str=None ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-		self.__formsize = ( 570, 550 )
-		self.__sender = sender
-		self.__receiver = receiver
-		self.__subject = subject
-		self.__message = message
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
+		self.form_size = ( 570, 550 )
+		self.sender = sender
+		self.receiver = receiver
+		self.subject = subject
+		self.message = message
 
 	def __str__( self ) -> str:
-		if self.__message is not None:
-			return self.__message
+		if self.message is not None:
+			return self.message
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1124,15 +627,15 @@ class EmailDialog( Dark ):
 			              sg.Text( ' ', size = _btn ), sg.Button( 'Cancel', size = _btn ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				size = self.__formsize )
+				icon = self.icon,
+				size = self.form_size )
 
 			while True:  # Event Loop
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, 'Cancel', 'Exit'):
 					break
 				if _event == 'Send':
-					sg.popup_quick_message( 'Sending your heading... this will take a moment...',
+					sg.popup_quick_message( 'Sending...this will take a moment...',
 						background_color = 'red' )
 			_window.close( )
 		except Exception as e:
@@ -1152,36 +655,25 @@ class MessageDialog( Dark ):
     to display informational messages
 
     '''
-	__text = None
-
-	@property
-	def text( self ) -> str:
-		if self.__text is not None:
-			return self.__text
-
-	@text.setter
-	def text( self, value: str ):
-		if value is not None:
-			self.__text = value
 
 	def __init__( self, text: str=None ):
-		self.__text = text
+		self.text = text
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (450, 250)
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (450, 250)
 
 	def __str__( self ) -> str:
-		if self.__text is not None:
-			return self.__text
+		if self.text is not None:
+			return self.text
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1204,7 +696,7 @@ class MessageDialog( Dark ):
 			_layout = [ [ sg.Text( size = _txtsz ) ],
 			            [ sg.Text( size = _txtsz ) ],
 			            [ sg.Text( size = (5, 1) ),
-			              sg.Text( self.__text,
+			              sg.Text( self.text,
 				              font = ('Roboto', 11),
 				              enable_events = True,
 				              key = '-TEXT-',
@@ -1217,9 +709,9 @@ class MessageDialog( Dark ):
 			              sg.Text( size = (15, 1) ), sg.Cancel( size = _btnsz ) ] ]
 
 			_window = sg.Window( r'  Budget Execution', _layout,
-				icon = self.__icon,
-				font = self.__themefont,
-				size = self.__formsize )
+				icon = self.icon,
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
@@ -1244,97 +736,30 @@ class ErrorDialog( Dark ):
      a single, optional argument 'exception' of type Error
 
     '''
-	__class = None
-	__module = None
-	__method = None
-	__heading = None
-	__type = None
-	__trace = None
-	__info = None
-	__exception = None
-
-	@property
-	def info( self ) -> str:
-		if self.__class is not None:
-			return self.__class
-
-	@info.setter
-	def info( self, value: str ):
-		if value is not None:
-			self.__class = value
-
-	@property
-	def cause( self ) -> str:
-		if self.__class is not None:
-			return self.__class
-
-	@cause.setter
-	def cause( self, value: str ):
-		if value is not None:
-			self.__class = value
-
-	@property
-	def method( self ) -> str:
-		if self.__method is not None:
-			return self.__method
-
-	@method.setter
-	def method( self, value: str ):
-		if value is not None:
-			self.__method = value
-
-	@property
-	def module( self ) -> str:
-		if self.__module is not None:
-			return self.__module
-
-	@module.setter
-	def module( self, value: str ):
-		if value is not None:
-			self.__module = value
-
-	@property
-	def type( self ) -> str:
-		if self.__type is not None:
-			return self.__type
-
-	@type.setter
-	def type( self, value: str ):
-		if value is not None:
-			self.__type = value
-
-	@property
-	def message( self ) -> str:
-		if self.__heading is not None:
-			return self.__heading
-
-	@message.setter
-	def message( self, value: str ):
-		if value is not None:
-			self.__heading = value
+	
 
 	def __init__( self, exception ):
 		super( ).__init__( )
 		self.__exception = exception if isinstance( exception, Error ) else None
-		self.__heading = exception.message
-		self.__module = exception.module
-		self.__info = exception.stack_trace
+		self.heading = exception.message
+		self.module = exception.module
+		self.info = exception.stack_trace
 		self.__cause = exception.cause
-		self.__method = exception.method
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (500, 300)
+		self.method = exception.method
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (500, 300)
 
 	def __str__( self ) -> str:
-		if isinstance( self.__info, str ):
-			return self.__info
+		if isinstance( self.info, str ):
+			return self.info
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1352,9 +777,9 @@ class ErrorDialog( Dark ):
 		         'module', 'type', 'message' 'show' ]
 
 	def show( self ) -> object:
-		_msg = self.__heading if isinstance( self.__heading, str ) else None
-		_info = f'Module:\t{self.__module}\r\nClass:\t{self.__cause}\r\n' \
-		        f'Method:\t{self.__method}\r\n \r\n{self.__info}'
+		_msg = self.heading if isinstance( self.heading, str ) else None
+		_info = f'Module:\t{self.module}\r\nClass:\t{self.__cause}\r\n' \
+		        f'Method:\t{self.method}\r\n \r\n{self.info}'
 		_red = '#F70202'
 		_font = ( 'Roboto', 10 )
 		_padsz = ( 3, 3 )
@@ -1368,9 +793,9 @@ class ErrorDialog( Dark ):
 		              sg.Text( size = (10, 1) ), sg.Ok( size = (15, 1), key = '-OK-' ) ] ]
 
 		_window = sg.Window( r' Budget Execution', _layout,
-			icon = self.__icon,
-			font = self.__themefont,
-			size = self.__formsize )
+			icon = self.icon,
+			font = self.theme_font,
+			size = self.form_size )
 
 		while True:
 			_event, _values = _window.read( )
@@ -1385,49 +810,27 @@ class InputDialog( Dark ):
 
 	Purpose:  class that produces a contact input form
 	'''
-	__question = None
-	__response = None
-	__themefont = None
-
-	@property
-	def question( self ) -> str:
-		if self.__question is not None:
-			return self.__question
-
-	@question.setter
-	def question( self, value: str ):
-		if value is not None:
-			self.__question = value
-
-	@property
-	def response( self ) -> str:
-		if self.__response is not None:
-			return self.__response
-
-	@response.setter
-	def response( self, value: str ):
-		if value is not None:
-			self.__response = value
+	
 
 	def __init__( self, question ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__question = question if isinstance( question, str ) else None
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (500, 250)
-		self.__response = None
+		self.theme_background = super( ).theme_background
+		self.question = question if isinstance( question, str ) else None
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (500, 250)
+		self.response = None
 
 	def __str__( self ) -> str:
-		if isinstance( self.__response, str ):
-			return self.__response
+		if isinstance( self.response, str ):
+			return self.response
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1446,7 +849,7 @@ class InputDialog( Dark ):
 	def show( self ):
 		try:
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Text( self.__question, font = ('Roboto', 9, 'bold') ) ],
+			            [ sg.Text( self.question, font = ('Roboto', 9, 'bold') ) ],
 			            [ sg.Text( ) ],
 			            [ sg.Text( 'Enter:', size = (10, 2) ),
 			              sg.InputText( key = '-INPUT-', size = (40, 2) ) ],
@@ -1458,20 +861,20 @@ class InputDialog( Dark ):
 			              sg.Cancel( size = (15, 1), key = '-CANCEL-' ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				font = self.__themefont,
-				size = self.__formsize )
+				icon = self.icon,
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_X_EVENT, sg.WIN_CLOSED, '-CANCEL-', 'Exit'):
 					break
 
-				self.__response = _values[ '-INPUT-' ]
-				sg.popup( _event, _values, self.__response,
-					text_color = self.__themetextcolor,
-					font = self.__themefont,
-					icon = self.__icon )
+				self.response = _values[ '-INPUT-' ]
+				sg.popup( _event, _values, self.response,
+					text_color = self.themetextcolor,
+					font = self.theme_font,
+					icon = self.icon )
 
 			_window.close( )
 		except Exception as e:
@@ -1484,41 +887,36 @@ class InputDialog( Dark ):
 
 class ScrollingDialog( Dark ):
 	'''
-	Construcotr:  ScrollingDialog( text = '' )
+	
+	'Construcotr:  
+	
+	    ScrollingDialog( text = '' )
 
-	Purpose:  Provides form for multiline input/output
+	Purpose:  
+	
+	    Provides form for multiline input/output
+	    
 	'''
-	__arrowcolor = None
-
-	@property
-	def text( self ) -> str:
-		if self.__text is not None:
-			return self.__text
-
-	@text.setter
-	def text( self, value: str ):
-		if value is not None:
-			self.__text = value
-
+	
 	def __init__( self, text = '' ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__arrowcolor = super( ).scrollbar_color
-		self.__formsize = (700, 600)
-		self.__text = text if isinstance( text, str ) and text != '' else None
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.arrowcolor = super( ).scrollbar_color
+		self.form_size = (700, 600)
+		self.text = text if isinstance( text, str ) and text != '' else None
 
 	def __str__( self ) -> str:
-		if isinstance( self.__text, str ):
-			return self.__text
+		if isinstance( self.text, str ):
+			return self.text
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1539,7 +937,7 @@ class ScrollingDialog( Dark ):
 			_line = ( 100, 1 )
 			_space = ( 5, 1 )
 			_btnsize = ( 25, 1 )
-			_arrow = self.__arrowcolor
+			_arrow = self.arrowcolor
 			_back = super( ).button_backcolor
 			_padsz = ( 3, 3, 3, 3 )
 			_layout = [ [ sg.Text( ' ', size = _line ) ],
@@ -1556,14 +954,14 @@ class ScrollingDialog( Dark ):
 			             sg.Text( size = _space ), ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				size = self.__formsize,
-				font = self.__themefont,
+				icon = self.icon,
+				size = self.form_size,
+				font = self.theme_font,
 				resizable = True )
 
 			while True:
 				event, values = _window.read( )
-				self.__text = values[ '-TEXT-' ]
+				self.text = values[ '-TEXT-' ]
 				if event in (sg.WIN_CLOSED, 'Exit'):
 					break
 
@@ -1583,30 +981,20 @@ class ContactForm( Dark ):
 	Purpose:  class that produces a contact input form
 	'''
 
-	@property
-	def size( self ) -> ( int, int ):
-		if self.__formsize is not None:
-			return self.__formsize
-
-	@size.setter
-	def size( self, value: ( int, int ) ):
-		if value is not None:
-			self.__formsize = value
-
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
-		self.__formsize = (500, 300)
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = os.getcwd( ) + r'\etc\img\app\web\outlook.png'
+		self.form_size = (500, 300)
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1639,18 +1027,18 @@ class ContactForm( Dark ):
 			              sg.Text( size = ( 20, 1 ) ), sg.Cancel( size = ( 10, 1 ) ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				font = self.__themefont,
-				size = self.__formsize )
+				icon = self.icon,
+				font = self.theme_font,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				sg.popup( 'Results', _values, _values[ '-NAME-' ],
 					_values[ '-ADDRESS-' ],
 					_values[ '-PHONE-' ],
-					text_color = self.__themetextcolor,
-					font = self.__themefont,
-					icon = self.__icon )
+					text_color = self.themetextcolor,
+					font = self.theme_font,
+					icon = self.icon )
 
 				if _event in (sg.WIN_CLOSED, sg.WIN_X_EVENT, 'Cancel'):
 					break
@@ -1670,57 +1058,24 @@ class GridForm( Dark ):
 
 	Purpose:  object providing form that simulates a datagrid
 	'''
-	__width = None
-	__rows = None
-	__columns = None
-
-	@property
-	def field_width( self ) -> ( int, int ):
-		if self.__width is not None:
-			return self.__width
-
-	@field_width.setter
-	def field_width( self, value: ( int, int ) ):
-		if value is not None:
-			self.__width = value
-
-	@property
-	def rows( self ) -> int:
-		if self.__rows is not None:
-			return self.__rows
-
-	@rows.setter
-	def rows( self, value: int ):
-		if value is not None:
-			self.__rows = value
-
-	@property
-	def columns( self ) -> int:
-		if self.__columns is not None:
-			return self.__columns
-
-	@columns.setter
-	def columns( self, value: int ):
-		if value is not None:
-			self.__columns = value
-
+	
 	def __init__( self, rows=30, columns=10 ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = None
-		self.__width = ( 17, 1 )
-		self.__rows = rows
-		self.__columns = columns
-		self.__formsize = ( 1250, 650 )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = None
+		self.width = ( 17, 1 )
+		self.rows = rows
+		self.columns = columns
+		self.form_size = ( 1250, 650 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1738,15 +1093,15 @@ class GridForm( Dark ):
 
 	def show( self ):
 		try:
-			_black = self.__themebackground
-			_columns = self.__columns
+			_black = self.theme_background
+			_columns = self.columns
 			_headings = [ f'HEADER-{i + 1}' for i in range( _columns ) ]
 			_space = [ [ sg.Text( size = ( 10, 1 ) ) ], [ sg.Text( size = ( 10, 1 ) ) ],
 			           [ sg.Text( size = ( 10, 1 ) ) ] ]
 			_header = [
 					[ sg.Text( h, size = ( 16, 1 ), justification = 'left' ) for h in _headings ] ]
-			_records = [ [ [ sg.Input( size = self.__width, pad = (0, 0), font = self.__themefont )
-			                 for c in range( len( _headings ) ) ] for r in range( self.__rows )
+			_records = [ [ [ sg.Input( size = self.width, pad = (0, 0), font = self.theme_font )
+			                 for c in range( len( _headings ) ) ] for r in range( self.rows )
 			               ], ]
 			_buttons = [ [ sg.Text( size = ( 35, 1 ) ), sg.Text( size = ( 10, 1 ) ), ],
 			             [ sg.Text( size = ( 100, 1 ) ), sg.Text( size = ( 100, 1 ) ),
@@ -1757,9 +1112,9 @@ class GridForm( Dark ):
 
 			_window = sg.Window( '  Budget Execution', _layout,
 				finalize = True,
-				size = self.__formsize,
-				icon = self.__icon,
-				font = self.__themefont,
+				size = self.form_size,
+				icon = self.icon,
+				font = self.theme_font,
 				resizable = True )
 
 			while True:
@@ -1782,34 +1137,22 @@ class LoadingPanel( Dark ):
 
 	Purpose:  object providing form loading behavior
 	'''
-	__image = None
-	__timeout = None
-
-	@property
-	def timeout( self ) -> int:
-		if isinstance( self.__timeout, int ):
-			return self.__timeout
-
-	@timeout.setter
-	def timeout( self, value: int ):
-		if value is not None:
-			self.__timeout = value
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
-		self.__formsize = ( 800, 600 )
-		self.__timeout = 6000
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
+		self.form_size = ( 800, 600 )
+		self.timeout = 6000
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1834,17 +1177,17 @@ class LoadingPanel( Dark ):
 				font = ( 'Bodoni MT', 40 ) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
 			_window = sg.Window( '  Loading...', _layout,
-				icon = self.__icon,
+				icon = self.icon,
 				element_justification = 'c',
 				margins = ( 0, 0 ),
 				size = ( 800, 600 ),
 				element_padding = ( 0, 0 ), finalize = True )
 
 			_window[ '-T-' ].expand( True, True )
-			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
 
 			while True:
-				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
+				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
 					_event, _values = _window.read( timeout = _interframe_duration )
 					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
@@ -1864,35 +1207,24 @@ class WaitingPanel( Dark ):
 
 	Purpose:  object providing form loader behavior
 	'''
-	__image = None
-	__timeout = None
 
-	@property
-	def timeout( self ) -> int:
-		if self.__timeout is not None:
-			return self.__timeout
-
-	@timeout.setter
-	def timeout( self, value: str ):
-		if value is not None:
-			self.__timeout = value
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = os.getcwd( ) + r'\etc\img\loaders\loader.gif'
-		self.__themefont = ('Roboto', 9)
-		self.__formsize = (800, 600)
-		self.__timeout = 6000
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = os.getcwd( ) + r'\etc\img\loaders\loader.gif'
+		self.theme_font = ('Roboto', 9)
+		self.form_size = (800, 600)
+		self.timeout = 6000
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1917,7 +1249,7 @@ class WaitingPanel( Dark ):
 				font = ('Bodoni MT', 40) ) ], [ sg.Image( key = '-IMAGE-' ) ] ]
 
 			_window = sg.Window( '  Waiting...', _layout,
-				icon = self.__icon,
+				icon = self.icon,
 				element_justification = 'c',
 				margins = (0, 0),
 				element_padding = (0, 0),
@@ -1925,10 +1257,10 @@ class WaitingPanel( Dark ):
 				finalize = True )
 
 			_window[ '-T-' ].expand( True, True  )
-			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
+			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
 
 			while True:
-				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
+				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
 					_event, _values = _window.read( timeout = _interframe_duration )
 					if _event == sg.WIN_CLOSED:
 						exit( 0 )
@@ -1948,34 +1280,22 @@ class ProcessingPanel( Dark ):
 
 	Purpose:  object providing form processing behavior
 	'''
-	__image = None
-	__timeout = None
-
-	@property
-	def timeout( self ) -> str:
-		if self.__timeout is not None:
-			return self.__timeout
-
-	@timeout.setter
-	def timeout( self, value: str ):
-		if value is not None:
-			self.__timeout = value
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
-		self.__formsize = (800, 600)
-		self.__timeout = None
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
+		self.form_size = (800, 600)
+		self.timeout = None
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2002,7 +1322,7 @@ class ProcessingPanel( Dark ):
 
 			_window = sg.Window( '  Processing...', _layout,
 				element_justification = 'c',
-				icon = self.__icon,
+				icon = self.icon,
 				margins = (0, 0),
 				size = (800, 600),
 				element_padding = (0, 0),
@@ -2010,12 +1330,12 @@ class ProcessingPanel( Dark ):
 
 			_window[ '-T-' ].expand( True, True )
 
-			_interframe_duration = Image.open( self.__image ).info[ 'duration' ]
-			self.__timeout = _interframe_duration
+			_interframe_duration = Image.open( self.image ).info[ 'duration' ]
+			self.timeout = _interframe_duration
 
 			while True:
-				for frame in ImageSequence.Iterator( Image.open( self.__image ) ):
-					_event, _values = _window.read( timeout = self.__timeout,
+				for frame in ImageSequence.Iterator( Image.open( self.image ) ):
+					_event, _values = _window.read( timeout = self.timeout,
 						timeout_key = '-TIMEOUT-' )
 					if _event == sg.WIN_CLOSED or _event == sg.WIN_X_EVENT:
 						exit( 0 )
@@ -2037,36 +1357,24 @@ class SplashPanel( Dark ):
 
 	Purpose:  Class providing splash dialog behavior
 	'''
-	__image = None
-	__timeout = None
-
-	@property
-	def timeout( self ) -> int:
-		if self.__timeout is not None:
-			return self.__timeout
-
-	@timeout.setter
-	def timeout( self, value: int ):
-		if value is not None:
-			self.__timeout = value
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__buttonforecolor = super( ).button_forecolor
-		self.__buttobackcolor = super( ).button_backcolor
-		self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
-		self.__formsize = ( 800, 600 )
-		self.__timeout = 6000
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.button_forecolor = super( ).button_forecolor
+		self.button_backcolor = super( ).button_backcolor
+		self.image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
+		self.form_size = ( 800, 600 )
+		self.timeout = 6000
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2084,21 +1392,21 @@ class SplashPanel( Dark ):
 
 	def show( self ):
 		try:
-			_img = self.__image
+			_img = self.image
 			_imgsize = ( 500, 400 )
 			_line = ( 100, 2 )
 			_space = ( 15, 1 )
 			_layout = [ [ sg.Text( size = _space ), sg.Text( size = _line ) ],
 			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
 			            [ sg.Text( size = _space ),
-			             sg.Image( filename = self.__image, size = _imgsize ) ] ]
+			             sg.Image( filename = self.image, size = _imgsize ) ] ]
 			_window = sg.Window( '  Budget Execution', _layout,
 				no_titlebar = True,
 				keep_on_top = True,
 				grab_anywhere = True,
-				size = self.__formsize )
+				size = self.form_size )
 			while True:
-				_event, _values = _window.read( timeout = self.__timeout, close = True )
+				_event, _values = _window.read( timeout = self.timeout, close = True )
 				if _event in (sg.WIN_CLOSED, 'Exit'):
 					break
 			_window.close( )
@@ -2116,30 +1424,18 @@ class Notification( Dark ):
 
 	Purpose:  object providing form processing behavior
 	'''
-	__image = None
-	__message = None
-
-	@property
-	def message( self ) -> str:
-		if self.__message is not None:
-			return self.__message
-
-	@message.setter
-	def message( self, value: str ):
-		if value is not None:
-			self.__message = value
-
+	
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__success = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
+		self.theme_background = super( ).theme_background
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.success = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
 		                 b'/gAAAACXBIWXMAAAEKAAABCgEWpLzLAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5r' \
 		                 b'c2NhcGUub3Jnm+48GgAAAHJQTFRF////ZsxmbbZJYL9gZrtVar9VZsJcbMRYaM' \
 		                 b'ZVasFYaL9XbMFbasRZaMFZacRXa8NYasFaasJaasFZasJaasNZasNYasJYasJZ' \
@@ -2150,7 +1446,7 @@ class Notification( Dark ):
 		                 b'ZHPh/yuAYSv8R7XE0l6AVXnwBNJUsE2+GMOzWL8k3OEW7a/q5wOIS9e7t5qnGExvF5Bvl' \
 		                 b'c4w/LEM4Abt+d0S5BpAHD7seMcf7+ZHfclp10TlYZc2y2nOqc6OwruxUWx0rDjNJtyp6' \
 		                 b'HkUW4bJn0VWdf/a7nDpj1u++PBOR694+Ftj/8PKNdnDLn/V8YAAAAASUVORK5CYII='
-		self.__fail = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
+		self.fail = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U' \
 		              b'/gAAAACXBIWXMAAADlAAAA5QGP5Zs8AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm' \
 		              b'+48GgAAAIpQTFRF////20lt30Bg30pg4FJc409g4FBe4E9f4U9f4U9g4U9f4E9g31Bf4E9f4E9f' \
 		              b'4E9f4E9f4E9f4FFh4Vdm4lhn42Bv5GNx5W575nJ' \
@@ -2165,7 +1461,7 @@ class Notification( Dark ):
 		              b'/T8smTIVMgsPXZkvepiMj0Tm5txQLENu7gSF7HIuMreRxYNkb' \
 		              b'mHI0u5Hk4PJOXkSMz5I3nyY08HMjbpOFylF5WswdJPmYeVaL28968yNfGZ2r9gvqFalJNUy2UW' \
 		              b'mq1Wa7di/3Kxl3tF1671YHRR04dWn3s9cXRV09f3vb1fwPD7z9j1WgeRgAAAABJRU5ErkJggg=='
-		self.__ninja = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAnCAYAAABuf0pMAAABhWlDQ1BJQ0MgUHJvZmlsZQA' \
+		self.ninja = b'iVBORw0KGgoAAAANSUhEUgAAACAAAAAnCAYAAABuf0pMAAABhWlDQ1BJQ0MgUHJvZmlsZQA' \
 		               b'AeJx9kT1Iw0AcxV9bS1WqDnYo4pChOlkQFRFcpIpFsFDaCq06mFz6BU0akhQXR8G14ODHYtXB' \
 		               b'xVlXB1dBEPwAcXRyUnSREv+XFFrEeHDcj3f3HnfvAG' \
 		               b'+jwhSjaxxQVFNPxWNCNrcqBF7hRz96E' \
@@ -2210,12 +1506,12 @@ class Notification( Dark ):
 		               b'kDVx/sobu1mfCpdVfllJszthT0J/8eu0CtpCI778VgUnAhEES3LZFYp99QQj5jFbRcC5' \
 		               b'QKrUI9F3+KYn4j4YjAN07D3GzAoqbFRB98Kbf8PsM98bIAVl6HghD2P8Avm6w' \
 		               b'ywIVvIgAAAAASUVORK5CYII='
-		self.__message = '\r\nThe action you have performed \
+		self.message = '\r\nThe action you have performed \
                           has been successful!'
 
 	def __str__( self ) -> str:
-		if self.__message is not None:
-			return self.__message
+		if self.message is not None:
+			return self.message
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2233,9 +1529,9 @@ class Notification( Dark ):
 
 	def show( self ) -> int:
 		try:
-			return sg.popup_notify( self.__message,
+			return sg.popup_notify( self.message,
 				title = 'Budget Execution Notification',
-				icon = self.__ninja,
+				icon = self.ninja,
 				display_duration_in_ms = 10000,
 				fade_in_duration = 5000,
 				alpha = 1 )
@@ -2254,21 +1550,19 @@ class ImageSizeEncoder( Dark ):
 
 	Purpose:  Class resizing image and encoding behavior
 	'''
-	__image = None
-	__timeout = None
-
+	
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2393,7 +1687,7 @@ class ImageSizeEncoder( Dark ):
 		            ]
 
 		_window = sg.Window( 'Resize Image', _layout,
-			icon = self.__icon,
+			icon = self.icon,
 			right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_LOC_EXIT,
 			enable_close_attempted_event = True,
 			finalize = True )
@@ -2474,17 +1768,17 @@ class PdfForm( Dark ):
 	'''
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 600, 800 )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 600, 800 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2513,8 +1807,8 @@ class PdfForm( Dark ):
 			_oldzoom = 0
 
 			_filename = sg.popup_get_file( 'Select file', ' Budget PDF Viewer',
-				icon = self.__icon,
-				font = self.__themefont,
+				icon = self.icon,
+				font = self.theme_font,
 				file_types = ( ( 'PDF Files', '*.pdf' ), ) )
 
 			if _filename is None:
@@ -2567,12 +1861,12 @@ class PdfForm( Dark ):
 					'-IN-', '-OUT-')
 
 			_window = sg.Window( _title, _layout,
-				size = self.__formsize,
-				font = self.__themefont,
+				size = self.form_size,
+				font = self.theme_font,
 				modal = True,
 				resizable = True,
 				grab_anywhere = True,
-				icon = self.__icon )
+				icon = self.icon )
 
 			while True:
 				_event, _values = _window.read( )
@@ -2627,74 +1921,26 @@ class CalendarDialog( Dark ):
 	Purpose:
 	class creates form providing today selection behavior
 	'''
-	__selecteditem = None
-	__day = None
-	__month = None
-	__year = None
-
-	@property
-	def selected_item( self ) -> str:
-		if isinstance( self.__selecteditem, tuple ):
-			_year = str( self.__selecteditem[ 2 ] )
-			_month = str( self.__selecteditem[ 0 ] ).zfill( 2 )
-			_day = str( self.__selecteditem[ 1 ] ).zfill( 2 )
-			_date = f'{_year}/{_month}/{_day}'
-			return _date
-
-	@selected_item.setter
-	def selected_item( self, value: tuple ):
-		if value is not None:
-			self.__selecteditem = value
-
-	@property
-	def day( self ) -> tuple:
-		if self.__selecteditem is not None:
-			return self.__selecteditem[ 1 ].zfill( 2 )
-
-	@day.setter
-	def day( self, value: tuple ):
-		if value is not None:
-			self.__day = value[ 1 ].zfill( 2 )
-
-	@property
-	def month( self ) -> tuple:
-		if self.__selecteditem is not None:
-			return self.__selecteditem[ 0 ].zfill( 2 )
-
-	@month.setter
-	def month( self, value: tuple ):
-		if value is not None:
-			self.__day = value[ 0 ].zfill( 2 )
-
-	@property
-	def year( self ) -> tuple:
-		if self.__selecteditem is not None:
-			return self.__selecteditem[ 2 ]
-
-	@year.setter
-	def year( self, value: tuple ):
-		if value is not None:
-			self.__day = value[ 2 ].zfill( 4 )
-
+	
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 500, 250 )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 500, 250 )
 
 	def __str__( self ) -> str:
-		if isinstance( self.__selecteditem, tuple ):
-			_yr = str( self.__selecteditem[ 2 ] )
-			_mo = str( self.__selecteditem[ 0 ] ).zfill( 2 )
-			_dy = str( self.__selecteditem[ 1 ] ).zfill( 2 )
+		if isinstance( self.selected_item, tuple ):
+			_yr = str( self.selected_item[ 2 ] )
+			_mo = str( self.selected_item[ 0 ] ).zfill( 2 )
+			_dy = str( self.selected_item[ 1 ] ).zfill( 2 )
 			_date = f'{_yr}/{_mo}/{_dy}'
 			return _date
 
@@ -2731,12 +1977,12 @@ class CalendarDialog( Dark ):
 
 			_cal = sg.popup_get_date( title = 'Calendar',
 				no_titlebar = False,
-				icon = self.__icon,
+				icon = self.icon,
 				month_names = _months,
 				day_abbreviations = _days,
 				close_when_chosen = True )
 
-			self.__selecteditem = _cal
+			self.selected_item = _cal
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'Booger'
@@ -2753,47 +1999,26 @@ class ComboBoxDialog( Dark ):
 	Purpose:
 	Logger object provides form for log printing
 	'''
-	__items = None
-	__selecteditem = None
 
-	@property
-	def items( self ) -> list:
-		if self.__items is not None:
-			return self.__items
 
-	@items.setter
-	def items( self, value: list ):
-		if value is not None:
-			self.__items = value
-
-	@property
-	def selected_item( self ) -> str:
-		if isinstance( self.__selecteditem, str ):
-			return self.__selecteditem
-
-	@selected_item.setter
-	def selected_item( self, value: str ):
-		if isinstance( value, str ):
-			self.__selecteditem = value
-
-	def __init__( self, data: list = None ):
+	def __init__( self, data: list=None ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 400, 150 )
-		self.__items = data
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 400, 150 )
+		self.items = data
 
 	def __str__( self ) -> str:
-		if isinstance( self.__selecteditem, str ) and self.__selecteditem != '':
-			return self.__selecteditem
+		if self.selected_item is not None:
+			return self.selected_item
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2820,33 +2045,33 @@ class ComboBoxDialog( Dark ):
 		try:
 			_btnsz = (10, 1)
 			_spc = (5, 1)
-			if self.__items is None:
-				self.__items = [ f'Item {x} ' for x in range( 30 ) ]
-				_values = self.__items
+			if self.items is None:
+				self.items = [ f'Item {x} ' for x in range( 30 ) ]
+				_values = self.items
 
 			_layout = [ [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
 			            [ sg.Text( size = _spc ), sg.Text( 'Select Item' ) ],
 			            [ sg.Text( size = _spc ),
-			             sg.DropDown( self.__items, key = '-ITEM-', size = ( 35, 1 ) ) ],
+			             sg.DropDown( self.items, key = '-ITEM-', size = ( 35, 1 ) ) ],
 			            [ sg.Text( size = _spc ), sg.Text( size = _spc ) ],
 			            [ sg.Text( size = _spc ), sg.OK( size = _btnsz ), sg.Text( size = (8,
 			                                                                               1) ),
 			              sg.Cancel( size = _btnsz ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				icon = self.__icon,
-				size = self.__formsize )
+				icon = self.icon,
+				size = self.form_size )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in (sg.WIN_CLOSED, 'Exit', 'Cancel'):
 					break
 
-				self.__selecteditem = _values[ '-ITEM-' ]
-				sg.popup( _event, _values, self.__selecteditem,
-					text_color = self.__themetextcolor,
-					font = self.__themefont,
-					icon = self.__icon )
+				self.selected_item = _values[ '-ITEM-' ]
+				sg.popup( _event, _values, self.selected_item,
+					text_color = self.themetextcolor,
+					font = self.theme_font,
+					icon = self.icon )
 
 			_window.close( )
 		except Exception as e:
@@ -2860,54 +2085,31 @@ class ComboBoxDialog( Dark ):
 class ListBoxDialog( Dark ):
 	'''
 	Construcotr:
-	ListBox( data: list = None )
+	    ListBox( data: list = None )
 
 	Purpose:
-	List search and selection
+	    List search and selection
     '''
-	__selecteditem = None
-	__items = None
-	__image = None
-
-	@property
-	def items( self ) -> list:
-		if self.__items is not None:
-			return self.__items
-
-	@items.setter
-	def items( self, value: list ):
-		if value is not None:
-			self.__items = value
-
-	@property
-	def selected_item( self ) -> str:
-		if self.__selecteditem is not None:
-			return self.__selecteditem
-
-	@selected_item.setter
-	def selected_item( self, value: str ):
-		if value is not None:
-			self.__selecteditem = value
 
 	def __init__( self, data: list[ str ]=None ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 400, 250 )
-		self.__image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
-		self.__items = data
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 400, 250 )
+		self.image = os.getcwd( ) + r'\etc\img\app\dialog\lookup.png'
+		self.items = data
 
 	def __str__( self ) -> str:
-		if self.__selecteditem is not None:
-			return self.__selecteditem
+		if self.selected_item is not None:
+			return self.selected_item
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -2940,8 +2142,8 @@ class ListBoxDialog( Dark ):
 			_lstsz = ( 25, 5 )
 			_names = [ ]
 
-			if isinstance( self.__items, list ):
-				_names = [ src for src in self.__items ]
+			if isinstance( self.items, list ):
+				_names = [ src for src in self.items ]
 			else:
 				_names = [ f'Item - {i}' for i in range( 40 ) ]
 
@@ -2952,27 +2154,27 @@ class ListBoxDialog( Dark ):
 			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
 			            [ sg.Text( size = _space ),
 			             sg.Listbox( _names, size = _lstsz, key = '-ITEM-',
-				             font = self.__themefont ) ],
+				             font = self.theme_font ) ],
 			            [ sg.Text( size = _space ), sg.Text( size = _line ) ],
 			            [ sg.Text( size = _space ),
 			             sg.Button( 'Select', size = _btnsize, enable_events = True ),
 			             sg.Text( size = ( 3, 1 ) ), sg.Button( 'Exit', size = _btnsize ) ] ]
 
 			_window = sg.Window( '  Budget Execution', _layout,
-				size = self.__formsize,
-				font = self.__themefont,
-				icon = self.__icon )
+				size = self.form_size,
+				font = self.theme_font,
+				icon = self.icon )
 
 			while True:
 				_event, _values = _window.read( )
 				if _event in ( sg.WIN_CLOSED, 'Exit' ):
 					break
-				self.__selecteditem = str( _values[ '-ITEM-' ][ 0 ] )
+				self.selected_item = str( _values[ '-ITEM-' ][ 0 ] )
 				if _event == 'Selected':
-					self.__selecteditem = str( _values[ '-ITEM-' ][ 0 ] )
-					sg.popup( 'Results', self.__selecteditem,
-						font = self.__themefont,
-						icon = self.__icon )
+					self.selected_item = str( _values[ '-ITEM-' ][ 0 ] )
+					sg.popup( 'Results', self.selected_item,
+						font = self.theme_font,
+						icon = self.icon )
 					_window.close( )
 
 				if _values[ '-INPUT-' ] != '':
@@ -2994,10 +2196,10 @@ class ListBoxDialog( Dark ):
 class ColorDialog( Dark ):
 	'''
 	Construcotr:
-	ColorDialog( )
+	    ColorDialog( )
 
 	Purpose:
-	class provides a form to select colors returning string values
+	    class provides a form to select colors returning string values
 	'''
 	__rgb = None
 	__hex = None
@@ -3046,17 +2248,17 @@ class ColorDialog( Dark ):
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 450, 450 )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 450, 450 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -3739,7 +2941,7 @@ class ColorDialog( Dark ):
 
 			def make_window( ):
 				_layout = [ [ sg.Text( ), ],
-				            [ sg.Text( f'{len( _colorlist )} Colors', font = self.__themefont ), ],
+				            [ sg.Text( f'{len( _colorlist )} Colors', font = self.theme_font ), ],
 				            [ sg.Text( size = (5, 1) ), ] ]
 
 				for rows in range( len( _colorlist ) // COLORS_PER_ROW + 1 ):
@@ -3750,7 +2952,7 @@ class ColorDialog( Dark ):
 							color = _colorlist[ rows * COLORS_PER_ROW + i ]
 							_row.append(
 								sg.Text( ' ', s = 1, background_color = color, text_color = color,
-									font = self.__themefont,
+									font = self.theme_font,
 									right_click_menu = [ '_', _colormap[ color ] ],
 									tooltip = color, enable_events = True,
 									key = (color, _colormap[ color ]) ) )
@@ -3766,11 +2968,11 @@ class ColorDialog( Dark ):
 				_layout.append( [ sg.Text( ' ', size = (50, 1) ), sg.Cancel( size = ( 20, 1 ) ), ] )
 
 				return sg.Window( ' Budget Execution', _layout,
-					font = self.__themefont,
-					size = self.__formsize,
+					font = self.theme_font,
+					size = self.form_size,
 					element_padding = (1, 1),
 					border_depth = 0,
-					icon = self.__icon,
+					icon = self.icon,
 					right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_EXIT,
 					use_ttk_buttons = True )
 
@@ -3789,26 +2991,26 @@ class ColorDialog( Dark ):
 					_color, _colorhex = _hextocolor[ _event ], _event
 
 				_layout2 = [ [ sg.Text( _colorhex + ' on clipboard' ) ],
-				             [ sg.DummyButton( _color, button_color = self.__buttoncolor,
+				             [ sg.DummyButton( _color, button_color = self.button_color,
 					            tooltip = _colorhex ),
-				              sg.DummyButton( _color, button_color = self.__buttoncolor,
+				              sg.DummyButton( _color, button_color = self.button_color,
 					              tooltip = _colorhex ) ] ]
 
 				_window2 = sg.Window( 'Buttons with white and black text', _layout2,
 					keep_on_top = True,
 					finalize = True,
-					size = self.__formsize,
-					icon = self.__icon )
+					size = self.form_size,
+					icon = self.icon )
 
 				sg.clipboard_set( _colorhex )
 
 			_window.close( )
 
 			sg.popup_quick_message( 'Building _window... one moment please...',
-				background_color = self.__themebackground,
-				icon = self.__icon,
-				text_color = self.__themetextcolor,
-				font = self.__themefont )
+				background_color = self.theme_background,
+				icon = self.icon,
+				text_color = self.themetextcolor,
+				font = self.theme_font )
 
 			sg.set_options( button_element_size = (12, 1),
 				element_padding = (0, 0),
@@ -3907,38 +3109,38 @@ class BudgetForm( Dark ):
 
 	@property
 	def form_size( self ) -> (int, int):
-		if self.__formsize is not None:
-			return self.__formsize
+		if self.form_size is not None:
+			return self.form_size
 
 	@form_size.setter
 	def form_size( self, value: (int, int) ):
 		if value is not None:
-			self.__formsize = value
+			self.form_size = value
 
 	@property
 	def image( self ) -> str:
-		if self.__image is not None:
-			return self.__image
+		if self.image is not None:
+			return self.image
 
 	@image.setter
 	def image( self, value: str ):
 		if value is not None:
-			self.__image = value
+			self.image = value
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (1200, 650)
-		self.__image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (1200, 650)
+		self.image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -4258,7 +3460,7 @@ class BudgetForm( Dark ):
 			]
 			self.__headerlayout = [ [ sg.Push( ), sg.Text( 'Top Header', font = _hdr ), sg.Push(
 			) ],
-			                        [ sg.Image( source = self.__image, subsample = 3,
+			                        [ sg.Image( source = self.image, subsample = 3,
 				                        enable_events = True ), sg.Push( ) ],
 			                        [ sg.Text( 'Top Header line 2' ), sg.Push( ) ] ]
 			self.__firstlayout = [
@@ -4321,7 +3523,7 @@ class BudgetForm( Dark ):
 						  expand_x = True, expand_y = True ), ],
 					[ sg.Sizegrip( background_color = _mblk ) ] ]
 			_window = sg.Window( '  Budget Execution', self.__formlayout,
-				size = self.__formsize,
+				size = self.form_size,
 				margins = (0, 0),
 				background_color = _blk,
 				grab_anywhere = True,
@@ -4369,8 +3571,8 @@ class ChartPanel( Dark ):
 	def __init__( self ):
 		super( ).__init__( )
 		sg.theme( 'DarkGrey15' )
-		self.__icon = super( ).icon_path
-		self.__formsize = ( 750, 650 )
+		self.icon = super( ).icon_path
+		self.form_size = ( 750, 650 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -4415,9 +3617,9 @@ class ChartPanel( Dark ):
 			_window = sg.Window( 'Budget Execution', _layout,
 				finalize = True,
 				resizable = True,
-				icon = self.__icon,
-				font = self.__themefont,
-				size = self.__formsize )
+				icon = self.icon,
+				font = self.theme_font,
+				size = self.form_size )
 
 			_graph = _window[ '-GRAPH-' ]
 
@@ -4467,17 +3669,17 @@ class CsvForm( Dark ):
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (800, 600)
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (800, 600)
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -4518,8 +3720,8 @@ class CsvForm( Dark ):
 			_header = [ ]
 
 			_button = sg.popup_yes_no( 'Does file have column column_names?',
-				icon = self.__icon,
-				font = self.__themefont )
+				icon = self.icon,
+				font = self.theme_font )
 
 			if _path is not None:
 				try:
@@ -4545,8 +3747,8 @@ class CsvForm( Dark ):
 				alternating_row_color = '#EDF3F8', border_width = 1, text_color = '#000000',
 				expand_x = True, expand_y = True, sbar_relief = sg.RELIEF_FLAT,
 				num_rows = min( 26, len( _data ) ) ), ], ]
-			_window = sg.Window( '  Budget Execution', _datagrid, icon = self.__icon,
-				font = self.__themefont, resizable = True )
+			_window = sg.Window( '  Budget Execution', _datagrid, icon = self.icon,
+				font = self.theme_font, resizable = True )
 			_event, _values = _window.read( )
 			_window.close( )
 		except Exception as e:
@@ -4578,17 +3780,17 @@ class ExcelForm( Dark ):
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = ( 1250, 650 )
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = ( 1250, 650 )
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -4630,7 +3832,7 @@ class ExcelForm( Dark ):
 
 			_button = sg.popup_yes_no( 'First Row Has Headers?',
 				title = 'Headers?',
-				icon = self.__icon,
+				icon = self.icon,
 				font = ('Roboto', 9) )
 			if _filename is not None:
 				try:
@@ -4668,10 +3870,10 @@ class ExcelForm( Dark ):
 			            ) ],
 			            [ sg.Sizegrip( ) ], ]
 			_window = sg.Window( ' Budget Execution', _layout,
-				size = self.__formsize,
+				size = self.form_size,
 				grab_anywhere = True,
-				icon = self.__icon,
-				font = self.__themefont,
+				icon = self.icon,
+				font = self.theme_font,
 				resizable = True,
 				right_click_menu = sg.MENU_RIGHT_CLICK_EDITME_VER_SETTINGS_EXIT )
 			_event, _values = _window.read( )
@@ -4701,17 +3903,17 @@ class GraphForm( Dark ):
 
 	def __init__( self ):
 		super( ).__init__( )
-		self.__themebackground = super( ).theme_background
-		self.__themefont = super( ).theme_font
-		self.__icon = super( ).icon_path
-		self.__elementbackcolor = super( ).element_backcolor
-		self.__elementforecolor = super( ).element_forecolor
-		self.__themetextcolor = super( ).text_forecolor
-		self.__textbackcolor = super( ).text_backcolor
-		self.__inputbackcolor = super( ).input_backcolor
-		self.__inputforecolor = super( ).input_forecolor
-		self.__buttoncolor = super( ).button_color
-		self.__formsize = (800, 600)
+		self.theme_background = super( ).theme_background
+		self.theme_font = super( ).theme_font
+		self.icon = super( ).icon_path
+		self.element_backcolor = super( ).element_backcolor
+		self.element_forecolor = super( ).element_forecolor
+		self.theme_textcolor = super( ).text_forecolor
+		self.text_backcolor = super( ).text_backcolor
+		self.input_backcolor = super( ).input_backcolor
+		self.input_forecolor = super( ).input_forecolor
+		self.button_color = super( ).button_color
+		self.form_size = (800, 600)
 
 	def __dir__( self ) -> list[ str ]:
 		'''
