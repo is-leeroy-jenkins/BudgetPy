@@ -2190,57 +2190,16 @@ class ListBoxDialog( Dark ):
 
 class ColorDialog( Dark ):
 	'''
+	
 	Construcotr:
+	
 	    ColorDialog( )
 
 	Purpose:
+	
 	    class provides a form to select colors returning string values
+	    
 	'''
-	__rgb = None
-	__hex = None
-	__html = None
-	__argb = None
-	
-	@property
-	def rgb( self ) -> str:
-		if self.__rgb is not None:
-			return self.__rgb
-	
-	@rgb.setter
-	def rgb( self, value: str ):
-		if value is not None:
-			self.__rgb = value
-	
-	@property
-	def hex( self ) -> str:
-		if self.__hex is not None:
-			return self.__hex
-	
-	@hex.setter
-	def hex( self, value: str ):
-		if value is not None:
-			self.__hex = value
-	
-	@property
-	def argb( self ) -> str:
-		if self.__argb is not None:
-			return self.__argb
-	
-	@argb.setter
-	def argb( self, value: str ):
-		if value is not None:
-			self.__argb = value
-	
-	@property
-	def html( self ) -> str:
-		if self.__html is not None:
-			return self.__html
-	
-	@html.setter
-	def html( self, value: str ):
-		if value is not None:
-			self.__html = value
-	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
@@ -2254,6 +2213,10 @@ class ColorDialog( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.form_size = (450, 450)
+		self.rgb = None
+		self.hex = None
+		self.argb = None
+		self.html = None
 	
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -3022,11 +2985,15 @@ class ColorDialog( Dark ):
 
 class BudgetForm( Dark ):
 	'''
+	
     Constructor:
-    BudgetForm( )
+    
+        BudgetForm( )
 
     Purpose:
-    Class defining basic dashboard for the application
+    
+        Class defining basic dashboard for the application
+    
     '''
 	__titleitems = None
 	__titlelayout = None
