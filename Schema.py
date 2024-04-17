@@ -1601,13 +1601,6 @@ regional_authority = Table( 'RegionalAuthority', metadata,
 	Column( 'BudgetAccountCode', String( 80 ) ),
 	Column( 'BudgetAccountName', String( 80 ) ) )
 
-pay_periods = Table( 'PayPeriods', metadata,
-	Column( 'PayPeriodsId', Integer( ), primary_key=True ),
-	Column( 'BFY', String( 80 ) ),
-	Column( 'Period', String( 80 ) ),
-	Column( 'StartDate', DateTime ),
-	Column( 'EndDate', DateTime ) )
-
 payroll_requests = Table( 'PayrollRequests', metadata,
 	Column( 'PayrollRequestsId', Integer( ), primary_key=True ),
 	Column( 'Analyst', String( 80 ) ),
@@ -1627,7 +1620,6 @@ status_of_budgetary_resources = Table( 'StatusOfBudgetaryResources', metadata,
 	Column( 'StatusOfBudgetaryResourcesId', Integer( ), primary_key=True ),
 	Column( 'BFY', String( 80 ) ),
 	Column( 'EFY', String( 80 ) ),
-	Column( 'LastUpdate', DateTime ),
 	Column( 'BudgetAccountName', String( 80 ) ),
 	Column( 'BudgetAccountCode', String( 80 ) ),
 	Column( 'TreasuryAccountName', String( 80 ) ),
@@ -1743,18 +1735,6 @@ resources = Table( 'Resources', metadata,
 	Column( 'FileExtension', String( 80 ) ),
 	Column( 'Caption', String( 80 ) ) )
 
-budget_documents = Table( 'BudgetDocuments', metadata,
-	Column( 'TreasuryAccountCode', String( 80 ) ),
-	Column( 'TreasuryAccountName', String( 80 ) ),
-	Column( 'BudgetAccountCode', String( 80 ) ),
-	Column( 'BudgetAccountName', String( 80 ) ) )
-
-allocations = Table( 'Allocations', metadata,
-	Column( 'TreasuryAccountCode', String( 80 ) ),
-	Column( 'TreasuryAccountName', String( 80 ) ),
-	Column( 'BudgetAccountCode', String( 80 ) ),
-	Column( 'BudgetAccountName', String( 80 ) ) )
-
 inflation_reduction_act_carryover = Table( 'InflationReductionActCarryoverEstimates', metadata,
 	Column( 'InflationReductionActCarryoverEstimatesId', Integer( ), primary_key=True ),
 	Column( 'BFY', String( 80 ) ),
@@ -1818,13 +1798,6 @@ pay_periods = Table( 'PayPeriods', metadata,
 	Column( 'Type', String( 80 ) ),
 	Column( 'SecurityOrg', String( 80 ) ),
 	Column( 'SplitPayPeriod', String( 80 ) ) )
-
-operating_plans = Table( 'OperatingPlans', metadata,
-	Column( 'TreasuryAccountCode', String( 80 ) ),
-	Column( 'TreasuryAccountName', String( 80 ) ),
-	Column( 'BudgetAccountCode', String( 80 ) ),
-	Column( 'BudgetAccountName', String( 80 ) ),
-	Column( 'Version', String( 80 ) ) )
 
 status_of_american_rescue_plan = Table( 'StatusOfAmericanRescuePlanFunds', metadata,
 	Column( 'StatusOfAmericanResuePlanFundsId', Integer( ), primary_key=True ),
@@ -1976,32 +1949,6 @@ combined_schedules = Table( 'CombinedSchedules', metadata,
 	Column( 'Subfunction ', String( 80 ) ),
 	Column( 'Classification ', String( 80 ) ),
 	Column( 'BudgetEnforcementCategory', String( 80 ) ) )
-
-status_of_budgetary_resources = Table( 'StatusOfBudgetaryResources', metadata,
-	Column( 'StatusOfBudgetaryResourcesId ', Integer( ), primary_key=True ),
-	Column( 'BFY ', String( 80 ) ),
-	Column( 'TreasuryAccountCode ', String( 80 ) ),
-	Column( 'TreasuryAccountName ', String( 80 ) ),
-	Column( 'BudgetAccountName ', String( 80 ) ),
-	Column( 'BudgetAccountCode ', String( 80 ) ),
-	Column( 'BeginningPeriodOfAvailability ', String( 80 ) ),
-	Column( 'EndingPeriodOfAvailability ', String( 80 ) ),
-	Column( 'SectionNumber ', String( 80 ) ),
-	Column( 'SectionName ', String( 80 ) ),
-	Column( 'LineNumber ', String( 80 ) ),
-	Column( 'LineName ', String( 80 ) ),
-	Column( 'November ', Float ),
-	Column( 'December ', Float ),
-	Column( 'January ', Float ),
-	Column( 'Feburary ', Float ),
-	Column( 'March ', Float ),
-	Column( 'May ', Float ),
-	Column( 'June ', Float ),
-	Column( 'July ', Float ),
-	Column( 'August ', Float ),
-	Column( 'September ', Float ),
-	Column( 'October ', Float ),
-	Column( 'LastUpdate', String( 80 ) ) )
 
 status_of_budget_execution = Table( 'StatusOfBudgetExecution', metadata,
 	Column( 'StatusOfBudgetExecutionId ', Integer( ), primary_key=True ),
