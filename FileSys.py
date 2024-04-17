@@ -51,13 +51,15 @@ from Booger import Error, ErrorDialog
 class Path( ):
 	'''
 
-	Constructor: Path( filepath: str )
+	Constructor:
+	
+		Path( filepath: str )
 
-	Purpose:  Class representing a path
+	Purpose:
+	
+		Class representing a path
 
 	'''
-	
-
 	def __init__( self, filepath: str ):
 		self.input = filepath
 		self.name = os.path.split( filepath )[ 1 ]
@@ -323,11 +325,15 @@ class Path( ):
 
 class File( Path ):
 	'''
-	Constructor: File( path: str )
+	Constructor:
+	
+		File( path: str )
 
-	    Purpose: Class providing file information
+	Purpose:
+	
+		Class providing file information
+		
 	 '''
-
 	def __init__( self, path: str=None ):
 		super( ).__init__( path )
 		self.input = super( ).input
@@ -662,8 +668,6 @@ class Folder( Path ):
         Class providing file directory information
 
 	'''
-
-
 	def __init__( self, filepath: str ):
 		super( ).__init__( filepath )
 		self.input = super( ).input
@@ -898,14 +902,17 @@ class Folder( Path ):
 
 class Message( ):
 	'''
-	Constructor: 
+	
+	Constructor:
+	
 	    Message( sender: str, receiver: str,
 	              body: str, subject: str, copy: str = '')
 
-	Purpose: 
-	    Class providing email behavior
-	'''
+	Purpose:
 	
+	    Class providing email behavior
+	    
+	'''
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
 		self.sender = sender
@@ -929,13 +936,17 @@ class Message( ):
     
 class Email( Message ):
 	'''
+	
 	Constructor:
+	
 		Emai( sender: str, receiver: str, body: str,
 				  subject: str, copy: str = '' )
 
 	Purpose:
-		Class providing email behavior '''
-
+	
+		Class providing email behavior
+		
+	'''
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
 		super( ).__init__( sender, receiver, body, subject, copy )
@@ -957,12 +968,15 @@ class Email( Message ):
 class Excel( ):
 	'''
 
-	Constructor: Excel( path: str )
+	Constructor:
+		
+		Excel( path: str )
 
-	Purpose: Class provides the spreadsheet for reports
+	Purpose:
+	
+		Class provides the spreadsheet for reports
 
 	'''
-	
 	def __init__( self, path: str=None ):
 		self.template_path = r'etc/templates/report/Excel.xlsx'
 		self.external_path = path
@@ -1007,13 +1021,15 @@ class Excel( ):
 class ExcelReport( Excel ):
 	'''
 
-	Constructor:  ExcelReport( path: str, rows: int = 46, cols: int = 12 ).
+	Constructor:
+	
+		ExcelReport( path: str, rows: int = 46, cols: int = 12 ).
 
-	Purpose:  Class providing spreadsheet for reports
+	Purpose:
+	
+		Class providing spreadsheet for reports
 
 	'''
-	
-
 	def __init__( self, path: str=None, rows: int=46, cols: int=12 ):
 		super( ).__init__( path )
 		self.internal = super( ).internal
@@ -1037,12 +1053,15 @@ class ExcelReport( Excel ):
 class ZipFile( ):
 	'''
 
-	Constructor:  ZipFile( path: str )
+	Constructor:
+	
+		ZipFile( path: str )
 
-		Purpose:  Class defines object providing zip file functionality
+	Purpose:
+	
+		Class defines object providing zip file functionality
 
 	'''
-	
 	def __init__( self, path: str ):
 		self.input = path
 		self.zip_extension = '.zip'

@@ -200,14 +200,14 @@ class FileDialog( Dark ):
 	'''
 
 	Construcotr:
+	
 		FileDialog( )
 
 	Purpose:
+	
 		Class that handles filenames a file
 
 	'''
-	
-	
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
 		self.theme_background = sg.theme_background_color( )
@@ -292,13 +292,14 @@ class FileDialog( Dark ):
 class FolderDialog( Dark ):
 	'''
 	Construcotr:
-	FolderDialog( )
+	
+		FolderDialog( )
 
 	Purpose:
-	Class defining dialog used to select a directory path
+	
+		Class defining dialog used to select a directory path
+		
 	'''
-	
-	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
