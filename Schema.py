@@ -186,10 +186,10 @@ budget_documents = Table( 'BudgetDocuments', metadata,
 changes = Table( 'Changes', metadata,
 	Column( 'ChangesId', Integer( ), primary_key=True ),
 	Column( 'TableName', String( 155 ) ),
-	Column( 'FieldName', String( 80 ) ),
+	Column( 'FieldName', String( 155 ) ),
 	Column( 'Action', String( 80 ) ),
-	Column( 'OldValue', String( 80 ) ),
-	Column( 'NewValue', String( 80 ) ),
+	Column( 'OldValue', String( 155 ) ),
+	Column( 'NewValue', String( 155 ) ),
 	Column( 'Time', String( 80 ) ),
 	Column( 'Message', String( 155 ) ) )
 
@@ -770,15 +770,6 @@ apportionment_data = Table( 'ApportionmentData', metadata,
 	Column( 'LineName', String( 80 ) ),
 	Column( 'Amount', Float ),
 	Column( 'MainAccount', String( 80 ) ) )
-
-changes = Table( 'Changes', metadata,
-	Column( 'TableName', String( 80 ) ),
-	Column( 'FieldName', String( 80 ) ),
-	Column( 'ActionType', String( 80 ) ),
-	Column( 'OldValue', String( 80 ) ),
-	Column( 'NewValue', String( 80 ) ),
-	Column( 'ChangeDate', DateTime ),
-	Column( 'Message', String( 80 ) ) )
 
 data_rule_descriptions = Table( 'DataRuleDescriptions', metadata,
 	Column( 'DataRuleDescriptionsId', Integer( ), primary_key=True ),
