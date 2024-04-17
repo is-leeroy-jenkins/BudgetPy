@@ -929,10 +929,12 @@ class Message( ):
     
 class Email( Message ):
 	'''
-	Constructor:  Emai( sender: str, receiver: str, body: str,
+	Constructor:
+		Emai( sender: str, receiver: str, body: str,
 				  subject: str, copy: str = '' )
 
-	Purpose: Class providing email behavior '''
+	Purpose:
+		Class providing email behavior '''
 
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
@@ -946,7 +948,7 @@ class Email( Message ):
 	def __dir__( self ) -> list[ str ]:
 		'''
 
-		Returns a list[ str ] of member names.
+			Returns a list[ str ] of member names.
 
 		'''
 		return [ 'sender', 'receiver', 'subject',
@@ -1037,7 +1039,7 @@ class ZipFile( ):
 
 	Constructor:  ZipFile( path: str )
 
-	Purpose:  Class defines object providing zip file functionality
+		Purpose:  Class defines object providing zip file functionality
 
 	'''
 	

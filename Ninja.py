@@ -47,8 +47,7 @@ from datetime import datetime
 from pandas import DataFrame
 from sqlite3 import Row
 from Booger import Error, ErrorDialog
-from Static import SQL
-from Static import Source, Provider
+from Static import Source, Provider, SQL
 from Data import (DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder)
 
 class Accounts( ):
@@ -59,7 +58,7 @@ class Accounts( ):
     Purpose:
     Class defines object representing Account Codes
     '''
-
+	
 	def __init__( self, id: int=None, code: str=None, provider: Provider=Provider.SQLite ):
 		self.id = id
 		self.code = code

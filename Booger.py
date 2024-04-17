@@ -156,23 +156,6 @@ class TitleIcon( ):
 		return [ 'folder', 'name', 'file_path' ]
 
 class Dark( ):
-
-	theme_background: str=None
-	element_backcolor: str=None
-	element_forecolor: str=None
-	text_forecolor: str=None
-	text_backcolor: str=None
-	input_backcolor: str=None
-	input_forecolor: str=None
-	button_color: str=None
-	button_forecolor: str=None
-	button_backcolor: str=None
-	icon_path: str=None
-	theme_font: str=None
-	scroll_barcolor: str=None
-	progressbar_backcolor: str=None
-	form_size: ( int, int )=None
-	settings_path: str=None
 	
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
@@ -265,7 +248,7 @@ class FileDialog( Dark ):
 		         'text_forecolor', 'text_backcolor', 'input_backcolor',
 		         'input_forecolor', 'button_color', 'button_backcolor',
 		         'button_forecolor', 'icon_path', 'theme_font',
-		         'scrollbar_color', 'progressbar_color',
+		         'scrollbar_color', 'progressbar_color', 'form_size',
 		         'selected_path', 'message', 'show' ]
 	
 	def show( self ):
