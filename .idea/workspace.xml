@@ -12,9 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Minion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Minion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Static.py" beforeDir="false" afterPath="$PROJECT_DIR$/Static.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +107,7 @@
     <setting file="file://$PROJECT_DIR$/FileSys.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Minion.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Ninja.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Repo.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Static.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -167,7 +166,7 @@
     &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/teppler/source/compilers/js/node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;C:\\Users\\teppler\\source\\compilers\\js\\npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
     &quot;settings.editor.splitter.proportion&quot;: &quot;0.24475019&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -449,7 +448,21 @@
       <workItem from="1712579403628" duration="4657000" />
       <workItem from="1712676791420" duration="4777000" />
       <workItem from="1712738624596" duration="6655000" />
-      <workItem from="1712766053527" duration="822000" />
+      <workItem from="1712766053527" duration="8567000" />
+      <workItem from="1712781126329" duration="3390000" />
+      <workItem from="1712840299175" duration="10407000" />
+      <workItem from="1712925544203" duration="3891000" />
+      <workItem from="1712942522333" duration="4651000" />
+      <workItem from="1712948651592" duration="120000" />
+      <workItem from="1712948814012" duration="1954000" />
+      <workItem from="1712951676543" duration="4138000" />
+      <workItem from="1713185754703" duration="9843000" />
+      <workItem from="1713197066174" duration="541000" />
+      <workItem from="1713197634744" duration="8585000" />
+      <workItem from="1713207927343" duration="4494000" />
+      <workItem from="1713257738400" duration="10655000" />
+      <workItem from="1713378598278" duration="9707000" />
+      <workItem from="1713547718692" duration="3329000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -794,7 +807,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="671" />
+    <option name="localTasksCounter" value="699" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
