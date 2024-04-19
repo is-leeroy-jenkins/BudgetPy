@@ -70,8 +70,7 @@ reference_tables = Table( 'ReferenceTables', metadata, autoload_with=engine )
 
 query_definitions = Table( 'QueryDefinitions', metadata, autoload_with=engine )
 
-reimbursable_agreements = Table( 'ReimbursableAgreements', metadata,
-	autoload_with=engine )
+reimbursable_agreements = Table( 'ReimbursableAgreements', metadata, autoload_with=engine )
 
 reimbursable_survey = Table( 'ReimbursableSurvey', metadata, autoload_with=engine )
 
@@ -79,17 +78,14 @@ actuals = Table( 'Actuals', metadata, autoload_with=engine )
 
 status_of_funds = Table( 'StatusOfFunds', metadata, autoload_with=engine )
 
-status_of_appropriations = Table( 'StatusOfAppropriations', metadata,
-	autoload_with=engine )
+status_of_appropriations = Table( 'StatusOfAppropriations', metadata, autoload_with=engine )
 
 status_of_supplemental_funds = Table( 'StatusOfSupplementalFunds', metadata,
 	autoload_with=engine )
 
-status_of_jobs_act_funds = Table( 'StatusOfJobsActFunds', metadata,
-	autoload_with=engine )
+status_of_jobs_act_funds = Table( 'StatusOfJobsActFunds', metadata, autoload_with=engine )
 
-unliquidated_obligations = Table( 'UnliquidatedObligations', metadata,
-	autoload_with=engine )
+unliquidated_obligations = Table( 'UnliquidatedObligations', metadata, autoload_with=engine )
 
 budgetary_resource_execution = Table( 'BudgetaryResourceExecution', metadata,
 	autoload_with=engine )
