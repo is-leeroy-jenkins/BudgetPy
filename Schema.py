@@ -43,7 +43,7 @@
   '''
 from sqlalchemy import ( MetaData, Table, Column, Integer, Numeric,
                         String, Float, DateTime, ForeignKey, create_engine, select, text )
-from sqlalchemy.orm import ( Session, DeclarativeBase, Mapped, mapped_column, relationship )
+from sqlalchemy.orm import Session, sessionmaker
 from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from datetime import datetime
@@ -52,7 +52,6 @@ metadata = MetaData( )
 dbpath = r'db\sqlite\datamodels\Data.db'
 engine = create_engine( 'sqlite:///' + dbpath )
 metadata.reflect( bind=engine )
-session = Session( engine )
 
 accounts = Table( 'Accounts', metadata, autoload_with=engine )
 allocations = Table( 'Allocations', metadata, autoload_with=engine )
