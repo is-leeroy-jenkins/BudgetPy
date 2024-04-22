@@ -43,7 +43,8 @@
   '''
 from sqlalchemy import ( MetaData, Table, Column, Integer, Numeric,
                         String, Float, DateTime, ForeignKey, create_engine, select, text )
-from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.orm import ( Session, sessionmaker, DeclarativeBase, Mapped,
+                             mapped_column, registry )
 from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from datetime import datetime
