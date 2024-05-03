@@ -48,9 +48,13 @@ from pandas import DataFrame
 from sqlite3 import Row
 from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
-from Data import (DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder)
+from Data import ( DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder )
+from sqlalchemy import Table, Column, Integer, Numeric, String
+from sqlalchemy.ext.declarative import declarative_base
 
-class Account( ):
+Base = declarative_base( )
+
+class Account( Base ):
 	'''
     Constructor:
     Account( treas: str, provider: Provider=Provider.SQLite )
@@ -58,16 +62,21 @@ class Account( ):
     Purpose:
     Class defines object representing Account Codes
     '''
+	__tablename__ = 'Accounts'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( String( 55 ) )
+	goal_code = Column( String( 55 ) )
+	objective_code = Column( String( 55 ) )
+	npm_code = Column( String( 55 ) )
+	npm_name = Column( String( 155 ) )
+	program_project_code = Column( String( 55 ) )
+	program_project_name = Column( String( 255 ) )
+	program_area_code = Column( String( 55 ) )
+	program_area_name = Column( String( 55 ) )
 	
-	def __init__( self, id: int=None, code: str=None, provider: Provider=Provider.SQLite ):
-		self.id = id
-		self.code = code
+	def __init__( self, provider: Provider=Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Accounts
-		self.goalcode = self.code[ 0 ]
-		self.objectivecode = self.code[ 1:3 ]
-		self.npmcode = self.code[ 3 ]
-		self.programprojectcode = self.code[ 4:6 ]
 		self.fields = [ 'AccountsId',
 		                  'Code',
 		                  'GoalCode',
@@ -92,18 +101,18 @@ class Account( ):
 		:return: a list[ str ] of object members
 
 		'''
-		return [ 'id', 'code', 'name',
+		return [ 'id', 'code',
 		         'goal_code', 'objective_code', 'npm_code',
-		         'program_project_code', 'program_project_name',
+		         'program_project_code',
 		         'data', 'fields', 'frame',
 		         'copy', 'getdata', 'getframe' ]
 
 	def copy( self ):
 		try:
 			_clone = Account( code = self.code )
-			_clone.goalcode = self.goalcode
-			_clone.objectivecode = self.objectivecode
-			_clone.npmcode = self.npmcode
+			_clone.goal_code = self.goal_code
+			_clone.objective_code = self.objective_code
+			_clone.npm_code = self.npm_code
 			_clone.programprojectcode = self.programprojectcode
 			return _clone
 		except Exception as e:
@@ -160,7 +169,7 @@ class Account( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ActivityCode( ):
+class ActivityCode( Base ):
 	'''
 
     Constructor:
@@ -170,6 +179,10 @@ class ActivityCode( ):
         Data class representing Activity Codes
 
     '''
+	__tablename__ = 'ActivityCodes'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( String( 55 ) )
+	name = Column( String( 55 ) )
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -254,7 +267,7 @@ class ActivityCode( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AdjustedTrialBalance( ):
+class AdjustedTrialBalance( Base ):
 	'''
 
 	Constructor:
@@ -264,6 +277,8 @@ class AdjustedTrialBalance( ):
 	Data class representing a record in the ATB
 
 	'''
+	__tablename__ = 'AdjustedTrialBalances'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str,
 	              fundcode: str, provider: Provider=Provider.SQLite ):
@@ -358,7 +373,7 @@ class AdjustedTrialBalance( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AllowanceHolder( ):
+class AllowanceHolder( Base ):
 	'''
 
     Constructor:
@@ -368,6 +383,8 @@ class AllowanceHolder( ):
     Data class representing Allowance Holders
 
     '''
+	__tablename__ = 'AllowanceHolders'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, code: str=None,
 	              provider: Provider=Provider.SQLite ):
@@ -451,7 +468,7 @@ class AllowanceHolder( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AmericanRescuePlanCarryoverEstimate( ):
+class AmericanRescuePlanCarryoverEstimate( Base ):
 	'''
 
     Constructor:
@@ -461,6 +478,8 @@ class AmericanRescuePlanCarryoverEstimate( ):
     Class representing estimates for ARP carryover
 
     '''
+	__tablename__ = 'AmericanRescuePlanCarryoverEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -562,7 +581,7 @@ class AmericanRescuePlanCarryoverEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AnnualCarryoverEstimate( ):
+class AnnualCarryoverEstimate( Base ):
 	'''
     Constructor:
     AnnualCarryoverEstimate( bfy: str, provider: Provider=Provider.SQLite )
@@ -570,6 +589,8 @@ class AnnualCarryoverEstimate( ):
     Purpose:
     Class providing Carryover Estimate data for
     '''
+	__tablename__ = 'AnnualCarryoverEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -673,13 +694,15 @@ class AnnualCarryoverEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AnnualReimbursableEstimate( ):
+class AnnualReimbursableEstimate( Base ):
 	'''
     Constructor:
     AnnualReimbursableEstimate( bfy: str, provider: Provider=Provider.SQLite )
 
     Purpose:
     Class defining object representing reimbursable estimates'''
+	__tablename__ = 'AnnualReimbursableEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -782,7 +805,7 @@ class AnnualReimbursableEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Appropriation( ):
+class Appropriation( Base ):
 	'''
     Constructor:
     Appropriation( fund: str, provider: Provider=Provider.SQLite )
@@ -790,6 +813,8 @@ class Appropriation( ):
     Purpose:
     Data class representing Appropriations
     '''
+	__tablename__ = 'Appropriations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, code: str ):
 		self.source = Source.Appropriations
@@ -870,7 +895,7 @@ class Appropriation( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AppropriationAvailableBalance( ):
+class AppropriationAvailableBalance( Base ):
 	'''
     Constructor:
     AppropriationAvailableBalance( bfy: str, efy: str, fund: str )
@@ -878,6 +903,8 @@ class AppropriationAvailableBalance( ):
     Purpose:
     Data class representing Appropriation-level balances
     '''
+	__tablename__ = 'AppropriationAvailableBalances'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 	def __init__( self, bfy: str, efy: str, fundcode: str ):
 		self.source = Source.Appropriations
@@ -975,7 +1002,7 @@ class AppropriationAvailableBalance( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AppropriationLevelAuthority( ):
+class AppropriationLevelAuthority( Base ):
 	'''
     Constructor:
     AppropriationLevelAuthority( bfy: str, efy: str, fund: str )
@@ -983,6 +1010,8 @@ class AppropriationLevelAuthority( ):
     Purpose:
     Data class representing Appropriation-level authority
     '''
+	__tablename__ = 'AppropriationLevelAuthority'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str, fundcode: str ):
 		self.source = Source.AppropriationLevelAuthority
@@ -1080,7 +1109,7 @@ class AppropriationLevelAuthority( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Allocation( ):
+class Allocation( Base ):
 	'''
     Constructor:
     Allocation( bfy = None, fund = None, provider: Provider=Provider.SQLite )
@@ -1089,6 +1118,8 @@ class Allocation( ):
     Class defining object representing Allocations
 
     '''
+	__tablename__ = 'Allocations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str, fundcode: str,
 	              provider: Provider=Provider.SQLite ):
@@ -1206,7 +1237,7 @@ class Allocation( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ApportionmentData( ):
+class ApportionmentData( Base ):
 	'''
     Constructor:
     ApportionmentData( bfy: str, efy: str, main: str,
@@ -1215,6 +1246,8 @@ class ApportionmentData( ):
     Purpose:
     Data class representing Letters Of Apportionment
     '''
+	__tablename__ = 'ApportionmentData'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, year: str, bfy: str, efy: str,
 	              main: str, provider: Provider=Provider.SQLite ):
@@ -1316,7 +1349,7 @@ class ApportionmentData( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Actual( ):
+class Actual( Base ):
 	'''
     Constructor:
     Actual( bfy, fund, pvdr = Provider.SQLite  )
@@ -1324,6 +1357,8 @@ class Actual( ):
     Purpose:
     Object representing expenditure data
     '''
+	__tablename__ = 'Actuals'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -1442,7 +1477,7 @@ class Actual( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ApplicationTable( ):
+class ApplicationTable( Base ):
 	'''
     Constructor:
     ApplicationTable( name, pvdr = Provider.SQLite )
@@ -1450,6 +1485,8 @@ class ApplicationTable( ):
     Purpose:
     Class defines object that represents all the tables
     '''
+	__tablename__ = 'ApplicationTables'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, name: str, provider: Provider=Provider.SQLite ):
 		self.source = Source.ApplicationTables
@@ -1533,7 +1570,7 @@ class ApplicationTable( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class AppropriationDocument( ):
+class AppropriationDocument( Base ):
 	'''
     Constructor:
     AppropriationDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -1541,6 +1578,8 @@ class AppropriationDocument( ):
     Purpose:
     Class defines object representing Level 1 documents
     '''
+	__tablename__ = 'AppropriationDocuments'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -1659,7 +1698,7 @@ class AppropriationDocument( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetDocument( ):
+class BudgetDocument( Base ):
 	'''
     Constructor:
     BudgetDocument( bfy, fund, pvdr = Provider.SQLite )
@@ -1667,6 +1706,8 @@ class BudgetDocument( ):
     Purpose:
     Class defines object representing Level 2-3 documents
     '''
+	__tablename__ = 'BudgetDocuments'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str,fundcode: str,
 	              provider: Provider=Provider.SQLite ):
@@ -1798,7 +1839,7 @@ class BudgetDocument( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetContact( ):
+class BudgetContact( Base ):
 	'''
     Constructor:
     BudgetContact( last: str, first: str )
@@ -1806,6 +1847,8 @@ class BudgetContact( ):
     Purpose:
     Class defines object represent budget contact info
     '''
+	__tablename__ = 'BudgetContacts'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, last: str, first: str, provider: Provider=Provider.SQLite ):
 		self.lastname = last
@@ -1897,11 +1940,13 @@ class BudgetContact( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetControl( ):
+class BudgetControl( Base ):
 	'''
     Constructor:  BudgetControl( fund, pvdr = Provider.SQLite )
 
     Purpose;  Class defines object representing compass control data'''
+	__tablename__ = 'BudgetControls'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str,
@@ -2028,7 +2073,7 @@ class BudgetControl( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetFiscalYear( ):
+class BudgetFiscalYear( Base ):
 	'''
     Constructor:
     BudgetFiscalYear( bfy, efy, date = None, pvdr = Provider.SQLite ).
@@ -2037,6 +2082,8 @@ class BudgetFiscalYear( ):
     Purpose:
     Class to describe the federal fiscal year
     '''
+	__tablename__ = 'BudgetFiscalYears'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str,
@@ -2153,7 +2200,7 @@ class BudgetFiscalYear( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetObjectClass( ):
+class BudgetObjectClass( Base ):
 	'''
     Constructor:
     BudgetObjectClass( code, pvdr = Provider.SQLite  ).
@@ -2161,6 +2208,8 @@ class BudgetObjectClass( ):
     Purpose:
     Defines the BudgetObjectClass Class
     '''
+	__tablename__ = 'BudgetObjectClasses'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -2240,7 +2289,7 @@ class BudgetObjectClass( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class BudgetaryResourceExecution( ):
+class BudgetaryResourceExecution( Base ):
 	'''
     Constructor:
     BudgetaryResourceExecution( bfy: str, efy: str,
@@ -2250,6 +2299,8 @@ class BudgetaryResourceExecution( ):
     Class defines object representing the MAX A-11 DE/SF-133
     Status Of Budgetary Resources Execution Report
     '''
+	__tablename__ = 'BudgetaryResourceExecution'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str,
@@ -2359,7 +2410,7 @@ class BudgetaryResourceExecution( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CongressionalControl( ):
+class CongressionalControl( Base ):
 	'''
     Constructor:
     CongressionalControl( bfy, fund, pvdr = Provider.SQLite )
@@ -2367,6 +2418,8 @@ class CongressionalControl( ):
     Purpose:
     Class defining object representing congressional control data
     '''
+	__tablename__ = 'CongressionalControls'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str=None, fundcode: str=None,
@@ -2461,7 +2514,7 @@ class CongressionalControl( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CongressionalProject( ):
+class CongressionalProject( Base ):
 	'''
 	Constructor:
 	CongressionalProjects( bfy: str, fund: str, rpio: str, ahcode: str )
@@ -2469,6 +2522,8 @@ class CongressionalProject( ):
 	Purpose:
 	Class used to allocated Earmarks
 	'''
+	__tablename__ = 'CongressionalProjects'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, fund: str, 
@@ -2547,7 +2602,7 @@ class CongressionalProject( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CompassLevel( ):
+class CompassLevel( Base ):
 	'''
     Constructor:
     CompassLevel( bfy: str, efy: str,
@@ -2556,6 +2611,8 @@ class CompassLevel( ):
     Purpose:
     Class defines object representing Compass data levels 1-7
     '''
+	__tablename__ = 'CompassLevels'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 	def __init__( self, bfy: str, efy: str,
 	              fund: str, provider: Provider=Provider.SQLite ):
@@ -2687,7 +2744,7 @@ class CompassLevel( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Commitment( ):
+class Commitment( Base ):
 	'''
     Constructor:
     Commitment( bfy: str=None, fund: str=None,
@@ -2696,6 +2753,8 @@ class Commitment( ):
     Purpose:
     Defines the CommitmentS class.
     '''
+	__tablename__ = 'Commitments'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str,  fund: str=None, account: str=None,
@@ -2823,7 +2882,7 @@ class Commitment( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CostArea( ):
+class CostArea( Base ):
 	'''
     Constructor:
     CostArea( fund, pvdr = Provider.SQLite )
@@ -2831,6 +2890,8 @@ class CostArea( ):
     Purpose:
     Data class object for cost areas
     '''
+	__tablename__ = 'CostAreas'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -2907,13 +2968,15 @@ class CostArea( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class CapitalPlanningInvestmentCode( ):
+class CapitalPlanningInvestmentCode( Base ):
 	'''
     Constructor:
     CapitalPlanningInvestmentCodes( treas, pvdr = Provider.SQLite  )
 
     Purpose:
     Class eefines the CPIC Codes'''
+	__tablename__ = 'CapitalPlanningInvestmentCodes'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -2992,7 +3055,7 @@ class CapitalPlanningInvestmentCode( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ColumnSchema( ):
+class ColumnSchema( Base ):
 	'''
     Constructor:
     ColumnSchema( column, table_name, pvdr = Provider.SQLite )
@@ -3000,6 +3063,8 @@ class ColumnSchema( ):
     Purpose:
     Provides data on the coolumn_names used in the application
     '''
+	__tablename__ = 'ColumnSchema'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, column: str, table: str, provider: Provider=Provider.SQLite ):
@@ -3075,13 +3140,15 @@ class ColumnSchema( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class DataRuleDescription( ):
+class DataRuleDescription( Base ):
 	'''
     Constructor:
     DataRuleDescription( schedule, line, rule, pvdr = Provider.SQLite )
 
     Purpose:
     Class defines object providing OMB MAX A11 rule data '''
+	__tablename__ = 'DataRuleDescriptions'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, schedule: str, line: str,
@@ -3166,7 +3233,7 @@ class DataRuleDescription( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Defacto( ):
+class Defacto( Base ):
 	'''
     Constructor:
     Defacto(  bfy: str, fund: str, provider: Provider=Provider.SQLite )
@@ -3174,6 +3241,8 @@ class Defacto( ):
     Purpose:
     Class defines object representing defacto obligations
     '''
+	__tablename__ = 'Defactos'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -3280,7 +3349,7 @@ class Defacto( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Deobligation( ):
+class Deobligation( Base ):
 	'''
     Constructor:
     Deobligation( bfy, fund, account, boc, pvdr = Provider.SQLite )
@@ -3288,6 +3357,8 @@ class Deobligation( ):
     Purpose:
     Class defines object providing Deobligation data
     '''
+	__tablename__ = 'Deobligations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy = None, fund = None,
@@ -3389,7 +3460,7 @@ class Deobligation( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class DocumentControlNumber( ):
+class DocumentControlNumber( Base ):
 	'''
     Constructor:
     DocumentControlNumber( dcn, pvdr = Provider.SQLite )
@@ -3397,6 +3468,8 @@ class DocumentControlNumber( ):
     Purpose:
     Class defines object provides DCN data
     '''
+	__tablename__ = 'DocumentControlNumbers'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, dcn: str, provider: Provider=Provider.SQLite ):
@@ -3475,7 +3548,7 @@ class DocumentControlNumber( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Expenditure( ):
+class Expenditure( Base ):
 	'''
     Constructor:
     Expenditure( bfy: str, fund: str, account: str,
@@ -3484,6 +3557,8 @@ class Expenditure( ):
     Purpose:
     Class defines object providing Expenditure data
     '''
+	__tablename__ = 'Expenditures'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
@@ -3609,13 +3684,15 @@ class Expenditure( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class FinanceObjectClass( ):
+class FinanceObjectClass( Base ):
 	'''
     Constructor:
     FinanceObjectClass( code: str, provider: Provider=Provider.SQLite )
 
     Purpose:
     Class defines object representing the Finance Object Class'''
+	__tablename__ = 'FinanceObjectClasses'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -3699,7 +3776,7 @@ class FinanceObjectClass( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Fund( ):
+class Fund( Base ):
 	'''
     Constructor:
     Fund( bfy: str, efy: str,
@@ -3708,6 +3785,8 @@ class Fund( ):
     Purpose:
     Class defines object represening Funds
     '''
+	__tablename__ = 'Funds'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
@@ -3812,7 +3891,7 @@ class Fund( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class FederalHoliday( ):
+class FederalHoliday( Base ):
 	'''
     Constructor:
     FederalHoliday( bfy: str, efy: str,
@@ -3821,6 +3900,8 @@ class FederalHoliday( ):
     Purpose:
     Defines the FederalHoliday class
     '''
+	__tablename__ = 'FederalHolidays'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str, name: str = '',
@@ -4248,7 +4329,7 @@ class FederalHoliday( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class FullTimeEquivalent( ):
+class FullTimeEquivalent( Base ):
 	'''
 
     Constructor: FullTimeEquivalent( bfy: str, fund: str,
@@ -4257,6 +4338,8 @@ class FullTimeEquivalent( ):
     Purpose:  Object representing Operating Plan FTE
 
     '''
+	__tablename__ = 'FullTimeEquivalents'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -4376,7 +4459,7 @@ class FullTimeEquivalent( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class GeneralLedgerAccount( ):
+class GeneralLedgerAccount( Base ):
 	'''
     Constructor:
     GeneralLedgerAccount( bfy: str, number: str,
@@ -4385,6 +4468,8 @@ class GeneralLedgerAccount( ):
     Purpose:
     Class defines object representing General Ledger Accounts
     '''
+	__tablename__ = 'GeneralLedgerAccounts'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, number: str, provider: Provider=Provider.SQLite ):
@@ -4473,7 +4558,7 @@ class GeneralLedgerAccount( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Goal( ):
+class Goal( Base ):
 	'''
     Constructor:
     Goal( code: str, provider: Provider=Provider.SQLite )
@@ -4481,6 +4566,8 @@ class Goal( ):
     Purpose:
     Class defines object representing EPA  Goals
     '''
+	__tablename__ = 'Goals'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -4565,7 +4652,7 @@ class Goal( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class HeadquartersAuthority( ):
+class HeadquartersAuthority( Base ):
 	'''
     Constructor:
     HeadquartersAuthority( bfy, rpio, pvdr = Provider.SQLite )
@@ -4573,6 +4660,8 @@ class HeadquartersAuthority( ):
     Purpose:
     Class defines object representing HQ Allocation
     '''
+	__tablename__ = 'HeadquartersAuthority'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
@@ -4682,13 +4771,15 @@ class HeadquartersAuthority( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class HeadquartersOffice( ):
+class HeadquartersOffice( Base ):
 	'''
     Constructor:
     HeadquartersOffice( code: str, provider: Provider=Provider.SQLite )
 
     Prupose:
     Class defines object representing RPIO'''
+	__tablename__ = 'HeadquartersOffices'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -4764,7 +4855,7 @@ class HeadquartersOffice( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class InflationReductionActCarryoverEstimate( ):
+class InflationReductionActCarryoverEstimate( Base ):
 	'''
     Constructor:
     InflationReductionActCarryoverEstimate( bfy: str,
@@ -4773,6 +4864,8 @@ class InflationReductionActCarryoverEstimate( ):
     Purpose:
     Class defines object providing IRA Carryover Estimates
     '''
+	__tablename__ = 'InflationReductionActCarryoverEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
@@ -4874,7 +4967,7 @@ class InflationReductionActCarryoverEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class JobsActCarryoverEstimate( ):
+class JobsActCarryoverEstimate( Base ):
 	'''
 
     Constructor:
@@ -4884,6 +4977,8 @@ class JobsActCarryoverEstimate( ):
     Class defines object providing IIJA Carryover Estimate data for
 
     '''
+	__tablename__ = 'JobsActCarryoverEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
@@ -4980,7 +5075,7 @@ class JobsActCarryoverEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class MainAccount( ):
+class MainAccount( Base ):
 	'''
 	Constructor:
 	MainAccounts( bfy: str, code: str )
@@ -4988,6 +5083,8 @@ class MainAccount( ):
 	Purpose:
 	class models the OMB Budget Account
 	'''
+	__tablename__ = 'MainAccounts'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5063,7 +5160,7 @@ class MainAccount( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class MonthlyActual( ):
+class MonthlyActual( Base ):
 	'''
     Constructor:
     Actual( bfy = None, fund = None, pvdr = Provider.SQLite )
@@ -5071,6 +5168,8 @@ class MonthlyActual( ):
     Purpose:
     Class defines object representing expenditure data
     '''
+	__tablename__ = 'MonthlyActuals'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy:str = None, fund: str = None,
@@ -5183,7 +5282,7 @@ class MonthlyActual( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class MonthlyOutlay( ):
+class MonthlyOutlay( Base ):
 	'''
     Constructor:
     MonthlyOutlay( bfy, efy, main )
@@ -5191,6 +5290,8 @@ class MonthlyOutlay( ):
     Purpose:
     Class defines object providing OMB outlay data
     '''
+	__tablename__ = ' MonthlyOutlays'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy, efy, account, provider: Provider=Provider.SQLite ):
@@ -5306,13 +5407,15 @@ class MonthlyOutlay( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class NationalProgram( ):
+class NationalProgram( Base ):
 	'''
     Constructor:
     NationalProgram( code: str, pvdr = Provider.SQLite )
 
     Purpose:
     Class defines object representing the NationalProgram Class'''
+	__tablename__ = 'NationalPrograms'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5393,7 +5496,7 @@ class NationalProgram( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Objective( ):
+class Objective( Base ):
 	'''
     Constructor:
     Objective( code: str, provider: Provider=Provider.SQLite )
@@ -5402,6 +5505,8 @@ class Objective( ):
     Purpose:
     Class defines object representing the Objective Class
     '''
+	__tablename__ = 'Objectives'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5481,13 +5586,15 @@ class Objective( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Organization( ):
+class Organization( Base ):
 	'''
     Constructor:
     Organization( code: str, provider: Provider=Provider.SQLite  )
 
     Purpose:
     Class defines object representing the Organization Codes'''
+	__tablename__ = 'Organizations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5562,7 +5669,7 @@ class Organization( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class OperatingPlan( ):
+class OperatingPlan( Base ):
 	'''
     Constructor:
     OperatingPlan( bfy, efy, treas, pvdr = Provider.SQLite )
@@ -5570,6 +5677,8 @@ class OperatingPlan( ):
     Purpose:
     Class defining object representing Operating plan allocations
     '''
+	__tablename__ = 'OperatingPlans'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -5660,7 +5769,7 @@ class OperatingPlan( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class OpenCommitment( ):
+class OpenCommitment( Base ):
 	'''
     Constructor:
     OpenCommitment( bfy: str, efy: str, fund: str,
@@ -5669,6 +5778,8 @@ class OpenCommitment( ):
     Purpose:
     Class defines object providing OpenCommitment data.
     '''
+	__tablename__ = 'OpenCommitments'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str,
@@ -5792,12 +5903,14 @@ class OpenCommitment( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Obligation( ):
+class Obligation( Base ):
 	'''
     Constructor:  Obligation( bfy: str, efy: str, fund: str,
                   account: str, boc: str, provider: Provider=Provider.SQLite )
 
     Purpose:  Class defines object providing Obligation data'''
+	__tablename__ = 'Obligations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str,
@@ -5920,7 +6033,7 @@ class Obligation( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class OutlayRate( ):
+class OutlayRate( Base ):
 	'''
     Constructor:
     Outlay( account: str, provider: Provider=Provider.SQLite  )
@@ -5928,6 +6041,8 @@ class OutlayRate( ):
     Purpose:
     Class defines object that provides OMB data
     '''
+	__tablename__ = 'OutlayRates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
@@ -6031,13 +6146,15 @@ class OutlayRate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class PublicLaw( ):
+class PublicLaw( Base ):
 	'''
     Constructor: PublicLaw( bfy: str, efy: str,
                   number: str, provider: Provider=Provider.SQLite  )
 
     Purpose:
     '''
+	__tablename__ = 'PublicLaws'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str,
@@ -6115,11 +6232,13 @@ class PublicLaw( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Project( ):
+class Project( Base ):
 	'''
     Constructor:  Project( code: str, provider: Provider=Provider.SQLite )
 
     Purpoe:  Class defines the Organization Class'''
+	__tablename__ = 'Projects'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6194,12 +6313,14 @@ class Project( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ProgramArea( ):
+class ProgramArea( Base ):
 	'''
     Constructor:   ProgramArea( code: str, provider: Provider=Provider.SQLite  )
 
     Purpose:  defines the ProgramArea class
     '''
+	__tablename__ = 'ProgramAreas'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6273,12 +6394,14 @@ class ProgramArea( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ProgramProject( ):
+class ProgramProject( Base ):
 	'''
     Constructor:  ProgramProject( code: str, provider: Provider=Provider.SQLite )
 
     Purpose:  Defines the ProgramProject Class
     '''
+	__tablename__ = 'ProgramProjects'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6355,7 +6478,7 @@ class ProgramProject( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ProgramResultsCode( ):
+class ProgramResultsCode( Base ):
 	'''
     Constructor:   ProgramResultsCode( bfy: str=None, efy: str=None, fund: str=None,
                   rpio: str=None, ah: str=None, account: str=None, boc: str=None,
@@ -6363,9 +6486,10 @@ class ProgramResultsCode( ):
 
     Purpose:  Class defines the PRCs
     '''
+	__tablename__ = 'ProgramResultsCodes'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	source: Source=None
 	provider: Provider=None
-	id = None
 	rpiocode: str=None
 	rpioname: str=None
 	bfy: str=None
@@ -6842,7 +6966,7 @@ class ProgramResultsCode( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ReportingLine( ):
+class ReportingLine( Base ):
 	'''
 	Constructor:
 	ReportingLines( bfy: str, code: str )
@@ -6850,6 +6974,8 @@ class ReportingLine( ):
 	Purpose:
 	class models the lines on the SF-133 and SF-132
 	'''
+	__tablename__ = 'ReportingLines'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, code: str, provider: Provider=Provider.SQLite ):
@@ -6924,7 +7050,7 @@ class ReportingLine( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ResponsibilityCenter( ):
+class ResponsibilityCenter( Base ):
 	'''
     Constructor:
     ResponsibilityCenter( code: str, provider: Provider=Provider.SQLite  )
@@ -6932,6 +7058,8 @@ class ResponsibilityCenter( ):
     Purpose:
     Class defines the ResponsibilityCenter Class
     '''
+	__tablename__ = 'ResponsibilityCenters'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -7008,7 +7136,7 @@ class ResponsibilityCenter( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ResourcePlanningOffice( ):
+class ResourcePlanningOffice( Base ):
 	'''
     Constuctor:
     ResourcePlanningOffice( code: str, provider: Provider=Provider.SQLite )
@@ -7016,6 +7144,8 @@ class ResourcePlanningOffice( ):
     Purpose:
     Defines the ResponsiblePlanningOffice class
     '''
+	__tablename__ = 'ResourcePlanningOffices'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -7094,7 +7224,7 @@ class ResourcePlanningOffice( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class RegionalOffice( ):
+class RegionalOffice( Base ):
 	'''
     Constructor:
     RegionalOffice( code: str, provider: Provider=Provider.SQLite )
@@ -7102,6 +7232,8 @@ class RegionalOffice( ):
     Purpose:
     Defines a regional RPIO
     '''
+	__tablename__ = 'RegionalOffices'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -7162,7 +7294,7 @@ class RegionalOffice( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class ReimbursableAgreement( ):
+class ReimbursableAgreement( Base ):
 	'''
     Constructor:
     ReimbursableAgreement( number: str, provider: Provider=Provider.SQLite  )
@@ -7170,6 +7302,8 @@ class ReimbursableAgreement( ):
     Purpose:
     Class defines object representing Reimbursable Agreements
     '''
+	__tablename__ = 'ReimbursableAgreements'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, number: str, provider: Provider=Provider.SQLite ):
@@ -7265,7 +7399,7 @@ class ReimbursableAgreement( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class RegionalAuthority( ):
+class RegionalAuthority( Base ):
 	'''
     Constructor:
     RegionalAuthority( bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite )
@@ -7273,6 +7407,8 @@ class RegionalAuthority( ):
     Purpose:
     Class defines object representing Regional Allocation
     '''
+	__tablename__ = 'RegionalAuthority'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str,
@@ -7388,7 +7524,7 @@ class RegionalAuthority( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfFunds( ):
+class StatusOfFunds( Base ):
 	'''
     Constructor:
     StatusOfFunds( bfy: str, fund: str, provider: Provider=Provider.SQLite )
@@ -7396,6 +7532,8 @@ class StatusOfFunds( ):
     Purpose:
     Class defines object representing execution data
     '''
+	__tablename__ = 'StatusOfFunds'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -7504,7 +7642,7 @@ class StatusOfFunds( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfBudgetaryResources( ):
+class StatusOfBudgetaryResources( Base ):
 	'''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -7512,6 +7650,8 @@ class StatusOfBudgetaryResources( ):
     Purpose:
     Class representing the Monthly SF-133
     '''
+	__tablename__ = 'StatusOfBudgetaryResources'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, year: str, account: str, provider: Provider=Provider.SQLite ):
@@ -7586,7 +7726,7 @@ class StatusOfBudgetaryResources( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfBudgetExecution( ):
+class StatusOfBudgetExecution( Base ):
 	'''
     Constructor:
     StatusOfBudgetaryResources( tsym: str )
@@ -7594,6 +7734,8 @@ class StatusOfBudgetExecution( ):
     Purpose:
     Class representing the Monthly SF-133
     '''
+	__tablename__ = 'StatusOfBudgetExecution'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
@@ -7674,7 +7816,7 @@ class StatusOfBudgetExecution( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfSupplementalFunding( ):
+class StatusOfSupplementalFunding( Base ):
 	'''
     Constructor:
     StatusOfFunds( bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite )
@@ -7682,6 +7824,8 @@ class StatusOfSupplementalFunding( ):
     Purpose:
     Class representing Supplemental Funding execution data
     '''
+	__tablename__ = 'StatusOfSupplementalFunding'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, 
@@ -7794,7 +7938,7 @@ class StatusOfSupplementalFunding( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StateGrantObligations( ):
+class StateGrantObligations( Base ):
 	'''
     Constructor:
     StateGrantObligation( bfy: str, rpio: str, provider: Provider=Provider.SQLite )
@@ -7802,6 +7946,8 @@ class StateGrantObligations( ):
     Purpose:
     Class defines object representing the BIS
     '''
+	__tablename__ = 'StatusOfGrantObligations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, rpio: str, provider: Provider=Provider.SQLite ):
@@ -7900,7 +8046,7 @@ class StateGrantObligations( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfSpecialAccountFunds( ):
+class StatusOfSpecialAccountFunds( Base ):
 	'''
      Constructor:
      StatusOfSpecialAccountFunds( bfy = None, fund = None,
@@ -7909,6 +8055,8 @@ class StatusOfSpecialAccountFunds( ):
      Purpose:
      Class defines object providing SF Special Account data
      '''
+	__tablename__ = 'StatusOfSpecialAccountFunds'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy = None, fund = None, account = None, 
@@ -8020,7 +8168,7 @@ class StatusOfSpecialAccountFunds( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SubAppropriation( ):
+class SubAppropriation( Base ):
 	'''
 
     Constructor:
@@ -8030,6 +8178,8 @@ class SubAppropriation( ):
     Class defines object representing the Sub-Appropriations
 
     '''
+	__tablename__ = 'SubAppropriations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, code: str, 
@@ -8111,7 +8261,7 @@ class SubAppropriation( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StateOrganization( ):
+class StateOrganization( Base ):
 	'''
     Constructor:
     StateOrganization( code: str, provider: Provider=Provider.SQLite )
@@ -8119,6 +8269,8 @@ class StateOrganization( ):
     Purpose:
     Class defines object representing state organization codes
     '''
+	__tablename__ = 'StateOrganizations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -8199,7 +8351,7 @@ class StateOrganization( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfAppropriations( ):
+class StatusOfAppropriations( Base ):
 	'''
     Constructor:
     StatusOfAppropriations( bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite )
@@ -8207,6 +8359,8 @@ class StatusOfAppropriations( ):
     Purpose:
     Class defines object representing Appropriation-level execution data
     '''
+	__tablename__ = 'StatusOfAppropriations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, 
@@ -8337,7 +8491,7 @@ class StatusOfAppropriations( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SpendingRate( ):
+class SpendingRate( Base ):
 	'''
     Constructor:
     SpendingRate( accountcode: str, provider: Provider=Provider.SQLite )
@@ -8345,6 +8499,8 @@ class SpendingRate( ):
     Purpose:
     Class object providing OMB spending rate data
     '''
+	__tablename__ = 'SpendingRates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
@@ -8451,7 +8607,7 @@ class SpendingRate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfSupplementalFunds( ):
+class StatusOfSupplementalFunds( Base ):
 	'''
     Constructor:
     StatusOfSupplementalFunds( bfy, efy, fund, pvdr = Provider.SQLite )
@@ -8459,6 +8615,8 @@ class StatusOfSupplementalFunds( ):
     Purpose:
     Class defines object used for reporting on Supplemental funding
     '''
+	__tablename__ = 'StatusOfSupplementalFunds'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, 
@@ -8577,7 +8735,7 @@ class StatusOfSupplementalFunds( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfJobsActFunding( ):
+class StatusOfJobsActFunding( Base ):
 	'''
     Constructor:
     StatusOfJobsActFunding(  bfy: str, efy: str,
@@ -8586,6 +8744,8 @@ class StatusOfJobsActFunding( ):
     Purpose:
     Class defines object for reporting on IIJA funds
     '''
+	__tablename__ = 'StatusOfJobsActFunding'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fundcode: str,
@@ -8713,7 +8873,7 @@ class StatusOfJobsActFunding( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfEarmarks( ):
+class StatusOfEarmarks( Base ):
 	'''
     Constructor:
     StatusOfEarmarks(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -8721,6 +8881,8 @@ class StatusOfEarmarks( ):
      Purpose:
      Class defines object for reporting on Earmarks
     '''
+	__tablename__ = 'StatusOfEarmarks'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str,
@@ -8852,7 +9014,7 @@ class StatusOfEarmarks( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class StatusOfSuperfundSites( ):
+class StatusOfSuperfundSites( Base ):
 	'''
     Constructor:
     StatusOfSuperfundSites(  bfy: str, efy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -8860,6 +9022,8 @@ class StatusOfSuperfundSites( ):
      Purpose:
      Class defines object for reporting on Earmarks
     '''
+	__tablename__ = 'StatusOfSuperfundSites'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, rpio: str,
@@ -8975,7 +9139,7 @@ class StatusOfSuperfundSites( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SpendingDocument( ):
+class SpendingDocument( Base ):
 	'''
     Constructor:
     SpendingDocument(  bfy: str, efy: str, fund: str, account: str,
@@ -8984,6 +9148,8 @@ class SpendingDocument( ):
     Purpose:
     Class defines object representing Spending documnets
     '''
+	__tablename__ = 'SpendingDocuments'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, account: str,
@@ -9099,7 +9265,7 @@ class SpendingDocument( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SupplementalCarryoverEstimate( ):
+class SupplementalCarryoverEstimate( Base ):
 	'''
 
     Constructor:
@@ -9109,6 +9275,8 @@ class SupplementalCarryoverEstimate( ):
     Class defines object providing Supplemental Carryover Estimates
 
     '''
+	__tablename__ = 'SupplementalCarryoverEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
@@ -9205,7 +9373,7 @@ class SupplementalCarryoverEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class SupplementalObligationEstimate( ):
+class SupplementalObligationEstimate( Base ):
 	'''
     Constructor:
     CarryoverEstimate( bfy: str, provider: Provider=Provider.SQLite )
@@ -9213,6 +9381,8 @@ class SupplementalObligationEstimate( ):
     Purpose:
     Class defines object providing Supplemental Carryover Estimate data for
     '''
+	__tablename__ = 'SupplementalObligationEstimates'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
@@ -9309,7 +9479,7 @@ class SupplementalObligationEstimate( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class TreasurySymbol( ):
+class TreasurySymbol( Base ):
 	'''
     Constructor:
     TreasurySymbol( bfy: str, efy: str, treas: str, provider: Provider=Provider.SQLite )
@@ -9317,6 +9487,8 @@ class TreasurySymbol( ):
     Purpose:
     Class defines object that represents a TAFS
     '''
+	__tablename__ = 'TreasurySymbols'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, account: str,
@@ -9411,7 +9583,7 @@ class TreasurySymbol( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class Transfer( ):
+class Transfer( Base ):
 	'''
      Constructor:
      Transfer( documentnumber: str, pvdr = Provider.SQLite )
@@ -9419,6 +9591,8 @@ class Transfer( ):
      Purpose:
      Class defines object representing EPA reprogrammings
      '''
+	__tablename__ = 'Transfers'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, documentnumber: str, provider: Provider=Provider.SQLite ):
@@ -9524,7 +9698,7 @@ class Transfer( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class TransType( ):
+class TransType( Base ):
 	'''
     Constructor:
     TransType( bfy: str, fundcode: str, pvdr = Provider.SQLite )
@@ -9532,6 +9706,8 @@ class TransType( ):
     Purpose:
     Class defines object representing trans types
     '''
+	__tablename__ = 'TransTypes'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, fundcode: str, provider: Provider=Provider.SQLite ):
@@ -9616,7 +9792,7 @@ class TransType( ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-class UnliquidatedObligation( ):
+class UnliquidatedObligation( Base ):
 	'''
     Constructor:
     UnliquidatedObligation( bfy: str, fund: str, account: str, 
@@ -9625,6 +9801,8 @@ class UnliquidatedObligation( ):
     Purpose:
     Class defines object providing ULO data
     '''
+	__tablename__ = 'UnliquidatedObligations'
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
