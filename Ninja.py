@@ -164,10 +164,10 @@ class ActivityCode( ):
 	'''
 
     Constructor:
-    ActivityCode( code: str, provider: Provider=Provider.SQLite )
+        ActivityCode( code: str, provider: Provider=Provider.SQLite )
 
     Purpose:
-    Data class representing Activity Codes
+        Data class representing Activity Codes
 
     '''
 
