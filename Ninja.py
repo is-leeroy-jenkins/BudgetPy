@@ -288,7 +288,7 @@ class AdjustedTrialBalance( Base ):
 	bfy = Column( 'BFY', String( 80 ) )
 	efy = Column( 'EFY', String( 80 ) )
 	fund_code = Column( 'FundCode', String( 80 ) )
-	fund_name = Column( 'FundName', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
 	ledger_account = Column( 'LedgerAccount', String( 80 ) )
 	account_name = Column( 'AccountName', String( 80 ) )
 	beginning_balance = Column( 'BeginningBalance', Numeric( ) )
@@ -512,7 +512,7 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 	fund_code = Column( 'FundCode', String( 80 ) )
 	fund_name = Column( 'FundName', String( 80 ) )
 	rpio_code = Column( 'RpioCode', String( 80 ) )
-	rpio_name = Column( 'RpioName', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
 	amount = Column( 'Amount', Numeric( ) )
 	open_commitments = Column( 'OpenCommitments', Numeric( ) )
 	obligations = Column( 'Obligations', Numeric( ) )
@@ -1171,8 +1171,34 @@ class Allocation( Base ):
 
     '''
 	__tablename__ = 'Allocations'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	id = Column( 'AllocationsId', Integer( ), primary_key=True, nullable=False, index=True )
+	status_of_funds_id = Column( 'StatusOfFundsId', Integer( ) )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	amount = Column( 'Amount', String( 80 ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
+	
 	def __init__( self, bfy: str, efy: str, fundcode: str,
 	              provider: Provider=Provider.SQLite ):
 		self.source = Source.Allocations
@@ -1299,7 +1325,23 @@ class ApportionmentData( Base ):
     Data class representing Letters Of Apportionment
     '''
 	__tablename__ = 'ApportionmentData'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ApportionmentDataId', Integer( ), primary_key=True, nullable=False, index=True )
+	fiscal_year = Column( 'FiscalYear', String( 25 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	main_account = Column( 'MainAccount', String( 80 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	availability_type = Column( 'AvailabilityType', String( 80 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
+	approval_date = Column( 'ApprovalDate', String( 80 ) )
+	line_number = Column( 'LineNumber', String( 80 ) )
+	line_name = Column( 'LineName', String( 155 ) )
+	line_split = Column( 'LineSplit', String( 80 ) )
+	amount = Column( 'Amount', Numeric(  ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
 
 	def __init__( self, year: str, bfy: str, efy: str,
 	              main: str, provider: Provider=Provider.SQLite ):
@@ -1410,7 +1452,43 @@ class Actual( Base ):
     Object representing expenditure data
     '''
 	__tablename__ = 'Actuals'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ActualsId', Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	subappropriation_code = Column( 'SubAppropriationCode', String( 80 ) )
+	subappropriation_name = Column( 'SubAppropriationName', String( 155 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	current_authority = Column( 'CurrentAuthority', Numeric( ) )
+	current_obligations = Column( 'CurrentObligations', Numeric( ) )
+	carryover_authority = Column( 'CarryoverAuthority', Numeric( ) )
+	carryover_obligations = Column( 'CarryoverObligations', Numeric( ) )
+	available_balance = Column( 'AvailableBalance', String( 80 ) )
+	activity_code = Column( 'ActivityCode', String( 80 ) )
+	activity_name = Column( 'ActivityName', String( 80 ) )
+	goal_code = Column( 'GoalCode', String( 25 ) )
+	goal_name = Column( 'GoalName', String( 155 ) )
+	objective_code = Column( 'ObjectiveCode', String( 25 ) )
+	objective_name = Column( 'ObjectiveName', String( 155 ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -4433,6 +4511,37 @@ class FullTimeEquivalent( Base ):
     '''
 	__tablename__ = 'FullTimeEquivalents'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	amount = Column( 'Amount', String( 80 ) )
+	activity_code = Column( 'ActivityCode', String( 80 ) )
+	activity_name = Column( 'ActivityName', String( 80 ) )
+	goal_code = Column( 'GoalCode', String( 25 ) )
+	goal_name = Column( 'GoalName', String( 155 ) )
+	objective_code = Column( 'ObjectiveCode', String( 25 ) )
+	objective_name = Column( 'ObjectiveName', String( 155 ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 	
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -4757,8 +4866,40 @@ class HeadquartersAuthority( Base ):
     '''
 	__tablename__ = 'HeadquartersAuthority'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	status_of_funds_id = Column( 'StatusOfFundsId', Integer( ) )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 	
-
 	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
 		self.source = Source.HeadquartersAuthority
 		self.provider = provider
@@ -7161,6 +7302,39 @@ class RegionalAuthority( Base ):
     '''
 	__tablename__ = 'RegionalAuthority'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	status_of_funds_id = Column( 'StatusOfFundsId', Integer( ) )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 
 	def __init__( self, bfy: str, efy: str, fund: str,
@@ -7285,7 +7459,40 @@ class StatusOfFunds( Base ):
     Class defines object representing execution data
     '''
 	__tablename__ = 'StatusOfFunds'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'StatusOfFundsId', Integer( ), primary_key=True, nullable=False, index=True )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	unliquidated_obligations = Column( 'UnliquidatedObligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 
 	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
@@ -7564,128 +7771,6 @@ class StatusOfBudgetExecution( Base ):
 			_exc = Error( e )
 			_exc.module = 'Ninja'
 			_exc.cause = 'StatusOfBudgetExecution'
-			_exc.method = 'getframe( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-class StatusOfSupplementalFunding( Base ):
-	'''
-    Constructor:
-    StatusOfFunds( bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite )
-
-    Purpose:
-    Class representing Supplemental Funding execution data
-    '''
-	__tablename__ = 'StatusOfSupplementalFunding'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, efy: str, fund: str, 
-	              provider: Provider=Provider.SQLite ):
-		self.source = Source.StatusOfSupplementalFunding
-		self.provider = provider
-		self.bfy = bfy
-		self.efy = efy
-		self.fundcode = fund
-		self.fields = [ 'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditure',
-		                  'Obligations',
-		                  'Used',
-		                  'Available',
-		                  'NpmCode',
-		                  'NpmName' ]
-
-	def __dir__( self ) -> list[ str ]:
-		'''
-
-		:return: a list[ str ] of object members
-
-		'''
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 'rpio_code', 'rpio_name',
-		         'ah_code', 'ah_name', 'org_code', 'org_name', 'account_code',
-		         'boc_code', 'boc_name', 'rc_code', 'rc_name',
-		         'program_project_code', 'program_project_name', 'program_area_code',
-		         'program_area_name', 'npm_code', 'npm_name', 'goal_code', 'goal_name',
-		         'objective_code', 'objective_name', 'budgeted', 'posted', 'open_commitments',
-		         'obligations', 'unliquidated_obligations', 'expenditures', 'used', 'available',
-		         'main_account', 'treasury_account_code', 'treasury_account_name',
-		         'budget_account_code', 'budget_account_name',
-		         'data', 'fields',
-		         'getdata', 'getframe' ]
-
-	def getdata( self ) -> list[ Row ]:
-		'''
-
-        :return: list[ Row ]
-
-        :param: self
-
-		:purpose:
-
-        '''
-
-		try:
-			_source = self.source
-			_provider = self.provider
-			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
-			_dbconfig = DbConfig( _source, _provider )
-			_sqlconfig = SqlConfig( _names, _values )
-			_connection = Connection( self.source )
-			_sql = SqlStatement( _dbconfig, _sqlconfig )
-			_sqlite = _connection.connect( )
-			_cursor = _sqlite.cursor( )
-			_query = _sql.__getquerytext( )
-			_db = _cursor.execute( _query )
-			self.data = [ i for i in _db.fetchall( ) ]
-			_cursor.close( )
-			_sqlite.close( )
-			return self.data
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Ninja'
-			_exc.cause = 'StatusOfSupplementalFunding'
-			_exc.method = 'getdata( self )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
-	def getframe( self ) -> DataFrame:
-		'''Method returning pandas dataframe
-        comprised of datatable data'''
-		try:
-			_source = self.source
-			_data = BudgetData( _source )
-			return _data.create_frame( )
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'Ninja'
-			_exc.cause = 'StatusOfSupplementalFunding'
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
@@ -8372,8 +8457,40 @@ class StatusOfSupplementalFunds( Base ):
     Class defines object used for reporting on Supplemental funding
     '''
 	__tablename__ = 'StatusOfSupplementalFunds'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	id = Column( 'StatusOfSupplementalFundsId', Integer( ), primary_key=True, index=True )
+	status_of_funds_id = Column( 'StatusOfFundsId', Integer( ) )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 	def __init__( self, bfy: str, efy: str, fund: str, 
 	              provider: Provider=Provider.SQLite ):
@@ -8501,7 +8618,40 @@ class StatusOfJobsActFunding( Base ):
     Class defines object for reporting on IIJA funds
     '''
 	__tablename__ = 'StatusOfJobsActFunding'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'StatusOfJobsActFundingId', Integer( ), primary_key=True, nullable=False )
+	status_of_funds_id = Column( 'StatusOfFundsId', Integer( ) )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 
 	def __init__( self, bfy: str, efy: str, fundcode: str,
@@ -8638,7 +8788,39 @@ class StatusOfEarmarks( Base ):
      Class defines object for reporting on Earmarks
     '''
 	__tablename__ = 'StatusOfEarmarks'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'StatusOfEarmarksId', Integer( ), primary_key=True, nullable=False, index=True )
+	budget_level = Column( 'BudgetLevel', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 150 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 150 ) )
+	ah_code = Column( 'AhCode', String( 80 ) )
+	ah_name = Column( 'AhName', String( 150 ) )
+	account_code = Column( 'AccountCode', String( 80 ) )
+	org_code = Column( 'OrgCode', String( 80 ) )
+	org_name = Column( 'OrgName', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 80 ) )
+	boc_name = Column( 'BocName', String( 150 ) )
+	rc_code = Column( 'RcCode', String( 25 ) )
+	rc_name = Column( 'RcName', String( 150 ) )
+	budgeted = Column( 'Budgeted', Numeric( ) )
+	posted = Column( 'Posted', Numeric( ) )
+	carryover_in = Column( 'CarryoverIn', Numeric( ) )
+	carryover_out = Column( 'CarryoverOut', Numeric( ) )
+	estimated_reimbursements = Column( 'EstimatedReimbursements', Numeric( ) )
+	estimated_recoveries = Column( 'EstimatedRecoveries', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 25 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 25 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 255 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 
 
 	def __init__( self, bfy: str, efy: str,
