@@ -63,16 +63,16 @@ class Account( Base ):
     Class defines object representing Account Codes
     '''
 	__tablename__ = 'Accounts'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	code = Column( String( 55 ) )
-	goal_code = Column( String( 55 ) )
-	objective_code = Column( String( 55 ) )
-	npm_code = Column( String( 55 ) )
-	npm_name = Column( String( 155 ) )
-	program_project_code = Column( String( 55 ) )
-	program_project_name = Column( String( 255 ) )
-	program_area_code = Column( String( 55 ) )
-	program_area_name = Column( String( 55 ) )
+	id = Column( 'AccountsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	goal_code = Column( 'GoalCode', String( 55 ) )
+	objective_code = Column( 'ObjectiveCode', String( 55 ) )
+	npm_code = Column( 'NpmCode', String( 55 ) )
+	npm_name = Column( 'NpmName', String( 155 ) )
+	program_project_code = Column( 'ProgramProjectCode', String( 55 ) )
+	program_project_name = Column( 'ProgramProjectName', String( 255 ) )
+	program_area_code = Column( 'ProgramAreaCode', String( 55 ) )
+	program_area_name = Column( 'ProgramAreaName', String( 55 ) )
 	
 	def __init__( self, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -180,9 +180,9 @@ class ActivityCode( Base ):
 
     '''
 	__tablename__ = 'ActivityCodes'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	code = Column( String( 55 ) )
-	name = Column( String( 55 ) )
+	id = Column( 'ActivityCodesId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 55 ) )
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -278,7 +278,28 @@ class AdjustedTrialBalance( Base ):
 
 	'''
 	__tablename__ = 'AdjustedTrialBalances'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'AdjustedTrialBalancesId', Integer( ), primary_key=True )
+	agency_identifier = Column( 'AgencyIdentifier', String( 80 ) )
+	allocation_transfer_agency = Column( 'AllocationTransferAgency', String( 80 ) )
+	availability_type = Column( 'AvailabilityType', String( 80 ) )
+	main_account = Column( 'MainAccount', String( 80 ) )
+	subaccount = Column( 'SubAccount', String( 80 ) )
+	treasury_symbol = Column( 'TreasurySymbol', String( 80 ) )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 80 ) )
+	ledger_account = Column( 'LedgerAccount', String( 80 ) )
+	account_name = Column( 'AccountName', String( 80 ) )
+	beginning_balance = Column( 'BeginningBalance', Numeric( ) )
+	credit_balance = Column( 'CreditBalance', Numeric( ) )
+	debit_balance = Column( 'DebitBalance', Numeric( ) )
+	ending_balance = Column( 'EndingBalance', Numeric( ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
+	
 
 	def __init__( self, bfy: str, efy: str,
 	              fundcode: str, provider: Provider=Provider.SQLite ):
@@ -384,7 +405,12 @@ class AllowanceHolder( Base ):
 
     '''
 	__tablename__ = 'AllowanceHolders'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'AllowanceHoldersId', Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( 'BFY', String( 25 ) )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 55 ) )
+	earmark_flag = Column( 'EarmarkFlag', String( 50 ) )
+	
 
 	def __init__( self, code: str=None,
 	              provider: Provider=Provider.SQLite ):
@@ -479,7 +505,19 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 
     '''
 	__tablename__ = 'AmericanRescuePlanCarryoverEstimates'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'AmericanRescuePlanCarryoverEstimatesId', Integer( ), primary_key=True )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 80 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 80 ) )
+	amount = Column( 'Amount', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	available = Column( 'Available', Numeric( ) )
+	estimate = Column( 'Estimate', Numeric( ) )
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -590,7 +628,19 @@ class AnnualCarryoverEstimate( Base ):
     Class providing Carryover Estimate data for
     '''
 	__tablename__ = 'AnnualCarryoverEstimates'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'AnnualCarryoverEstimatesId', Integer( ), primary_key=True )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 80 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 80 ) )
+	amount = Column( 'Amount', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	available = Column( 'Available', Numeric( ) )
+	estimate = Column( 'Estimate', Numeric( ) )
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -814,7 +864,9 @@ class Appropriation( Base ):
     Data class representing Appropriations
     '''
 	__tablename__ = 'Appropriations'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'AppropriationsId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 	def __init__( self, code: str ):
 		self.source = Source.Appropriations
@@ -2209,7 +2261,9 @@ class BudgetObjectClass( Base ):
     Defines the BudgetObjectClass Class
     '''
 	__tablename__ = 'BudgetObjectClasses'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'BudgetObjectClassesId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -2891,7 +2945,9 @@ class CostArea( Base ):
     Data class object for cost areas
     '''
 	__tablename__ = 'CostAreas'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'CostAreasId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -2976,7 +3032,9 @@ class CapitalPlanningInvestmentCode( Base ):
     Purpose:
     Class eefines the CPIC Codes'''
 	__tablename__ = 'CapitalPlanningInvestmentCodes'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'CapitalPlanningInvestmentCodesId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -3064,8 +3122,11 @@ class ColumnSchema( Base ):
     Provides data on the coolumn_names used in the application
     '''
 	__tablename__ = 'ColumnSchema'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	
+	id = Column( 'ColumnSchemaId', Integer( ), primary_key=True, nullable=False, index=True )
+	data_type = Column( 'DataType', String( 80 ) )
+	column_name = Column( 'ColumnName', String( 155 ) )
+	table_name = Column( 'TableName', String( 155 ) )
+	column_caption = Column( 'ColumnCaption', String( 155 ) )
 
 	def __init__( self, column: str, table: str, provider: Provider=Provider.SQLite ):
 		self.source = Source.ColumnSchema
@@ -3692,7 +3753,11 @@ class FinanceObjectClass( Base ):
     Purpose:
     Class defines object representing the Finance Object Class'''
 	__tablename__ = 'FinanceObjectClasses'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'FinanceObjectClassesId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
+	boc_code = Column( 'BocCode', String( 25 ) )
+	boc_name = Column( 'BocName', String( 155) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -3787,6 +3852,34 @@ class Fund( Base ):
     '''
 	__tablename__ = 'Funds'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
+	status = Column( 'Status', String( 80 ) )
+	short_name = Column( 'ShortName', String( 150 ) )
+	sub_level_prefix = Column( 'SubLevelPrefix', String( 80 ) )
+	agency_identifier = Column( 'AgencyIdentifier', String( 80 ) )
+	allocation_transfer_agency = Column( 'AllocationTransferAgency', String( 80 ) )
+	beginning_period_of_availability = Column( 'BeginningPeriodOfAvailability', String( 80 ) )
+	ending_period_of_availability = Column( 'EndingPeriodOfAvailability', String( 80 ) )
+	start_date = Column( 'StartDate', String( 80 ) )
+	end_date = Column( 'EndDate', String( 80 ) )
+	multiyear_indicator = Column( 'MultiYearIndicator', String( 80 ) )
+	main_account = Column( 'MainAccount', String( 80 ) )
+	main_name = Column( 'MainName', String( 80 ) )
+	subaccount = Column( 'SubAccount', String( 80 ) )
+	fund_category = Column( 'FundCategory', String( 80 ) )
+	appropriation_code = Column( 'AppropriationCode', String( 80 ) )
+	subappropriation_code = Column( 'SubAppropriationCode', String( 80 ) )
+	fund_group = Column( 'FundGroup', String( 80 ) )
+	no_year = Column( 'NoYear', String( 80 ) )
+	carryover = Column( 'Carryover', String( 80 ) )
+	apply_at_all_levels = Column( 'ApplyAtAllLevels', String( 80 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	treasury_account_name = Column( 'TreasuryAccountName', String( 150 ) )
+	budget_account_code = Column( 'BudgetAccountCode', String( 80 ) )
+	budget_account_name = Column( 'BudgetAccountName', String( 150 ) )
 	
 
 	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
@@ -4567,7 +4660,9 @@ class Goal( Base ):
     Class defines object representing EPA  Goals
     '''
 	__tablename__ = 'Goals'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'GoalsId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -4779,9 +4874,10 @@ class HeadquartersOffice( Base ):
     Prupose:
     Class defines object representing RPIO'''
 	__tablename__ = 'HeadquartersOffices'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'HeadquartersOfficesId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
-
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.rpiocode = code
 		self.provider = provider
@@ -5084,9 +5180,10 @@ class MainAccount( Base ):
 	class models the OMB Budget Account
 	'''
 	__tablename__ = 'MainAccounts'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'MainAccountsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
-
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.code = code
 		self.provider = provider
@@ -5415,7 +5512,9 @@ class NationalProgram( Base ):
     Purpose:
     Class defines object representing the NationalProgram Class'''
 	__tablename__ = 'NationalPrograms'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'NationalProgramsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5506,7 +5605,9 @@ class Objective( Base ):
     Class defines object representing the Objective Class
     '''
 	__tablename__ = 'Objectives'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ObjectivesId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -5594,9 +5695,10 @@ class Organization( Base ):
     Purpose:
     Class defines object representing the Organization Codes'''
 	__tablename__ = 'Organizations'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'OrganizationsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
-
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Organizations
@@ -6238,7 +6340,9 @@ class Project( Base ):
 
     Purpoe:  Class defines the Organization Class'''
 	__tablename__ = 'Projects'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ProjectsId', Integer( ), primary_key=True  )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6320,7 +6424,9 @@ class ProgramArea( Base ):
     Purpose:  defines the ProgramArea class
     '''
 	__tablename__ = 'ProgramAreas'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ProgramAreasId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6401,7 +6507,9 @@ class ProgramProject( Base ):
     Purpose:  Defines the ProgramProject Class
     '''
 	__tablename__ = 'ProgramProjects'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'ProgramProjectsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 	
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -6488,365 +6596,6 @@ class ProgramResultsCode( Base ):
     '''
 	__tablename__ = 'ProgramResultsCodes'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	source: Source=None
-	provider: Provider=None
-	rpiocode: str=None
-	rpioname: str=None
-	bfy: str=None
-	efy: str=None
-	ahcode: str=None
-	ahname: str=None
-	fundcode: str=None
-	fundname: str=None
-	orgcode: str=None
-	orgname: str=None
-	accountcode: str=None
-	accountname = None
-	activitycode: str=None
-	activityname = None
-	rccode: str=None
-	rcname: str=None
-	boccode: str=None
-	bocname: str=None
-	amount: float=None
-	programprojectcode: str=None
-	programprojectname: str=None
-	programareacode: str=None
-	programareaname: str=None
-	goalcode: str=None
-	goalname: str=None
-	objectivecode: str=None
-	objectivename: str=None
-	npmcode: str=None
-	npmname: str=None
-	fields:  list[ str ]=None
-	data: list[ Row ]=None
-	frame: DataFrame=None
-
-	@property
-	def id( self ) -> int:
-		if self.id is not None:
-			return self.id
-
-	@id.setter
-	def id( self, value: int ):
-		if value is not None:
-			self.id = value
-
-	@property
-	def bfy( self ) -> str:
-		if self.bfy is not None:
-			return self.bfy
-
-	@bfy.setter
-	def bfy( self, value: str ):
-		if value is not None:
-			self.bfy = value
-
-	@property
-	def efy( self ) -> str:
-		if self.efy is not None:
-			return self.efy
-
-	@efy.setter
-	def efy( self, value: str ):
-		if value is not None:
-			self.efy = value
-
-	@property
-	def rpio_code( self ) -> str:
-		if self.rpiocode is not None:
-			return self.rpiocode
-
-	@rpio_code.setter
-	def rpio_code( self, value: str ):
-		if value is not None:
-			self.rpiocode = value
-
-	@property
-	def rpio_name( self ) -> str:
-		if self.rpioname is not None:
-			return self.rpioname
-
-	@rpio_name.setter
-	def rpio_name( self, value: str ):
-		if value is not None:
-			self.rpioname = value
-
-	@property
-	def ah_code( self ) -> str:
-		if self.ahcode is not None:
-			return self.ahcode
-
-	@ah_code.setter
-	def ah_code( self, value: str ):
-		if value is not None:
-			self.ahcode = value
-
-	@property
-	def ah_name( self ) -> str:
-		if self.ahname is not None:
-			return self.ahname
-
-	@ah_name.setter
-	def ah_name( self, value: str ):
-		if value is not None:
-			self.ahname = value
-
-	@property
-	def fund_code( self ) -> str:
-		if self.fundcode is not None:
-			return self.fundcode
-
-	@fund_code.setter
-	def fund_code( self, value: str ):
-		if value is not None:
-			self.fundcode = value
-
-	@property
-	def fund_name( self ) -> str:
-		if self.fundname is not None:
-			return self.fundname
-
-	@fund_name.setter
-	def fund_name( self, value: str ):
-		if value is not None:
-			self.fundname = value
-
-	@property
-	def org_code( self ) -> str:
-		if self.orgcode is not None:
-			return self.orgcode
-
-	@org_code.setter
-	def org_code( self, value: str ):
-		if value is not None:
-			self.orgcode = value
-
-	@property
-	def org_name( self ):
-		if self.orgname is not None:
-			return self.orgname
-
-	@org_name.setter
-	def org_name( self, value ):
-		if value is not None:
-			self.orgname = value
-
-	@property
-	def account_code( self ) -> str:
-		if self.accountcode is not None:
-			return self.accountcode
-
-	@account_code.setter
-	def account_code( self, value: str ):
-		if value is not None:
-			self.accountcode = value
-
-	@property
-	def boc_code( self ) -> str:
-		if self.boccode is not None:
-			return self.boccode
-
-	@boc_code.setter
-	def boc_code( self, value: str ):
-		if value is not None:
-			self.boccode = value
-
-	@property
-	def boc_name( self ) -> str:
-		if self.bocname is not None:
-			return self.bocname
-
-	@boc_name.setter
-	def boc_name( self, value: str ):
-		if value is not None:
-			self.bocname = value
-
-	@property
-	def rc_code( self ) -> str:
-		if self.rccode is not None:
-			return self.rccode
-
-	@rc_code.setter
-	def rc_code( self, value: str ):
-		if value is not None:
-			self.rccode = value
-
-	@property
-	def rc_name( self ) -> str:
-		if self.rcname is not None:
-			return self.rcname
-
-	@rc_name.setter
-	def rc_name( self, value: str ):
-		if value is not None:
-			self.rcname = value
-
-	@property
-	def amount( self ) -> float:
-		if self.amount is not None:
-			return self.amount
-
-	@amount.setter
-	def amount( self, value: float ):
-		if value is not None:
-			self.amount = value
-
-	@property
-	def program_project_code( self ) -> str:
-		if self.programprojectcode is not None:
-			return self.programprojectcode
-
-	@program_project_code.setter
-	def program_project_code( self, value: str ):
-		if value is not None:
-			self.programprojectcode = value
-
-	@property
-	def program_project_name( self ) -> str:
-		if self.programprojectname is not None:
-			return self.programprojectname
-
-	@program_project_name.setter
-	def program_project_name( self, value: str ):
-		if value is not None:
-			self.programprojectname = value
-
-	@property
-	def program_area_code( self ) -> str:
-		if self.programareacode is not None:
-			return self.programareacode
-
-	@program_area_code.setter
-	def program_area_code( self, value: str ):
-		if value is not None:
-			self.programareacode = value
-
-	@property
-	def program_area_name( self ) -> str:
-		if self.programareaname is not None:
-			return self.programareaname
-
-	@program_area_name.setter
-	def program_area_name( self, value: str ):
-		if value is not None:
-			self.programareaname = value
-
-	@property
-	def goal_code( self ) -> str:
-		if self.goalcode is not None:
-			return self.goalcode
-
-	@goal_code.setter
-	def goal_code( self, value: str ):
-		if value is not None:
-			self.goalcode = value
-
-	@property
-	def goal_name( self ) -> str:
-		if self.goalname is not None:
-			return self.goalname
-
-	@goal_name.setter
-	def goal_name( self, value: str ):
-		if value is not None:
-			self.goalname = value
-
-	@property
-	def objective_code( self ) -> str:
-		if self.objectivecode is not None:
-			return self.objectivecode
-
-	@objective_code.setter
-	def objective_code( self, value: str ):
-		if value is not None:
-			self.objectivecode = value
-
-	@property
-	def objective_name( self ) -> str:
-		if self.objectivename is not None:
-			return self.objectivename
-
-	@objective_name.setter
-	def objective_name( self, value: str ):
-		if value is not None:
-			self.objectivename = value
-
-	@property
-	def npm_code( self ) -> str:
-		if self.npmcode is not None:
-			return self.npmcode
-
-	@npm_code.setter
-	def npm_code( self, value: str ):
-		if value is not None:
-			self.npmcode = value
-
-	@property
-	def npm_name( self ) -> str:
-		if self.npmname is not None:
-			return self.npmname
-
-	@npm_name.setter
-	def npm_name( self, value: str ):
-		if value is not None:
-			self.npmname = value
-
-	@property
-	def activity_code( self ) -> str:
-		if self.activitycode is not None:
-			return self.activitycode
-
-	@activity_code.setter
-	def activity_code( self, value: str ):
-		if value is not None:
-			self.activitycode = value
-
-	@property
-	def activity_name( self ) -> str:
-		if self.activityname is not None:
-			return self.activityname
-
-	@activity_name.setter
-	def activity_name( self, value: str ):
-		if value is not None:
-			self.activityname = value
-
-	@property
-	def data( self ) -> list[ Row ]:
-		if self.data is not None:
-			return self.data
-
-	@data.setter
-	def data( self, value: list[ Row ] ):
-		if isinstance( value, list ):
-			self.data = value
-
-	@property
-	def frame( self ) -> DataFrame:
-		if self.frame is not None:
-			return self.frame
-
-	@frame.setter
-	def frame( self, value: DataFrame ):
-		if value is not None:
-			self.frame = value
-
-	@property
-	def fields( self ) -> list[ str ]:
-		if self.fields is not None:
-			return self.fields
-
-	@property
-	def fields( self ) -> list[ str ]:
-		if self.fields is not None:
-			return self.fields
-
-	@fields.setter
-	def fields( self, value: list[ str ] ):
-		if value is not None:
-			self.fields = value
 
 	def __init__( self, bfy: str=None, efy: str=None, fund: str=None,
 	              rpio: str=None, ah: str=None, account: str=None, boc: str=None,
@@ -7059,9 +6808,10 @@ class ResponsibilityCenter( Base ):
     Class defines the ResponsibilityCenter Class
     '''
 	__tablename__ = 'ResponsibilityCenters'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	id = Column( 'ResponsibilityCentersId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
+	
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ResponsibilityCenters
@@ -7145,8 +6895,9 @@ class ResourcePlanningOffice( Base ):
     Defines the ResponsiblePlanningOffice class
     '''
 	__tablename__ = 'ResourcePlanningOffices'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	id = Column( 'ResourcePlanningOfficesId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -7233,8 +6984,9 @@ class RegionalOffice( Base ):
     Defines a regional RPIO
     '''
 	__tablename__ = 'RegionalOffices'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	id = Column( 'RegionalOfficesId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
 		self.provider = provider
@@ -8179,7 +7931,9 @@ class SubAppropriation( Base ):
 
     '''
 	__tablename__ = 'SubAppropriations'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'SubAppropriationsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 
 	def __init__( self, bfy: str, efy: str, code: str, 
@@ -8270,7 +8024,9 @@ class StateOrganization( Base ):
     Class defines object representing state organization codes
     '''
 	__tablename__ = 'StateOrganizations'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'StateOrganizationsId', Integer( ), primary_key=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 
 	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
@@ -9276,7 +9032,19 @@ class SupplementalCarryoverEstimate( Base ):
 
     '''
 	__tablename__ = 'SupplementalCarryoverEstimates'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'SupplementalCarryoverEstimatesId', Integer( ), primary_key=True )
+	bfy = Column( 'BFY', String( 80 ) )
+	efy = Column( 'EFY', String( 80 ) )
+	treasury_account_code = Column( 'TreasuryAccountCode', String( 80 ) )
+	fund_code = Column( 'FundCode', String( 80 ) )
+	fund_name = Column( 'FundName', String( 80 ) )
+	rpio_code = Column( 'RpioCode', String( 80 ) )
+	rpio_name = Column( 'RpioName', String( 80 ) )
+	amount = Column( 'Amount', Numeric( ) )
+	open_commitments = Column( 'OpenCommitments', Numeric( ) )
+	obligations = Column( 'Obligations', Numeric( ) )
+	available = Column( 'Available', Numeric( ) )
+	estimate = Column( 'Estimate', Numeric( ) )
 
 
 	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
@@ -9488,7 +9256,9 @@ class TreasurySymbol( Base ):
     Class defines object that represents a TAFS
     '''
 	__tablename__ = 'TreasurySymbols'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'TreasurySymbolsId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 
 	def __init__( self, bfy: str, efy: str, account: str,
@@ -9707,7 +9477,9 @@ class TransType( Base ):
     Class defines object representing trans types
     '''
 	__tablename__ = 'TransTypes'
-	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	id = Column( 'TransTypesId', Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( 'Code', String( 55 ) )
+	name = Column( 'Name', String( 155 ) )
 
 
 	def __init__( self, bfy: str, fundcode: str, provider: Provider=Provider.SQLite ):
