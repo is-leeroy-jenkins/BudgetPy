@@ -48,7 +48,7 @@ from pandas import DataFrame
 from sqlite3 import Row
 from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
-from Data import ( DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder )
+from Data import (DbConfig, SqlConfig, Connection, SqlStatement, BudgetData, DataBuilder)
 from sqlalchemy import Table, Column, Integer, Numeric, String
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -74,27 +74,27 @@ class Account( Base ):
 	program_area_code = Column( String( 55 ) )
 	program_area_name = Column( String( 55 ) )
 	
-	def __init__( self, provider: Provider=Provider.SQLite ):
+	def __init__( self, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Accounts
 		self.fields = [ 'AccountsId',
-		                  'Code',
-		                  'GoalCode',
-		                  'ObjectiveCode',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'ActivityCode',
-		                  'ActivityName',
-		                  'AgencyActivity' ]
-
+		                'Code',
+		                'GoalCode',
+		                'ObjectiveCode',
+		                'NpmCode',
+		                'NpmName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'ActivityCode',
+		                'ActivityName',
+		                'AgencyActivity' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -106,10 +106,10 @@ class Account( Base ):
 		         'program_project_code',
 		         'data', 'fields', 'frame',
 		         'copy', 'getdata', 'getframe' ]
-
+	
 	def copy( self ):
 		try:
-			_clone = Account( code = self.code )
+			_clone = Account( code=self.code )
 			_clone.goal_code = self.goal_code
 			_clone.objective_code = self.objective_code
 			_clone.npm_code = self.npm_code
@@ -122,13 +122,13 @@ class Account( Base ):
 			_exc.method = 'copy( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getdata( self ) -> list[ Row ]:
 		try:
 			_source = Source.Accounts
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( _source, _provider )
 			_sql = SqlStatement( _connection, _sqlconfig )
@@ -147,7 +147,7 @@ class Account( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -156,7 +156,7 @@ class Account( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_src = self.source
 			_data = BudgetData( _src )
@@ -183,8 +183,8 @@ class ActivityCode( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 55 ) )
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ActivityCodes
 		self.id = id
@@ -192,14 +192,14 @@ class ActivityCode( Base ):
 		self.name = None
 		self.title = None
 		self.fields = [ 'ActivityCodesId',
-		                  'Code',
-		                  'Name',
-		                  'Title' ]
-
+		                'Code',
+		                'Name',
+		                'Title' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -209,7 +209,7 @@ class ActivityCode( Base ):
 		return [ 'id', 'code', 'name',
 		         'data', 'fields', 'frame',
 		         'fields', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -218,12 +218,12 @@ class ActivityCode( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -243,7 +243,7 @@ class ActivityCode( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 		
@@ -254,7 +254,7 @@ class ActivityCode( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -288,43 +288,43 @@ class AdjustedTrialBalance( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	ledger_account = Column( String( 80 ) )
-	account_name = Column( String( 80 ) )
+	account_name = Column( String( 155 ) )
 	beginning_balance = Column( Numeric( ) )
 	credit_balance = Column( Numeric( ) )
 	debit_balance = Column( Numeric( ) )
 	ending_balance = Column( Numeric( ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	
 	def __init__( self, bfy: str, efy: str,
-	              fundcode: str, provider: Provider=Provider.SQLite ):
+	              fundcode: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.AdjustedTrialBalances
 		self.provider = provider
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fundcode
 		self.fields = [ 'AdjustedTrialBalancesId',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'TreasurySymbol',
-		                  'AccountNumber',
-		                  'AccountName',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'TreasurySymbol',
+		                'AccountNumber',
+		                'AccountName',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.accountnumber is not None:
 			return self.accountnumber
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -337,7 +337,7 @@ class AdjustedTrialBalance( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -346,12 +346,12 @@ class AdjustedTrialBalance( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -371,7 +371,7 @@ class AdjustedTrialBalance( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -380,7 +380,7 @@ class AdjustedTrialBalance( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -410,22 +410,22 @@ class AllowanceHolder( Base ):
 	name = Column( String( 55 ) )
 	earmark_flag = Column( String( 50 ) )
 	
-
-	def __init__( self, code: str=None,
-	              provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str = None,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AllowanceHolders
 		self.code = code
 		self.fields = [ 'AllowanceHoldersId',
-		                  'Code',
-		                  'Name'
-		                  'Status'
-		                  'EarmarkFlag' ]
-
+		                'Code',
+		                'Name'
+		                'Status'
+		                'EarmarkFlag' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -436,7 +436,7 @@ class AllowanceHolder( Base ):
 		         'status', 'earmark_flag', 'usage',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -446,12 +446,12 @@ class AllowanceHolder( Base ):
         Returns:
         	
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'AllowanceHoldersId', 'Code', 'Name', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -471,7 +471,7 @@ class AllowanceHolder( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -480,7 +480,7 @@ class AllowanceHolder( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -504,50 +504,50 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 
     '''
 	__tablename__ = 'AmericanRescuePlanCarryoverEstimates'
-	id = Column( Integer( ), primary_key=True )
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	amount = Column( Numeric( ) )
 	open_commitments = Column( Numeric( ) )
 	obligations = Column( Numeric( ) )
 	available = Column( Numeric( ) )
 	estimate = Column( Numeric( ) )
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AmericanRescuePlanCarryoverEstimates
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
 		self.fields = [ 'CarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -561,7 +561,7 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 		         'budget_account_code', 'budget_account_name', 'estimate',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -572,12 +572,12 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -597,7 +597,7 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -606,7 +606,7 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_data = BudgetData( self.source )
 			return _data.create_frame( )
@@ -627,51 +627,51 @@ class AnnualCarryoverEstimate( Base ):
     Class providing Carryover Estimate data for
     '''
 	__tablename__ = 'AnnualCarryoverEstimates'
-	id = Column( Integer( ), primary_key=True )
+	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 80 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 80 ) )
+	rpio_name = Column( String( 255 ) )
 	amount = Column( Numeric( ) )
 	open_commitments = Column( Numeric( ) )
 	obligations = Column( Numeric( ) )
 	available = Column( Numeric( ) )
 	estimate = Column( Numeric( ) )
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AnnualCarryoverEstimates
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
 		self.frame = DataFrame( )
 		self.fields = [ 'CarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -685,7 +685,7 @@ class AnnualCarryoverEstimate( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -696,12 +696,12 @@ class AnnualCarryoverEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -721,7 +721,7 @@ class AnnualCarryoverEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -730,7 +730,7 @@ class AnnualCarryoverEstimate( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -752,37 +752,47 @@ class AnnualReimbursableEstimate( Base ):
     Class defining object representing reimbursable estimates'''
 	__tablename__ = 'AnnualReimbursableEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	treasury_account_code = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 255 ) )
+	amount = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	available = Column( Numeric( ) )
+	estimate = Column( Numeric( ) )
 	
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AnnualReimbursableEstimates
 		self.bfy = bfy
 		self.fields = [ 'AnnualReimbursableEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -796,7 +806,7 @@ class AnnualReimbursableEstimate( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -807,12 +817,12 @@ class AnnualReimbursableEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -832,7 +842,7 @@ class AnnualReimbursableEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -841,7 +851,7 @@ class AnnualReimbursableEstimate( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -866,19 +876,19 @@ class Appropriation( Base ):
 	id = Column( Integer( ), primary_key=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
+	
 	def __init__( self, code: str ):
 		self.source = Source.Appropriations
 		self.provider = Provider.SQLite
 		self.code = code
 		self.fields = [ 'AppropriationsId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -887,8 +897,8 @@ class Appropriation( Base ):
 		'''
 		return [ 'id', 'data', 'fields',
 		         'code', 'name',
-		         'getdata', 'getframe']
-
+		         'getdata', 'getframe' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -899,12 +909,12 @@ class Appropriation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code' ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -924,7 +934,7 @@ class Appropriation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -933,7 +943,7 @@ class Appropriation( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -956,6 +966,29 @@ class AppropriationAvailableBalance( Base ):
     '''
 	__tablename__ = 'AppropriationAvailableBalances'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 255 ) )
+	original_amount = Column( Numeric( ) )
+	authority = Column( Numeric( ) )
+	budgeted = Column( Numeric( ) )
+	posted = Column( Numeric( ) )
+	estimated_reimbursements = Column( Numeric( ) )
+	estimated_recoveries = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	transfer_in = Column( Numeric( ) )
+	transfer_out = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	unliquidated_obligations = Column( Numeric( ) )
+	expenditures = Column( Numeric( ) )
+	total_available = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
 	
 	def __init__( self, bfy: str, efy: str, fundcode: str ):
 		self.source = Source.Appropriations
@@ -964,25 +997,25 @@ class AppropriationAvailableBalance( Base ):
 		self.efy = efy
 		self.fundcode = fundcode
 		self.fields = [ 'AppropriationAvailableBalancesId',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'OmbAccountCode',
-		                  'OmbAccountName',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'TotalAuthority',
-		                  'Budgeted',
-		                  'TotalReimbursements',
-		                  'TotalRecoveries',
-		                  'TotalUsed',
-		                  'TotalAvailable' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'OmbAccountCode',
+		                'OmbAccountName',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'TotalAuthority',
+		                'Budgeted',
+		                'TotalReimbursements',
+		                'TotalRecoveries',
+		                'TotalUsed',
+		                'TotalAvailable' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -994,8 +1027,8 @@ class AppropriationAvailableBalance( Base ):
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields', 'frame',
-		         'getdata', 'getframe']
-
+		         'getdata', 'getframe' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1006,12 +1039,12 @@ class AppropriationAvailableBalance( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code' ]
-			_values = ( self.fundcode,)
+			_values = (self.fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1031,7 +1064,7 @@ class AppropriationAvailableBalance( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -1040,7 +1073,7 @@ class AppropriationAvailableBalance( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -1063,7 +1096,29 @@ class AppropriationLevelAuthority( Base ):
     '''
 	__tablename__ = 'AppropriationLevelAuthority'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 255 ) )
+	budget_level = Column( String( 10 ) )
+	budgeted = Column( Numeric( ) )
+	posted = Column( Numeric( ) )
+	reimbursements = Column( Numeric( ) )
+	recoveries = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	transfer_in = Column( Numeric( ) )
+	transfer_out = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	unliquidated_obligations = Column( Numeric( ) )
+	expenditures = Column( Numeric( ) )
+	total_available = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
+	
 	def __init__( self, bfy: str, efy: str, fundcode: str ):
 		self.source = Source.AppropriationLevelAuthority
 		self.provider = Provider.SQLite
@@ -1071,25 +1126,25 @@ class AppropriationLevelAuthority( Base ):
 		self.efy = efy
 		self.fundcode = fundcode
 		self.fields = [ 'AppropriationLevelAuthorityId',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'MainAccount',
-		                  'Authority',
-		                  'Budgeted',
-		                  'Reimbursements',
-		                  'Recoveries',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'MainAccount',
+		                'Authority',
+		                'Budgeted',
+		                'Reimbursements',
+		                'Recoveries',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.fundcode, str ) and self.fundcode != '':
+		if isinstance( self.fundcode, str ) and self.fundcode!='':
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1101,8 +1156,8 @@ class AppropriationLevelAuthority( Base ):
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields', 'frame',
-		         'getdata', 'getframe']
-
+		         'getdata', 'getframe' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1113,7 +1168,7 @@ class AppropriationLevelAuthority( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
@@ -1138,7 +1193,7 @@ class AppropriationLevelAuthority( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -1147,7 +1202,7 @@ class AppropriationLevelAuthority( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -1176,89 +1231,91 @@ class Allocation( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
-	amount = Column( 'Amount', String( 80 ) )
+	rc_name = Column( String( 255 ) )
+	amount = Column( Numeric( ) )
+	npm_code = Column( String( 25 ) )
+	npm_name = Column( String( 255 ) )
 	program_project_code = Column( String( 25 ) )
 	program_project_name = Column( String( 255 ) )
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	
 	def __init__( self, bfy: str, efy: str, fundcode: str,
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.source = Source.Allocations
 		self.provider = provider
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.fundcode = fund if isinstance( fund, str ) and fund != '' else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
+		self.fundcode = fund if isinstance( fund, str ) and fund!='' else None
 		self.fields = [ 'AllocationsId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'LowerName',
+		                'Amount',
+		                'NpmCode',
+		                'NpmName',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.programprojectname is not None:
 			return self.programprojectname
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
 		:return: a list[ str ] of object members
 
 		'''
-		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name', 
+		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
 		         'rpio_code', 'rpio_name', 'ah_code', 'ah_name',
 		         'org_code', 'org_name', 'boc_code', 'boc_name',
 		         'rc_code', 'rc_name', 'npm_code', 'npm_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
-		         'program_area_name',  'goal_code', 'goal_name',
+		         'program_area_name', 'goal_code', 'goal_name',
 		         'account_code', 'objective_code', 'objective_name', 'authority',
 		         'budgeted', 'reimbursements', 'recoveries', 'used', 'available',
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1269,12 +1326,12 @@ class Allocation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1294,7 +1351,7 @@ class Allocation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -1330,20 +1387,20 @@ class ApportionmentData( Base ):
 	efy = Column( String( 80 ) )
 	main_account = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	availability_type = Column( String( 80 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	approval_date = Column( String( 80 ) )
 	line_number = Column( String( 80 ) )
 	line_name = Column( String( 155 ) )
 	line_split = Column( String( 80 ) )
-	amount = Column( Numeric(  ) )
+	amount = Column( Numeric( ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
-
+	fund_name = Column( String( 255 ) )
+	
 	def __init__( self, year: str, bfy: str, efy: str,
-	              main: str, provider: Provider=Provider.SQLite ):
+	              main: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ApportionmentData
 		self.fiscalyear = year
@@ -1351,27 +1408,27 @@ class ApportionmentData( Base ):
 		self.efy = efy
 		self.mainaccount = main
 		self.fields = [ 'ApportionmentDataId',
-		                  'FiscalYear',
-		                  'BFY',
-		                  'EFY',
-		                  'AvailabilityType',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName',
-		                  'ApprovalDate',
-		                  'LineNumber',
-		                  'LineSplit',
-		                  'LineName',
-		                  'Amount',
-		                  'FundCode',
-		                  'FundName' ]
-
+		                'FiscalYear',
+		                'BFY',
+		                'EFY',
+		                'AvailabilityType',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName',
+		                'ApprovalDate',
+		                'LineNumber',
+		                'LineSplit',
+		                'LineName',
+		                'Amount',
+		                'FundCode',
+		                'FundName' ]
+	
 	def __str__( self ) -> str:
 		if self.mainaccount is not None:
 			return self.mainaccount
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1384,7 +1441,7 @@ class ApportionmentData( Base ):
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1395,12 +1452,12 @@ class ApportionmentData( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = ( self.bfy, self.efy, self.budgetaccountcode )
+			_values = (self.bfy, self.efy, self.budgetaccountcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1420,7 +1477,7 @@ class ApportionmentData( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -1429,7 +1486,7 @@ class ApportionmentData( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -1455,86 +1512,86 @@ class Actual( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	subappropriation_code = Column( String( 80 ) )
 	subappropriation_name = Column( String( 155 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	current_authority = Column( Numeric( ) )
 	current_obligations = Column( Numeric( ) )
 	carryover_authority = Column( Numeric( ) )
 	carryover_obligations = Column( Numeric( ) )
 	available_balance = Column( String( 80 ) )
 	activity_code = Column( String( 80 ) )
-	activity_name = Column( String( 80 ) )
+	activity_name = Column( String( 155 ) )
 	goal_code = Column( String( 25 ) )
 	goal_name = Column( String( 155 ) )
 	objective_code = Column( String( 25 ) )
-	objective_name = Column(  String( 155 ) )
+	objective_name = Column( String( 155 ) )
 	program_project_code = Column( String( 25 ) )
 	program_project_name = Column( String( 255 ) )
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
-	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
+	budget_account_name = Column( String( 255 ) )
+	
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Actuals
 		self.bfy = bfy
 		self.fundcode = fund
 		self.fields = [ 'ActualsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'AppropriationCode',
-		                  'AppropriationName',
-		                  'SubAppropriationCode',
-		                  'SubAppropriationName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RpioActivityCode',
-		                  'RpioActivityName',
-		                  'BocCode',
-		                  'BocName',
-		                  'UnliquidatedObligations',
-		                  'Obligations',
-		                  'Balance',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'GoalCode',
-		                  'GoalName',
-		                  'ObjectiveCode',
-		                  'ObjectiveName',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'AppropriationCode',
+		                'AppropriationName',
+		                'SubAppropriationCode',
+		                'SubAppropriationName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RpioActivityCode',
+		                'RpioActivityName',
+		                'BocCode',
+		                'BocName',
+		                'UnliquidatedObligations',
+		                'Obligations',
+		                'Balance',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'GoalCode',
+		                'GoalName',
+		                'ObjectiveCode',
+		                'ObjectiveName',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.programprojectname is not None:
 			return self.programprojectname
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1554,7 +1611,7 @@ class Actual( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1565,12 +1622,12 @@ class Actual( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1590,7 +1647,7 @@ class Actual( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -1616,20 +1673,23 @@ class ApplicationTable( Base ):
     '''
 	__tablename__ = 'ApplicationTables'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, name: str, provider: Provider=Provider.SQLite ):
+	name = Column( String( 150 ) )
+	model = Column( String( 80 ) )
+	title = Column( String( 255 ) )
+	
+	def __init__( self, name: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.ApplicationTables
 		self.provider = provider
 		self.name = name
 		self.fields = [ 'ApplicationTablesId',
-		                  'Name',
-		                  'Model',
-		                  'Caption' ]
-
+		                'Name',
+		                'Model',
+		                'Caption' ]
+	
 	def __str__( self ) -> str:
 		if self.name is not None:
 			return self.name
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1639,7 +1699,7 @@ class ApplicationTable( Base ):
 		return [ 'id', 'name', 'model',
 		         'caption', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1650,12 +1710,12 @@ class ApplicationTable( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Name', ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( self.source, self.provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1675,7 +1735,7 @@ class ApplicationTable( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -1709,48 +1769,78 @@ class AppropriationDocument( Base ):
     '''
 	__tablename__ = 'AppropriationDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider=Provider.SQLite ):
+	fiscal_year = Column( String( 10 ) )
+	bfy = Column( String( 25 ) )
+	efy = Column( String( 25 ) )
+	fund_code = Column( String( 80 ) )
+	appropriation = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_date = Column( String( 80 ) )
+	budget_level = Column( String( 10 ) )
+	budgeting_controls = Column( String( 80 ) )
+	posting_controls = Column( String( 80 ) )
+	precommitment_controls = Column( String( 80 ) )
+	commitment_controls = Column( String( 80 ) )
+	obligation_controls = Column( String( 80 ) )
+	accrual_controls = Column( String( 80 ) )
+	expenditure_controls = Column( String( 80 ) )
+	expense_controls = Column( String( 80 ) )
+	reimbursement_controls = Column( String( 80 ) )
+	reimbursable_agreement_controls = Column( String( 80 ) )
+	budgeted = Column( Numeric( ) )
+	posted = Column( Numeric( ) )
+	estimated_reimbursements = Column( Numeric( ) )
+	estimated_recoveries = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
+	
+	
+	def __init__( self, bfy: str, efy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AppropriationDocuments
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.fundcode = fund if isinstance( fund, str ) and fund != '' else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
+		self.fundcode = fund if isinstance( fund, str ) and fund!='' else None
 		self.fields = [ 'AppropriationDocumentsId',
-		                  'BFY',
-		                  'EFY',
-		                  'Fund',
-		                  'Appropriation',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentDate',
-		                  'LastDocumentDate',
-		                  'BudgetLevel',
-		                  'BudgetingControls',
-		                  'PostingControls',
-		                  'PreCommitmentControls',
-		                  'CommitmentControls',
-		                  'ObligationControls',
-		                  'AccrualControls',
-		                  'ExpenditureControls',
-		                  'ExpenseControls',
-		                  'ReimbursementControls',
-		                  'ReimbursableAgreementControls',
-		                  'Budgeted',
-		                  'Posted',
-		                  'CarryoverOut',
-		                  'CarryoverIn',
-		                  'EstimatedReimbursements',
-		                  'EstimatedRecoveries',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BFY',
+		                'EFY',
+		                'Fund',
+		                'Appropriation',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentDate',
+		                'LastDocumentDate',
+		                'BudgetLevel',
+		                'BudgetingControls',
+		                'PostingControls',
+		                'PreCommitmentControls',
+		                'CommitmentControls',
+		                'ObligationControls',
+		                'AccrualControls',
+		                'ExpenditureControls',
+		                'ExpenseControls',
+		                'ReimbursementControls',
+		                'ReimbursableAgreementControls',
+		                'Budgeted',
+		                'Posted',
+		                'CarryoverOut',
+		                'CarryoverIn',
+		                'EstimatedReimbursements',
+		                'EstimatedRecoveries',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ):
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1769,7 +1859,7 @@ class AppropriationDocument( Base ):
 		         'main_account', 'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1780,12 +1870,12 @@ class AppropriationDocument( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1805,7 +1895,7 @@ class AppropriationDocument( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -1814,7 +1904,7 @@ class AppropriationDocument( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -1837,62 +1927,79 @@ class BudgetDocument( Base ):
     '''
 	__tablename__ = 'BudgetDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, bfy: str, efy: str,fundcode: str,
-	              provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 255 ) )
+	budget_level = Column( String( 10 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_date = Column( String( 80 ) )
+	budgeted = Column( Numeric( ) )
+	posted = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	estimated_recoveries = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
+	
+	def __init__( self, bfy: str, efy: str, fundcode: str,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.BudgetDocuments
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fundcode
 		self.fields = [ 'BudgetDocumentsId',
-		                  'BFY',
-		                  'EFY',
-		                  'BudgetLevel',
-		                  'DocumentDate',
-		                  'LastDocumentDate',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'FundCode',
-		                  'FundName',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'ReimbursableAgreementControls',
-		                  'BudgetingControls',
-		                  'PostingControls',
-		                  'PreCommitmentControls',
-		                  'CommitmentControls',
-		                  'ObligationControls',
-		                  'ExpenditureControls',
-		                  'ExpenseControls',
-		                  'AccrualControls',
-		                  'ReimbursementControls',
-		                  'Budgeted',
-		                  'Posted',
-		                  'CarryoverOut',
-		                  'CarryoverIn',
-		                  'EstimatedRecoveries',
-		                  'EstimatedReimbursements',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BFY',
+		                'EFY',
+		                'BudgetLevel',
+		                'DocumentDate',
+		                'LastDocumentDate',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'FundCode',
+		                'FundName',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'ReimbursableAgreementControls',
+		                'BudgetingControls',
+		                'PostingControls',
+		                'PreCommitmentControls',
+		                'CommitmentControls',
+		                'ObligationControls',
+		                'ExpenditureControls',
+		                'ExpenseControls',
+		                'AccrualControls',
+		                'ReimbursementControls',
+		                'Budgeted',
+		                'Posted',
+		                'CarryoverOut',
+		                'CarryoverIn',
+		                'EstimatedRecoveries',
+		                'EstimatedReimbursements',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.documentnumber is not None:
 			return self.documentnumber
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -1900,7 +2007,7 @@ class BudgetDocument( Base ):
 
 		'''
 		return [ 'id', 'bfy', 'efy', 'budget_level', 'document_date',
-		         'last_document_date', 'document_type','document_number', 'fund_code',
+		         'last_document_date', 'document_type', 'document_number', 'fund_code',
 		         'fund_name', 'rpio_code', 'rpio_name', 'ah_code', 'ah_name',
 		         'org_code', 'org_name', 'account_code', 'program_project_pame',
 		         'program_area_code', 'program_area_name', 'boc_code', 'boc_name',
@@ -1909,9 +2016,9 @@ class BudgetDocument( Base ):
 		         'expenditure_controls', 'expense_controls', 'accrual_controls',
 		         'reimbursement_controls', 'budgeted', 'posted', 'carryover_out',
 		         'carryover_in', 'estimated_recoveries', 'estimated_reimbursements',
-		         'main_account', 'treasury_account_code',  'treasury_account_name',
-		         'budget_account_code',  'budget_account_name' ]
-
+		         'main_account', 'treasury_account_code', 'treasury_account_name',
+		         'budget_account_code', 'budget_account_name' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -1922,12 +2029,12 @@ class BudgetDocument( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.efy, self.fundcode )
+			_values = (self.bfy, self.efy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -1947,7 +2054,7 @@ class BudgetDocument( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -1978,30 +2085,44 @@ class BudgetContact( Base ):
     '''
 	__tablename__ = 'BudgetContacts'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, last: str, first: str, provider: Provider=Provider.SQLite ):
+	first_name = Column( String( 155 ) )
+	last_name = Column( String( 155 ) )
+	rpio_name = Column( String( 255 ) )
+	email_address = Column( String( 80 ) )
+	phone = Column( String( 80 ) )
+	section = Column( String( 80 ) )
+	job_title = Column( String( 80 ) )
+	street = Column( String( 80 ) )
+	city = Column( String( 80 ) )
+	state = Column( String( 80 ) )
+	zip_code = Column( String( 80 ) )
+	account = Column( String( 80 ) )
+	display_name = Column( String( 155 ) )
+	office_location = Column( String( 80 ) )
+	
+	def __init__( self, last: str, first: str, provider: Provider = Provider.SQLite ):
 		self.lastname = last
 		self.__first = first
 		self.fields = [ 'BudgetContactsId',
-		                  'FirstName',
-		                  'LastName',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'Section',
-		                  'JobTitle',
-		                  'City',
-		                  'State',
-		                  'ZipCode',
-		                  'OfficeLocation',
-		                  'Account',
-		                  'EmailAddress',
-		                  'EmailType',
-		                  'DisplayName' ]
-
-	def __str__( self ) ->str:
+		                'FirstName',
+		                'LastName',
+		                'RpioCode',
+		                'RpioName',
+		                'Section',
+		                'JobTitle',
+		                'City',
+		                'State',
+		                'ZipCode',
+		                'OfficeLocation',
+		                'Account',
+		                'EmailAddress',
+		                'EmailType',
+		                'DisplayName' ]
+	
+	def __str__( self ) -> str:
 		if self.emailaddress is not None:
 			return self.emailaddress
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2012,7 +2133,7 @@ class BudgetContact( Base ):
 		         'section', 'job_title', 'state', 'zip_code', 'office_location',
 		         'city', 'account', 'email_type', 'display_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2023,12 +2144,12 @@ class BudgetContact( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2048,7 +2169,7 @@ class BudgetContact( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -2076,55 +2197,92 @@ class BudgetControl( Base ):
     Purpose;  Class defines object representing compass control data'''
 	__tablename__ = 'BudgetControls'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	code = Column( String( 80 ) )
+	name = Column( String( 80 ) )
+	security_org = Column( String( 80 ) )
+	budgeting_transtype = Column( String( 80 ) )
+	posted_transtype = Column( String( 80 ) )
+	estimated_reimbursable_transtype = Column( String( 80 ) )
+	spending_adjustment_transtype = Column( String( 80 ) )
+	estimated_recoveries_transtype = Column( String( 80 ) )
+	actual_recoveries_transtype = Column( String( 80 ) )
+	stategic_reserve_transtype = Column( String( 80 ) )
+	profit_loss_transtype = Column( String( 80 ) )
+	reimbursable_spending_option = Column( String( 80 ) )
+	reimbursable_budgeting_option = Column( String( 80 ) )
+	track_lower_level = Column( String( 80 ) )
+	budget_lower_level = Column( String( 80 ) )
+	recoveries_spending_option = Column( String( 80 ) )
+	recoveries_budgeting_option = Column( String( 80 ) )
+	record_next_level = Column( String( 80 ) )
+	record_budgeting_mismatch = Column( String( 80 ) )
+	profit_loss_spending_option = Column( String( 80 ) )
+	profit_loss_budgeting_option = Column( String( 80 ) )
+	carryin_lower_level = Column( String( 80 ) )
+	carryin_lower_level = Column( String( 80 ) )
+	carryin_amount_control = Column( String( 80 ) )
+	budgeting_control = Column( String( 80 ) )
+	posting_control = Column( String( 80 ) )
+	precommitment_spending_control = Column( String( 80 ) )
+	commitment_spending_control = Column( String( 80 ) )
+	obligation_spending_control = Column( String( 80 ) )
+	accrual_spending_control = Column( String( 80 ) )
+	expenditure_spending_control = Column( String( 80 ) )
+	expense_spending_control = Column( String( 80 ) )
+	reimbursable_spending_control = Column( String( 80 ) )
+	reimbursable_spending_control = Column( String( 80 ) )
+	fte_budgeting_control = Column( String( 80 ) )
+	fte_spending_control = Column( String( 80 ) )
+	transaction_type_control = Column( String( 80 ) )
+	authority_distribution_control = Column( String( 80 ) )
 	
-
 	def __init__( self, bfy: str, efy: str,
-	              fund: str, provider: Provider=Provider.SQLite ):
+	              fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.BudgetControls
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fund
 		self.fields = [ 'BudgetControlValuesId',
-		                  'Code',
-		                  'Name',
-		                  'SecurityOrg',
-		                  'BudgetingTransType',
-		                  'PostedTransType',
-		                  'EstimatedReimbursableTransType',
-		                  'SpendingAdjustmentTransType',
-		                  'EstimatedRecoveriesTransType',
-		                  'ActualRecoveriesTransType',
-		                  'StategicReserveTransType',
-		                  'ProfitLossTransType',
-		                  'EstimatedReimbursableSpendingOption',
-		                  'EstimatedReimbursableBudgetingOption',
-		                  'TrackAgreementLowerLevel',
-		                  'BudgetEstimateLowerLevel',
-		                  'EstimatedRecoveriesSpendingOption',
-		                  'EstimatedRecoveriesBudgetingOption',
-		                  'RecordNextLevel',
-		                  'RecordBudgetingMismatch',
-		                  'ProfitLossSpendingOption',
-		                  'ProfitLossBudgetingOption',
-		                  'RecordCarryInLowerLevel',
-		                  'RecordCarryInLowerLevelControl',
-		                  'RecordCarryInAmountControl',
-		                  'BudgetingControl',
-		                  'PostingControl',
-		                  'PreCommitmentSpendingControl',
-		                  'CommitmentSpendingControl',
-		                  'ObligationSpendingControl',
-		                  'AccrualSpendingControl',
-		                  'ExpenditureSpendingControl',
-		                  'ExpenseSpendingControl',
-		                  'ReimbursableSpendingControl',
-		                  'ReimbursableAgreementSpendingControl',
-		                  'FteBudgetingControl',
-		                  'FteSpendingControl',
-		                  'TransactionTypeControl',
-		                  'AuthorityDistributionControl' ]
-
+		                'Code',
+		                'Name',
+		                'SecurityOrg',
+		                'BudgetingTransType',
+		                'PostedTransType',
+		                'EstimatedReimbursableTransType',
+		                'SpendingAdjustmentTransType',
+		                'EstimatedRecoveriesTransType',
+		                'ActualRecoveriesTransType',
+		                'StategicReserveTransType',
+		                'ProfitLossTransType',
+		                'EstimatedReimbursableSpendingOption',
+		                'EstimatedReimbursableBudgetingOption',
+		                'TrackAgreementLowerLevel',
+		                'BudgetEstimateLowerLevel',
+		                'EstimatedRecoveriesSpendingOption',
+		                'EstimatedRecoveriesBudgetingOption',
+		                'RecordNextLevel',
+		                'RecordBudgetingMismatch',
+		                'ProfitLossSpendingOption',
+		                'ProfitLossBudgetingOption',
+		                'RecordCarryInLowerLevel',
+		                'RecordCarryInLowerLevelControl',
+		                'RecordCarryInAmountControl',
+		                'BudgetingControl',
+		                'PostingControl',
+		                'PreCommitmentSpendingControl',
+		                'CommitmentSpendingControl',
+		                'ObligationSpendingControl',
+		                'AccrualSpendingControl',
+		                'ExpenditureSpendingControl',
+		                'ExpenseSpendingControl',
+		                'ReimbursableSpendingControl',
+		                'ReimbursableAgreementSpendingControl',
+		                'FteBudgetingControl',
+		                'FteSpendingControl',
+		                'TransactionTypeControl',
+		                'AuthorityDistributionControl' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2134,7 +2292,7 @@ class BudgetControl( Base ):
 		return [ 'id', 'code', 'name', 'security_org', 'posted_trans_type',
 		         'estimated_reimbursements_transtype', 'spending_adjustment_transtype',
 		         'estimated_recoveries_transtype', 'actual_recoveries_transtype',
-		         'strategic_reserve_transtype',  'profit_loss_transtype',
+		         'strategic_reserve_transtype', 'profit_loss_transtype',
 		         'estimated_reimbursements_spending_option',
 		         'estimated_reimbursable_budgeting_option',
 		         'track_agreement_lower_level', 'budget_estimate_lower_level',
@@ -2150,7 +2308,7 @@ class BudgetControl( Base ):
 		         'fte_spending_control', 'transaction_type_control',
 		         'authority_distribution_control'
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2161,12 +2319,12 @@ class BudgetControl( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.efy, self.fundcode )
+			_values = (self.bfy, self.efy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2186,7 +2344,7 @@ class BudgetControl( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -2213,10 +2371,31 @@ class BudgetFiscalYear( Base ):
     '''
 	__tablename__ = 'BudgetFiscalYears'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	start_date = Column( String( 80 ) )
+	end_date = Column( String( 80 ) )
+	columbus = Column( String( 80 ) )
+	christmas = Column( String( 80 ) )
+	thanksgiving = Column( String( 80 ) )
+	veterans = Column( String( 80 ) )
+	labor = Column( String( 80 ) )
+	independence = Column( String( 80 ) )
+	juneteenth = Column( String( 80 ) )
+	memorial = Column( String( 80 ) )
+	washingtons = Column( String( 80 ) )
+	martin_luther_king = Column( String( 80 ) )
+	new_years = Column( String( 80 ) )
+	expiring_year = Column( String( 80 ) )
+	expiration_date = Column( String( 80 ) )
+	cancellation_date = Column( String( 80 ) )
+	workdays = Column( Numeric( ) )
+	weekdays = Column( Numeric( ) )
+	weekends = Column( Numeric( ) )
+	availability = Column( Numeric( ) )
 	
-
 	def __init__( self, bfy: str, efy: str,
-	              dt: datetime=None, provider: Provider=Provider.SQLite ):
+	              dt: datetime = None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FiscalYears
 		self.bfy = bfy
@@ -2229,36 +2408,36 @@ class BudgetFiscalYear( Base ):
 		self.startdate = datetime( datetime.today( ).year, 10, 1 )
 		self.enddate = datetime( datetime.today( ).year + 1, 9, 30 )
 		self.holidays = [ 'ColumbusDay', 'VeteransDay', 'ThanksgivingDay', 'ChristmasDay',
-		                    'NewYearsDay', 'MartinLutherKingDay', 'PresidentsDay',
-		                    'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
+		                  'NewYearsDay', 'MartinLutherKingDay', 'PresidentsDay',
+		                  'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
 		self.fields = [ 'FiscalYearsId',
-		                  'BFY',
-		                  'EFY',
-		                  'StartDate',
-		                  'EndDate',
-		                  'ColumbusDay',
-		                  'VeteransDay',
-		                  'ThanksgivingDay',
-		                  'ChristmasDay',
-		                  'NewYearsDay',
-		                  'MartinLutherKingsDay',
-		                  'PresidentsDay',
-		                  'MemorialDay',
-		                  'JuneteenthDay',
-		                  'IndependenceDay',
-		                  'LaborDay',
-		                  'ExpiringYear',
-		                  'ExpirationDate',
-		                  'CancellationDate',
-		                  'Workdays',
-		                  'Weekdays',
-		                  'Weekends',
-		                  'Availability' ]
-
+		                'BFY',
+		                'EFY',
+		                'StartDate',
+		                'EndDate',
+		                'ColumbusDay',
+		                'VeteransDay',
+		                'ThanksgivingDay',
+		                'ChristmasDay',
+		                'NewYearsDay',
+		                'MartinLutherKingsDay',
+		                'PresidentsDay',
+		                'MemorialDay',
+		                'JuneteenthDay',
+		                'IndependenceDay',
+		                'LaborDay',
+		                'ExpiringYear',
+		                'ExpirationDate',
+		                'CancellationDate',
+		                'Workdays',
+		                'Weekdays',
+		                'Weekends',
+		                'Availability' ]
+	
 	def __str__( self ) -> str:
 		if self.bfy is not None:
 			return self.bfy
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2268,8 +2447,8 @@ class BudgetFiscalYear( Base ):
 		return [ 'first_year', 'last_year', 'weekdays', 'weekends',
 		         'today', 'date', 'current_day', 'current_month', 'current_year',
 		         'start_date', 'end_date', 'holidays', 'expiring_year', 'expiration_date',
-				 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+		         'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2280,12 +2459,12 @@ class BudgetFiscalYear( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2305,7 +2484,7 @@ class BudgetFiscalYear( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -2316,7 +2495,7 @@ class BudgetFiscalYear( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -2342,19 +2521,19 @@ class BudgetObjectClass( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.BudgetObjectClasses
 		self.code = code
 		self.fields = [ 'BudgetObjectClassesId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2363,7 +2542,7 @@ class BudgetObjectClass( Base ):
 		'''
 		return [ 'id', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2374,12 +2553,12 @@ class BudgetObjectClass( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2399,7 +2578,7 @@ class BudgetObjectClass( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -2432,47 +2611,47 @@ class BudgetaryResourceExecution( Base ):
     '''
 	__tablename__ = 'BudgetaryResourceExecution'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	
+	
 	def __init__( self, bfy: str, efy: str,
-	              main: str, provider: Provider=Provider.SQLite ):
+	              main: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.BudgetaryResourceExecution
 		self.bfy = bfy
 		self.efy = efy
 		self.budgetaccountcode = main
 		self.fields = [ 'BudgetaryResourceExecutionId',
-		                  'FiscalYear',
-		                  'BFY',
-		                  'EFY',
-		                  'LastUpdate',
-		                  'TreasurySymbol',
-		                  'OmbAccount',
-		                  'TreasuryAgencyCode',
-		                  'TreasuryAccountCode',
-		                  'STAT',
-		                  'CreditIndicator',
-		                  'LineNumber',
-		                  'LineDescription',
-		                  'SectionName',
-		                  'SectionNumber',
-		                  'LineType',
-		                  'FinancingAccounts',
-		                  'November',
-		                  'January',
-		                  'Feburary',
-		                  'April',
-		                  'May',
-		                  'June',
-		                  'August',
-		                  'October',
-		                  'Amount1',
-		                  'Amount2',
-		                  'Amount3',
-		                  'Amount4',
-		                  'Agency',
-		                  'Bureau' ]
-
+		                'FiscalYear',
+		                'BFY',
+		                'EFY',
+		                'LastUpdate',
+		                'TreasurySymbol',
+		                'OmbAccount',
+		                'TreasuryAgencyCode',
+		                'TreasuryAccountCode',
+		                'STAT',
+		                'CreditIndicator',
+		                'LineNumber',
+		                'LineDescription',
+		                'SectionName',
+		                'SectionNumber',
+		                'LineType',
+		                'FinancingAccounts',
+		                'November',
+		                'January',
+		                'Feburary',
+		                'April',
+		                'May',
+		                'June',
+		                'August',
+		                'October',
+		                'Amount1',
+		                'Amount2',
+		                'Amount3',
+		                'Amount4',
+		                'Agency',
+		                'Bureau' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2484,7 +2663,7 @@ class BudgetaryResourceExecution( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2495,12 +2674,12 @@ class BudgetaryResourceExecution( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = ( self.bfy, self.efy, self.budgetaccountcode )
+			_values = (self.bfy, self.efy, self.budgetaccountcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2520,7 +2699,7 @@ class BudgetaryResourceExecution( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -2551,28 +2730,40 @@ class CongressionalControl( Base ):
     '''
 	__tablename__ = 'CongressionalControls'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	program_area_code = Column( String( 80 ) )
+	program_area_name = Column( String( 155 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	subproject_code = Column( String( 80 ) )
+	subproject_name = Column( String( 155 ) )
+	reprogramming_restriction = Column( String( 80 ) )
+	increase_restriction = Column( String( 80 ) )
+	decrease_restriction = Column( String( 80 ) )
+	memo_requirement = Column( String( 80 ) )
 	
-
-	def __init__( self, bfy: str=None, fundcode: str=None,
-	              provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str = None, fundcode: str = None,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.CongressionalControls
 		self.bfy = bfy
 		self.fundcode = fundcode
 		self.fields = [ 'CongressionalControlsId',
-		                  'FundCode',
-		                  'FundName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'SubProjectCode',
-		                  'SubProjectName',
-		                  'ReprogrammingRestriction',
-		                  'IncreaseRestriction',
-		                  'DecreaseRestriction',
-		                  'MemoRequirement' ]
-
+		                'FundCode',
+		                'FundName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'SubProjectCode',
+		                'SubProjectName',
+		                'ReprogrammingRestriction',
+		                'IncreaseRestriction',
+		                'DecreaseRestriction',
+		                'MemoRequirement' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2581,11 +2772,11 @@ class CongressionalControl( Base ):
 		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'fund_name',
 		         'program_project_code', 'program_project_name', 'program_area_code',
-		         'program_area_name',  'sub_project_code', 'sub_project_name',
+		         'program_area_name', 'sub_project_code', 'sub_project_name',
 		         'reprogramming_restriction', 'increase_restriction', 'decrease_restiction',
 		         'memorandum_required', 'data', 'fields', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2596,12 +2787,12 @@ class CongressionalControl( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2621,7 +2812,7 @@ class CongressionalControl( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -2632,7 +2823,7 @@ class CongressionalControl( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -2655,17 +2846,40 @@ class CongressionalProject( Base ):
 	'''
 	__tablename__ = 'CongressionalProjects'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	program_area_code = Column( String( 80 ) )
+	program_area_name = Column( String( 155 ) )
+	state_code = Column( String( 80 ) )
+	state_name = Column( String( 155 ) )
+	project = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	subappropriation_code = Column( String( 80 ) )
+	main_account = Column( String( 80 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
 	
-
-	def __init__( self, bfy: str, fund: str, 
-	              rpio: str, ahcode: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, fund: str,
+	              rpio: str, ahcode: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.CongressionalProjects
 		self.provider = provider
 		self.bfy = bfy
 		self.fundcode = fund
 		self.rpiocode = rpio
 		self.ahcode = ahcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2674,8 +2888,8 @@ class CongressionalProject( Base ):
 		'''
 		return [ 'id', 'bfy', 'efy',
 		         'fund_code', 'ah_code', 'amount'
-		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+		                                 'fields', 'data', 'frame', 'getdata', 'getframe' ]
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
         Purpose:
@@ -2684,12 +2898,12 @@ class CongressionalProject( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2709,7 +2923,7 @@ class CongressionalProject( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -2720,7 +2934,7 @@ class CongressionalProject( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -2744,81 +2958,101 @@ class CompassLevel( Base ):
     '''
 	__tablename__ = 'CompassLevels'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
+	budget_level = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	appropriation_code = Column( String( 80 ) )
+	subappropriation_code = Column( String( 80 ) )
+	appropriation_name = Column( String( 155 ) )
+	treasury_symbol = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	document_date = Column( String( 80 ) )
+	authority = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	recoveries = Column( Numeric( ) )
+	reimbursements = Column( Numeric( ) )
+	treasury_account_code = Column( Numeric( ) )
+	treasury_account_name = Column( Numeric( ) )
+	budget_account_code = Column( Numeric( ) )
+	budget_account_name = Column( Numeric( ) )
+	
 	def __init__( self, bfy: str, efy: str,
-	              fund: str, provider: Provider=Provider.SQLite ):
+	              fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.CompassLevels
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fund
 		self.fields = [ 'CompassLevelsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'AppropriationCode',
-		                  'SubAppropriationCode',
-		                  'AppropriationName'
-		                  'TreasurySymbol',
-		                  'DocumentType',
-		                  'LowerName',
-		                  'Description',
-		                  'PostedControlFlag',
-		                  'ActualRecoveryTransType',
-		                  'CommitmentSpendingControlFlag',
-		                  'BudgetDefault'
-		                  'LowerChildExpenditureSpendingControlFlag',
-		                  'LowerChildExpenseSpendingControlFlag',
-		                  'FteControlFlag',
-		                  'AccrualSpendingControlFlag',
-		                  'ObligationSpendingControlFlag',
-		                  'PreCommitmentSpendingControlFlag',
-		                  'LowerCommitmentSpendingControlFlag',
-		                  'LowerObligationSpendingControlFlag',
-		                  'LowerExpenditureSpendingControlFlag',
-		                  'LowerExpenseSpendingControlFlag',
-		                  'LowerPostedControlFlag',
-		                  'LowerPostedTransType',
-		                  'LowerTransType',
-		                  'LowerPostedFlag',
-		                  'LowerPreCommitmentSpendingControlFlag',
-		                  'LowerRecoveriesSpendingOption',
-		                  'LowerRecoveriesOption',
-		                  'LowerReimbursableSpendingOption',
-		                  'Date',
-		                  'TotalAuthority',
-		                  'OriginalAmount',
-		                  'CarryoverAvailabilityPercentage',
-		                  'CarryIn',
-		                  'CarryOut',
-		                  'FundsIn',
-		                  'FundOut',
-		                  'RecoveriesWithdrawn',
-		                  'ActualRecoveries',
-		                  'ActualReimbursements',
-		                  'AgreementReimbursables',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'AppropriationCode',
+		                'SubAppropriationCode',
+		                'AppropriationName'
+		                'TreasurySymbol',
+		                'DocumentType',
+		                'LowerName',
+		                'Description',
+		                'PostedControlFlag',
+		                'ActualRecoveryTransType',
+		                'CommitmentSpendingControlFlag',
+		                'BudgetDefault'
+		                'LowerChildExpenditureSpendingControlFlag',
+		                'LowerChildExpenseSpendingControlFlag',
+		                'FteControlFlag',
+		                'AccrualSpendingControlFlag',
+		                'ObligationSpendingControlFlag',
+		                'PreCommitmentSpendingControlFlag',
+		                'LowerCommitmentSpendingControlFlag',
+		                'LowerObligationSpendingControlFlag',
+		                'LowerExpenditureSpendingControlFlag',
+		                'LowerExpenseSpendingControlFlag',
+		                'LowerPostedControlFlag',
+		                'LowerPostedTransType',
+		                'LowerTransType',
+		                'LowerPostedFlag',
+		                'LowerPreCommitmentSpendingControlFlag',
+		                'LowerRecoveriesSpendingOption',
+		                'LowerRecoveriesOption',
+		                'LowerReimbursableSpendingOption',
+		                'Date',
+		                'TotalAuthority',
+		                'OriginalAmount',
+		                'CarryoverAvailabilityPercentage',
+		                'CarryIn',
+		                'CarryOut',
+		                'FundsIn',
+		                'FundOut',
+		                'RecoveriesWithdrawn',
+		                'ActualRecoveries',
+		                'ActualReimbursements',
+		                'AgreementReimbursables',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.documenttype is not None:
 			return self.documenttype
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
 		:return: a list[ str ] of object members
 		'''
 		return [ 'id', 'bfy', 'efy', 'fund_code', 'appropriation',
-				 'subappropriation_code', 'main_account', 'treasury_account_code',
-				 'treasury_account_name', 'budget_account_code', 'budget_account_name',
+		         'subappropriation_code', 'main_account', 'treasury_account_code',
+		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2829,12 +3063,12 @@ class CompassLevel( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.efy, self.fundcode )
+			_values = (self.bfy, self.efy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2854,7 +3088,7 @@ class CompassLevel( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -2886,57 +3120,92 @@ class Commitment( Base ):
     '''
 	__tablename__ = 'Commitments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 155 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	reference_document_number = Column( String( 80 ) )
+	processed_date = Column( String( 80 ) )
+	last_activity_date = Column( String( 80 ) )
+	age = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 155 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
 	
-
-	def __init__( self, bfy: str, efy: str,  fund: str=None, account: str=None,
-	              boc: str=None, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, efy: str, fund: str = None, account: str = None,
+	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.OpenCommitments
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.fundcode = fund if isinstance( fund, str ) and fund != '' else None
-		self.accountcode = account if isinstance( account, str ) and account != '' else None
-		self.boccode = boc if isinstance( boc, str ) and boc != '' else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
+		self.fundcode = fund if isinstance( fund, str ) and fund!='' else None
+		self.accountcode = account if isinstance( account, str ) and account!='' else None
+		self.boccode = boc if isinstance( boc, str ) and boc!='' else None
 		self.fields = [ 'CommitmentsId',
-		                  'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Expenditures' ]
-
+		                'ObligationsId',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Expenditures' ]
+	
 	def __str__( self ) -> str:
 		if isinstance( self.amount, float ):
 			return str( self.amount )
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -2956,7 +3225,7 @@ class Commitment( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -2967,12 +3236,12 @@ class Commitment( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -2992,7 +3261,7 @@ class Commitment( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3025,15 +3294,15 @@ class CostArea( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.code = code
 		self.provider = provider
 		self.fields = [ 'CostAreasId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3041,7 +3310,7 @@ class CostArea( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3052,12 +3321,12 @@ class CostArea( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3077,7 +3346,7 @@ class CostArea( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -3088,7 +3357,7 @@ class CostArea( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -3113,19 +3382,19 @@ class CapitalPlanningInvestmentCode( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.CapitalPlanningInvestmentCodes
 		self.code = code
 		self.fields = [ 'CpicId',
-		                  'Type'
-		                  'Code',
-		                  'Name' ]
-
+		                'Type'
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.code, str ) and self.code != '':
+		if isinstance( self.code, str ) and self.code!='':
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3133,7 +3402,7 @@ class CapitalPlanningInvestmentCode( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3144,12 +3413,12 @@ class CapitalPlanningInvestmentCode( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3169,7 +3438,7 @@ class CapitalPlanningInvestmentCode( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3204,13 +3473,13 @@ class ColumnSchema( Base ):
 	column_name = Column( String( 155 ) )
 	table_name = Column( String( 155 ) )
 	column_caption = Column( String( 155 ) )
-
-	def __init__( self, column: str, table: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, column: str, table: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.ColumnSchema
 		self.provider = provider
 		self.columnname = column
 		self.tablename = table
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3218,7 +3487,7 @@ class ColumnSchema( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3229,12 +3498,12 @@ class ColumnSchema( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3254,7 +3523,7 @@ class ColumnSchema( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -3265,7 +3534,7 @@ class ColumnSchema( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -3287,25 +3556,31 @@ class DataRuleDescription( Base ):
     Class defines object providing OMB MAX A11 rule data '''
 	__tablename__ = 'DataRuleDescriptions'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	schedule = Column( String( 80 ) )
+	line_number = Column( String( 80 ) )
+	rule_number = Column( String( 80 ) )
+	rule_description = Column( String( 80 ) )
+	schedule_order = Column( String( 80 ) )
+	
 	
 	def __init__( self, schedule: str, line: str,
-	              rule: str, provider: Provider=Provider.SQLite ):
+	              rule: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.DataRuleDescriptions
 		self.schedule = schedule
 		self.linenumber = line
 		self.rulenumber = rule
 		self.fields = [ 'DataRuleDescriptionsId',
-		                  'Schedule',
-		                  'LineNumber',
-		                  'RuleNumber',
-		                  'RuleDescription',
-		                  'ScheduleOrder' ]
-
+		                'Schedule',
+		                'LineNumber',
+		                'RuleNumber',
+		                'RuleDescription',
+		                'ScheduleOrder' ]
+	
 	def __str__( self ) -> str:
 		if self.ruledescription is not None:
 			return self.ruledescription
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3313,7 +3588,7 @@ class DataRuleDescription( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3324,12 +3599,12 @@ class DataRuleDescription( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Schedule', 'LineNumber', 'RuleNumber' ]
-			_values = ( self.schedule, self.linenumber, self.rulenumber)
+			_values = (self.schedule, self.linenumber, self.rulenumber)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3349,7 +3624,7 @@ class DataRuleDescription( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3380,47 +3655,84 @@ class Defacto( Base ):
     '''
 	__tablename__ = 'Defactos'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
+	budget_level = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	program_area_code = Column( String( 80 ) )
+	program_area_name = Column( String( 155 ) )
+	rc_name = Column( String( 155 ) )
+	lower_name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	budgeted = Column( Numeric( ) )
+	posted = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	ulo = Column( Numeric( ) )
+	expenditures = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	used = Column( Numeric( ) )
+	available = Column( Numeric( ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	
+	
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.Defactos
 		self.provider = provider
 		self.bfy = bfy
 		self.fundcode = fund
 		self.fields = [ 'DefactosId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditure',
-		                  'Obligations',
-		                  'Used',
-		                  'Available',
-		                  'NpmCode',
-		                  'NpmName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'LowerName',
+		                'Amount',
+		                'Budgeted',
+		                'Posted',
+		                'OpenCommitments',
+		                'UnliquidatedObligations',
+		                'Expenditure',
+		                'Obligations',
+		                'Used',
+		                'Available',
+		                'NpmCode',
+		                'NpmName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3428,7 +3740,7 @@ class Defacto( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3439,12 +3751,12 @@ class Defacto( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3464,7 +3776,7 @@ class Defacto( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3495,9 +3807,35 @@ class Deobligation( Base ):
     '''
 	__tablename__ = 'Deobligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, bfy = None, fund = None,
-	              account = None, boc = None, provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	document_number = Column( String( 80 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 155 ) )
+	processed_date = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	
+	
+	def __init__( self, bfy=None, fund=None,
+	              account=None, boc=None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Deobligations
 		self.bfy = bfy
@@ -3505,32 +3843,32 @@ class Deobligation( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'DeobligationsId',
-		                  'BFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'AccountCode',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'BocCode',
-		                  'BocName',
-		                  'DocumentNumber',
-		                  'FocCode',
-		                  'FocName',
-		                  'ProcessedDate',
-		                  'Amount' ]
-
+		                'BFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'AccountCode',
+		                'NpmCode',
+		                'NpmName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'OrgCode',
+		                'OrgName',
+		                'BocCode',
+		                'BocName',
+		                'DocumentNumber',
+		                'FocCode',
+		                'FocName',
+		                'ProcessedDate',
+		                'Amount' ]
+	
 	def __str__( self ) -> str:
 		if isinstance( self.amount, float ):
 			return str( self.amount )
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3538,7 +3876,7 @@ class Deobligation( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3549,12 +3887,12 @@ class Deobligation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3574,7 +3912,7 @@ class Deobligation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3605,19 +3943,26 @@ class DocumentControlNumber( Base ):
     '''
 	__tablename__ = 'DocumentControlNumbers'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, dcn: str, provider: Provider=Provider.SQLite ):
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_prefix = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	
+	
+	def __init__( self, dcn: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.DocumentControlNumbers
 		self.documentcontrolnumber = dcn
 		self.fields = [ 'DocumentControlNumbersId',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentPrefix',
-		                  'DocumentControlNumbe' ]
-
+		                'RpioCode',
+		                'RpioName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentPrefix',
+		                'DocumentControlNumbe' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3625,7 +3970,7 @@ class DocumentControlNumber( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3636,12 +3981,12 @@ class DocumentControlNumber( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'DocumentControlNumber', ]
-			_values = ( self.documentcontrolnumber,)
+			_values = (self.documentcontrolnumber,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3661,7 +4006,7 @@ class DocumentControlNumber( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3693,10 +4038,45 @@ class Expenditure( Base ):
     '''
 	__tablename__ = 'Expenditures'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
-	              boc: str=None, provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 155 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	reference_document_number = Column( String( 80 ) )
+	processed_date = Column( String( 80 ) )
+	last_activity_date = Column( String( 80 ) )
+	age = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 155 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	
+	
+	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
+	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Expenditures
 		self.bfy = bfy
@@ -3704,43 +4084,43 @@ class Expenditure( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'ExpendituresId',
-		                  'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'Amount' ]
-
+		                'ObligationsId',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'Amount' ]
+	
 	def __str__( self ) -> str:
 		if self.amount is not None:
 			return str( self.amount )
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3760,7 +4140,7 @@ class Expenditure( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3771,12 +4151,12 @@ class Expenditure( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3796,7 +4176,7 @@ class Expenditure( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -3805,7 +4185,7 @@ class Expenditure( Base ):
 
         Returns:
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -3830,23 +4210,23 @@ class FinanceObjectClass( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	boc_code = Column( String( 25 ) )
-	boc_name = Column( String( 155) )
+	boc_name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FinanceObjectClasses
 		self.code = code
 		self.fields = [ 'FinanceObjectClassesId',
-		                  'Code',
-		                  'Name',
-		                  'BocCode',
-		                  'BocName' ]
-
+		                'Code',
+		                'Name',
+		                'BocCode',
+		                'BocName' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -3854,7 +4234,7 @@ class FinanceObjectClass( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -3865,12 +4245,12 @@ class FinanceObjectClass( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -3890,7 +4270,7 @@ class FinanceObjectClass( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -3901,7 +4281,7 @@ class FinanceObjectClass( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_src = self.source
 			_data = BudgetData( _src )
@@ -3930,17 +4310,17 @@ class Fund( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	status = Column( String( 80 ) )
-	short_name = Column( String( 150 ) )
+	short_name = Column( String( 255 ) )
 	sub_level_prefix = Column( String( 80 ) )
-	agency_identifier = Column(  String( 80 ) )
+	agency_identifier = Column( String( 80 ) )
 	allocation_transfer_agency = Column( String( 80 ) )
 	beginning_period_of_availability = Column( String( 80 ) )
 	ending_period_of_availability = Column( String( 80 ) )
 	start_date = Column( String( 80 ) )
 	end_date = Column( String( 80 ) )
-	multiyear_indicator = Column(  String( 80 ) )
+	multiyear_indicator = Column( String( 80 ) )
 	main_account = Column( String( 80 ) )
-	main_name = Column( String( 80 ) )
+	main_name = Column( String( 155 ) )
 	subaccount = Column( String( 80 ) )
 	fund_category = Column( String( 80 ) )
 	appropriation_code = Column( String( 80 ) )
@@ -3950,49 +4330,49 @@ class Fund( Base ):
 	carryover = Column( String( 80 ) )
 	apply_at_all_levels = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	
-
-	def __init__( self, bfy: str, efy: str, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, efy: str, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Funds
 		self.bfy = bfy
 		self.efy = efy
 		self.code = code
 		self.fields = [ 'FundsId',
-		                  'BFY',
-		                  'EFY',
-		                  'Code',
-		                  'Name',
-		                  'ShortName',
-		                  'Status',
-		                  'SubLevelPrefix',
-		                  'ATA',
-		                  'BeginningPeriodOfAvailability',
-		                  'EndingPeriodOfAvailability',
-		                  'MAIN',
-		                  'A',
-		                  'AID',
-		                  'SUB',
-		                  'FundCategory',
-		                  'AppropriationCode',
-		                  'SubAppropriationCode',
-		                  'FundGroup',
-		                  'NoYear',
-		                  'Carryover',
-		                  'CancelledYearSpendingAccount',
-		                  'ApplyAtAllLevels',
-		                  'BatsFund',
-		                  'BatsEndDate',
-		                  'BatsOptionId',
-		                  'SecurityOrg' ]
-
+		                'BFY',
+		                'EFY',
+		                'Code',
+		                'Name',
+		                'ShortName',
+		                'Status',
+		                'SubLevelPrefix',
+		                'ATA',
+		                'BeginningPeriodOfAvailability',
+		                'EndingPeriodOfAvailability',
+		                'MAIN',
+		                'A',
+		                'AID',
+		                'SUB',
+		                'FundCategory',
+		                'AppropriationCode',
+		                'SubAppropriationCode',
+		                'FundGroup',
+		                'NoYear',
+		                'Carryover',
+		                'CancelledYearSpendingAccount',
+		                'ApplyAtAllLevels',
+		                'BatsFund',
+		                'BatsEndDate',
+		                'BatsOptionId',
+		                'SecurityOrg' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.code, str ) and self.code != '':
+		if isinstance( self.code, str ) and self.code!='':
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4000,7 +4380,7 @@ class Fund( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -4011,12 +4391,12 @@ class Fund( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'Code', ]
-			_values = ( self.bfy, self.efy, self.code )
+			_values = (self.bfy, self.efy, self.code)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4036,7 +4416,7 @@ class Fund( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -4068,15 +4448,27 @@ class FederalHoliday( Base ):
     '''
 	__tablename__ = 'FederalHolidays'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	columbus = Column( String( 80 ) )
+	veterans = Column( String( 80 ) )
+	thanksgiving = Column( String( 80 ) )
+	christmas = Column( String( 80 ) )
+	newyears = Column( String( 80 ) )
+	martinlutherking = Column( String( 80 ) )
+	washingtons = Column( String( 80 ) )
+	memorial = Column( String( 80 ) )
+	juneteenth = Column( String( 80 ) )
+	independence = Column( String( 80 ) )
+	labor = Column( String( 80 ) )
 	
-
+	
 	def __init__( self, bfy: str, efy: str, name: str = '',
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FederalHolidays
 		self.holidays = [ 'ColumbusDay', 'VeteransDay', 'ThanksgivingDay', 'ChristmasDay',
-		                    'NewYearsDay', 'MartinLutherKingsDay', 'PresidentsDay',
-		                    'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
+		                  'NewYearsDay', 'MartinLutherKingsDay', 'PresidentsDay',
+		                  'MemorialDay', 'JuneteenthDay', 'IndependenceDay', 'LaborDay' ]
 		self.__observance = { 'ColumbusDay': 'The second Monday in October',
 		                      'VeteransDay': 'Veterans Day, November 11',
 		                      'ThanksgivingDay': 'The fourth Thursday in November',
@@ -4094,25 +4486,25 @@ class FederalHoliday( Base ):
 		self.today = dt.datetime.today( )
 		self.name = self.set_name( name )
 		self.fields = [ 'FederalHolidaysId',
-		                  'BFY',
-		                  'ColumbusDay',
-		                  'VeteransDay',
-		                  'ThanksgivingDay',
-		                  'ChristmasDay',
-		                  'NewYearsDay',
-		                  'MartinLutherKingDay',
-		                  'PresidentsDay',
-		                  'MemorialDay',
-		                  'JuneteenthDay',
-		                  'IndependenceDay',
-		                  'LaborDay' ]
-		self.data: list[ Row ]=None
-		self.frame: DataFrame=None
-
+		                'BFY',
+		                'ColumbusDay',
+		                'VeteransDay',
+		                'ThanksgivingDay',
+		                'ChristmasDay',
+		                'NewYearsDay',
+		                'MartinLutherKingDay',
+		                'PresidentsDay',
+		                'MemorialDay',
+		                'JuneteenthDay',
+		                'IndependenceDay',
+		                'LaborDay' ]
+		self.data: list[ Row ] = None
+		self.frame: DataFrame = None
+	
 	def __str__( self ) -> str:
-		if not self.name == '':
+		if not self.name=='':
 			return self.name
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4125,7 +4517,7 @@ class FederalHoliday( Base ):
 		         'get_presidents_day', 'get_memorial_day', 'independence_day',
 		         'labor_day', 'day_of_week', 'is_weekday', 'is_weekend', 'set_date',
 		         'set_name' ]
-
+	
 	def getdata( self ) -> list:
 		'''
         Purpose:
@@ -4138,7 +4530,7 @@ class FederalHoliday( Base ):
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'Name', ]
-			_values = ( self.bfy, self.efy, self.name,)
+			_values = (self.bfy, self.efy, self.name,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4158,7 +4550,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -4178,7 +4570,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_columbus_day( self ) -> datetime:
 		'''
         Purpose:
@@ -4195,7 +4587,7 @@ class FederalHoliday( Base ):
 				for i in range( 1, 31 ):
 					d = datetime( self.__year, 10, __start.day + i )
 					if (15 < d.day < 28) and \
-							datetime( self.__year, 10, d.day ).isoweekday( ) == 1:
+							datetime( self.__year, 10, d.day ).isoweekday( )==1:
 						self.__columbus = datetime( self.__year, 10, d.day )
 						return self.__columbus
 		except Exception as e:
@@ -4205,7 +4597,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_columnbus_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_veterans_day( self ) -> datetime:
 		'''Veterans Day, November 11'''
 		try:
@@ -4219,7 +4611,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_veterans_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_thanksgiving_day( self ) -> datetime:
 		'''The fourth Thursday in November'''
 		try:
@@ -4230,7 +4622,7 @@ class FederalHoliday( Base ):
 				for i in range( 15, 31 ):
 					d = datetime( self.__year, 11, i )
 					if (21 < d.day < 31) and \
-							datetime( self.__year, 11, d.day ).isoweekday( ) == 4:
+							datetime( self.__year, 11, d.day ).isoweekday( )==4:
 						self.__thanksgiving = datetime( self.__year, 11, d.day )
 						return self.__thanksgiving
 		except Exception as e:
@@ -4240,7 +4632,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_thanksgiving_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_christmas_day( self ) -> datetime:
 		'''Christmas Day, December 25'''
 		try:
@@ -4254,7 +4646,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_christmas_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_newyears_day( self ) -> datetime:
 		'''January 1'''
 		try:
@@ -4268,7 +4660,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_newyears_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_martinlutherking_day( self ) -> datetime:
 		'''The third Monday in January'''
 		try:
@@ -4278,7 +4670,7 @@ class FederalHoliday( Base ):
 				__delta = (__start - __end).days
 				for i in range( __delta ):
 					d = datetime( self.__year, 1, __start.day + i )
-					if (15 < d.day < 31) and datetime( self.__year, 1, d.day ).isoweekday( ) == 1:
+					if (15 < d.day < 31) and datetime( self.__year, 1, d.day ).isoweekday( )==1:
 						self.__martinlutherking = datetime( self.__year, 1, d.day )
 						return self.__martinlutherking
 		except Exception as e:
@@ -4288,7 +4680,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_martinlutherking_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_presidents_day( self ) -> datetime:
 		'''The third Monday in February'''
 		try:
@@ -4298,7 +4690,7 @@ class FederalHoliday( Base ):
 				__delta = (__start - __end).days
 				for i in range( __delta ):
 					d = datetime( self.__year, 2, __start.day + i )
-					if (15 < d.day < 28) and datetime( self.__year, 2, d.day ).isoweekday( ) == 1:
+					if (15 < d.day < 28) and datetime( self.__year, 2, d.day ).isoweekday( )==1:
 						self.__washingtons = datetime( self.__year, 2, d.day )
 						return self.__washingtons
 		except Exception as e:
@@ -4308,7 +4700,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_presidents_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_memorial_day( self ) -> datetime:
 		'''The last Monday in May'''
 		try:
@@ -4318,7 +4710,7 @@ class FederalHoliday( Base ):
 				__delta = (__start - __end).days
 				for i in range( 15, 31 ):
 					d = datetime( self.__year, 5, i )
-					if (21 < d.day < 31) and datetime( self.__year, 5, d.day ).isoweekday( ) == 1:
+					if (21 < d.day < 31) and datetime( self.__year, 5, d.day ).isoweekday( )==1:
 						self.__memorial = datetime( self.__year, 5, d.day )
 						return self.__memorial
 		except Exception as e:
@@ -4328,7 +4720,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_memorial_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_juneteenth_day( self ) -> datetime:
 		'''Juneteenth National Independence Day, June 19'''
 		try:
@@ -4342,7 +4734,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_juneteenth_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_independence_day( self ) -> datetime:
 		'''Independence Day, July 4'''
 		try:
@@ -4356,7 +4748,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_independence_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def get_labor_day( self ) -> datetime:
 		'''The first Monday in September'''
 		try:
@@ -4364,7 +4756,7 @@ class FederalHoliday( Base ):
 				__monday = list( )
 				__month = dt.date( self.__year, 9, 1 ) - dt.date( self.__year, 9, 31 )
 				for i in range( 1, __month.days - 1 ):
-					if datetime( self.__year, 9, i ).isoweekday( ) == 1:
+					if datetime( self.__year, 9, i ).isoweekday( )==1:
 						__monday.append( datetime( self.__year, 9, i ) )
 				y = __monday[ 0 ].date( ).year
 				m = __monday[ 0 ].date( ).month
@@ -4378,28 +4770,28 @@ class FederalHoliday( Base ):
 			_exc.method = 'get_labor_day( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def day_of_week( self ) -> str:
 		try:
-			if 0 < self.__day < 8 and self.__day == 1:
+			if 0 < self.__day < 8 and self.__day==1:
 				self.dayofweek = 'Monday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 2:
+			elif 0 < self.__day < 8 and self.__day==2:
 				self.dayofweek = 'Tuesday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 3:
+			elif 0 < self.__day < 8 and self.__day==3:
 				self.dayofweek = 'Wednesday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 4:
+			elif 0 < self.__day < 8 and self.__day==4:
 				self.dayofweek = 'Thursday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 5:
+			elif 0 < self.__day < 8 and self.__day==5:
 				self.dayofweek = 'Friday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 6:
+			elif 0 < self.__day < 8 and self.__day==6:
 				self.dayofweek = 'Saturday'
 				return self.dayofweek
-			elif 0 < self.__day < 8 and self.__day == 7:
+			elif 0 < self.__day < 8 and self.__day==7:
 				self.dayofweek = 'Sunday'
 				return self.dayofweek
 		except Exception as e:
@@ -4409,7 +4801,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'day_of_week( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def is_weekday( self ) -> bool:
 		try:
 			if 1 <= self.date.isoweekday( ) <= 5:
@@ -4423,7 +4815,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'is_weekday( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def is_weekend( self ) -> bool:
 		try:
 			if 5 < self.date.isoweekday( ) <= 7:
@@ -4437,38 +4829,38 @@ class FederalHoliday( Base ):
 			_exc.method = 'is_weekend( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def set_date( self, name: str ):
 		try:
 			if isinstance( name, str ) and name in self.holidays:
-				if name == 'ColumbusDay':
+				if name=='ColumbusDay':
 					self.date = self.get_columbus_day( )
 					return self.date
-				elif name == 'VeteransDay':
+				elif name=='VeteransDay':
 					self.date = self.get_veterans_day( )
 					return self.date
-				elif name == 'ThanksgivingDay':
+				elif name=='ThanksgivingDay':
 					self.date = self.get_thanksgiving_day( )
 					return self.date
-				elif name == 'ChristmasDay':
+				elif name=='ChristmasDay':
 					self.date = self.get_christmas_day( )
 					return self.date
-				elif name == 'NewYearsDay':
+				elif name=='NewYearsDay':
 					self.date = self.get_newyears_day( )
 					return self.date
-				elif name == 'MartinLutherKingDay':
+				elif name=='MartinLutherKingDay':
 					self.date = self.get_martinlutherking_day( )
 					return self.date
-				elif name == 'PresidentsDay':
+				elif name=='PresidentsDay':
 					self.date = self.get_presidents_day( )
 					return self.date
-				elif name == 'MemorialDay':
+				elif name=='MemorialDay':
 					self.date = self.get_memorial_day( )
 					return self.date
-				elif name == 'JuneteenthDay':
+				elif name=='JuneteenthDay':
 					self.date = self.get_juneteenth_day( )
 					return self.date
-				elif name == 'LaborDay':
+				elif name=='LaborDay':
 					self.date = self.get_labor_day( )
 					return self.date
 		except Exception as e:
@@ -4478,7 +4870,7 @@ class FederalHoliday( Base ):
 			_exc.method = 'set_date( self, value )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def set_name( self, name: str ):
 		try:
 			if isinstance( name, str ) and name in self.holidays:
@@ -4510,79 +4902,79 @@ class FullTimeEquivalent( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	amount = Column( 'Amount', String( 80 ) )
 	activity_code = Column( 'ActivityCode', String( 80 ) )
 	activity_name = Column( 'ActivityName', String( 80 ) )
 	goal_code = Column( 'GoalCode', String( 25 ) )
-	goal_name = Column( 'GoalName', String( 155 ) )
+	goal_name = Column( 'GoalName', String( 255 ) )
 	objective_code = Column( 'ObjectiveCode', String( 25 ) )
-	objective_name = Column( 'ObjectiveName', String( 155 ) )
+	objective_name = Column( 'ObjectiveName', String( 255 ) )
 	program_project_code = Column( String( 25 ) )
 	program_project_name = Column( String( 255 ) )
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	
-
-	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FullTimeEquivalents
 		self.bfy = bfy
 		self.fundcode = fund
 		self.fields = [ 'FullTimeEquivalentsId',
-		                  'OperatingPlansId',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'BFY',
-		                  'EFY',
-		                  'AhCode',
-		                  'FundCode',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'Amount',
-		                  'ITProjectCode',
-		                  'ProjectCode',
-		                  'ProjectName',
-		                  'NpmCode',
-		                  'ProjectTypeName',
-		                  'ProjectTypeCode',
-		                  'ProgramProjectCode',
-		                  'ProgramAreaCode',
-		                  'NpmName',
-		                  'AhName',
-		                  'FundName',
-		                  'OrgName',
-		                  'RcName',
-		                  'ProgramProjectName',
-		                  'ActivityCode',
-		                  'ActivityName',
-		                  'LocalCode',
-		                  'LocalCodeName',
-		                  'ProgramAreaName',
-		                  'CostAreaCode',
-		                  'CostAreaName',
-		                  'GoalCode',
-		                  'GoalName',
-		                  'ObjectiveCode',
-		                  'ObjectiveName' ]
-
+		                'OperatingPlansId',
+		                'RpioCode',
+		                'RpioName',
+		                'BFY',
+		                'EFY',
+		                'AhCode',
+		                'FundCode',
+		                'OrgCode',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'Amount',
+		                'ITProjectCode',
+		                'ProjectCode',
+		                'ProjectName',
+		                'NpmCode',
+		                'ProjectTypeName',
+		                'ProjectTypeCode',
+		                'ProgramProjectCode',
+		                'ProgramAreaCode',
+		                'NpmName',
+		                'AhName',
+		                'FundName',
+		                'OrgName',
+		                'RcName',
+		                'ProgramProjectName',
+		                'ActivityCode',
+		                'ActivityName',
+		                'LocalCode',
+		                'LocalCodeName',
+		                'ProgramAreaName',
+		                'CostAreaCode',
+		                'CostAreaName',
+		                'GoalCode',
+		                'GoalName',
+		                'ObjectiveCode',
+		                'ObjectiveName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4599,7 +4991,7 @@ class FullTimeEquivalent( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -4610,12 +5002,12 @@ class FullTimeEquivalent( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode,)
+			_values = (self.bfy, self.fundcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4635,7 +5027,7 @@ class FullTimeEquivalent( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -4667,26 +5059,37 @@ class GeneralLedgerAccount( Base ):
     '''
 	__tablename__ = 'GeneralLedgerAccounts'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	treasury_symbol = Column( String( 80 ) )
+	account_number = Column( String( 80 ) )
+	account_name = Column( String( 155 ) )
+	beginning_balance = Column( Numeric( ) )
+	credit_balance = Column( Numeric( ) )
+	debit_balance = Column( Numeric( ) )
+	closing_amount = Column( Numeric( ) )
 	
-
-	def __init__( self, bfy: str, number: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, number: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.accountnumber = number
 		self.provider = provider
 		self.source = Source.GeneralLedgerAccounts
 		self.fields = [ 'GeneralLedgerAccountsId',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'TreasurySymbol',
-		                  'AccountNumber',
-		                  'AccountName',
-		                  'BeginningBalance',
-		                  'CreditBalance',
-		                  'DebitBalance',
-		                  'ClosingAmount' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'TreasurySymbol',
+		                'AccountNumber',
+		                'AccountName',
+		                'BeginningBalance',
+		                'CreditBalance',
+		                'DebitBalance',
+		                'ClosingAmount' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4695,7 +5098,7 @@ class GeneralLedgerAccount( Base ):
 		'''
 		return [ 'id', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -4706,12 +5109,12 @@ class GeneralLedgerAccount( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4731,7 +5134,7 @@ class GeneralLedgerAccount( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -4742,7 +5145,7 @@ class GeneralLedgerAccount( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -4768,20 +5171,20 @@ class Goal( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Goals
 		self.code = code
 		self.fields = [ 'GoalsId',
-		                  'Code',
-		                  'Name',
-		                  'Title' ]
-
+		                'Code',
+		                'Name',
+		                'Title' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.code, str ) and self.code != '':
+		if isinstance( self.code, str ) and self.code!='':
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4791,7 +5194,7 @@ class Goal( Base ):
 		return [ 'id', 'code', 'name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -4802,12 +5205,12 @@ class Goal( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4827,7 +5230,7 @@ class Goal( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -4838,7 +5241,7 @@ class Goal( Base ):
         Returns:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -4866,18 +5269,18 @@ class HeadquartersAuthority( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
 	carryover_in = Column( Numeric( ) )
@@ -4891,43 +5294,43 @@ class HeadquartersAuthority( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
+	budget_account_name = Column( String( 255 ) )
 	
-	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, efy: str, rpio: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.HeadquartersAuthority
 		self.provider = provider
 		self.bfy = bfy
 		self.efy = efy
 		self.rpiocode = rpio
 		self.fields = [ 'HeadquartersAuthorityId',
-		                  'AllocationsId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'BocCode',
-		                  'BocName',
-		                  'Amount',
-		                  'NpmCode',
-		                  'NpmName' ]
-
+		                'AllocationsId',
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'BocCode',
+		                'BocName',
+		                'Amount',
+		                'NpmCode',
+		                'NpmName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -4945,7 +5348,7 @@ class HeadquartersAuthority( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -4956,12 +5359,12 @@ class HeadquartersAuthority( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = ( self.bfy, self.rpiocode )
+			_values = (self.bfy, self.rpiocode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -4981,7 +5384,7 @@ class HeadquartersAuthority( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5014,19 +5417,19 @@ class HeadquartersOffice( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.rpiocode = code
 		self.provider = provider
 		self.source = Source.HeadquartersOffices
 		self.fields = [ 'HeadquartersOfficesId',
-		                  'ResourcePlanningOfficesId',
-		                  'RpioCode',
-		                  'RpioName' ]
-
+		                'ResourcePlanningOfficesId',
+		                'RpioCode',
+		                'RpioName' ]
+	
 	def __str__( self ) -> str:
 		if self.rpiocode is not None:
 			return self.rpiocode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5035,7 +5438,7 @@ class HeadquartersOffice( Base ):
 		'''
 		return [ 'id', 'rpio_code', 'rpio_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5046,12 +5449,12 @@ class HeadquartersOffice( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'RpioCode', ]
-			_values = ( self.rpiocode,)
+			_values = (self.rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5071,7 +5474,7 @@ class HeadquartersOffice( Base ):
 			_exc.method = 'getdata( self ) '
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -5098,38 +5501,49 @@ class InflationReductionActCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'InflationReductionActCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	treasury_account_code = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	available = Column( Numeric( ) )
+	estimate = Column( Numeric( ) )
 	
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.AnnualCarryoverEstimates
 		self.bfy = bfy
 		self.fields = [ 'AnnualCarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5142,7 +5556,7 @@ class InflationReductionActCarryoverEstimate( Base ):
 		         'treasury_account_code', 'treasury_account_name',
 		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5153,12 +5567,12 @@ class InflationReductionActCarryoverEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5178,7 +5592,7 @@ class InflationReductionActCarryoverEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5212,37 +5626,37 @@ class JobsActCarryoverEstimate( Base ):
 	__tablename__ = 'JobsActCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.JobsActCarryoverEstimates
 		self.bfy = bfy
 		self.fields = [ 'CarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5250,7 +5664,7 @@ class JobsActCarryoverEstimate( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5261,12 +5675,12 @@ class JobsActCarryoverEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5286,7 +5700,7 @@ class JobsActCarryoverEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5320,10 +5734,10 @@ class MainAccount( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.code = code
 		self.provider = provider
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5331,10 +5745,10 @@ class MainAccount( Base ):
 
 		'''
 		return [ 'id', 'code', 'subfunction_code', 'subfunction_name',
-				 'budget_enforcement_act_category',
-				 'budget_account_code', 'budget_account_name',
+		         'budget_enforcement_act_category',
+		         'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5345,12 +5759,12 @@ class MainAccount( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5370,7 +5784,7 @@ class MainAccount( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -5403,46 +5817,71 @@ class MonthlyActual( Base ):
     '''
 	__tablename__ = 'MonthlyActuals'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	appropriation_code = Column( String( 80 ) )
+	appropriation_name = Column( String( 155 ) )
+	subappropriation_code = Column( String( 80 ) )
+	subappropriation_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	activity_code = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	obligations = Column( Numeric( ) )
+	gross_outlays = Column( Numeric( ) )
+	net_outlays = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
 	
-
-	def __init__( self, bfy:str = None, fund: str = None,
-	              provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str = None, fund: str = None,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.MonthlyActuals
-		self.bfy = bfy if isinstance( bfy, str ) and len( bfy ) == 4 else None
-		self.fundcode = fund if isinstance( fund, str ) and fund != '' else None
+		self.bfy = bfy if isinstance( bfy, str ) and len( bfy )==4 else None
+		self.fundcode = fund if isinstance( fund, str ) and fund!='' else None
 		self.fields = [ 'ActualsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'AppropriationCode',
-		                  'AppropriationName',
-		                  'SubAppropriationCode',
-		                  'SubAppropriationName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RpioActivityCode',
-		                  'RpioActivityName',
-		                  'BocCode',
-		                  'BocName',
-		                  'UnliquidatedObligations',
-		                  'Obligations',
-		                  'Balance',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'GoalCode',
-		                  'GoalName',
-		                  'ObjectiveCode',
-		                  'ObjectiveName' ]
-
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'AppropriationCode',
+		                'AppropriationName',
+		                'SubAppropriationCode',
+		                'SubAppropriationName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RpioActivityCode',
+		                'RpioActivityName',
+		                'BocCode',
+		                'BocName',
+		                'UnliquidatedObligations',
+		                'Obligations',
+		                'Balance',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'GoalCode',
+		                'GoalName',
+		                'ObjectiveCode',
+		                'ObjectiveName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5458,7 +5897,7 @@ class MonthlyActual( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5469,12 +5908,12 @@ class MonthlyActual( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5494,7 +5933,7 @@ class MonthlyActual( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5525,47 +5964,62 @@ class MonthlyOutlay( Base ):
     '''
 	__tablename__ = ' MonthlyOutlays'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	agency_title = Column( String( 80 ) )
+	bureau_title = Column( String( 80 ) )
+	omb_account_title = Column( String( 80 ) )
+	treasury_account_title = Column( String( 80 ) )
+	october = Column( Numeric( ) )
+	november = Column( Numeric( ) )
+	december = Column( Numeric( ) )
+	january = Column( Numeric( ) )
+	feburary = Column( Numeric( ) )
+	march = Column( Numeric( ) )
+	april = Column( Numeric( ) )
+	may = Column( Numeric( ) )
+	june = Column( Numeric( ) )
+	july = Column( Numeric( ) )
+	august = Column( Numeric( ) )
+	september = Column( Numeric( ) )
 	
-
-	def __init__( self, bfy, efy, account, provider: Provider=Provider.SQLite ):
+	def __init__( self, bfy, efy, account, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.MonthlyOutlays
 		self.bfy = bfy
 		self.efy = efy
 		self.budgetaccountcode = account
 		self.fields = [ 'MonthlyOutlaysId',
-		                  'FiscalYear',
-		                  'LineNumber',
-		                  'LineTitle',
-		                  'TaxationCode',
-		                  'TreasuryAgency',
-		                  'TreasuryAccount',
-		                  'SubAccount',
-		                  'BFY',
-		                  'EFY',
-		                  'OmbAgency',
-		                  'OmbBureau',
-		                  'OmbAccount',
-		                  'AgencySequence',
-		                  'BureauSequence',
-		                  'AccountSequence',
-		                  'AgencyTitle',
-		                  'BureauTitle',
-		                  'OmbAccountTitle',
-		                  'TreasuryAccountTitle',
-		                  'October',
-		                  'November',
-		                  'December',
-		                  'January',
-		                  'Feburary',
-		                  'March',
-		                  'April',
-		                  'May',
-		                  'June',
-		                  'July',
-		                  'August',
-		                  'September' ]
-
+		                'FiscalYear',
+		                'LineNumber',
+		                'LineTitle',
+		                'TaxationCode',
+		                'TreasuryAgency',
+		                'TreasuryAccount',
+		                'SubAccount',
+		                'BFY',
+		                'EFY',
+		                'OmbAgency',
+		                'OmbBureau',
+		                'OmbAccount',
+		                'AgencySequence',
+		                'BureauSequence',
+		                'AccountSequence',
+		                'AgencyTitle',
+		                'BureauTitle',
+		                'OmbAccountTitle',
+		                'TreasuryAccountTitle',
+		                'October',
+		                'November',
+		                'December',
+		                'January',
+		                'Feburary',
+		                'March',
+		                'April',
+		                'May',
+		                'June',
+		                'July',
+		                'August',
+		                'September' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5582,8 +6036,7 @@ class MonthlyOutlay( Base ):
 		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5594,12 +6047,12 @@ class MonthlyOutlay( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'OmbAccountCode', ]
-			_values = ( self.bfy, self.efy, self.budgetaccountcode )
+			_values = (self.bfy, self.efy, self.budgetaccountcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5619,7 +6072,7 @@ class MonthlyOutlay( Base ):
 			_exc.method = 'getframe( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5652,21 +6105,21 @@ class NationalProgram( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.NationalPrograms
 		self.code = code
 		self.fields = [ 'NationalProgramsId',
-		                  'Code',
-		                  'Name',
-		                  'RpioCode',
-		                  'Title' ]
-
+		                'Code',
+		                'Name',
+		                'RpioCode',
+		                'Title' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.code, str ) and self.code != '':
+		if isinstance( self.code, str ) and self.code!='':
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5674,7 +6127,7 @@ class NationalProgram( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5685,12 +6138,12 @@ class NationalProgram( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5710,7 +6163,7 @@ class NationalProgram( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5745,20 +6198,20 @@ class Objective( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Objectives
 		self.code = code
 		self.fields = [ 'ObjectivesId',
-		                  'Code',
-		                  'Name',
-		                  'Title' ]
-
+		                'Code',
+		                'Name',
+		                'Title' ]
+	
 	def __str__( self ) -> str:
-		if isinstance( self.code, str ) and self.code != '':
+		if isinstance( self.code, str ) and self.code!='':
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5766,7 +6219,7 @@ class Objective( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5777,12 +6230,12 @@ class Objective( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = Source.Objectives
 			_provider = Provider.SQLite
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5802,7 +6255,7 @@ class Objective( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -5835,18 +6288,18 @@ class Organization( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Organizations
 		self.code = code
 		self.fields = [ 'OrganizationsId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5854,7 +6307,7 @@ class Organization( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5865,15 +6318,15 @@ class Organization( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = ( self.bfy, self.efy, self.fundcode, self.rpiocode,
-			           self.ahcode, self.accountcode, self.boccode, self.amount )
+			_values = (self.bfy, self.efy, self.fundcode, self.rpiocode,
+			           self.ahcode, self.accountcode, self.boccode, self.amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.data = _db.createtable( )
 			return [ (i) for i in self.data ]
@@ -5884,7 +6337,7 @@ class Organization( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -5917,25 +6370,56 @@ class OperatingPlan( Base ):
     '''
 	__tablename__ = 'OperatingPlans'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	ah_code = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	npm_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_area_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	ah_name = Column( String( 155 ) )
+	fund_name = Column( String( 155 ) )
+	org_name = Column( String( 155 ) )
+	program_project_name = Column( String( 155 ) )
+	activitycode = Column( String( 80 ) )
+	activityname = Column( String( 80 ) )
+	program_area_name = Column( String( 155 ) )
+	goal_code = Column( String( 80 ) )
+	goal_name = Column( String( 155 ) )
+	objective_code = Column( String( 80 ) )
+	objective_name = Column( String( 155 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	version = Column( String( 80 ) )
 	
-
-	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.OperatingPlans
 		self.provider = provider
 		self.bfy = bfy
 		self.fundcode = fund
 		self.fields = [ 'OperatingPlansId', 'RpioCode', 'RpioName', 'BFY', 'EFY', 'AhCode',
-		                  'FundCode', 'OrgCode', 'AccountCode', 'RcCode', 'BocCode', 'BocName',
-		                  'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
-		                  'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode',
-		                  'ProgramAreaCode',
-		                  'NpmName', 'AhName', 'FundName', 'OrgName', 'RcName',
-		                  'ProgramProjectName',
-		                  'ActivityCode', 'ActivityName', 'LocalCode', 'LocalCodeName',
-		                  'ProgramAreaName',
-		                  'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
-		                  'ObjectiveCode', 'ObjectiveName' ]
-
+		                'FundCode', 'OrgCode', 'AccountCode', 'RcCode', 'BocCode', 'BocName',
+		                'Amount', 'ITProjectCode', 'ProjectCode', 'ProjectName', 'NpmCode',
+		                'ProjectTypeName', 'ProjectTypeCode', 'ProgramProjectCode',
+		                'ProgramAreaCode',
+		                'NpmName', 'AhName', 'FundName', 'OrgName', 'RcName',
+		                'ProgramProjectName',
+		                'ActivityCode', 'ActivityName', 'LocalCode', 'LocalCodeName',
+		                'ProgramAreaName',
+		                'CostAreaCode', 'CostAreaName', 'GoalCode', 'GoalName',
+		                'ObjectiveCode', 'ObjectiveName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -5952,7 +6436,7 @@ class OperatingPlan( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -5963,10 +6447,10 @@ class OperatingPlan( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( self.source, self.provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -5986,7 +6470,7 @@ class OperatingPlan( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -6018,10 +6502,45 @@ class OpenCommitment( Base ):
     '''
 	__tablename__ = 'OpenCommitments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 155 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 155 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 155 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	reference_document_number = Column( String( 80 ) )
+	processed_date = Column( String( 80 ) )
+	last_activity_date = Column( String( 80 ) )
+	age = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 155 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 155 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 155 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 155 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
+	
+	
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              account: str, boc: str, provider: Provider=Provider.SQLite ):
+	              account: str, boc: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.OpenCommitments
 		self.bfy = bfy
@@ -6030,46 +6549,46 @@ class OpenCommitment( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'OpenCommitmentsId',
-		                  'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Expenditures' ]
-
+		                'ObligationsId',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Expenditures' ]
+	
 	def __str__( self ) -> str:
 		if self.accountcode is not None:
 			return self.accountcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6089,7 +6608,7 @@ class OpenCommitment( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6100,12 +6619,12 @@ class OpenCommitment( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6125,7 +6644,7 @@ class OpenCommitment( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -6149,10 +6668,47 @@ class Obligation( Base ):
     Purpose:  Class defines object providing Obligation data'''
 	__tablename__ = 'Obligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	reference_document_number = Column( String( 80 ) )
+	processed_date = Column( String( 80 ) )
+	last_activity_date = Column( String( 80 ) )
+	age = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 80 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 80 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 80 ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	ulo = Column( Numeric( ) )
+	expenditures = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              account: str=None, boc: str=None, provider: Provider=Provider.SQLite ):
+	              account: str = None, boc: str = None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Obligations
 		self.bfy = bfy
@@ -6161,45 +6717,45 @@ class Obligation( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Expenditures' ]
-
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Expenditures' ]
+	
 	def __str__( self ) -> str:
 		if self.amount is not None:
 			return str( self.amount )
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6219,7 +6775,7 @@ class Obligation( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6230,12 +6786,12 @@ class Obligation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6255,7 +6811,7 @@ class Obligation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -6281,37 +6837,52 @@ class OutlayRate( Base ):
     '''
 	__tablename__ = 'OutlayRates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
+	fiscal_year = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	category = Column( String( 80 ) )
+	baseline = Column( String( 80 ) )
+	year1 = Column( Numeric( ) )
+	year2 = Column( Numeric( ) )
+	year3 = Column( Numeric( ) )
+	year4 = Column( Numeric( ) )
+	year5 = Column( Numeric( ) )
+	year6 = Column( Numeric( ) )
+	year7 = Column( Numeric( ) )
+	year8 = Column( Numeric( ) )
+	year9 = Column( Numeric( ) )
+	year10 = Column( Numeric( ) )
+	year11 = Column( Numeric( ) )
+	
+	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Outlays
 		self.budgetaccountcode = account
 		self.fields = [ 'BudgetOutlaysId',
-		                  'ReportYear',
-		                  'Category',
-		                  'AgencyName',
-		                  'LineNumber',
-		                  'LineSection',
-		                  'OmbAccount',
-		                  'LineTitle',
-		                  'AccountType',
-		                  'AuthorityTypeName',
-		                  'Line',
-		                  'AuthorityType',
-		                  'PriorYear',
-		                  'CurrentYear',
-		                  'BudgetYear',
-		                  'BudgetYear1',
-		                  'BudgetYear2',
-		                  'BudgetYear3',
-		                  'BudgetYear4',
-		                  'BudgetYear5',
-		                  'BudgetYear6',
-		                  'BudgetYear7',
-		                  'BudgetYear8',
-		                  'BudgetYear9' ]
-
+		                'ReportYear',
+		                'Category',
+		                'AgencyName',
+		                'LineNumber',
+		                'LineSection',
+		                'OmbAccount',
+		                'LineTitle',
+		                'AccountType',
+		                'AuthorityTypeName',
+		                'Line',
+		                'AuthorityType',
+		                'PriorYear',
+		                'CurrentYear',
+		                'BudgetYear',
+		                'BudgetYear1',
+		                'BudgetYear2',
+		                'BudgetYear3',
+		                'BudgetYear4',
+		                'BudgetYear5',
+		                'BudgetYear6',
+		                'BudgetYear7',
+		                'BudgetYear8',
+		                'BudgetYear9' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6327,7 +6898,7 @@ class OutlayRate( Base ):
 		         'out_year_8', 'out_year_9',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6338,12 +6909,12 @@ class OutlayRate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'OmbAccountCode', ]
-			_values = ( self.budgetaccountcode,)
+			_values = (self.budgetaccountcode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6363,7 +6934,7 @@ class OutlayRate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -6393,22 +6964,22 @@ class PublicLaw( Base ):
     '''
 	__tablename__ = 'PublicLaws'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	
+	
 	def __init__( self, bfy: str, efy: str,
-	              number: str, provider: Provider=Provider.SQLite ):
+	              number: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.efy = efy
 		self.lawnumber = number
 		self.provider = provider
 		self.source = Source.PublicLaws
 		self.fields = [ 'PublicLawsId',
-		                  'LawNumber',
-		                  'BillTitle',
-		                  'EnactedDate',
-		                  'Congress',
-		                  'BFY' ]
-
+		                'LawNumber',
+		                'BillTitle',
+		                'EnactedDate',
+		                'Congress',
+		                'BFY' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6417,7 +6988,7 @@ class PublicLaw( Base ):
 		'''
 		return [ 'id', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6428,14 +6999,14 @@ class PublicLaw( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = ( self.bfy, self.efy, self.fundcode, self.rpiocode,
+			_values = (self.bfy, self.efy, self.fundcode, self.rpiocode,
 			           self.ahcode, self.accountcode, self.boccode, self.amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.data = _db.createtable( )
@@ -6447,7 +7018,7 @@ class PublicLaw( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -6476,23 +7047,23 @@ class Project( Base ):
 
     Purpoe:  Class defines the Organization Class'''
 	__tablename__ = 'Projects'
-	id = Column( Integer( ), primary_key=True  )
+	id = Column( Integer( ), primary_key=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Projects
 		self.code = code
 		self.fields = [ 'ProjectId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6501,7 +7072,7 @@ class Project( Base ):
 		'''
 		return [ 'id', 'code', 'name', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6512,12 +7083,12 @@ class Project( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6537,7 +7108,7 @@ class Project( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -6564,19 +7135,19 @@ class ProgramArea( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ProgramAreas
 		self.code = code
 		self.fields = [ 'ProgramAreasId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6584,7 +7155,7 @@ class ProgramArea( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6595,12 +7166,12 @@ class ProgramArea( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6620,7 +7191,7 @@ class ProgramArea( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -6647,21 +7218,21 @@ class ProgramProject( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ProgramProjects
 		self.code = code
 		self.fields = [ 'ProgramProjectsId',
-		                  'Code',
-		                  'Name',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName' ]
-
+		                'Code',
+		                'Name',
+		                'ProgramAreaCode',
+		                'ProgramAreaName' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6669,7 +7240,7 @@ class ProgramProject( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6680,14 +7251,14 @@ class ProgramProject( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = ( self.bfy, self.efy, self.fundcode, self.rpiocode,
+			_values = (self.bfy, self.efy, self.fundcode, self.rpiocode,
 			           self.ahcode, self.accountcode, self.boccode, self.amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.data = _db.createtable( )
@@ -6699,7 +7270,7 @@ class ProgramProject( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -6732,10 +7303,10 @@ class ProgramResultsCode( Base ):
     '''
 	__tablename__ = 'ProgramResultsCodes'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-	def __init__( self, bfy: str=None, efy: str=None, fund: str=None,
-	              rpio: str=None, ah: str=None, account: str=None, boc: str=None,
-	              amount: float = 0.0, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, bfy: str = None, efy: str = None, fund: str = None,
+	              rpio: str = None, ah: str = None, account: str = None, boc: str = None,
+	              amount: float = 0.0, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Allocations
 		self.accountcode = account
@@ -6747,44 +7318,44 @@ class ProgramResultsCode( Base ):
 		self.boccode = boc
 		self.amount = amount
 		self.fields = [ 'AllocationsId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'Amount',
-		                  'ActivityCode',
-		                  'ActivityName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'ObjectiveCode',
-		                  'ObjectiveName',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'Amount',
+		                'ActivityCode',
+		                'ActivityName',
+		                'NpmCode',
+		                'NpmName',
+		                'ObjectiveCode',
+		                'ObjectiveName',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.fundcode is not None:
 			return self.fundcode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6800,7 +7371,7 @@ class ProgramResultsCode( Base ):
 		         'amount', 'main_account', 'treasury_account_code',
 		         'treasury_account_name', 'budget_account_code', 'budget_account_name',
 		         'data', 'fields', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6811,14 +7382,14 @@ class ProgramResultsCode( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'FundCode', 'RpioCode', 'AhCode',
 			           'AccountCode', 'BocCode', 'Amount' ]
-			_values = ( self.bfy, self.efy, self.fundcode, self.rpiocode,
+			_values = (self.bfy, self.efy, self.fundcode, self.rpiocode,
 			           self.ahcode, self.accountcode, self.boccode, self.amount)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.data = _db.createtable( )
@@ -6830,7 +7401,7 @@ class ProgramResultsCode( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -6861,14 +7432,14 @@ class ReportingLine( Base ):
 	'''
 	__tablename__ = 'ReportingLines'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, code: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, bfy: str, code: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.code = code
 		self.provider = provider
 		self.source = Source.ReportingLines
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6876,7 +7447,7 @@ class ReportingLine( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -6887,12 +7458,12 @@ class ReportingLine( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -6912,7 +7483,7 @@ class ReportingLine( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -6948,19 +7519,19 @@ class ResponsibilityCenter( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ResponsibilityCenters
 		self.code = code if isinstance( code, str ) else None
 		self.fields = [ 'ResponsibilityCentersId',
-		                  'Code',
-		                  'Name',
-		                  'Title' ]
-
+		                'Code',
+		                'Name',
+		                'Title' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -6968,7 +7539,7 @@ class ResponsibilityCenter( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ tuple ]:
 		'''
         Purpose:
@@ -6981,7 +7552,7 @@ class ResponsibilityCenter( Base ):
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7001,7 +7572,7 @@ class ResponsibilityCenter( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -7034,19 +7605,19 @@ class ResourcePlanningOffice( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ResourcePlanningOffices
 		self.code = code
 		self.fields = [ 'ResourcePlanningOfficesId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7054,7 +7625,7 @@ class ResourcePlanningOffice( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7065,12 +7636,12 @@ class ResourcePlanningOffice( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7090,7 +7661,7 @@ class ResourcePlanningOffice( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -7123,20 +7694,20 @@ class RegionalOffice( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ResourcePlanningOffices
 		self.rpiocode = code
 		self.fields = [ 'RegionalOfficesId',
-		                  'ResourcePlanningOfficesId',
-		                  'RpioCode',
-		                  'RpioName' ]
-
+		                'ResourcePlanningOfficesId',
+		                'RpioCode',
+		                'RpioName' ]
+	
 	def __str__( self ) -> str:
 		if self.rpiocode is not None:
 			return self.rpiocode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7145,7 +7716,7 @@ class RegionalOffice( Base ):
 		'''
 		return [ 'id', 'rpio_code', 'rpio_name', 'fields',
 		         'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7156,12 +7727,12 @@ class RegionalOffice( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.rpiocode,)
+			_values = (self.rpiocode,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7192,37 +7763,54 @@ class ReimbursableAgreement( Base ):
     '''
 	__tablename__ = 'ReimbursableAgreements'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, number: str, provider: Provider=Provider.SQLite ):
+	rpio = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	agreement_number = Column( String( 80 ) )
+	start_date = Column( String( 80 ) )
+	end_date = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	division_name = Column( String( 80 ) )
+	site_project_code = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	ulo = Column( Numeric( ) )
+	available = Column( Numeric( ) )
+	
+	def __init__( self, number: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ReimbursableAgreements
 		self.__agreementnumber = number
 		self.fields = [ 'ReimbursableAgreementsId'
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'RpioCode',
-		                  'AgreementNumber',
-		                  'StartDate',
-		                  'EndDate',
-		                  'RcCode',
-		                  'RcName',
-		                  'OrgCode',
-		                  'SiteProjectCode',
-		                  'AccountCode',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'Amount',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Available' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'RpioCode',
+		                'AgreementNumber',
+		                'StartDate',
+		                'EndDate',
+		                'RcCode',
+		                'RcName',
+		                'OrgCode',
+		                'SiteProjectCode',
+		                'AccountCode',
+		                'VendorCode',
+		                'VendorName',
+		                'Amount',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Available' ]
+	
 	def __str__( self ) -> str:
 		if self.__agreementnumber is not None:
 			return self.__agreementnumber
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7230,7 +7818,7 @@ class ReimbursableAgreement( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7241,12 +7829,12 @@ class ReimbursableAgreement( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', ]
-			_values = ( self.bfy,)
+			_values = (self.bfy,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7266,7 +7854,7 @@ class ReimbursableAgreement( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -7302,18 +7890,18 @@ class RegionalAuthority( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
 	carryover_in = Column( Numeric( ) )
@@ -7327,44 +7915,44 @@ class RegionalAuthority( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
+	budget_account_name = Column( String( 255 ) )
+	
 	def __init__( self, bfy: str, efy: str, fund: str,
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.source = Source.RegionalAuthority
 		self.provider = provider
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fund
 		self.fields = [ 'RegionalAuthorityId',
-		                  'AllocationsId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'BocCode',
-		                  'BocName',
-		                  'Amount',
-		                  'NpmCode',
-		                  'NpmName' ]
-
+		                'AllocationsId',
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'BocCode',
+		                'BocName',
+		                'Amount',
+		                'NpmCode',
+		                'NpmName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7395,7 +7983,7 @@ class RegionalAuthority( Base ):
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = ( self.bfy, self.rpiocode )
+			_values = (self.bfy, self.rpiocode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7415,7 +8003,7 @@ class RegionalAuthority( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -7450,18 +8038,18 @@ class StatusOfFunds( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
 	carryover_in = Column( Numeric( ) )
@@ -7476,49 +8064,49 @@ class StatusOfFunds( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
-	def __init__( self, bfy: str, fund: str, provider: Provider=Provider.SQLite ):
+	budget_account_name = Column( String( 255 ) )
+	
+	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.StatusOfFunds
 		self.provider = provider
 		self.bfy = bfy
 		self.fundcode = fund
 		self.fields = [ 'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditure',
-		                  'Obligations',
-		                  'Used',
-		                  'Available',
-		                  'NpmCode',
-		                  'NpmName' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'LowerName',
+		                'Amount',
+		                'Budgeted',
+		                'Posted',
+		                'OpenCommitments',
+		                'UnliquidatedObligations',
+		                'Expenditure',
+		                'Obligations',
+		                'Used',
+		                'Available',
+		                'NpmCode',
+		                'NpmName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7536,7 +8124,7 @@ class StatusOfFunds( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7547,7 +8135,7 @@ class StatusOfFunds( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
@@ -7570,7 +8158,7 @@ class StatusOfFunds( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -7596,14 +8184,60 @@ class StatusOfBudgetaryResources( Base ):
     '''
 	__tablename__ = 'StatusOfBudgetaryResources'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, year: str, account: str, provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	last_update = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	beginning_period_of_availability = Column( String( 80 ) )
+	ending_period_of_availability = Column( String( 80 ) )
+	section_number = Column( String( 80 ) )
+	section_name = Column( String( 80 ) )
+	line_number = Column( String( 80 ) )
+	line_name = Column( String( 80 ) )
+	line_type = Column( String( 80 ) )
+	november = Column( Numeric( ) )
+	december = Column( Numeric( ) )
+	january = Column( Numeric( ) )
+	feburary = Column( Numeric( ) )
+	april = Column( Numeric( ) )
+	may = Column( Numeric( ) )
+	june = Column( Numeric( ) )
+	august = Column( Numeric( ) )
+	september = Column( Numeric( ) )
+	october = Column( Numeric( ) )
+	last_update = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	beginning_period_of_availability = Column( String( 80 ) )
+	ending_period_of_availability = Column( String( 80 ) )
+	section_number = Column( String( 80 ) )
+	section_name = Column( String( 80 ) )
+	line_number = Column( String( 80 ) )
+	line_name = Column( String( 80 ) )
+	november = Column( Numeric( ) )
+	december = Column( Numeric( ) )
+	january = Column( Numeric( ) )
+	feburary = Column( Numeric( ) )
+	march = Column( Numeric( ) )
+	may = Column( Numeric( ) )
+	june = Column( Numeric( ) )
+	july = Column( Numeric( ) )
+	august = Column( Numeric( ) )
+	september = Column( Numeric( ) )
+	october = Column( Numeric( ) )
+	last_update = Column( String( 80 ) )
+	
+	def __init__( self, year: str, account: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StatusOfBudgetaryResources
 		self.fiscalyear = year
 		self.budgetaccountcode = account
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7618,7 +8252,7 @@ class StatusOfBudgetaryResources( Base ):
 		         'september', 'october', 'november',
 		         'january', 'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7629,12 +8263,12 @@ class StatusOfBudgetaryResources( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7654,7 +8288,7 @@ class StatusOfBudgetaryResources( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -7680,13 +8314,20 @@ class StatusOfBudgetExecution( Base ):
     '''
 	__tablename__ = 'StatusOfBudgetExecution'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
+	linecaption = Column( String( 80 ) )
+	line_name = Column( String( 80 ) )
+	line_number = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	
+	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.StatusOfBudgetExecution
 		self.treasuryaccountcode = account
 		self.provider = provider
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7699,7 +8340,7 @@ class StatusOfBudgetExecution( Base ):
 		         'budget_accocunt_code', 'budget_account_name',
 		         'fields', 'data', 'frame',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7710,12 +8351,12 @@ class StatusOfBudgetExecution( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7735,7 +8376,7 @@ class StatusOfBudgetExecution( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -7770,33 +8411,50 @@ class StateGrantObligations( Base ):
     '''
 	__tablename__ = 'StatusOfGrantObligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, rpio: str, provider: Provider=Provider.SQLite ):
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 80 ) )
+	state_code = Column( String( 80 ) )
+	state_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	
+	def __init__( self, bfy: str, rpio: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.StateGrantObligations
 		self.provider = provider
 		self.bfy = bfy
 		self.rpiocode = rpio
 		self.fields = [ 'StateGrantObligationsId',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'FundCode',
-		                  'FundName',
-		                  'AhCode',
-		                  'AhName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'StateCode',
-		                  'StateName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'BocCode',
-		                  'BocName',
-		                  'Amount' ]
-
+		                'RpioCode',
+		                'RpioName',
+		                'FundCode',
+		                'FundName',
+		                'AhCode',
+		                'AhName',
+		                'OrgCode',
+		                'OrgName',
+		                'StateCode',
+		                'StateName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'BocCode',
+		                'BocName',
+		                'Amount' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7816,7 +8474,7 @@ class StateGrantObligations( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7827,12 +8485,12 @@ class StateGrantObligations( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = ( self.rpiocode, self.rpiocode )
+			_values = (self.rpiocode, self.rpiocode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7852,7 +8510,7 @@ class StateGrantObligations( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''Method returning pandas dataframe
         comprised of datatable data'''
@@ -7879,53 +8537,83 @@ class StatusOfSpecialAccountFunds( Base ):
      '''
 	__tablename__ = 'StatusOfSpecialAccountFunds'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy = None, fund = None, account = None, 
-	              provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	special_account_fund = Column( String( 80 ) )
+	special_account_number = Column( String( 80 ) )
+	special_account_name = Column( String( 80 ) )
+	account_status = Column( String( 80 ) )
+	npl_status_code = Column( String( 80 ) )
+	npl_status_name = Column( String( 80 ) )
+	site_code = Column( String( 80 ) )
+	site_name = Column( String( 80 ) )
+	operable_unit = Column( String( 80 ) )
+	pipeline_code = Column( String( 80 ) )
+	pipeline_description = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	transaction_type = Column( String( 80 ) )
+	transaction_typename = Column( String( 80 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 80 ) )
+	transaction_date = Column( String( 80 ) )
+	available_balance = Column( Numeric( ) )
+	open_commitments = Column( Numeric( ) )
+	obligations = Column( Numeric( ) )
+	ulo = Column( Numeric( ) )
+	disbursements = Column( Numeric( ) )
+	unpaid_balances = Column( Numeric( ) )
+	collections = Column( Numeric( ) )
+	cumulative_receipts = Column( Numeric( ) )
+	
+	
+	def __init__( self, bfy=None, fund=None, account=None,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StatusOfSpecialAccountFunds
 		self.bfy = bfy
 		self.fundcode = fund
 		self.__programcode = account
 		self.fields = [ 'SpecialAccountsId',
-		                  'BFY',
-		                  'RpioCode',
-		                  'FundCode',
-		                  'SpecialAccountFund',
-		                  'SpecialAccountNumber',
-		                  'SpecialAccountName',
-		                  'AccountStatus',
-		                  'NplStatusCode',
-		                  'NplStatusName',
-		                  'SiteId',
-		                  'CerclisId',
-		                  'SiteCode',
-		                  'SiteName',
-		                  'OperableUnit',
-		                  'PipelineCode',
-		                  'PipelineDescription',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'TransactionType',
-		                  'TransactionTypeName',
-		                  'FocCode',
-		                  'FocName',
-		                  'TransactionDate',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Disbursements',
-		                  'UnpaidBalances',
-		                  'Collections',
-		                  'CumulativeReceipts' ]
-
+		                'BFY',
+		                'RpioCode',
+		                'FundCode',
+		                'SpecialAccountFund',
+		                'SpecialAccountNumber',
+		                'SpecialAccountName',
+		                'AccountStatus',
+		                'NplStatusCode',
+		                'NplStatusName',
+		                'SiteId',
+		                'CerclisId',
+		                'SiteCode',
+		                'SiteName',
+		                'OperableUnit',
+		                'PipelineCode',
+		                'PipelineDescription',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'TransactionType',
+		                'TransactionTypeName',
+		                'FocCode',
+		                'FocName',
+		                'TransactionDate',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Disbursements',
+		                'UnpaidBalances',
+		                'Collections',
+		                'CumulativeReceipts' ]
+	
 	def __str__( self ) -> str:
 		if self.__sitecode is not None:
 			return self.__sitecode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -7933,7 +8621,7 @@ class StatusOfSpecialAccountFunds( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -7944,12 +8632,12 @@ class StatusOfSpecialAccountFunds( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.__programcode, self.__interestdate )
+			_values = (self.bfy, self.fundcode, self.__programcode, self.__interestdate)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -7969,7 +8657,7 @@ class StatusOfSpecialAccountFunds( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8004,23 +8692,23 @@ class SubAppropriation( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-
-	def __init__( self, bfy: str, efy: str, code: str, 
-	              provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, bfy: str, efy: str, code: str,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Appropriations
 		self.bfy = bfy
 		self.efy = efy
 		self.code = code
 		self.fields = [ 'SubAppropriationsId',
-		                  'Code',
-		                  'Name' ]
-
+		                'Code',
+		                'Name' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8028,7 +8716,7 @@ class SubAppropriation( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8039,12 +8727,12 @@ class SubAppropriation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code' ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8064,7 +8752,7 @@ class SubAppropriation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8097,22 +8785,22 @@ class StateOrganization( Base ):
 	id = Column( Integer( ), primary_key=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-
-	def __init__( self, code: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StateOrganizations
 		self.code = code
 		self.fields = [ 'StateOrganizationsId',
-		                  'Name',
-		                  'Code',
-		                  'RpioName',
-		                  'RpioCode' ]
-
+		                'Name',
+		                'Code',
+		                'RpioName',
+		                'RpioCode' ]
+	
 	def __str__( self ) -> str:
 		if self.code is not None:
 			return self.code
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8120,7 +8808,7 @@ class StateOrganization( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8131,12 +8819,12 @@ class StateOrganization( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'Code', ]
-			_values = ( self.code, )
+			_values = (self.code,)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8156,7 +8844,7 @@ class StateOrganization( Base ):
 			_exc.method = 'getdata( self ) '
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8187,72 +8875,127 @@ class StatusOfAppropriations( Base ):
     '''
 	__tablename__ = 'StatusOfAppropriations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, efy: str, fund: str, 
-	              provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	budget_level = Column( String( 80 ) )
+	appropriation_fund_code = Column( String( 80 ) )
+	appropriation_fund_name = Column( String( 80 ) )
+	availability = Column( String( 80 ) )
+	treasury_symbol = Column( String( 80 ) )
+	appropriation_creation_date = Column( String( 80 ) )
+	appropriation_code = Column( String( 80 ) )
+	subappropriation_code = Column( String( 80 ) )
+	appropriation_description = Column( String( 80 ) )
+	fund_group = Column( String( 80 ) )
+	fund_group_name = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	transtype = Column( String( 80 ) )
+	actual_recovery_transtype = Column( String( 80 ) )
+	commitment_spending_controlflag = Column( String( 80 ) )
+	agreement_limit = Column( String( 80 ) )
+	estimated_recoveries_transtype = Column( String( 80 ) )
+	reimbursment_transtype = Column( String( 80 ) )
+	expense_spending_controlflag = Column( String( 80 ) )
+	obligation_spending_controlflag = Column( String( 80 ) )
+	precommitment_spending_controlflag = Column( String( 80 ) )
+	posted_control_flag = Column( String( 80 ) )
+	posted_flag = Column( String( 80 ) )
+	record_carryover_lower_level = Column( String( 80 ) )
+	reimbursable_spending_option = Column( String( 80 ) )
+	recoveries_option = Column( String( 80 ) )
+	recoveries_spending_option = Column( String( 80 ) )
+	original_budgeted_amount = Column( Numeric( ) )
+	apportionments_posted = Column( Numeric( ) )
+	total_authority = Column( Numeric( ) )
+	total_budgeted = Column( Numeric( ) )
+	total_posted_amount = Column( Numeric( ) )
+	funds_withdrawn_amount = Column( Numeric( ) )
+	funding_in_amount = Column( Numeric( ) )
+	funding_out_amount = Column( Numeric( ) )
+	total_recoveries = Column( Numeric( ) )
+	total_actual_reimbursements = Column( Numeric( ) )
+	total_agreement_reimbursables = Column( Numeric( ) )
+	carryover_in = Column( Numeric( ) )
+	carryover_out = Column( Numeric( ) )
+	total_committed = Column( Numeric( ) )
+	total_estimated_recoveries = Column( Numeric( ) )
+	total_estimated_reimbursements = Column( Numeric( ) )
+	total_expenses = Column( Numeric( ) )
+	total_expenditure_expenses = Column( Numeric( ) )
+	total_expense_accruals = Column( Numeric( ) )
+	total_precommitments = Column( Numeric( ) )
+	unliquidated_precommitments = Column( Numeric( ) )
+	total_obligations = Column( Numeric( ) )
+	ulo = Column( Numeric( ) )
+	voided_amount = Column( Numeric( ) )
+	total_used = Column( Numeric( ) )
+	available_amount = Column( Numeric( ) )
+	
+	
+	def __init__( self, bfy: str, efy: str, fund: str,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StatusOfAppropriations
 		self.bfy = bfy
 		self.efy = efy
 		self.appropriationfundcode = fund
 		self.fields = [ 'StatusOfAppropriationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'BudgetLevel',
-		                  'AppropriationFundCode',
-		                  'AppropriationFundName',
-		                  'Availability',
-		                  'TreasurySymbol',
-		                  'AppropriationCreationDate',
-		                  'AppropriationCode',
-		                  'SubAppropriationCode',
-		                  'AppropriationDescription',
-		                  'FundGroup',
-		                  'FundGroupName',
-		                  'DocumentType',
-		                  'TransType',
-		                  'ActualRecoveryTransType',
-		                  'CommitmentSpendingControlFlag',
-		                  'AgreementLimit',
-		                  'EstimatedRecoveriesTransType',
-		                  'EstimatedReimbursmentsTransType',
-		                  'ExpenseSpendingControlFlag',
-		                  'ObligationSpendingControlFlag',
-		                  'PreCommitmentSpendingControlFlag',
-		                  'PostedControlFlag',
-		                  'PostedFlag',
-		                  'RecordCarryoverAtLowerLevel',
-		                  'ReimbursableSpendingOption',
-		                  'RecoveriesOption',
-		                  'RecoveriesSpendingOption',
-		                  'OriginalBudgetedAmount',
-		                  'ApportionmentsPosted',
-		                  'TotalAuthority',
-		                  'TotalBudgeted',
-		                  'TotalPostedAmount',
-		                  'FundsWithdrawnPriorYearsAmount',
-		                  'FundingInAmount',
-		                  'FundingOutAmount',
-		                  'TotalAccrualRecoveries',
-		                  'TotalActualReimbursements',
-		                  'TotalAgreementReimbursables',
-		                  'TotalCarriedForwardIn',
-		                  'TotalCarriedForwardOut',
-		                  'TotalCommitted',
-		                  'TotalEstimatedRecoveries',
-		                  'TotalEstimatedReimbursements',
-		                  'TotalExpenses',
-		                  'TotalExpenditureExpenses',
-		                  'TotalExpenseAccruals',
-		                  'TotalPreCommitments',
-		                  'UnliquidatedPreCommitments',
-		                  'TotalObligations',
-		                  'UnliquidatedObligations',
-		                  'VoidedAmount',
-		                  'TotalUsedAmount',
-		                  'AvailableAmount' ]
-
+		                'BFY',
+		                'EFY',
+		                'BudgetLevel',
+		                'AppropriationFundCode',
+		                'AppropriationFundName',
+		                'Availability',
+		                'TreasurySymbol',
+		                'AppropriationCreationDate',
+		                'AppropriationCode',
+		                'SubAppropriationCode',
+		                'AppropriationDescription',
+		                'FundGroup',
+		                'FundGroupName',
+		                'DocumentType',
+		                'TransType',
+		                'ActualRecoveryTransType',
+		                'CommitmentSpendingControlFlag',
+		                'AgreementLimit',
+		                'EstimatedRecoveriesTransType',
+		                'EstimatedReimbursmentsTransType',
+		                'ExpenseSpendingControlFlag',
+		                'ObligationSpendingControlFlag',
+		                'PreCommitmentSpendingControlFlag',
+		                'PostedControlFlag',
+		                'PostedFlag',
+		                'RecordCarryoverAtLowerLevel',
+		                'ReimbursableSpendingOption',
+		                'RecoveriesOption',
+		                'RecoveriesSpendingOption',
+		                'OriginalBudgetedAmount',
+		                'ApportionmentsPosted',
+		                'TotalAuthority',
+		                'TotalBudgeted',
+		                'TotalPostedAmount',
+		                'FundsWithdrawnPriorYearsAmount',
+		                'FundingInAmount',
+		                'FundingOutAmount',
+		                'TotalAccrualRecoveries',
+		                'TotalActualReimbursements',
+		                'TotalAgreementReimbursables',
+		                'TotalCarriedForwardIn',
+		                'TotalCarriedForwardOut',
+		                'TotalCommitted',
+		                'TotalEstimatedRecoveries',
+		                'TotalEstimatedReimbursements',
+		                'TotalExpenses',
+		                'TotalExpenditureExpenses',
+		                'TotalExpenseAccruals',
+		                'TotalPreCommitments',
+		                'UnliquidatedPreCommitments',
+		                'TotalObligations',
+		                'UnliquidatedObligations',
+		                'VoidedAmount',
+		                'TotalUsedAmount',
+		                'AvailableAmount' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8260,7 +9003,7 @@ class StatusOfAppropriations( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8271,12 +9014,12 @@ class StatusOfAppropriations( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'AppropriationFundCode', ]
-			_values = ( self.bfy, self.efy, self.appropriationfundcode )
+			_values = (self.bfy, self.efy, self.appropriationfundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8296,7 +9039,7 @@ class StatusOfAppropriations( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8327,46 +9070,75 @@ class SpendingRate( Base ):
     '''
 	__tablename__ = 'SpendingRates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, account: str, provider: Provider=Provider.SQLite ):
+	omb_agency_code = Column( String( 80 ) )
+	omb_agency_name = Column( String( 80 ) )
+	omb_bureau_code = Column( String( 80 ) )
+	omb_bureau_name = Column( String( 80 ) )
+	treausury_agency_code = Column( String( 80 ) )
+	treausury_account_code = Column( String( 80 ) )
+	treausury_account_name = Column( String( 80 ) )
+	account_title = Column( String( 80 ) )
+	subfunction = Column( String( 80 ) )
+	line = Column( String( 80 ) )
+	line_number = Column( String( 80 ) )
+	category = Column( String( 80 ) )
+	subcategory = Column( String( 80 ) )
+	subcategory_name = Column( String( 80 ) )
+	main_account = Column( String( 80 ) )
+	jurisdiction = Column( String( 80 ) )
+	year_of_authority = Column( String( 80 ) )
+	budget_authority = Column( Numeric( ) )
+	out_year_1 = Column( Numeric( ) )
+	out_year_2 = Column( Numeric( ) )
+	out_year_3 = Column( Numeric( ) )
+	out_year_4 = Column( Numeric( ) )
+	out_year_5 = Column( Numeric( ) )
+	out_year_6 = Column( Numeric( ) )
+	out_year_7 = Column( Numeric( ) )
+	out_year_8 = Column( Numeric( ) )
+	out_year_9 = Column( Numeric( ) )
+	out_year_10 = Column( Numeric( ) )
+	out_year_11 = Column( Numeric( ) )
+	total_spendout = Column( Numeric( ) )
+	
+	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.SpendingRates
 		self.budgetaccountcode = account
 		self.fields = [ 'SpendingRatesId',
-		                  'OmbAgencyCode',
-		                  'OmbAgencyName',
-		                  'OmbBureauCode',
-		                  'OmbBureauName',
-		                  'TreausuryAgencyCode',
-		                  'TreausuryAccountCode',
-		                  'TreausuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName',
-		                  'AccountTitle',
-		                  'Subfunction',
-		                  'Line',
-		                  'LineNumber',
-		                  'Category',
-		                  'Subcategory',
-		                  'SubcategoryName',
-		                  'AccountCode',
-		                  'Jurisdiction',
-		                  'YearOfAuthority',
-		                  'BudgetAuthority',
-		                  'OutYear1',
-		                  'OutYear2',
-		                  'OutYear3',
-		                  'OutYear4',
-		                  'OutYear5',
-		                  'OutYear6',
-		                  'OutYear7',
-		                  'OutYear8',
-		                  'OutYear9',
-		                  'OutYear10',
-		                  'OutYear11',
-		                  'TotalSpendout' ]
-
+		                'OmbAgencyCode',
+		                'OmbAgencyName',
+		                'OmbBureauCode',
+		                'OmbBureauName',
+		                'TreausuryAgencyCode',
+		                'TreausuryAccountCode',
+		                'TreausuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName',
+		                'AccountTitle',
+		                'Subfunction',
+		                'Line',
+		                'LineNumber',
+		                'Category',
+		                'Subcategory',
+		                'SubcategoryName',
+		                'AccountCode',
+		                'Jurisdiction',
+		                'YearOfAuthority',
+		                'BudgetAuthority',
+		                'OutYear1',
+		                'OutYear2',
+		                'OutYear3',
+		                'OutYear4',
+		                'OutYear5',
+		                'OutYear6',
+		                'OutYear7',
+		                'OutYear8',
+		                'OutYear9',
+		                'OutYear10',
+		                'OutYear11',
+		                'TotalSpendout' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8380,11 +9152,11 @@ class SpendingRate( Base ):
 		         'subcategory', 'subfunction', 'category',
 		         'line_number', 'line_name', 'year_of_authority',
 		         'budget_authority', 'out_year_1', 'out_year_2', 'out_year_3',
-				 'out_year_4', 'out_year_5', 'out_year_6',
-				 'out_year_7', 'out_year_8', 'out_year_9',
-				 'out_year_10', 'out_year_11', 'total_spendout',
+		         'out_year_4', 'out_year_5', 'out_year_6',
+		         'out_year_7', 'out_year_8', 'out_year_9',
+		         'out_year_10', 'out_year_11', 'total_spendout',
 		         'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8395,13 +9167,13 @@ class SpendingRate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_command = SQL.SELECTALL
 			_names = [ 'BudgetAccountCode', ]
-			_values = ( self.budgetaccountcode,)
+			_values = (self.budgetaccountcode,)
 			_db = DataBuilder( _source, _provider, _command, _names, _values )
 			self.data = [ i for i in _db.createtable( ) ]
 			return [ i for i in self.data ]
@@ -8412,7 +9184,7 @@ class SpendingRate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8448,18 +9220,18 @@ class StatusOfSupplementalFunds( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
 	carryover_in = Column( Numeric( ) )
@@ -8473,52 +9245,52 @@ class StatusOfSupplementalFunds( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
-	def __init__( self, bfy: str, efy: str, fund: str, 
-	              provider: Provider=Provider.SQLite ):
+	budget_account_name = Column( String( 255 ) )
+	
+	def __init__( self, bfy: str, efy: str, fund: str,
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StatusOfSupplementalFunding
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fund
 		self.fields = [ 'StatusOfSupplementalFundsId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditure',
-		                  'Obligations',
-		                  'Used',
-		                  'Available',
-		                  'NpmCode',
-		                  'NpmName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'RcCode',
+		                'RcName',
+		                'LowerName',
+		                'Amount',
+		                'Budgeted',
+		                'Posted',
+		                'OpenCommitments',
+		                'UnliquidatedObligations',
+		                'Expenditure',
+		                'Obligations',
+		                'Used',
+		                'Available',
+		                'NpmCode',
+		                'NpmName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8536,7 +9308,7 @@ class StatusOfSupplementalFunds( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8547,12 +9319,12 @@ class StatusOfSupplementalFunds( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8572,7 +9344,7 @@ class StatusOfSupplementalFunds( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8609,18 +9381,18 @@ class StatusOfJobsActFunding( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
 	carryover_in = Column( Numeric( ) )
@@ -8634,62 +9406,61 @@ class StatusOfJobsActFunding( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
-
+	budget_account_name = Column( String( 255 ) )
+	
 	def __init__( self, bfy: str, efy: str, fundcode: str,
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fundcode
 		self.provider = provider
 		self.source = Source.StatusOfJobsActFunding
 		self.fields = [ 'StatusOfJobsActFundingId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'RcCode',
-		                  'RcName',
-		                  'LowerName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditure',
-		                  'Obligations',
-		                  'Used',
-		                  'Available',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'NpmCode',
+		                'NpmName',
+		                'RcCode',
+		                'RcName',
+		                'LowerName',
+		                'Amount',
+		                'Budgeted',
+		                'Posted',
+		                'OpenCommitments',
+		                'UnliquidatedObligations',
+		                'Expenditure',
+		                'Obligations',
+		                'Used',
+		                'Available',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ) -> str:
 		if self.fundname is not None:
 			return self.fundname
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8707,7 +9478,7 @@ class StatusOfJobsActFunding( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8718,12 +9489,12 @@ class StatusOfJobsActFunding( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8743,7 +9514,7 @@ class StatusOfJobsActFunding( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -8778,21 +9549,21 @@ class StatusOfEarmarks( Base ):
 	bfy = Column( String( 80 ) )
 	efy = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 150 ) )
+	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 150 ) )
+	rpio_name = Column( String( 255 ) )
 	ah_code = Column( String( 80 ) )
-	ah_name = Column( String( 150 ) )
+	ah_name = Column( String( 255 ) )
 	account_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	org_name = Column( String( 155 ) )
 	boc_code = Column( String( 80 ) )
-	boc_name = Column( String( 150 ) )
+	boc_name = Column( String( 255 ) )
 	rc_code = Column( String( 25 ) )
-	rc_name = Column( String( 150 ) )
+	rc_name = Column( String( 255 ) )
 	budgeted = Column( Numeric( ) )
 	posted = Column( Numeric( ) )
-	carryover_in = Column(  Numeric( ) )
+	carryover_in = Column( Numeric( ) )
 	carryover_out = Column( Numeric( ) )
 	estimated_reimbursements = Column( Numeric( ) )
 	estimated_recoveries = Column( Numeric( ) )
@@ -8803,60 +9574,59 @@ class StatusOfEarmarks( Base ):
 	program_area_code = Column( String( 25 ) )
 	program_area_name = Column( String( 255 ) )
 	treasury_account_code = Column( String( 80 ) )
-	treasury_account_name = Column( String( 150 ) )
+	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
-	budget_account_name = Column( String( 150 ) )
-
-
+	budget_account_name = Column( String( 255 ) )
+	
 	def __init__( self, bfy: str, efy: str,
-	              fundcode: str, provider: Provider=Provider.SQLite ):
+	              fundcode: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.efy = efy
 		self.fundcode = fundcode
 		self.provider = provider
 		self.source = Source.StatusOfEarmarks
 		self.fields = [ 'StatusOfEarmarksId',
-		                  'StatusOfFundsId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'BocCode',
-		                  'BocName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'RcCode',
-		                  'RcName',
-		                  'StateCode',
-		                  'ZipCode'
-		                  'StateName',
-		                  'Amount',
-		                  'Budgeted',
-		                  'Posted',
-		                  'OpenCommitments',
-		                  'UnliquidatedObligations',
-		                  'Expenditures',
-		                  'Obligations',
-		                  'Used',
-		                  'Available' 
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'StatusOfFundsId',
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'BocCode',
+		                'BocName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'NpmCode',
+		                'NpmName',
+		                'RcCode',
+		                'RcName',
+		                'StateCode',
+		                'ZipCode'
+		                'StateName',
+		                'Amount',
+		                'Budgeted',
+		                'Posted',
+		                'OpenCommitments',
+		                'UnliquidatedObligations',
+		                'Expenditures',
+		                'Obligations',
+		                'Used',
+		                'Available'
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8876,7 +9646,7 @@ class StatusOfEarmarks( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -8887,12 +9657,12 @@ class StatusOfEarmarks( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -8912,7 +9682,7 @@ class StatusOfEarmarks( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -8947,45 +9717,49 @@ class StatusOfSuperfundSites( Base ):
     '''
 	__tablename__ = 'StatusOfSuperfundSites'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	city = Column( String( 80 ) )
+	state = Column( String( 80 ) )
+	site_project_name = Column( String( 80 ) )
+	
 	def __init__( self, bfy: str, efy: str, rpio: str,
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.StatusOfSuperfundSites
 		self.bfy = bfy
 		self.efy = efy
 		self.rpiocode = super( ).code
 		self.fields = [ 'SiteActivityId',
-		                  'FiscalYear',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'FundCode',
-		                  'FundName',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'SiteId',
-		                  'SiteName',
-		                  'CityName',
-		                  'StreetAddres',
-		                  'ZipCode',
-		                  'CountyName',
-		                  'StateName',
-		                  'Obligations',
-		                  'Deobligations',
-		                  'Expenditures' 
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName' ]
-
+		                'FiscalYear',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'FundCode',
+		                'FundName',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'SiteId',
+		                'SiteName',
+		                'CityName',
+		                'StreetAddres',
+		                'ZipCode',
+		                'CountyName',
+		                'StateName',
+		                'Obligations',
+		                'Deobligations',
+		                'Expenditures'
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName' ]
+	
 	def __str__( self ):
 		if self.__sitename is not None:
 			return self.__sitename
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9005,7 +9779,7 @@ class StatusOfSuperfundSites( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9016,12 +9790,12 @@ class StatusOfSuperfundSites( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'RpioCode' ]
-			_values = ( self.bfy, self.rpiocode )
+			_values = (self.bfy, self.rpiocode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9041,7 +9815,7 @@ class StatusOfSuperfundSites( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -9073,10 +9847,10 @@ class SpendingDocument( Base ):
     '''
 	__tablename__ = 'SpendingDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
+	
+	
 	def __init__( self, bfy: str, efy: str, fund: str, account: str,
-	              boc: str, provider: Provider=Provider.SQLite ):
+	              boc: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Obligations
 		self.bfy = bfy
@@ -9085,45 +9859,45 @@ class SpendingDocument( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Expenditures' ]
-
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Expenditures' ]
+	
 	def __str__( self ) -> float:
 		if self.amount is not None:
 			return self.amount
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9131,7 +9905,7 @@ class SpendingDocument( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9142,12 +9916,12 @@ class SpendingDocument( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9167,7 +9941,7 @@ class SpendingDocument( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -9204,46 +9978,46 @@ class SupplementalCarryoverEstimate( Base ):
 	efy = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
-	fund_name = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
 	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
 	amount = Column( Numeric( ) )
 	open_commitments = Column( Numeric( ) )
 	obligations = Column( Numeric( ) )
-	available = Column(  Numeric( ) )
+	available = Column( Numeric( ) )
 	estimate = Column( Numeric( ) )
-
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.SupplementalCarryoverEstimates
 		self.bfy = bfy
 		self.fields = [ 'CarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.rpiocode is not None:
 			return self.rpiocode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9251,7 +10025,7 @@ class SupplementalCarryoverEstimate( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9262,12 +10036,12 @@ class SupplementalCarryoverEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9287,7 +10061,7 @@ class SupplementalCarryoverEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -9318,38 +10092,38 @@ class SupplementalObligationEstimate( Base ):
     '''
 	__tablename__ = 'SupplementalObligationEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.SupplementalCarryoverEstimates
 		self.bfy = bfy
 		self.fields = [ 'CarryoverEstimatesId',
-		                  'BudgetLevel',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'BocCode',
-		                  'BocName',
-		                  'AvailableBalance',
-		                  'OpenCommitments',
-		                  'UnobligatedAuthority' ]
-
+		                'BudgetLevel',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'BocCode',
+		                'BocName',
+		                'AvailableBalance',
+		                'OpenCommitments',
+		                'UnobligatedAuthority' ]
+	
 	def __str__( self ) -> str:
 		if self.rpiocode is not None:
 			return self.rpiocode
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9357,7 +10131,7 @@ class SupplementalObligationEstimate( Base ):
 
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9368,12 +10142,12 @@ class SupplementalObligationEstimate( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'EFY' ]
-			_values = ( self.bfy, self.efy)
+			_values = (self.bfy, self.efy)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9393,7 +10167,7 @@ class SupplementalObligationEstimate( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -9426,31 +10200,31 @@ class TreasurySymbol( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-
+	
+	
 	def __init__( self, bfy: str, efy: str, account: str,
-	              provider: Provider=Provider.SQLite ):
+	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.__soruce = Source.FundSymbols
 		self.bfy = bfy
 		self.efy = efy
 		self.treasuryaccountcode = account
 		self.fields = [ 'TreasurySymbolsId',
-		                  'BFY',
-		                  'EFY',
-		                  'FundCode',
-		                  'FundName',
-		                  'MainAccount',
-		                  'TreasuryAccountCode',
-		                  'TreasuryAccountName',
-		                  'BudgetAccountCode',
-		                  'BudgetAccountName',
-		                  'ApportionmentAccountCode' ]
-
+		                'BFY',
+		                'EFY',
+		                'FundCode',
+		                'FundName',
+		                'MainAccount',
+		                'TreasuryAccountCode',
+		                'TreasuryAccountName',
+		                'BudgetAccountCode',
+		                'BudgetAccountName',
+		                'ApportionmentAccountCode' ]
+	
 	def __str__( self ) -> str:
 		if self.treasuryaccountname is not None:
 			return self.treasuryaccountname
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9462,7 +10236,7 @@ class TreasurySymbol( Base ):
 		         'treasury_account_name', 'budget_account_code',
 		         'budget_account_name', 'fields', 'data',
 		         'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9473,13 +10247,13 @@ class TreasurySymbol( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			command = SQL.SELECTALL
 			_names = [ 'BFY', 'EFY', 'TreasuryAccountCode' ]
-			_values = ( self.bfy, self.efy, self.treasuryaccountcode )
+			_values = (self.bfy, self.efy, self.treasuryaccountcode)
 			dbcfg = DbConfig( _source, _provider )
 			sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9499,7 +10273,7 @@ class TreasurySymbol( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
@@ -9530,71 +10304,103 @@ class Transfer( Base ):
      '''
 	__tablename__ = 'Transfers'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, documentnumber: str, provider: Provider=Provider.SQLite ):
+	budget_level = Column( String( 80 ) )
+	doc_prefix = Column( String( 80 ) )
+	doc_type = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	reprogramming_number = Column( String( 80 ) )
+	control_number = Column( String( 80 ) )
+	processed_date = Column( String( 80 ) )
+	quarter = Column( String( 80 ) )
+	line = Column( String( 80 ) )
+	subline = Column( String( 80 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	program_area_code = Column( String( 80 ) )
+	program_area_name = Column( String( 80 ) )
+	program_project_name = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	from_to = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	npm_code = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	resource_type = Column( String( 80 ) )
+	purpose = Column( String( 80 ) )
+	extended_purpose = Column( String( 80 ) )
+	
+	def __init__( self, documentnumber: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Transfers
 		self.documentnumber = documentnumber
 		self.fields = [ 'TransfersId',
-		                  'BudgetLevel',
-		                  'DocPrefix',
-		                  'DocType',
-		                  'BFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'FundCode',
-		                  'FundName',
-		                  'ReprogrammingNumber',
-		                  'ControlNumber',
-		                  'ProcessedDate',
-		                  'Quarter',
-		                  'Line',
-		                  'Subline',
-		                  'AhCode',
-		                  'AhName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'RcCode',
-		                  'RcName',
-		                  'AccountCode',
-		                  'ProgramAreaCode',
-		                  'ProgramAreaName',
-		                  'ProgramProjectName',
-		                  'ProgramProjectCode',
-		                  'FromTo',
-		                  'BocCode',
-		                  'BocName',
-		                  'NpmCode',
-		                  'Amount',
-		                  'ResourceType',
-		                  'Purpose',
-		                  'ExtendedPurpose' ]
-
+		                'BudgetLevel',
+		                'DocPrefix',
+		                'DocType',
+		                'BFY',
+		                'RpioCode',
+		                'RpioName',
+		                'FundCode',
+		                'FundName',
+		                'ReprogrammingNumber',
+		                'ControlNumber',
+		                'ProcessedDate',
+		                'Quarter',
+		                'Line',
+		                'Subline',
+		                'AhCode',
+		                'AhName',
+		                'OrgCode',
+		                'OrgName',
+		                'RcCode',
+		                'RcName',
+		                'AccountCode',
+		                'ProgramAreaCode',
+		                'ProgramAreaName',
+		                'ProgramProjectName',
+		                'ProgramProjectCode',
+		                'FromTo',
+		                'BocCode',
+		                'BocName',
+		                'NpmCode',
+		                'Amount',
+		                'ResourceType',
+		                'Purpose',
+		                'ExtendedPurpose' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
-
+	
 		:return: a list[ str ] of object members
-
+	
 		'''
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
-
-        :return: list[ Row ]
-
-        :param: self
-
+	
+		:return: list[ Row ]
+	
+		:param: self
+	
 		:purpose:
-
-        '''
-
+	
+		'''
+		
 		try:
 			_source = self.source
 			command = SQL.SELECTALL
 			_names = [ 'DocumentNumber', ]
-			_values = ( self.documentnumber,)
+			_values = (self.documentnumber,)
 			_dbconfig = DbConfig( _source )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9614,15 +10420,15 @@ class Transfer( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
-        Purpose:
-
-        Parameters:
-
-        Returns:
-        '''
+		Purpose:
+	
+		Parameters:
+	
+		Returns:
+		'''
 		try:
 			_source = self.source
 			_data = BudgetData( _source )
@@ -9647,30 +10453,30 @@ class TransType( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-
-
-	def __init__( self, bfy: str, fundcode: str, provider: Provider=Provider.SQLite ):
+	
+	
+	def __init__( self, bfy: str, fundcode: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.TransTypes
 		self.bfy = bfy
 		self.fundcode = fundcode
 		self.fields = [ 'TransTypesId',
-		                  'FundCode',
-		                  'Appropriation',
-		                  'BFY',
-		                  'EFY',
-		                  'TreasurySymbol',
-		                  'DocType',
-		                  'AppropriationBill',
-		                  'ContinuingResolution',
-		                  'RescissionCurrentYear',
-		                  'RescissionPriorYear',
-		                  'SequesterReduction',
-		                  'SequesterReturn' ]
-
+		                'FundCode',
+		                'Appropriation',
+		                'BFY',
+		                'EFY',
+		                'TreasurySymbol',
+		                'DocType',
+		                'AppropriationBill',
+		                'ContinuingResolution',
+		                'RescissionCurrentYear',
+		                'RescissionPriorYear',
+		                'SequesterReduction',
+		                'SequesterReturn' ]
+	
 	def __dir__( self ) -> list[ str ]:
 		return [ 'id', 'fields', 'data', 'frame', 'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9681,12 +10487,12 @@ class TransType( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode' ]
-			_values = ( self.bfy, self.fundcode )
+			_values = (self.bfy, self.fundcode)
 			_dbconfig = DbConfig( _source, _provider )
 			_sqlconfig = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9706,7 +10512,7 @@ class TransType( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
 
@@ -9742,10 +10548,45 @@ class UnliquidatedObligation( Base ):
     '''
 	__tablename__ = 'UnliquidatedObligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-
-
-	def __init__( self, bfy: str, efy: str, fund: str, account: str=None,
-	              boc: str=None, provider: Provider=Provider.SQLite ):
+	bfy = Column( String( 80 ) )
+	efy = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	org_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 80 ) )
+	rc_code = Column( String( 80 ) )
+	rc_name = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	document_number = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	reference_document_number = Column( String( 80 ) )
+	processed_date = Column( DateOnly )
+	last_activity_date = Column( DateOnly )
+	age = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	foc_code = Column( String( 80 ) )
+	foc_name = Column( String( 80 ) )
+	npm_code = Column( String( 80 ) )
+	npm_name = Column( String( 80 ) )
+	vendor_code = Column( String( 80 ) )
+	vendor_name = Column( String( 80 ) )
+	amount = Column( Numeric( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
+	
+	
+	def __init__( self, bfy: str, efy: str, fund: str, account: str = None,
+	              boc: str = None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.UnliquidatedObligations
 		self.bfy = bfy
@@ -9753,46 +10594,46 @@ class UnliquidatedObligation( Base ):
 		self.accountcode = account
 		self.boccode = boc
 		self.fields = [ 'UnliquidatedObligationsId'
-		                  'ObligationsId',
-		                  'BFY',
-		                  'EFY',
-		                  'RpioCode',
-		                  'RpioName',
-		                  'AhCode',
-		                  'AhName',
-		                  'FundCode',
-		                  'FundName',
-		                  'OrgCode',
-		                  'OrgName',
-		                  'AccountCode',
-		                  'ProgramProjectCode',
-		                  'ProgramProjectName',
-		                  'RcCode',
-		                  'RcName',
-		                  'DocumentType',
-		                  'DocumentNumber',
-		                  'DocumentControlNumber',
-		                  'ReferenceDocumentNumber',
-		                  'ProcessedDate',
-		                  'LastActivityDate',
-		                  'Age',
-		                  'BocCode',
-		                  'BocName',
-		                  'FocCode',
-		                  'FocName',
-		                  'NpmCode',
-		                  'NpmName',
-		                  'VendorCode',
-		                  'VendorName',
-		                  'OpenCommitments',
-		                  'Obligations',
-		                  'UnliquidatedObligations',
-		                  'Expenditures' ]
-
+		                'ObligationsId',
+		                'BFY',
+		                'EFY',
+		                'RpioCode',
+		                'RpioName',
+		                'AhCode',
+		                'AhName',
+		                'FundCode',
+		                'FundName',
+		                'OrgCode',
+		                'OrgName',
+		                'AccountCode',
+		                'ProgramProjectCode',
+		                'ProgramProjectName',
+		                'RcCode',
+		                'RcName',
+		                'DocumentType',
+		                'DocumentNumber',
+		                'DocumentControlNumber',
+		                'ReferenceDocumentNumber',
+		                'ProcessedDate',
+		                'LastActivityDate',
+		                'Age',
+		                'BocCode',
+		                'BocName',
+		                'FocCode',
+		                'FocName',
+		                'NpmCode',
+		                'NpmName',
+		                'VendorCode',
+		                'VendorName',
+		                'OpenCommitments',
+		                'Obligations',
+		                'UnliquidatedObligations',
+		                'Expenditures' ]
+	
 	def __str__( self ) -> str:
 		if self.amount is not None:
 			return self.amount
-
+	
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -9812,7 +10653,7 @@ class UnliquidatedObligation( Base ):
 		         'budget_account_code', 'budget_account_name',
 		         'data', 'fields',
 		         'getdata', 'getframe' ]
-
+	
 	def getdata( self ) -> list[ Row ]:
 		'''
 
@@ -9823,12 +10664,12 @@ class UnliquidatedObligation( Base ):
 		:purpose:
 
         '''
-
+		
 		try:
 			_source = self.source
 			_provider = self.provider
 			_names = [ 'BFY', 'FundCode', 'AccountCode', 'BocCode' ]
-			_values = ( self.bfy, self.fundcode, self.accountcode, self.boccode )
+			_values = (self.bfy, self.fundcode, self.accountcode, self.boccode)
 			_dbcfg = DbConfig( _source, _provider )
 			_sqlcfg = SqlConfig( _names, _values )
 			_connection = Connection( self.source )
@@ -9848,7 +10689,7 @@ class UnliquidatedObligation( Base ):
 			_exc.method = 'getdata( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
-
+	
 	def getframe( self ) -> DataFrame:
 		'''
         Purpose:
