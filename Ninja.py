@@ -50,6 +50,8 @@ from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from Data import (DbConfig, SqlConfig, Connection, SqlStatement,
                   BudgetData, DataBuilder )
+from sqlalchemy import ( MetaData, Table, Column, Integer, Numeric,
+                        String, Float, DateTime, ForeignKey, create_engine, select, text )
 from sqlalchemy.orm import ( Session, sessionmaker, DeclarativeBase, Mapped,
                              mapped_column, registry )
 from sqlalchemy.ext.declarative import declarative_base
@@ -287,8 +289,8 @@ class AdjustedTrialBalance( Base ):
 	main_account = Column( String( 80 ) )
 	subaccount = Column( String( 80 ) )
 	treasury_symbol = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	ledger_account = Column( String( 80 ) )
@@ -407,7 +409,7 @@ class AllowanceHolder( Base ):
     '''
 	__tablename__ = 'AllowanceHolders'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 25 ) )
+	bfy = Column( String( 10 ) )
 	code = Column( String( 55 ) )
 	name = Column( String( 55 ) )
 	earmark_flag = Column( String( 50 ) )
@@ -507,8 +509,8 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'AmericanRescuePlanCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
@@ -630,8 +632,8 @@ class AnnualCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'AnnualCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
@@ -754,8 +756,8 @@ class AnnualReimbursableEstimate( Base ):
     Class defining object representing reimbursable estimates'''
 	__tablename__ = 'AnnualReimbursableEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	rpio_code = Column( String( 80 ) )
 	rpio_name = Column( String( 255 ) )
@@ -968,8 +970,8 @@ class AppropriationAvailableBalance( Base ):
     '''
 	__tablename__ = 'AppropriationAvailableBalances'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	original_amount = Column( Float( ) )
@@ -1098,8 +1100,8 @@ class AppropriationLevelAuthority( Base ):
     '''
 	__tablename__ = 'AppropriationLevelAuthority'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	budget_level = Column( String( 10 ) )
@@ -1230,8 +1232,8 @@ class Allocation( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -1385,8 +1387,8 @@ class ApportionmentData( Base ):
 	__tablename__ = 'ApportionmentData'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	fiscal_year = Column( String( 25 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	main_account = Column( String( 80 ) )
 	treasury_account_code = Column( String( 80 ) )
 	treasury_account_name = Column( String( 255 ) )
@@ -1511,8 +1513,8 @@ class Actual( Base ):
     '''
 	__tablename__ = 'Actuals'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	subappropriation_code = Column( String( 80 ) )
@@ -1772,8 +1774,8 @@ class AppropriationDocument( Base ):
 	__tablename__ = 'AppropriationDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	fiscal_year = Column( String( 10 ) )
-	bfy = Column( String( 25 ) )
-	efy = Column( String( 25 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	appropriation = Column( String( 80 ) )
 	document_type = Column( String( 80 ) )
@@ -1929,8 +1931,8 @@ class BudgetDocument( Base ):
     '''
 	__tablename__ = 'BudgetDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	budget_level = Column( String( 10 ) )
@@ -2373,8 +2375,8 @@ class BudgetFiscalYear( Base ):
     '''
 	__tablename__ = 'BudgetFiscalYears'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	start_date = Column( String( 80 ) )
 	end_date = Column( String( 80 ) )
 	columbus = Column( String( 80 ) )
@@ -2613,6 +2615,9 @@ class BudgetaryResourceExecution( Base ):
     '''
 	__tablename__ = 'BudgetaryResourceExecution'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	fiscal_year = Column( String( 25 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	
 	
 	def __init__( self, bfy: str, efy: str,
@@ -2848,8 +2853,8 @@ class CongressionalProject( Base ):
 	'''
 	__tablename__ = 'CongressionalProjects'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
 	name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -2961,8 +2966,8 @@ class CompassLevel( Base ):
 	__tablename__ = 'CompassLevels'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
 	appropriation_code = Column( String( 80 ) )
@@ -3122,10 +3127,10 @@ class Commitment( Base ):
     '''
 	__tablename__ = 'Commitments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -3658,10 +3663,10 @@ class Defacto( Base ):
 	__tablename__ = 'Defactos'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -3809,9 +3814,9 @@ class Deobligation( Base ):
     '''
 	__tablename__ = 'Deobligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -3946,7 +3951,7 @@ class DocumentControlNumber( Base ):
 	__tablename__ = 'DocumentControlNumbers'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	document_type = Column( String( 80 ) )
 	document_number = Column( String( 80 ) )
 	document_prefix = Column( String( 80 ) )
@@ -4040,10 +4045,10 @@ class Expenditure( Base ):
     '''
 	__tablename__ = 'Expenditures'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -4307,8 +4312,8 @@ class Fund( Base ):
     '''
 	__tablename__ = 'Funds'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	status = Column( String( 80 ) )
@@ -4450,7 +4455,7 @@ class FederalHoliday( Base ):
     '''
 	__tablename__ = 'FederalHolidays'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
 	columbus = Column( String( 80 ) )
 	veterans = Column( String( 80 ) )
 	thanksgiving = Column( String( 80 ) )
@@ -4901,8 +4906,8 @@ class FullTimeEquivalent( Base ):
 	__tablename__ = 'FullTimeEquivalents'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -5061,8 +5066,8 @@ class GeneralLedgerAccount( Base ):
     '''
 	__tablename__ = 'GeneralLedgerAccounts'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
 	treasury_symbol = Column( String( 80 ) )
@@ -5268,8 +5273,8 @@ class HeadquartersAuthority( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -5503,13 +5508,13 @@ class InflationReductionActCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'InflationReductionActCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
 	treasury_account_code = Column( String( 80 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	amount = Column( Float( ) )
 	open_commitments = Column( Float( ) )
 	obligations = Column( Float( ) )
@@ -5819,8 +5824,8 @@ class MonthlyActual( Base ):
     '''
 	__tablename__ = 'MonthlyActuals'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	appropriation_code = Column( String( 80 ) )
 	appropriation_name = Column( String( 155 ) )
 	subappropriation_code = Column( String( 80 ) )
@@ -6373,9 +6378,9 @@ class OperatingPlan( Base ):
 	__tablename__ = 'OperatingPlans'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	ah_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
@@ -6504,10 +6509,10 @@ class OpenCommitment( Base ):
     '''
 	__tablename__ = 'OpenCommitments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -6670,10 +6675,10 @@ class Obligation( Base ):
     Purpose:  Class defines object providing Obligation data'''
 	__tablename__ = 'Obligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
@@ -6844,17 +6849,17 @@ class OutlayRate( Base ):
 	budget_account_name = Column( String( 80 ) )
 	category = Column( String( 80 ) )
 	baseline = Column( String( 80 ) )
-	year1 = Column( Float( ) )
-	year2 = Column( Float( ) )
-	year3 = Column( Float( ) )
-	year4 = Column( Float( ) )
-	year5 = Column( Float( ) )
-	year6 = Column( Float( ) )
-	year7 = Column( Float( ) )
-	year8 = Column( Float( ) )
-	year9 = Column( Float( ) )
-	year10 = Column( Float( ) )
-	year11 = Column( Float( ) )
+	year_1 = Column( Float( ) )
+	year_2 = Column( Float( ) )
+	year_3 = Column( Float( ) )
+	year_4 = Column( Float( ) )
+	year_5 = Column( Float( ) )
+	year_6 = Column( Float( ) )
+	year_7 = Column( Float( ) )
+	year_8 = Column( Float( ) )
+	year_9 = Column( Float( ) )
+	year_10 = Column( Float( ) )
+	year_11 = Column( Float( ) )
 	
 	def __init__( self, account: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -7766,7 +7771,7 @@ class ReimbursableAgreement( Base ):
 	__tablename__ = 'ReimbursableAgreements'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	rpio = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	agreement_number = Column( String( 80 ) )
 	start_date = Column( String( 80 ) )
@@ -7889,8 +7894,8 @@ class RegionalAuthority( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -8037,8 +8042,8 @@ class StatusOfFunds( Base ):
 	__tablename__ = 'StatusOfFunds'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -8186,8 +8191,8 @@ class StatusOfBudgetaryResources( Base ):
     '''
 	__tablename__ = 'StatusOfBudgetaryResources'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	last_update = Column( String( 80 ) )
 	budget_account_name = Column( String( 80 ) )
 	budget_account_code = Column( String( 80 ) )
@@ -8210,7 +8215,7 @@ class StatusOfBudgetaryResources( Base ):
 	september = Column( Float( ) )
 	october = Column( Float( ) )
 	last_update = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	treasury_account_name = Column( String( 80 ) )
 	budget_account_name = Column( String( 80 ) )
@@ -8413,6 +8418,8 @@ class StateGrantObligations( Base ):
     '''
 	__tablename__ = 'StatusOfGrantObligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
 	rpio_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -8539,7 +8546,7 @@ class StatusOfSpecialAccountFunds( Base ):
      '''
 	__tablename__ = 'StatusOfSpecialAccountFunds'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	special_account_fund = Column( String( 80 ) )
@@ -8877,8 +8884,8 @@ class StatusOfAppropriations( Base ):
     '''
 	__tablename__ = 'StatusOfAppropriations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	budget_level = Column( String( 80 ) )
 	appropriation_fund_code = Column( String( 80 ) )
 	appropriation_fund_name = Column( String( 80 ) )
@@ -9219,8 +9226,8 @@ class StatusOfSupplementalFunds( Base ):
 	id = Column( Integer( ), primary_key=True, index=True )
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -9380,8 +9387,8 @@ class StatusOfJobsActFunding( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False )
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -9548,8 +9555,8 @@ class StatusOfEarmarks( Base ):
 	__tablename__ = 'StatusOfEarmarks'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	budget_level = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -9719,11 +9726,28 @@ class StatusOfSuperfundSites( Base ):
     '''
 	__tablename__ = 'StatusOfSuperfundSites'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	fiscal_year = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
-	city = Column( String( 80 ) )
-	state = Column( String( 80 ) )
-	site_project_name = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	city_name = Column( String( 80 ) )
+	county_name = Column( String( 80 ) )
+	state_code = Column( String( 10 ) )
+	state_name = Column( String( 80 ) )
+	site_project_code = Column( String( 80 ) )
+	site_project_name = Column( String( 155 ) )
+	site_id = Column( String( 80 ) )
+	site_name = Column( String( 155 ) )
+	open_commitments = Column( Float( ) )
+	obligations = Column( Float( ) )
+	unliquidated_obligations = Column( Float( ) )
+	expenditures = Column( Float( ) )
 	
 	def __init__( self, bfy: str, efy: str, rpio: str,
 	              provider: Provider = Provider.SQLite ):
@@ -9849,7 +9873,34 @@ class SpendingDocument( Base ):
     '''
 	__tablename__ = 'SpendingDocuments'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	
+	fiscal_year = Column( String( 10 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
+	ah_name = Column( String( 80 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	activity_code = Column( String( 10 ) )
+	program_project_code = Column( String( 80 ) )
+	program_project_name = Column( String( 80 ) )
+	program_area_code = Column( String( 80 ) )
+	program_area_name = Column( String( 80 ) )
+	document_type = Column( String( 80 ) )
+	document_control_number = Column( String( 80 ) )
+	purchase_request_number = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	boc_name = Column( String( 80 ) )
+	open_commitments = Column( Float( ) )
+	obligations = Column( Float( ) )
+	unliquidated_obligations = Column( Float( ) )
+	expenditures = Column( Float( ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 80 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 80 ) )
 	
 	def __init__( self, bfy: str, efy: str, fund: str, account: str,
 	              boc: str, provider: Provider = Provider.SQLite ):
@@ -9976,8 +10027,8 @@ class SupplementalCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'SupplementalCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
@@ -10094,6 +10145,34 @@ class SupplementalObligationEstimate( Base ):
     '''
 	__tablename__ = 'SupplementalObligationEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	program_project_code = Column( String( 10 ) )
+	program_project_name = Column( String( 155 ) )
+	activity_code = Column( String( 10 ) )
+	activity_name = Column( String( 80 ) )
+	program = Column( String( 155 ) )
+	authority = Column( Float( 80 ) )
+	fiscal_year_2022 = Column( Float( ) )
+	fiscal_year_2023 = Column( Float( ) )
+	fiscal_year_2024 = Column( Float( ) )
+	fiscal_year_2025 = Column( Float( ) )
+	fiscal_year_2026 = Column( Float( ) )
+	fiscal_year_2022 = Column( Float( ) )
+	fiscal_year_2731 = Column( Float( ) )
+	supplemental = Column( String( 10 ) )
+	main_account = Column( String( 10 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
+	
+	
+	
 	
 	
 	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
@@ -10200,8 +10279,24 @@ class TreasurySymbol( Base ):
     '''
 	__tablename__ = 'TreasurySymbols'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	code = Column( String( 55 ) )
-	name = Column( String( 155 ) )
+	status = Column( String( 80 ) )
+	short_key = Column( String( 155 ) )
+	agency_identifier = Column( String( 80 ) )
+	two_digit_identifier = Column( String( 10 ) )
+	allocation_transfer_agency = Column( String( 80 ) )
+	two_digit_transfer_agency = Column( String( 10 ) )
+	beginning_period_of_availability = Column( String( 80 ) )
+	ending_period_of_availability = Column( String( 80 ) )
+	lapsed = Column( String( 80 ) )
+	availability_type = Column( String( 80 ) )
+	main_account = Column( String( 80 ) )
+	subaccount = Column( String( 80 ) )
+	prevent_new_use = Column( String( 25 ) )
+	use_cancelled_accounts = Column( String( 80 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 255 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 255 ) )
 	
 	
 	def __init__( self, bfy: str, efy: str, account: str,
@@ -10309,7 +10404,8 @@ class Transfer( Base ):
 	budget_level = Column( String( 80 ) )
 	doc_prefix = Column( String( 80 ) )
 	doc_type = Column( String( 80 ) )
-	bfy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
 	rpio_name = Column( String( 155 ) )
 	fund_code = Column( String( 80 ) )
@@ -10453,9 +10549,21 @@ class TransType( Base ):
     '''
 	__tablename__ = 'TransTypes'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	fiscal_year = Column( String( 100 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-	
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	treasury_account_code = Column( String( 80 ) )
+	doc_type = Column( String( 80 ) )
+	appropropriation_bill = Column( String( 10 ) )
+	continuing_resolution = Column( String( 10 ) )
+	rescission_prior_year = Column( String( 10 ) )
+	rescission_current_year = Column( String( 10 ) )
+	sequestration_reduction = Column( String( 10 ) )
+	sequestration_increase = Column( String( 10 ) )
 	
 	def __init__( self, bfy: str, fundcode: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -10550,10 +10658,10 @@ class UnliquidatedObligation( Base ):
     '''
 	__tablename__ = 'UnliquidatedObligations'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	bfy = Column( String( 80 ) )
-	efy = Column( String( 80 ) )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	rpio_code = Column( String( 80 ) )
-	name = Column( String( 155 ) )
+	rpio_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
@@ -10569,8 +10677,8 @@ class UnliquidatedObligation( Base ):
 	document_number = Column( String( 80 ) )
 	document_control_number = Column( String( 80 ) )
 	reference_document_number = Column( String( 80 ) )
-	processed_date = Column( DateOnly )
-	last_activity_date = Column( DateOnly )
+	processed_date = Column( String( 80 ) )
+	last_activity_date = Column( String( 80 ) )
 	age = Column( String( 80 ) )
 	boc_code = Column( String( 80 ) )
 	boc_name = Column( String( 80 ) )
