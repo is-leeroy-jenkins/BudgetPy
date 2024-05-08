@@ -251,6 +251,9 @@ projects = Table( 'Projects', metadata,
 public_laws = Table( 'PublicLaws', metadata,
 	autoload=True, autoload_with=engine )
 
+program_results_codes = Table( 'PRC', metadata,
+	autoload=True, autoload_with=engine )
+
 query_definitions = Table( 'QueryDefinitions', metadata,
 	autoload=True, autoload_with=engine )
 

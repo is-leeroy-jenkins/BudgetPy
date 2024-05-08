@@ -290,7 +290,7 @@ class AdjustedTrialBalance( Base ):
 	subaccount = Column( String( 80 ) )
 	treasury_symbol = Column( String( 80 ) )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	ledger_account = Column( String( 80 ) )
@@ -510,7 +510,7 @@ class AmericanRescuePlanCarryoverEstimate( Base ):
 	__tablename__ = 'AmericanRescuePlanCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 155 ) )
@@ -633,7 +633,7 @@ class AnnualCarryoverEstimate( Base ):
 	__tablename__ = 'AnnualCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
@@ -757,7 +757,7 @@ class AnnualReimbursableEstimate( Base ):
 	__tablename__ = 'AnnualReimbursableEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	treasury_account_code = Column( String( 80 ) )
 	rpio_code = Column( String( 80 ) )
 	rpio_name = Column( String( 255 ) )
@@ -971,7 +971,7 @@ class AppropriationAvailableBalance( Base ):
 	__tablename__ = 'AppropriationAvailableBalances'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	original_amount = Column( Float( ) )
@@ -1101,7 +1101,7 @@ class AppropriationLevelAuthority( Base ):
 	__tablename__ = 'AppropriationLevelAuthority'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	budget_level = Column( String( 10 ) )
@@ -1233,7 +1233,7 @@ class Allocation( Base ):
 	status_of_funds_id = Column( Integer( ) )
 	budget_level = Column( String( 80 ) )
 	bfy = Column( String( 10 ) )
-	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
 	fund_code = Column( String( 80 ) )
 	fund_name = Column( String( 255 ) )
 	rpio_code = Column( String( 80 ) )
@@ -6377,12 +6377,12 @@ class OperatingPlan( Base ):
     '''
 	__tablename__ = 'OperatingPlans'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	rpio_code = Column( String( 80 ) )
-	rpio_name = Column( String( 155 ) )
 	bfy = Column( String( 10 ) )
 	efy = Column( String( 10 ) )
-	ah_code = Column( String( 80 ) )
 	fund_code = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	ah_code = Column( String( 80 ) )
 	org_code = Column( String( 80 ) )
 	account_code = Column( String( 80 ) )
 	boc_code = Column( String( 80 ) )
@@ -7308,8 +7308,17 @@ class ProgramResultsCode( Base ):
 
     Purpose:  Class defines the PRCs
     '''
-	__tablename__ = 'ProgramResultsCodes'
+	__tablename__ = 'PRC'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
+	fund_code = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	ah_code = Column( String( 80 ) )
+	account_code = Column( String( 80 ) )
+	org_code = Column( String( 80 ) )
+	boc_code = Column( String( 80 ) )
+	amount = Column( Float( ) )
 	
 	def __init__( self, bfy: str = None, efy: str = None, fund: str = None,
 	              rpio: str = None, ah: str = None, account: str = None, boc: str = None,
@@ -7432,10 +7441,12 @@ class ProgramResultsCode( Base ):
 class ReportingLine( Base ):
 	'''
 	Constructor:
-	ReportingLines( bfy: str, code: str )
+	
+		ReportingLines( bfy: str, code: str )
 
 	Purpose:
-	class models the lines on the SF-133 and SF-132
+	
+		class models the lines on the SF-133 and SF-132
 	'''
 	__tablename__ = 'ReportingLines'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
@@ -7516,10 +7527,10 @@ class ReportingLine( Base ):
 class ResponsibilityCenter( Base ):
 	'''
     Constructor:
-    ResponsibilityCenter( code: str, provider: Provider=Provider.SQLite  )
+        ResponsibilityCenter( code: str, provider: Provider=Provider.SQLite  )
 
     Purpose:
-    Class defines the ResponsibilityCenter Class
+        Class defines the ResponsibilityCenter Class
     '''
 	__tablename__ = 'ResponsibilityCenters'
 	id = Column( Integer( ), primary_key=True )
