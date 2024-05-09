@@ -50,8 +50,8 @@ from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from Data import (DbConfig, SqlConfig, Connection, SqlStatement,
                   BudgetData, DataBuilder )
-from sqlalchemy import ( MetaData, Table, Column, Integer, Numeric,
-                        String, Float, DateTime, ForeignKey, create_engine, select, text )
+from sqlalchemy import ( MetaData, Table, Column, Integer, String, Float, DateTime, ForeignKey,
+                         create_engine, select, text )
 from sqlalchemy.orm import ( Session, sessionmaker, DeclarativeBase, Mapped,
                              mapped_column, registry )
 from sqlalchemy.ext.declarative import declarative_base
@@ -2082,10 +2082,12 @@ class BudgetDocument( Base ):
 class BudgetContact( Base ):
 	'''
     Constructor:
-    BudgetContact( last: str, first: str )
+    
+        BudgetContact( last: str, first: str )
 
     Purpose:
-    Class defines object represent budget contact info
+    
+        Class defines object represent budget contact info
     '''
 	__tablename__ = 'BudgetContacts'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
@@ -2876,7 +2878,6 @@ class CongressionalProject( Base ):
 	treasury_account_name = Column( String( 155 ) )
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 155 ) )
-	
 	
 	def __init__( self, bfy: str, fund: str,
 	              rpio: str, ahcode: str, provider: Provider = Provider.SQLite ):
@@ -3840,7 +3841,6 @@ class Deobligation( Base ):
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 155 ) )
 	
-	
 	def __init__( self, bfy=None, fund=None,
 	              account=None, boc=None, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -4219,7 +4219,6 @@ class FinanceObjectClass( Base ):
 	boc_code = Column( String( 25 ) )
 	boc_name = Column( String( 155 ) )
 	
-	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FinanceObjectClasses
@@ -4340,7 +4339,6 @@ class Fund( Base ):
 	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 255 ) )
-	
 	
 	def __init__( self, bfy: str, efy: str, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -4467,7 +4465,6 @@ class FederalHoliday( Base ):
 	juneteenth = Column( String( 80 ) )
 	independence = Column( String( 80 ) )
 	labor = Column( String( 80 ) )
-	
 	
 	def __init__( self, bfy: str, efy: str, name: str = '',
 	              provider: Provider = Provider.SQLite ):
@@ -4937,7 +4934,6 @@ class FullTimeEquivalent( Base ):
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 255 ) )
 	
-	
 	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.FullTimeEquivalents
@@ -5078,7 +5074,6 @@ class GeneralLedgerAccount( Base ):
 	debit_balance = Column( Float( ) )
 	closing_amount = Column( Float( ) )
 	
-	
 	def __init__( self, bfy: str, number: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
 		self.accountnumber = number
@@ -5177,7 +5172,6 @@ class Goal( Base ):
 	id = Column( Integer( ), primary_key=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-	
 	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -5632,7 +5626,18 @@ class JobsActCarryoverEstimate( Base ):
     '''
 	__tablename__ = 'JobsActCarryoverEstimates'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	
+	bfy = Column( String( 10 ) )
+	efy = Column( String( 10 ) )
+	fund_code = Column( String( 80 ) )
+	fund_name = Column( String( 155 ) )
+	treasury_account_code = Column( String( 80 ) )
+	rpio_code = Column( String( 80 ) )
+	rpio_name = Column( String( 155 ) )
+	amount = Column( Float( ) )
+	open_commitments = Column( Float( ) )
+	obligations = Column( Float( ) )
+	available = Column( Float( ) )
+	estimate = Column( Float( ) )
 	
 	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -5740,6 +5745,13 @@ class MainAccount( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
+	type = Column( String( 100 ) )
+	bea_category = Column( String( 80 ) )
+	subfunction_name = Column( String( 80 ) )
+	treasury_account_code = Column( String( 80 ) )
+	treasury_account_name = Column( String( 155 ) )
+	budget_account_code = Column( String( 80 ) )
+	budget_account_name = Column( String( 155 ) )
 	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.code = code
@@ -5849,7 +5861,6 @@ class MonthlyActual( Base ):
 	budget_account_name = Column( String( 155 ) )
 	ah_code = Column( String( 80 ) )
 	ah_name = Column( String( 155 ) )
-	
 	
 	def __init__( self, bfy: str = None, fund: str = None,
 	              provider: Provider = Provider.SQLite ):
@@ -6112,7 +6123,6 @@ class NationalProgram( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.NationalPrograms
@@ -6204,7 +6214,6 @@ class Objective( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-	
 	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -6409,7 +6418,6 @@ class OperatingPlan( Base ):
 	budget_account_name = Column( String( 155 ) )
 	version = Column( String( 80 ) )
 	
-	
 	def __init__( self, bfy: str, fund: str, provider: Provider = Provider.SQLite ):
 		self.source = Source.OperatingPlans
 		self.provider = provider
@@ -6544,7 +6552,6 @@ class OpenCommitment( Base ):
 	treasury_account_name = Column( String( 155 ) )
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 155 ) )
-	
 	
 	def __init__( self, bfy: str, efy: str, fund: str,
 	              account: str, boc: str, provider: Provider = Provider.SQLite ):
@@ -6971,6 +6978,11 @@ class PublicLaw( Base ):
     '''
 	__tablename__ = 'PublicLaws'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
+	law_number = Column( String( 80 ) )
+	bill_title = Column( String( 255 ) )
+	enacted_date = Column( String( 80 ) )
+	congress = Column( String( 80 ) )
+	bfy = Column( String( 80 ) )
 	
 	
 	def __init__( self, bfy: str, efy: str,
@@ -7058,7 +7070,6 @@ class Project( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.Projects
@@ -7142,7 +7153,6 @@ class ProgramArea( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.ProgramAreas
@@ -7224,7 +7234,8 @@ class ProgramProject( Base ):
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-	
+	flag = Column( String( 80 ) )
+	congressional_conterol = Column( String( 80 ) )
 	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -7450,7 +7461,10 @@ class ReportingLine( Base ):
 	'''
 	__tablename__ = 'ReportingLines'
 	id = Column( Integer( ), primary_key=True, nullable=False, index=True )
-	
+	number = Column( String( 25 ) )
+	name = Column( String( 80 ) )
+	caption = Column( String( 80 ) )
+	range = Column( String( 80 ) )
 	
 	def __init__( self, bfy: str, code: str, provider: Provider = Provider.SQLite ):
 		self.bfy = bfy
@@ -7970,7 +7984,7 @@ class RegionalAuthority( Base ):
 		                'Amount',
 		                'NpmCode',
 		                'NpmName' ]
-	
+		
 	def __dir__( self ) -> list[ str ]:
 		'''
 
@@ -8588,7 +8602,6 @@ class StatusOfSpecialAccountFunds( Base ):
 	collections = Column( Float( ) )
 	cumulative_receipts = Column( Float( ) )
 	
-	
 	def __init__( self, bfy=None, fund=None, account=None,
 	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -8713,7 +8726,6 @@ class SubAppropriation( Base ):
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
 	
-	
 	def __init__( self, bfy: str, efy: str, code: str,
 	              provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -8805,7 +8817,6 @@ class StateOrganization( Base ):
 	id = Column( Integer( ), primary_key=True )
 	code = Column( String( 55 ) )
 	name = Column( String( 155 ) )
-	
 	
 	def __init__( self, code: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
@@ -10181,11 +10192,6 @@ class SupplementalObligationEstimate( Base ):
 	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 255 ) )
-	
-	
-	
-	
-	
 	def __init__( self, bfy: str, provider: Provider = Provider.SQLite ):
 		self.provider = provider
 		self.source = Source.SupplementalCarryoverEstimates
@@ -10308,7 +10314,6 @@ class TreasurySymbol( Base ):
 	treasury_account_name = Column( String( 255 ) )
 	budget_account_code = Column( String( 80 ) )
 	budget_account_name = Column( String( 255 ) )
-	
 	
 	def __init__( self, bfy: str, efy: str, account: str,
 	              provider: Provider = Provider.SQLite ):
