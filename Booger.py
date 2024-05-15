@@ -76,8 +76,13 @@ class Error( Exception ):
     Purpose:
         Class wrapping exception used as the input argument for ErrorDialog class
     '''
-	
-	
+	heading: str=None
+	cause: str=None
+	method: str=None
+	type: str=None
+	trace: str=None
+	info: str=None
+
 	def __init__( self, exception: Exception, heading: str = None, cause: str = None,
 	              method: str = None, module: str = None ):
 		super( ).__init__( )
@@ -156,7 +161,25 @@ class TitleIcon( ):
 		return [ 'folder', 'name', 'file_path' ]
 
 class Dark( ):
-	
+	theme_background = None
+	theme_textcolor = None
+	element_backcolor = None
+	element_forecolor = None
+	text_forecolor = None
+	text_backcolor = None
+	input_forecolor = None
+	input_backcolor = None
+	button_backcolor = None
+	button_forecolor = None
+	button_color = None
+	icon_path = None
+	theme_font = None
+	scrollbar_color = None
+	progressbar_backcolor = None
+	progressbar_backcolor = None
+	form_size = None
+	settings_path = None
+
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
 		sg.theme_input_text_color( '#FFFFFF' )
@@ -208,6 +231,18 @@ class FileDialog( Dark ):
 		Class that handles filenames a file
 
 	'''
+	selected_item = None
+	message = None
+	extension = None
+	excel = None
+	csv = None
+	pdf = None
+	sql = None
+	text = None
+	access = None
+	sqlite = None
+	sqlserver = None
+
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
 		self.theme_background = sg.theme_background_color( )
@@ -730,15 +765,20 @@ class ErrorDialog( Dark ):
      a single, optional argument 'exception' of type Error
 
     '''
-	
+	exception: Exception=None
+	heading: str=None
+	module: str=None
+	info: str=None
+	cause: str=None
+	method: str=None
 	
 	def __init__( self, exception ):
 		super( ).__init__( )
-		self.__exception = exception if isinstance( exception, Error ) else None
-		self.heading = exception.message
+		self.exception = exception if isinstance( exception, Error ) else None
+		self.heading = exception.type
 		self.module = exception.module
-		self.info = exception.stack_trace
-		self.__cause = exception.cause
+		self.info = exception.trace
+		self.cause = exception.cause
 		self.method = exception.method
 		self.theme_font = super( ).theme_font
 		self.icon_path = super( ).icon_path
@@ -749,7 +789,7 @@ class ErrorDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (500, 300)
+		self.form_size = ( 500, 300 )
 	
 	def __str__( self ) -> str:
 		if isinstance( self.info, str ):

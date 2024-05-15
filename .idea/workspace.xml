@@ -10,10 +10,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
+    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ninja.py" beforeDir="false" afterPath="$PROJECT_DIR$/Ninja.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/Schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/Booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BudgetPy.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/BudgetPy.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data.py" beforeDir="false" afterPath="$PROJECT_DIR$/Data.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +169,7 @@
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
     "run.code.analysis.last.selected.profile": "pBudget",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Python",
+    "settings.editor.selected.configurable": "preferences.editor.code.editing",
     "settings.editor.splitter.proportion": "0.24475019",
     "vue.rearranger.settings.migration": "true"
   },
@@ -507,7 +508,7 @@
       <workItem from="1715780874373" duration="987000" />
       <workItem from="1715781947168" duration="499000" />
       <workItem from="1715782474382" duration="470000" />
-      <workItem from="1715783127926" duration="941000" />
+      <workItem from="1715783127926" duration="12577000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -852,7 +853,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="721" />
+    <option name="localTasksCounter" value="722" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -898,7 +899,8 @@
     <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Revert &quot;updates from office rig;&quot;&#10;&#10;This reverts commit 93da6ce9" />
     <MESSAGE value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <MESSAGE value="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
   <component name="com.gk646.codestats.settings.Save">
     <option name="commitTimePoints">

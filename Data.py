@@ -62,6 +62,7 @@ class Pascal( ):
    
     def __init__( self, input: str=None ):
         self.input = input
+        self.output = input if input.istitle( )  else self.join( )
 
     def __str__( self ) -> str:
         if self.output is not None:
@@ -83,84 +84,87 @@ class Pascal( ):
         '''
 
         try:
-            if self.input is not None and self.input.count(' ') == 0:
-                _buffer = [c for c in self.input]
-                _retval = ''
-                _output = ''
-                _count = len( _buffer )
+	        if self.input.count( ' ' ) == 0:
+		        _buffer = [ str( c ) for c in self.input ]
+		        _output = [ ]
+		        _retval = ''
 
-                for i in range( _count ):
-                    _char = _buffer[ i ]
-                    if i <= 1 and _char.islower( ):
-                        _output += f'{_char}'
-                    elif i <= 1 and _char.isupper( ):
-                        _output += f'{_char}'
-                    elif i > 1 and _char.islower( ):
-                        _output += f'{_char}'
-                    elif i > 1 and _char.isupper( ):
-                        _output += f' {_char}'
+		        for char in _buffer:
+			        if char.islower( ):
+				        _output.append( char )
+			        elif char.isupper( ):
+				        _index = _buffer.index( char )
+				        _space = ' '
+				        _output.append( _space )
+				        _output.append( char )
 
-                if len( _output ) < 5:
-                    _retval = _output.replace( ' ', '' )
-                else:
-                    _retval = _output.replace( 'Ah', 'AH' ).replace( 'Boc', 'BOC' ) \
-                        .replace( 'Rpio', 'RPIO' ).replace( 'Rc', 'RC' ) \
-                        .replace( 'Prc', 'PRC' ).replace( 'Id', 'ID' ) \
-                        .replace( 'Omb', 'OMB' ).replace( 'Npm', 'NPM' ) \
-                        .replace( 'Foc', 'FOC' ).replace( 'Org', 'ORG' ) \
-                        .replace( ' THE ', ' The ' ).replace( ' OR ', ' Or ' ) \
-                        .replace( ' AND ', ' And ' ).replace( 'BUT ', ' But ' ) \
-                        .replace( ' OF ', ' Of ' )
+	        for o in _output:
+		        _retval += f'{o}'
 
-                self.output = _retval
-                return self.output
+	        self.output = _retval.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
+		        .replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
+		        .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
+		        .replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
+		        .replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
+		        .replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
+		        .replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
+		        .replace( 'OF', 'Of' )
+	        return self.output
         except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'Pascal'
-            _exc.method = 'split( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
+	        _exc = Error( e )
+	        _exc.module = 'Data'
+	        _exc.cause = 'Pascal'
+	        _exc.method = 'join( self )'
+	        _err = ErrorDialog( _exc )
+	        _err.show( )
 
     def join( self ) -> str:
-        '''
-        Purpose:
+	    '''
+		Purpose:
 
-        Parameters:
+		Parameters:
 
-        Returns:
-        '''
+		Returns:
+		'''
 
-        try:
-            if self.input is not None and self.input.count(' ') > 0:
-                _buffer = [c for c in self.input]
-                _output = list( )
-                _retval = ''
+	    try:
+		    if not self.input.istitle( ) and self.input.count( ' ' ) > 0:
+			    _buffer = [ str( c ) for c in self.input ]
+			    _output = [ ]
+			    _retval = ''
 
-                for char in _buffer:
-                    if char != ' ':
-                        _output.append( char )
+			    for char in _buffer:
+				    if char != ' ':
+					    _output.append( char )
+				    elif char == ' ':
+					    _index = _buffer.index( char )
+					    _next = str( _buffer[ _index + 1 ] )
+					    if _next.islower( ):
+						    _cap = _next.upper( )
+						    _buffer.remove( _next )
+						    _buffer.insert( _index + 1, _cap )
+					    _buffer.remove( char )
+					    _output.append( _next.upper( ) )
 
-                for o in _output:
-                    _retval += f'{o}'
+		    for o in _output:
+			    _retval += f'{o}'
 
-                self.output = _retval.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
-                    .replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
-                    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
-                    .replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
-                    .replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
-                    .replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
-                    .replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
-                    .replace( 'OF', 'Of' )
-
-                return self.output
-        except Exception as e:
-            _exc = Error( e )
-            _exc.module = 'Data'
-            _exc.cause = 'Pascal'
-            _exc.method = 'join( self )'
-            _err = ErrorDialog( _exc )
-            _err.show( )
+		    self.output = _retval.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
+			    .replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
+			    .replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
+			    .replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
+			    .replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
+			    .replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
+			    .replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
+			    .replace( 'OF', 'Of' )
+		    return self.output
+	    except Exception as e:
+		    _exc = Error( e )
+		    _exc.module = 'Data'
+		    _exc.cause = 'Pascal'
+		    _exc.method = 'join( self )'
+		    _err = ErrorDialog( _exc )
+		    _err.show( )
 
 class SqlPath( ):
     '''
