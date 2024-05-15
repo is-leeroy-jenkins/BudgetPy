@@ -50,7 +50,8 @@ from Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from Data import (DbConfig, SqlConfig, Connection, SqlStatement,
                   BudgetData, DataBuilder )
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
+from sqlalchemy import ( Column, Integer, DateTime, Float, ForeignKey,
+                         MetaData, Table, create_engine, String, select, text )
 from sqlalchemy.orm import ( Session, sessionmaker, DeclarativeBase, Mapped,
                              mapped_column, registry )
 from sqlalchemy.ext.declarative import declarative_base
