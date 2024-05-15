@@ -43,7 +43,7 @@
   '''
 import os
 import zipfile as zp
-from openpyxl import Workbook
+from openpyxl import Workbook, worksheet
 import shutil as sh
 from datetime import datetime
 from Booger import Error, ErrorDialog
@@ -60,6 +60,18 @@ class Path( ):
 		Class representing a path
 
 	'''
+
+	# Fields
+	input: str=None
+	name: str=None
+	current_directory: str=None
+	parent_directory: str=None
+	template: str=None
+	path_separator: str=None
+	extension_separator: str=None
+	drive_separator: str=None
+	drive: str=None
+
 	def __init__( self, filepath: str ):
 		self.input = filepath
 		self.name = os.path.split( filepath )[ 1 ]
@@ -334,6 +346,17 @@ class File( Path ):
 		Class providing file information
 		
 	 '''
+
+	# Fields
+	absolute_path: str=None
+	relative_path: str=None
+	name: str=None
+	size: float=None
+	extension: str=None
+	created: datetime=None
+	accessed: datetime=None
+	modified: datetime=None
+
 	def __init__( self, path: str=None ):
 		super( ).__init__( path )
 		self.input = super( ).input
@@ -668,6 +691,13 @@ class Folder( Path ):
         Class providing file directory information
 
 	'''
+
+	# Fields
+	input: str=None
+	absolute_path: str=None
+	relative_path: str=None
+	name: str=None
+	size: float=None
 	def __init__( self, filepath: str ):
 		super( ).__init__( filepath )
 		self.input = super( ).input
@@ -913,7 +943,15 @@ class Message( ):
 	    Class providing email behavior
 	    
 	'''
-	def __init__( self, sender: str, receiver: str, body: list[ str ],
+
+	# Fields
+	sender: str=None
+	reciever: list[ str ]
+	body: list[ str ]=None
+	others: list[ str ]=None
+	subject: str=None
+
+	def __init__( self, sender: str, receiver: list[ str ], body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
 		self.sender = sender
 		self.receiver = receiver
@@ -947,6 +985,13 @@ class Email( Message ):
 		Class providing email behavior
 		
 	'''
+
+	# Fields
+	sender: str=None
+	reciever: list[ str ]
+	body: list[ str ]=None
+	others: list[ str ]=None
+	subject: str=None
 	def __init__( self, sender: str, receiver: str, body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
 		super( ).__init__( sender, receiver, body, subject, copy )
@@ -977,6 +1022,16 @@ class Excel( ):
 		Class provides the spreadsheet for reports
 
 	'''
+
+	# Fields
+	template_path: str=None
+	external_path: str=None
+	body: list[ str ]=None
+	others: list[ str ]=None
+	name: str=None
+	title: str=None
+	workbook: Workbook=None
+	worksheet: worksheet=None
 	def __init__( self, path: str=None ):
 		self.template_path = r'etc/templates/report/Excel.xlsx'
 		self.external_path = path
@@ -988,6 +1043,7 @@ class Excel( ):
 	def __str__( self ) -> str:
 		if self.external_path is not None:
 			return self.external_path
+
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -1030,6 +1086,18 @@ class ExcelReport( Excel ):
 		Class providing spreadsheet for reports
 
 	'''
+
+	# Fields
+	internal: str=None
+	path: str=None
+	name: str=None
+	rows: int=None
+	columns: int=None
+	dimensions: tuple=None
+	title: str=None
+	workbook: Workbook=None
+	worksheet: worksheet=None
+
 	def __init__( self, path: str=None, rows: int=46, cols: int=12 ):
 		super( ).__init__( path )
 		self.internal = super( ).internal
@@ -1062,6 +1130,15 @@ class ZipFile( ):
 		Class defines object providing zip file functionality
 
 	'''
+
+	# Fields
+	input: str=None
+	zip_extension: str=None
+	file_path: str=None
+	zip_name: str=None
+	zip_path: str=None
+	file_name: str=None
+
 	def __init__( self, path: str ):
 		self.input = path
 		self.zip_extension = '.zip'
