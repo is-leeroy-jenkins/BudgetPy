@@ -1,5 +1,5 @@
-# How to use BudgetExecution
+# How to use BudgetPy
 
-Simply run the executable `BudgetExecutionSetup.exe` and it should install.
+Simply run the executable `BudgetPySetup.exe` and it should install.
 
 This only works on Windows.
