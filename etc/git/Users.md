@@ -3,6 +3,7 @@
 ## Step 1: Fork BudgetPy
 
 - Fork the BudgetPy repository on GitHub.
+- [Fork it](https://github.com/KarmaScripter/BudgetPy)
 
 ## Step 2: Install Visual Code
 
