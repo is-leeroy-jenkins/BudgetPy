@@ -1,4 +1,4 @@
-# How to use BudgetPy
+# Make some BudgetPy
 
 #### Step 1: Fork BudgetPy
 
