@@ -6,8 +6,8 @@
 
 - Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
 - Charting, plotting and reporting with matplotlib, dash, and pandas.
-- Pre-defined schema for 100 actively used data tables.
-- Access to SQL Editors for SQLite, MS Access, SQL Server Express.
+- Pre-defined schema for 100 environmental data tables.
+- Access to editors for SQLite, MS Access, and SQL CE.
 - Easily add agency/region/division-specific branding.
 
 ## Providers
