@@ -24,13 +24,13 @@
 
 
 
-## Documentation
+# Documentation
 
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
 
-## How to make BudgetPy
+# How to make BudgetPy
 
 ## Step 1: Install Visual Code and fork it.
 
