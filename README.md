@@ -1,6 +1,6 @@
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 
-## BudgetPy is an open source, data analysis prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
+## BudgetPy is an open source, data analysis & prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
 
 ## Features
 
@@ -19,11 +19,7 @@
 
 ## System requirements
 
-- You need [VC++ 2019 Runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) 32-bit and 64-bit versions
-
-- You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/requirements.txt)
-
-- You need to install the version of VC++ Runtime that CEFSharp needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
+- You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
 
 ## Getting started
@@ -41,9 +37,7 @@
 
 ## Code
 
-- BudgetExecution uses CefSharp 106 for b and is built on NET 6
-- BudgetExecution supports AnyCPU as well as x86/x64 specific builds
-- `Controls` (Controls\) - main UI layer and associated controls and related functionality
+- `Minion` (Controls\) - main UI layer and associated controls and related functionality
 - `Enumerations` (Enumerations\) - various enumerations used for budgetary accounting
 - `Extensions` (Extensions\) - useful extension methods for budget analysis by type
 - `Clients` (Clients\) - other tools used and available
