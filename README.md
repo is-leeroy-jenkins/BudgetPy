@@ -24,14 +24,14 @@
 
 ## Getting started
 
-- See the [Compilation Guide](Resources/Github/Compilation.md) for steps to get started.
+- See the [Compilation Guide](etc/git/Compilation.md) for steps to get started.
 
 
 ## Documentation
 
 - [User Guide](etc/git/Users.md)
 - [Compilation Guide](etc/git/Compilation.md)
-- [Configuration Guide](etc/git/Configuration.md)
+- [Configuration Guide](etc/git/Compilation.md)
 - [Distribution Guide](etc/git/Distribution.md)
 
 
