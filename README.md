@@ -12,9 +12,9 @@
 
 ## Providers
 
-- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Get here](https://sqlite.org/index.html) 
-- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Get here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
-- MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. 
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
+- SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
+- MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools.  [Learn more here] (https://www.microsoft.com/en-us/microsoft-365/access)
 
 
 ## System requirements
