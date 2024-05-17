@@ -24,7 +24,7 @@ Type in your BudgetPy fork URL and press "Clone"
 
 #### Step 4: Open the BudgetPy Notebook!
 
-Select the `BudgetPy.ipbny` and load the modules! 
+Select the `budgetpy.ipynb` and load the modules! 
 
 ![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RunNotebook.PNG)
 
