@@ -1,5 +1,3 @@
-# BudgetPy
-
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 
 ## BudgetPy is an open source, data analysis prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
@@ -23,7 +21,7 @@
 
 - You need [VC++ 2019 Runtime](https://aka.ms/vs/17/release/vc_redist.x64.exe) 32-bit and 64-bit versions
 
-- You will need .NET 6.
+- You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/requirements.txt)
 
 - You need to install the version of VC++ Runtime that CEFSharp needs. Since we are using CefSharp 106, according to [this](https://github.com/cefsharp/CefSharp/#release-branches) we need the above versions
 
