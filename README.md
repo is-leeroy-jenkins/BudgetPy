@@ -52,31 +52,3 @@
 ### Datagrids to easily query financial data.
 
 ![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
-
-### Excel-like interface over a relational database.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/ExcelUserInterface.PNG)
-
-### Maps for congressional earmark reporting and pollution site monitoring.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Map.PNG)
-
-### Baby Browser using the [Chromium Embedded Framework](https://en.wikipedia.org/wiki/Chromium_Embedded_Framework)
-
-![](https://github.com/KarmaScripter/Baby/blob/main/Properties/Images/2.png)
-
-### Budget Calculator for quick accounting transactions and budget calculations on the data.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Calculator.PNG)
-
-### Federal fiscal year utilities compatable with full-time equivalency metrics.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/FiscalYear.PNG)
-
-### Environmental program definitions and statutory authorities bound directly to financial data
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/EnvironmentalPrograms.PNG)
-
-### Data Visualization
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Charts.PNG)
