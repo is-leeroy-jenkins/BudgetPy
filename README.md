@@ -2,7 +2,7 @@
 
 ![](https://github.com/KarmaScripter/BudgetPy/blob/main/Resources/Assets/GitHubImages/BudgetExecution.png)
 
-## BudgetPy is an open source, data analysis prototyping tool for Analysts in the US EPA developed in C# and released under the MIT license.
+## BudgetPy is an open source, data analysis prototyping tool for Analysts in the US EPA developed in Python and released under the MIT license.
 
 ## Features
 
@@ -20,7 +20,6 @@
 ## Providers
 
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Get here](https://sqlite.org/index.html) 
-- SQL CE is a discontinued but still useful relational database produced by Microsoft for applications that run on mobile devices and desktops. [Get here](https://www.microsoft.com/en-us/download/details.aspx?id=30709)
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Get here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools. 
 
