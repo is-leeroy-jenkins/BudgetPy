@@ -254,7 +254,7 @@ class Path( ):
 
 		try:
 			if not os.path.exists( first ) or not os.path.exists( second ):
-				_msg = "The arguement 'first' or 'second' is not a file!"
+				_msg = "The arguement 'first' or 'second' is null!"
 				raise Exception( _msg )
 			else:
 				return os.path.join( first, second )
@@ -291,17 +291,11 @@ class Path( ):
 	def create_link( self, path: str, name: str ) -> str:
 		'''
 
-		Purpose:
+		Purpose: creates a symbolic link of 'path' given the name 'name'
 
-			creates a symbolic link of 'path' given the name 'name'
+		Parameters: path: str, name: str
 
-		Parameters:
-
-			path: str, name: str
-
-		Returns:
-
-			str
+		Returns: str
 
 		'''
 		if path is None:
