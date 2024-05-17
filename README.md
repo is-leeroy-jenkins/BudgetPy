@@ -29,10 +29,10 @@
 
 ## Documentation
 
-- [User Guide](Resources/Github/Users.md)
-- [Compilation Guide](Resources/Github/Compilation.md)
-- [Configuration Guide](Resources/Github/Configuration.md)
-- [Distribution Guide](Resources/Github/Distribution.md)
+- [User Guide](etc/git/Users.md)
+- [Compilation Guide](etc/git/Compilation.md)
+- [Configuration Guide](etc/git/Configuration.md)
+- [Distribution Guide](etc/git/Distribution.md)
 
 
 ## Code
