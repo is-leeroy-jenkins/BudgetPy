@@ -293,7 +293,7 @@ class Path( ):
 
 		Purpose:
 
-			creates a symbolic link of 'path' the name 'name'
+			creates a symbolic link of 'path' given the name 'name'
 
 		Parameters:
 
@@ -992,7 +992,7 @@ class Email( Message ):
 	body: list[ str ]=None
 	others: list[ str ]=None
 	subject: str=None
-	def __init__( self, sender: str, receiver: str, body: list[ str ],
+	def __init__( self, sender: str, receiver: list[ str ], body: list[ str ],
 	              subject: str, copy: list[ str ]=None ):
 		super( ).__init__( sender, receiver, body, subject, copy )
 		self.sender = super( ).sender
@@ -1164,11 +1164,11 @@ class ZipFile( ):
 
 	def create( self ):
 		'''
-		Purpose:
+		Purpose: creates a zipfile from a given path
 
-		Parameters:
+		Parameters: void
 
-		Returns:
+		Returns: void
 		'''
 
 		try:

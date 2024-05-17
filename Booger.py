@@ -69,22 +69,29 @@ from Static import EXT, Client
 
 class Error( Exception ):
 	'''
+
     Constructor:
-        Error( exception: Exception, heading: str=None, cause: str=None,
+
+        Error( error: Exception, heading: str=None, cause: str=None,
                   method: str=None, module: str=None )
 
     Purpose:
-        Class wrapping exception used as the input argument for ErrorDialog class
+
+        Class wrapping error used as the input argument for ErrorDialog class
+
     '''
+
+	# Fields
 	heading: str=None
 	cause: str=None
+	module: str=None
 	method: str=None
 	type: str=None
 	trace: str=None
 	info: str=None
 
-	def __init__( self, exception: Exception, heading: str = None, cause: str = None,
-	              method: str = None, module: str = None ):
+	def __init__( self, error: Exception, heading: str=None, cause: str=None,
+	              method: str=None, module: str=None ):
 		super( ).__init__( )
 		self.heading = heading
 		self.cause = cause
@@ -110,13 +117,22 @@ class Error( Exception ):
 
 class ButtonIcon( ):
 	'''
+
     Constructor:
-    ButtonIcon( png: Enum )
+
+        ButtonIcon( png: Enum )
 
     Pupose:
-    Class representing form images
+
+        Class representing form images
+
     '''
-	
+
+	# Fields
+	name: str=None
+	button: str=None
+	file_path: str=None
+
 	def __init__( self, png: Enum ):
 		self.name = png.name
 		self.button = os.getcwd( ) + r'\etc\img\button'
@@ -132,16 +148,24 @@ class ButtonIcon( ):
         Returns a list[ str ] of member names
 
 		'''
-		return [ 'folder', 'name', 'file_path' ]
+		return [ 'button', 'name', 'file_path' ]
 
 class TitleIcon( ):
 	'''
+
 	Construcotr:
-	TitleIcon( ico )
+		TitleIcon( ico )
 
 	Purpose:
-	Class used to define the TitleIcon used on the GUI
+
+		Class used to define the TitleIcon used on the GUI
+
 	'''
+
+	# Fields
+	name: str=None
+	folder: str=None
+	file_path: str=None
 	
 	def __init__( self, ico ):
 		self.name = ico.name
@@ -161,24 +185,37 @@ class TitleIcon( ):
 		return [ 'folder', 'name', 'file_path' ]
 
 class Dark( ):
-	theme_background = None
-	theme_textcolor = None
-	element_backcolor = None
-	element_forecolor = None
-	text_forecolor = None
-	text_backcolor = None
-	input_forecolor = None
-	input_backcolor = None
-	button_backcolor = None
-	button_forecolor = None
-	button_color = None
-	icon_path = None
-	theme_font = None
-	scrollbar_color = None
-	progressbar_backcolor = None
-	progressbar_backcolor = None
-	form_size = None
-	settings_path = None
+	'''
+
+    Constructor:
+
+        Dark( )
+
+    Pupose:
+
+        Class representing the theme
+
+    '''
+
+	# Fields
+	theme_background: str=None
+	theme_textcolor: str=None
+	element_backcolor: str=None
+	element_forecolor: str=None
+	text_forecolor: str=None
+	text_backcolor: str=None
+	input_forecolor: str=None
+	input_backcolor: str=None
+	button_backcolor: str=None
+	button_forecolor: str=None
+	button_color: tuple=None
+	icon_path: str=None
+	theme_font: tuple=None
+	scrollbar_color: str=None
+	progressbar_backcolor: str=None
+	progressbar_backcolor: str=None
+	form_size: tuple=None
+	settings_path: str=None
 
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
@@ -197,10 +234,10 @@ class Dark( ):
 		self.button_forecolor = sg.theme_button_color_text( )
 		self.button_color = sg.theme_button_color( )
 		self.icon_path = os.getcwd( ) + r'\etc\ico\ninja.ico'
-		self.theme_font = ('Roboto', 9)
+		self.theme_font = ( 'Roboto', 9 )
 		self.scrollbar_color = '#755600'
 		self.progressbar_backcolor = sg.theme_progress_bar_color( )
-		self.form_size = (400, 200)
+		self.form_size = ( 400, 200 )
 		self.settings_path = os.getcwd( ) + r'\etc\theme'
 		sg.set_global_icon( icon=self.icon_path )
 		sg.set_options( font=self.theme_font )
@@ -222,31 +259,30 @@ class Dark( ):
 class FileDialog( Dark ):
 	'''
 
-	Construcotr:
-	
-		FileDialog( )
+	Construcotr: FileDialog( )
 
-	Purpose:
-	
-		Class that handles filenames a file
+	Purpose: Class that creates dialog to get filepath
 
 	'''
-	selected_item = None
-	message = None
-	extension = None
-	excel = None
-	csv = None
-	pdf = None
-	sql = None
-	text = None
-	access = None
-	sqlite = None
-	sqlserver = None
+
+	# Fields
+	form_size: tuple=None
+	selected_item: str=None
+	message: str=None
+	extension: EXT=None
+	excel: tuple=None
+	csv: tuple=None
+	pdf: tuple=None
+	sql: tuple=None
+	text: tuple=None
+	access: tuple=None
+	sqlite: tuple=None
+	sqlserver: tuple=None
 
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
 		self.theme_background = sg.theme_background_color( )
-		self.theme_font = ('Roboto', 9)
+		self.theme_font = ( 'Roboto', 9 )
 		self.icon_path = os.getcwd( ) + r'\etc\ico\ninja.ico'
 		self.element_backcolor = super( ).element_backcolor
 		self.element_forecolor = super( ).element_forecolor
@@ -255,18 +291,18 @@ class FileDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (475, 240)
+		self.form_size = ( 475, 240 )
 		self.selected_item = None
 		self.message = 'Search for File'
-		self.extension = extension if isinstance( extension, EXT ) else EXT.XLSX
-		self.excel = (('Excel Files', '*.xlsx'),)
-		self.csv = (('CSV Files', '*.csv'),)
-		self.pdf = (('PDF Files', '*.pdf'),)
-		self.sql = (('SQL Files', '*.sqlstatement',),)
-		self.text = (('Text Files', '*.txt'),)
-		self.access = (('MS ACCDB Databases', '*.accdb'),)
-		self.sqlite = (('SQLite Databases', '*.db'),)
-		self.sqlserver = (('SQL Server Databases', '*.mdf', '*.ldf', '*.sdf'),)
+		self.extension = extension 
+		self.excel = ( ( 'Excel Files', '*.xlsx' ), )
+		self.csv = ( ( 'CSV Files', '*.csv' ), )
+		self.pdf = ( ( 'PDF Files', '*.pdf' ), )
+		self.sql = ( ( 'SQL Files', '*.sqlstatement', ), )
+		self.text = ( ( 'Text Files', '*.txt' ), )
+		self.access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
+		self.sqlite = ( ( 'SQLite Databases', '*.db' ), )
+		self.sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
 	
 	def __str__( self ) -> str:
 		if self.selected_item is not None:
@@ -288,20 +324,20 @@ class FileDialog( Dark ):
 	
 	def show( self ):
 		'''
-		Purpose:
+		Purpose: Displays the control/form
 
-		Parameters:
+		Parameters: void
 
-		Returns:
+		Returns: void
 		'''
 		try:
 			_layout = [ [ sg.Text( ) ],
-			            [ sg.Text( self.message, font=('Roboto', 11) ) ],
+			            [ sg.Text( self.message, font=('Roboto', 11 ) ) ],
 			            [ sg.Text( ) ],
-			            [ sg.Input( key='-PATH-' ), sg.FileBrowse( size=(15, 1) ) ],
+			            [ sg.Input( key='-PATH-' ), sg.FileBrowse( size=( 15, 1 ) ) ],
 			            [ sg.Text( ) ],
 			            [ sg.Text( ) ],
-			            [ sg.OK( size=(8, 1), ), sg.Cancel( size=(10, 1) ) ] ]
+			            [ sg.OK( size=(8, 1), ), sg.Cancel( size=( 10, 1 ) ) ] ]
 			
 			_window = sg.Window( ' Budget Execution', _layout,
 				font=self.theme_font,
@@ -326,15 +362,13 @@ class FileDialog( Dark ):
 
 class FolderDialog( Dark ):
 	'''
-	Construcotr:
-	
-		FolderDialog( )
 
-	Purpose:
-	
-		Class defining dialog used to select a directory path
+	Construcotr: FolderDialog( )
+
+	Purpose: Class defining dialog used to select a directory path
 		
 	'''
+	
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
@@ -347,7 +381,7 @@ class FolderDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (475, 250)
+		self.form_size = ( 475, 250 )
 		self.selected_item = None
 	
 	def __str__( self ) -> str:
@@ -410,11 +444,9 @@ class FolderDialog( Dark ):
 
 class SaveFileDialog( Dark ):
 	'''
-	Constructor:
-	SaveFileDialog( path = '' ):
+	Constructor: SaveFileDialog( path = '' ):
 
-    Purpose:
-    Class define object that provides a dialog to locate file destinations
+    Purpose: Class define object that provides a dialog to locate file destinations
     '''
 	
 	
@@ -430,7 +462,7 @@ class SaveFileDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (400, 250)
+		self.form_size = ( 400, 250 )
 		self.original = path
 	
 	def __str__( self ) -> str:
@@ -482,11 +514,9 @@ class SaveFileDialog( Dark ):
 
 class GoogleDialog( Dark ):
 	'''
-	Construcotr:
-	GoogleDialog(  )
+	Constructor:   GoogleDialog(  )
 
-	Purpose:
-	class that renames a folder
+	Purpose:   Class that renames a folder
 	'''
 	
 	def __init__( self ):
@@ -570,20 +600,21 @@ class GoogleDialog( Dark ):
 class EmailDialog( Dark ):
 	'''
 
-	Construcotr:
-	
-	    EmailDialog( sender: str=None, receiver: str=None,
+	Construcotr: EmailDialog( sender: str=None, receiver: str=None,
 			subject: str=None, heading: str=None )
 
-	Purpose:
-	
-	    Class providing form used to send email messages.
+	Purpose: Class providing form used to send email messages.
 
     '''
+
+	# Fields
+	sender: str=None
+	receiver: list[ str ]=None
+	subject: str=None
+	message: str=None
 	
-	
-	def __init__( self, sender: str = None, receiver: str = None,
-	              subject: str = None, message: str = None ):
+	def __init__( self, sender: str=None, receiver: list[ str ]=None,
+	              subject: str=None, message: list[ str ]=None ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
 		self.theme_font = super( ).theme_font
@@ -680,12 +711,14 @@ class MessageDialog( Dark ):
 
 	Construcotr:  MessageDialog( text = '' )
 
-	Purpose:  Class that provides form used
-    to display informational messages
+	Purpose:  Class that provides form used to display informational messages
 
     '''
-	
-	def __init__( self, text: str = None ):
+
+	# Fields
+	text: str=None
+
+	def __init__( self, text: str=None ):
 		self.text = text
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
@@ -698,7 +731,7 @@ class MessageDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (450, 250)
+		self.form_size = ( 450, 250 )
 	
 	def __str__( self ) -> str:
 		if self.text is not None:
@@ -759,27 +792,40 @@ class MessageDialog( Dark ):
 class ErrorDialog( Dark ):
 	'''
 
-	Construcotr:  ErrorDialog( exception )
+	Construcotr:  ErrorDialog( error )
 
 	Purpose:  Class that displays excetption data that accepts
-     a single, optional argument 'exception' of type Error
+     a single, optional argument 'error' of type Error
 
     '''
-	exception: Exception=None
+
+    # Fields
+	error: Exception=None
 	heading: str=None
 	module: str=None
 	info: str=None
 	cause: str=None
 	method: str=None
+	theme_font: tuple=None
+	icon_path: str=None
+	element_backcolor: str=None
+	element_forecolor: str=None
+	text_forecolor: str=None
+	text_backcolor: str=None
+	input_forecolor: str=None
+	input_backcolor: str=None
+	button_backcolor: str=None
+	button_forecolor: str=None
+	button_color: tuple=None
 	
-	def __init__( self, exception ):
+	def __init__( self, error: Error ):
 		super( ).__init__( )
-		self.exception = exception if isinstance( exception, Error ) else None
-		self.heading = exception.type
-		self.module = exception.module
-		self.info = exception.trace
-		self.cause = exception.cause
-		self.method = exception.method
+		self.error = error
+		self.heading = error.heading
+		self.module = error.module
+		self.info = error.trace
+		self.cause = error.cause
+		self.method = error.method
 		self.theme_font = super( ).theme_font
 		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
@@ -844,12 +890,15 @@ class InputDialog( Dark ):
 
 	Purpose:  class that produces a contact input form
 	'''
-	
-	
-	def __init__( self, question ):
+
+	# Fields
+	theme_background: str=None
+	response: str=None
+
+	def __init__( self, question: str=None ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background
-		self.question = question if isinstance( question, str ) else None
+		self.question = question
 		self.theme_font = super( ).theme_font
 		self.icon_path = super( ).icon_path
 		self.element_backcolor = super( ).element_backcolor
@@ -859,7 +908,7 @@ class InputDialog( Dark ):
 		self.input_backcolor = super( ).input_backcolor
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
-		self.form_size = (500, 250)
+		self.form_size = ( 500, 250 )
 		self.response = None
 	
 	def __str__( self ) -> str:
@@ -1185,7 +1234,7 @@ class LoadingPanel( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.image = os.getcwd( ) + r'\etc\img\loaders\loading.gif'
-		self.form_size = (800, 600)
+		self.form_size = ( 800, 600 )
 		self.timeout = 6000
 	
 	def __dir__( self ) -> list[ str ]:
@@ -2240,6 +2289,7 @@ class ColorDialog( Dark ):
 	    class provides a form to select colors returning string values
 	    
 	'''
+
 	def __init__( self ):
 		super( ).__init__( )
 		self.theme_background = super( ).theme_background

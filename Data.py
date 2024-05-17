@@ -61,10 +61,10 @@ class Pascal( ):
 	'''
 
 	# Fields
-	input: str = None
-	output: str = None
+	input: str=None
+	output: str=None
 
-	def __init__( self, input: str = None ):
+	def __init__( self, input: str=None ):
 		self.input = input
 		self.output = input if input.istitle( ) else self.join( )
 
@@ -170,11 +170,11 @@ class SqlPath( ):
 	'''
 
 	# Fields
-	sqlite_driver: str = None
-	sqlite_path: str = None
-	access_driver: str = None
-	sqlserver_driver: str = None
-	sqlserver_database: str = None
+	sqlite_driver: str=None
+	sqlite_path: str=None
+	access_driver: str=None
+	sqlserver_driver: str=None
+	sqlserver_database: str=None
 
 	def __init__( self ):
 		self.sqlite_driver = 'sqlite3'
@@ -208,12 +208,12 @@ class SqlFile( ):
 	'''
 
 	# Fields
-	data: list[ str ] = None
-	command_type: SQL = None
-	source: Source = None
-	provider: Provider = None
+	source: Source=None
+	provider: Provider=None
+	command_type: SQL=None
+	data: list[ str ]=None
 
-	def __init__( self, source: Source = None, provider: Provider = Provider.SQLite,
+	def __init__( self, source: Source=None, provider: Provider=Provider.SQLite,
 	              commandtype: SQL = SQL.SELECTALL ):
 		self.command_type = commandtype
 		self.source = source
@@ -468,17 +468,17 @@ class DbConfig( ):
 	'''
 
 	# Fields
-	source: Source = None
-	provider: Provider = None
-	table_name: str = None
-	sqlite_path: str = None
-	access_driver: str = None
-	access_path: str = None
-	sqlserver_driver: str = None
-	sqlserver_path: str = None
+	source: Source=None
+	provider: Provider=None
+	table_name: str=None
+	sqlite_path: str=None
+	access_driver: str=None
+	access_path: str=None
+	sqlserver_driver: str=None
+	sqlserver_path: str=None
 	data: list = None
 
-	def __init__( self, src: Source, pro: Provider = Provider.SQLite ):
+	def __init__( self, src: Source, pro: Provider=Provider.SQLite ):
 		self.provider = pro
 		self.source = src
 		self.table_name = src.name
@@ -717,14 +717,14 @@ class Connection( DbConfig ):
 	'''
 
 	# Fields
-	source: Source = None
-	provider: Provider = None
-	data_path: str = None
-	driver: str = None
-	dsn: str = None
-	connection_string: str = None
+	source: Source=None
+	provider: Provider=None
+	data_path: str=None
+	driver: str=None
+	dsn: str=None
+	connection_string: str=None
 
-	def __init__( self, src: Source, pro: Provider = Provider.SQLite ):
+	def __init__( self, src: Source, pro: Provider=Provider.SQLite ):
 		super( ).__init__( src, pro )
 		self.source = super( ).source
 		self.provider = super( ).provider
@@ -776,7 +776,7 @@ class SqlConfig( ):
 	 Constructor:
 
 		 SqlConfig( commandtype: SQL=SQL.SELECTALL, columnnames: list = None,
-					columnvalues: tuple = None, paramstyle: ParamStyle = None )
+					columnvalues: tuple=None, paramstyle: ParamStyle = None )
 
 	 Purpose:
 
@@ -785,14 +785,14 @@ class SqlConfig( ):
 	 '''
 
 	# Fields
-	command_type: SQL = None
-	column_names: list[ str ] = None
-	column_values: list[ str ] = None
+	command_type: SQL=None
+	column_names: list[ str ]=None
+	column_values: list[ str ]=None
 	parameter_style: ParamStyle = None
 	criteria: dict = None
 
-	def __init__( self, cmd: SQL = SQL.SELECTALL, names: list[ str ] = None,
-	              values: tuple = None, paramstyle: ParamStyle = None ):
+	def __init__( self, cmd: SQL = SQL.SELECTALL, names: list[ str ]=None,
+	              values: tuple=None, paramstyle: ParamStyle = None ):
 		self.command_type = cmd
 		self.column_names = names
 		self.column_values = values
@@ -969,13 +969,13 @@ class SqlStatement( ):
 	'''
 
 	# Fields
-	source: Source = None
-	provider: Provider = None
-	command_type: SqlConfig = None
-	table_name: str = None
-	column_names: list[ str ] = None
-	column_values: tuple = None
-	updates: str = None
+	source: Source=None
+	provider: Provider=None
+	command_type: SqlConfig=None
+	table_name: str=None
+	column_names: list[ str ]=None
+	column_values: tuple=None
+	updates: str=None
 	criteria: dict = None
 
 	def __init__( self, dbcfg: DbConfig, sqcfg: SqlConfig ):
@@ -1062,18 +1062,18 @@ class Query( ):
 	'''
 
 	# Fields
-	connection: Connection = None
-	sql_statement: SqlStatement = None
-	sql_config: SqlConfig = None
-	source: Source = None
-	provider: Provider = None
-	table_name: str = None
-	command_type: SQL = None
-	data_path: str = None
-	connection_string: str = None
-	column_names: list[ str ] = None
-	column_values: tuple = None
-	command_text: str = None
+	connection: Connection=None
+	sql_statement: SqlStatement=None
+	sql_config: SqlConfig=None
+	source: Source=None
+	provider: Provider=None
+	table_name: str=None
+	command_type: SQL=None
+	data_path: str=None
+	connection_string: str=None
+	column_names: list[ str ]=None
+	column_values: tuple=None
+	command_text: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		self.connection = conn
@@ -1113,19 +1113,19 @@ class SQLiteData( Query ):
 	'''
 
 	# Fields
-	connection: Connection = None
-	sql_statement: SqlStatement = None
-	sql_config: SqlConfig = None
-	source: Source = None
-	provider: Provider = None
-	table_name: str = None
-	command_type: SQL = None
-	data_path: str = None
-	connection_string: str = None
-	column_names: list[ str ] = None
-	column_values: tuple = None
-	command_text: str = None
-	driver_info: str = None
+	connection: Connection=None
+	sql_statement: SqlStatement=None
+	sql_config: SqlConfig=None
+	source: Source=None
+	provider: Provider=None
+	table_name: str=None
+	command_type: SQL=None
+	data_path: str=None
+	connection_string: str=None
+	column_names: list[ str ]=None
+	column_values: tuple=None
+	command_text: str=None
+	driver_info: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
@@ -1234,18 +1234,18 @@ class AccessData( Query ):
 	'''
 
 	# Fields
-	provider: Provider = None
-	source: Source = None
-	connection: Connection = None
-	sql_statement: SqlStatement = None
-	table_name: str = None
-	command_type: SQL = None
-	data_path: str = None
-	connection_string: str = None
-	column_names: list[ str ] = None
-	column_values: tuple = None
-	command_text: str = None
-	driver_info: str = None
+	provider: Provider=None
+	source: Source=None
+	connection: Connection=None
+	sql_statement: SqlStatement=None
+	table_name: str=None
+	command_type: SQL=None
+	data_path: str=None
+	connection_string: str=None
+	column_names: list[ str ]=None
+	column_values: tuple=None
+	command_text: str=None
+	driver_info: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
@@ -1350,14 +1350,14 @@ class SqlServerData( Query ):
 	 '''
 
 	# Fields
-	provider: Provider = None
-	source: Source = None
-	connection: Connection = None
-	sql_statement: SqlStatement = None
-	driver_info: str = None
-	command_text: str = None
-	table_name: str = None
-	sqlserver_path: str = None
+	provider: Provider=None
+	source: Source=None
+	connection: Connection=None
+	sql_statement: SqlStatement=None
+	driver_info: str=None
+	command_text: str=None
+	table_name: str=None
+	sqlserver_path: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
@@ -1461,10 +1461,10 @@ class BudgetData( ):
 	'''
 
 	# Fields
-	source: Source = None
-	table_name: str = None
-	data_path: str = None
-	command_text: str = None
+	source: Source=None
+	table_name: str=None
+	data_path: str=None
+	command_text: str=None
 
 	def __init__( self, src: Source ):
 		self.source = src
@@ -1548,7 +1548,7 @@ class DataBuilder( BudgetData ):
 
 		DataBuilder( source: Source, provider = Provider.SQLite,
 					  commandtype = SQL.SELECTALL, names: list[ str ]=None,
-					  values: tuple = None ).
+					  values: tuple=None ).
 
 	Purpose:
 
@@ -1557,10 +1557,10 @@ class DataBuilder( BudgetData ):
 	'''
 
 	# Fields
-	source: Source = None
-	table_name: str = None
-	data_path: str = None
-	command_text: str = None
+	source: Source=None
+	table_name: str=None
+	data_path: str=None
+	command_text: str=None
 
 	def __init__( self, src: Source ):
 		super( ).__init__( src )
@@ -1615,9 +1615,9 @@ class DataColumn( ):
 	 '''
 
 	# Fields
-	name: str = None
-	label: str = None
-	caption: str = None
+	name: str=None
+	label: str=None
+	caption: str=None
 	type: type = None
 	value: object = None
 
@@ -1673,8 +1673,8 @@ class DataRow( ):
 
 	'''
 
-	def __init__( self, names: list[ str ] = None, values: tuple = ( ),
-	              source: Source = None ):
+	def __init__( self, names: list[ str ]=None, values: tuple=( ),
+	              source: Source=None ):
 		self.source = source
 		self.names = names
 		self.column_values = values
@@ -1699,8 +1699,8 @@ class DataTable( ):
 
 	'''
 
-	def __init__( self, columns: list[ str ] = None, rows: list = None,
-	              source: Source = None, dataframe: DataFrame = None ):
+	def __init__( self, columns: list[ str ]=None, rows: list=None,
+	              source: Source=None, dataframe: DataFrame=None ):
 		self.frame = dataframe
 		self.name = source.name
 		self.rows = [ tuple( r ) for r in dataframe.iterrows( ) ]
