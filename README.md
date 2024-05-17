@@ -1,6 +1,6 @@
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 
-## BudgetPy is an open source, data analysis & prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
+BudgetPy is an open source, data analysis & prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
 
 # Features
 
@@ -33,7 +33,7 @@
 
 
 
-## Code
+# Code
 
 - [Minion](https://github.com/KarmaScripter/BudgetPy/blob/master/Minion.py) - other tools used and available in BudgetPy.
 - [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/Booger.py) - controls for the user interface and related functionality.
