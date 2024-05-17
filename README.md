@@ -37,12 +37,13 @@
 
 ## Code
 
-- `Minion` (Controls\) - main UI layer and associated controls and related functionality
-- `Enumerations` (Enumerations\) - various enumerations used for budgetary accounting
-- `Extensions` (Extensions\) - useful extension methods for budget analysis by type
-- `Clients` (Clients\) - other tools used and available
-- `bin` - Binaries are included in the `bin` folder due to the complex Baby setup required. Don't empty this folder.
-- `bin/storage` - HTML and JS required for downloads manager and custom error pages
+- `Minion` (https://github.com/KarmaScripter/BudgetPy/blob/master/Minion.py) - other tools used and available
+- `Booger` (https://github.com/KarmaScripter/BudgetPy/blob/master/Booger.py) - main UI layer and associated controls and related functionality
+- `Data` (https://github.com/KarmaScripter/BudgetPy/blob/master/Data.py) - data access layer
+- `FileSys` (https://github.com/KarmaScripter/BudgetPy/blob/master/FileSys.py) - classes for interacting with the file system and input/output
+- `Static`  (https://github.com/KarmaScripter/BudgetPy/blob/master/Static.py) - enumerations used in budgetary data analysis.
+- `Schema`  (https://github.com/KarmaScripter/BudgetPy/blob/master/Schema.py) - schema definitions of the BudgetPy data tables.
+- `Ninja` (https://github.com/KarmaScripter/BudgetPy/blob/master/Ninja.py)- data model classes
 
 ## Credits
 
