@@ -30,44 +30,6 @@
 
 
 
-# Make some BudgetPy
-
-## Step 1: Install Visual Studio Code and fork it.
-
-- Fork it from [Github](https://github.com/KarmaScripter/BudgetPy).
-
-![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/ForkingIt.PNG)
-
-
-
-
-Download Visual Studio Code with plug-ins for python and jupyter notebooks.
-
-![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/InstallVSCode.PNG)
-
-
-
-## Step 2: Setup this project in VS Code
-
-- Open VS Code and select "Clone a repository"
-
-![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/CloneRepository.PNG)
-
-
-
-## Step 3: Clone this project
-
-- Type in your BudgetPy fork URL and press "Clone"
-
-![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RepoDestination.PNG)
-
-
-
-### Step 4: Open the BudgetPy Notebook!
-
-- Select the `budgetpy.ipynb` and load the modules! 
-
-![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RunNotebook.PNG)
 
 
 
