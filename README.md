@@ -2,19 +2,14 @@
 
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 
-## BudgetPy is an open source, data analysis prototyping tool for Analysts in the US EPA developed in Python and released under the MIT license.
+## BudgetPy is an open source, data analysis prototyping tool developed in Python for Analysts in the US EPA and released under the MIT license.
 
 ## Features
 
-- Mutliple data providers including SQLite, MS Access, SQL CE, and SQL Servers Express Edition.
-- Charting and reporting.
-- Its own internal web browser with queries optimized for researching data in the .gov domain [Baby Browser](https://github.com/KarmaScripter/Baby/blob/main/README.md)
+- Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
+- Charting, plotting and reporting with matplotlib, dash, and pandas.
 - Pre-defined schema for 100 actively used data tables.
-- SQL Editors for SQLite, SQL Compact Edition, MS Access, SQL Server Express.
-- Excel User Interface over real databases.
-- Mapping for congressional earmark reporting and pollution site monitoring.
-- Easy access to environmental program project descriptions and statutory authority.
-- Quick budget and accouting calculations directl on bound data.
+- Access to SQL Editors for SQLite, MS Access, SQL Server Express.
 - Easily add agency/region/division-specific branding.
 
 ## Providers
