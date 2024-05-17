@@ -20,10 +20,11 @@ Open VS Code and select "Clone a repository"
 
 Type in your BudgetPy fork URL and press "Clone"
 
-![image](https://user-images.githubusercontent.com/104514709/183603880-92217d8a-bc99-4adf-b6d7-030096576090.png)
+![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RepoDestination.PNG)
 
-#### Step 4: Develop!
+#### Step 4: Open the BudgetPy Notebook!
 
-You now have a copy of BudgetPy! 
+Select the `BudgetPy.ipbny` and load the modules! 
 
-![image](https://user-images.githubusercontent.com/104514709/183604128-771daefc-6254-41bc-8660-2d28200a0b1e.png)
+![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RunNotebook.PNG)
+
