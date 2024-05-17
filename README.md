@@ -37,13 +37,13 @@
 
 ## Code
 
-- `Minion` (https://github.com/KarmaScripter/BudgetPy/blob/master/Minion.py) - other tools used and available
-- `Booger` (https://github.com/KarmaScripter/BudgetPy/blob/master/Booger.py) - main UI layer and associated controls and related functionality
-- `Data` (https://github.com/KarmaScripter/BudgetPy/blob/master/Data.py) - data access layer
-- `FileSys` (https://github.com/KarmaScripter/BudgetPy/blob/master/FileSys.py) - classes for interacting with the file system and input/output
-- `Static`  (https://github.com/KarmaScripter/BudgetPy/blob/master/Static.py) - enumerations used in budgetary data analysis.
-- `Schema`  (https://github.com/KarmaScripter/BudgetPy/blob/master/Schema.py) - schema definitions of the BudgetPy data tables.
-- `Ninja` (https://github.com/KarmaScripter/BudgetPy/blob/master/Ninja.py)- data model classes
+- [Minion](https://github.com/KarmaScripter/BudgetPy/blob/master/Minion.py) - other tools used and available
+- [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/Booger.py) - main UI layer and associated controls and related functionality
+- [Data](https://github.com/KarmaScripter/BudgetPy/blob/master/Data.py) - data access layer
+- [FileSys](https://github.com/KarmaScripter/BudgetPy/blob/master/FileSys.py) - classes for interacting with the file system and input/output
+- [Static](https://github.com/KarmaScripter/BudgetPy/blob/master/Static.py) - enumerations used in budgetary data analysis.
+- [Schema](https://github.com/KarmaScripter/BudgetPy/blob/master/Schema.py) - schema definitions of the BudgetPy data tables.
+- [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/Ninja.py)- data model classes
 
 ## Credits
 
