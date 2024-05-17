@@ -27,9 +27,9 @@
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
-# How to compile BudgetPy
+# How to make BudgetPy
 
-#### Step 1: Fork BudgetPy
+#### Step 1: Fork it!
 
 Fork the BudgetPy repository on GitHub.
 
@@ -71,8 +71,4 @@ Select the `budgetpy.ipynb` and load the modules!
 
 ## Credits
 
-## Screenshots
 
-### Datagrids to easily query financial data.
-
-![](https://github.com/KarmaScripter/BudgetExecution/blob/main/Resources/Assets/GitHubImages/Datagrid.PNG)
