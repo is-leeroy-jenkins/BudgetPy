@@ -29,7 +29,12 @@
 
 # How to make BudgetPy
 
-#### Step 1: Install Visual Code and fork it from [Github](https://github.com/KarmaScripter/BudgetPy).
+#### Step 1: Install Visual Code and fork it.
+
+Fork it from [Github](https://github.com/KarmaScripter/BudgetPy).
+
+![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/ForkingIt.PNG)
+
 
 Download Visual Studio Code with plug-ins for python and jupyter notebooks.
 
