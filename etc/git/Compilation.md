@@ -8,13 +8,13 @@ Fork the BudgetPy repository on GitHub.
 
 Download Visual Studio Code with plug-ins for python and jupyter notebooks.
 
-![image](https://user-images.githubusercontent.com/104514709/183603285-8d1a52cf-4cb8-4464-b55e-34d1a17a2c31.png)
+![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/InstallVSCode.PNG)
 
 #### Step 2: Setup this project in VS Code
 
 Open VS Code and select "Clone a repository"
 
-![image](https://user-images.githubusercontent.com/104514709/183603374-2b2d4c84-c58e-474c-a335-fded1838e9ed.png)
+![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/CloneRepository.PNG)
 
 #### Step 3: Clone this project
 
