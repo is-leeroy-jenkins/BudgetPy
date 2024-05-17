@@ -18,7 +18,7 @@
 
 ## Step 3: Clone this project
 
-- Type in your BudgetPy fork URL and press "Clone"
+- Type in your BudgetPy fork path and press "Clone"
 
 ![image](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/git/RepoDestination.PNG)
 
