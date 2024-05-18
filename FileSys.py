@@ -291,11 +291,14 @@ class Path( ):
 	def create_link( self, path: str, name: str ) -> str:
 		'''
 
-		Purpose: creates a symbolic link of 'path' given the name 'name'
+		Purpose:
+		Creates a symbolic link of 'path' given the name 'name'
 
-		Parameters: path: str, name: str
+		Parameters:
+		path: str, name: str
 
-		Returns: str
+		Returns:
+		str
 
 		'''
 		if path is None:
@@ -437,7 +440,13 @@ class File( Path ):
 			_err.show( )
 
 	def create( self, other: str, lines: list[ str ]=None ):
-		''' creates and returns 'selected_path' file '''
+		'''
+		Purpose: creates a file 'other' and writes 'lines' to it
+
+		Parameters: other: str
+
+		Returns: void
+		'''
 		try:
 			_msg = " The argument 'other' has not been specified!"
 			if other is None:
@@ -448,6 +457,7 @@ class File( Path ):
 					for line in lines:
 						_file.write( line )
 					_file.flush( )
+					_file.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -458,17 +468,17 @@ class File( Path ):
 
 	def delete( self, other: str ):
 		'''
-		Purpose:
+		Purpose: deletes a file provided its path 'other'
 
-		Parameters:
+		Parameters: other: str
 
-		Returns:
+		Returns: void
 		'''
 
 		try:
-			if other is None or not os.path.isfile( other ):
-				_msg = " The argument 'other' has not been specified " \
-				       "or does not exist!"
+			if other is None or other is not os.path.isfile( other ):
+				_msg = " The argument 'other' does not exist! " \
+				       "or is not a file!"
 				raise Exception( _msg )
 			else:
 				os.remove( other )
@@ -482,11 +492,11 @@ class File( Path ):
 
 	def get_lines( self ) -> list[ str ]:
 		'''
-		Purpose:
+		Purpose: reads 'self.input' appending each line to a list
 
-		Parameters:
+		Parameters: void
 
-		Returns:
+		Returns: list[ str ]
 		'''
 
 		_lines = list( )
@@ -507,37 +517,13 @@ class File( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def delete( self, other: str ):
-		'''
-		Purpose:
-
-		Parameters:
-
-		Returns:
-		'''
-
-		try:
-			if other is None or os.path.isfile( self.input ) == False:
-				_msg = "The argument 'other' has not been " \
-				       "specified or does not exist!"
-				raise Exception( _msg )
-			else:
-				os.remove( other )
-		except Exception as e:
-			_exc = Error( e )
-			_exc.module = 'FileSys'
-			_exc.cause = 'File'
-			_exc.method = 'delete( self, other )'
-			_err = ErrorDialog( _exc )
-			_err.show( )
-
 	def iterlines( self ):
 		'''
-		Purpose:
+		Purpose: iterates lines of 'self.input'
 
-		Parameters:
+		Parameters: void
 
-		Returns:
+		Returns: Generator
 		'''
 		try:
 			if os.path.isfile( self.input ) == False:
@@ -612,11 +598,11 @@ class File( Path ):
 
 	def writelines( self, lines: list[ str ] ):
 		'''
-		Purpose:
+		Purpose: writes lines in 'lines' to file 'self.input'
 
-		Parameters:
+		Parameters: list[ str ]
 
-		Returns:
+		Returns: void
 		'''
 
 		try:
@@ -624,12 +610,12 @@ class File( Path ):
 				_msg = "The 'lines' is None or 'path' is not a file!"
 				raise Exception( _msg )
 			else:
-				_path = os.path.relpath( self.path )
+				_path = os.path.relpath( self.input )
 				_contents = open( _path, 'a' )
 				for line in lines:
 					_contents.write( line )
 				_contents.flush( )
-				return _contents
+				_contents.close( )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -641,11 +627,11 @@ class File( Path ):
 	def writeall( self, other: str ):
 		'''
 
-		Purpose:
+		Purpose: writes all text in 'other' to file 'self.input'
 
-		Parameters:
+		Parameters: str
 
-		Returns:
+		Returns: void
 
 		'''
 

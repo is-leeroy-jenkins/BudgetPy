@@ -1338,14 +1338,9 @@ class AccessData( Query ):
 class SqlServerData( Query ):
 	'''
 
-	 Constructor:
+	 Constructor: SqlData( connection: Connection, sqlstatement: SqlStatement )
 
-		SqlData( connection: Connection, sqlstatement: SqlStatement )
-
-	 Purpose:
-
-		 Class providing object represents the
-		 value models in the MS SQL Server database
+	 Purpose: Class providing object represents the value models in the MS SQL Server database
 
 	 '''
 
