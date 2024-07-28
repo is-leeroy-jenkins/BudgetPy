@@ -10,7 +10,7 @@
   ******************************************************************************************
   <copyright file="Booger.py" company="Terry D. Eppler">
 
-     This is a Federal Budget, Finance, and Accounting application.
+     This is a Federal Budget Execution and Data Analysis Application for EPA Analysts
      Copyright ©  2024  Terry Eppler
 
      Permission is hereby granted, free of charge, to any person obtaining a copy

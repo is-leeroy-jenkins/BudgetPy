@@ -58,7 +58,6 @@ class App( ):
 
 	# Fields
     app: Client=None
-    sqlite: str=None
     access: str=None
     excel: str=None
     edge: str=None

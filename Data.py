@@ -60,10 +60,6 @@ class Pascal( ):
 
 	'''
 
-	# Fields
-	input: str=None
-	output: str=None
-
 	def __init__( self, input: str=None ):
 		self.input = input
 		self.output = input if input.istitle( ) else self.join( )
@@ -169,13 +165,6 @@ class SqlPath( ):
 
 	'''
 
-	# Fields
-	sqlite_driver: str=None
-	sqlite_path: str=None
-	access_driver: str=None
-	sqlserver_driver: str=None
-	sqlserver_database: str=None
-
 	def __init__( self ):
 		self.sqlite_driver = 'sqlite3'
 		self.sqlite_path = r'db\sqlite\datamodels\sql'
@@ -206,12 +195,6 @@ class SqlFile( ):
 		optional arguments source, provider, and command.
 
 	'''
-
-	# Fields
-	source: Source=None
-	provider: Provider=None
-	command_type: SQL=None
-	data: list[ str ]=None
 
 	def __init__( self, source: Source=None, provider: Provider=Provider.SQLite,
 	              commandtype: SQL = SQL.SELECTALL ):
@@ -467,17 +450,6 @@ class DbConfig( ):
 
 	'''
 
-	# Fields
-	source: Source=None
-	provider: Provider=None
-	table_name: str=None
-	sqlite_path: str=None
-	access_driver: str=None
-	access_path: str=None
-	sqlserver_driver: str=None
-	sqlserver_path: str=None
-	data: list = None
-
 	def __init__( self, src: Source, pro: Provider=Provider.SQLite ):
 		self.provider = pro
 		self.source = src
@@ -716,14 +688,6 @@ class Connection( DbConfig ):
 
 	'''
 
-	# Fields
-	source: Source=None
-	provider: Provider=None
-	data_path: str=None
-	driver: str=None
-	dsn: str=None
-	connection_string: str=None
-
 	def __init__( self, src: Source, pro: Provider=Provider.SQLite ):
 		super( ).__init__( src, pro )
 		self.source = super( ).source
@@ -783,13 +747,6 @@ class SqlConfig( ):
 		 Class provides database interaction behavior
 
 	 '''
-
-	# Fields
-	command_type: SQL=None
-	column_names: list[ str ]=None
-	column_values: list[ str ]=None
-	parameter_style: ParamStyle = None
-	criteria: dict = None
 
 	def __init__( self, cmd: SQL = SQL.SELECTALL, names: list[ str ]=None,
 	              values: tuple=None, paramstyle: ParamStyle = None ):
@@ -968,16 +925,6 @@ class SqlStatement( ):
 
 	'''
 
-	# Fields
-	source: Source=None
-	provider: Provider=None
-	command_type: SqlConfig=None
-	table_name: str=None
-	column_names: list[ str ]=None
-	column_values: tuple=None
-	updates: str=None
-	criteria: dict = None
-
 	def __init__( self, dbcfg: DbConfig, sqcfg: SqlConfig ):
 		self.command_type = sqcfg.command_type
 		self.provider = dbcfg.provider
@@ -1061,20 +1008,6 @@ class Query( ):
 
 	'''
 
-	# Fields
-	connection: Connection=None
-	sql_statement: SqlStatement=None
-	sql_config: SqlConfig=None
-	source: Source=None
-	provider: Provider=None
-	table_name: str=None
-	command_type: SQL=None
-	data_path: str=None
-	connection_string: str=None
-	column_names: list[ str ]=None
-	column_values: tuple=None
-	command_text: str=None
-
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		self.connection = conn
 		self.sql_statement = sql
@@ -1111,21 +1044,6 @@ class SQLiteData( Query ):
 		Class represents the SQLite data factory
 
 	'''
-
-	# Fields
-	connection: Connection=None
-	sql_statement: SqlStatement=None
-	sql_config: SqlConfig=None
-	source: Source=None
-	provider: Provider=None
-	table_name: str=None
-	command_type: SQL=None
-	data_path: str=None
-	connection_string: str=None
-	column_names: list[ str ]=None
-	column_values: tuple=None
-	command_text: str=None
-	driver_info: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
@@ -1233,20 +1151,6 @@ class AccessData( Query ):
 
 	'''
 
-	# Fields
-	provider: Provider=None
-	source: Source=None
-	connection: Connection=None
-	sql_statement: SqlStatement=None
-	table_name: str=None
-	command_type: SQL=None
-	data_path: str=None
-	connection_string: str=None
-	column_names: list[ str ]=None
-	column_values: tuple=None
-	command_text: str=None
-	driver_info: str=None
-
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
 		self.source = super( ).source
@@ -1343,16 +1247,6 @@ class SqlServerData( Query ):
 	 Purpose: Class providing object represents the value models in the MS SQL Server database
 
 	 '''
-
-	# Fields
-	provider: Provider=None
-	source: Source=None
-	connection: Connection=None
-	sql_statement: SqlStatement=None
-	driver_info: str=None
-	command_text: str=None
-	table_name: str=None
-	sqlserver_path: str=None
 
 	def __init__( self, conn: Connection, sql: SqlStatement ):
 		super( ).__init__( conn, sql )
@@ -1454,12 +1348,6 @@ class BudgetData( ):
 		pandas dataframes.
 
 	'''
-
-	# Fields
-	source: Source=None
-	table_name: str=None
-	data_path: str=None
-	command_text: str=None
 
 	def __init__( self, src: Source ):
 		self.source = src
