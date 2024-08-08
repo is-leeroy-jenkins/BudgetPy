@@ -56,20 +56,6 @@ class App( ):
     processes based on 'Client' enumeration input args
     '''
 
-	# Fields
-    app: Client=None
-    access: str=None
-    excel: str=None
-    edge: str=None
-    chrome: str=None
-    control_panel: str=None
-    calculator: str=None
-    outlook: str=None
-    pyscripter: str=None
-    task_manager: str=None
-    storage: str=None
-    word: str=None
-
     def __init__( self, client: Client ):
         self.app = client
         self.sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'

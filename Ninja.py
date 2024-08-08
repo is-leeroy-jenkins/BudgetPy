@@ -641,6 +641,7 @@ class AnnualCarryoverEstimate( Base ):
 	rpio_name = Column( String( 255 ) )
 	amount = Column( Float( ) )
 	open_commitments = Column( Float( ) )
+
 	obligations = Column( Float( ) )
 	available = Column( Float( ) )
 	estimate = Column( Float( ) )
