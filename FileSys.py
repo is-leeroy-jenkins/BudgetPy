@@ -847,7 +847,7 @@ class Folder( Path ):
 
 		try:
 			if other is None:
-				_msg = "The argument 'other' has not been specified!"
+				_msg = "The argument 'other' doesn't exist or has not been specified!"
 				raise Exception( _msg )
 			else:
 				os.rmdir( other )
