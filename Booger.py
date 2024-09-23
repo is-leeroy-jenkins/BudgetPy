@@ -81,15 +81,6 @@ class Error( Exception ):
 
     '''
 
-	# Fields
-	heading: str=None
-	cause: str=None
-	module: str=None
-	method: str=None
-	type: str=None
-	trace: str=None
-	info: str=None
-
 	def __init__( self, error: Exception, heading: str=None, cause: str=None,
 	              method: str=None, module: str=None ):
 		super( ).__init__( )
@@ -128,11 +119,6 @@ class ButtonIcon( ):
 
     '''
 
-	# Fields
-	name: str=None
-	button: str=None
-	file_path: str=None
-
 	def __init__( self, png: Enum ):
 		self.name = png.name
 		self.button = os.getcwd( ) + r'\etc\img\button'
@@ -161,11 +147,6 @@ class TitleIcon( ):
 		Class used to define the TitleIcon used on the GUI
 
 	'''
-
-	# Fields
-	name: str=None
-	folder: str=None
-	file_path: str=None
 	
 	def __init__( self, ico ):
 		self.name = ico.name
@@ -196,26 +177,6 @@ class Dark( ):
         Class representing the theme
 
     '''
-
-	# Fields
-	theme_background: str=None
-	theme_textcolor: str=None
-	element_backcolor: str=None
-	element_forecolor: str=None
-	text_forecolor: str=None
-	text_backcolor: str=None
-	input_forecolor: str=None
-	input_backcolor: str=None
-	button_backcolor: str=None
-	button_forecolor: str=None
-	button_color: tuple=None
-	icon_path: str=None
-	theme_font: tuple=None
-	scrollbar_color: str=None
-	progressbar_backcolor: str=None
-	progressbar_backcolor: str=None
-	form_size: tuple=None
-	settings_path: str=None
 
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
@@ -264,20 +225,6 @@ class FileDialog( Dark ):
 	Purpose: Class that creates dialog to get filepath
 
 	'''
-
-	# Fields
-	form_size: tuple=None
-	selected_item: str=None
-	message: str=None
-	extension: EXT=None
-	excel: tuple=None
-	csv: tuple=None
-	pdf: tuple=None
-	sql: tuple=None
-	text: tuple=None
-	access: tuple=None
-	sqlite: tuple=None
-	sqlserver: tuple=None
 
 	def __init__( self, extension=EXT.XLSX ):
 		super( ).__init__( )
