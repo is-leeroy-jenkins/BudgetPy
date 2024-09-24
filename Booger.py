@@ -178,6 +178,24 @@ class Dark( ):
 
     '''
 
+	theme_background = sg.theme_background_color( )
+	theme_textcolor = sg.theme_text_color( )
+	element_backcolor = sg.theme_text_element_background_color( )
+	element_forecolor = sg.theme_element_text_color( )
+	text_forecolor = sg.theme_text_color( )
+	text_backcolor = sg.theme_text_element_background_color( )
+	input_forecolor = sg.theme_input_text_color( )
+	input_backcolor = sg.theme_input_background_color( )
+	button_backcolor = sg.theme_button_color_background( )
+	button_forecolor = sg.theme_button_color_text( )
+	button_color = sg.theme_button_color( )
+	icon_path = os.getcwd( ) + r'\etc\ico\ninja.ico'
+	theme_font = ( 'Roboto', 9 )
+	scrollbar_color = '#755600'
+	progressbar_backcolor = sg.theme_progress_bar_color( )
+	form_size = ( 400, 200 )
+	settings_path = os.getcwd( ) + r'\etc\theme'
+	
 	def __init__( self ):
 		sg.theme( 'DarkGrey15' )
 		sg.theme_input_text_color( '#FFFFFF' )
@@ -1324,7 +1342,7 @@ class ProcessingPanel( Dark ):
 		self.input_forecolor = super( ).input_forecolor
 		self.button_color = super( ).button_color
 		self.image = os.getcwd( ) + r'\etc\img\loaders\processing.gif'
-		self.form_size = (800, 600)
+		self.form_size = ( 800, 600)
 		self.timeout = None
 	
 	def __dir__( self ) -> list[ str ]:
@@ -1403,7 +1421,7 @@ class SplashPanel( Dark ):
 		self.button_forecolor = super( ).button_forecolor
 		self.button_backcolor = super( ).button_backcolor
 		self.image = os.getcwd( ) + r'\etc\img\BudgetEx.png'
-		self.form_size = (800, 600)
+		self.form_size = ( 800, 600 )
 		self.timeout = 6000
 	
 	def __dir__( self ) -> list[ str ]:
@@ -1423,9 +1441,9 @@ class SplashPanel( Dark ):
 	def show( self ):
 		try:
 			_img = self.image
-			_imgsize = (500, 400)
-			_line = (100, 2)
-			_space = (15, 1)
+			_imgsize = ( 500, 400 )
+			_line = ( 100, 2 )
+			_space = ( 15, 1 )
 			_layout = [ [ sg.Text( size=_space ), sg.Text( size=_line ) ],
 			            [ sg.Text( size=_space ), sg.Text( size=_line ) ],
 			            [ sg.Text( size=_space ),

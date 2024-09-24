@@ -333,7 +333,7 @@ class File( Path ):
 		
 	 '''
 
-	def __init__( self, path: str=None ):
+	def __init__( self, path: str ):
 		super( ).__init__( path )
 		self.input = super( ).input
 		self.absolute_path = os.path.abspath( path )
@@ -346,8 +346,8 @@ class File( Path ):
 		self.modified = os.path.getmtime( path )
 
 	def __str__( self ) -> str:
-		if self.path is not None:
-			return self.path
+		if self.relative_path is not None:
+			return self.relative_path
 
 	def __dir__( self ) -> list[ str ]:
 		'''
