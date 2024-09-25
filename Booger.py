@@ -46,13 +46,13 @@ import PySimpleGUI as sg
 from typing import Type
 import base64
 import webbrowser
-# import fitz
+import fitz
 from PIL import Image, ImageTk, ImageSequence
 from enum import Enum
 from sys import exit, exc_info
 import random
 import io
-# from googlesearch import search
+from googlesearch import search
 from Minion import App
 import traceback
 import numpy as np
@@ -1915,7 +1915,7 @@ class PdfForm( Dark ):
 				modal=True,
 				resizable=True,
 				grab_anywhere=True,
-				icon=self.icon )
+				icon=self.icon_path )
 			
 			while True:
 				_event, _values = _window.read( )
