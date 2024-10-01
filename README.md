@@ -1,6 +1,7 @@
+## Budget-Py
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 
-## BudgetPy is an open source data analysis & prototyping tool developed in Python for EPA analysts and released under the MIT license.
+## An open source data analysis & prototyping tool developed in Python for EPA analysts and released under the MIT license.
 
 ## Features
 - Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
