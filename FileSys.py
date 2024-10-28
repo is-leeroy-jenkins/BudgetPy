@@ -767,7 +767,7 @@ class Folder( Path ):
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def rename( self, name: str ):
+	def rename( self, name: str ) ->str:
 		'''
 		Purpose:
 

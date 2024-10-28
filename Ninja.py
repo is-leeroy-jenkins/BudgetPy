@@ -7158,9 +7158,7 @@ class ProgramArea( Base ):
 		self.provider = provider
 		self.source = Source.ProgramAreas
 		self.code = code
-		self.fields = [ 'ProgramAreasId',
-		                'Code',
-		                'Name' ]
+		self.fields = [ 'ProgramAreasId', 'Code',  'Name' ]
 	
 	def __str__( self ) -> str:
 		if self.code is not None:
