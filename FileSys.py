@@ -1085,7 +1085,8 @@ class ZipFile( ):
 
 		try:
 			if not self.file_path == '':
-				zp.ZipFile( self.zip_path, 'w' ).write( self.file_path, self.file_name )
+				zp.ZipFile( self.zip_path, 'w' ).write( self.file_path,
+					self.file_name )
 		except Exception as e:
 			_exc = Error( e )
 			_exc.module = 'FileSys'
@@ -1096,11 +1097,11 @@ class ZipFile( ):
 
 	def unzip( self ):
 		'''
-		Purpose:
+		Purpose: Un-zips the file
 
-		Parameters:
+		Parameters: void
 
-		Returns:
+		Returns: void
 		'''
 
 		try:
