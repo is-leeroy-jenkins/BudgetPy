@@ -3,9 +3,6 @@
 ## Overview
 The **Federal Budget Outlay Projection Model** is a **machine learning-driven forecasting system** that predicts **future U.S. federal budget outlays** based on historical expenditure data. It applies **statistical analysis, regression models, and time series forecasting** to project future expenditures by **agency and fiscal year**.
 
-This model is designed for **government analysts, policymakers, and data scientists** who need accurate **budgetary predictions** for fiscal planning and financial decision-making.
-
-
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
 
