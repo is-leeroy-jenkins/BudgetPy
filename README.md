@@ -1,13 +1,22 @@
 ## Budget-Py
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
+## Overview
+The **Federal Budget Outlay Projection Model** is a **machine learning-driven forecasting system** that predicts **future U.S. federal budget outlays** based on historical expenditure data. It applies **statistical analysis, regression models, and time series forecasting** to project future expenditures by **agency and fiscal year**.
 
-## An open source data analysis & prototyping tool developed in Python for EPA analysts and released under the MIT license.
+This model is designed for **government analysts, policymakers, and data scientists** who need accurate **budgetary predictions** for fiscal planning and financial decision-making.
+
 
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
 
 
 ## Features
+✅ **Data-Driven Forecasting** – Uses historical budget data from **FY1962 to FY2024** to predict **FY2025 and beyond**.  
+✅ **Machine Learning Integration** – Implements **Random Forest, Gradient Boosting, Bayesian Ridge Regression, and Polynomial Regression** for high-accuracy predictions.  
+✅ **Time Series Forecasting** – Leverages **ARIMA and Holt-Winters models** to analyze **seasonal and trend-based variations** in budgetary spending.  
+✅ **Batch Processing for Large Datasets** – Optimized for handling extensive federal financial data without memory overload.  
+✅ **Feature Engineering & Correlation Analysis** – Utilizes **PCA, Min-Max Scaling, Z-score Standardization**, and **K-Means clustering** to enhance model performance.  
+✅ **Automated Outlay Projections** – Provides **yearly budget forecasts per agency** with a simple **data frame output**.  
 - [Outlay Project Model](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fanaconda.cloud%2Fapi%2Fprojects%2Ff4ad0240-eaf1-4ad1-a8b4-99e630b46cda%2Ffiles%2Foutlays.ipynb%3Fversion%3D3c5763b3-e106-4e67-b314-3207f7f4ee71)
 - Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
 - Charting, plotting and reporting with matplotlib, dash, and pandas.

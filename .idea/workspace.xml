@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ipynb/OutlayProjector.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/OutlayProjector.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -549,7 +548,7 @@
       <workItem from="1741394057081" duration="2737000" />
       <workItem from="1741439347746" duration="9616000" />
       <workItem from="1741471501040" duration="293000" />
-      <workItem from="1741472927898" duration="1080000" />
+      <workItem from="1741472927898" duration="2081000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -894,7 +893,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="739" />
+    <option name="localTasksCounter" value="740" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
