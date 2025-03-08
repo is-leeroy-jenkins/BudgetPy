@@ -42,7 +42,7 @@
   ******************************************************************************************
   '''
 import subprocess as sp
-from Booger import *
+from src.Booger import *
 from Static import Client
 
 class App( ):

@@ -41,11 +41,7 @@
   </summary>
   ******************************************************************************************
   '''
-from sqlalchemy import ( Column, Integer, DateTime, Float, ForeignKey,
-                         MetaData, Table, create_engine, String, select, text )
-from Booger import Error, ErrorDialog
-from Static import Source, Provider, SQL
-from datetime import datetime
+from sqlalchemy import (MetaData, Table, create_engine)
 
 metadata = MetaData( )
 dbpath = r'db\sqlite\datamodels\Data.db'

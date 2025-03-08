@@ -41,12 +41,42 @@
   </summary>
   ******************************************************************************************
   '''
+#  ***********************************************************************
+#  Assembly         : BudgetPy
+#  Author           : Terry D. Eppler
+#  Created          : 05-29-2023
+#  #
+#  Last Modified By : Terry D. Eppler
+#  Last Modified On : 05-29-2023
+#  ***********************************************************************
+#  <copyright file=".py" company="Terry Eppler">
+#     Copyright ©  2023  Terry Eppler
+#  #
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#  #
+#     This program is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#  #
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <https:#www.gnu.org/licenses/>.
+#  #
+#     Contact: terryeppler@gmail.com or eppler.terry@epa.gov
+#  </copyright>
+#  <summary>
+#  #
+#  </summary>
+#  ***********************************************************************
+
 import os
 import zipfile as zp
-from openpyxl import Workbook, worksheet
+from openpyxl import Workbook
 import shutil as sh
-from datetime import datetime
-from Booger import Error, ErrorDialog
+from src.Booger import Error, ErrorDialog
 
 class Path( ):
 	'''
@@ -964,7 +994,7 @@ class Excel( ):
 	'''
 
 	def __init__( self, path: str=None ):
-		self.template_path = r'etc/templates/report/Excel.xlsx'
+		self.template_path = r'../etc/templates/report/Excel.xlsx'
 		self.external_path = path
 		self.name = os.path.split( path )[ 1 ]
 		self.title = self.name.split( '.' )[ 0 ]

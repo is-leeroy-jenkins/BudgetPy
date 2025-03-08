@@ -46,7 +46,7 @@ import datetime as dt
 from datetime import datetime
 from pandas import DataFrame
 from sqlite3 import Row
-from Booger import Error, ErrorDialog
+from src.Booger import Error, ErrorDialog
 from Static import Source, Provider, SQL
 from src.Data import (DbConfig, SqlConfig, Connection, SqlStatement,
                       BudgetData, DataBuilder)
