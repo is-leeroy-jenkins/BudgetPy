@@ -4,7 +4,7 @@
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
-- The **Outlay Projector** is a forecasting model that uses historical expenditure data, 
+- The [Outlay Projector](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fanaconda.cloud%2Fapi%2Fprojects%2Ff4ad0240-eaf1-4ad1-a8b4-99e630b46cda%2Ffiles%2Foutlays.ipynb%3Fversion%3D3c5763b3-e106-4e67-b314-3207f7f4ee71) is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
 ### Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond.  
