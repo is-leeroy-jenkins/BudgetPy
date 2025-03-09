@@ -34,7 +34,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/csharp.png)  Code
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png)  Code
 - [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
 - [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
 - [Data](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
@@ -43,26 +43,22 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - [Schema](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
 - [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)System requirements
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/signature.png)  Code Signing 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/Resources/Assets/GitHubImages/signature.png)  Code Signing 
 
-Bubba uses free code signing provided by [SignPath.io](https://signpath.io/) and a free code signing certificate
+BudgetPy uses free code signing provided by [SignPath.io](https://signpath.io/) and a free code signing certificate
 from [SignPath Foundation](https://signpath.org/).
 
-The binaries and installer are built on [AppVeyor](https://ci.appveyor.com/project/is-leeroy-jenkins/networkmanager) directly from the [GitHub repository](https://github.com/is-leeroy-jenkins/Bubba/blob/main/appveyor.yml).
-Build artifacts are automatically sent to [SignPath.io](https://signpath.io/) via webhook, where they are signed after manual approval by the maintainer.
-The signed binaries are then uploaded to the [GitHub releases](https://github.com/is-leeroy-jenkins/Bubba/releases) page.
 
-
-## ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/web.png) Privacy Policy
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/Resources/Assets/GitHubImages/web.png) Privacy Policy
 
 This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
 
-Bubba has integrated the following services for additional functions, which can be enabled or disabled at the first start (in the welcome dialog) or at any time in the settings:
+BudgetPy has integrated the following services for additional functions, which can be enabled or disabled at the first start (in the welcome dialog) or at any time in the settings:
 
 - [api.github.com](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement) (Check for program updates)
 - [ipify.org](https://www.ipify.org/) (Retrieve the public IP address used by the client)
@@ -70,8 +66,8 @@ Bubba has integrated the following services for additional functions, which can 
 
 ## 📝 License
 
-Bubba is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/Bubba/blob/main/LICENSE).
+BudgetPy is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/BudgetPy/blob/main/LICENSE).
 
-The licenses of the libraries used can be found [here](https://github.com/is-leeroy-jenkins/Bubba/tree/main/Resources/Licenses).
+The licenses of the libraries used can be found [here](https://github.com/is-leeroy-jenkins/BudgetPy/tree/main/Resources/Licenses).
 
 
