@@ -1,5 +1,5 @@
 ## Budget-Py
-![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 ## Overview
 The **Outlay Projector** is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
@@ -8,6 +8,18 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
+
+
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Generative AI
+
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
+> It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
+
+- #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
+- #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+
+> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+> This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
 
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
@@ -36,12 +48,12 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png)  Code
 - [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
-- [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
-- [Data](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
-- [FileSys](https://github.com/KarmaScripter/BudgetPy/blob/master/src/FileSys.py) - classes for interacting with the file system and input/output.
-- [Static](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
-- [Schema](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
-- [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
+- [Booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
+- [Data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
+- [FileSys](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/FileSys.py) - classes for interacting with the file system and input/output.
+- [Static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
+- [Schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
+- [Ninja](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System Requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
