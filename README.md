@@ -16,7 +16,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
-- Current data sets available via ![Kaggle](https://www.kaggle.com/terryeppler/datasets)
+- Current data sets available via [Kaggle](https://www.kaggle.com/terryeppler/datasets)
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png) Machine Learning Integration 
 ##### Alogorithms to recognize patterns and make predictions
 > - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
