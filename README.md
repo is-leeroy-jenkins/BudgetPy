@@ -43,18 +43,18 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - [Schema](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
 - [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System requirements
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System Requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/Resources/Assets/GitHubImages/signature.png)  Code Signing 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/signature.png)  Code Signing 
 
 BudgetPy uses free code signing provided by [SignPath.io](https://signpath.io/) and a free code signing certificate
 from [SignPath Foundation](https://signpath.org/).
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/Resources/Assets/GitHubImages/web.png) Privacy Policy
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/web.png) Privacy Policy
 
 This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
 
