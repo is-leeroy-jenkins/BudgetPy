@@ -1,6 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/guidance.png) Overview
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/api.png) Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
@@ -50,7 +50,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif) How It Works
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.gif) How It Works
 ### 1️⃣ **Data Processing**
 - Loads federal budget data from **"Budget Outlays.xlsx"**.
 - Filters **fiscal year data (2012–2024)** and groups outlays **by agency**.
@@ -65,7 +65,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - Predicts **FY2025 outlays for each federal agency**.
 - Outputs results in a structured **data frame** for easy interpretation.
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/install.png) Installation & Usage
 ### **4️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/your-repo/federal-budget-forecast.git
