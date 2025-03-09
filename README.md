@@ -49,8 +49,8 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
 ##### Clone the Repository
-> - ```sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
-> - ```cd federal-budget-forecast
+> ```sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
+```cd federal-budget-forecast
 
 
 
