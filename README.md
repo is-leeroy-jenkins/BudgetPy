@@ -1,7 +1,6 @@
 ## Budget-Py
 ![](https://github.com/KarmaScripter/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
 ## Overview
-___
 The **Outlay Projector** is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
 - Data-Driven Forecasting – Uses historical budget data from FY1962 to FY2024 to predict FY2025 and beyond.  
@@ -11,8 +10,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 
 
-## Features 
-___
+## Features
 - Time Series Forecasting – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
 - Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
 - Feature Engineering & Correlation Analysis – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
@@ -25,7 +23,6 @@ ___
 - Access to editors for SQLite, MS Access, and SQL CE.
 
 ## Providers
-___
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools.  [Learn more here](https://www.microsoft.com/en-us/microsoft-365/access)
@@ -33,13 +30,11 @@ ___
 
 
 ## Documentation
-___
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
 
 ## Code
-___
 - [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
 - [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
 - [Data](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
@@ -49,7 +44,6 @@ ___
 - [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
 ## System requirements
-___
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
 
