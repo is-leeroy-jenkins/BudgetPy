@@ -34,6 +34,15 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 > This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
 
 
+- #### Example run
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
+
+> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
+Badger interacts with pre-trained Large Language Models (LLMs) like GPT-4o and o1-mini  to enhance its analytical capabilities.
+Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
+
+
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
