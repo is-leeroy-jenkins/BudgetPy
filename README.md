@@ -10,26 +10,6 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
 
-## How It Works
-### 1️⃣ **Data Processing**
-- Loads federal budget data from **"Budget Outlays.xlsx"**.
-- Filters **fiscal year data (2012–2024)** and groups outlays **by agency**.
-- Handles **missing values and data inconsistencies**.
-  
-### 2️⃣ **Model Training**
-- Uses **Random Forest Regression** as the primary predictive model.
-- Splits data into **training (80%) and testing (20%)** sets.
-- Trains on **FY2012-FY2023** to predict **FY2024** and validates performance.
-
-### 3️⃣ **Outlay Forecasting**
-- Predicts **FY2025 outlays for each federal agency**.
-- Outputs results in a structured **data frame** for easy interpretation.
-
-## Installation & Usage
-### **1️⃣ Clone the Repository**
-> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
-> - cd federal-budget-forecast
-
 ### Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond.  
 ### Machine Learning Integration 
@@ -68,6 +48,26 @@ This includes the use of vector embeddings and predictive modeling to forecast c
 BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities.
 Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
+
+## How It Works
+### 1️⃣ **Data Processing**
+- Loads federal budget data from **"Budget Outlays.xlsx"**.
+- Filters **fiscal year data (2012–2024)** and groups outlays **by agency**.
+- Handles **missing values and data inconsistencies**.
+  
+### 2️⃣ **Model Training**
+- Uses **Random Forest Regression** as the primary predictive model.
+- Splits data into **training (80%) and testing (20%)** sets.
+- Trains on **FY2012-FY2023** to predict **FY2024** and validates performance.
+
+### 3️⃣ **Outlay Forecasting**
+- Predicts **FY2025 outlays for each federal agency**.
+- Outputs results in a structured **data frame** for easy interpretation.
+
+## Installation & Usage
+### **1️⃣ Clone the Repository**
+> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
+> - cd federal-budget-forecast
 
 
 # ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
