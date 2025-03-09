@@ -43,10 +43,10 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### 4o model run
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
-> BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
-This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
-BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities.
-Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
+- BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets. 
+- Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
+- BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
+- Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
 ## How It Works
