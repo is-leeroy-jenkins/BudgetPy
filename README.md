@@ -43,6 +43,12 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### 4o model run
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
+### **1️⃣ Clone the Repository**
+> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
+> - cd federal-budget-forecast
+
+
 - BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets. 
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
@@ -63,12 +69,6 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 ### 3️⃣ **Outlay Forecasting**
 - Predicts **FY2025 outlays for each federal agency**.
 - Outputs results in a structured **data frame** for easy interpretation.
-
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
-### **1️⃣ Clone the Repository**
-> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
-> - cd federal-budget-forecast
-
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
