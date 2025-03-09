@@ -72,6 +72,15 @@ git clone https://github.com/your-repo/federal-budget-forecast.git
 cd federal-budget-forecast
 ```
 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png) Python Code
+- [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
+- [Booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
+- [Data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
+- [FileSys](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/FileSys.py) - classes for interacting with the file system and input/output.
+- [Static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
+- [Schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
+- [Ninja](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
+
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
@@ -83,15 +92,6 @@ cd federal-budget-forecast
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
-
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png)  Code
-- [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
-- [Booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
-- [Data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
-- [FileSys](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/FileSys.py) - classes for interacting with the file system and input/output.
-- [Static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
-- [Schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
-- [Ninja](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System Requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
@@ -119,7 +119,7 @@ BudgetPy has integrated the following services for additional functions, which c
 
 BudgetPy uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
 
-|                                                                     |                                                                                                          |
+| Project                                                             | Description                                                                                              |
 |---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | [SciPy](https://scipy.org/)                                         | Fundamental algorithms for scientific computing in Python                                                |
 | [Tensorflow](https://www.tensorflow.org/)                  		       | An end-to-end platform for machine learning								                                                      |
@@ -130,7 +130,7 @@ BudgetPy uses the following projects and libraries. Please consider supporting t
 | [pyodbc](https://pypi.org/project/pyodbc/)   	                      | pyodbc is an open source Python module that makes accessing ODBC databases simple. 									             |
 | [PySimplGUI](https://github.com/PySimpleGUI/PySimpleGUI)            | Python GUIs for Humans! PySimpleGUI is the top-rated Python application development environment.								 |
 | [Scikit-Learn](https://github.com/scikit-learn/scikit-learn)        | Machine learning in Python					                                                                          |
-| [OpenAI](https://github.com/openai/openai-python) 	               | The official Python library for the OpenAI API							                                                         |
+| [OpenAI](https://github.com/openai/openai-python) 	                 | The official Python library for the OpenAI API							                                                    |
 
 
 ## 📝 License
