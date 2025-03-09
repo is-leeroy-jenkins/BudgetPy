@@ -24,8 +24,8 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 ## Installation & Usage
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/your-repo/federal-budget-forecast.git
-cd federal-budget-forecast
+```git clone https://github.com/your-repo/federal-budget-forecast.git
+```cd federal-budget-forecast
 
 ### Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond.  
