@@ -1,6 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/api.png) Overview
+##  Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
@@ -14,7 +14,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/sqlite.png) Data-Driven Forecasting 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/sql.png) Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
 - Current data sets available via ![Kaggle](https://www.kaggle.com/terryeppler/datasets)
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png) Machine Learning Integration 
