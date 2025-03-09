@@ -10,7 +10,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 
 
-## Features
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
 - Time Series Forecasting – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
 - Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
 - Feature Engineering & Correlation Analysis – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
@@ -22,19 +22,19 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - Pre-defined schema for 100 environmental data tables.
 - Access to editors for SQLite, MS Access, and SQL CE.
 
-## Providers
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools.  [Learn more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
 
-## Documentation
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/documentation.png)  Documentation
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
 
-## Code
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/csharp.png)  Code
 - [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
 - [Booger](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
 - [Data](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
@@ -43,7 +43,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - [Schema](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
 - [Ninja](https://github.com/KarmaScripter/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
 
-## System requirements
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)System requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
 
