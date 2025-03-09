@@ -6,7 +6,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 ### Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond.  
 ### Machine Learning Integration 
-- Alogorithms to recognize patterns and make predictions
+##### Alogorithms to recognize patterns and make predictions
 > - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
 > - [Bayesian Ridge](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
 > - [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression) 
