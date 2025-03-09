@@ -50,7 +50,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.gif) How It Works
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png) How It Works
 ### 1️⃣ **Data Processing**
 - Loads federal budget data from **"Budget Outlays.xlsx"**.
 - Filters **fiscal year data (2012–2024)** and groups outlays **by agency**.
