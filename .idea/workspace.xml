@@ -548,7 +548,7 @@
       <workItem from="1741394057081" duration="2737000" />
       <workItem from="1741439347746" duration="9616000" />
       <workItem from="1741471501040" duration="293000" />
-      <workItem from="1741472927898" duration="11034000" />
+      <workItem from="1741472927898" duration="11532000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -893,7 +893,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="774" />
+    <option name="localTasksCounter" value="776" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

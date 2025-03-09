@@ -29,8 +29,9 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 # ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Generative AI
 
-> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
-> It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
+> - Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
+> - It can help improve the execution speed and reduce the training time of your code. 
+> - BudgetPy provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 
 - #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
@@ -38,9 +39,9 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### 4o model run
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
-> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+> BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
 This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies.
-Badger interacts with pre-trained Large Language Models (LLMs) like GPT-4o and o1-mini  to enhance its analytical capabilities.
+BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities.
 Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
