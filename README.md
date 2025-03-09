@@ -1,6 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
-## Overview
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/guidance.png) Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
@@ -47,11 +47,6 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### 4o model run
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
-##### Clone the Repository
-> ```sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
-```cd federal-budget-forecast
-
 
 
 ## How It Works
@@ -68,6 +63,13 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 ### 3️⃣ **Outlay Forecasting**
 - Predicts **FY2025 outlays for each federal agency**.
 - Outputs results in a structured **data frame** for easy interpretation.
+
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
+### **4️⃣ Clone the Repository**
+```sh
+git clone https://github.com/your-repo/federal-budget-forecast.git
+cd federal-budget-forecast
+```
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
