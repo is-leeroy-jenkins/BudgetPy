@@ -87,18 +87,18 @@ BudgetPy has integrated the following services for additional functions, which c
 
 BudgetPy uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
 
-|                                                                              |                                                                        |
-|------------------------------------------------------------------------------| ---------------------------------------------------------------------- |
-| [SciPy](https://github.com/cefsharp)                                         | .NET (WPF/Windows Forms) bindings for the Chromium Embedded Framework  |
-| [Tensorflow](https://github.com/EPPlusSoftware/EPPlus)                  		   | EPPlus-Excel spreadsheets for .NET      								 |
-| [Pandas](https://developers.google.com/custom-search)                        | Google APIs Client Library for working with Customsearch v1            |
-| [Numpy](https://github.com/beto-rodriguez/LiveCharts2)                       | Simple, flexible, interactive & powerful charts, maps        			 |
-| [Keras](https://docusaurus.io/)                                              | This an assembly you can use for Outlook 2013/2016/2019 COM interop    |
-| [PyTorch](https://github.com/Kinnara/ModernWpf)                              | Modern styles and controls for your WPF applications                   |
-| [pyodbc](https://github.com/punker76/gong-wpf-dragdrop)   	                  | An easy to use window restore package									 |
-| [PySimplGUI](https://github.com/lduchosal/ipnetwork)                         | .NET Framework Data Provider for SQLite.								 |
-| [Scikit-Learn](https://github.com/zeluisping/LoadingIndicators.WPF)          | .NET Framework Data Provider for SQL Compact Edition.					 |
-| [OpenAI](https://github.com/zeluisping/LoadingIndicators.WPF) 	              | .NET Framework Data Provider for OLE DB.								 |
+|                                                                     |                                                                                                          |
+|---------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| [SciPy](https://scipy.org/)                                         | Fundamental algorithms for scientific computing in Python                                                |
+| [Tensorflow](https://www.tensorflow.org/)                  		       | An end-to-end platform for machine learning								                                                      |
+| [Pandas](https://pandas.pydata.org/docs/getting_started/index.html) | An open source, easy-to-use data structures and data analysis tools for the Python programming language. |
+| [Numpy](https://numpy.org/)                                         | The fundamental package for scientific computing with Python    			                                      |
+| [Keras](https://keras.io/about/)                                    | Deep learning API written in Python and capable of running on top of either JAX, TensorFlow, or PyTorch. |
+| [PyTorch](https://pytorch.org/)                                     | Tensors and Dynamic neural networks in Python with strong GPU acceleration                               |
+| [pyodbc](https://pypi.org/project/pyodbc/)   	                      | pyodbc is an open source Python module that makes accessing ODBC databases simple. 									             |
+| [PySimplGUI](https://github.com/PySimpleGUI/PySimpleGUI)            | Python GUIs for Humans! PySimpleGUI is the top-rated Python application development environment.								 |
+| [Scikit-Learn](https://github.com/scikit-learn/scikit-learn)        | Machine learning in Python					                                                                          |
+| [OpenAI](https://github.com/openai/openai-python) 	               | The official Python library for the OpenAI API							                                                         |
 
 
 ## 📝 License
