@@ -7,6 +7,9 @@ or 10 years in the future.
 - The [Outlay Projector](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fanaconda.cloud%2Fapi%2Fprojects%2Ff4ad0240-eaf1-4ad1-a8b4-99e630b46cda%2Ffiles%2Foutlays.ipynb%3Fversion%3D3c5763b3-e106-4e67-b314-3207f7f4ee71) is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
 
+[![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
+
+
 ## How It Works
 ### 1️⃣ **Data Processing**
 - Loads federal budget data from **"Budget Outlays.xlsx"**.
@@ -24,7 +27,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 
 ## Installation & Usage
 ### **1️⃣ Clone the Repository**
-> - sh git clone https://github.com/your-repo/federal-budget-forecast.git
+> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
 > - cd federal-budget-forecast
 
 ### Data-Driven Forecasting 
@@ -34,9 +37,6 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 > - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
 > - [Bayesian Ridge](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
 > - [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression) 
-
-[![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
-
 
 
 # ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
