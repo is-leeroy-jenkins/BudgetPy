@@ -64,7 +64,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - Predicts **FY2025 outlays for each federal agency**.
 - Outputs results in a structured **data frame** for easy interpretation.
 
-## Installation & Usage
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
 ### **1️⃣ Clone the Repository**
 > - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
 > - cd federal-budget-forecast
