@@ -3,13 +3,13 @@
 # Overview
 The **Outlay Projector** is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
-### **Data-Driven Forecasting** 
+### Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond.  
-### **Machine Learning Integration** 
-##### Alogorithms to recognize patterns and make predictions
-> * [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
-> * [Bayesian Ridge](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
-> * [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression) 
+### Machine Learning Integration 
+- Alogorithms to recognize patterns and make predictions
+> - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
+> - [Bayesian Ridge](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
+> - [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression) 
 
 [![open_in_anaconda](https://static.anaconda.cloud/content/a22d04e8445b700f28937ab3231b8cded505d0395c63b7a269696722196d5415)](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fraw.githubusercontent.com%2Fis-leeroy-jenkins%2FBoo%2Fmain%2Fipynb%2Foutlays.ipynb)
 
