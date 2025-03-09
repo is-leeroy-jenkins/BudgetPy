@@ -1,6 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
-# Overview
+## Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
@@ -19,7 +19,7 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 > - [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression) 
 
 
-# ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
 - [Time Series Forecasting](https://en.wikipedia.org/wiki/Time_series) – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
 - Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
 - [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) & [Correlation Analysis](https://en.wikipedia.org/wiki/Correlation)  – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
