@@ -4,6 +4,10 @@
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
+- BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets. 
+- Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
+- BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
+- Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 - The [Outlay Projector](https://anaconda.cloud/api/nbserve/launch_notebook?nb_url=https%3A%2F%2Fanaconda.cloud%2Fapi%2Fprojects%2Ff4ad0240-eaf1-4ad1-a8b4-99e630b46cda%2Ffiles%2Foutlays.ipynb%3Fversion%3D3c5763b3-e106-4e67-b314-3207f7f4ee71) is a forecasting model that uses historical expenditure data, 
 generative AI, and machine-learning to project future outlays by agency and fiscal year.
 
@@ -41,18 +45,13 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
 
 - #### 4o model run
-## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/administrative-tools.png) Installation & Usage
-### **1️⃣ Clone the Repository**
-> - sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
-> - cd federal-budget-forecast
+##### Clone the Repository
+> - ```sh git clone https://github.com/is-leeroy-jenkins/BudgetPy.git
+> - ```cd federal-budget-forecast
 
-
-- BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets. 
-- Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
-- BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
-- Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
 ## How It Works
