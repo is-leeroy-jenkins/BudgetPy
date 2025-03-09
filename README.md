@@ -32,8 +32,8 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 > Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 > It can help improve the execution speed and reduce the training time of your code. Bubba provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 
-- #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
-- #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
+- #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
+- #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
 
 - #### 4o model run
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
