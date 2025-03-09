@@ -30,10 +30,6 @@ generative AI, and machine-learning to project future outlays by agency and fisc
 - #### [Federal Appropriations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Appropriations.md) - vectorized data set of federal appropriations available for fine-tuning learning models
 - #### [Federal Regulations](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Regulations.md) - vectorized dat aset of federal, financial regulations available for fine-tuning learning models
 
-> Badger incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
-> This includes the use of vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies
-
-
 - #### Example run
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
