@@ -77,7 +77,6 @@ pyOpenSSL
 cryptography
 docutils
 Sphinx
-pywin32
 scipy
 threadpoolctl
 dask
