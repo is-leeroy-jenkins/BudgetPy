@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                BudgetPy
-      Filename:                Data.py
+      Filename:                data.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Data.py" company="Terry D. Eppler">
+  <copyright file="data.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,7 +37,7 @@
 
   </copyright>
   <summary>
-    Data.py
+    data.py
   </summary>
   ******************************************************************************************
   '''
@@ -77,8 +77,8 @@ from pandas import DataFrame
 from pandas import read_sql as sqlreader
 import pyodbc as db
 import os
-from Static import Source, Provider, SQL, ParamStyle
-from Booger import Error, ErrorDialog
+from static import Source, Provider, SQL, ParamStyle
+from booger import Error, ErrorDialog
 
 class Pascal( ):
 	'''
@@ -198,11 +198,11 @@ class SqlPath( ):
 
 	def __init__( self ):
 		self.sqlite_driver = 'sqlite3'
-		self.sqlite_path = r'../db/sqlite/datamodels/sql'
+		self.sqlite_path = r'../data/sqlite/datamodels/sql'
 		self.access_driver = r'DRIVER={Microsoft ACCDB Driver (*.mdb, *.accdb)};DBQ='
-		self.access_path = r'../db/access/datamodels/sql'
+		self.access_path = r'../data/access/datamodels/sql'
 		self.sqlserver_driver = r'DRIVER={ODBC Driver 17 for SQL Server};SERVER=.\SQLExpress;'
-		self.sqlserver_database = r'db\mssql\datamodels\sql'
+		self.sqlserver_database = r'data\mssql\datamodels\sql'
 
 	def __dir__( self ) -> list[ str ]:
 		'''
@@ -485,7 +485,7 @@ class DbConfig( ):
 		self.provider = pro
 		self.source = src
 		self.table_name = src.name
-		self.sqlite_path = os.getcwd( ) + r'\db\sqlite\datamodels\Data.db'
+		self.sqlite_path = os.getcwd( ) + r'\data\sqlite\datamodels\Data.data'
 		self.access_driver = r'DRIVER={ Microsoft Access Driver (*.mdb, *.accdb) };DBQ='
 		self.access_path = os.getcwd( ) + r'\db\access\datamodels\sql\Data.accdb'
 		self.sqlserver_driver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'

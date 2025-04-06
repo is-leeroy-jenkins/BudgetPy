@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                BudgetPy
-      Filename:                Schema.py
+      Filename:                schema.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Schema.py" company="Terry D. Eppler">
+  <copyright file="schema.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,14 +37,14 @@
 
   </copyright>
   <summary>
-    Schema.py
+    schema.py
   </summary>
   ******************************************************************************************
   '''
 from sqlalchemy import (MetaData, Table, create_engine)
 
 metadata = MetaData( )
-dbpath = r'db\sqlite\datamodels\Data.db'
+dbpath = r'data\sqlite\datamodels\Data.data'
 engine = create_engine( 'sqlite:///' + dbpath )
 metadata.reflect( bind = engine )
 

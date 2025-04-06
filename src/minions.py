@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                BudgetPy
-      Filename:                Minion.py
+      Filename:                minions.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Minion.py" company="Terry D. Eppler">
+  <copyright file="minions.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,13 +37,13 @@
 
   </copyright>
   <summary>
-    Minion.py
+    minions.py
   </summary>
   ******************************************************************************************
   '''
 import subprocess as sp
-from src.Booger import *
-from Static import Client
+from src.booger import *
+from static import Client
 
 class App( ):
     '''
@@ -55,10 +55,9 @@ class App( ):
     Class defines object providing factory methods run( ) and run( args ) that run
     processes based on 'Client' enumeration input args
     '''
-
     def __init__( self, client: Client ):
         self.app = client
-        self.sqlite = r'db\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
+        self.sqlite = r'data\sqlite\gui\SQLiteDatabaseBrowserPortable.exe'
         self.access = r'C:\Program Files\Microsoft Office\root\Office16\MSACCESS.EXE'
         self.excel = r'C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE'
         self.edge = r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
@@ -66,24 +65,27 @@ class App( ):
         self.control_panel = r'C:\Windows\System32\control.exe'
         self.calculator = r'C:\Windows\System32\calc.exe'
         self.outlook = r'C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE'
-        self.pyscripter = r'db\python\PyScripter\PyScripter.exe'
+        self.pyscripter = r'data\python\PyScripter\PyScripter.exe'
         self.task_manager = r'C:\Windows\System32\Taskmgr.exe'
         self.storage = r'C:\Users\teppler\AppData\Local\Microsoft\OneDrive\OneDrive.exe'
         self.word = r'C:\Program Files\Microsoft Office\root\Office16\WINWORD.EXE'
 
+
     def __dir__( self ) -> list[ str ]:
 	    return [ 'sqlite', 'access', 'excel', 'chrome',
 		         'edge', 'control', 'calculator', 'task_manager',
-		         'outlook', 'pyscripter', 'storage', 'word',
-		         'run', 'run_args' ]
+		         'outlook', 'pyscripter', 'storage', 'word', 'run', 'run_args' ]
+
 
     def run( self ):
         '''
-        Purpose:
-
-        Parameters:
-
-        Returns:
+        
+            Purpose:
+    
+            Parameters:
+    
+            Returns:
+            
         '''
         try:
             if self.app == Client.SQLite:
@@ -117,6 +119,7 @@ class App( ):
             _exc.method = 'run( self )'
             _err = ErrorDialog( _exc )
             _err.show( )
+
 
     def run_args( self, args: str ):
         '''

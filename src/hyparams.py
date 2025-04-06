@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                Boo
-      Filename:                Requests.py
+      Filename:                hyparams.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Requests.py" company="Terry D. Eppler">
+  <copyright file="hyparams.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,16 +37,14 @@
 
   </copyright>
   <summary>
-    Requests.py
+    hyparams.py
   </summary>
   ******************************************************************************************
   '''
-
-class GptRequest( ):
+class GptParameter( ):
 	'''
-	Base class for GPT requests.
+	The base class used by all parameter classes.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		self.number = num
@@ -57,27 +55,11 @@ class GptRequest( ):
 		self.store = store
 		self.stream = stream
 
-class TextGenerationRequest( GptRequest ):
-	'''
-	Class encapsulating the request for text generations.
-	'''
-	
-	def __init__( self, num: int = 1, temp: float = 0.18, top: float = 0.11, freq: float = 0.0,
-	              pres: float = 0.0, store: bool = False, stream: bool = True ):
-		super( ).__init__( num, temp, top, freq, pres, store, stream )
-		self.number = num
-		self.temperature = temp
-		self.top_percent = top
-		self.frequency_penalty = freq
-		self.presence_penalty = pres
-		self.store = store
-		self.stream = stream
 
-class ChatCompletionRequest( GptRequest ):
+class TextParameter( GptParameter ):
 	'''
-	Class encapsulating requests for chat completions.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		super( ).__init__( num, temp, top, freq, pres, store, stream )
@@ -89,11 +71,11 @@ class ChatCompletionRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class SpeechGenerationRequest( GptRequest ):
+
+class ChatParameter( GptParameter ):
 	'''
-	Class encapsulating requests for speech generations.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		super( ).__init__( num, temp, top, freq, pres, store, stream )
@@ -105,11 +87,11 @@ class SpeechGenerationRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class TranslationRequest( GptRequest ):
+
+class EmbeddingParameter( GptParameter ):
 	'''
-	Class encapsulating requests for translation.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		super( ).__init__( num, temp, top, freq, pres, store, stream )
@@ -121,11 +103,11 @@ class TranslationRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class TranscriptionRequest( GptRequest ):
+
+class FineTuningParameter( GptParameter ):
 	'''
-	Class encapsulating requests for transcriptions.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		super( ).__init__( num, temp, top, freq, pres, store, stream )
@@ -137,11 +119,11 @@ class TranscriptionRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class EmbeddingRequest( GptRequest ):
+
+class FileParameter( GptParameter ):
 	'''
-	Class encapsulating requests for embedding.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
-	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
 	              pres: float = 0.0, store: bool = False, stream: bool = True ):
 		super( ).__init__( num, temp, top, freq, pres, store, stream )
@@ -153,9 +135,10 @@ class EmbeddingRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class VectorRequest( GptRequest ):
+
+class ImageParameter( GptParameter ):
 	'''
-	Class encapsulating requests for vectors.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
 	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
@@ -169,9 +152,10 @@ class VectorRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class GptFileRequest( GptRequest ):
+
+class SpeechParameter( GptParameter ):
 	'''
-	Class encapsulating requests for GPT files.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
 	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
@@ -185,14 +169,10 @@ class GptFileRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class GptUploadRequest( GptRequest ):
-	'''
-	Class encapsulating requests for GPT uploads.
-	'''
 
-class FineTuningRequest( GptRequest ):
+class TranslationParameter( GptParameter ):
 	'''
-		Class encapsulating requests for fine-tuning.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
 	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
@@ -206,9 +186,10 @@ class FineTuningRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
-class ImageGenerationRequest( GptRequest ):
+
+class TranscriptionParameter( GptParameter ):
 	'''
-	Class encapsulating requests for image generation.
+	Class to encapsulate the GPT Chat GptOptions object.
 	'''
 	
 	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
@@ -222,3 +203,19 @@ class ImageGenerationRequest( GptRequest ):
 		self.store = store
 		self.stream = stream
 
+
+class VectorParameter( GptParameter ):
+	'''
+	Class to encapsulate the GPT Chat GptOptions object.
+	'''
+	
+	def __init__( self, num: int = 1, temp: float = 0.11, top: float = 0.11, freq: float = 0.0,
+	              pres: float = 0.0, store: bool = False, stream: bool = True ):
+		super( ).__init__( num, temp, top, freq, pres, store, stream )
+		self.number = num
+		self.temperature = temp
+		self.top_percent = top
+		self.frequency_penalty = freq
+		self.presence_penalty = pres
+		self.store = store
+		self.stream = stream

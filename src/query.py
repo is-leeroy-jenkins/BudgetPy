@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                Boo
-      Filename:                GptQuery.py
+      Filename:                query.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="GptQuery.py" company="Terry D. Eppler">
+  <copyright file="query.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,7 +37,7 @@
 
   </copyright>
   <summary>
-    GptQuery.py
+    query.py
   </summary>
   ******************************************************************************************
   '''
@@ -53,7 +53,8 @@ You will receive an audio transcription of the question. It may not be complete.
 """
 
 SHORT_INSTRUCTION: str = "Concisely respond, limiting your answer to 50 words."
-LONG_INSTRUCTION: str = "Before answering, take a deep breath and think one step at a time. Believe the answer in no more than 150 words."
+LONG_INSTRUCTION: str = ( "Before answering, take a deep breath and think one step at a time. "
+                         "Believe the answer in no more than 150 words." )
 
 load_dotenv()
 

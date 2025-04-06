@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BudgetPy.iml" filepath="$PROJECT_DIR$/.idea/BudgetPy.iml" />
       <module fileurl="file://$PROJECT_DIR$/venv/Scripts/.idea/Scripts.iml" filepath="$PROJECT_DIR$/venv/Scripts/.idea/Scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/budgetpy.iml" filepath="$PROJECT_DIR$/.idea/budgetpy.iml" />
     </modules>
   </component>
 </project>

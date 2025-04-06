@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                BudgetPy
-      Filename:                FileSys.py
+      Filename:                fsys.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="FileSys.py" company="Terry D. Eppler">
+  <copyright file="fsys.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,7 +37,7 @@
 
   </copyright>
   <summary>
-    FileSys.py
+    fsys.py
   </summary>
   ******************************************************************************************
   '''
@@ -76,7 +76,7 @@ import os
 import zipfile as zp
 from openpyxl import Workbook
 import shutil as sh
-from src.Booger import Error, ErrorDialog
+from src.booger import Error, ErrorDialog
 
 class Path( ):
 	'''

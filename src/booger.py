@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                BudgetPy
-      Filename:                Booger.py
+      Filename:                booger.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Booger.py" company="Terry D. Eppler">
+  <copyright file="booger.py" company="Terry D. Eppler">
 
      This is a Federal Budget Execution and Data Analysis Application for EPA Analysts
      Copyright ©  2024  Terry Eppler
@@ -37,7 +37,7 @@
 
   </copyright>
   <summary>
-    Booger.py
+    booger.py
   </summary>
   ******************************************************************************************
   '''
@@ -53,7 +53,7 @@ from sys import exit, exc_info
 import random
 import io
 from googlesearch import search
-from Minion import App
+from minions import App
 import traceback
 import numpy as np
 from pandas import read_csv as CsvReader
@@ -65,7 +65,7 @@ from matplotlib import cm
 from mpl_toolkits.mplot3d.axes3d import get_test_data
 from matplotlib.ticker import NullFormatter
 from mpl_toolkits.axes_grid1.axes_rgb import RGBAxes
-from Static import EXT, Client
+from static import EXT, Client
 
 class Error( Exception ):
 	'''
@@ -266,7 +266,7 @@ class FileDialog( Dark ):
 		self.sql = ( ( 'SQL Files', '*.sqlstatement', ), )
 		self.text = ( ( 'Text Files', '*.txt' ), )
 		self.access = ( ( 'MS ACCDB Databases', '*.accdb' ), )
-		self.sqlite = ( ( 'SQLite Databases', '*.db' ), )
+		self.sqlite = ( ( 'SQLite Databases', '*.data' ), )
 		self.sqlserver = ( ( 'SQL Server Databases', '*.mdf', '*.ldf', '*.sdf' ), )
 	
 	def __str__( self ) -> str:

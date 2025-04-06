@@ -1,14 +1,14 @@
 '''
   ******************************************************************************************
       Assembly:                Boo
-      Filename:                Handlers.py
+      Filename:                handlers.py
       Author:                  Terry D. Eppler
       Created:                 05-31-2023
 
       Last Modified By:        Terry D. Eppler
       Last Modified On:        06-01-2023
   ******************************************************************************************
-  <copyright file="Handlers.py" company="Terry D. Eppler">
+  <copyright file="handlers.py" company="Terry D. Eppler">
 
      This is a Federal Budget, Finance, and Accounting application.
      Copyright ©  2024  Terry Eppler
@@ -37,7 +37,7 @@
 
   </copyright>
   <summary>
-    Handlers.py
+    handlers.py
   </summary>
   ******************************************************************************************
   '''
@@ -46,7 +46,7 @@ from typing import Any, Dict
 import PySimpleGUI as sg
 from loguru import logger
 
-from src import Audio, GptQuery
+from src import Audio, query
 from src.Button import OFF_IMAGE, ON_IMAGE
 
 def handle_events( window: sg.Window, event: str, values: Dict[ str, Any ] ) -> None:
