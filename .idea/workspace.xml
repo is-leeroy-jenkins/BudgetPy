@@ -12,8 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/ipynb/BalanceEstimator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/BalanceEstimator.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/balances.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -575,7 +574,7 @@
       <workItem from="1743718331226" duration="5776000" />
       <workItem from="1744122900616" duration="2064000" />
       <workItem from="1744386817835" duration="363000" />
-      <workItem from="1744387535211" duration="484000" />
+      <workItem from="1744387535211" duration="615000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -920,7 +919,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="827" />
+    <option name="localTasksCounter" value="828" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">

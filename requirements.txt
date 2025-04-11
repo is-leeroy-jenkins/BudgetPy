@@ -50,7 +50,6 @@ zipp
 pyodbc
 win10toast
 anyio
-PySimpleGUI
 rsa
 pyasn1
 sniffio
@@ -72,6 +71,7 @@ panel
 configparser
 distro
 PySocks
+FreeSimpleGUI
 protobuf
 pyOpenSSL
 cryptography
