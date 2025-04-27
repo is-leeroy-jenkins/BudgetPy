@@ -12,11 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/OutlayProjector.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/outlays.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/langchain.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/models.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/ipynb/models.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ipynb/usecases.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BalanceEstimator.ipynb" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -582,7 +578,7 @@
       <workItem from="1744387535211" duration="647000" />
       <workItem from="1744389049701" duration="1029000" />
       <workItem from="1745752270174" duration="26000" />
-      <workItem from="1745752499215" duration="408000" />
+      <workItem from="1745752499215" duration="873000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -927,7 +923,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="833" />
+    <option name="localTasksCounter" value="834" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
