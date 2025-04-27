@@ -12,7 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/BalanceEstimator.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/booger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/booger.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fsys.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/fsys.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +109,7 @@
     <setting file="file://$PROJECT_DIR$/ipynb/models.ipynb" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/ipynb/outlays.ipynb" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/boo.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/booger.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/config.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/hyparams.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/minions.py" root0="SKIP_INSPECTION" />
@@ -149,42 +152,42 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/terry/source/repos/BudgetPy/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;C:\\Users\\teppler\\source\\compilers\\js\\npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;aBudget&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.24475019&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
+    "run.code.analysis.last.selected.profile": "aBudget",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.splitter.proportion": "0.24475019",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;sqlite&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
     ],
-    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;module&quot;,
-      &quot;repository&quot;
+    "GitStage.ChangesTree.GroupingKeys": [
+      "directory",
+      "module",
+      "repository"
     ]
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
@@ -578,7 +581,10 @@
       <workItem from="1744387535211" duration="647000" />
       <workItem from="1744389049701" duration="1029000" />
       <workItem from="1745752270174" duration="26000" />
-      <workItem from="1745752499215" duration="873000" />
+      <workItem from="1745752499215" duration="929000" />
+      <workItem from="1745754312422" duration="961000" />
+      <workItem from="1745755286829" duration="35000" />
+      <workItem from="1745755399329" duration="985000" />
     </task>
     <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
       <created>1693818551988</created>
@@ -923,7 +929,7 @@
       <option name="project" value="LOCAL" />
       <updated>1694544492625</updated>
     </task>
-    <option name="localTasksCounter" value="834" />
+    <option name="localTasksCounter" value="835" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
