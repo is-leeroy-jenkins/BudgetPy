@@ -1,5 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
+#### Outlay Projections
 - [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb) 
 ##  Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
@@ -29,7 +30,6 @@ or 10 years in the future.
 - Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
 - [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) & [Correlation Analysis](https://en.wikipedia.org/wiki/Correlation)  – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
 - Automated Outlay Projections – Provides yearly budget forecasts per agency with a simple data frame output.  
-- [Outlay Project Model](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb#scrollTo=a7bd09fc8c1fd2e8)
 - Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
 - Charting, plotting and reporting with matplotlib, dash, and pandas.
 - Pre-defined schema for 100 environmental data tables.
