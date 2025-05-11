@@ -1,5 +1,6 @@
 # Budget-Py
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/BudgetPy.png)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb) 
 ##  Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
@@ -8,8 +9,6 @@ or 10 years in the future.
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
-- Outlay Projection Model
-#####  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb) 
 
 
 
