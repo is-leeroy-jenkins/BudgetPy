@@ -8,8 +8,8 @@ or 10 years in the future.
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
-- The [Outlay Projector](https://colab.research.google.com/github/is-leeroy-jenkins/BudgetPy/blob/master/ipynb/outlays.ipynb) is a forecasting model that uses historical expenditure data, 
-generative AI, and machine-learning to project future outlays by agency and fiscal year.
+- Outlay Projection Model [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
+
 
 
 
