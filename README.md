@@ -1,6 +1,6 @@
 ##### Budget-Py
 
-<img src="https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/graphs.gif" alt="Scaled Image" style="width:200; height:75;">
+<img src="https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/graphs.gif" alt="Scaled Image" style="width:300px; height:75px;">
 
 ## Outlay-Projection Model
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
