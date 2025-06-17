@@ -15,7 +15,7 @@ ___
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png)  Generative AI Tools
 
 - #### [Outlay-Projection Tool](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
-> A specialized machine-learning and time series forecasting tool built for data scientist, budget officers, and comptrollers
+> A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
 > working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
@@ -28,9 +28,9 @@ ___
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
 - #### [Obligation-Rate Forecastor](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
-> A modular machine learning framework for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
+> A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
-> and benchmarking of both classification and regression models. It provides a structured yet extensible workflow that’s
+> and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 > equally useful for teaching, prototyping, and real-world application development.
 
 ___
