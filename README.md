@@ -39,8 +39,6 @@ ___
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
 - Traditional data sets available via [Kaggle](https://www.kaggle.com/terryeppler/datasets)
 - Vectorized data sets available via Hugging Face below.
-___
-
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
 
