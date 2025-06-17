@@ -12,7 +12,7 @@ or 10 years in the future.
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 ___
 
-### ![](https://github.com/is-leeroy-jenkins/Badger/blob/main/Resources/Assets/GitHubImages/tools.png) Available Tools
+### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png)  Generative AI Tools
 
 - #### [Outlay-Projection Tool](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
 > A specialized machine-learning and time series forecasting tool built for data scientist, budget officers, and comptrollers
@@ -57,7 +57,7 @@ ___
 - Access to editors for SQLite, MS Access, and SQL CE.
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Generative AI
+### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
 
 > - Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 > - It can help improve the execution speed and reduce the training time of your code. 
