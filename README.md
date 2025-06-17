@@ -16,13 +16,14 @@ ___
 
 - #### [Outlay-Projection Tool](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
 > A specialized machine-learning and time series forecasting tool built for data scientist, budget officers, and comptrollers
-> working with Treasury Account Symbols (TAS) and federal outlays. It creates a neural-network graph based on regressions, decision trees,
-> gradient boosting, support vector machines, and time-series modeling to project monthly or quarterly outlays at the Treasury Account level
+> working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
+> gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
+> outlays at the Treasury Account level
 
 - #### [Account-Balance Forecaster](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
-> The Cutey Balance Projector is a machine learning toolkit for federal budget execution & finance implemented in Python.
-> It empowers data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
-> regression models for forecasting the balances of federal appropriation accounts. Built using Scikit, TensorFlow, and PyTorch,
+> The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
+> empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
+> models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
