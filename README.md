@@ -92,6 +92,8 @@ ___
 - Predicts **FY2025 outlays for each federal agency**.
 - Outputs results in a structured **data frame** for easy interpretation.
 
+___
+
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/install.png) Installation & Usage
 #### **4️⃣ Clone the Repository**
 ```sh
@@ -107,6 +109,8 @@ cd federal-budget-forecast
 - [Static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
 - [Schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
 - [Ninja](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
+
+___
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
@@ -141,6 +145,8 @@ BudgetPy has integrated the following services for additional functions, which c
 - [ipify.org](https://www.ipify.org/) (Retrieve the public IP address used by the client)
 - [ip-api.com](https://ip-api.com/docs/legal) (Retrieve network information such as geo location, ISP, DNS resolver used, etc. used by the client)
 
+___
+
 
 ### 🙏 Acknowledgements
 
@@ -159,6 +165,7 @@ BudgetPy uses the following projects and libraries. Please consider supporting t
 | [Scikit-Learn](https://github.com/scikit-learn/scikit-learn)        | Machine learning in Python					                                                                          |
 | [OpenAI](https://github.com/openai/openai-python) 	                 | The official Python library for the OpenAI API							                                                    |
 
+___
 
 ## 📝 License
 
