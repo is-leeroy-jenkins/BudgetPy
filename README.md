@@ -2,9 +2,6 @@
 
 <img src="https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/line-graphs.gif" style="width:950px;height:275px">
 
-## Outlay-Projection Model
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
-
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png)  Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
@@ -13,6 +10,15 @@ or 10 years in the future.
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
+
+## Outlay-Projection Tool
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
+
+## Account-Balance Forecaster
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
+
+## SF-133 Neural-Networked 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
