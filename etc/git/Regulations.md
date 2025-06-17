@@ -16,5 +16,8 @@
 - [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances) - U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
 - [Circular A11](https://huggingface.co/datasets/leeroy-jankins/OMB-Circular-A-11) - Guidance from OMB on the preparation, submission, and execution of the federal budget
 - [Fastbook](https://huggingface.co/datasets/leeroy-jankins/FastBook) - Treasury guidance on federal ledger accounts
+- [Title 31 CFR](https://huggingface.co/datasets/leeroy-jankins/Title-31-CFR-Money-and-Finance) - Money & Finance
 - [Redbook](https://huggingface.co/datasets/leeroy-jankins/RedBook) - The Principles of Appropriations Law (Volumes I & II).
+- [US Standard General Ledger](https://huggingface.co/datasets/leeroy-jankins/US-General-Ledger) - Account Definitions
+- [Treasury Appropriation Fund Symbols (TAFSs) Dataset](https://huggingface.co/datasets/leeroy-jankins/Accounts) - Collection of TAFSs used by federal agencies
 ___
