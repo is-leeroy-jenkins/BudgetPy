@@ -41,24 +41,12 @@ ___
 - Vectorized data sets available via Hugging Face below.
 ___
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
-- [Time Series Forecasting](https://en.wikipedia.org/wiki/Time_series) – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
-- Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
-- [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) & [Correlation Analysis](https://en.wikipedia.org/wiki/Correlation)  – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
-- Automated Outlay Projections – Provides yearly budget forecasts per agency with a simple data frame output.  
-- Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
-- Charting, plotting and reporting with matplotlib, dash, and pandas.
-- Pre-defined schema for 100 environmental data tables.
-- Access to editors for SQLite, MS Access, and SQL CE.
-
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
 
 > - Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 > - It can help improve the execution speed and reduce the training time of your code. 
 > - BudgetPy provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
-
-
 - [Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - Enacted appropriations from 1996-2024 available for fine-tuning learning models
 - [Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations/tree/main) - Collection of federal regulations on the use of appropriated funds
 - [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - The Report on Budget Execution and Budgetary Resources
@@ -77,6 +65,16 @@ ___
 - #### 4o model run
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
+
+### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
+- [Time Series Forecasting](https://en.wikipedia.org/wiki/Time_series) – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
+- Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
+- [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) & [Correlation Analysis](https://en.wikipedia.org/wiki/Correlation)  – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
+- Automated Outlay Projections – Provides yearly budget forecasts per agency with a simple data frame output.  
+- Mutliple data providers including SQLite, MS Access, and SQL Servers Express Edition through [pyodbc](https://github.com/mkleehammer/pyodbc/wiki)
+- Charting, plotting and reporting with matplotlib, dash, and pandas.
+- Pre-defined schema for 100 environmental data tables.
+- Access to editors for SQLite, MS Access, and SQL CE.
 
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png) How It Works
