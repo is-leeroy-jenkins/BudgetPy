@@ -1,34 +1,22 @@
 ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/congress.png) 
 
-# Regulations
+# Data Sets
 ### Badger's AI layer provides access to the OpenAI VectorStores and Files
 
-## Federal Regulations
- 
 
-- Federal Trust Fund Accounting Guide
-- Fiscal Responsibility Act
-- Government Auditing Standards
-- Government Invoicing User Guide
-- Incident Management Handbook
-- OMB Circular A-11 Section 120
-- OMB Circular A-19 Legislative Coordination and Clearance
-- OMB Circular A-45 Rental and Construction of Government Quarters
-- OMB Circular A-94 Discount Rates for Time-Distributed Costs and Benefits
-- OMB Circular A-97 Services for State and Local Governments
-- Principles Of Federal Appropriations Law Volume One
-- Principles Of Federal Appropriations Law Volume Two
-- The Stafford Act
-- Code of Federal Regulations Title 31 - Money And Finance
-- U.S. Standard General Ledger Accounts and Definitions
-- Federal Acquisition Regulation
-- The Budget And Accounting Act of 1921
-- Inspector General Act of 1978
-- Government Performance and Results Act of 1993
-- The Supplemental Appropriations Act 1955
-- The Chief Financial Officers Act of 1990
-- The Economy Act of 1932
-- GPRA Modernization Act of 2010
-- Federal Managers Financial Integrity Act of 1982
-- OMB Circular A-123 Managements Responsibility for Enterprise Risk Management and Internal Control
-- OMB Circular A-136 Financial Reporting Requirements
+## 🧠  Generative AI
+
+> Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
+> It can help improve the execution speed and reduce the training time of your code. Badger provides the following vector stores on the Hugging Face and OpenAI platform to support environmental data analysis with machine-learning
+
+- [Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - Enacted appropriations from 1996-2024 available for fine-tuning learning models
+- [Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations/tree/main) - Collection of federal regulations on the use of appropriated funds
+- [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - The Report on Budget Execution and Budgetary Resources
+- [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances) -  U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
+- [Outlays](https://huggingface.co/datasets/leeroy-jankins/Outlays) -  The actual disbursements of funds by the U.S. federal government from 1962 to 2025
+- [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) The Report on Budget Execution and Budgetary Resources
+- [Balances](https://huggingface.co/datasets/leeroy-jankins/Balances) - U.S. federal agency Account Balances (File A) submitted as part of the DATA Act 2014.
+- [Circular A11](https://huggingface.co/datasets/leeroy-jankins/OMB-Circular-A-11) - Guidance from OMB on the preparation, submission, and execution of the federal budget
+- [Fastbook](https://huggingface.co/datasets/leeroy-jankins/FastBook) - Treasury guidance on federal ledger accounts
+- [Redbook](https://huggingface.co/datasets/leeroy-jankins/RedBook) - The Principles of Appropriations Law (Volumes I & II).
+___
