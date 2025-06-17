@@ -1,8 +1,6 @@
 ![](https://github.com/is-leeroy-jenkins/Bubba/blob/master/Resources/Assets/GitHubImages/congress.png) 
 
 # Data Sets
-### Badger's AI layer provides access to the OpenAI VectorStores and Files
-
 
 ## 🧠  Generative AI
 
