@@ -20,14 +20,14 @@ ___
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-- #### [Account-Balance Forecaster](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
+- #### [Account-Balance Estimates](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 > empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
 > models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-- #### [Obligation-Rate Estimates](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+- #### [Obligation-Rate Forecastor](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 > A modular machine learning framework for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 > and benchmarking of both classification and regression models. It provides a structured yet extensible workflow that’s
