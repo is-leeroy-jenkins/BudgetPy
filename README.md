@@ -26,10 +26,11 @@ ___
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-- #### [Obligations Neural-Networked](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
-> A modular machine learning framework for Budget Execution data analysis built in Python with Scikit, XGBoost, PyTorch,
-> and TensorFlow. Designed for rapid experimentation, visualization, and benchmarking of both classification and regression models,
-> it provides a structured yet extensible workflow that’s equally useful for teaching, prototyping, and real-world application development.
+- #### [Obligation-Rate Estimates](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+> A modular machine learning framework for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
+> and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
+> and benchmarking of both classification and regression models. It provides a structured yet extensible workflow that’s
+> equally useful for teaching, prototyping, and real-world application development.
 
 ___
 
