@@ -10,7 +10,17 @@ or 10 years in the future.
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
-___
+
+##### Outlay-Projection Tool
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
+
+##### Account-Balance Forecaster
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
+
+##### SF-133 Neural-Networked 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+
+__
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
@@ -22,15 +32,6 @@ ___
 > - [Gradient Boosting](https://en.wikipedia.org/wiki/Gradient_boosting)
 > - [Bayesian Ridge](https://en.wikipedia.org/wiki/Bayesian_linear_regression)
 > - [Polynomial Regressions](https://en.wikipedia.org/wiki/Polynomial_regression)
-
-##### Outlay-Projection Tool
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
-
-##### Account-Balance Forecaster
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
-
-##### SF-133 Neural-Networked 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 
 ___
 
