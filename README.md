@@ -75,6 +75,7 @@ ___
 - Pre-defined schema for 100 environmental data tables.
 - Access to editors for SQLite, MS Access, and SQL CE.
 
+___
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png) How It Works
 #### 1️⃣ **Data Processing**
