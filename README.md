@@ -102,13 +102,13 @@ cd federal-budget-forecast
 ```
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png) Python Code
-- [Minion](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Minion.py) - other tools used and available in BudgetPy.
-- [Booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Booger.py) - controls for the user interface and related functionality.
-- [Data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Data.py) - data access layer with environmental budget data models.
-- [FileSys](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/FileSys.py) - classes for interacting with the file system and input/output.
-- [Static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Static.py) - enumerations used in budgetary data analysis.
-- [Schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Schema.py) - schema definitions of the BudgetPy data tables.
-- [Ninja](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/Ninja.py)- budget data model classes for environmental programs.
+- [minions](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/minions.py) - other tools used and available in BudgetPy.
+- [booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/booger.py) - controls for the user interface and related functionality.
+- [data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/data.py) - data access layer with environmental budget data models.
+- [fsys](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/fsys.py) - classes for interacting with the file system and input/output.
+- [static](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/static.py) - enumerations used in budgetary data analysis.
+- [schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/schema.py) - schema definitions of the BudgetPy data tables.
+- [boo](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/boo.py)- genai-ml layer.
 
 ___
 
