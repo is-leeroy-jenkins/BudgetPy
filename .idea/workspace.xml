@@ -8,10 +8,10 @@
     <option name="SHOW_STRUCTURE" value="true" />
   </component>
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="ALL" />
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <list default="true" id="29e2807d-e27d-4f98-a067-f020bc95ca18" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,18 +25,12 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
-  <component name="FileColors">
-    <fileColor scope="Project Files" color="Blue" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Freeze Requirements File" />
         <option value="Jupyter Notebook" />
-        <option value="Python Script" />
       </list>
     </option>
-    <option name="SCHEME" value="Project" />
   </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
     <envs>
@@ -62,21 +56,12 @@
     <option name="HIDE_IGNORED_FILES" value="false" />
     <option name="HIDE_EMPTY_GROUPS" value="false" />
   </component>
-  <component name="FormatOnSaveOptions">
-    <option name="myAllFileTypesSelected" value="false" />
-    <option name="mySelectedFileTypes">
-      <set>
-        <option value="Python" />
-        <option value="XML" />
-        <option value="requirements.txt" />
-      </set>
-    </option>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SAVE_CHANGES_POLICY" value="STASH" />
-    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -88,9 +73,6 @@
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="0d408e4f-486e-4933-bf72-bdc8b6207b8d" />
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -140,64 +122,29 @@
     <ConfirmationsSetting value="2" id="Remove" />
   </component>
   <component name="ProjectViewState">
-    <option name="autoscrollToSource" value="true" />
+    <option name="foldersAlwaysOnTop" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
-    <option name="sortByType" value="true" />
-    <option name="sortKey" value="BY_TYPE" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "false",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/terry/source/repos/BudgetPy/src",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "C:\\Users\\teppler\\source\\compilers\\js\\npm",
-    "run.code.analysis.last.selected.profile": "aBudget",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "settings.editor.splitter.proportion": "0.24475019",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
-    ],
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
-    ]
   }
 }]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
-      <console-settings custom-start-script="" module-name="BudgetPy" sdk-home="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" working-directory="$PROJECT_DIR$">
-        <option name="sdk">
-          <Sdk />
-        </option>
-        <option name="useSoftWraps" value="true" />
-        <option name="myCustomStartScript" value="" />
-        <option name="mySdkHome" value="C:\Users\teppler\source\repos\BudgetPy\venv\Scripts\python.exe" />
-        <option name="mySdk">
-          <Sdk />
-        </option>
-        <option name="myModuleName" value="BudgetPy" />
-        <option name="myWorkingDirectory" value="$PROJECT_DIR$" />
+      <console-settings sdk-home="C:\Users\terry\source\compilers\py\python\python.exe">
+        <option name="mySdkHome" value="C:\Users\terry\source\compilers\py\python\python.exe" />
       </console-settings>
     </option>
   </component>
@@ -305,627 +252,47 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f92645eb-016c-4fa7-aa2f-bb58c7c8a966" name="Changes" comment="" />
-      <created>1650832497931</created>
+      <changelist id="29e2807d-e27d-4f98-a067-f020bc95ca18" name="Changes" comment="" />
+      <created>1750335822211</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1650832497931</updated>
-      <workItem from="1650836521442" duration="160000" />
-      <workItem from="1650838073232" duration="551000" />
-      <workItem from="1650838730664" duration="459000" />
-      <workItem from="1650839260524" duration="449000" />
-      <workItem from="1650839766145" duration="1594000" />
-      <workItem from="1694613251094" duration="171000" />
-      <workItem from="1694613469832" duration="1926000" />
-      <workItem from="1694616497959" duration="677000" />
-      <workItem from="1694617301944" duration="5112000" />
-      <workItem from="1694691977722" duration="7392000" />
-      <workItem from="1694732186498" duration="9469000" />
-      <workItem from="1694948855119" duration="2769000" />
-      <workItem from="1695127701929" duration="2772000" />
-      <workItem from="1695140336553" duration="598000" />
-      <workItem from="1695141013847" duration="5345000" />
-      <workItem from="1695214907053" duration="3371000" />
-      <workItem from="1695251236605" duration="3529000" />
-      <workItem from="1695371914328" duration="1831000" />
-      <workItem from="1695645711494" duration="394000" />
-      <workItem from="1695735160448" duration="724000" />
-      <workItem from="1695741267093" duration="1956000" />
-      <workItem from="1695820013689" duration="685000" />
-      <workItem from="1695821030821" duration="2654000" />
-      <workItem from="1695917013312" duration="2219000" />
-      <workItem from="1695974251332" duration="1498000" />
-      <workItem from="1696424074264" duration="3523000" />
-      <workItem from="1696605607445" duration="1669000" />
-      <workItem from="1696609126374" duration="3004000" />
-      <workItem from="1696959031435" duration="75000" />
-      <workItem from="1696959131074" duration="1160000" />
-      <workItem from="1696960319739" duration="2074000" />
-      <workItem from="1696972854375" duration="1051000" />
-      <workItem from="1696981107448" duration="406000" />
-      <workItem from="1696990927404" duration="1288000" />
-      <workItem from="1697029417944" duration="8155000" />
-      <workItem from="1697071602740" duration="173000" />
-      <workItem from="1697071811922" duration="341000" />
-      <workItem from="1697072271144" duration="1830000" />
-      <workItem from="1697105647626" duration="76000" />
-      <workItem from="1697105783356" duration="202000" />
-      <workItem from="1697106033365" duration="2968000" />
-      <workItem from="1697109097091" duration="14207000" />
-      <workItem from="1697201642841" duration="6213000" />
-      <workItem from="1697270589096" duration="2532000" />
-      <workItem from="1697362026402" duration="29389000" />
-      <workItem from="1697604355674" duration="3833000" />
-      <workItem from="1697613763071" duration="6988000" />
-      <workItem from="1698577490672" duration="1798000" />
-      <workItem from="1698579365173" duration="2131000" />
-      <workItem from="1698739108943" duration="2620000" />
-      <workItem from="1698843754010" duration="5029000" />
-      <workItem from="1699881560524" duration="1349000" />
-      <workItem from="1699883028291" duration="648000" />
-      <workItem from="1699884783467" duration="353000" />
-      <workItem from="1699885305884" duration="1000" />
-      <workItem from="1699893684479" duration="247000" />
-      <workItem from="1699972912485" duration="1803000" />
-      <workItem from="1699976575235" duration="8744000" />
-      <workItem from="1700153625550" duration="5726000" />
-      <workItem from="1702486900361" duration="6379000" />
-      <workItem from="1702493625396" duration="925000" />
-      <workItem from="1702562135969" duration="4665000" />
-      <workItem from="1702589478126" duration="10166000" />
-      <workItem from="1702827392744" duration="832000" />
-      <workItem from="1702907844756" duration="1976000" />
-      <workItem from="1702921892422" duration="2706000" />
-      <workItem from="1702932150702" duration="6937000" />
-      <workItem from="1702994109361" duration="2151000" />
-      <workItem from="1703000710044" duration="8087000" />
-      <workItem from="1703016476731" duration="2914000" />
-      <workItem from="1703022335123" duration="6398000" />
-      <workItem from="1703089204707" duration="10027000" />
-      <workItem from="1703115521217" duration="87000" />
-      <workItem from="1703115859438" duration="16276000" />
-      <workItem from="1703170439675" duration="1555000" />
-      <workItem from="1703172543968" duration="3669000" />
-      <workItem from="1703190912131" duration="3012000" />
-      <workItem from="1703269090622" duration="4360000" />
-      <workItem from="1703282694084" duration="2409000" />
-      <workItem from="1703531353586" duration="18321000" />
-      <workItem from="1703609912068" duration="6263000" />
-      <workItem from="1703683186049" duration="8257000" />
-      <workItem from="1704226479868" duration="7655000" />
-      <workItem from="1704653764697" duration="4182000" />
-      <workItem from="1704676581817" duration="1061000" />
-      <workItem from="1704704559339" duration="8096000" />
-      <workItem from="1704808622309" duration="7150000" />
-      <workItem from="1704983275578" duration="706000" />
-      <workItem from="1705416050356" duration="16197000" />
-      <workItem from="1705500912910" duration="941000" />
-      <workItem from="1705503895902" duration="157000" />
-      <workItem from="1705504073978" duration="54000" />
-      <workItem from="1705504151367" duration="81000" />
-      <workItem from="1705504465251" duration="303000" />
-      <workItem from="1705504777143" duration="1731000" />
-      <workItem from="1705506681395" duration="1034000" />
-      <workItem from="1705507755835" duration="114000" />
-      <workItem from="1705507904859" duration="2762000" />
-      <workItem from="1705521402251" duration="1015000" />
-      <workItem from="1705522470327" duration="850000" />
-      <workItem from="1705523380905" duration="1168000" />
-      <workItem from="1705526845333" duration="3442000" />
-      <workItem from="1705586439105" duration="707000" />
-      <workItem from="1705588300126" duration="93000" />
-      <workItem from="1705588432268" duration="18000" />
-      <workItem from="1705588479517" duration="43000" />
-      <workItem from="1705588705448" duration="4574000" />
-      <workItem from="1705612215573" duration="4308000" />
-      <workItem from="1705618759178" duration="135000" />
-      <workItem from="1705675170334" duration="13687000" />
-      <workItem from="1705936760980" duration="3883000" />
-      <workItem from="1705949505675" duration="4703000" />
-      <workItem from="1705960937665" duration="1826000" />
-      <workItem from="1706018139001" duration="4680000" />
-      <workItem from="1706203962778" duration="7913000" />
-      <workItem from="1706278781372" duration="1553000" />
-      <workItem from="1706282056578" duration="1873000" />
-      <workItem from="1706535025873" duration="730000" />
-      <workItem from="1706546237114" duration="3934000" />
-      <workItem from="1706644131155" duration="1000" />
-      <workItem from="1706725192408" duration="2033000" />
-      <workItem from="1706727581496" duration="1652000" />
-      <workItem from="1706795126958" duration="9569000" />
-      <workItem from="1706881931980" duration="1451000" />
-      <workItem from="1710426715539" duration="1371000" />
-      <workItem from="1710428171049" duration="647000" />
-      <workItem from="1710428894339" duration="937000" />
-      <workItem from="1710430675470" duration="585000" />
-      <workItem from="1710431280465" duration="19000" />
-      <workItem from="1710431339132" duration="410000" />
-      <workItem from="1710433871096" duration="347000" />
-      <workItem from="1710434234413" duration="1702000" />
-      <workItem from="1710437100827" duration="344000" />
-      <workItem from="1710437480180" duration="317000" />
-      <workItem from="1710437814681" duration="2060000" />
-      <workItem from="1710441059409" duration="207000" />
-      <workItem from="1710441300690" duration="329000" />
-      <workItem from="1710441639600" duration="7791000" />
-      <workItem from="1711630552026" duration="4218000" />
-      <workItem from="1711670411776" duration="1216000" />
-      <workItem from="1711716619034" duration="608000" />
-      <workItem from="1711960352374" duration="1320000" />
-      <workItem from="1711969887998" duration="7863000" />
-      <workItem from="1711993420693" duration="4568000" />
-      <workItem from="1712055082972" duration="707000" />
-      <workItem from="1712059652784" duration="58000" />
-      <workItem from="1712059728991" duration="1928000" />
-      <workItem from="1712063572618" duration="6946000" />
-      <workItem from="1712148866548" duration="1749000" />
-      <workItem from="1712154348454" duration="1989000" />
-      <workItem from="1712168035079" duration="4189000" />
-      <workItem from="1712235263391" duration="4264000" />
-      <workItem from="1712262291876" duration="29000" />
-      <workItem from="1712331386951" duration="5728000" />
-      <workItem from="1712579403628" duration="4657000" />
-      <workItem from="1712676791420" duration="4777000" />
-      <workItem from="1712738624596" duration="6655000" />
-      <workItem from="1712766053527" duration="8567000" />
-      <workItem from="1712781126329" duration="3390000" />
-      <workItem from="1712840299175" duration="10407000" />
-      <workItem from="1712925544203" duration="3891000" />
-      <workItem from="1712942522333" duration="4651000" />
-      <workItem from="1712948651592" duration="120000" />
-      <workItem from="1712948814012" duration="1954000" />
-      <workItem from="1712951676543" duration="4138000" />
-      <workItem from="1713185754703" duration="9843000" />
-      <workItem from="1713197066174" duration="541000" />
-      <workItem from="1713197634744" duration="8585000" />
-      <workItem from="1713207927343" duration="4494000" />
-      <workItem from="1713257738400" duration="10655000" />
-      <workItem from="1713378598278" duration="9707000" />
-      <workItem from="1713547718692" duration="3329000" />
-      <workItem from="1713790196594" duration="19495000" />
-      <workItem from="1713877334575" duration="1247000" />
-      <workItem from="1713878756460" duration="5454000" />
-      <workItem from="1713907515994" duration="843000" />
-      <workItem from="1713963775221" duration="3134000" />
-      <workItem from="1714653399620" duration="837000" />
-      <workItem from="1714658708501" duration="2300000" />
-      <workItem from="1714739965236" duration="9261000" />
-      <workItem from="1714752236670" duration="131000" />
-      <workItem from="1714752410952" duration="247000" />
-      <workItem from="1714752699550" duration="7564000" />
-      <workItem from="1714999967100" duration="11506000" />
-      <workItem from="1715087097832" duration="15743000" />
-      <workItem from="1715173748718" duration="1287000" />
-      <workItem from="1715175646460" duration="12500000" />
-      <workItem from="1715258140042" duration="10286000" />
-      <workItem from="1715276441432" duration="924000" />
-      <workItem from="1715280311945" duration="530000" />
-      <workItem from="1715281428839" duration="932000" />
-      <workItem from="1715282419688" duration="588000" />
-      <workItem from="1715283505193" duration="747000" />
-      <workItem from="1715284292290" duration="714000" />
-      <workItem from="1715285058222" duration="593000" />
-      <workItem from="1715693727218" duration="4312000" />
-      <workItem from="1715775894753" duration="865000" />
-      <workItem from="1715776813540" duration="6000" />
-      <workItem from="1715780609569" duration="189000" />
-      <workItem from="1715780874373" duration="987000" />
-      <workItem from="1715781947168" duration="499000" />
-      <workItem from="1715782474382" duration="470000" />
-      <workItem from="1715783127926" duration="26903000" />
-      <workItem from="1715820944344" duration="3432000" />
-      <workItem from="1715963027738" duration="3831000" />
-      <workItem from="1715983383292" duration="3009000" />
-      <workItem from="1716038947490" duration="1012000" />
-      <workItem from="1719408272004" duration="1169000" />
-      <workItem from="1719411549480" duration="488000" />
-      <workItem from="1719424859864" duration="81000" />
-      <workItem from="1720364275366" duration="1537000" />
-      <workItem from="1720370808444" duration="1366000" />
-      <workItem from="1722167719016" duration="1620000" />
-      <workItem from="1722174723061" duration="1623000" />
-      <workItem from="1727874953937" duration="10043000" />
-      <workItem from="1728227931261" duration="1827000" />
-      <workItem from="1729519481922" duration="598000" />
-      <workItem from="1729524097855" duration="273000" />
-      <workItem from="1729631965915" duration="2086000" />
-      <workItem from="1729749700094" duration="279000" />
-      <workItem from="1730019313973" duration="1815000" />
-      <workItem from="1730022604178" duration="2875000" />
-      <workItem from="1730034782783" duration="23982000" />
-      <workItem from="1730126855576" duration="2194000" />
-      <workItem from="1730551671801" duration="805000" />
-      <workItem from="1730552870640" duration="8022000" />
-      <workItem from="1730827571873" duration="905000" />
-      <workItem from="1730831970197" duration="384000" />
-      <workItem from="1731337564304" duration="5838000" />
-      <workItem from="1731425613873" duration="674000" />
-      <workItem from="1732619942854" duration="4377000" />
-      <workItem from="1732633929433" duration="16000" />
-      <workItem from="1733311852137" duration="158000" />
-      <workItem from="1733312029531" duration="2555000" />
-      <workItem from="1734191661112" duration="1835000" />
-      <workItem from="1734796958170" duration="850000" />
-      <workItem from="1734803522319" duration="9853000" />
-      <workItem from="1735129713514" duration="6241000" />
-      <workItem from="1735400370447" duration="2887000" />
-      <workItem from="1736702164420" duration="1786000" />
-      <workItem from="1736708410660" duration="2544000" />
-      <workItem from="1737471068028" duration="93000" />
-      <workItem from="1737471267335" duration="149000" />
-      <workItem from="1741394057081" duration="2737000" />
-      <workItem from="1741439347746" duration="9616000" />
-      <workItem from="1741471501040" duration="293000" />
-      <workItem from="1741472927898" duration="21536000" />
-      <workItem from="1741610702997" duration="4837000" />
-      <workItem from="1741645123984" duration="2340000" />
-      <workItem from="1741649269750" duration="1238000" />
-      <workItem from="1741650864875" duration="10878000" />
-      <workItem from="1741732852525" duration="5926000" />
-      <workItem from="1741776982926" duration="15424000" />
-      <workItem from="1741806962335" duration="997000" />
-      <workItem from="1741808219171" duration="3537000" />
-      <workItem from="1741817970998" duration="19040000" />
-      <workItem from="1741875245257" duration="6947000" />
-      <workItem from="1741892749424" duration="6020000" />
-      <workItem from="1741909131072" duration="413000" />
-      <workItem from="1742088521557" duration="1414000" />
-      <workItem from="1743690640206" duration="7223000" />
-      <workItem from="1743718331226" duration="5776000" />
-      <workItem from="1744122900616" duration="2064000" />
-      <workItem from="1744386817835" duration="363000" />
-      <workItem from="1744387535211" duration="647000" />
-      <workItem from="1744389049701" duration="1029000" />
-      <workItem from="1745752270174" duration="26000" />
-      <workItem from="1745752499215" duration="929000" />
-      <workItem from="1745754312422" duration="961000" />
-      <workItem from="1745755286829" duration="35000" />
-      <workItem from="1745755399329" duration="2465000" />
+      <updated>1750335822211</updated>
+      <workItem from="1750335823216" duration="2166000" />
+      <workItem from="1754613603912" duration="23066000" />
     </task>
-    <task id="LOCAL-00533" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693818551988</created>
-      <option name="number" value="00533" />
-      <option name="presentableId" value="LOCAL-00533" />
+    <task id="LOCAL-00001" summary="update">
+      <option name="closed" value="true" />
+      <created>1754660120300</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1693818551988</updated>
+      <updated>1754660120300</updated>
     </task>
-    <task id="LOCAL-00534" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693828996275</created>
-      <option name="number" value="00534" />
-      <option name="presentableId" value="LOCAL-00534" />
+    <task id="LOCAL-00002" summary="update">
+      <option name="closed" value="true" />
+      <created>1754681932827</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1693828996275</updated>
+      <updated>1754681932827</updated>
     </task>
-    <task id="LOCAL-00535" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693830309635</created>
-      <option name="number" value="00535" />
-      <option name="presentableId" value="LOCAL-00535" />
+    <task id="LOCAL-00003" summary="update">
+      <option name="closed" value="true" />
+      <created>1754682703698</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1693830309635</updated>
+      <updated>1754682703698</updated>
     </task>
-    <task id="LOCAL-00536" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693830815551</created>
-      <option name="number" value="00536" />
-      <option name="presentableId" value="LOCAL-00536" />
+    <task id="LOCAL-00004" summary="update">
+      <option name="closed" value="true" />
+      <created>1754682935838</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1693830815551</updated>
+      <updated>1754682935838</updated>
     </task>
-    <task id="LOCAL-00537" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693831088795</created>
-      <option name="number" value="00537" />
-      <option name="presentableId" value="LOCAL-00537" />
-      <option name="project" value="LOCAL" />
-      <updated>1693831088795</updated>
-    </task>
-    <task id="LOCAL-00538" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693832437731</created>
-      <option name="number" value="00538" />
-      <option name="presentableId" value="LOCAL-00538" />
-      <option name="project" value="LOCAL" />
-      <updated>1693832437731</updated>
-    </task>
-    <task id="LOCAL-00539" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693832843649</created>
-      <option name="number" value="00539" />
-      <option name="presentableId" value="LOCAL-00539" />
-      <option name="project" value="LOCAL" />
-      <updated>1693832843649</updated>
-    </task>
-    <task id="LOCAL-00540" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693832878412</created>
-      <option name="number" value="00540" />
-      <option name="presentableId" value="LOCAL-00540" />
-      <option name="project" value="LOCAL" />
-      <updated>1693832878415</updated>
-    </task>
-    <task id="LOCAL-00541" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693833453512</created>
-      <option name="number" value="00541" />
-      <option name="presentableId" value="LOCAL-00541" />
-      <option name="project" value="LOCAL" />
-      <updated>1693833453512</updated>
-    </task>
-    <task id="LOCAL-00542" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693833679392</created>
-      <option name="number" value="00542" />
-      <option name="presentableId" value="LOCAL-00542" />
-      <option name="project" value="LOCAL" />
-      <updated>1693833679392</updated>
-    </task>
-    <task id="LOCAL-00543" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693833863039</created>
-      <option name="number" value="00543" />
-      <option name="presentableId" value="LOCAL-00543" />
-      <option name="project" value="LOCAL" />
-      <updated>1693833863039</updated>
-    </task>
-    <task id="LOCAL-00544" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693834218080</created>
-      <option name="number" value="00544" />
-      <option name="presentableId" value="LOCAL-00544" />
-      <option name="project" value="LOCAL" />
-      <updated>1693834218080</updated>
-    </task>
-    <task id="LOCAL-00545" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693834537014</created>
-      <option name="number" value="00545" />
-      <option name="presentableId" value="LOCAL-00545" />
-      <option name="project" value="LOCAL" />
-      <updated>1693834537014</updated>
-    </task>
-    <task id="LOCAL-00546" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693834743451</created>
-      <option name="number" value="00546" />
-      <option name="presentableId" value="LOCAL-00546" />
-      <option name="project" value="LOCAL" />
-      <updated>1693834743451</updated>
-    </task>
-    <task id="LOCAL-00547" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693873210613</created>
-      <option name="number" value="00547" />
-      <option name="presentableId" value="LOCAL-00547" />
-      <option name="project" value="LOCAL" />
-      <updated>1693873210613</updated>
-    </task>
-    <task id="LOCAL-00548" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693915613545</created>
-      <option name="number" value="00548" />
-      <option name="presentableId" value="LOCAL-00548" />
-      <option name="project" value="LOCAL" />
-      <updated>1693915613545</updated>
-    </task>
-    <task id="LOCAL-00549" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693922860503</created>
-      <option name="number" value="00549" />
-      <option name="presentableId" value="LOCAL-00549" />
-      <option name="project" value="LOCAL" />
-      <updated>1693922860504</updated>
-    </task>
-    <task id="LOCAL-00550" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693922986719</created>
-      <option name="number" value="00550" />
-      <option name="presentableId" value="LOCAL-00550" />
-      <option name="project" value="LOCAL" />
-      <updated>1693922986719</updated>
-    </task>
-    <task id="LOCAL-00551" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693923055758</created>
-      <option name="number" value="00551" />
-      <option name="presentableId" value="LOCAL-00551" />
-      <option name="project" value="LOCAL" />
-      <updated>1693923055758</updated>
-    </task>
-    <task id="LOCAL-00552" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693946469565</created>
-      <option name="number" value="00552" />
-      <option name="presentableId" value="LOCAL-00552" />
-      <option name="project" value="LOCAL" />
-      <updated>1693946469565</updated>
-    </task>
-    <task id="LOCAL-00553" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693953729180</created>
-      <option name="number" value="00553" />
-      <option name="presentableId" value="LOCAL-00553" />
-      <option name="project" value="LOCAL" />
-      <updated>1693953729180</updated>
-    </task>
-    <task id="LOCAL-00554" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693958719678</created>
-      <option name="number" value="00554" />
-      <option name="presentableId" value="LOCAL-00554" />
-      <option name="project" value="LOCAL" />
-      <updated>1693958719678</updated>
-    </task>
-    <task id="LOCAL-00555" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693959531004</created>
-      <option name="number" value="00555" />
-      <option name="presentableId" value="LOCAL-00555" />
-      <option name="project" value="LOCAL" />
-      <updated>1693959531004</updated>
-    </task>
-    <task id="LOCAL-00556" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693962182984</created>
-      <option name="number" value="00556" />
-      <option name="presentableId" value="LOCAL-00556" />
-      <option name="project" value="LOCAL" />
-      <updated>1693962182984</updated>
-    </task>
-    <task id="LOCAL-00557" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693963343276</created>
-      <option name="number" value="00557" />
-      <option name="presentableId" value="LOCAL-00557" />
-      <option name="project" value="LOCAL" />
-      <updated>1693963343276</updated>
-    </task>
-    <task id="LOCAL-00558" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693989778451</created>
-      <option name="number" value="00558" />
-      <option name="presentableId" value="LOCAL-00558" />
-      <option name="project" value="LOCAL" />
-      <updated>1693989778451</updated>
-    </task>
-    <task id="LOCAL-00559" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1693995302505</created>
-      <option name="number" value="00559" />
-      <option name="presentableId" value="LOCAL-00559" />
-      <option name="project" value="LOCAL" />
-      <updated>1693995302505</updated>
-    </task>
-    <task id="LOCAL-00560" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694006477033</created>
-      <option name="number" value="00560" />
-      <option name="presentableId" value="LOCAL-00560" />
-      <option name="project" value="LOCAL" />
-      <updated>1694006477033</updated>
-    </task>
-    <task id="LOCAL-00561" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694030537435</created>
-      <option name="number" value="00561" />
-      <option name="presentableId" value="LOCAL-00561" />
-      <option name="project" value="LOCAL" />
-      <updated>1694030537436</updated>
-    </task>
-    <task id="LOCAL-00562" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694032191210</created>
-      <option name="number" value="00562" />
-      <option name="presentableId" value="LOCAL-00562" />
-      <option name="project" value="LOCAL" />
-      <updated>1694032191210</updated>
-    </task>
-    <task id="LOCAL-00563" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694035533727</created>
-      <option name="number" value="00563" />
-      <option name="presentableId" value="LOCAL-00563" />
-      <option name="project" value="LOCAL" />
-      <updated>1694035533727</updated>
-    </task>
-    <task id="LOCAL-00564" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694035688747</created>
-      <option name="number" value="00564" />
-      <option name="presentableId" value="LOCAL-00564" />
-      <option name="project" value="LOCAL" />
-      <updated>1694035688747</updated>
-    </task>
-    <task id="LOCAL-00565" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694128013339</created>
-      <option name="number" value="00565" />
-      <option name="presentableId" value="LOCAL-00565" />
-      <option name="project" value="LOCAL" />
-      <updated>1694128013339</updated>
-    </task>
-    <task id="LOCAL-00566" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694132606655</created>
-      <option name="number" value="00566" />
-      <option name="presentableId" value="LOCAL-00566" />
-      <option name="project" value="LOCAL" />
-      <updated>1694132606656</updated>
-    </task>
-    <task id="LOCAL-00567" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694175894389</created>
-      <option name="number" value="00567" />
-      <option name="presentableId" value="LOCAL-00567" />
-      <option name="project" value="LOCAL" />
-      <updated>1694175894390</updated>
-    </task>
-    <task id="LOCAL-00568" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694176556398</created>
-      <option name="number" value="00568" />
-      <option name="presentableId" value="LOCAL-00568" />
-      <option name="project" value="LOCAL" />
-      <updated>1694176556398</updated>
-    </task>
-    <task id="LOCAL-00569" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694193962711</created>
-      <option name="number" value="00569" />
-      <option name="presentableId" value="LOCAL-00569" />
-      <option name="project" value="LOCAL" />
-      <updated>1694193962712</updated>
-    </task>
-    <task id="LOCAL-00570" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694256228038</created>
-      <option name="number" value="00570" />
-      <option name="presentableId" value="LOCAL-00570" />
-      <option name="project" value="LOCAL" />
-      <updated>1694256228039</updated>
-    </task>
-    <task id="LOCAL-00571" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694256920285</created>
-      <option name="number" value="00571" />
-      <option name="presentableId" value="LOCAL-00571" />
-      <option name="project" value="LOCAL" />
-      <updated>1694256920285</updated>
-    </task>
-    <task id="LOCAL-00572" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694263062829</created>
-      <option name="number" value="00572" />
-      <option name="presentableId" value="LOCAL-00572" />
-      <option name="project" value="LOCAL" />
-      <updated>1694263062829</updated>
-    </task>
-    <task id="LOCAL-00573" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694265914972</created>
-      <option name="number" value="00573" />
-      <option name="presentableId" value="LOCAL-00573" />
-      <option name="project" value="LOCAL" />
-      <updated>1694265914973</updated>
-    </task>
-    <task id="LOCAL-00574" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694287966867</created>
-      <option name="number" value="00574" />
-      <option name="presentableId" value="LOCAL-00574" />
-      <option name="project" value="LOCAL" />
-      <updated>1694287966867</updated>
-    </task>
-    <task id="LOCAL-00575" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694288294033</created>
-      <option name="number" value="00575" />
-      <option name="presentableId" value="LOCAL-00575" />
-      <option name="project" value="LOCAL" />
-      <updated>1694288294033</updated>
-    </task>
-    <task id="LOCAL-00576" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694436001613</created>
-      <option name="number" value="00576" />
-      <option name="presentableId" value="LOCAL-00576" />
-      <option name="project" value="LOCAL" />
-      <updated>1694436001613</updated>
-    </task>
-    <task id="LOCAL-00577" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694436071517</created>
-      <option name="number" value="00577" />
-      <option name="presentableId" value="LOCAL-00577" />
-      <option name="project" value="LOCAL" />
-      <updated>1694436071517</updated>
-    </task>
-    <task id="LOCAL-00578" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694451351848</created>
-      <option name="number" value="00578" />
-      <option name="presentableId" value="LOCAL-00578" />
-      <option name="project" value="LOCAL" />
-      <updated>1694451351848</updated>
-    </task>
-    <task id="LOCAL-00579" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694465657979</created>
-      <option name="number" value="00579" />
-      <option name="presentableId" value="LOCAL-00579" />
-      <option name="project" value="LOCAL" />
-      <updated>1694465657980</updated>
-    </task>
-    <task id="LOCAL-00580" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694525007003</created>
-      <option name="number" value="00580" />
-      <option name="presentableId" value="LOCAL-00580" />
-      <option name="project" value="LOCAL" />
-      <updated>1694525007003</updated>
-    </task>
-    <task id="LOCAL-00581" summary="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml">
-      <created>1694544492625</created>
-      <option name="number" value="00581" />
-      <option name="presentableId" value="LOCAL-00581" />
-      <option name="project" value="LOCAL" />
-      <updated>1694544492625</updated>
-    </task>
-    <option name="localTasksCounter" value="838" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -948,32 +315,9 @@
       </list>
     </option>
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT_PROFILE" value="Project Default" />
-    <option name="CHECK_NEW_TODO" value="false" />
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <ignored-roots>
-      <path value="$PROJECT_DIR$" />
-    </ignored-roots>
-    <MESSAGE value="updates from work rig;" />
-    <MESSAGE value="from other rig;" />
-    <MESSAGE value="updates from main rig;" />
-    <MESSAGE value="updates from main rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <MESSAGE value="Revert &quot;updates from office rig;&quot;&#10;&#10;This reverts commit 93da6ce9" />
-    <MESSAGE value="updates from office rig;&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <MESSAGE value="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates from Pycharm&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="com.gk646.codestats.settings.Save">
     <option name="commitTimePoints">
