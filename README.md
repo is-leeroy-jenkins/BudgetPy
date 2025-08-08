@@ -171,6 +171,4 @@ ___
 
 BudgetPy is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/BudgetPy/blob/main/LICENSE).
 
-The licenses of the libraries used can be found [here](https://github.com/is-leeroy-jenkins/BudgetPy/tree/main/Resources/Licenses).
-
 
