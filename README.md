@@ -20,7 +20,7 @@ ___
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-- #### [A-11 Schedule X](https://colab.research.google.com/github/is-leeroy-jenkins/BudgetPy/blob/master/ipynb/max.ipynb)
+- #### [A-11 Schedule-X](https://github.com/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynbb)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
@@ -108,6 +108,34 @@ git clone https://github.com/your-repo/federal-budget-forecast.git
 cd federal-budget-forecast
 ```
 
+## 🎯 Quickstart
+
+### Option A — Google Colab (no local setup)
+```
+1. Click the **Open In Colab** badge above.
+2. Upload your CSV or mount Google Drive.
+3. Set `DATA_PATH` near the top of the notebook.
+4. **Runtime → Run all**.
+```
+
+### Option B — Local (conda or venv)
+
+```
+bash
+# 1) Create environment
+conda create -n BudgetPy python=3.11 -y
+conda activate BudgetPy
+
+# 2) Install dependencies
+pip install -U pip wheel setuptools
+pip install pandas numpy scipy matplotlib seaborn scikit-learn jupyter
+
+# 3) Launch Jupyter
+jupyter notebook
+```
+
+> Open `ipynb/outlays.ipynb` and run cells top-to-bottom.
+
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png) Python Code
 - [minions](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/minions.py) - other tools used and available in BudgetPy.
 - [booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/booger.py) - controls for the user interface and related functionality.
@@ -172,10 +200,14 @@ BudgetPy uses the following projects and libraries. Please consider supporting t
 | [Scikit-Learn](https://github.com/scikit-learn/scikit-learn)        | Machine learning in Python					                                                                          |
 | [OpenAI](https://github.com/openai/openai-python) 	                 | The official Python library for the OpenAI API							                                                    |
 
-___
+
+
+> **Disclaimer**: This is for analytical exploration, research, and education purposes.  
+> This is **not** an official government product; validate against authoritative sources before use.
+
 
 ## 📝 License
 
-BudgetPy is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/BudgetPy/blob/main/LICENSE).
+- BudgetPy is published under the [MIT General Public License v3](https://github.com/is-leeroy-jenkins/BudgetPy/blob/main/LICENSE).
 
 
