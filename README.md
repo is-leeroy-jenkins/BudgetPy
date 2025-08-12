@@ -20,7 +20,7 @@ ___
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-- #### [A-11 Schedule-X](https://github.com/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynbb)
+- #### [A-11 Schedule-X](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
