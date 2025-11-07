@@ -71,7 +71,6 @@
 #  #
 #  </summary>
 #  ***********************************************************************
-
 import sqlite3 as sqlite
 from pandas import DataFrame
 from pandas import read_sql as sqlreader
@@ -80,14 +79,12 @@ import os
 from static import Source, Provider, SQL, ParamStyle
 from booger import Error, ErrorDialog
 
-class Pascal( ):
+class Casing( ):
 	'''
 
-	Constructor:
-	Pascal( input: str )
-
-	Purpose:
-	Class splits string 'input' argument into Pascal Casing
+		Purpose:
+		---------
+		Class splits string 'input' argument into Pascal Casing
 
 	'''
 
@@ -101,17 +98,26 @@ class Pascal( ):
 
 	def __dir__( self ) -> list[ str ]:
 		'''
-		Retunes a list[ str ] of member names.
+
+			Purpose:
+			--------
+			Retunes a list[ str ] of member names.
+
 		'''
 		return [ 'input', 'split', 'join' ]
 
-	def split( self ) -> str:
+	def pascalize( self ) -> str:
 		'''
-		Purpose:
 
-		Parameters:
+			Purpose:
+			--------
 
-		Returns:
+			Parameters:
+			-----------
+
+			Returns:
+			--------
+
 		'''
 
 		try:
@@ -131,21 +137,22 @@ class Pascal( ):
 			return _retval
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Data'
-			_exc.cause = 'Pascal'
-			_exc.method = 'join( self )'
+			_exc.module = 'data'
+			_exc.cause = 'Casing'
+			_exc.method = 'pascalize( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
-	def join( self ) -> str:
-		'''
-		Purpose:
-
-		Parameters:
-
-		Returns:
+	def unpascalize( self ) -> str:
 		'''
 
+			Purpose:
+
+			Parameters:
+
+			Returns:
+
+		'''
 		try:
 			if self.input.count( ' ' ) > 0:
 				_buffer = [ str( c ) for c in self.input ]
@@ -167,19 +174,12 @@ class Pascal( ):
 			for o in _output:
 				_retval += f'{o}'
 
-			return _retval.replace( 'AH', 'Ah' ).replace( 'BOC', 'Boc' ) \
-				.replace( 'RPIO', 'Rpio' ).replace( 'RC', 'Rc' ) \
-				.replace( 'PRC', 'Prc' ).replace( 'ID', 'Id' ) \
-				.replace( 'OMB', 'Omb' ).replace( 'NPM', 'Npm' ) \
-				.replace( 'FOC', 'Foc' ).replace( 'ORG', 'Org' ) \
-				.replace( 'THE', 'The' ).replace( 'OR', 'Or' ) \
-				.replace( 'AND', 'And' ).replace( 'BUT', 'But' ) \
-				.replace( 'OF', 'Of' )
+			return _retval
 		except Exception as e:
 			_exc = Error( e )
-			_exc.module = 'Data'
-			_exc.cause = 'Pascal'
-			_exc.method = 'join( self )'
+			_exc.module = 'data'
+			_exc.cause = 'Casing'
+			_exc.method = 'unpascalize( self )'
 			_err = ErrorDialog( _exc )
 			_err.show( )
 
@@ -215,15 +215,11 @@ class SqlPath( ):
 class SqlFile( ):
 	'''
 
-	Constructor:
+		Purpose:
+		-------
 
-		SqlFile( source: Source=None, provider: Provider  = Provider.SQLite,
-				command: SQL=SQL.SELECTALL )
-
-	Purpose:
-
-		Class providing access to sqlstatement sub-folders in the application provided
-		optional arguments source, provider, and command.
+			Class providing access to sqlstatement sub-folders in the application provided
+			optional arguments source, provider, and command.
 
 	'''
 
@@ -365,11 +361,16 @@ class SqlFile( ):
 	def get_file_path( self ) -> str:
 		'''
 
-		Purpose:
+			Purpose:
+			-------
 
-		Parameters:
 
-		Returns:
+			Parameters:
+			----------
+
+
+			Returns:
+			--------
 
 		'''
 
@@ -403,11 +404,18 @@ class SqlFile( ):
 
 	def get_folder_path( self ) -> str:
 		'''
-		Purpose:
 
-		Parameters:
+			Purpose:
+			-------
 
-		Returns:
+
+			Parameters:
+			----------
+
+
+			Returns:
+			--------
+
 		'''
 
 		try:
@@ -490,128 +498,20 @@ class DbConfig( ):
 		self.access_path = os.getcwd( ) + r'\db\access\datamodels\sql\Data.accdb'
 		self.sqlserver_driver = r'DRIVER={ ODBC Driver 17 for SQL Server };SERVER=.\SQLExpress;'
 		self.sqlserver_path = os.getcwd( ) + r'\db\mssql\datamodels\Data.mdf'
-		self.data = [ 'Actuals',
-		              'AdjustedTrialBalances'
-		              'AdministrativeRequests',
-		              'Allocations',
-		              'AmericanRescuePlanCarryoverEstimates',
-		              'AnnualCarryoverEstimates',
-		              'AnnualReimbursableEstimates',
-		              'ApportionmentData',
-		              'AppropriationAvailableBalances',
-		              'AppropriationDocuments',
-		              'AppropriationLevelAuthority',
-		              'BudgetaryResourceExecution',
-		              'BudgetAuthorityAndOutlays',
-		              'BudgetDocuments',
-		              'CarryoverApportionments',
-		              'CarryoverRequests',
-		              'Changes',
-		              'CompassLevels',
-		              'CongressionalProjects',
-		              'Contacts',
-		              'CombinedSchedules',
-		              'Defactos',
-		              'Deobligations',
-		              'DocumentControlNumbers',
-		              'Earmarks',
-		              'Expenditures',
-		              'HeadquartersAuthority',
-		              'InflationReductionActCarryoverEstimates',
-		              'JobsActCarryoverEstimates',
-		              'LedgerAccounts',
-		              'MainAccounts',
-		              'MonthlyActuals',
-		              'MonthlyLedgerAccountBalances',
-		              'MonthlyOutlays',
-		              'ObligationActivity',
-		              'Obligations',
-		              'OpenCommitments',
-		              'OperatingPlans',
-		              'Outlays',
-		              'Partitions'
-		              'PayrollAuthority',
-		              'PayrollRequests',
-		              'PRC',
-		              'QueryDefinitions',
-		              'RecoveryAct',
-		              'RegionalAuthority',
-		              'ReimbursableAgreements',
-		              'ReimbursableFunds',
-		              'Reports',
-		              'Reprogrammings',
-		              'StatusOfSuperfundSites',
-		              'SpecialAccounts',
-		              'SpendingDocuments',
-		              'SpendingRates',
-		              'StateGrantObligations',
-		              'StatusOfAmericanRescuePlanFunds',
-		              'StatusOfAppropriations',
-		              'StatusOfBudgetaryResources',
-		              'StatusOfEarmarks',
-		              'StatusOfFunds',
-		              'StatusOfInflationReductionActFunds',
-		              'StatusOfJobsActFunds',
-		              'StatusOfSupplementalFunds',
-		              'StatusOfSuperfundSites',
-		              'StatusOfSpecialAccountFunds',
-		              'SupplementalCarryoverEstimates',
-		              'TransferActivity',
-		              'Transfers',
-		              'UnliquidatedObligations',
-		              'UnobligatedBalances',
-		              'AccountingEvents',
-		              'Accounts',
-		              'ActivityCodes',
-		              'AllowanceHolders',
-		              'ApplicationTables',
-		              'Appropriations',
-		              'BudgetControls',
-		              'BudgetObjectClasses',
-		              'CapitalPlanningInvestmentCodes',
-		              'ColumnSchema',
-		              'CompassErrors',
-		              'CongressionalControls',
-		              'CostAreas',
-		              'DataRuleDescriptions',
-		              'Documents',
-		              'EarmarkCodes',
-		              'FederalHolidays',
-		              'FinanceObjectClasses',
-		              'FiscalYears',
-		              'FundCategories',
-		              'Funds',
-		              'FundSymbols',
-		              'Goals',
-		              'GsPayScales',
-		              'HeadquartersOffices',
-		              'Images',
-		              'Messages',
-		              'MainAccounts',
-		              'NationalPrograms',
-		              'Objectives',
-		              'Organizations',
+		self.data = [ 'Apportionments',
+		              'Files',
 		              'Partitions',
-		              'PayPeriods',
-		              'ProgramAreas',
-		              'ProgramProjectDescriptions',
-		              'ProgramProjects',
-		              'Projects',
-		              'Providers',
-		              'PublicLaws',
-		              'ReconciliationLines',
-		              'ReferenceTables',
-		              'RegionalOffices',
-		              'ReportingLines',
-		              'ResourcePlanningOffices',
-		              'Resources',
-		              'ResponsibilityCenters',
-		              'SchemaTypes',
-		              'StateOrganizations',
-		              'SubAppropriations',
-		              'TransTypes',
-		              'TreasurySybmols',
-		              'URL' ]
+		              'AgencyAccounts',
+		              'Appropriations',
+		              'FiscalYears',
+		              'OMB Circular A-11 Preparation Submission And Execution Of The Budget',
+		              'OMB Circular A-11 Section 120 Apportionment Process',
+		              'OMB Circular A-11 SF-132',
+		              'Principles Of Federal Appropriations Law',
+		              'Title 31 Code Of Federal Regulations',
+		              'Prompts',
+		              'Search',
+		              'Locations' ]
 
 	def __str__( self ) -> str:
 		if self.table_name is not None:
@@ -628,13 +528,6 @@ class DbConfig( ):
 
 	def get_driver_info( self ) -> str:
 		'''
-
-		Purpose:
-			Returns a string defining the driverinfo being used
-
-		Parameters:  None
-
-		Returns:  str
 
 		'''
 		try:
