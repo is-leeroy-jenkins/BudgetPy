@@ -10,11 +10,11 @@ or 10 years in the future.
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like Leeroy, Boo, and Bobo as weel as GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
-___
 
 
 
-### [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
+
+## [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
 
 > A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
@@ -25,9 +25,9 @@ ___
 - [Open on Streamlit](https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
-___
 
-### [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
+
+## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
@@ -37,9 +37,9 @@ ___
 - [Open on Streamlit](https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
-___
 
-### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
+
+## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
 
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
@@ -50,9 +50,9 @@ ___
 
 - [Open on Streamlit](https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
-___
 
-### [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
+
+## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 
 > A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
@@ -63,7 +63,7 @@ ___
 - [Open on Streamlit](https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
-___
+
 
 ## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
