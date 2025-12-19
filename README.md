@@ -15,28 +15,30 @@ or 10 years in the future.
 
 
 ### [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
-<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
-<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
 > A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
 > working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
+<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 ___
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
+
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 ___
 
-## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
-<a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
-<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+### [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
+
+<a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
 
