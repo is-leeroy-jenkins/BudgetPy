@@ -12,9 +12,11 @@ or 10 years in the future.
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 ___
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png)  Generative AI Tools
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/MachineLearning.png)  Generative AI Tools
 
-- #### [Sige-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
+### [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
+- [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb)
+
 > A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
 > working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
@@ -24,7 +26,8 @@ ___
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 
-- #### [Schedule-X](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
+### [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
+- [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
@@ -35,7 +38,9 @@ ___
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
  
 
-- #### [Cutey-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
+### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
+- [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
+
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 > empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
 > models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
@@ -47,7 +52,9 @@ ___
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
 
-- #### [Sake-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
+-[Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+
 > A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 > and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
@@ -58,13 +65,15 @@ ___
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
 
 
-- #### [Pogi-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb)
+## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
+
+- [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb)
 
 > A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 > Project federal balances using generative ai
 > Analyze funding metrics with classification and regression models
 
-[Open on Streamlit](https://pogi-py.streamlit.app/?embed_options=show_toolbar,dark_theme,show_footer,show_padding,show_colored_line)
+- [Open on Streamlit](https://pogi-py.streamlit.app/?embed_options=show_toolbar,dark_theme,show_footer,show_padding,show_colored_line)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
