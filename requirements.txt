@@ -17,6 +17,7 @@ pinecone
 sentence-transformers
 scipy
 scikit-learn
+streamlit
 spacy
 tiktoken
 transformers
