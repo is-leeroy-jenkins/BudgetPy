@@ -21,7 +21,8 @@ ___
 > outlays at the Treasury Account level
 
 [Open on Streamlit](https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
-[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 
 - #### [Schedule-X](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
 
@@ -30,7 +31,8 @@ ___
 > and real-world application development.
 
 [Open on Streamlit](https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
-[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
  
 
 - #### [Cutey-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
@@ -41,7 +43,8 @@ ___
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
 [Open on Streamlit](https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
-[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
 
 - #### [Sake-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
@@ -51,7 +54,8 @@ ___
 > equally useful for teaching, prototyping, and real-world application development.
 
 [Open on Streamlit](https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
-[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
 
 
 - #### [Pogi-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb)
@@ -61,7 +65,8 @@ ___
 > Analyze funding metrics with classification and regression models
 
 [Open on Streamlit](https://pogi-py.streamlit.app/?embed_options=show_toolbar,dark_theme,show_footer,show_padding,show_colored_line)
-[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
 
 ___
