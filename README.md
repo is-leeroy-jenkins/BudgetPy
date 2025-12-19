@@ -40,17 +40,17 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
 
+___
 
-## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
-<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
-<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
+### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 > empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
@@ -58,18 +58,20 @@ ___
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
+<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
+___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-nb.gif)
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
+___
 
-## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
-<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
-<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-nb.gif)
+### [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 
 > A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
@@ -77,26 +79,37 @@ ___
 > equally useful for teaching, prototyping, and real-world application development.
 
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
+<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 ___
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-nb.gif)
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
 
+___
 
-## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
-<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
-<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-nb.gif)
+### [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
 > A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 > Project federal balances using generative ai
 > Analyze funding metrics with classification and regression models
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
+<a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 ___
+
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-nb.gif)
+
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
-
+___
 
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
