@@ -25,6 +25,7 @@ or 10 years in the future.
 
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
+___
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 
@@ -42,6 +43,7 @@ or 10 years in the future.
 
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
+___
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 
@@ -62,6 +64,7 @@ or 10 years in the future.
 
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-nb.gif)
+___
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 
@@ -81,6 +84,7 @@ or 10 years in the future.
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-nb.gif)
+___
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 
@@ -99,7 +103,7 @@ or 10 years in the future.
 
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-nb.gif)
-
+___
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 
