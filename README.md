@@ -22,9 +22,10 @@ ___
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-[Open on Streamlit](https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
+- [Open on Streamlit](https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
+___
 
 ### [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
@@ -33,10 +34,10 @@ ___
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
 
-[Open on Streamlit](https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
+- [Open on Streamlit](https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
- 
+___
 
 ### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 - [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
@@ -47,23 +48,22 @@ ___
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-[Open on Streamlit](https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
-
+- [Open on Streamlit](https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
+___
 
-
-## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
--[Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
+### [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
+- [Open on Colab](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 
 > A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 > and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 > equally useful for teaching, prototyping, and real-world application development.
 
-[Open on Streamlit](https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
+- [Open on Streamlit](https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
-
+___
 
 ## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
