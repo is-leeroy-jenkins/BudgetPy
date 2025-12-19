@@ -23,7 +23,7 @@ or 10 years in the future.
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
@@ -40,7 +40,6 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-___
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
 
@@ -61,7 +60,6 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-___
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-nb.gif)
 
@@ -81,7 +79,6 @@ ___
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
-___
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-nb.gif)
 
@@ -100,7 +97,6 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-___
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-nb.gif)
 
