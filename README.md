@@ -23,10 +23,9 @@ or 10 years in the future.
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-- [Open on Streamlit](https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
-
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
-
+___
 
 ## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
@@ -36,10 +35,9 @@ or 10 years in the future.
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
 
-- [Open on Streamlit](https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
-
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
-
+___
 
 ## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
@@ -51,9 +49,9 @@ or 10 years in the future.
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-- [Open on Streamlit](https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
-
+___
 
 ## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
@@ -64,10 +62,10 @@ or 10 years in the future.
 > and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 > equally useful for teaching, prototyping, and real-world application development.
 
-- [Open on Streamlit](https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
-
+___
 
 ## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
@@ -77,8 +75,7 @@ or 10 years in the future.
 > Project federal balances using generative ai
 > Analyze funding metrics with classification and regression models
 
-- [Open on Streamlit](https://pogi-py.streamlit.app/?embed_options=show_toolbar,dark_theme,show_footer,show_padding,show_colored_line)
-
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
 
