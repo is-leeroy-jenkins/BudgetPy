@@ -20,12 +20,18 @@ ___
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
+(https://sige-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,dark_theme,show_footer,show_padding)
+[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
+
 - #### [Schedule-X](https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb)
 
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
-> 
+
+(https://schedule-x.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
+[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
+ 
 
 - #### [Cutey-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb)
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
@@ -34,17 +40,28 @@ ___
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
+(https://cutey-py.streamlit.app/?embed_options=dark_theme,show_toolbar,show_colored_line,show_padding)
+[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
+
+
 - #### [Sake-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb)
 > A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
 > and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 > and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 > equally useful for teaching, prototyping, and real-world application development.
 
+(https://sake-py.streamlit.app/?embed_options=show_toolbar,show_colored_line,show_padding,show_footer,dark_theme)
+[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
+
+
 - #### [Pogi-Py](https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb)
 
 > A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 > Project federal balances using generative ai
 > Analyze funding metrics with classification and regression models
+
+(https://pogi-py.streamlit.app/?embed_options=show_toolbar,dark_theme,show_footer,show_padding,show_colored_line)
+[](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
 
 ___
