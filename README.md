@@ -18,15 +18,15 @@ or 10 years in the future.
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
-
 > A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
 > working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-nb.gif)
+
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
-___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 
 
@@ -34,14 +34,14 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
-
 > A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
 
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/ScheduleX-nb.gif)
+
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
-___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
 
 
@@ -49,7 +49,6 @@ ___
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-nb.gif)
 
 > The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 > empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
@@ -57,8 +56,10 @@ ___
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
+![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-nb.gif)
+
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
-___
+
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
 
