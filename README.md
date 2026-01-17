@@ -72,7 +72,6 @@ or 10 years in the future.
 > and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 > equally useful for teaching, prototyping, and real-world application development.
 
-- Local
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
