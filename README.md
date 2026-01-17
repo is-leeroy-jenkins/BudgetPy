@@ -136,7 +136,7 @@ or 10 years in the future.
 - [Treasury Appropriation Fund Symbols (TAFSs) Dataset](https://huggingface.co/datasets/leeroy-jankins/Accounts) - Collection of TAFSs used by federal agencies
 
 
-- #### 4o model run
+- #### 4o model 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
 ___
