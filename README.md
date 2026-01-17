@@ -20,13 +20,9 @@ or 10 years in the future.
 > gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
 > outlays at the Treasury Account level
 
-- Local
-
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
-- Web
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 
@@ -39,13 +35,10 @@ or 10 years in the future.
 >  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 > and real-world application development.
 
-- Local
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
-- Web
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 
@@ -61,12 +54,10 @@ or 10 years in the future.
 > the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-- Local
+
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
-- Web
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 
@@ -87,7 +78,7 @@ or 10 years in the future.
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
-- Web
+
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 
@@ -101,14 +92,14 @@ or 10 years in the future.
 > Project federal balances using generative ai
 > Analyze funding metrics with classification and regression models
 
-- Local
+
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 
-- Web
+
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 
