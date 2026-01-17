@@ -12,13 +12,11 @@ or 10 years in the future.
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
-
-
 ### [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
-> A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
-> working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
-> gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
-> outlays at the Treasury Account level
+ A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
+ working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
+ gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
+ outlays at the Treasury Account level
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
@@ -32,9 +30,9 @@ or 10 years in the future.
 
 # [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 
-> A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
->  It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
-> and real-world application development.
+A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
+It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
+and real-world application development.
 
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
@@ -50,11 +48,11 @@ or 10 years in the future.
 
 ### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 
-> The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
-> empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
-> models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
-> the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
-> from Data.gov—to inform predictive models across multiple federal financial scenarios.
+The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
+empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
+models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
+the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
+from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
@@ -70,10 +68,9 @@ or 10 years in the future.
 
 ### [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 
-> A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch,
-> and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
-> and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
-> equally useful for teaching, prototyping, and real-world application development.
+A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch, and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
+and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
+equally useful for teaching, prototyping, and real-world application development.
 
 
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
@@ -89,9 +86,9 @@ or 10 years in the future.
 
 ### [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
-> A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
-> Project federal balances using generative ai
-> Analyze funding metrics with classification and regression models
+A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
+Project federal balances using generative ai
+Analyze funding metrics with classification and regression models
 
 
 
