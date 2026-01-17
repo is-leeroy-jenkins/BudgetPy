@@ -100,9 +100,9 @@ Analyze funding metrics with classification and regression models
 
 ### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
 
-> - Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
-> - It can help improve the execution speed and reduce the training time of your code. 
-> - BudgetPy provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
+- Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
+- It can help improve the execution speed and reduce the training time of your code. 
+- BudgetPy provides the following vector stores on the OpenAI platform to support environmental data analysis with machine-learning
 - [Appropriations](https://huggingface.co/datasets/leeroy-jankins/Appropriations) - Enacted appropriations from 1996-2024 available for fine-tuning learning models
 - [Regulations](https://huggingface.co/datasets/leeroy-jankins/Regulations/tree/main) - Collection of federal regulations on the use of appropriated funds
 - [SF-133](https://huggingface.co/datasets/leeroy-jankins/SF133) - The Report on Budget Execution and Budgetary Resources
