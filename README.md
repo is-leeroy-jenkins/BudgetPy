@@ -31,7 +31,7 @@ or 10 years in the future.
 ## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 
  <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">  
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colab"/></a>
 
 A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
@@ -46,7 +46,7 @@ and real-world application development.
 ## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 
  <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">   
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>   
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colab"/></a>   
 
 The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
@@ -63,7 +63,7 @@ from Data.gov—to inform predictive models across multiple federal financial sc
 ## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 
  <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">   
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colab"/></a>  
 
 A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch, and TensorFlow. 
 Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
@@ -80,7 +80,7 @@ equally useful for teaching, prototyping, and real-world application development
 ## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
  <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">  
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Google Colab"/></a>  
 
 A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 Project federal balances using generative ai
