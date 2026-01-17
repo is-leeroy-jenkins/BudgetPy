@@ -20,9 +20,11 @@ or 10 years in the future.
  outlays at the Treasury Account level
 
 
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent"> | [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a> |
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent"> 
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 
 
@@ -33,9 +35,11 @@ It provides a structured yet extensible workflow that’s  equally useful for te
 and real-world application development.
 
 
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">  |  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  |
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
 
+
+ [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
 
 
@@ -49,9 +53,11 @@ the notebook integrates structured budget execution data—such as SF-133 report
 from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
 
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">  |  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  | 
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">   
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>   
 
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
 
@@ -63,9 +69,11 @@ and benchmarking for classification and regression models. It provides a structu
 equally useful for teaching, prototyping, and real-world application development.
 
 
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">  |  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  |
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">   
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
 
+
+ [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
 
 
@@ -76,9 +84,11 @@ A machine-learning pipeline for forecasting and reporting Treasury Account Symbo
 Project federal balances using generative ai
 Analyze funding metrics with classification and regression models
 
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">  |  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  |
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
 
+
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
 
 
