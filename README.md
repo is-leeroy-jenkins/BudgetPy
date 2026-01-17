@@ -2,7 +2,7 @@
 
 <img src="https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/line-graphs.gif" style="width:950px;height:275px">
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png)  Overview
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png)  Overview
 - Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
 encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
@@ -14,14 +14,13 @@ or 10 years in the future.
 
 ## [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
 
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent"> 
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
  A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
  working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
  gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
  outlays at the Treasury Account level
-
-
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent"> 
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
@@ -31,13 +30,12 @@ or 10 years in the future.
 
 ## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+
 A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 and real-world application development.
-
-
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">  
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
  [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
@@ -45,18 +43,16 @@ and real-world application development.
  ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
 
 
-
 ## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
+
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">   
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>   
 
 The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
 models for forecasting federal appropriation at the TAS-level. Built using Scikit, TensorFlow, and PyTorch,
 the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 from Data.gov—to inform predictive models across multiple federal financial scenarios.
-
-
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">   
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>   
 
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
@@ -66,14 +62,14 @@ from Data.gov—to inform predictive models across multiple federal financial sc
 
 ## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">   
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
+
 A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch, and TensorFlow. 
 Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 equally useful for teaching, prototyping, and real-world application development.
 
-
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">   
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 
@@ -83,12 +79,12 @@ equally useful for teaching, prototyping, and real-world application development
 
 ## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
+ <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">  
+ <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
+
 A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 Project federal balances using generative ai
 Analyze funding metrics with classification and regression models
-
- <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">  
- <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>  
 
 
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
@@ -97,12 +93,12 @@ Analyze funding metrics with classification and regression models
 
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/ai.png) Data-Driven Forecasting 
 - Uses historical budget data from the Office of Management & Budget from FY1962 to FY2024 to predict FY2025 and beyond. 
 - Traditional data sets available via [Kaggle](https://www.kaggle.com/terryeppler/datasets)
 - Vectorized data sets available via Hugging Face below.
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/openai.png)  Machine-Learning
 
 - Vectorization is the process of converting textual data into numerical vectors and is a process that is usually applied once the text is cleaned.
 - It can help improve the execution speed and reduce the training time of your code. 
@@ -124,7 +120,7 @@ Analyze funding metrics with classification and regression models
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Bubba.gif)
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/features.png)  Features
 - [Time Series Forecasting](https://en.wikipedia.org/wiki/Time_series) – Leverages ARIMA and Holt-Winters models to analyze seasonal and trend-based variations in budgetary spending.  
 - Batch Processing for Large Datasets – Optimized for handling extensive federal financial data without memory overload.  
 - [Feature Engineering](https://en.wikipedia.org/wiki/Feature_engineering) & [Correlation Analysis](https://en.wikipedia.org/wiki/Correlation)  – Utilizes PCA, Min-Max Scaling, Z-score Standardization, and K-Means clustering to enhance model performance.  
@@ -134,9 +130,8 @@ Analyze funding metrics with classification and regression models
 - Pre-defined schema for 100 environmental data tables.
 - Access to editors for SQLite, MS Access, and SQL CE.
 
-___
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png) How It Works
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png) How It Works
 #### 1️⃣ **Data Processing**
 - Loads federal budget data from **"Budget Outlays.xlsx"**.
 - Filters **fiscal year data (2012–2024)** and groups outlays **by agency**.
@@ -152,7 +147,7 @@ ___
 - Outputs results in a structured **data frame** for easy interpretation.
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/install.png) Installation & Usage
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/install.png) Installation & Usage
 #### **4️⃣ Clone the Repository**
 ```sh
 git clone https://github.com/your-repo/federal-budget-forecast.git
@@ -187,7 +182,7 @@ jupyter notebook
 
 > Open `ipynb/outlays.ipynb` and run cells top-to-bottom.
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png) Python Code
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/python.png) Python Code
 - [minions](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/minions.py) - other tools used and available in BudgetPy.
 - [booger](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/booger.py) - controls for the user interface and related functionality.
 - [data](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/data.py) - data access layer with environmental budget data models.
@@ -196,32 +191,31 @@ jupyter notebook
 - [schema](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/schema.py) - schema definitions of the BudgetPy data tables.
 - [boo](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/src/boo.py)- genai-ml layer.
 
-___
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/Providers.png) Providers
 - SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine. [Learn more here](https://sqlite.org/index.html) 
 - SQL Server Express Edition is a scaled down, free edition of SQL Server, which includes the core database engine. [Learn more here](https://www.microsoft.com/en-us/download/details.aspx?id=101064)
 - MS Access is a database management system (DBMS) from Microsoft that combines the relational Access Database Engine (ACE) with a graphical user interface and software-development tools.  [Learn more here](https://www.microsoft.com/en-us/microsoft-365/access)
 
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/documentation.png)  Documentation
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/documentation.png)  Documentation
 - See the [User Guide](etc/git/Users.md) for steps to get started.
 
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System Requirements
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/system_requirements.png) System Requirements
 - You will need these [Requirements](https://github.com/KarmaScripter/BudgetPy/blob/master/requirements.txt)
 
-___
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/signature.png)  Code Signing 
+
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/signature.png)  Code Signing 
 
 BudgetPy uses free code signing provided by [SignPath.io](https://signpath.io/) and a free code signing certificate
 from [SignPath Foundation](https://signpath.org/).
 
 
-### ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/web.png) Privacy Policy
+## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/web.png) Privacy Policy
 
 This program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it.
 
@@ -231,10 +225,8 @@ BudgetPy has integrated the following services for additional functions, which c
 - [ipify.org](https://www.ipify.org/) (Retrieve the public IP address used by the client)
 - [ip-api.com](https://ip-api.com/docs/legal) (Retrieve network information such as geo location, ISP, DNS resolver used, etc. used by the client)
 
-___
 
-
-### 🙏 Acknowledgements
+## 🙏 Acknowledgements
 
 BudgetPy uses the following projects and libraries. Please consider supporting them as well (e.g., by starring their repositories):
 
