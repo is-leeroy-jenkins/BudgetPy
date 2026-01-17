@@ -19,10 +19,11 @@ or 10 years in the future.
  gradient boosting, support vector machines, and time-series modeling that project monthly or quarterly obligations and
  outlays at the Treasury Account level
 
+- Local
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
@@ -34,10 +35,11 @@ A modular machine-learning tool for OMB A-11 reporting built using Tensorflow an
 It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
 and real-world application development.
 
-
+- Local
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
@@ -52,11 +54,11 @@ models for forecasting federal appropriation at the TAS-level. Built using Sciki
 the notebook integrates structured budget execution data—such as SF-133 reports from OMB and agency-specific datasets
 from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
-
+- Local
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
@@ -69,11 +71,11 @@ A modular machine-learning pipeline for budget execution and data analysis built
 and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 equally useful for teaching, prototyping, and real-world application development.
 
-
+- Local
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sake/blob/master/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
@@ -86,12 +88,11 @@ A machine-learning pipeline for forecasting and reporting Treasury Account Symbo
 Project federal balances using generative ai
 Analyze funding metrics with classification and regression models
 
-
-
+- Local
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
