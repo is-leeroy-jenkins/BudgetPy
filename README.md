@@ -12,7 +12,7 @@ or 10 years in the future.
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
 
-#### [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
+## [Sige-Py](https://github.com/is-leeroy-jenkins/Sige?tab=readme-ov-file#sige)
 
  A specialized machine-learning and time-series forecasting tool built for data scientists, budget officers, and comptrollers
  working with appropriated funding and federal outlays by providing a neural-network based on regressions, decision trees,
@@ -29,7 +29,7 @@ or 10 years in the future.
  ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
 
 
-#### [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
+## [Schedule-X](https://github.com/is-leeroy-jenkins/SchedX?tab=readme-ov-file#schedule-x)
 
 A modular machine-learning tool for OMB A-11 reporting built using Tensorflow and Python
 It provides a structured yet extensible workflow that’s  equally useful for teaching, prototyping, 
@@ -46,7 +46,7 @@ and real-world application development.
 
 
 
-#### [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
+## [Cutey-Py](https://github.com/is-leeroy-jenkins/Cutey?tab=readme-ov-file#cutey)
 
 The federal balance forecastor is a deep-learning toolkit for federal budget execution & finance that is implemented in python
 empowering data scientists, budget officers, comptrollers and federal agency personnel to train, compare, and visualize multiple
@@ -64,9 +64,10 @@ from Data.gov—to inform predictive models across multiple federal financial sc
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
 
 
-#### [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
+## [Sake-Py](https://github.com/is-leeroy-jenkins/Sake?tab=readme-ov-file#sake)
 
-A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch, and TensorFlow. Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
+A modular machine-learning pipeline for budget execution and data analysis built in Python with Scikit, XGBoost, PyTorch, and TensorFlow. 
+Designed for rapid proto-typing in IMT enviornment to calculate mission assignment burn-rates, visualizations,
 and benchmarking for classification and regression models. It provides a structured yet extensible workflow that’s
 equally useful for teaching, prototyping, and real-world application development.
 
@@ -80,7 +81,7 @@ equally useful for teaching, prototyping, and real-world application development
 
 
 
-#### [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
+## [Pogi-Py](https://github.com/is-leeroy-jenkins/Pogi?tab=readme-ov-file#pogi)
 
 A machine-learning pipeline for forecasting and reporting Treasury Account Symbol balances using active data.
 Project federal balances using generative ai
