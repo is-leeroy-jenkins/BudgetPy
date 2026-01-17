@@ -21,13 +21,11 @@ or 10 years in the future.
 > outlays at the Treasury Account level
 
 - Local
-
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Sige/blob/master/outlays.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 - Web
-
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sige-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sige-Py.gif)
@@ -40,12 +38,11 @@ or 10 years in the future.
 > and real-world application development.
 
 - Local
-
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/SchedX/blob/master/shedule-x.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
-- Web
 
+- Web
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://schedx-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Schedule-X.gif)
@@ -61,13 +58,11 @@ or 10 years in the future.
 > from Data.gov—to inform predictive models across multiple federal financial scenarios.
 
 - Local
-
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Cutey/blob/main/balances.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 - Web
-
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://cutey-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Cutey-Py.gif)
@@ -88,8 +83,6 @@ or 10 years in the future.
 
 
 - Web
-
-
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://sake-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Sake-Py.gif)
@@ -103,14 +96,12 @@ or 10 years in the future.
 > Analyze funding metrics with classification and regression models
 
 - Local
-
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
+
 - Web
-
-
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
