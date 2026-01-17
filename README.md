@@ -102,12 +102,14 @@ or 10 years in the future.
 > Analyze funding metrics with classification and regression models
 
 - Local
+
 <a href="https://colab.research.google.com/github/is-leeroy-jenkins/Pogi/blob/main/models.ipynb" target="_parent">
 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
 
 
 
 - Web
+
 [![Streamlit App](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)](https://pogi-py.streamlit.app/)
 
 ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/Pogi-Py.gif)
