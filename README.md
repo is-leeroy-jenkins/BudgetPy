@@ -3,10 +3,9 @@
 <img src="https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/git/line-graphs.gif" style="width:950px;height:275px">
 
 ## ![](https://github.com/is-leeroy-jenkins/BudgetPy/blob/master/etc/img/github/training.png)  Overview
-- Projections of federal outlays, as required by law, reflect the assumption that current laws will generally remain unchanged. Those projections 
-encompass the current year—the year in which the projections are made and a projection period of 5 
+- BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets.
+- Projections of federal outlays reflect the assumption that current laws will generally remain unchanged and encompass the current year—the year in which the projections are made and a projection period of 5 
 or 10 years in the future. 
-- BudgetPy incorporates machine learning and artificial intelligence algorithms to extract insights from large datasets. 
 - Vector embeddings and predictive modeling to forecast contaminant spread and resource optimization to allocate resources effectively during emergencies. 
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like [Leeroy](https://huggingface.co/leeroy-jankins/leeroy), [Boo](https://huggingface.co/leeroy-jankins/boo), and [Bobo](https://huggingface.co/leeroy-jankins/bobo) as well as GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
