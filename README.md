@@ -10,9 +10,9 @@ or 10 years in the future.
 - BudgetPy interacts with pre-trained Large Language Models (LLMs) like [Leeroy](https://huggingface.co/leeroy-jankins/leeroy), [Boo](https://huggingface.co/leeroy-jankins/boo), and [Bobo](https://huggingface.co/leeroy-jankins/bobo) as well as GPT-4o, o3, and o1-mini to enhance its analytical capabilities. 
 - Users leverage LLMs for rapid information retrieval from vast datasets, automated report generation, and potentially even expert consultation
 
-
 ## 🧱 Databricks
-[![Buddy](https://img.shields.io/badge/Databricks-Buddy-FF3621?logo=databricks&logoColor=white)](https://dbc-a0c21f80-7bb3.cloud.databricks.com/browse/folders/3169291152438532?o=7474645703081351)
+[![BudgetPy](https://img.shields.io/badge/Databricks-BudgetPy-FF3621?logo=databricks&logoColor=white)](https://dbc-a0c21f80-7bb3.cloud.databricks.com/browse/folders/254131913339682?o=7474645703081351)
+
 - Notebook
 - Codebase
 
